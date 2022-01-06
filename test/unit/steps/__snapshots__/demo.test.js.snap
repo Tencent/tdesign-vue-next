@@ -7,109 +7,37 @@ exports[`Steps Steps extraVue demo works fine 1`] = `
 >
   
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--process"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--process"
       >
         <span
-          class="t-steps-item-icon__number"
+          class="t-steps-item__icon--number"
         >
-          <svg
-            class="t-icon t-icon-check"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-              fill="currentColor"
-              fillOpacity="0.9"
-            />
-          </svg>
+          0
         </span>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           步骤1
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
-        >
-          <!---->
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="t-steps-item t-steps-item--finish"
-  >
-    <div
-      class="t-steps-item__inner t-steps-item-canclick"
-    >
-      <div
-        class="t-steps-item-icon t-steps-item--finish"
-      >
-        <span
-          class="t-steps-item-icon__number"
-        >
-          <svg
-            class="t-icon t-icon-check"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-              fill="currentColor"
-              fillOpacity="0.9"
-            />
-          </svg>
-        </span>
-      </div>
-      <div
-        class="t-steps-item-content"
-      >
-        <div
-          class="t-steps-item-title"
-        >
-          步骤2
-        </div>
-        <div
-          class="t-steps-item-description"
-        >
-          这里是提示文字
-        </div>
-        <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           
-          <button
-            class="t-button t-size-s t-button--variant-text t-button--theme-default"
-            type="button"
-          >
-            <span
-              class="t-button__text"
-            >
-              
-               上一步 
-              
-            </span>
-          </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
             type="button"
@@ -128,47 +56,35 @@ exports[`Steps Steps extraVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--default"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner t-steps-item--clickable"
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <span
-          class="t-steps-item-icon__number"
+          class="t-steps-item__icon--number"
         >
-          <svg
-            class="t-icon t-icon-check"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-              fill="currentColor"
-              fillOpacity="0.9"
-            />
-          </svg>
+          0
         </span>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
-          步骤3
+          步骤2
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -176,47 +92,71 @@ exports[`Steps Steps extraVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--default"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner t-steps-item--clickable"
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <span
-          class="t-steps-item-icon__number"
+          class="t-steps-item__icon--number"
         >
-          <svg
-            class="t-icon t-icon-check"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-              fill="currentColor"
-              fillOpacity="0.9"
-            />
-          </svg>
+          0
         </span>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
-          步骤4
+          步骤3
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
+        >
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="t-steps-item t-steps-item--default"
+  >
+    <div
+      class="t-steps-item__inner t-steps-item--clickable"
+    >
+      <div
+        class="t-steps-item__icon t-steps-item--default"
+      >
+        <span
+          class="t-steps-item__icon--number"
+        >
+          0
+        </span>
+      </div>
+      <div
+        class="t-steps-item__content"
+      >
+        <div
+          class="t-steps-item__title"
+        >
+          步骤4
+        </div>
+        <div
+          class="t-steps-item__description"
+        >
+          这里是提示文字
+        </div>
+        <div
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -236,10 +176,10 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
     class="t-steps-item t-steps-item--finish"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--finish"
       >
         <svg
           class="t-icon t-icon-login icon-margin icon-margin"
@@ -261,20 +201,20 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
         </svg>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           登录
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           已完成状态
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -282,13 +222,13 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--process"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--process"
       >
         <svg
           class="t-icon t-icon-cart icon-margin icon-margin"
@@ -305,20 +245,20 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
         </svg>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           购物
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           进行中状态
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -326,13 +266,13 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--default"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <svg
           class="t-icon t-icon-wallet icon-margin icon-margin"
@@ -349,20 +289,20 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
         </svg>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           支付
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           未开始
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -370,13 +310,13 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--default"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <svg
           class="t-icon t-icon-check-circle icon-margin icon-margin"
@@ -398,20 +338,20 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
         </svg>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           完成
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           未开始
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -431,28 +371,28 @@ exports[`Steps Steps noSequenceVue demo works fine 1`] = `
     class="t-steps-item t-steps-item--finish"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--finish"
       >
         <!---->
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           已完成的步骤
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -460,31 +400,31 @@ exports[`Steps Steps noSequenceVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--process"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--process"
       >
         <!---->
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           进行中的步骤
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -492,31 +432,31 @@ exports[`Steps Steps noSequenceVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--default"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <!---->
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           未进行的步骤
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -524,31 +464,31 @@ exports[`Steps Steps noSequenceVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
+    class="t-steps-item t-steps-item--default"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <!---->
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           未进行的步骤
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -566,16 +506,15 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
   
   <div
     class="t-steps-item t-steps-item--finish"
-    current="1"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner t-steps-item--clickable"
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--finish"
       >
         <span
-          class="t-steps-item-icon__number"
+          class="t-steps-item__icon--number"
         >
           <svg
             class="t-icon t-icon-check"
@@ -593,20 +532,20 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
         </span>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           步骤一
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -614,48 +553,35 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
-    current="1"
+    class="t-steps-item t-steps-item--process"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner "
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--process"
       >
         <span
-          class="t-steps-item-icon__number"
+          class="t-steps-item__icon--number"
         >
-          <svg
-            class="t-icon t-icon-check"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-              fill="currentColor"
-              fillOpacity="0.9"
-            />
-          </svg>
+          0
         </span>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           步骤二
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -663,48 +589,35 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
-    current="1"
+    class="t-steps-item t-steps-item--default"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner t-steps-item--clickable"
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <span
-          class="t-steps-item-icon__number"
+          class="t-steps-item__icon--number"
         >
-          <svg
-            class="t-icon t-icon-check"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-              fill="currentColor"
-              fillOpacity="0.9"
-            />
-          </svg>
+          0
         </span>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           步骤三
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -712,48 +625,35 @@ exports[`Steps Steps optionsVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-steps-item t-steps-item--finish"
-    current="1"
+    class="t-steps-item t-steps-item--default"
   >
     <div
-      class="t-steps-item__inner t-steps-item-canclick"
+      class="t-steps-item__inner t-steps-item--clickable"
     >
       <div
-        class="t-steps-item-icon t-steps-item--finish"
+        class="t-steps-item__icon t-steps-item--default"
       >
         <span
-          class="t-steps-item-icon__number"
+          class="t-steps-item__icon--number"
         >
-          <svg
-            class="t-icon t-icon-check"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-              fill="currentColor"
-              fillOpacity="0.9"
-            />
-          </svg>
+          0
         </span>
       </div>
       <div
-        class="t-steps-item-content"
+        class="t-steps-item__content"
       >
         <div
-          class="t-steps-item-title"
+          class="t-steps-item__title"
         >
           步骤四
         </div>
         <div
-          class="t-steps-item-description"
+          class="t-steps-item__description"
         >
           这里是提示文字
         </div>
         <div
-          class="t-steps-item-extra"
+          class="t-steps-item__extra"
         >
           <!---->
         </div>
@@ -775,13 +675,13 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
       class="t-steps-item t-steps-item--finish"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--finish"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             <svg
               class="t-icon t-icon-check"
@@ -799,20 +699,20 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             已完成的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -820,95 +720,35 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--finish"
+      class="t-steps-item t-steps-item--process"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--process"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fillOpacity="0.9"
-              />
-            </svg>
+            0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             进行中的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-extra"
-          >
-            <!---->
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="t-steps-item t-steps-item--finish"
-    >
-      <div
-        class="t-steps-item__inner t-steps-item-canclick"
-      >
-        <div
-          class="t-steps-item-icon t-steps-item--finish"
-        >
-          <span
-            class="t-steps-item-icon__number"
-          >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fillOpacity="0.9"
-              />
-            </svg>
-          </span>
-        </div>
-        <div
-          class="t-steps-item-content"
-        >
-          <div
-            class="t-steps-item-title"
-          >
-            未进行的步骤
-          </div>
-          <div
-            class="t-steps-item-description"
-          >
-            <!---->
-          </div>
-          <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -916,47 +756,71 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--finish"
+      class="t-steps-item t-steps-item--default"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--default"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fillOpacity="0.9"
-              />
-            </svg>
+            0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             未进行的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-steps-item t-steps-item--default"
+    >
+      <div
+        class="t-steps-item__inner t-steps-item--clickable"
+      >
+        <div
+          class="t-steps-item__icon t-steps-item--default"
+        >
+          <span
+            class="t-steps-item__icon--number"
+          >
+            0
+          </span>
+        </div>
+        <div
+          class="t-steps-item__content"
+        >
+          <div
+            class="t-steps-item__title"
+          >
+            未进行的步骤
+          </div>
+          <div
+            class="t-steps-item__description"
+          >
+            <!---->
+          </div>
+          <div
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -973,36 +837,47 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
   >
     
     <div
-      class="t-steps-item t-steps-item--wait"
-      current="third"
+      class="t-steps-item t-steps-item--finish"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--wait"
+          class="t-steps-item__icon t-steps-item--finish"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            0
+            <svg
+              class="t-icon t-icon-check"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                fill="currentColor"
+                fillOpacity="0.9"
+              />
+            </svg>
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             已完成的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             点击切换步骤
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1010,36 +885,47 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--wait"
-      current="third"
+      class="t-steps-item t-steps-item--finish"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--wait"
+          class="t-steps-item__icon t-steps-item--finish"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            0
+            <svg
+              class="t-icon t-icon-check"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
+                fill="currentColor"
+                fillOpacity="0.9"
+              />
+            </svg>
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             进行中的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             点击切换步骤
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1048,35 +934,34 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
     </div>
     <div
       class="t-steps-item t-steps-item--process"
-      current="third"
     >
       <div
         class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--process"
+          class="t-steps-item__icon t-steps-item--process"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             进行中的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             这是进行中的步骤
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1084,36 +969,35 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--wait"
-      current="third"
+      class="t-steps-item t-steps-item--default"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner t-steps-item--clickable"
       >
         <div
-          class="t-steps-item-icon t-steps-item--wait"
+          class="t-steps-item__icon t-steps-item--default"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             已完成的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             点击切换步骤
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1135,13 +1019,13 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
       class="t-steps-item t-steps-item--finish"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--finish"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             <svg
               class="t-icon t-icon-check"
@@ -1159,20 +1043,20 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             已完成的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             这里是提示文字
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1180,47 +1064,35 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--finish"
+      class="t-steps-item t-steps-item--process"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--process"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fillOpacity="0.9"
-              />
-            </svg>
+            0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             进行中的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             这里是提示文字
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1228,47 +1100,35 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--finish"
+      class="t-steps-item t-steps-item--default"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--default"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fillOpacity="0.9"
-              />
-            </svg>
+            0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             未进行的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             这里是提示文字
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1276,47 +1136,35 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--finish"
+      class="t-steps-item t-steps-item--default"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--default"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fillOpacity="0.9"
-              />
-            </svg>
+            0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             未进行的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             这里是提示文字
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1336,13 +1184,13 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
       class="t-steps-item t-steps-item--finish"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--finish"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             <svg
               class="t-icon t-icon-check"
@@ -1360,20 +1208,20 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             已完成的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             这里是提示文字
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1384,13 +1232,13 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
       class="t-steps-item t-steps-item--finish"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--finish"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             <svg
               class="t-icon t-icon-check"
@@ -1408,20 +1256,20 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             已完成的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             这里是提示文字
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1432,13 +1280,13 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
       class="t-steps-item t-steps-item--error"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--error"
+          class="t-steps-item__icon t-steps-item--error"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
             <svg
               class="t-icon t-icon-close"
@@ -1456,20 +1304,20 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             错误的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             优先展示\`t-step\`中设置的 status
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1477,47 +1325,35 @@ exports[`Steps Steps statusVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-steps-item t-steps-item--finish"
+      class="t-steps-item t-steps-item--default"
     >
       <div
-        class="t-steps-item__inner t-steps-item-canclick"
+        class="t-steps-item__inner "
       >
         <div
-          class="t-steps-item-icon t-steps-item--finish"
+          class="t-steps-item__icon t-steps-item--default"
         >
           <span
-            class="t-steps-item-icon__number"
+            class="t-steps-item__icon--number"
           >
-            <svg
-              class="t-icon t-icon-check"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                fill="currentColor"
-                fillOpacity="0.9"
-              />
-            </svg>
+            0
           </span>
         </div>
         <div
-          class="t-steps-item-content"
+          class="t-steps-item__content"
         >
           <div
-            class="t-steps-item-title"
+            class="t-steps-item__title"
           >
             未进行的步骤
           </div>
           <div
-            class="t-steps-item-description"
+            class="t-steps-item__description"
           >
             这里是提示文字
           </div>
           <div
-            class="t-steps-item-extra"
+            class="t-steps-item__extra"
           >
             <!---->
           </div>
@@ -1544,28 +1380,28 @@ exports[`Steps Steps verticalNoSequenceVue demo works fine 1`] = `
         class="t-steps-item t-steps-item--finish"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--finish"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               已完成的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1573,31 +1409,31 @@ exports[`Steps Steps verticalNoSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--process"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--process"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               进行中的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1605,31 +1441,31 @@ exports[`Steps Steps verticalNoSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               未进行的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1637,31 +1473,31 @@ exports[`Steps Steps verticalNoSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               未进行的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1678,28 +1514,28 @@ exports[`Steps Steps verticalNoSequenceVue demo works fine 1`] = `
         class="t-steps-item t-steps-item--finish"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--finish"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               已完成的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1707,31 +1543,31 @@ exports[`Steps Steps verticalNoSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--process"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--process"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               进行中的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1739,31 +1575,31 @@ exports[`Steps Steps verticalNoSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               未进行的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1771,31 +1607,31 @@ exports[`Steps Steps verticalNoSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <!---->
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               未进行的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1823,13 +1659,13 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
         class="t-steps-item t-steps-item--finish"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--finish"
           >
             <span
-              class="t-steps-item-icon__number"
+              class="t-steps-item__icon--number"
             >
               <svg
                 class="t-icon t-icon-check"
@@ -1847,20 +1683,20 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               已完成的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1868,47 +1704,35 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--process"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--process"
           >
             <span
-              class="t-steps-item-icon__number"
+              class="t-steps-item__icon--number"
             >
-              <svg
-                class="t-icon t-icon-check"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                  fill="currentColor"
-                  fillOpacity="0.9"
-                />
-              </svg>
+              0
             </span>
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               进行中的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1916,47 +1740,35 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <span
-              class="t-steps-item-icon__number"
+              class="t-steps-item__icon--number"
             >
-              <svg
-                class="t-icon t-icon-check"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                  fill="currentColor"
-                  fillOpacity="0.9"
-                />
-              </svg>
+              0
             </span>
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               未进行的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -1964,47 +1776,35 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <span
-              class="t-steps-item-icon__number"
+              class="t-steps-item__icon--number"
             >
-              <svg
-                class="t-icon t-icon-check"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                  fill="currentColor"
-                  fillOpacity="0.9"
-                />
-              </svg>
+              0
             </span>
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               未进行的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -2024,13 +1824,13 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
         class="t-steps-item t-steps-item--finish"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--finish"
           >
             <span
-              class="t-steps-item-icon__number"
+              class="t-steps-item__icon--number"
             >
               <svg
                 class="t-icon t-icon-check"
@@ -2048,20 +1848,20 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
             </span>
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               已完成的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -2069,47 +1869,35 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--process"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--process"
           >
             <span
-              class="t-steps-item-icon__number"
+              class="t-steps-item__icon--number"
             >
-              <svg
-                class="t-icon t-icon-check"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                  fill="currentColor"
-                  fillOpacity="0.9"
-                />
-              </svg>
+              0
             </span>
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               进行中的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -2117,47 +1905,35 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <span
-              class="t-steps-item-icon__number"
+              class="t-steps-item__icon--number"
             >
-              <svg
-                class="t-icon t-icon-check"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                  fill="currentColor"
-                  fillOpacity="0.9"
-                />
-              </svg>
+              0
             </span>
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               未进行的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>
@@ -2165,47 +1941,35 @@ exports[`Steps Steps verticalSequenceVue demo works fine 1`] = `
         </div>
       </div>
       <div
-        class="t-steps-item t-steps-item--finish"
+        class="t-steps-item t-steps-item--default"
       >
         <div
-          class="t-steps-item__inner t-steps-item-canclick"
+          class="t-steps-item__inner "
         >
           <div
-            class="t-steps-item-icon t-steps-item--finish"
+            class="t-steps-item__icon t-steps-item--default"
           >
             <span
-              class="t-steps-item-icon__number"
+              class="t-steps-item__icon--number"
             >
-              <svg
-                class="t-icon t-icon-check"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
-                  fill="currentColor"
-                  fillOpacity="0.9"
-                />
-              </svg>
+              0
             </span>
           </div>
           <div
-            class="t-steps-item-content"
+            class="t-steps-item__content"
           >
             <div
-              class="t-steps-item-title"
+              class="t-steps-item__title"
             >
               未进行的步骤
             </div>
             <div
-              class="t-steps-item-description"
+              class="t-steps-item__description"
             >
               这里是提示文字
             </div>
             <div
-              class="t-steps-item-extra"
+              class="t-steps-item__extra"
             >
               <!---->
             </div>

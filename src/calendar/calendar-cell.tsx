@@ -1,6 +1,7 @@
 import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 import { prefix } from '../config';
+import { emitEvent } from '../utils/event';
 
 // 通用库
 
@@ -65,13 +66,13 @@ export default defineComponent({
   methods: {
     clickCell(e: MouseEvent) {
       if (this.disabled) return;
-      this.$emit('click', e);
+      emitEvent(this, 'click', e);
     },
     dblclick(e: MouseEvent) {
-      this.$emit('dblclick', e);
+      emitEvent(this, 'dblclick', e);
     },
     contextmenuClick(e: MouseEvent) {
-      this.$emit('rightClick', e);
+      emitEvent(this, 'rightClick', e);
     },
   },
   render() {

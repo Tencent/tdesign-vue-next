@@ -5,6 +5,7 @@ import { RowspanColspan } from '../type';
 import baseTableProps from '../base-table-props';
 import TableCell from './table-cell';
 import { CustomData, CellData, CellParams } from '../util/interface';
+import { getPropsApiByEvent } from '../../utils/helper';
 
 type CreateElement = ReturnType<typeof h>;
 type Attrs = Record<string, any>;
@@ -145,7 +146,7 @@ export default defineComponent({
     const on = {};
     Object.keys(eventsName).forEach((event) => {
       const emitEventName = eventsName[event];
-      on[`on${event.replace(event[0], event[0].toUpperCase())}`] = (e: MouseEvent) => {
+      on[getPropsApiByEvent(event)] = (e: MouseEvent) => {
         this.$emit(emitEventName, {
           ...params,
           e,

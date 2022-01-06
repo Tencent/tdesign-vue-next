@@ -1,6 +1,7 @@
 import { defineComponent, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import TPopup from '../popup/index';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-slider-button`;
 
@@ -46,6 +47,7 @@ export default defineComponent({
       overlayStyle: undefined,
       overlayClassName: undefined,
       attach: 'body',
+      popupVisible: false,
     };
   },
 
@@ -117,16 +119,11 @@ export default defineComponent({
         }
       }
     },
-    operatePopup(state: boolean) {
-      if (this.$refs.popup) {
-        (this.$refs.popup as ComponentPublicInstance).showPopper = state;
-      }
-    },
     showPopup() {
-      this.operatePopup(true);
+      this.popupVisible = true;
     },
     hidePopup() {
-      this.operatePopup(false);
+      this.popupVisible = false;
     },
 
     handleMouseEnter() {
@@ -136,7 +133,9 @@ export default defineComponent({
     },
     handleMouseLeave() {
       this.hovering = false;
-      this.hidePopup();
+      if (!this.dragging) {
+        this.hidePopup();
+      }
     },
     onButtonDown(event: MouseEvent | TouchEvent) {
       if (this.disabled) {
@@ -195,7 +194,6 @@ export default defineComponent({
         return;
       }
       this.isClick = false;
-      this.showPopup();
       this.$parent.resetSize();
       let diff = 0;
 
@@ -252,9 +250,8 @@ export default defineComponent({
       let value = steps * perStepLen * this.rangeDiff * 0.01;
       value += this.min;
       value = Number(parseFloat(`${value}`).toFixed(this.precision));
-      this.$emit('input', value);
+      emitEvent(this, 'input', value);
       this.$nextTick(() => {
-        this.showPopup();
         this.$refs.popup && (this.$refs.popup as ComponentPublicInstance).updatePopper();
       });
       if (!this.dragging && this.value !== this.prevValue) {
@@ -283,6 +280,7 @@ export default defineComponent({
         onKeydown={this.onNativeKeyDown}
       >
         <t-popup
+          visible={this.popupVisible}
           ref="popup"
           popper-class={this.popupClass}
           disabled={!this.showTooltip}

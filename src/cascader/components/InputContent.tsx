@@ -27,6 +27,7 @@ import {
   handleRemoveTagEffect,
   innerContentClickEffect,
 } from '../utils/inputContent';
+import { getFullPathLabel } from '../utils/helper';
 
 // type
 import { ClassName } from '../../common';
@@ -128,6 +129,7 @@ export default defineComponent({
         setInputVal,
         minCollapsedNum,
         value,
+        showAllLevels,
       } = cascaderContext;
 
       const { onFocus, onBlur, onRemove } = listeners as InputContentProps['listeners'];
@@ -143,7 +145,7 @@ export default defineComponent({
           }}
           size={size}
         >
-          {node.label}
+          {showAllLevels ? getFullPathLabel(node) : node.label}
         </Tag>
       );
       const renderCollItems = () => {

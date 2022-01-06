@@ -87,7 +87,7 @@ export default defineComponent({
 
     const handleInputEnter = (val) => {
       if (val && !tags.value.some((item) => item.name === val)) {
-        tags.value.tags.push({ name: val, type: 'default', showClose: true });
+        tags.value.push({ name: val, type: 'default', showClose: true });
       }
       inputVisible.value = false;
     };

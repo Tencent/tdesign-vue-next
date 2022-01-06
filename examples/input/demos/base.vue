@@ -1,8 +1,9 @@
 <template>
-  <div class="tdesign-demo-item--input__input-box">
-    <t-input placeholder="请输入内容（无默认值）" />
-    <br /><br />
-    <t-input v-model="input" placeholder="请输入内容（有默认值）" @enter="onEnter" />
+  <div class="tdesign-demo-block-column" style="max-width: 500px">
+    <t-input />
+
+    <t-input v-model="input" placeholder="请输入内容（有默认值）" @enter="onEnter" @change="onChange" />
+    <t-input label="价格：" suffix="元" />
   </div>
 </template>
 <script>
@@ -14,10 +15,14 @@ export default defineComponent({
     const onEnter = () => {
       console.log('trigger enter');
     };
+    const onChange = (val) => {
+      console.log(val);
+    };
 
     return {
       input,
       onEnter,
+      onChange,
     };
   },
 });

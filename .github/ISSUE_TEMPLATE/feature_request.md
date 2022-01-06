@@ -1,11 +1,15 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: ''
+title: '[Improve][Component] xxx '
+labels: 'enhancement'
 assignees: ''
 
 ---
+## tdesign-vue-next
+
+You will open an feature issue at tdesign-vue-next
+
 
 **Is your feature request related to a problem? Please describe.**
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]

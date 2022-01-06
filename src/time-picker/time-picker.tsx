@@ -12,6 +12,7 @@ import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import PickerPanel from './panel';
 import TInput from '../input';
+import { emitEvent } from '../utils/event';
 
 import InputItems from './input-items';
 
@@ -123,13 +124,13 @@ export default defineComponent({
       this.time = dayjs(newTime);
       // 转化展示数据
       this.inputTime = this.setInputValue(this.time);
-      this.$emit('input', { input: value, value: this.time.format(this.format), e: event });
+      emitEvent(this, 'input', { input: value, value: this.time.format(this.format), e: event });
       const panelRef = this.$refs.panel as TimePickerPanelInstance;
       panelRef.panelColUpdate();
     },
     // @blur
     onBlurDefault(e: Event, trigger: TimeInputType, index: number, input: number) {
-      this.$emit('blur', {
+      emitEvent(this, 'blur', {
         trigger,
         input,
         value: this.time.format(this.format),
@@ -138,7 +139,7 @@ export default defineComponent({
     },
     // @focus
     onFocusDefault(e: Event, trigger: TimeInputType, index: number, input: number) {
-      this.$emit('focus', {
+      emitEvent(this, 'focus', {
         trigger,
         input,
         value: this.time.format(this.format),
@@ -150,10 +151,10 @@ export default defineComponent({
       if (context) {
         const isClickDoc = context.trigger === 'document';
         this.isShowPanel = !isClickDoc;
-        this.$emit(isClickDoc ? 'close' : 'open');
+        emitEvent(this, isClickDoc ? 'close' : 'open');
       } else {
         this.isShowPanel = val;
-        this.$emit(val ? 'open' : 'close');
+        emitEvent(this, val ? 'open' : 'close');
       }
     },
     // 切换上下午
@@ -198,7 +199,7 @@ export default defineComponent({
 
       this.inputTime = this.setInputValue(setTime);
       const formatValue = dayjs(setTime).format(this.format);
-      this.$emit('change', formatValue);
+      emitEvent(this, 'change', formatValue);
     },
     // 确定按钮
     makeSure() {
@@ -217,7 +218,7 @@ export default defineComponent({
       }
       this.time = currentTime;
       this.inputTime = this.setInputValue(this.time);
-      this.$emit('change', currentTime.format(this.format));
+      emitEvent(this, 'change', currentTime.format(this.format));
     },
     // format输出结果
     output() {
@@ -285,7 +286,7 @@ export default defineComponent({
       this.time = undefined;
       this.needClear = true;
       this.inputTime = this.setInputValue(undefined);
-      this.$emit('change', undefined);
+      emitEvent(this, 'change', undefined);
       e.stopPropagation();
     },
     renderInput() {

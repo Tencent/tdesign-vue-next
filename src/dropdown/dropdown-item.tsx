@@ -7,6 +7,7 @@ import ripple from '../utils/ripple';
 import itemProps from './dropdown-item-props';
 import { renderContent } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-dropdown__item`;
 
@@ -17,6 +18,11 @@ export default defineComponent({
     TDivider,
   },
   directives: { ripple },
+  inject: {
+    dropdown: {
+      default: undefined,
+    },
+  },
   props: {
     ...itemProps,
     path: {
@@ -26,14 +32,6 @@ export default defineComponent({
     hasChildren: {
       type: Boolean,
       default: false,
-    },
-    maxColumnWidth: {
-      type: Number,
-      default: 100,
-    },
-    minColumnWidth: {
-      type: Number,
-      default: 10,
     },
   },
   emits: ['click', 'item-hover', 'hover'],
@@ -49,12 +47,13 @@ export default defineComponent({
           path: this.path,
           content: this.content,
         };
-        this.$emit('click', data, { e });
-        this.$emit('item-hover', this.path);
+        emitEvent(this, 'click', data, { e });
+        emitEvent(this, 'item-hover', this.path);
+        this.dropdown.handleMenuClick(data, { e });
       }
     },
     handleMouseover(): void {
-      this.$emit('hover', this.path);
+      emitEvent(this, 'hover', this.path);
     },
   },
   render() {

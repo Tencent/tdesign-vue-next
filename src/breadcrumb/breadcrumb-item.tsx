@@ -5,14 +5,16 @@ import { prefix } from '../config';
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
+import { emitEvent } from '../utils/event';
+import { getPropsApiByEvent } from '../utils/helper';
 
-const name = `${prefix}-breadcrumbItem`;
 const separatorClass = `${prefix}-breadcrumb__separator`;
 const disableClass = `${prefix}-disabled`;
 const linkClass = `${prefix}-link`;
 const maxLengthClass = `${prefix}-breadcrumb__inner`;
 const textFlowClass = `${prefix}-breadcrumb--text-oveflow`;
-const gestureClass = `${prefix}-gestureClass`;
+
+export const EVENT_NAME_WITH_KEBAB = ['click'];
 interface LocalTBreadcrumb {
   separator: (() => void) | string;
   theme: string;
@@ -35,7 +37,6 @@ const isEventProps = (propName: string): boolean => {
 
 export default defineComponent({
   name: 'TBreadcrumbItem',
-
   components: {
     Tooltip,
   },
@@ -45,6 +46,8 @@ export default defineComponent({
   props: {
     ...props,
   },
+
+  emits: ['click'],
 
   data() {
     return {
@@ -112,16 +115,11 @@ export default defineComponent({
       textClass.push(disableClass);
     }
     const listeners: Record<string, any> = {};
-    Object.keys(this.$attrs).forEach((attr) => {
-      const value = this.$attrs[attr];
-      if (isEventProps(attr) && typeof value === 'function') {
-        listeners[attr] = value;
-      }
+    EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
+      listeners[getPropsApiByEvent(eventName)] = (...args: any[]) => {
+        emitEvent(this, eventName, ...args);
+      };
     });
-
-    if (listeners.onClick) {
-      textClass.push(gestureClass);
-    }
 
     const textContent = (
       <span ref="breadcrumbText" {...{ class: maxLengthClass, style: maxWithStyle }}>

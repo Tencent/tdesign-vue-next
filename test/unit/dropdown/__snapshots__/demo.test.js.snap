@@ -27,7 +27,10 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
               style="max-height: 300px; max-width: 100px; min-width: 112px;"
             >
               
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="112"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -44,7 +47,10 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="112"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -61,7 +67,10 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="112"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -78,7 +87,10 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="112"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -164,7 +176,10 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
               style="max-height: 300px; max-width: 100px; min-width: 10px;"
             >
               
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="10"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -181,7 +196,10 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="10"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -198,7 +216,10 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="10"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -215,7 +236,10 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="10"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -286,7 +310,10 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
               style="max-height: 300px; max-width: 100px; min-width: 100px;"
             >
               
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="100"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -303,7 +330,10 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="100"
+              >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
                 >
@@ -332,7 +362,10 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="100"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -349,7 +382,10 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="100"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -422,7 +458,10 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
               style="max-height: 300px; max-width: 100px; min-width: 112px;"
             >
               
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="112"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -439,7 +478,10 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="112"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -456,7 +498,10 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="112"
+              >
                 <div
                   class="t-dropdown__item t-is-disabled"
                 >
@@ -473,7 +518,10 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="112"
+              >
                 <div
                   class="t-dropdown__item t-is-disabled"
                 >
@@ -561,7 +609,10 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
               style="max-height: 300px; max-width: 100px; min-width: 88px;"
             >
               
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -578,7 +629,10 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -595,7 +649,10 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -612,7 +669,10 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -683,7 +743,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               style="max-height: 400px; max-width: 100px; min-width: 88px;"
             >
               
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -700,7 +763,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -717,7 +783,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -734,7 +803,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -751,7 +823,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -768,7 +843,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -785,7 +863,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -802,7 +883,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -819,7 +903,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -836,7 +923,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -853,7 +943,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -870,7 +963,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -887,7 +983,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -904,7 +1003,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -921,7 +1023,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -938,7 +1043,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -955,7 +1063,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -972,7 +1083,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -989,7 +1103,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -1006,7 +1123,10 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="100"
+                mincolumnwidth="88"
+              >
                 <div
                   class="t-dropdown__item"
                 >
@@ -1079,7 +1199,10 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               style="max-height: 300px; max-width: 120px; min-width: 10px;"
             >
               
-              <div>
+              <div
+                maxcolumnwidth="120"
+                mincolumnwidth="10"
+              >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
                 >
@@ -1108,7 +1231,10 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="120"
+                mincolumnwidth="10"
+              >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
                 >
@@ -1137,7 +1263,10 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="120"
+                mincolumnwidth="10"
+              >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
                 >
@@ -1166,7 +1295,10 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
                 </div>
                 <!---->
               </div>
-              <div>
+              <div
+                maxcolumnwidth="120"
+                mincolumnwidth="10"
+              >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
                 >
@@ -1355,7 +1487,10 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
             style="max-height: 300px; max-width: 100px; min-width: 88px;"
           >
             
-            <div>
+            <div
+              maxcolumnwidth="100"
+              mincolumnwidth="88"
+            >
               <div
                 class="t-dropdown__item"
               >
@@ -1372,7 +1507,10 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
               </div>
               <!---->
             </div>
-            <div>
+            <div
+              maxcolumnwidth="100"
+              mincolumnwidth="88"
+            >
               <div
                 class="t-dropdown__item"
               >
@@ -1389,7 +1527,10 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
               </div>
               <!---->
             </div>
-            <div>
+            <div
+              maxcolumnwidth="100"
+              mincolumnwidth="88"
+            >
               <div
                 class="t-dropdown__item"
               >
@@ -1410,7 +1551,10 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
                 <!---->
               </div>
             </div>
-            <div>
+            <div
+              maxcolumnwidth="100"
+              mincolumnwidth="88"
+            >
               <div
                 class="t-dropdown__item"
               >

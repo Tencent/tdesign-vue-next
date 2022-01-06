@@ -3,6 +3,7 @@ import config from '../config';
 import props from './check-tag-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
+import { emitEvent } from '../utils/event';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
@@ -27,8 +28,8 @@ export default defineComponent({
   methods: {
     handleClick(event: MouseEvent): void {
       if (!this.disabled) {
-        this.$emit('click', event);
-        this.$emit('change', !this.checked);
+        emitEvent(this, 'click', event);
+        emitEvent(this, 'change', !this.checked);
       }
     },
   },

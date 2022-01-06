@@ -47,6 +47,56 @@ const app = createApp(App);
 app.use(TDesign);
 ```
 
+### 按需引用
+
+推荐使用 `unplugin-vue-components` 和 `unplugin-auto-import` 来实现自动导入：
+
+```bash
+npm install -D unplugin-vue-components unplugin-auto-import
+```
+
+然后在 Webpack 或 Vite 对应的配置文件添加上述插件。
+
+#### Vite
+
+```js
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { TDesignResolver } from 'unplugin-vue-components/resolvers';
+export default {
+  plugins: [
+    // ...
+    AutoImport({
+      resolvers: [TDesignResolver()],
+    }),
+    Components({
+      resolvers: [TDesignResolver()],
+    }),
+  ],
+};
+```
+
+#### Webpack
+
+```js
+const AutoImport = require('unplugin-auto-import/webpack');
+const Components = require('unplugin-vue-components/webpack');
+const { TDesignResolver } = require('unplugin-vue-components/resolvers');
+module.exports = {
+  // ...
+  plugins: [
+    AutoImport({
+      resolvers: [TDesignResolver()],
+    }),
+    Components({
+      resolvers: [TDesignResolver()],
+    }),
+  ],
+};
+```
+
+> `TDesignResolver` 支持的配置，可以点击此[链接](https://github.com/antfu/unplugin-vue-components/blob/main/src/core/resolvers/tdesign.ts#L4)。
+
 ### 快速体验
 
 可以访问官方提供的 [tdesign-starter](https://tdesign.tencent.com/starter/vue-next/) 项目体验使用 TDesign 组件快速搭建业务系统。

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-drawer v-model:visible="visible" header="标题名称" @close="handleClose">
+    <t-drawer v-model:visible="visible" header="标题名称" :on-confirm="handleClose" @close="handleClose">
       <div class="t-drawer-demo-div">
         <span>标签 A</span>
         <t-input />

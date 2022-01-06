@@ -216,7 +216,6 @@ exports[`Popup Popup destroyVue demo works fine 1`] = `
 <div>
   <div
     class="t-popup__reference"
-    destroy-on-hide=""
   >
     <transition-stub>
       <div
@@ -1145,12 +1144,14 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
       class="t-input t-size-m"
     >
       <!---->
+      <!---->
       <input
         autocomplete="false"
         class="t-input__inner"
         placeholder="获得焦点时触发"
         type="text"
       />
+      <!---->
       <!---->
     </div>
     

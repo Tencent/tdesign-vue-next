@@ -69,7 +69,7 @@ export default defineComponent({
       return renderTNodeJSXDefault(this, 'icon', <Icon class={this.iconCls} />);
     },
     onPopupVisibleChange(val: boolean, context: PopconfirmVisibleChangeContext) {
-      this.$emit('visible-change', val, context);
+      emitEvent(this, 'visible-change', val, context);
       this.onVisibleChange && this.onVisibleChange(val, context);
     },
   },

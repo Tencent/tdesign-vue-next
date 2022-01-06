@@ -8,6 +8,7 @@ import { prefix } from '../../config';
 import { Styles } from '../../common';
 import primaryTableProps from '../primary-table-props';
 import { renderTNodeJSX } from '../../utils/render-tnode';
+import { emitEvent } from '../../utils/event';
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TableConfig>('table')),
@@ -50,7 +51,7 @@ export default defineComponent({
       return <span style={style}>{icon}</span>;
     },
     handleClick(e: Event) {
-      this.$emit('click', e);
+      emitEvent(this, 'click', e);
     },
   },
   render() {

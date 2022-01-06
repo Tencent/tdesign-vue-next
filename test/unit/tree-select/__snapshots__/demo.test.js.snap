@@ -252,12 +252,14 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           style="display: none;"
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
             class="t-input__inner"
             placeholder="请选择"
             type="text"
           />
+          <!---->
           <!---->
         </div>
         <svg
@@ -477,12 +479,14 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           style="display: none;"
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
             class="t-input__inner"
             placeholder="请选择"
             type="text"
           />
+          <!---->
           <!---->
         </div>
         <svg
@@ -812,12 +816,14 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           style="display: none;"
         >
           <!---->
+          <!---->
           <input
             autocomplete="false"
             class="t-input__inner"
             placeholder="请输入"
             type="text"
           />
+          <!---->
           <!---->
         </div>
         <svg

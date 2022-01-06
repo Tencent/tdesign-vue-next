@@ -34,10 +34,10 @@ export default defineComponent({
 
   computed: {
     percent(): number {
-      return this.loadingFile && this.loadingFile.percent;
+      return this.loadingFile && (this.loadingFile as UploadFile).percent;
     },
     showPreview(): boolean {
-      return Boolean(this.file && this.file.name);
+      return Boolean(this.file && (this.file as UploadFile).name);
     },
     showTextPreview(): boolean {
       return this.display === 'file';
@@ -46,14 +46,14 @@ export default defineComponent({
       return this.display === 'file-input';
     },
     showProgress(): boolean {
-      return !!(this.loadingFile && this.loadingFile.status === 'progress');
+      return !!(this.loadingFile && (this.loadingFile as UploadFile).status === 'progress');
     },
     showDelete(): boolean {
-      return this.file && this.file.name && !this.loadingFile;
+      return this.file && (this.file as UploadFile).name && !this.loadingFile;
     },
     inputName(): string {
-      const fileName = this.file && this.file.name;
-      const loadingName = this.loadingFile && this.loadingFile.name;
+      const fileName = this.file && (this.file as UploadFile).name;
+      const loadingName = this.loadingFile && (this.loadingFile as UploadFile).name;
       return this.showProgress ? loadingName : fileName;
     },
     inputText(): string {
@@ -69,7 +69,7 @@ export default defineComponent({
 
   methods: {
     renderProgress() {
-      if (this.loadingFile.status === 'fail') {
+      if ((this.loadingFile as UploadFile).status === 'fail') {
         return <ErrorCircleFilledIcon />;
       }
 
@@ -77,17 +77,19 @@ export default defineComponent({
         return (
           <div class={`${UPLOAD_NAME}__single-progress`}>
             <TLoading />
-            <span class={`${UPLOAD_NAME}__single-percent`}>{Math.min(this.loadingFile.percent, 99)}%</span>
+            <span class={`${UPLOAD_NAME}__single-percent`}>
+              {Math.min((this.loadingFile as UploadFile).percent, 99)}%
+            </span>
           </div>
         );
       }
     },
 
     renderResult() {
-      if (!!this.loadingFile && this.loadingFile.status === 'fail') {
+      if (!!this.loadingFile && (this.loadingFile as UploadFile).status === 'fail') {
         return <ErrorCircleFilledIcon />;
       }
-      if (this.file && this.file.name && !this.loadingFile) {
+      if (this.file && (this.file as UploadFile).name && !this.loadingFile) {
         return <CheckCircleFilledIcon />;
       }
       return '';
@@ -130,11 +132,6 @@ export default defineComponent({
         {this.showInput && this.renderFilePreviewAsInput()}
         {this.$slots.default && this.$slots.default(null)}
         {this.showTextPreview && this.renderFilePreviewAsText()}
-        {this.showInput && this.showDelete && (
-          <span class={`${UPLOAD_NAME}__single-input-delete`} onClick={(e: MouseEvent) => this.remove(e)}>
-            删除
-          </span>
-        )}
       </div>
     );
   },

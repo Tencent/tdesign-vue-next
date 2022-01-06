@@ -1,25 +1,26 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
-labels: ''
+title: '[Bug][Component] xxx '
+labels: 'bug'
 assignees: ''
 
 ---
+## tdesign-vue-next
 
-**Describe Framework**
+You will open a bug issue at tdesign-vue-next。
 
-- [ ] tdesign-vue
-- [x] tdesign-vue-next
-- [ ] tdesign-react
-- [ ] tdesign-miniprogram
+### Describe Environment
 
-**Describe Environment**
+browser version:
+tdesign-vue-next version:
 
-Add browser version here
+### Describe the bug
 
-**Describe the bug**
 A clear and concise description of what the bug is.
 
-**Additional context**
+codesandbox online demo:
+
+### Additional context
+
 Add any other context about the problem here.

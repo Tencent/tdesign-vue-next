@@ -21,6 +21,7 @@ import Form, { FormItemInstance } from './form';
 import { ClassName, ScopedSlot, TNodeReturnValue, Styles } from '../common';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { FormConfig } from '../config-provider/config-receiver';
+import { emitEvent } from '../utils/event';
 
 type IconConstructor = typeof ErrorCircleFilledIcon;
 
@@ -149,7 +150,6 @@ export default defineComponent({
   },
 
   beforeUnmount() {
-    this.form.$emit('form-item-destroyed', this);
     const index = this.form.children.findIndex((item: FormItemInstance) => item === this);
     this.form.children.splice(index, 1);
   },

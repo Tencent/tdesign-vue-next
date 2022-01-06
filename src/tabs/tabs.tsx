@@ -45,15 +45,23 @@ export default defineComponent({
       emitEvent<Parameters<TdTabsProps['onRemove']>>(this, 'remove', eventData);
     },
     getSlotPanels() {
-      const slots = renderTNodeJSX(this, 'default');
-      return slots && slots.length === 1 ? (slots[0].children as VNode[]) : slots;
+      let content = renderTNodeJSX(this, 'default');
+      if (!content) return [];
+      content = content
+        .map((item: ComponentPublicInstance) => {
+          if (item.children && Array.isArray(item.children)) return item.children;
+          return item;
+        })
+        .flat()
+        .filter((item: ComponentPublicInstance) => {
+          return item.type.name === 'TTabPanel';
+        });
+
+      return content;
     },
     renderHeader() {
-      const panels = this.list && this.list.length ? this.list : this.getSlotPanels();
-      if (!panels || !panels.length) {
-        console.warn('Tdesign error: list is empty');
-        return;
-      }
+      const panels = this.list?.length ? this.list : this.getSlotPanels();
+      if (!panels || !panels.length) return;
       const panelsData = panels.map((item: ComponentPublicInstance) => {
         const selfItem = item;
         for (const key in item.props) {
@@ -81,23 +89,15 @@ export default defineComponent({
         </div>
       );
     },
-    renderWidthLists() {
-      if (!this.list) {
-        console.warn('Tdesign error: list is empty');
-        return;
-      }
-      return this.list.map((item) => <TTabPanel {...item} onRemove={this.onRemoveTab} />);
-    },
     renderContent() {
       const panels = this.getSlotPanels();
-      if (panels && panels.length) {
-        return (
-          <div class={[`${prefix}-tabs__content`]}>
-            {panels.filter((item: ComponentPublicInstance) => item.type.name === 'TTabPanel')}
-          </div>
-        );
+      if (this.list?.length) {
+        return this.list.map((item) => <TTabPanel {...item} onRemove={this.onRemoveTab} />);
       }
-      return this.renderWidthLists();
+      if (panels && panels.length) {
+        return <div class={[`${prefix}-tabs__content`]}>{panels}</div>;
+      }
+      console.warn('Tdesign error: list or slots is empty');
     },
   },
 

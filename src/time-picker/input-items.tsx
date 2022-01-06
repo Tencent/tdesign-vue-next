@@ -2,6 +2,7 @@ import { defineComponent } from 'vue';
 import { TimeInputType, InputEvent, InputTime } from './interface';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { TimePickerConfig } from '../config-provider/config-receiver';
+import { emitEvent } from '../utils/event';
 
 import { COMPONENT_NAME, amFormat, KeyboardDirection, EMPTY_VALUE, MERIDIEM_LIST } from './constant';
 
@@ -63,7 +64,7 @@ export default defineComponent({
       if ((curDayJs[type] === '00' && number === 0) || value === '') {
         // 输入之前是00 输入之后是0
         // 清空
-        this.$emit('change', {
+        emitEvent(this, 'change', {
           value: EMPTY_VALUE,
           type,
           index,
@@ -97,7 +98,7 @@ export default defineComponent({
             break;
         }
         if (emitChange) {
-          this.$emit('change', {
+          emitEvent(this, 'change', {
             value: number,
             type,
             index,
@@ -108,10 +109,10 @@ export default defineComponent({
     },
     // 失去焦点
     onBlur(e: FocusEvent, trigger: TimeInputType, index: number, input: number): void {
-      this.allowInput && this.$emit('blurDefault', e, trigger, index, input);
+      this.allowInput && emitEvent(this, 'blurDefault', e, trigger, index, input);
     },
     onFocus(e: FocusEvent, trigger: TimeInputType, index: number, input: number): void {
-      this.allowInput && this.$emit('focusDefault', e, trigger, index, input);
+      this.allowInput && emitEvent(this, 'focusDefault', e, trigger, index, input);
     },
     // 键盘监听
     onKeydown(e: any, type: TimeInputType, index: number): void {
@@ -142,7 +143,7 @@ export default defineComponent({
           result = 59;
         }
         // 发送变动
-        this.$emit('change', {
+        emitEvent(this, 'change', {
           value: result,
           type,
           index,
@@ -162,7 +163,7 @@ export default defineComponent({
     },
     // 切换上下午
     onToggleMeridiem(index: number): void {
-      this.$emit('toggleMeridiem', index);
+      emitEvent(this, 'toggleMeridiem', index);
     },
     // 设置输入框原始值，使其完全受控
     setInputValue(v: string | number, input: HTMLInputElement): void {

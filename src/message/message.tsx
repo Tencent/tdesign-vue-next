@@ -12,6 +12,7 @@ import { prefix } from '../config';
 import { THEME_LIST } from './const';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-message`;
 
@@ -56,7 +57,7 @@ export default defineComponent({
       this.timer = Number(
         setTimeout(() => {
           this.clearTimer();
-          this.$emit('duration-end');
+          emitEvent(this, 'duration-end');
         }, this.duration),
       );
     },
@@ -64,7 +65,7 @@ export default defineComponent({
       this.duration && clearTimeout(this.timer);
     },
     close(e?: MouseEvent) {
-      this.$emit('click-close-btn', e);
+      emitEvent(this, 'click-close-btn', e);
     },
     renderClose() {
       const defaultClose = <CloseIcon />;

@@ -5,6 +5,7 @@ import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-dropdown`;
 
@@ -28,7 +29,7 @@ export default defineComponent({
         const { popupElem }: any = this.$refs;
         popupElem.handleClose();
       }
-      this.$emit('click', data, context);
+      emitEvent(this, 'click', data, context);
     },
   },
   render() {
@@ -60,7 +61,6 @@ export default defineComponent({
                 maxHeight={this.maxHeight}
                 maxColumnWidth={this.maxColumnWidth}
                 minColumnWidth={this.minColumnWidth}
-                onClick={this.handleMenuClick}
               />
             ),
         }}

@@ -9,7 +9,7 @@ import { TdRadioProps } from './type';
 import { PropType } from 'vue';
 
 export default {
-  /** 【开发中】是否允许取消选中 */
+  /** 是否允许取消选中 */
   allowUncheck: Boolean,
   /** 是否选中 */
   checked: Boolean,
@@ -28,7 +28,7 @@ export default {
   label: {
     type: [String, Function] as PropType<TdRadioProps['label']>,
   },
-  /** HTM 元素原生属性 */
+  /** HTML 元素原生属性 */
   name: {
     type: String,
     default: '',

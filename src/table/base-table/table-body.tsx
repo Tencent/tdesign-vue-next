@@ -17,8 +17,10 @@ export default defineComponent({
     rowKey: baseTableProps.rowKey,
     rowspanAndColspan: baseTableProps.rowspanAndColspan,
     onRowHover: baseTableProps.onRowHover,
-    onRowMouseup: baseTableProps.onRowMouseup,
     onRowMousedown: baseTableProps.onRowMousedown,
+    onRowMouseenter: baseTableProps.onRowMouseenter,
+    onRowMouseleave: baseTableProps.onRowMouseleave,
+    onRowMouseup: baseTableProps.onRowMouseup,
     onRowClick: baseTableProps.onRowClick,
     onRowDbClick: baseTableProps.onRowDbClick,
     selectedRowKeys: primaryTableProps.selectedRowKeys,
@@ -136,8 +138,18 @@ export default defineComponent({
         const rowspanAndColspanProps = allRowspanAndColspanProps ? allRowspanAndColspanProps[index] : undefined;
         let rowVnode: VNode;
         const key = rowKey ? get(row, rowKey) : index + this.current;
-        const { columns, current, provider, onRowHover, onRowMouseup, onRowMousedown, onRowDbClick, onRowClick } =
-          this.$props;
+        const {
+          columns,
+          current,
+          provider,
+          onRowHover,
+          onRowMouseup,
+          onRowMouseleave,
+          onRowMouseenter,
+          onRowMousedown,
+          onRowDbClick,
+          onRowClick,
+        } = this.$props;
         const disabled =
           typeof selectColumn.disabled === 'function'
             ? selectColumn.disabled({ row, rowIndex: index })
@@ -163,6 +175,8 @@ export default defineComponent({
           ...{
             onRowHover,
             onRowMouseup,
+            onRowMouseleave,
+            onRowMouseenter,
             onRowMousedown,
             onRowDbClick,
             onRowClick,

@@ -18,8 +18,8 @@ showJumper | Boolean | false | 是否显示跳转页码控制器 | N
 size | String | medium | 分页组件尺寸。可选项：small/medium | N
 theme | String | default | 分页组件风格。可选项：default/simple | N
 total | Number | 0 | 数据总条数 | N
-totalContent | Boolean / Slot / Function | true | 用于自定义总条数呈现内容。默认显示总条数，值为 false 则不显示。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/TDesignOteam/tdesign-vue/blob/develop/src/common.ts) | N
-onChange | Function |  | 当前页或分页大小发生变化时触发。[详细类型定义](https://github.com/TDesignOteam/tdesign-vue/tree/develop/src/pagination/type.ts)。`(pageInfo: PageInfo) => {}` | N
+totalContent | Boolean / Slot / Function | true | 用于自定义总条数呈现内容。默认显示总条数，值为 false 则不显示。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+onChange | Function |  | 当前页或分页大小发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/pagination/type.ts)。`(pageInfo: PageInfo) => {}` | N
 onCurrentChange | Function |  | 当前页发生变化时触发。`(current: number, pageInfo: PageInfo) => {}` | N
 onPageSizeChange | Function |  | 分页大小发生变化时触发。`(pageSize: number, pageInfo: PageInfo) => {}` | N
 
@@ -27,6 +27,6 @@ onPageSizeChange | Function |  | 分页大小发生变化时触发。`(pageSize:
 
 名称 | 参数 | 描述
 -- | -- | --
-change | `(pageInfo: PageInfo)` | 当前页或分页大小发生变化时触发。[详细类型定义](https://github.com/TDesignOteam/tdesign-vue/tree/develop/src/pagination/type.ts)
+change | `(pageInfo: PageInfo)` | 当前页或分页大小发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/pagination/type.ts)
 current-change | `(current: number, pageInfo: PageInfo)` | 当前页发生变化时触发
 page-size-change | `(pageSize: number, pageInfo: PageInfo)` | 分页大小发生变化时触发

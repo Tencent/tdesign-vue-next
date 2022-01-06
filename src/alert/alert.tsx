@@ -6,6 +6,7 @@ import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-alert`;
 
@@ -35,13 +36,13 @@ export default defineComponent({
       } else if (this.$slots.icon) {
         iconContent = this.$slots.icon && this.$slots.icon(null)[0];
       } else {
-        const component = {
+        const Component = {
           info: InfoCircleFilledIcon,
           success: CheckCircleFilledIcon,
           warning: ErrorCircleFilledIcon,
           error: ErrorCircleFilledIcon,
         }[this.theme as string];
-        iconContent = <component></component>;
+        iconContent = <Component></Component>;
       }
       return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
     },
@@ -124,14 +125,14 @@ export default defineComponent({
     },
 
     handleClose(e: MouseEvent) {
-      this.$emit('close', { e });
+      emitEvent(this, 'close', { e });
       addClass(this.$el, `${name}--closing`);
     },
 
     handleCloseEnd(e: TransitionEvent) {
       if (e.propertyName === 'opacity') {
         this.visible = false;
-        this.$emit('closed', { e });
+        emitEvent(this, 'closed', { e });
       }
     },
   },

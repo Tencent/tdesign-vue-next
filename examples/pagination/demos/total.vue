@@ -17,7 +17,7 @@ export default defineComponent({
       pageSize,
       total,
       renderTotalContent() {
-        return <div class="t-pagination__total">{`共 ${total.value.value} 项数据`}</div>;
+        return <div class="t-pagination__total">{`共 ${total.value} 项数据`}</div>;
       },
     };
   },

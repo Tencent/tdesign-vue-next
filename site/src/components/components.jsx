@@ -48,8 +48,8 @@ export default defineComponent({
           Object.keys(res.versions).forEach((v) => {
             if (v === packageJson.version) return false;
             const nums = v.split('.');
-            if (nums[0] === '0' && nums[1] < 5) return false;
-            options.push({ label: v, value: v });
+            if ((nums[0] === '0' && nums[1] < 5) || v.indexOf('alpha') > -1) return false;
+            options.unshift({ label: v, value: v });
           });
           this.options.push(...options);
         });
@@ -65,10 +65,12 @@ export default defineComponent({
       });
     },
     changeVersion(version) {
-      this.version = version;
       if (version === packageJson.version) return;
       const historyUrl = `//preview-${version}-tdesign-vue-next.surge.sh`;
       window.open(historyUrl, '_blank');
+      this.$nextTick(() => {
+        this.version = packageJson.version;
+      });
     },
   },
 

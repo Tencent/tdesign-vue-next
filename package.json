@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.5.0",
+  "version": "0.6.3",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -36,10 +36,11 @@
     "esm/**/style/**"
   ],
   "scripts": {
-    "start": "cd site && npm run dev",
-    "dev": "npm run start",
-    "site": "cd site && npm run build --debug",
-    "site:preview": "cd site && npm run build:preview",
+    "init": "git submodule init && git submodule update",
+    "start": "npm run init && npm run dev",
+    "dev": "cd site && vite",
+    "site": "cd site && vite build --debug",
+    "site:preview": "cd site && vite build --mode preview",
     "prebuild": "rimraf es/* esm/* lib/* dist/*",
     "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && npm run build:tsc",
     "build:tsc": "concurrently \"npm:build:tsc-*\"",
@@ -55,7 +56,7 @@
     "test:node": "jest --config script/test/jest.ssr.conf.js",
     "test:node-update": "jest --config script/test/jest.ssr.conf.js --updateSnapshot",
     "test:watch": "jest --config script/test/jest.unit.conf.js --watch",
-    "test:demo": "node ./script/test/generate-demo-test.js 'VueNext(PC)'",
+    "test:demo": "node ./script/test/generate-demo-test.js",
     "test:coverage": "jest --config script/test/jest.unit.conf.js --coverage",
     "test:e2e": "cypress run --config-file script/test/cypress.json",
     "test:e2e-gui": "cypress open --config-file script/test/cypress.json",
@@ -89,7 +90,7 @@
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^19.0.2",
+    "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^3.0.0",
@@ -97,6 +98,9 @@
     "@types/raf": "^3.4.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vitejs/plugin-vue-jsx": "^1.3.3",
+    "@vue/compiler-sfc": "^3.2.26",
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/server-renderer": "^3.2.4",
     "@vue/test-utils": "^2.0.0-rc.12",
@@ -120,6 +124,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^7.20.0",
     "glob": "^7.2.0",
+    "gray-matter": "^4.0.3",
     "husky": "^7.0.4",
     "ignore": "^5.1.9",
     "jest": "^26.6.3",
@@ -131,7 +136,7 @@
     "mockdate": "^3.0.5",
     "postcss": "^8.3.8",
     "prettier": "^2.4.1",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.25.0",
     "raf": "^3.4.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.55.0",
@@ -145,11 +150,17 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^6.0.0",
     "tdesign-icons-view": "0.0.1",
-    "tdesign-publish-cli": "^0.0.8",
+    "tdesign-publish-cli": "^0.0.9",
+    "tdesign-site-components": "^0.5.40",
     "ts-jest": "^26.0.0",
     "typescript": "^4.5.2",
+    "vite": "^2.7.7",
+    "vite-plugin-pwa": "^0.11.12",
+    "vite-plugin-tdoc": "^2.0.2",
+    "vue": "^3.2.26",
     "vue-jest": "^5.0.0-alpha.7",
-    "vue-tsc": "^0.29.8",
+    "vue-router": "^4.0.12",
+    "vue-tsc": "^0.30.1",
     "workbox-precaching": "^6.4.1"
   },
   "config": {
@@ -162,8 +173,5 @@
       "prettier --write",
       "eslint --fix"
     ]
-  },
-  "workspaces": [
-    "./site"
-  ]
+  }
 }

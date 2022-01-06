@@ -24,7 +24,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
         </div>
         <!---->
         <div
-          class="t-drawer__body"
+          class="t-drawer__body narrow-scrollbar"
         >
           
           <p>
@@ -273,7 +273,7 @@ exports[`Drawer Drawer baseVue demo works fine 1`] = `
         </svg>
       </div>
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <p>
@@ -343,7 +343,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
       <!---->
       
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <p>
@@ -401,7 +401,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
       </div>
       
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <p>
@@ -459,7 +459,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
       </div>
       
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <p>
@@ -576,7 +576,7 @@ exports[`Drawer Drawer noMaskVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <p>
@@ -649,7 +649,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <div
@@ -662,12 +662,14 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             class="t-input t-size-m"
           >
             <!---->
+            <!---->
             <input
               autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
           </div>
         </div>
@@ -681,12 +683,14 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             class="t-input t-size-m"
           >
             <!---->
+            <!---->
             <input
               autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
           </div>
         </div>
@@ -700,12 +704,14 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             class="t-input t-size-m"
           >
             <!---->
+            <!---->
             <input
               autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
           </div>
         </div>
@@ -777,7 +783,7 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <p>
@@ -1025,7 +1031,7 @@ exports[`Drawer Drawer sizeVue demo works fine 1`] = `
       </div>
       <!---->
       <div
-        class="t-drawer__body"
+        class="t-drawer__body narrow-scrollbar"
       >
         
         <p>

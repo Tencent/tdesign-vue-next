@@ -1110,6 +1110,7 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
       modelvalue=""
     >
       <!---->
+      <!---->
       <input
         autocomplete="false"
         class="t-input__inner"
@@ -1117,11 +1118,13 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
         type="text"
       />
       <!---->
+      <!---->
     </div>
     <div
       class="t-input t-size-m"
       modelvalue=""
     >
+      <!---->
       <!---->
       <input
         autocomplete="false"
@@ -1129,6 +1132,7 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
         placeholder="请输入纵向偏移量"
         type="text"
       />
+      <!---->
       <!---->
     </div>
   </div>

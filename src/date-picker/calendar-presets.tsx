@@ -3,6 +3,7 @@ import { PropType, defineComponent } from 'vue';
 import { DatePickerConfig } from '../config-provider/config-receiver';
 import { CalendarPresetsProps, DateValue, TdDatePickerProps } from './interface';
 import { prefix } from '../config';
+import { emitEvent } from '../utils/event';
 
 import { Button as TButton } from '../button';
 
@@ -18,15 +19,11 @@ export default defineComponent({
     presets: {
       type: Object as PropType<CalendarPresetsProps['presets']>,
     },
+    onClick: Function,
   },
-  emits: ['click-range'],
   methods: {
     clickPreset(value: DateValue | (() => DateValue)) {
-      if (isFunction(value)) {
-        this.$emit('click-range', value());
-      } else {
-        this.$emit('click-range', value);
-      }
+      this.onClick(value);
     },
   },
   render() {

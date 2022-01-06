@@ -17,6 +17,7 @@ import Tag from '../tag';
 import Tree, { TreeNodeModel, TreeNodeValue } from '../tree';
 import Input, { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
+import { emitEvent } from '../utils/event';
 
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
@@ -58,6 +59,7 @@ export default defineComponent({
       actived: [],
       expanded: [],
       nodeInfo: null,
+      treeKey: 0,
     };
   },
   computed: {
@@ -214,6 +216,10 @@ export default defineComponent({
         this.actived = this.nodeInfo ? [this.nodeInfo.value] : [];
       }
     },
+    async data() {
+      await this.changeNodeInfo();
+      this.treeRerender();
+    },
   },
   async mounted() {
     if (!this.value && this.defaultValue) {
@@ -250,36 +256,31 @@ export default defineComponent({
       this.change(this.value, null);
     },
     change(value: TreeSelectValue, node: TreeNodeModel<TreeOptionData>) {
-      this.$emit('change', value, { node });
-      isFunction(this.onChange) && this.onChange(value, { node });
+      emitEvent(this, 'change', value, { node });
       this.changeNodeInfo();
     },
     clear(e: MouseEvent) {
+      e.stopPropagation();
       const defaultValue: TreeSelectValue = this.multiple ? [] : '';
       this.change(defaultValue, null);
       this.actived = [];
       this.filterText = '';
-      this.$emit('clear', { e });
-      isFunction(this.onClear) && this.onClear({ e });
+      emitEvent(this, 'clear', { e });
     },
     focus(e: FocusEvent) {
       this.focusing = true;
-      this.$emit('focus', { value: this.value, e });
-      isFunction(this.onFocus) && this.onFocus({ e });
+      emitEvent(this, 'focus', { value: this.value, e });
     },
     blur(e: FocusEvent) {
       this.focusing = false;
       this.filterText = '';
-      this.$emit('blur', { value: this.value, e });
-      isFunction(this.onBlur) && this.onBlur({ value: this.value, e });
+      emitEvent(this, 'blur', { value: this.value, e });
     },
     remove(options: RemoveOptions<TreeOptionData>) {
-      this.$emit('remove', options);
-      isFunction(this.onRemove) && this.onRemove(options);
+      emitEvent(this, 'remove', options);
     },
     search(filterWords: string) {
-      this.$emit('search', filterWords);
-      isFunction(this.onSearch) && this.onSearch(filterWords);
+      emitEvent(this, 'search', filterWords);
     },
     treeNodeChange(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent }) {
       let current: TreeSelectValue = value;
@@ -353,9 +354,12 @@ export default defineComponent({
         this.nodeInfo = null;
       }
     },
+    treeRerender() {
+      this.treeKey += 1;
+    },
   },
   render(): VNode {
-    const { treeProps, popupObject, classes, popupClass } = this;
+    const { treeProps, popupObject, classes, popupClass, treeKey } = this;
     const iconStyle = { 'font-size': this.size };
     const treeSlots = {
       empty: () => <>{this.emptySlot}</>,
@@ -364,6 +368,7 @@ export default defineComponent({
       <tree
         ref="tree"
         v-show={this.showTree}
+        key={treeKey}
         value={this.checked}
         hover
         expandAll
@@ -401,6 +406,7 @@ export default defineComponent({
     );
     const tagItem = this.tagList.map((label, index) => (
       <Tag
+        v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
         key={index}
         size={this.size}
         closable={!this.disabled}

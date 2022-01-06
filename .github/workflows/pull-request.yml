@@ -3,6 +3,7 @@ name: MAIN_PULL_REQUEST
 on:
   pull_request:
     branches: [develop, main]
+    types: [opened, synchronize, reopened]
 
 jobs:
   MAIN_PULL_REQUEST:

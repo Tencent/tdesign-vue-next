@@ -2,10 +2,14 @@ import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
+import getConfigReceiverMixins, { InputConfig } from '../config-provider/config-receiver';
+import mixins from '../utils/mixins';
 
 import CLASSNAMES from '../utils/classnames';
 import { prefix } from '../config';
 import props from './props';
+import { emitEvent } from '../utils/event';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-input`;
 
@@ -20,10 +24,11 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 }
 
 export default defineComponent({
+  ...mixins(getConfigReceiverMixins<InputConfig>('input')),
   name: 'TInput',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'input', 'focus', 'blur'],
+  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur'],
   data() {
     return {
       isHover: false,
@@ -41,7 +46,7 @@ export default defineComponent({
         disabled: this.disabled,
         readonly: this.readonly,
         autocomplete: this.autocomplete,
-        placeholder: this.placeholder || '请输入',
+        placeholder: this.placeholder ?? this.t(this.global.placeholder),
         maxlength: this.maxlength,
         name: this.name || undefined,
         type: this.renderType,
@@ -105,18 +110,18 @@ export default defineComponent({
       if (this.disabled) return;
       const { code } = e;
       if (code === 'Enter' || code === 'NumpadEnter') {
-        this.$emit('enter', this.value, { e });
+        emitEvent(this, 'enter', this.value, { e });
       } else {
-        this.$emit('keydown', this.value, { e });
+        emitEvent(this, 'keydown', this.value, { e });
       }
     },
     handleKeyUp(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.$emit('keyup', this.value, { e });
+      emitEvent(this, 'keyup', this.value, { e });
     },
     handleKeypress(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.$emit('keypress', this.value, { e });
+      emitEvent(this, 'keypress', this.value, { e });
     },
     emitPassword() {
       const { renderType } = this;
@@ -124,18 +129,19 @@ export default defineComponent({
       this.renderType = toggleType;
     },
     emitClear({ e }: { e: MouseEvent }) {
-      this.$emit('clear', e);
-      this.$emit('change', '', e);
-      this.$emit('input', '', e);
+      emitEvent(this, 'clear', { e });
+      emitEvent(this, 'change', '', { e });
+      this.focus();
+      this.emitFocus(e);
     },
     emitFocus(e: FocusEvent) {
       if (this.disabled) return;
       this.focused = true;
-      this.$emit('focus', this.value, { e });
+      emitEvent(this, 'focus', this.value, { e });
     },
     emitBlur(e: FocusEvent) {
       this.focused = false;
-      this.$emit('blur', this.value, { e });
+      emitEvent(this, 'blur', this.value, { e });
     },
     onCompositionend(e: CompositionEvent) {
       this.inputValueChangeHandle(e);
@@ -147,8 +153,7 @@ export default defineComponent({
         const stringInfo = getCharacterLength(val, this.maxcharacter);
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
-      this.$emit('change', val, { e });
-      this.$emit('input', val, { e });
+      emitEvent(this, 'change', val, { e });
       // 受控
       nextTick(() => this.setInputValue(this.value));
     },
@@ -173,6 +178,12 @@ export default defineComponent({
     // @ts-ignore: TODO
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
+    const label = renderTNodeJSX(this, 'label');
+    const suffix = renderTNodeJSX(this, 'suffix');
+
+    const labelContent = label ? <div class={`${name}__prefix`}>{label}</div> : null;
+    const suffixContent = suffix ? <div class={`${name}__suffix`}>{suffix}</div> : null;
+
     if (this.showClear) {
       suffixIcon = <CloseCircleFilledIcon class={`${name}__suffix-clear`} onClick={this.emitClear} />;
     }
@@ -192,8 +203,9 @@ export default defineComponent({
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-is-${this.status}`]: this.status,
-        [`${name}--prefix`]: prefixIcon,
-        [`${name}--suffix`]: suffixIcon,
+        [`${name}--prefix`]: prefixIcon || labelContent,
+        [`${name}--suffix`]: suffixIcon || suffixContent,
+        [`${name}__inner--focused`]: this.focused,
       },
     ];
     return (
@@ -203,18 +215,22 @@ export default defineComponent({
         onMouseleave={() => this.mouseEvent(false)}
         {...{ ...wrapperAttrs }}
       >
-        {prefixIcon ? <span class={`${name}__prefix`}>{prefixIcon}</span> : null}
+        {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
+        {labelContent}
         <input
+          class={`${name}__inner`}
           {...{ ...this.inputAttrs }}
           {...inputEvents}
           ref="refInputElem"
           value={this.value}
-          class={`${name}__inner`}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
           onCompositionend={this.onCompositionend}
         />
+        {suffixContent}
         {suffixIcon ? (
-          <span class={[`${name}__suffix`, { [`${name}__clear`]: this.showClear }]}>{suffixIcon}</span>
+          <span class={[`${name}__suffix`, `${name}__suffix-icon`, { [`${name}__clear`]: this.showClear }]}>
+            {suffixIcon}
+          </span>
         ) : null}
       </div>
     );

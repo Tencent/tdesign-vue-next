@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import { CalendarIcon, TimeIcon } from 'tdesign-icons-vue-next';
 import debounce from 'lodash/debounce';
+import { emitEvent } from '../utils/event';
 
 import { prefix } from '../config';
 import props from './props';
@@ -141,7 +142,6 @@ export default defineComponent({
     classes(): any {
       return [
         name,
-        `${prefix}-input`,
         CLASSNAMES.SIZE[this.size] || '',
         {
           [`${name}--month-picker`]: this.mode === 'year' || this.mode === 'month',
@@ -207,20 +207,20 @@ export default defineComponent({
 
       if (d1 instanceof Date) {
         const d2: string = this.formatDate(d1);
-        this.$emit('input', d2);
+        emitEvent(this, 'input', d2);
       }
     },
     onNativeFocus(event?: MouseEvent): void {
       if (!this.isOpen) {
         this.open();
       }
-      this.$emit('focus', event);
+      emitEvent(this, 'focus', event);
     },
     onClick(event?: MouseEvent): void {
       if (!this.isOpen) {
         this.open();
       }
-      this.$emit('click', event);
+      emitEvent(this, 'click', event);
     },
 
     normalizeDateTime(value: Date, oldValue: Date): Date {
@@ -303,7 +303,7 @@ export default defineComponent({
         this.isOpen = true;
         nextTick().then(() => {
           onOpenDebounce(this);
-          this.$emit('open', this.selectedDates);
+          emitEvent(this, 'open', this.selectedDates);
         });
       }
     },
@@ -312,7 +312,7 @@ export default defineComponent({
         this.tempValue = '';
         this.isOpen = false;
         this.showTime = false;
-        this.$emit('close', this.selectedDates);
+        emitEvent(this, 'close', this.selectedDates);
       }
     },
     clickedApply(closePicker = true): void {
@@ -356,11 +356,7 @@ export default defineComponent({
       }
       this.clickedApply();
     },
-    clear(triggerChange = false, e?: MouseEvent): void {
-      if (e && e.stopPropagation) {
-        e && e.stopPropagation();
-      }
-
+    clear(triggerChange = false): void {
       // close picker
       this.close();
 
@@ -381,16 +377,16 @@ export default defineComponent({
         case 'month':
         case 'year':
           // submit formate date
-          this.$emit('input', selectedDates.join(multiSeparator));
+          emitEvent(this, 'input', selectedDates.join(multiSeparator));
           if (triggerChange) {
-            this.$emit('change', selectedDates.join(multiSeparator));
+            emitEvent(this, 'change', selectedDates.join(multiSeparator));
           }
           break;
         case 'range':
           // submit formate date
-          this.$emit('input', selectedDates);
+          emitEvent(this, 'input', selectedDates);
           if (triggerChange) {
-            this.$emit('change', selectedDates);
+            emitEvent(this, 'change', selectedDates);
           }
           break;
         default:
@@ -580,7 +576,7 @@ export default defineComponent({
     };
 
     const onPick = (date: DateValue, context: PickContext) => {
-      this.$emit('pick', date, context);
+      emitEvent(this, 'pick', date, context);
     };
 
     const panelComponent = range ? <t-date-range {...{ ...panelProps, onPick }} /> : <t-date {...panelProps} />;
@@ -604,7 +600,7 @@ export default defineComponent({
         {!showTime && panelComponent}
         {(!!presets || enableTimePicker) && (
           <div class={`${prefix}-date-picker__footer`}>
-            <TCalendarPresets presets={presets} global={global} onClickRange={this.clickRange} />
+            <TCalendarPresets presets={presets} global={global} onClick={range ? this.clickRange : this.dateClick} />
             {enableTimePicker && (
               <div class={`${name}--apply`}>
                 {enableTimePicker && (
@@ -676,7 +672,10 @@ export default defineComponent({
               allowInput={allowInput ? 1 : 0}
               size={size}
               inputProps={inputProps}
-              onClear={(context: any) => this.clear(true, context.e)}
+              onClear={(context: { e: MouseEvent }) => {
+                context.e.stopPropagation();
+                this.clear(true);
+              }}
               focus={this.onNativeFocus}
               input={this.onNativeInput}
               click={this.onClick}

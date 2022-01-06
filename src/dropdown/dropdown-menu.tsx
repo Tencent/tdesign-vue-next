@@ -5,6 +5,7 @@ import { DropdownOption } from './type';
 import { TNodeReturnValue } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { pxCompat } from '../utils/helper';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-dropdown__menu`;
 
@@ -55,7 +56,7 @@ export default defineComponent({
     },
     handleItemClick(data: DropdownOption, context: { e: MouseEvent }, idx: number) {
       (this.options as DropdownOption[])[idx].onClick?.(data, context);
-      this.$emit('click', data, context);
+      emitEvent(this, 'click', data, context);
     },
     renderMenuColumn(children: Array<DropdownOption>, showSubmenu: boolean, pathPrefix: string): VNode {
       const menuClass = [`${name}-column`, 'narrow-scrollbar', { submenu__visible: showSubmenu }];

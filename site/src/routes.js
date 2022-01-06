@@ -32,18 +32,18 @@ function getDocsRoutes(docs, type) {
 
 const routes = [
   {
-    path: '/vue-next/components',
-    redirect: '/vue-next/components/overview',
+    path: '/vue-next/',
+    redirect: '/vue-next/overview',
     component: TdesignComponents,
     children: getDocsRoutes(docs),
   },
   {
     path: '/',
-    redirect: '/vue-next/components/overview',
+    redirect: '/vue-next/overview',
   },
   {
     path: '/:w+',
-    redirect: '/vue-next/components/overview',
+    redirect: '/vue-next/overview',
   },
   {
     path: '/vue-next/demos/:componentName/:demoName',
@@ -66,5 +66,20 @@ if (process.env.NODE_ENV === 'preview') {
 }
 
 const router = createRouter(routerConfig);
+
+router.beforeEach((to, from, next) => {
+  if (typeof NProgress !== 'undefined') {
+    // eslint-disable-next-line no-undef
+    NProgress.start();
+  }
+  next();
+});
+
+router.afterEach(() => {
+  if (typeof NProgress !== 'undefined') {
+    // eslint-disable-next-line no-undef
+    NProgress.done();
+  }
+});
 
 export default router;

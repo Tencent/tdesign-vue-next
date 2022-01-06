@@ -5,10 +5,9 @@ import props from './props';
 import { TextareaValue } from './type';
 import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
+import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-textarea`;
-
-type TextareaEmitEvent = 'keydown' | 'keyup' | 'keypress' | 'focus' | 'blur' | 'change';
 
 function getValidAttrs(obj: object): object {
   const newObj = {};
@@ -74,10 +73,6 @@ export default defineComponent({
       }
     },
 
-    emitEvent(name: TextareaEmitEvent, value: string | number, context: object) {
-      this.$emit(name, value, context);
-    },
-
     focus(): void {
       const input = this.$refs.refInputElem as HTMLInputElement;
       input?.focus();
@@ -102,7 +97,7 @@ export default defineComponent({
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
       this.$emit('update:value', val);
-      this.emitEvent('change', val, { e: InputEvent });
+      emitEvent(this, 'change', val, { e });
 
       this.$nextTick(() => this.setInputValue(val));
       this.adjustTextareaHeight();
@@ -119,24 +114,24 @@ export default defineComponent({
     },
     emitKeyDown(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.emitEvent('keydown', this.value, { e });
+      emitEvent(this, 'keydown', this.value, { e });
     },
     emitKeyUp(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.emitEvent('keyup', this.value, { e });
+      emitEvent(this, 'keyup', this.value, { e });
     },
     emitKeypress(e: KeyboardEvent) {
       if (this.disabled) return;
-      this.emitEvent('keypress', this.value, { e });
+      emitEvent(this, 'keypress', this.value, { e });
     },
     emitFocus(e: FocusEvent) {
       if (this.disabled) return;
       this.focused = true;
-      this.emitEvent('focus', this.value, { e });
+      emitEvent(this, 'focus', this.value, { e });
     },
     emitBlur(e: FocusEvent) {
       this.focused = false;
-      this.emitEvent('blur', this.value, { e });
+      emitEvent(this, 'blur', this.value, { e });
     },
   },
 
@@ -163,13 +158,13 @@ export default defineComponent({
         <textarea
           onInput={this.handleInput}
           onCompositionend={this.onCompositionend}
-          {...inputEvents}
-          {...this.$attrs}
-          {...this.inputAttrs}
           ref="refTextareaElem"
           value={this.value}
           style={this.textareaStyle}
           class={classes}
+          {...this.$attrs}
+          {...inputEvents}
+          {...this.inputAttrs}
         ></textarea>
         {this.maxcharacter && <span class={`${name}__limit`}>{`${this.characterNumber}/${this.maxcharacter}`}</span>}
         {!this.maxcharacter && this.maxlength ? (
