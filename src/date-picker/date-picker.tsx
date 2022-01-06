@@ -142,7 +142,6 @@ export default defineComponent({
     classes(): any {
       return [
         name,
-        `${prefix}-input`,
         CLASSNAMES.SIZE[this.size] || '',
         {
           [`${name}--month-picker`]: this.mode === 'year' || this.mode === 'month',
@@ -357,11 +356,7 @@ export default defineComponent({
       }
       this.clickedApply();
     },
-    clear(triggerChange = false, e?: MouseEvent): void {
-      if (e && e.stopPropagation) {
-        e && e.stopPropagation();
-      }
-
+    clear(triggerChange = false): void {
       // close picker
       this.close();
 
@@ -677,7 +672,10 @@ export default defineComponent({
               allowInput={allowInput ? 1 : 0}
               size={size}
               inputProps={inputProps}
-              onClear={(context: any) => this.clear(true, context.e)}
+              onClear={(context: { e: MouseEvent }) => {
+                context.e.stopPropagation();
+                this.clear(true);
+              }}
               focus={this.onNativeFocus}
               input={this.onNativeInput}
               click={this.onClick}

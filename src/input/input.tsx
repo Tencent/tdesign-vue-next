@@ -129,8 +129,8 @@ export default defineComponent({
       this.renderType = toggleType;
     },
     emitClear({ e }: { e: MouseEvent }) {
-      emitEvent(this, 'clear', e);
-      emitEvent(this, 'change', '', e);
+      emitEvent(this, 'clear', { e });
+      emitEvent(this, 'change', '', { e });
       this.focus();
       this.emitFocus(e);
     },
