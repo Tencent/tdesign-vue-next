@@ -10,38 +10,35 @@ docClass: timeline
 ### Bug Fixes
 
 * DatePicker: 修复 `date-picker` 样式问题和选择面板无法点击的问题 ([06994ab](https://github.com/Tencent/tdesign-vue-next/commit/06994ab48b213f55606ed51bc87265f421011166)), closes [#30](https://github.com/Tencent/tdesign-vue-next/issues/30)
-* Drawer: 
-  修复当抽屉打开时，`body` 有滚动条时可以滚动([8b94878](https://github.com/Tencent/tdesign-vue-next/commit/8b9487825d338a78f9e027d7e5fa64b1a7f1bf7b))
+* Drawer:
+  修复当抽屉打开时，`body` 有滚动条时可以滚动([8b94878](https://github.com/Tencent/tdesign-vue-next/commit/8b9487825d338a78f9e027d7e5fa64b1a7f1bf7b)) [@caoML](https://github.com/caoML)
   修复上方抽屉无动画效果，并且显示卡顿([52a4f37](https://github.com/Tencent/tdesign-vue-next/commit/8b9487825d338a78f9e027d7e5fa64b1a7f1bf7b))[#79](https://github.com/Tencent/tdesign-vue-next/issues/79)
 * Dropdown: 修复使用 `slot` 时点击无法关闭 ([e6f7cd1](https://github.com/Tencent/tdesign-common/pull/60/commits/52a4f37af5beb21d0bfe5e7291e6a03db1863b2f))
 * Input:
   * 修复点击清除 `icon` 后无法 `focus`([2c34e05](https://github.com/Tencent/tdesign-vue-next/commit/2c34e05cf183985ffd734e8bf14d77cbd07a041e))
   * 修复 `size` 属性无效 ([db155b3](https://github.com/Tencent/tdesign-vue-next/commit/db155b30fb009374308b2376d4a7dd7bf64338e8)) [#112](https://github.com/Tencent/tdesign-vue-next/issues/112)
 * Breadcrumb: 修复点击后触发两次的问题 ([abe1c1b](https://github.com/Tencent/tdesign-vue-next/commit/abe1c1bf4e1c1f549029e2c5c1dc3f57aa41b15d))
-* Calendar: 修复月份与年份组件参数对象使用错误 ([a3284d5](https://github.com/Tencent/tdesign-vue-next/commit/a3284d5efd1c619ac90799d301071415d7628955)), closes [#69](https://github.com/Tencent/tdesign-vue-next/issues/69)
+* Calendar: 修复月份与年份组件参数对象使用错误 ([a3284d5](https://github.com/Tencent/tdesign-vue-next/commit/a3284d5efd1c619ac90799d301071415d7628955)), closes [#69](https://github.com/Tencent/tdesign-vue-next/issues/69)[@Dreamcreative](https://github.com/Dreamcreative)
 * Pagination: 使用`InputNumber` 组件替代 `input`，并内置跳转页码控制 ([86a2d09](https://github.com/Tencent/tdesign-vue-next/commit/86a2d09d0649b655b8ce9b8611f84bfc60a64b4a))
-* Transfer: fix tree-select clear without stopPropagation and transfer tree render ([3324aae](https://github.com/Tencent/tdesign-vue-next/commit/3324aaeb232eb31a7c41b1bf6adb4feb93c51442)), closes [#34](https://github.com/Tencent/tdesign-vue-next/issues/34)
 * Popup:
   * 修复 `mousedown` 事件 ([a1d3303](https://github.com/Tencent/tdesign-vue-next/commit/a1d330327b27288c362bfb5d6cb4953c764426a6))
   * 修复 `destory on close` 事件无效 ([fde46e7](https://github.com/Tencent/tdesign-vue-next/commit/fde46e73c7c439101663c2c5591ed08ab9aca854))
 * Select: 修复点击清空后的触发下拉菜单展开的问题 ([7340f8d](https://github.com/Tencent/tdesign-vue-next/commit/7340f8df87ef20ce44a34ee9c9e102192abd4262)) 
-* Steps: 修复 `slot` 无法渲染的问题 ([e841050](https://github.com/Tencent/tdesign-vue-next/commit/e84105013267ea4292c6b42c74d287f062294bfd))
+* Steps: 修复 `slot` 无法渲染的问题 ([e841050](https://github.com/Tencent/tdesign-vue-next/commit/e84105013267ea4292c6b42c74d287f062294bfd))[@vnues](https://github.com/vnues)
 * Menu:
-  * 修复三级菜单无缩进效果([f6e6142](https://github.com/Tencent/tdesign-vue-next/commit/f6e6142ccf6eea353926c5743138cd7992aa5fff)[#118](https://github.com/Tencent/tdesign-vue-next/issues/118)
-  * 修复禁用菜单还可以点击的问题 ([45db957](https://github.com/Tencent/tdesign-vue-next/commit/45db9574dc76590a1ce27e3aafdd3a040a844a7f)) [#119](https://github.com/Tencent/tdesign-vue-next/issues/119)
-  * 修复 `menu-item` 在不使用 `icon` 插槽的时候, 在左侧收回的时候多了一个数字 ([f801349](https://github.com/Tencent/tdesign-vue-next/commit/f80134917b20ce6400b013743628299c40db2f65))[#124](https://github.com/Tencent/tdesign-vue-next/issues/124)
+  * 修复三级菜单无缩进效果([f6e6142](https://github.com/Tencent/tdesign-vue-next/commit/f6e6142ccf6eea353926c5743138cd7992aa5fff)[#118](https://github.com/Tencent/tdesign-vue-next/issues/118)[@simpleAndElegant](https://github.com/simpleAndElegant)
+  * 修复禁用菜单还可以点击的问题 ([45db957](https://github.com/Tencent/tdesign-vue-next/commit/45db9574dc76590a1ce27e3aafdd3a040a844a7f)) [#119](https://github.com/Tencent/tdesign-vue-next/issues/119)[@simpleAndElegant](https://github.com/simpleAndElegant)
+  * 修复 `menu-item` 在不使用 `icon` 插槽的时候, 在左侧收回的时候多了一个数字 ([f801349](https://github.com/Tencent/tdesign-vue-next/commit/f80134917b20ce6400b013743628299c40db2f65))[#124](https://github.com/Tencent/tdesign-vue-next/issues/124)[@LeeJim](https://github.com/LeeJim)
   * 修复双层导航显示错误 ([99749ed](https://github.com/Tencent/tdesign-vue-next/commit/99749ed4b0eaa57ccfef05a9fa920f36ba313f03)), closes [#75](https://github.com/Tencent/tdesign-vue-next/issues/75)
   * 修复 `change` 事件两次触发的问题([0b65c7a](https://github.com/Tencent/tdesign-vue-next/commit/0b65c7a1852a3e03084a86226d82c7f8d5a70925))
-* Table: 修复 `mouseenter` 和 `mouseleave` 事件无效问题 ([52b6ac0](https://github.com/Tencent/tdesign-vue-next/commit/52b6ac0a67bb8dab59edf4da5a689679ab5d9c92))
-* Table: 修复合并表格下的列宽度无效问题 ([02898ac](https://github.com/Tencent/tdesign-vue-next/commit/02898ac8deb67ee054e3aa7cc80ca733efb5019a))
+* Table:
+  * 修复 `mouseenter` 和 `mouseleave` 事件无效问题 ([52b6ac0](https://github.com/Tencent/tdesign-vue-next/commit/52b6ac0a67bb8dab59edf4da5a689679ab5d9c92))
+  * Table: 修复合并表格下的列宽度无效问题 ([02898ac](https://github.com/Tencent/tdesign-vue-next/commit/02898ac8deb67ee054e3aa7cc80ca733efb5019a))
 * Tabs: 修复循环创建下的结点渲染错误([07d79b6](https://github.com/Tencent/tdesign-vue-next/commit/07d79b6db603e16f63870cae15b2721b7d3ffc29))
 * Textarea: 修复私有类名传入无效问题([e9ad3c4](https://github.com/Tencent/tdesign-vue-next/commit/e9ad3c4003c830e8589ac41e5af3b42f4f71e305))
-* TreeSelect: fix tree-select clear without stopPropagation and transfer tree render ([3324aae](https://github.com/Tencent/tdesign-vue-next/commit/3324aaeb232eb31a7c41b1bf6adb4feb93c51442)), closes[#35](https://github.com/Tencent/tdesign-vue-next/issues/35)
   * 修复在空状态下的加载无效问题 ([797f8a7](https://github.com/Tencent/tdesign-vue-next/commit/797f8a7076f3bb209a41ab8c1fbbdc8ed8023b8b))
   * 修复 `collapsedItem` 渲染异常 ([7539d67](https://github.com/Tencent/tdesign-vue-next/commit/7539d675ee2075d878693367a97945c2fe5d5ea7)),closes [#36](https://github.com/Tencent/tdesign-vue-next/issues/36)
-* Tree:
-  * 修复 `expand` 无效问题 ([ed526af](https://github.com/Tencent/tdesign-vue-next/commit/ed526af41f47c51b9f205f9d7319f97094808aba))
-* Update:
+* Upload:
   * 修复出现两个删除按钮 ([4296ebd](https://github.com/Tencent/tdesign-vue-next/commit/4296ebd908b6a615c8d9307d849c471906a205f9)),[#120](https://github.com/Tencent/tdesign-vue-next/issues/120)
 
 ### Features
@@ -49,12 +46,13 @@ docClass: timeline
 * Cascader:
   * 增加 `value-type` ([f7aaba2](https://github.com/Tencent/tdesign-vue-next/commit/f7aaba26804610fb9c9daec69e7b58003bf311b6))
   * 选择器宽度调整为继承外部宽度 ([41d4434](https://github.com/Tencent/tdesign-vue-next/commit/41d4434ef9cc1a75453b2fc477c11f363b2d55f2))
-* Input: 
-  * 增加左侧、右侧文本 ([db155b3](https://github.com/Tencent/tdesign-vue-next/commit/db155b30fb009374308b2376d4a7dd7bf64338e8))
+* Input:
+  * 增加左侧、右侧文本 ([db155b3](https://github.com/Tencent/tdesign-vue-next/commit/db155b30fb009374308b2376d4a7dd7bf64338e8)) [@vnues](https://github.com/vnues)
   * 增加 `placeholder` 全局配置  ([d727836](https://github.com/Tencent/tdesign-vue-next/commit/d72783641f4724cd16823ff5afe6de8f27933a9a))
 * Steps: 增加 `readonly` 配置 ([d1ba7aa](https://github.com/Tencent/tdesign-vue-next/commit/d1ba7aa0aeb26fb69f57a1e2d41535249a3cad8b))
 * Radio: 支持 `allowUnCheck` ([fa3acbf](https://github.com/Tencent/tdesign-vue-next/commit/fa3acbf199d818fe95d9b4493e641da47ebe2de5))
-* Slider: fix the slider component popup display ([076afde](https://github.com/Tencent/tdesign-vue-next/commit/076afded5e81ab6c09600dc2e0eb97ee05a68860))[#117](https://github.com/Tencent/tdesign-vue-next/issues/117)
+* Slider: 优化 `popup` 显示行为 ([076afde](https://github.com/Tencent/tdesign-vue-next/commit/076afded5e81ab6c09600dc2e0eb97ee05a68860))[#117](https://github.com/Tencent/tdesign-vue-next/issues/117) [@vnues](https://github.com/vnues)
+
 ## 0.6.0 `2021-12-22`
 
 ### BREAKING CHANGES
