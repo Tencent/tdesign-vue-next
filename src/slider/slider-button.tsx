@@ -47,6 +47,7 @@ export default defineComponent({
       overlayStyle: undefined,
       overlayClassName: undefined,
       attach: 'body',
+      popupVisible: false,
     };
   },
 
@@ -118,16 +119,11 @@ export default defineComponent({
         }
       }
     },
-    operatePopup(state: boolean) {
-      if (this.$refs.popup) {
-        (this.$refs.popup as ComponentPublicInstance).showPopper = state;
-      }
-    },
     showPopup() {
-      this.operatePopup(true);
+      this.popupVisible = true;
     },
     hidePopup() {
-      this.operatePopup(false);
+      this.popupVisible = false;
     },
 
     handleMouseEnter() {
@@ -137,7 +133,9 @@ export default defineComponent({
     },
     handleMouseLeave() {
       this.hovering = false;
-      this.hidePopup();
+      if (!this.dragging) {
+        this.hidePopup();
+      }
     },
     onButtonDown(event: MouseEvent | TouchEvent) {
       if (this.disabled) {
@@ -196,7 +194,6 @@ export default defineComponent({
         return;
       }
       this.isClick = false;
-      this.showPopup();
       this.$parent.resetSize();
       let diff = 0;
 
@@ -255,7 +252,6 @@ export default defineComponent({
       value = Number(parseFloat(`${value}`).toFixed(this.precision));
       emitEvent(this, 'input', value);
       this.$nextTick(() => {
-        this.showPopup();
         this.$refs.popup && (this.$refs.popup as ComponentPublicInstance).updatePopper();
       });
       if (!this.dragging && this.value !== this.prevValue) {
@@ -284,6 +280,7 @@ export default defineComponent({
         onKeydown={this.onNativeKeyDown}
       >
         <t-popup
+          visible={this.popupVisible}
           ref="popup"
           popper-class={this.popupClass}
           disabled={!this.showTooltip}
