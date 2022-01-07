@@ -5,7 +5,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
   class="tdesign-demo-item--datepicker"
 >
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
     modelvalue="2021-11-10"
     theme="primary"
   >
@@ -844,7 +844,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
     class="tdesign-demo-item--datepicker"
   >
     <div
-      class="t-date-picker t-input t-size-m"
+      class="t-date-picker t-size-m"
       modelvalue="2020-12-28T00:00:00.000Z,2020-12-28T00:00:00.000Z"
       theme="primary"
     >
@@ -2472,7 +2472,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
     class="tdesign-demo-item--datepicker"
   >
     <div
-      class="t-date-picker t-input t-size-m"
+      class="t-date-picker t-size-m"
       modelvalue="2020-12-28T00:00:00.000Z"
       theme="primary"
     >
@@ -3333,7 +3333,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
   class="tdesign-demo-item--datepicker"
 >
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
     theme="primary"
   >
     <div
@@ -4963,7 +4963,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
   class="tdesign-demo-item--datepicker"
 >
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
     theme="primary"
   >
     <div
@@ -6583,7 +6583,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
   class="tdesign-demo-item--datepicker"
 >
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"
@@ -8180,7 +8180,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
   <br />
   <br />
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
     style="width: 350px;"
     theme="primary"
   >
@@ -9827,7 +9827,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
   class="tdesign-demo-item--datepicker"
 >
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
     theme="primary"
   >
     <div
@@ -10708,7 +10708,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
     class="tdesign-demo-item--datepicker"
   >
     <div
-      class="t-date-picker t-input t-size-m"
+      class="t-date-picker t-size-m"
       theme="primary"
     >
       <div
@@ -11542,7 +11542,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
     class="tdesign-demo-item--datepicker"
   >
     <div
-      class="t-date-picker t-input t-size-m"
+      class="t-date-picker t-size-m"
       theme="primary"
     >
       <div
@@ -12376,7 +12376,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
     class="tdesign-demo-item--datepicker"
   >
     <div
-      class="t-date-picker t-input t-size-m"
+      class="t-date-picker t-size-m"
       theme="primary"
     >
       <div
@@ -13210,7 +13210,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
     class="tdesign-demo-item--datepicker"
   >
     <div
-      class="t-date-picker t-input t-size-m"
+      class="t-date-picker t-size-m"
       theme="primary"
     >
       <div
@@ -14810,7 +14810,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
     class="tdesign-demo-item--datepicker"
   >
     <div
-      class="t-date-picker t-input t-size-m"
+      class="t-date-picker t-size-m"
       theme="primary"
     >
       <div
@@ -15648,7 +15648,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
   class="tdesign-demo-item--datepicker"
 >
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"
@@ -16484,7 +16484,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
   class="tdesign-demo-item--datepicker"
 >
   <div
-    class="t-date-picker t-input t-size-m t-date-picker--month-picker"
+    class="t-date-picker t-size-m t-date-picker--month-picker"
     theme="primary"
   >
     <div
@@ -16840,7 +16840,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
   class="tdesign-demo-item--datepicker"
 >
   <div
-    class="t-date-picker t-input t-size-m t-date-picker--month-picker"
+    class="t-date-picker t-size-m t-date-picker--month-picker"
     theme="primary"
   >
     <div
