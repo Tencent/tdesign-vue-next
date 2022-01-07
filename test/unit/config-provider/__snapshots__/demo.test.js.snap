@@ -1247,7 +1247,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
 >
   
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"
@@ -2078,7 +2078,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
   <br />
   <br />
   <div
-    class="t-date-picker t-input t-size-m"
+    class="t-date-picker t-size-m"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"
@@ -3675,7 +3675,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
   <br />
   <br />
   <div
-    class="t-date-picker t-input t-size-m t-date-picker--month-picker"
+    class="t-date-picker t-size-m t-date-picker--month-picker"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"
@@ -4025,7 +4025,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
   <br />
   <br />
   <div
-    class="t-date-picker t-input t-size-m t-date-picker--month-picker"
+    class="t-date-picker t-size-m t-date-picker--month-picker"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"
@@ -4660,7 +4660,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
   <br />
   <br />
   <div
-    class="t-date-picker t-input t-size-m t-date-picker--month-picker"
+    class="t-date-picker t-size-m t-date-picker--month-picker"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"
@@ -4981,7 +4981,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
   <br />
   <br />
   <div
-    class="t-date-picker t-input t-size-m t-date-picker--month-picker"
+    class="t-date-picker t-size-m t-date-picker--month-picker"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"

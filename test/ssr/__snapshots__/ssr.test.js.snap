@@ -8805,7 +8805,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
 exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.vue correctly 1`] = `
 <div class="tdesign-demo-item__locale-provider-date-picker">
   <!--[-->
-  <div class="t-date-picker t-input t-size-m">
+  <div class="t-date-picker t-size-m">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -9001,7 +9001,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--]-->
     </div>
   </div><br><br>
-  <div class="t-date-picker t-input t-size-m">
+  <div class="t-date-picker t-size-m">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -9373,7 +9373,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--]-->
     </div>
   </div><br><br>
-  <div class="t-date-picker t-input t-size-m t-date-picker--month-picker">
+  <div class="t-date-picker t-size-m t-date-picker--month-picker">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -9457,7 +9457,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--]-->
     </div>
   </div><br><br>
-  <div class="t-date-picker t-input t-size-m t-date-picker--month-picker">
+  <div class="t-date-picker t-size-m t-date-picker--month-picker">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -9605,7 +9605,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--]-->
     </div>
   </div><br><br>
-  <div class="t-date-picker t-input t-size-m t-date-picker--month-picker">
+  <div class="t-date-picker t-size-m t-date-picker--month-picker">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -9684,7 +9684,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--]-->
     </div>
   </div><br><br>
-  <div class="t-date-picker t-input t-size-m t-date-picker--month-picker">
+  <div class="t-date-picker t-size-m t-date-picker--month-picker">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -10959,7 +10959,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/base.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m" modelvalue="2021-11-10" theme="primary">
+  <div class="t-date-picker t-size-m" modelvalue="2021-11-10" theme="primary">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -11160,7 +11160,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/base.vue correct
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/custom-icon.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m" theme="primary">
+  <div class="t-date-picker t-size-m" theme="primary">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -11360,7 +11360,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/custom-icon.vue 
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m" theme="primary">
+  <div class="t-date-picker t-size-m" theme="primary">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -11747,7 +11747,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets.vue
 exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt.vue correctly 1`] = `
 <div>
   <div class="tdesign-demo-item--datepicker">
-    <div class="t-date-picker t-input t-size-m" theme="primary">
+    <div class="t-date-picker t-size-m" theme="primary">
       <div class="t-popup__reference t-date-picker__popup-reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-date-picker">
@@ -12132,7 +12132,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
     </div>
   </div>
   <div class="tdesign-demo-item--datepicker">
-    <div class="t-date-picker t-input t-size-m" modelvalue="2020-12-28T00:00:00.000Z" theme="primary">
+    <div class="t-date-picker t-size-m" modelvalue="2020-12-28T00:00:00.000Z" theme="primary">
       <div class="t-popup__reference t-date-picker__popup-reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-date-picker">
@@ -12344,7 +12344,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-time.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m" theme="primary">
+  <div class="t-date-picker t-size-m" theme="primary">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -12732,7 +12732,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-tim
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m">
+  <div class="t-date-picker t-size-m">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -13104,7 +13104,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       <!--]-->
     </div>
   </div><br><br>
-  <div class="t-date-picker t-input t-size-m" theme="primary" style="width:350px;">
+  <div class="t-date-picker t-size-m" theme="primary" style="width:350px;">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -13488,7 +13488,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/date-time.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m" theme="primary">
+  <div class="t-date-picker t-size-m" theme="primary">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -13697,7 +13697,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-time.vue co
 exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue correctly 1`] = `
 <div>
   <div class="tdesign-demo-item--datepicker">
-    <div class="t-date-picker t-input t-size-m" theme="primary">
+    <div class="t-date-picker t-size-m" theme="primary">
       <div class="t-popup__reference t-date-picker__popup-reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-date-picker">
@@ -13895,7 +13895,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
     </div>
   </div>
   <div class="tdesign-demo-item--datepicker">
-    <div class="t-date-picker t-input t-size-m" theme="primary">
+    <div class="t-date-picker t-size-m" theme="primary">
       <div class="t-popup__reference t-date-picker__popup-reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-date-picker">
@@ -14093,7 +14093,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
     </div>
   </div>
   <div class="tdesign-demo-item--datepicker">
-    <div class="t-date-picker t-input t-size-m" theme="primary">
+    <div class="t-date-picker t-size-m" theme="primary">
       <div class="t-popup__reference t-date-picker__popup-reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-date-picker">
@@ -14291,7 +14291,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
     </div>
   </div>
   <div class="tdesign-demo-item--datepicker">
-    <div class="t-date-picker t-input t-size-m" theme="primary">
+    <div class="t-date-picker t-size-m" theme="primary">
       <div class="t-popup__reference t-date-picker__popup-reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-date-picker">
@@ -14665,7 +14665,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
     </div>
   </div>
   <div class="tdesign-demo-item--datepicker">
-    <div class="t-date-picker t-input t-size-m" theme="primary">
+    <div class="t-date-picker t-size-m" theme="primary">
       <div class="t-popup__reference t-date-picker__popup-reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-date-picker">
@@ -14867,7 +14867,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/first-day-of-week.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m">
+  <div class="t-date-picker t-size-m">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -15068,7 +15068,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/first-day-of-wee
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/month.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m t-date-picker--month-picker" theme="primary">
+  <div class="t-date-picker t-size-m t-date-picker--month-picker" theme="primary">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -15157,7 +15157,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/month.vue correc
 
 exports[`ssr snapshot test renders ./examples/date-picker/demos/year.vue correctly 1`] = `
 <div class="tdesign-demo-item--datepicker">
-  <div class="t-date-picker t-input t-size-m t-date-picker--month-picker" theme="primary">
+  <div class="t-date-picker t-size-m t-date-picker--month-picker" theme="primary">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
@@ -29079,7 +29079,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                             <!--[-->
                             <div class="t-table__filter-pop-content">
                               <div class="t-table__filter-pop-content-inner">
-                                <div class="t-date-picker t-input t-size-m t-date-picker--month-picker">
+                                <div class="t-date-picker t-size-m t-date-picker--month-picker">
                                   <div class="t-popup__reference t-date-picker__popup-reference">
                                     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                                       <div class="t-popup__content t-date-picker">
