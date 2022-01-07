@@ -47,7 +47,7 @@ const app = createApp(App);
 app.use(Button);
 ```
 
-npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign/blob/main/develop-install.md) 了解不同目录下产物的差别。
+npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign/blob/main/docs/develop-install.md) 了解不同目录下产物的差别。
 
 ### 快速体验
 
