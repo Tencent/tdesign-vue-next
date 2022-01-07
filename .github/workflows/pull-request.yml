@@ -2,7 +2,7 @@ name: MAIN_PULL_REQUEST
 
 on:
   pull_request:
-    branches: [develop, main]
+    branches: [develop, main, compositionAPI]
     types: [opened, synchronize, reopened]
 
 jobs:
