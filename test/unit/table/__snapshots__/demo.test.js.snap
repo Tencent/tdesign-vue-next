@@ -4200,7 +4200,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                   class="t-table__filter-pop-content-inner"
                                 >
                                   <div
-                                    class="t-date-picker t-input t-size-m t-date-picker--month-picker"
+                                    class="t-date-picker t-size-m t-date-picker--month-picker"
                                   >
                                     <div
                                       class="t-popup__reference t-date-picker__popup-reference"
