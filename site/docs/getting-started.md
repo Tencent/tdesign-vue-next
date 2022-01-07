@@ -29,7 +29,7 @@ npm i tdesign-vue-next
 <script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
 ```
 
-npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign/blob/main/develop-install.md) 了解不同目录下产物的差别。
+npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign/blob/main/docs/develop-install.md) 了解不同目录下产物的差别。
 
 ### 基础使用
 
