@@ -100,6 +100,16 @@ export default {
       return ['top', 'middle', 'bottom'].includes(val);
     },
   },
+  /** 是否启用懒加载 */
+  lazy: {
+    type: Boolean as PropType<TdBaseTableProps['lazy']>,
+    default: false as TdBaseTableProps['lazy'],
+  },
+  /** 行高 */
+  rowHeight: {
+    type: Number as PropType<TdBaseTableProps['rowHeight']>,
+    default: 20 as TdBaseTableProps['rowHeight'],
+  },
   /** 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型 */
   onPageChange: Function as PropType<TdBaseTableProps['onPageChange']>,
   /** 行点击时触发，泛型 T 指表格数据类型 */

@@ -1,4 +1,4 @@
-import { VNode, PropType, defineComponent, h } from 'vue';
+import { VNode, PropType, defineComponent, h, ref, onMounted } from 'vue';
 import get from 'lodash/get';
 import { prefix } from '../../config';
 import { RowspanColspan } from '../type';
@@ -22,50 +22,105 @@ const eventsName = {
   dragover: 'row-dragover',
 };
 
+const observe = (element: HTMLElement, callback: Function) => {
+  try {
+    const io = new window.IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting || entry.intersectionRatio) {
+          callback();
+          io.unobserve(element);
+        }
+      },
+      {
+        rootMargin: '500px 0px',
+        root: null,
+        threshold: [0, Number.MIN_VALUE, 0.01],
+      },
+    );
+    io.observe(element);
+    return io;
+  } catch (e) {
+    console.error(e);
+    callback();
+  }
+};
+
+const requestAnimationFrame = window.requestAnimationFrame || ((cb) => setTimeout(cb, 1000 / 60));
+const TableRowProps = {
+  rowClass: baseTableProps.rowClassName,
+  columns: baseTableProps.columns,
+  rowKey: baseTableProps.rowKey,
+  rowspanAndColspanProps: {
+    type: Object as PropType<RowspanColspan>,
+    required: false,
+    default() {
+      return {};
+    },
+  },
+  rowData: {
+    type: Object,
+    default(): any {
+      return {};
+    },
+  },
+  index: {
+    type: Number as PropType<number>,
+    default: -1,
+  },
+  current: {
+    type: Number as PropType<number>,
+    default: 1,
+  },
+  lazy: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  rowHeight: {
+    type: Number as PropType<number>,
+    default: 20,
+  },
+  provider: {
+    type: Object,
+    default() {
+      return {
+        sortOnRowDraggable: false,
+      };
+    },
+  },
+};
+
 export default defineComponent({
   name: `${prefix}-table-row`,
   components: {
     TableCell,
   },
-  props: {
-    rowClass: baseTableProps.rowClassName,
-    columns: baseTableProps.columns,
-    rowKey: baseTableProps.rowKey,
-    rowspanAndColspanProps: {
-      type: Object as PropType<RowspanColspan>,
-      required: false,
-      default() {
-        return {};
-      },
-    },
-    rowData: {
-      type: Object,
-      default(): any {
-        return {};
-      },
-    },
-    index: {
-      type: Number,
-      default: -1,
-    },
-    current: {
-      type: Number,
-      default: 1,
-    },
-    provider: {
-      type: Object,
-      default() {
-        return {
-          sortOnRowDraggable: false,
-        };
-      },
-    },
-  },
+  props: TableRowProps,
   emits: [...Object.keys(eventsName).map((key) => eventsName[key])],
+  setup(props) {
+    const tr = ref(null);
+    const isInit = ref(false);
+    const init = () => {
+      !isInit.value &&
+        requestAnimationFrame(() => {
+          isInit.value = true;
+        });
+    };
+    onMounted(() => {
+      props.lazy && observe(tr.value, init);
+    });
+    return {
+      tr,
+      isInit,
+    };
+  },
   methods: {
     // 渲染行
     renderRow(): Array<VNode> {
-      const { rowData, columns, index: rowIndex, rowspanAndColspanProps } = this;
+      const { rowData, columns, index: rowIndex, rowspanAndColspanProps, lazy, isInit, rowHeight } = this;
+      if (lazy && !isInit) {
+        return [<td style={{ height: `${rowHeight}px` }} />];
+      }
       const rowBody: Array<VNode> = [];
       let flag = true;
       columns.forEach((column, index) => {
@@ -162,7 +217,7 @@ export default defineComponent({
     };
 
     return (
-      <tr {...trProps} draggable={provider.sortOnRowDraggable}>
+      <tr ref="tr" {...trProps} draggable={provider.sortOnRowDraggable}>
         {this.renderRow()}
       </tr>
     );

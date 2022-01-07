@@ -20,6 +20,8 @@ export default defineComponent({
     rowspanAndColspan: baseTableProps.rowspanAndColspan,
     firstFullRow: baseTableProps.firstFullRow,
     lastFullRow: baseTableProps.lastFullRow,
+    lazy: baseTableProps.lazy,
+    rowHeight: baseTableProps.rowHeight,
     onRowHover: baseTableProps.onRowHover,
     onRowMousedown: baseTableProps.onRowMousedown,
     onRowMouseenter: baseTableProps.onRowMouseenter,

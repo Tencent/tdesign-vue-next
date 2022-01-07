@@ -106,6 +106,16 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   verticalAlign?: 'top' | 'middle' | 'bottom';
   /**
+   * 是否启用懒加载
+   * @default false
+   */
+  lazy?: boolean;
+  /**
+   * 行高
+   * @default 20
+   */
+  rowHeight?: number;
+  /**
    * 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型
    */
   onPageChange?: (pageInfo: PageInfo, newDataSource: Array<T>) => void;

@@ -193,6 +193,8 @@ export default defineComponent({
         rowspanAndColspan: this.rowspanAndColspan,
         firstFullRow: this.firstFullRow,
         lastFullRow: this.lastFullRow,
+        lazy: this.lazy,
+        rowHeight: this.rowHeight,
       };
       return (
         <TableBody {...props} {...rowEvents}>
