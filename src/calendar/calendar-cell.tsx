@@ -12,6 +12,12 @@ import { COMPONENT_NAME } from './const';
 import { CalendarCell } from './type';
 import { renderTNodeJSXDefault, renderTNodeJSX } from '../utils/render-tnode';
 
+const clickTypeEmitEventMap = {
+  click: 'click',
+  dblclick: 'dblclick',
+  contextmenu: 'rightclick',
+};
+
 export default defineComponent({
   name: `${COMPONENT_NAME}-cell`,
   inheritAttrs: false,
@@ -32,7 +38,7 @@ export default defineComponent({
     global: Object,
     cell: Function,
   },
-  emits: ['click', 'dblclick', 'rightClick'],
+  emits: ['click', 'dblclick', 'rightclick'],
   computed: {
     allowSlot(): boolean {
       return this.theme === 'full';
@@ -66,17 +72,12 @@ export default defineComponent({
   methods: {
     clickCell(e: MouseEvent) {
       if (this.disabled) return;
-      emitEvent(this, 'click', e);
-    },
-    dblclick(e: MouseEvent) {
-      emitEvent(this, 'dblclick', e);
-    },
-    contextmenuClick(e: MouseEvent) {
-      emitEvent(this, 'rightClick', e);
+      emitEvent(this, clickTypeEmitEventMap[e.type], e);
     },
   },
   render() {
-    const { item, cellCls, clickCell, dblclick, contextmenuClick, valueDisplay, allowSlot } = this;
+    // const { item, cellCls, clickCell, dblclick, contextmenuClick, valueDisplay, allowSlot } = this;
+    const { item, cellCls, clickCell, valueDisplay, allowSlot } = this;
 
     const defaultNode = () => (
       <span>
@@ -92,7 +93,7 @@ export default defineComponent({
 
     return (
       item && (
-        <div class={cellCls} onClick={clickCell} ondblclick={dblclick} oncontextmenu={contextmenuClick}>
+        <div class={cellCls} onClick={clickCell} ondblclick={clickCell} oncontextmenu={clickCell}>
           {typeof this.cell === 'function'
             ? this.cell(item)
             : renderTNodeJSXDefault(this, 'cell', {
