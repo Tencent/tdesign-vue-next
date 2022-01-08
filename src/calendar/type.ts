@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2021-12-23 15:12:22
  * */
 
 import { RadioGroupProps } from '../radio';
@@ -89,6 +89,10 @@ export interface TdCalendarProps {
    * 右上角控件组选中值有变化的时候触发
    */
   onControllerChange?: (options: ControllerOptions) => void;
+  /**
+   * 月份切换时触发
+   */
+  onMonthChange?: (options: { month: string; year: string }) => void;
 }
 
 export interface CalendarController {

@@ -2,9 +2,10 @@
   <div>
     <t-calendar
       :value="value"
-      @click-cell="cellClick"
-      @double-click-cell="cellDoubleClick"
-      @right-click-cell="cellRightClick"
+      @cell-click="cellClick"
+      @cell-double-click="cellDoubleClick"
+      @cell-right-click="cellRightClick"
+      @month-change="monthChange"
       @controller-change="controllerChange"
     />
   </div>
@@ -29,6 +30,10 @@ export default defineComponent({
       console.log(`鼠标右键点击元格 ${options.cell.formattedDate}`);
     };
 
+    const monthChange = (options) => {
+      console.log(`月份切换 ${options.year}-${options.month}`);
+    };
+
     const controllerChange = (data) => {
       console.log('控件值变化', data);
     };
@@ -38,6 +43,7 @@ export default defineComponent({
       cellClick,
       cellDoubleClick,
       cellRightClick,
+      monthChange,
       controllerChange,
     };
   },
