@@ -74,7 +74,7 @@
     "dayjs": "^1.9.7",
     "less": "^4.1.2",
     "lodash": "^4.17.15",
-    "tdesign-icons-vue-next": "0.0.3",
+    "tdesign-icons-vue-next": "~0.0.5",
     "validator": "^13.5.1"
   },
   "peerDependencies": {
@@ -116,7 +116,7 @@
     "css-element-queries": "^1.2.3",
     "cypress": "^9.1.1",
     "cz-conventional-changelog": "^3.0.2",
-    "esbuild": "^0.12.29",
+    "esbuild": "^0.14.11",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
