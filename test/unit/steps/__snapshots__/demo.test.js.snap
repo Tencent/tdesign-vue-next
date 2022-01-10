@@ -182,7 +182,7 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
         class="t-steps-item__icon t-steps-item--finish"
       >
         <svg
-          class="t-icon t-icon-login icon-margin icon-margin"
+          class="t-icon t-icon-login icon-margin"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -231,7 +231,7 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
         class="t-steps-item__icon t-steps-item--process"
       >
         <svg
-          class="t-icon t-icon-cart icon-margin icon-margin"
+          class="t-icon t-icon-cart icon-margin"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -275,7 +275,7 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
         class="t-steps-item__icon t-steps-item--default"
       >
         <svg
-          class="t-icon t-icon-wallet icon-margin icon-margin"
+          class="t-icon t-icon-wallet icon-margin"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -319,7 +319,7 @@ exports[`Steps Steps iconVue demo works fine 1`] = `
         class="t-steps-item__icon t-steps-item--default"
       >
         <svg
-          class="t-icon t-icon-check-circle icon-margin icon-margin"
+          class="t-icon t-icon-check-circle icon-margin"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"

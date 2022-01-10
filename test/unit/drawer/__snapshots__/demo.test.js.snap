@@ -259,7 +259,7 @@ exports[`Drawer Drawer baseVue demo works fine 1`] = `
         class="t-drawer__close-btn"
       >
         <svg
-          class="t-icon t-icon-close t-submenu-icon t-submenu-icon"
+          class="t-icon t-icon-close t-submenu-icon"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"

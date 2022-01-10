@@ -32,7 +32,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
                   class="t-popconfirm__body"
                 >
                   <svg
-                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -126,7 +126,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
                   class="t-popconfirm__body"
                 >
                   <svg
-                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -229,7 +229,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
                 class="t-popconfirm__body"
               >
                 <svg
-                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                   fill="none"
                   height="1em"
                   viewBox="0 0 16 16"
@@ -319,7 +319,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
                 class="t-popconfirm__body"
               >
                 <svg
-                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                   fill="none"
                   height="1em"
                   viewBox="0 0 16 16"
@@ -409,7 +409,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
                 class="t-popconfirm__body"
               >
                 <svg
-                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                   fill="none"
                   height="1em"
                   viewBox="0 0 16 16"
@@ -521,7 +521,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
                   class="t-popconfirm__body"
                 >
                   <svg
-                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -625,7 +625,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
                   class="t-popconfirm__body"
                 >
                   <svg
-                    class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning t-popconfirm__icon--warning"
+                    class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -740,7 +740,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                   class="t-popconfirm__body"
                 >
                   <svg
-                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                    class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -833,7 +833,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                   class="t-popconfirm__body"
                 >
                   <svg
-                    class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning t-popconfirm__icon--warning"
+                    class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -926,7 +926,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                   class="t-popconfirm__body"
                 >
                   <svg
-                    class="t-icon t-icon-error-circle-filled t-popconfirm__icon--danger t-popconfirm__icon--danger"
+                    class="t-icon t-icon-error-circle-filled t-popconfirm__icon--danger"
                     fill="none"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -1222,7 +1222,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
                 class="t-popconfirm__body"
               >
                 <svg
-                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                   fill="none"
                   height="1em"
                   viewBox="0 0 16 16"
@@ -1311,7 +1311,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
                 class="t-popconfirm__body"
               >
                 <svg
-                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                  class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                   fill="none"
                   height="1em"
                   viewBox="0 0 16 16"

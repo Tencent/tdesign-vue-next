@@ -425,7 +425,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -453,7 +453,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -656,7 +656,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -684,7 +684,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -907,7 +907,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -935,7 +935,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2076,7 +2076,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           )
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2100,7 +2100,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           )
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2124,7 +2124,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           )
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2466,7 +2466,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           选项四(4) 
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2487,7 +2487,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           选项五(5) 
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2508,7 +2508,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           选项六(6) 
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2529,7 +2529,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           选项七(7) 
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -3827,7 +3827,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4295,7 +4295,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4323,7 +4323,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4607,7 +4607,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4635,7 +4635,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4663,7 +4663,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4691,7 +4691,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4719,7 +4719,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4747,7 +4747,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5026,7 +5026,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5054,7 +5054,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5082,7 +5082,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5110,7 +5110,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
