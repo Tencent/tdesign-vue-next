@@ -1,9 +1,19 @@
 import { ref, toRefs, reactive, onMounted, computed, watch } from 'vue';
 
-const showLog = true;
-
 // 虚拟滚动Hooks的完整实现，只所以封装成hooks，主要是为了方便跟其他组件搭配使用，比如说表格或者下拉框
-const useVirtualScroll = ({ data, table, fixedHeight = false, lineHeight = 30, bufferSize = 5 }) => {
+const useVirtualScroll = ({
+  data,
+  table,
+  fixedHeight = false,
+  lineHeight = 30,
+  bufferSize = 5,
+}: {
+  data: any;
+  table: any;
+  fixedHeight: boolean;
+  lineHeight: number;
+  bufferSize: number;
+}) => {
   const state = reactive({
     visibleData: [],
     cachedHeight: [],
@@ -21,7 +31,7 @@ const useVirtualScroll = ({ data, table, fixedHeight = false, lineHeight = 30, b
   let revising = false; // 是否正在修正滚动条
 
   const reset = () => {
-    data.value.forEach((item, i) => {
+    data.value.forEach((item: any, i: number) => {
       item.$index = i;
       if (fixedHeight) {
         state.cachedScrollY[i] = i * lineHeight;
@@ -203,7 +213,6 @@ const useVirtualScroll = ({ data, table, fixedHeight = false, lineHeight = 30, b
   const refreshTable = (type = 'refresh') => {
     if (mounted) {
       visibleCount = Math.ceil(table.value.offsetHeight / lineHeight);
-      showLog && console.log(`[table content ${type}]: visibleCount = ${visibleCount}`);
       updateVisibleData();
     }
   };
