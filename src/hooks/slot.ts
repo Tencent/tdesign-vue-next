@@ -7,7 +7,7 @@ import { Slots, VNode, Component } from 'vue';
  * @param childComponentName
  * @returns
  */
-export function useChildSlots(slot: Slots, childComponentName: string) {
+export function useChildComponentSlots(slot: Slots, childComponentName: string) {
   const content = slot?.default();
   return content
     .map((item: VNode) => {

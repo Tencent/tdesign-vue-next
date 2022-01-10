@@ -1,7 +1,7 @@
 import { defineComponent, VNode, computed } from 'vue';
 import { prefix } from '../config';
 import props from './props';
-import { useChildSlots } from '../hooks/slot';
+import { useChildComponentSlots } from '../hooks/slot';
 
 const name = `${prefix}-swiper`;
 
@@ -12,7 +12,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props, { slots }) {
-    const items = computed(() => useChildSlots(slots, 'TSwiperItem'));
+    const items = computed(() => useChildComponentSlots(slots, 'TSwiperItem'));
     return {
       items,
     };
