@@ -12,6 +12,8 @@ export type FormItemInstance = InstanceType<typeof FormItem>;
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
+const name = `${prefix}-form`;
+
 export default defineComponent({
   name: 'TForm',
 
@@ -36,7 +38,7 @@ export default defineComponent({
       return [
         CLASS_NAMES.form,
         {
-          't-form-inline': this.layout === 'inline',
+          [`${name}-inline`]: this.layout === 'inline',
         },
       ];
     },

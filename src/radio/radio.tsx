@@ -4,6 +4,7 @@ import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import props from './props';
 import { emitEvent } from '../utils/event';
+import { TdRadioProps } from './type';
 
 const name = `${prefix}-radio`;
 export const radioBtnName = `${prefix}-radio-button`;
@@ -26,7 +27,7 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: { ...props },
-  emits: ['change'],
+  emits: ['change', 'click'],
   methods: {
     handleChange(e: Event) {
       if (this.radioGroup && this.radioGroup.handleRadioChange) {
@@ -34,6 +35,15 @@ export default defineComponent({
       } else {
         const target = e.target as HTMLInputElement;
         emitEvent(this, 'change', target.checked, { e });
+      }
+    },
+    handleClick(e: Event) {
+      this.$emit('click');
+      if (!this.checked || !this.allowUncheck) return;
+      if (this.radioGroup) {
+        this.radioGroup.$emit('checked-change', undefined, { e });
+      } else {
+        emitEvent<Parameters<TdRadioProps['onChange']>>(this, 'change', false, { e });
       }
     },
   },
@@ -85,6 +95,7 @@ export default defineComponent({
           {...inputEvents}
           {...inputProps}
           onChange={this.handleChange}
+          onClick={this.handleClick}
         />
         <span class={`${prefixCls}__input`}></span>
         <span class={`${prefixCls}__label`}>{children}</span>

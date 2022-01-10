@@ -1,7 +1,8 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
 import { prefix } from '../config';
 import props from './props';
 import { TVNode } from '../common';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-swiper`;
 
@@ -24,11 +25,16 @@ export default defineComponent({
 
   computed: {
     items(): VNode[] {
-      const { default: defaultSlot } = this.$slots;
-      return ((defaultSlot && defaultSlot()) || []).filter((child) => {
-        const node = child as VNode;
-        return node.type && (node.type as TVNode).name === 'TSwiperItem';
-      });
+      const content = renderTNodeJSX(this, 'default');
+      return content
+        .map((item: ComponentPublicInstance) => {
+          if (item.children && Array.isArray(item.children)) return item.children;
+          return item;
+        })
+        .flat()
+        .filter((item: ComponentPublicInstance) => {
+          return item.type.name === 'TSwiperItem';
+        });
     },
   },
 

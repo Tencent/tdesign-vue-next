@@ -1094,13 +1094,14 @@ exports[`Select Select creatableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-input__inner t-select__input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
         >
           <!---->
           <!---->
           <input
             autocomplete="false"
+            class="t-input__inner"
             placeholder="支持自定义创建"
             readonly=""
             type="text"
@@ -2980,13 +2981,14 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-input__inner t-select__input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
         >
           <!---->
           <!---->
           <input
             autocomplete="false"
+            class="t-input__inner"
             placeholder="-请选择-"
             readonly=""
             type="text"
@@ -3168,13 +3170,14 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-input__inner t-select__input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
         >
           <!---->
           <!---->
           <input
             autocomplete="false"
+            class="t-input__inner"
             placeholder="-请选择-"
             readonly=""
             type="text"
@@ -5692,13 +5695,14 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-input__inner t-select__input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
         >
           <!---->
           <!---->
           <input
             autocomplete="false"
+            class="t-input__inner"
             placeholder="-请选择-"
             readonly=""
             type="text"
@@ -5880,13 +5884,14 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-input__inner t-select__input"
+          class="t-input t-size-m t-select__input"
           modelvalue=""
         >
           <!---->
           <!---->
           <input
             autocomplete="false"
+            class="t-input__inner"
             placeholder="-请输入搜索-"
             readonly=""
             type="text"

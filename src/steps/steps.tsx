@@ -1,4 +1,4 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
 import { prefix } from '../config';
 import props from './props';
 import TStepItem from './step-item';
@@ -7,6 +7,7 @@ import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { StepsConfig } from '../config-provider/config-receiver';
 import { TdStepsProps, TdStepItemProps } from './type';
 import { emitEvent } from '../utils/event';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-steps`;
 
@@ -117,18 +118,40 @@ export default defineComponent({
     handleChange(cur: TdStepsProps['current'], prev: TdStepsProps['current'], e: MouseEvent) {
       emitEvent<Parameters<TdStepsProps['onChange']>>(this, 'change', cur, prev, { e });
     },
+    renderContent() {
+      let content = null;
+      const options = this.getOptions();
+      if (this.$slots.default) {
+        content = renderTNodeJSX(this, 'default');
+        content = content
+          .map((item: ComponentPublicInstance) => {
+            if (item.children && Array.isArray(item.children)) return item.children;
+            return item;
+          })
+          .flat()
+          .filter((item: ComponentPublicInstance) => {
+            return item.type.name === 'TStepItem';
+          });
+
+        content?.forEach((item: VNode, index: number) => {
+          item.props.status = this.handleStatus(item.props as TdStepItemProps, index);
+        });
+        return content;
+      }
+      content = options.map((item, index) => (
+        <t-step-item
+          {...{
+            ...item,
+            status: this.handleStatus(item, index),
+          }}
+          key={item.value || index}
+        ></t-step-item>
+      ));
+      return content;
+    },
   },
   render() {
-    const options = this.getOptions();
-    const content = options.map((item, index) => (
-      <t-step-item
-        {...{
-          ...item,
-          status: this.handleStatus(item, index),
-        }}
-        key={item.value || index}
-      ></t-step-item>
-    ));
-    return <div class={this.baseClass}>{content}</div>;
+    const { baseClass, renderContent } = this;
+    return <div class={baseClass}>{renderContent()}</div>;
   },
 });

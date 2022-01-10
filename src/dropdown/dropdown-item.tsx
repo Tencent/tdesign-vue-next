@@ -18,6 +18,11 @@ export default defineComponent({
     TDivider,
   },
   directives: { ripple },
+  inject: {
+    dropdown: {
+      default: undefined,
+    },
+  },
   props: {
     ...itemProps,
     path: {
@@ -27,14 +32,6 @@ export default defineComponent({
     hasChildren: {
       type: Boolean,
       default: false,
-    },
-    maxColumnWidth: {
-      type: Number,
-      default: 100,
-    },
-    minColumnWidth: {
-      type: Number,
-      default: 10,
     },
   },
   emits: ['click', 'item-hover', 'hover'],
@@ -52,6 +49,7 @@ export default defineComponent({
         };
         emitEvent(this, 'click', data, { e });
         emitEvent(this, 'item-hover', this.path);
+        this.dropdown.handleMenuClick(data, { e });
       }
     },
     handleMouseover(): void {

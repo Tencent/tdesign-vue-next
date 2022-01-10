@@ -30,5 +30,14 @@
         <t-alert theme="error" message="【到期提醒】" />
       </t-swiper-item>
     </t-swiper>
+
+    <t-swiper :duration="1000">
+      <t-swiper-item>
+        <t-alert theme="error" message="【到期提醒】" />
+      </t-swiper-item>
+      <t-swiper-item v-for="v in 3" :key="v">
+        <t-alert theme="success" message="【到期提醒】" />
+      </t-swiper-item>
+    </t-swiper>
   </div>
 </template>

@@ -1,5 +1,6 @@
 import { defineComponent, nextTick } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
+import { addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
 import { prefix } from '../config';
 import { Button as TButton } from '../button';
@@ -16,6 +17,7 @@ import getConfigReceiverMixins, { DrawerConfig } from '../config-provider/config
 type FooterButtonType = 'confirm' | 'cancel';
 
 const name = `${prefix}-drawer`;
+const lockClass = `${prefix}-drawer--lock`;
 
 export default defineComponent({
   ...mixins(ActionMixin, getConfigReceiverMixins<DrawerConfig>('drawer')),
@@ -96,6 +98,16 @@ export default defineComponent({
     modeAndPlacement: {
       handler() {
         this.handlePushMode();
+      },
+      immediate: true,
+    },
+    visible: {
+      handler(value) {
+        if (value && !this.showInAttachedElement) {
+          this.preventScrollThrough && addClass(document.body, lockClass);
+        } else {
+          this.preventScrollThrough && removeClass(document.body, lockClass);
+        }
       },
       immediate: true,
     },

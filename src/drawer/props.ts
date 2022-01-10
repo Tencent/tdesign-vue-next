@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2022-01-04 10:19:08
  * */
 
 import { TdDrawerProps } from './type';
@@ -75,6 +75,11 @@ export default {
       return ['left', 'right', 'top', 'bottom'].includes(val);
     },
   },
+  /** 防止滚动穿透 */
+  preventScrollThrough: {
+    type: Boolean,
+    default: true,
+  },
   /** 仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative */
   showInAttachedElement: Boolean,
   /** 是否显示遮罩层 */
@@ -91,8 +96,6 @@ export default {
   sizeDraggable: Boolean,
   /** 组件是否可见 */
   visible: Boolean,
-  /** 组件是否可见，非受控属性 */
-  defaultVisible: Boolean,
   /** 抽屉层级，样式默认为 1500 */
   zIndex: {
     type: Number,
