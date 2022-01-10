@@ -871,7 +871,7 @@ exports[`Tabs Tabs customVue demo works fine 1`] = `
                   原有选项卡1
                 </span>
                 <svg
-                  class="t-icon t-icon-close remove-btn remove-btn"
+                  class="t-icon t-icon-close remove-btn"
                   fill="none"
                   height="1em"
                   viewBox="0 0 16 16"
@@ -893,7 +893,7 @@ exports[`Tabs Tabs customVue demo works fine 1`] = `
                   原有选项卡2
                 </span>
                 <svg
-                  class="t-icon t-icon-close remove-btn remove-btn"
+                  class="t-icon t-icon-close remove-btn"
                   fill="none"
                   height="1em"
                   viewBox="0 0 16 16"
@@ -1050,7 +1050,7 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
                   >
                     
                     <svg
-                      class="t-icon t-icon-home tabs-icon-margin tabs-icon-margin"
+                      class="t-icon t-icon-home tabs-icon-margin"
                     >
                       <use
                         href="#t-icon-home"
@@ -1072,7 +1072,7 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
                   >
                     
                     <svg
-                      class="t-icon t-icon-calendar tabs-icon-margin tabs-icon-margin"
+                      class="t-icon t-icon-calendar tabs-icon-margin"
                     >
                       <use
                         href="#t-icon-calendar"
@@ -1094,7 +1094,7 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
                   >
                     
                     <svg
-                      class="t-icon t-icon-layers tabs-icon-margin tabs-icon-margin"
+                      class="t-icon t-icon-layers tabs-icon-margin"
                     >
                       <use
                         href="#t-icon-layers"
@@ -1222,7 +1222,7 @@ exports[`Tabs Tabs operationVue demo works fine 1`] = `
                   原有选项卡
                 </span>
                 <svg
-                  class="t-icon t-icon-close remove-btn remove-btn"
+                  class="t-icon t-icon-close remove-btn"
                   fill="none"
                   height="1em"
                   viewBox="0 0 16 16"

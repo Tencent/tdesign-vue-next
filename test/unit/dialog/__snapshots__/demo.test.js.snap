@@ -965,7 +965,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+            class="t-icon t-icon-info-circle-filled t-is-info"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1047,7 +1047,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-is-warning t-is-warning"
+            class="t-icon t-icon-error-circle-filled t-is-warning"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1129,7 +1129,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-is-error t-is-error"
+            class="t-icon t-icon-error-circle-filled t-is-error"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1211,7 +1211,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-check-circle-filled t-is-success t-is-success"
+            class="t-icon t-icon-check-circle-filled t-is-success"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1864,7 +1864,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+            class="t-icon t-icon-info-circle-filled t-is-info"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1959,7 +1959,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-check-circle-filled t-is-success t-is-success"
+            class="t-icon t-icon-check-circle-filled t-is-success"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2054,7 +2054,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-is-warning t-is-warning"
+            class="t-icon t-icon-error-circle-filled t-is-warning"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2140,7 +2140,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-is-error t-is-error"
+            class="t-icon t-icon-error-circle-filled t-is-error"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
