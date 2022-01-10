@@ -527,7 +527,7 @@ exports[`Button Button iconVue demo works fine 1`] = `
       class="demo-button-col"
     >
       <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-circle"
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
         type="button"
       >
         
@@ -544,7 +544,7 @@ exports[`Button Button iconVue demo works fine 1`] = `
         
       </button>
       <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-circle"
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
         type="button"
       >
         
@@ -720,7 +720,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
       class="item"
     >
       <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-square"
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-square t-button--icon-only"
         type="button"
       >
         
@@ -763,7 +763,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
       class="item"
     >
       <button
-        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-circle"
+        class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only"
         type="button"
       >
         
@@ -810,7 +810,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
       class="item"
     >
       <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square"
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only"
         type="button"
       >
         
@@ -853,7 +853,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
       class="item"
     >
       <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-circle"
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-circle t-button--icon-only"
         type="button"
       >
         
@@ -900,7 +900,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
       class="item"
     >
       <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--icon-only t-button--shape-square"
+        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-square t-button--icon-only"
         type="button"
       >
         
@@ -943,7 +943,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
       class="item"
     >
       <button
-        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--icon-only t-button--shape-circle"
+        class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-circle t-button--icon-only"
         type="button"
       >
         
@@ -990,7 +990,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
       class="item"
     >
       <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-button--shape-square"
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only"
         type="button"
       >
         
@@ -1033,7 +1033,7 @@ exports[`Button Button shapeVue demo works fine 1`] = `
       class="item"
     >
       <button
-        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-button--shape-circle"
+        class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-circle t-button--icon-only"
         type="button"
       >
         
