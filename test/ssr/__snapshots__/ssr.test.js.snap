@@ -7615,7 +7615,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
               <!--[-->
               <th class="t-calendar__table-head-cell"><span style="color:#000000e6">星期1</span></th>
               <th class="t-calendar__table-head-cell"><span style="color:#000000e6">星期2</span></th>
-              <th class="t-calendar__table-head-cell"><span style="color:#dd4a68">无加班日</span></th>
+              <th class="t-calendar__table-head-cell"><span style="color:#dd4a68">周三啦</span></th>
               <th class="t-calendar__table-head-cell"><span style="color:#000000e6">星期4</span></th>
               <th class="t-calendar__table-head-cell"><span style="color:#000000e6">星期5</span></th>
               <th class="t-calendar__table-head-cell"><span style="color:#0052d9">放假啦</span></th>

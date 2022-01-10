@@ -1,7 +1,7 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, VNode, computed } from 'vue';
 import { prefix } from '../config';
 import props from './props';
-import { TVNode } from '../common';
+import { useChildComponentSlots } from '../hooks/slot';
 
 const name = `${prefix}-swiper`;
 
@@ -10,6 +10,13 @@ export default defineComponent({
   components: {},
 
   props: { ...props },
+
+  setup(props, { slots }) {
+    const items = computed(() => useChildComponentSlots(slots, 'TSwiperItem'));
+    return {
+      items,
+    };
+  },
 
   data() {
     return {
@@ -20,16 +27,6 @@ export default defineComponent({
       // 自动轮播定时器handler
       timeoutHandler: null,
     };
-  },
-
-  computed: {
-    items(): VNode[] {
-      const { default: defaultSlot } = this.$slots;
-      return ((defaultSlot && defaultSlot()) || []).filter((child) => {
-        const node = child as VNode;
-        return node.type && (node.type as TVNode).name === 'TSwiperItem';
-      });
-    },
   },
 
   watch: {
