@@ -1,5 +1,15 @@
 :: BASE_DOC ::
 
+### 懒加载
+
+::: demo demos/lazy table
+:::
+
+### 虚拟滚动
+
+::: demo demos/virtual-scroll table
+:::
+
 ## API
 ### BaseTable Props
 
