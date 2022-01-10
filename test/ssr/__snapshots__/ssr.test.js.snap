@@ -27613,6 +27613,98 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
       <!--]-->
     </ul>
   </div>
+  <div class="t-swiper">
+    <div class="t-swiper__content">
+      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 1s;">
+        <!--[-->
+        <div>
+          <!--[-->
+          <div class="t-alert t-alert--error">
+            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
+                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fillopacity="0.9"></path>
+              </svg></div>
+            <div class="t-alert__content">
+              <!---->
+              <div class="t-alert__message">
+                <div class="t-alert__description">【到期提醒】
+                  <!---->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+        </div>
+        <div>
+          <!--[-->
+          <div class="t-alert t-alert--success">
+            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
+                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
+              </svg></div>
+            <div class="t-alert__content">
+              <!---->
+              <div class="t-alert__message">
+                <div class="t-alert__description">【到期提醒】
+                  <!---->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+        </div>
+        <div>
+          <!--[-->
+          <div class="t-alert t-alert--success">
+            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
+                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
+              </svg></div>
+            <div class="t-alert__content">
+              <!---->
+              <div class="t-alert__message">
+                <div class="t-alert__description">【到期提醒】
+                  <!---->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+        </div>
+        <div>
+          <!--[-->
+          <div class="t-alert t-alert--success">
+            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
+                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
+              </svg></div>
+            <div class="t-alert__content">
+              <!---->
+              <div class="t-alert__message">
+                <div class="t-alert__description">【到期提醒】
+                  <!---->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+        </div>
+        <!--]-->
+      </div>
+    </div>
+    <ul class="t-swiper__trigger-wrap">
+      <!--[-->
+      <li class="t-swiper__trigger--active"></li>
+      <li class=""></li>
+      <li class=""></li>
+      <li class=""></li>
+      <!--]-->
+    </ul>
+  </div>
 </div>
 `;
 
