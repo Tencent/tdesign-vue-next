@@ -1,7 +1,7 @@
-import { defineComponent } from 'vue';
+import { ComponentPublicInstance, defineComponent, provide } from 'vue';
 import { prefix } from '../config';
 import props from './avatar-group-props';
-import { TNodeReturnValue } from '../common';
+import { SlotReturnValue, TNodeReturnValue } from '../common';
 import Avatar from './avatar';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 
@@ -12,53 +12,57 @@ export default defineComponent({
   components: {
     Avatar,
   },
+  props,
 
-  provide(): Record<string, any> {
-    return {
-      avatarGroup: this,
+  setup(props) {
+    provide('avatarGroup', { ...props });
+
+    const renderIcon = (context: ComponentPublicInstance) => {
+      return isIcon(context) && typeof props.collapseAvatar !== 'string' ? props.collapseAvatar : null;
     };
-  },
 
-  props: {
-    ...props,
-  },
-
-  methods: {
-    renderEllipsisAvatar(children: Array<TNodeReturnValue>): Array<TNodeReturnValue> {
-      if (children?.length > this.max) {
-        const content = this.setEllipsisContent(children);
-        const outAvatar = children.slice(0, this.max);
+    const renderEllipsisAvatar = (
+      context: ComponentPublicInstance,
+      children: Array<TNodeReturnValue>,
+    ): Array<TNodeReturnValue> => {
+      if (children?.length > props.max) {
+        const content = setEllipsisContent(context, children);
+        const outAvatar = children.slice(0, props.max);
         outAvatar.push(
-          <Avatar
-            size={this.size}
-            icon={this.isIcon() && typeof this.collapseAvatar !== 'string' ? this.collapseAvatar : null}
-          >
+          <Avatar size={props.size} icon={renderIcon(context)}>
             {content}
           </Avatar>,
         );
         return [outAvatar];
       }
       return [children];
-    },
-    setEllipsisContent(children: Array<TNodeReturnValue>) {
-      let content: any = '';
-      if (this.collapseAvatar) {
-        if (!this.isIcon()) {
-          content = renderContent(this, 'collapseAvatar', 'content');
+    };
+
+    const setEllipsisContent = (context: ComponentPublicInstance, children: Array<TNodeReturnValue>) => {
+      let content = '';
+      if (props.collapseAvatar) {
+        if (!isIcon(context)) {
+          content = renderContent(context, 'collapseAvatar', 'content');
         }
       } else {
-        content = `+${children.length - this.max}`;
+        content = `+${children.length - props.max}`;
       }
       return content;
-    },
-    isIcon() {
-      const content = renderTNodeJSX(this, 'collapseAvatar');
+    };
+
+    const isIcon = (context: ComponentPublicInstance) => {
+      const content = renderTNodeJSX(context, 'collapseAvatar');
       return content;
-    },
+    };
+
+    return {
+      renderEllipsisAvatar,
+      isIcon,
+      setEllipsisContent,
+    };
   },
   render() {
-    const { $slots } = this;
-    const children: TNodeReturnValue = $slots.default && $slots.default(null);
+    const children: TNodeReturnValue = renderTNodeJSX(this, 'default');
     const { cascading, max } = this.$props;
     const groupClass = [
       `${name}`,
@@ -70,7 +74,7 @@ export default defineComponent({
     let content = [children];
 
     if (max && max >= 0) {
-      content = [this.renderEllipsisAvatar(children)];
+      content = [this.renderEllipsisAvatar(this, children as SlotReturnValue[])];
     }
     return <div class={groupClass}>{content}</div>;
   },
