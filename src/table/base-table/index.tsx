@@ -1,4 +1,4 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, VNode, ref, toRefs } from 'vue';
 import throttle from 'lodash/throttle';
 import mixins from '../../utils/mixins';
 import getConfigReceiverMixins, { TableConfig } from '../../config-provider/config-receiver';
@@ -19,6 +19,7 @@ import { EVENT_NAME_WITH_KEBAB } from '../util/interface';
 import { emitEvent } from '../../utils/event';
 import { getPropsApiByEvent } from '../../utils/helper';
 import { SIZE_CLASSNAMES } from '../../utils/classnames';
+import useVirtualScroll from './virtualScroll.js';
 
 type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 
@@ -43,6 +44,26 @@ export default defineComponent({
     },
   },
   emits: ['page-change', 'scroll-x', 'scroll-y', ...EVENT_NAME_WITH_KEBAB],
+  setup(props) {
+    const scrollBody = ref(null);
+    const { data } = toRefs<any>(props);
+    const { trs, scrollHeight, visibleData, translateY, handleScroll, handleMounted } = useVirtualScroll({
+      table: scrollBody,
+      data,
+      fixedHeight: props.fixedHeight,
+      lineHeight: props.rowHeight,
+      bufferSize: props.bufferSize,
+    });
+    return {
+      trs,
+      scrollBody,
+      scrollHeight,
+      visibleData,
+      translateY,
+      handleMounted,
+      handleVirtualScroll: handleScroll,
+    };
+  },
   data() {
     return {
       scrollableToLeft: false,
@@ -185,7 +206,7 @@ export default defineComponent({
       });
       const props = {
         rowKey: this.rowKey,
-        data: this.dataSource,
+        data: this.virtualScroll ? this.visibleData : this.dataSource,
         provider: this.provider,
         columns: this.flattedColumns,
         rowClassName: this.rowClassName,
@@ -195,6 +216,9 @@ export default defineComponent({
         lastFullRow: this.lastFullRow,
         lazy: this.lazy,
         rowHeight: this.rowHeight,
+        trs: this.trs,
+        virtualScroll: this.virtualScroll,
+        handleMounted: this.handleMounted,
       };
       return (
         <TableBody {...props} {...rowEvents}>
@@ -257,6 +281,7 @@ export default defineComponent({
         const { scrollLeft } = target as HTMLElement;
         (this.$refs.scrollHeader as HTMLElement).scrollLeft = scrollLeft;
         this.handleScroll(e as WheelEvent);
+        this.virtualScroll && this.handleVirtualScroll();
       }, 10);
       //  fixed table header
       const paddingRight = `${scrollBarWidth}px`;
@@ -272,8 +297,9 @@ export default defineComponent({
       const containerStyle = {
         height: isNaN(Number(tableHeight)) ? tableHeight : `${Number(tableHeight)}px`,
         width: hasFixedColumns ? '100%' : undefined,
+        position: 'relative',
+        overscrollBehavior: 'none',
       };
-      // fixed table body
       fixedTable.push(
         <div
           class={`${prefix}-table__body`}
@@ -282,7 +308,21 @@ export default defineComponent({
           ref="scrollBody"
           onScroll={handleScroll}
         >
-          <table ref="table" style={{ tableLayout }}>
+          {this.virtualScroll && (
+            <div
+              style={{
+                position: 'absolute',
+                width: '1px',
+                height: '1px',
+                transition: 'transform .2s',
+                transform: `translate(0, ${this.scrollHeight}px)`,
+              }}
+            />
+          )}
+          <table
+            ref="table"
+            style={{ tableLayout, transform: this.virtualScroll && `translate(0, ${this.translateY}px)` }}
+          >
             <TableColGroup columns={columns} />
             {this.renderBody()}
             {this.renderFooter()}

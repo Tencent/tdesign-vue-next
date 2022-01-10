@@ -110,6 +110,17 @@ export default {
     type: Number as PropType<TdBaseTableProps['rowHeight']>,
     default: 20 as TdBaseTableProps['rowHeight'],
   },
+  virtualScroll: {
+    type: Boolean,
+  },
+  fixedHeight: {
+    type: Boolean,
+    default: false,
+  },
+  bufferSize: {
+    type: Number,
+    default: 5,
+  },
   /** 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型 */
   onPageChange: Function as PropType<TdBaseTableProps['onPageChange']>,
   /** 行点击时触发，泛型 T 指表格数据类型 */

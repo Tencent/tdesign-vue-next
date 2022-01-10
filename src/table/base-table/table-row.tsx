@@ -1,4 +1,4 @@
-import { VNode, PropType, defineComponent, h, ref, onMounted } from 'vue';
+import { VNode, PropType, defineComponent, h, ref, onMounted, onBeforeUnmount } from 'vue';
 import get from 'lodash/get';
 import { prefix } from '../../config';
 import { RowspanColspan } from '../type';
@@ -80,6 +80,18 @@ const TableRowProps = {
     type: Number as PropType<number>,
     default: 20,
   },
+  trs: {
+    type: Object as PropType<object>,
+    default: () => ({}),
+  },
+  row: {
+    type: Object as PropType<object>,
+    default: () => ({}),
+  },
+  virtualScroll: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
   provider: {
     type: Object,
     default() {
@@ -96,8 +108,8 @@ export default defineComponent({
     TableCell,
   },
   props: TableRowProps,
-  emits: [...Object.keys(eventsName).map((key) => eventsName[key])],
-  setup(props) {
+  emits: ['mounted', ...Object.keys(eventsName).map((key) => eventsName[key])],
+  setup(props, { emit }) {
     const tr = ref(null);
     const isInit = ref(false);
     const init = () => {
@@ -107,7 +119,17 @@ export default defineComponent({
         });
     };
     onMounted(() => {
-      props.lazy && observe(tr.value, init);
+      const { trs, lazy, row, virtualScroll } = props;
+      if (virtualScroll) {
+        const { $index }: { $index?: number } = row;
+        trs[$index] = tr.value;
+        emit('mounted');
+        onBeforeUnmount(() => {
+          delete trs[$index];
+        });
+      } else if (lazy) {
+        observe(tr.value, init);
+      }
     });
     return {
       tr,

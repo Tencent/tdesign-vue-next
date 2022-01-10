@@ -15,6 +15,9 @@
           :data="data"
           :sort="sort"
           :multiple-sort="allowMultipleSort"
+          :height="200"
+          :lazy="false"
+          :virtual-scroll="true"
           @sort-change="sortChange"
           @data-change="dataChange"
         >
@@ -37,29 +40,35 @@ import { defineComponent, watch, ref } from 'vue';
 import { CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 
 const columns = [
-  { colKey: 'instance', title: '集群名称', width: 150 },
+  {
+    colKey: 'instance',
+    title: '集群名称',
+    sortType: 'all',
+    sorter: (a, b) => (a.instance > b.instance ? 1 : 0),
+    width: 300,
+  },
   {
     colKey: 'status',
     title: '状态',
-    width: 100,
     sortType: 'all',
     sorter: (a, b) => a.status - b.status,
+    width: 500,
   },
   {
     colKey: 'survivalTime',
     title: '存活时间(s)',
-    width: 200,
     sortType: 'all',
     sorter: (a, b) => a.survivalTime - b.survivalTime,
+    width: 500,
   },
-  { colKey: 'owner', title: '管理员', width: 100 },
+  { colKey: 'owner', title: '管理员', width: 500 },
 ];
 
 // 本地数据排序，表示组件内部会对参数 data 进行数据排序。如果 data 数据为 10 条，就仅对这 10 条数据进行排序。
 const initData = [
   {
     id: 1,
-    instance: 'JQTest1',
+    instance: 'JQTest1阿斯顿发送到发送到发水电费方法所发生的发的发生的阿斯顿发送到发送到发',
     status: 0,
     owner: 'jenny;peter',
     survivalTime: 1000,
@@ -81,6 +90,120 @@ const initData = [
   {
     id: 4,
     instance: 'JQTest4',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 5,
+    instance: 'JQTest5',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 6,
+    instance: 'JQTest6',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+
+  {
+    id: 7,
+    instance: 'JQTest7',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 8,
+    instance: 'JQTest8',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 9,
+    instance: 'JQTest9',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 10,
+    instance: 'JQTest10',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 11,
+    instance: 'JQTest11',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 12,
+    instance: 'JQTest12',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 13,
+    instance: 'JQTest13',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 14,
+    instance: 'JQTest14',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 15,
+    instance: 'JQTest15',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 16,
+    instance: 'JQTest16',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 17,
+    instance: 'JQTest17',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 18,
+    instance: 'JQTest18',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+  {
+    id: 19,
+    instance: 'JQTest19',
+    status: 1,
+    owner: 'peter',
+    survivalTime: 1500,
+  },
+
+  {
+    id: 20,
+    instance: 'JQTest20',
     status: 1,
     owner: 'peter',
     survivalTime: 1500,
