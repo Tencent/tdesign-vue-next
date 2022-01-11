@@ -8,5 +8,13 @@ import './style';
 export * from './type';
 export type TagInputProps = TdTagInputProps;
 
-export const TagInput: WithInstallType<typeof _TagInput> = withInstall(_TagInput);
+export const TagInput: WithInstallType<typeof _TagInput> = withInstall(
+  mapProps([
+    {
+      name: 'value',
+      alias: ['modelValue'],
+    },
+  ])(_TagInput),
+);
+
 export default TagInput;

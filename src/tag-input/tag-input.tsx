@@ -112,11 +112,16 @@ export default defineComponent({
     return (
       <TInput
         ref="root"
+        {...this.inputProps}
         v-model={this.inputValueRef}
         readonly={this.readonly}
         disabled={this.disabled}
-        onPaste={this.onPaste}
         label={this.renderLabel}
+        class={this.classes}
+        status={this.status}
+        placeholder={this.tagInputPlaceholder}
+        suffixIcon={this.renderSuffixIcon}
+        onPaste={this.onPaste}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}
         onMouseenter={(context) => {
@@ -127,11 +132,6 @@ export default defineComponent({
           this.cancelHover(context);
           this.scrollToLeftOnLeave();
         }}
-        class={this.classes}
-        status={this.status}
-        placeholder={this.tagInputPlaceholder}
-        suffixIcon={this.renderSuffixIcon}
-        {...this.inputProps}
       />
     );
   },
