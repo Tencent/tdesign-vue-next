@@ -1,4 +1,4 @@
-import { defineComponent, h, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
+import { defineComponent, h, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import { InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import { prefix } from '../config';
@@ -6,6 +6,7 @@ import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
+import { useEmitEvent } from '../hooks/event';
 
 const name = `${prefix}-alert`;
 
@@ -14,7 +15,11 @@ export default defineComponent({
   props,
   emits: ['close', 'closed'],
   setup(props, { slots, emit }) {
+    const emitEvent = useEmitEvent(props, emit);
+    // alert dom引用
     const ele = ref(null);
+    // description dom引用
+    const description = ref(null);
     // 是否可见，关闭后置为false
     const visible = ref(true);
     // 是否已收起，使用折叠功能时有效，用于表示是否已折叠；默认折叠
@@ -43,7 +48,6 @@ export default defineComponent({
       if (typeof props.close === 'string') {
         closeContent = props.close;
       } else if (typeof props.close === 'function') {
-        // @ts-ignore: TODO
         closeContent = props.close(h);
       } else if (props.close === true) {
         closeContent = <CloseIcon></CloseIcon>;
@@ -73,6 +77,9 @@ export default defineComponent({
     };
 
     const renderDescription = (context: ComponentPublicInstance) => {
+      const style = {
+        transition: 'height .2s',
+      };
       let messageContent;
 
       messageContent = renderTNodeJSX(context, 'default');
@@ -82,13 +89,17 @@ export default defineComponent({
 
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
+      const height = description.value?.children[0]?.offsetHeight;
       if (hasCollapse && collapsed.value) {
         messageContent = (messageContent as Array<SlotReturnValue>).slice(0, props.maxLine as number);
+        height && (description.value.style.height = `${height * props.maxLine + 32}px`);
+      } else {
+        height && (description.value.style.height = `${height * contentLength + 32}px`);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
-        <div class={`${name}__description`}>
+        <div class={`${name}__description`} style={{ ...style }} ref="description">
           {hasCollapse
             ? (messageContent as Array<string | VNode>).map((content) => <div>{content}</div>)
             : messageContent}
@@ -114,14 +125,14 @@ export default defineComponent({
       );
     };
     const handleClose = (e: MouseEvent) => {
-      emit('close', { e });
+      emitEvent('close', { e });
       addClass(ele.value, `${name}--closing`);
     };
 
     const handleCloseEnd = (e: TransitionEvent) => {
       if (e.propertyName === 'opacity') {
         visible.value = false;
-        emit('closed', { e });
+        emitEvent('closed', { e });
       }
     };
 
@@ -133,6 +144,7 @@ export default defineComponent({
     });
     return {
       ele,
+      description,
       visible,
       collapsed,
       renderIcon,

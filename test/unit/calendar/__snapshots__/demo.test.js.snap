@@ -9327,6 +9327,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           暂无数据，您可以点击一下日历的单元格看看（双击会改变当前选中日期）😀
           <!---->

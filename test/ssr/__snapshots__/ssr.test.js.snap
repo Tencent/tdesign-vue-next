@@ -31,7 +31,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/base.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条成功的消息提示
+        <div class="t-alert__description" style="transition:height .2s;">这是一条成功的消息提示
           <!---->
         </div>
         <!---->
@@ -46,7 +46,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/base.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">
+        <div class="t-alert__description" style="transition:height .2s;">
           <div>这是一条普通的消息提示</div>
           <!---->
         </div>
@@ -62,7 +62,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/base.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">
+        <div class="t-alert__description" style="transition:height .2s;">
           <!--[--> 这是一条警示信息
           <!--]-->
           <!---->
@@ -79,7 +79,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/base.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">
+        <div class="t-alert__description" style="transition:height .2s;">
           <!--[--> 高危操作/出错信息提示
           <!--]-->
           <!---->
@@ -101,7 +101,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/close.vue correctly 1`
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条成功的消息提示
+        <div class="t-alert__description" style="transition:height .2s;">这是一条成功的消息提示
           <!---->
         </div>
         <!---->
@@ -118,7 +118,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/close.vue correctly 1`
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条普通的消息提示
+        <div class="t-alert__description" style="transition:height .2s;">这是一条普通的消息提示
           <!---->
         </div>
         <!---->
@@ -133,7 +133,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/close.vue correctly 1`
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条警示信息
+        <div class="t-alert__description" style="transition:height .2s;">这是一条警示信息
           <!---->
         </div>
         <!---->
@@ -148,7 +148,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/close.vue correctly 1`
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">高危操作/出错信息提示
+        <div class="t-alert__description" style="transition:height .2s;">高危操作/出错信息提示
           <!---->
         </div>
         <!---->
@@ -168,7 +168,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/collapse.vue correctly
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">
+        <div class="t-alert__description" style="transition:height .2s;">
           <!--[-->
           <div><span>这是折叠的第一条消息</span></div>
           <div><span>这是折叠的第二条消息</span></div>
@@ -192,7 +192,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/icon.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条成功的消息提示
+        <div class="t-alert__description" style="transition:height .2s;">这是一条成功的消息提示
           <!---->
         </div>
         <!---->
@@ -207,7 +207,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/icon.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条普通的消息提示
+        <div class="t-alert__description" style="transition:height .2s;">这是一条普通的消息提示
           <!---->
         </div>
         <!---->
@@ -222,7 +222,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/icon.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条警示消息提示
+        <div class="t-alert__description" style="transition:height .2s;">这是一条警示消息提示
           <!---->
         </div>
         <!---->
@@ -237,7 +237,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/icon.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">高危操作/出错信息提示
+        <div class="t-alert__description" style="transition:height .2s;">高危操作/出错信息提示
           <!---->
         </div>
         <!---->
@@ -252,7 +252,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/icon.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条警示信息(以function形式自定义icon)
+        <div class="t-alert__description" style="transition:height .2s;">这是一条警示信息(以function形式自定义icon)
           <!---->
         </div>
         <!---->
@@ -267,7 +267,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/icon.vue correctly 1`]
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">高危操作/出错信息提示(以slot形式自定义icon)
+        <div class="t-alert__description" style="transition:height .2s;">高危操作/出错信息提示(以slot形式自定义icon)
           <!---->
         </div>
         <!---->
@@ -287,7 +287,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/operation.vue correctl
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">这是一条普通的消息提示
+        <div class="t-alert__description" style="transition:height .2s;">这是一条普通的消息提示
           <!---->
         </div>
         <div class="t-alert__operation">
@@ -310,7 +310,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/title.vue correctly 1`
     <div class="t-alert__content">
       <div class="t-alert__title"> 这是一条普通的消息提示</div>
       <div class="t-alert__message">
-        <div class="t-alert__description">这是与普通的消息提示相关的文字辅助说明
+        <div class="t-alert__description" style="transition:height .2s;">这是与普通的消息提示相关的文字辅助说明
           <!---->
         </div>
         <div class="t-alert__operation">
@@ -4437,7 +4437,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
     <div class="t-alert__content">
       <!---->
       <div class="t-alert__message">
-        <div class="t-alert__description">暂无数据，您可以点击一下日历的单元格看看（双击会改变当前选中日期）😀
+        <div class="t-alert__description" style="transition:height .2s;">暂无数据，您可以点击一下日历的单元格看看（双击会改变当前选中日期）😀
           <!---->
         </div>
         <!---->
@@ -27442,7 +27442,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
             <div class="t-alert__content">
               <!---->
               <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
+                <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                   <!---->
                 </div>
                 <!---->
@@ -27461,7 +27461,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
             <div class="t-alert__content">
               <!---->
               <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
+                <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                   <!---->
                 </div>
                 <!---->
@@ -27480,7 +27480,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
             <div class="t-alert__content">
               <!---->
               <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
+                <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                   <!---->
                 </div>
                 <!---->
@@ -27499,7 +27499,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
             <div class="t-alert__content">
               <!---->
               <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
+                <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                   <!---->
                 </div>
                 <!---->
@@ -27534,7 +27534,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
             <div class="t-alert__content">
               <!---->
               <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
+                <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                   <!---->
                 </div>
                 <!---->
@@ -27553,7 +27553,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
             <div class="t-alert__content">
               <!---->
               <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
+                <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                   <!---->
                 </div>
                 <!---->
@@ -27572,7 +27572,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
             <div class="t-alert__content">
               <!---->
               <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
+                <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                   <!---->
                 </div>
                 <!---->
@@ -27591,7 +27591,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 
             <div class="t-alert__content">
               <!---->
               <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
+                <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                   <!---->
                 </div>
                 <!---->
@@ -27630,7 +27630,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctl
           <div class="t-alert__content">
             <!---->
             <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
+              <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                 <!---->
               </div>
               <!---->
@@ -27649,7 +27649,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctl
           <div class="t-alert__content">
             <!---->
             <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
+              <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                 <!---->
               </div>
               <!---->
@@ -27668,7 +27668,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctl
           <div class="t-alert__content">
             <!---->
             <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
+              <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                 <!---->
               </div>
               <!---->
@@ -27687,7 +27687,7 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctl
           <div class="t-alert__content">
             <!---->
             <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
+              <div class="t-alert__description" style="transition:height .2s;">【到期提醒】
                 <!---->
               </div>
               <!---->
