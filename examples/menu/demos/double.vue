@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <t-head-menu default-value="1-1" :expanded="expanded">
+    <t-head-menu default-value="1-1" :default-expanded="expanded">
       <template #logo>
         <img width="136" src="https://www.tencent.com/img/index/menu_logo_hover.png" alt="logo" />
       </template>
@@ -58,13 +58,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   setup() {
+    const expanded = ref(['1']);
+    const expanded2 = ref(['1']);
     return {
-      expanded: ['1'],
-      expanded2: ['1'],
+      expanded,
+      expanded2,
     };
   },
 });
