@@ -1,6 +1,6 @@
 <template>
   <div style="width: 60%">
-    <t-tag-input :value="tags" clearable @change="onChange" @enter="onTagInputEnter" />
+    <t-tag-input :value="tags" clearable @paste="onPaste" @change="onChange" @enter="onTagInputEnter" />
     <br /><br />
 
     <!-- 标签数量超出时，滚动显示 -->
@@ -29,6 +29,9 @@ export default defineComponent({
     onChange(val, context) {
       console.log(val, context);
       this.tags = val;
+    },
+    onPaste(context) {
+      console.log(context);
     },
   },
 });

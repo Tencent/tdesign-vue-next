@@ -39,6 +39,7 @@ onKeypress | Function |  | 按下字符键时触发（keydown -> keypress -> key
 onKeyup | Function |  | 释放键盘时触发。`(value: InputValue, context: { e: KeyboardEvent }) => {}` | N
 onMouseenter | Function |  | 进入输入框时触发。`(context: { e: MouseEvent }) => {}` | N
 onMouseleave | Function |  | 离开输入框时触发。`(context: { e: MouseEvent }) => {}` | N
+onPaste | Function |  | 粘贴事件，`pasteValue` 表示粘贴板的内容。`(context: { e: ClipboardEvent; pasteValue: string }) => {}` | N
 
 ### Input Events
 
@@ -54,3 +55,4 @@ keypress | `(value: InputValue, context: { e: KeyboardEvent })` | 按下字符�
 keyup | `(value: InputValue, context: { e: KeyboardEvent })` | 释放键盘时触发
 mouseenter | `(context: { e: MouseEvent })` | 进入输入框时触发
 mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发
+paste | `(context: { e: ClipboardEvent; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容

@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 12:30:00
+ * updated at 2022-01-11 14:20:20
  * */
 
 import { InputProps, InputValue } from '../input';
@@ -99,6 +99,10 @@ export interface TdTagInputProps {
    * 离开输入框时触发
    */
   onMouseleave?: (context: { e: MouseEvent }) => void;
+  /**
+   * 粘贴事件，`pasteValue` 表示粘贴板的内容
+   */
+  onPaste?: (context: { e: ClipboardEvent; pasteValue: string }) => void;
   /**
    * 移除单个标签时触发
    */

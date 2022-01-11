@@ -17,6 +17,7 @@
   ],
   "globals": {
     "cy": "readonly",
+    "clipboardData": "readonly",
     "PKG_VERSION": true
   },
   "parserOptions": {

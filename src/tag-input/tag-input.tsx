@@ -115,6 +115,7 @@ export default defineComponent({
         v-model={this.inputValueRef}
         readonly={this.readonly}
         disabled={this.disabled}
+        onPaste={this.onPaste}
         label={this.renderLabel}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}

@@ -123,6 +123,12 @@ export default defineComponent({
       if (this.disabled) return;
       emitEvent(this, 'keypress', this.value, { e });
     },
+    onHandlePaste(e: ClipboardEvent) {
+      if (this.disabled) return;
+      // @ts-ignore
+      const clipData = e.clipboardData || window.clipboardData;
+      this.onPaste?.({ e, pasteValue: clipData?.getData('text/plain') });
+    },
     emitPassword() {
       const { renderType } = this;
       const toggleType = renderType === 'password' ? 'text' : 'password';
@@ -176,6 +182,7 @@ export default defineComponent({
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
+      onPaste: this.onHandlePaste,
       // input的change事件是失去焦点或者keydown的时候执行。这与api定义的change不符，所以不做任何变化。
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       onChange: () => {},

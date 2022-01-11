@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 12:30:00
+ * updated at 2022-01-11 14:20:20
  * */
 
 import { TdTagInputProps } from './type';
@@ -86,6 +86,8 @@ export default {
   onMouseenter: Function as PropType<TdTagInputProps['onMouseenter']>,
   /** 离开输入框时触发 */
   onMouseleave: Function as PropType<TdTagInputProps['onMouseleave']>,
+  /** 粘贴事件，`pasteValue` 表示粘贴板的内容 */
+  onPaste: Function as PropType<TdTagInputProps['onPaste']>,
   /** 移除单个标签时触发 */
   onRemove: Function as PropType<TdTagInputProps['onRemove']>,
 };

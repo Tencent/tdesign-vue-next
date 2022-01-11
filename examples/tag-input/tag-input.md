@@ -26,6 +26,7 @@ onClear | Function |  | 清空按钮点击时触发。`(context: { e: MouseEvent
 onEnter | Function |  | 按键按下 Enter 时触发。`(value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue }) => {}` | N
 onMouseenter | Function |  | 进入输入框时触发。`(context: { e: MouseEvent }) => {}` | N
 onMouseleave | Function |  | 离开输入框时触发。`(context: { e: MouseEvent }) => {}` | N
+onPaste | Function |  | 粘贴事件，`pasteValue` 表示粘贴板的内容。`(context: { e: ClipboardEvent; pasteValue: string }) => {}` | N
 onRemove | Function |  | 移除单个标签时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)。`(context: TagInputRemoveContext) => {}` | N
 
 ### TagInput Events
@@ -37,4 +38,5 @@ clear | `(context: { e: MouseEvent })` | 清空按钮点击时触发
 enter | `(value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue })` | 按键按下 Enter 时触发
 mouseenter | `(context: { e: MouseEvent })` | 进入输入框时触发
 mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发
+paste | `(context: { e: ClipboardEvent; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容
 remove | `(context: TagInputRemoveContext)` | 移除单个标签时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts)

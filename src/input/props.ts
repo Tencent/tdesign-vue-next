@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 10:27:13
+ * updated at 2022-01-11 14:16:51
  * */
 
 import { TdInputProps } from './type';
@@ -109,4 +109,6 @@ export default {
   onMouseenter: Function as PropType<TdInputProps['onMouseenter']>,
   /** 离开输入框时触发 */
   onMouseleave: Function as PropType<TdInputProps['onMouseleave']>,
+  /** 粘贴事件，`pasteValue` 表示粘贴板的内容 */
+  onPaste: Function as PropType<TdInputProps['onPaste']>,
 };

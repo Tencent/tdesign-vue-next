@@ -64,7 +64,7 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
       mouseEnterTimer.value = setTimeout(() => {
         scrollElement.value.querySelector('input').focus();
         clearTimer(mouseEnterTimer);
-      }, 350);
+      }, 300);
     }, 100);
   };
 

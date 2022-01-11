@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 10:27:13
+ * updated at 2022-01-11 14:16:51
  * */
 
 import { TNode, SizeEnum } from '../common';
@@ -132,6 +132,10 @@ export interface TdInputProps {
    * 离开输入框时触发
    */
   onMouseleave?: (context: { e: MouseEvent }) => void;
+  /**
+   * 粘贴事件，`pasteValue` 表示粘贴板的内容
+   */
+  onPaste?: (context: { e: ClipboardEvent; pasteValue: string }) => void;
 }
 
 export type InputValue = string | number;
