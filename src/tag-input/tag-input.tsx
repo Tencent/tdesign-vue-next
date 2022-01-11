@@ -1,7 +1,8 @@
-import { defineComponent, ref, nextTick, onMounted } from 'vue';
+import { defineComponent, ref, nextTick, computed } from 'vue';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
+import { TdTagInputProps } from './type';
 import Tag from '../tag';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -16,12 +17,23 @@ export default defineComponent({
 
   props: { ...props },
 
-  setup(props) {
+  setup(props: TdTagInputProps) {
     const root = ref(null);
     const inputValueRef = ref<InputValue>();
     const { isHoverRef, addHover, cancelHover } = useHover(props);
     const scrollFunctions = useTagScroll(props, root);
     const { onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props);
+
+    const classes = computed(() => {
+      return [
+        `${prefix}-tag-input`,
+        { [`${prefix}-tag-input--break-line`]: props.overTagsDisplayType === 'break-line' },
+      ];
+    });
+
+    const tagInputPlaceholder = computed(() => {
+      return isHoverRef.value || !props.value?.length ? props.placeholder : '';
+    });
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
       onInnerEnter(value, context);
@@ -35,6 +47,7 @@ export default defineComponent({
       root,
       inputValueRef,
       isHoverRef,
+      tagInputPlaceholder,
       addHover,
       cancelHover,
       ...scrollFunctions,
@@ -43,6 +56,7 @@ export default defineComponent({
       onInnerEnter,
       onInputBackspaceKeyUp,
       clearAll,
+      classes,
     };
   },
 
@@ -112,9 +126,9 @@ export default defineComponent({
           this.cancelHover(context);
           this.scrollToLeftOnLeave();
         }}
-        class={`${prefix}-tag-input`}
-        placeholder={!this.value?.length ? this.placeholder : ''}
+        class={this.classes}
         status={this.status}
+        placeholder={this.tagInputPlaceholder}
         suffixIcon={this.renderSuffixIcon}
         {...this.inputProps}
       />

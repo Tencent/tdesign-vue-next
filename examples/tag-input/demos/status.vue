@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="t-tdesign-demo__tag-input">
-      <label>只读状态：</label>
-      <t-tag-input :value="tags" readonly />
+      <label>禁用状态：</label>
+      <t-tag-input :value="tags" disabled />
     </div>
     <br /><br />
     <div class="t-tdesign-demo__tag-input">
-      <label>禁用状态：</label>
-      <t-tag-input :value="tags" disabled />
+      <label>只读状态：</label>
+      <t-tag-input :value="tags" tips="这是普通文本提示" readonly />
     </div>
     <br /><br />
     <div class="t-tdesign-demo__tag-input">

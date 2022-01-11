@@ -60,7 +60,6 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
     // 一闪而过的 mousenter 不需要执行
     mouseEnterTimer.value = setTimeout(() => {
       scrollToRight();
-      clearTimer(mouseEnterTimer);
       // 动画结束后聚焦
       mouseEnterTimer.value = setTimeout(() => {
         scrollElement.value.querySelector('input').focus();
@@ -76,23 +75,25 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
   };
 
   const addListeners = (element: HTMLElement) => {
-    if (props.readonly) return;
+    if (props.readonly || props.disabled) return;
     on(element, 'mousewheel', onWheel);
   };
 
   const removeListeners = (element: HTMLElement) => {
-    if (props.readonly) return;
+    if (props.readonly || props.disabled) return;
     off(element, 'mousewheel', onWheel);
   };
 
   onMounted(() => {
     const element = root.value?.$el;
     setScrollElement(element);
+    addListeners(element);
   });
 
   onUnmounted(() => {
     clearTimer(wheelTimer);
     clearTimer(mouseEnterTimer);
+    removeListeners(root.value?.$el);
   });
 
   return {

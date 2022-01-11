@@ -1,20 +1,14 @@
 <template>
-  <div style="width: 50%">
-    <t-tag-input
-      placeholder="输入内容后按下 Enter 键添加新标签"
-      :value="tags"
-      clearable
-      @change="onChange"
-      @enter="onTagInputEnter"
-    />
+  <div style="width: 60%">
+    <t-tag-input :value="tags" clearable @change="onChange" @enter="onTagInputEnter" />
     <br /><br />
-    <t-tag-input
-      placeholder="输入内容后按下 Enter 键添加新标签"
-      label="Framework："
-      clearable
-      :value="tags"
-      @change="onChange"
-    />
+
+    <!-- 标签数量超出时，滚动显示 -->
+    <t-tag-input :value="tags" label="Scroll: " clearable @change="onChange" />
+    <br /><br />
+
+    <!-- 标签数量超出时，换行显示 -->
+    <t-tag-input :value="tags" label="BreakLine: " over-tags-display-type="break-line" clearable @change="onChange" />
   </div>
 </template>
 
@@ -25,7 +19,7 @@ export default defineComponent({
   name: 'TTagInputBase',
   data() {
     return {
-      tags: ['Vue', 'React', 'Miniprogram'],
+      tags: ['Vue', 'React'],
     };
   },
   methods: {

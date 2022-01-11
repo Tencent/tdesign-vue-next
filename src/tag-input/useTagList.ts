@@ -1,7 +1,6 @@
 import { ref } from 'vue';
 import { TagInputValue, TdTagInputProps } from './type';
 import { InputValue } from '../input';
-import { TdTagProps } from '..';
 
 export default function useTagList(props: TdTagInputProps) {
   const { onChange } = props;

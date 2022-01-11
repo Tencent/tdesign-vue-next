@@ -248,7 +248,7 @@ export default defineComponent({
       return (
         <div class={`${prefix}-input__wrap`}>
           {inputNode}
-          <div class={`${prefix}-input__tips ${prefix}-input__tips--${this.status}`}>{tips}</div>
+          <div class={`${prefix}-input__tips ${prefix}-input__tips--${this.status || 'normal'}`}>{tips}</div>
         </div>
       );
     }

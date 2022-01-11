@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 11:45:55
+ * updated at 2022-01-11 12:30:00
  * */
 
 import { InputProps, InputValue } from '../input';
@@ -41,6 +41,11 @@ export interface TdTagInputProps {
    * @default 0
    */
   minCollapsedNum?: number;
+  /**
+   * 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示
+   * @default scroll
+   */
+  overTagsDisplayType?: 'scroll' | 'break-line';
   /**
    * 占位符
    */

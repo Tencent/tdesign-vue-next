@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 11:45:55
+ * updated at 2022-01-11 12:30:00
  * */
 
 import { TdTagInputProps } from './type';
@@ -33,6 +33,14 @@ export default {
   minCollapsedNum: {
     type: Number,
     default: 0,
+  },
+  /** 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示 */
+  overTagsDisplayType: {
+    type: String as PropType<TdTagInputProps['overTagsDisplayType']>,
+    default: 'scroll' as TdTagInputProps['overTagsDisplayType'],
+    validator(val: TdTagInputProps['overTagsDisplayType']): boolean {
+      return ['scroll', 'break-line'].includes(val);
+    },
   },
   /** 占位符 */
   placeholder: {
