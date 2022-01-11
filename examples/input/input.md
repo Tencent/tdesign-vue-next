@@ -37,6 +37,8 @@ onFocus | Function |  | 获得焦点时触发。`(value: InputValue, context: { 
 onKeydown | Function |  | 键盘按下时触发。`(value: InputValue, context: { e: KeyboardEvent }) => {}` | N
 onKeypress | Function |  | 按下字符键时触发（keydown -> keypress -> keyup）。`(value: InputValue, context: { e: KeyboardEvent }) => {}` | N
 onKeyup | Function |  | 释放键盘时触发。`(value: InputValue, context: { e: KeyboardEvent }) => {}` | N
+onMouseenter | Function |  | 进入输入框时触发。`(context: { e: MouseEvent }) => {}` | N
+onMouseleave | Function |  | 离开输入框时触发。`(context: { e: MouseEvent }) => {}` | N
 
 ### Input Events
 
@@ -50,3 +52,5 @@ focus | `(value: InputValue, context: { e: FocusEvent })` | 获得焦点时触�
 keydown | `(value: InputValue, context: { e: KeyboardEvent })` | 键盘按下时触发
 keypress | `(value: InputValue, context: { e: KeyboardEvent })` | 按下字符键时触发（keydown -> keypress -> keyup）
 keyup | `(value: InputValue, context: { e: KeyboardEvent })` | 释放键盘时触发
+mouseenter | `(context: { e: MouseEvent })` | 进入输入框时触发
+mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发

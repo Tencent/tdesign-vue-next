@@ -157,7 +157,18 @@ export default defineComponent({
       // 受控
       nextTick(() => this.setInputValue(this.value));
     },
+
+    onInputMouseenter(e: MouseEvent) {
+      this.mouseEvent(true);
+      this.onMouseenter?.({ e });
+    },
+
+    onInputMouseleave(e: MouseEvent) {
+      this.mouseEvent(false);
+      this.onMouseleave?.({ e });
+    },
   },
+
   render(): VNodeChild {
     const inputEvents = getValidAttrs({
       onFocus: this.emitFocus,
@@ -172,10 +183,8 @@ export default defineComponent({
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
 
-    // @ts-ignore: TODO
     const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
 
-    // @ts-ignore: TODO
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
     const label = renderTNodeJSX(this, 'label');
@@ -211,8 +220,8 @@ export default defineComponent({
     const inputNode = (
       <div
         class={classes}
-        onMouseenter={() => this.mouseEvent(true)}
-        onMouseleave={() => this.mouseEvent(false)}
+        onMouseenter={this.onInputMouseenter}
+        onMouseleave={this.onInputMouseleave}
         {...{ ...wrapperAttrs }}
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}

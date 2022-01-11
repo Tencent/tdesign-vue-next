@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-03 14:02:31
+ * updated at 2022-01-11 10:27:13
  * */
 
 import { TdInputProps } from './type';
@@ -105,4 +105,8 @@ export default {
   onKeypress: Function as PropType<TdInputProps['onKeypress']>,
   /** 释放键盘时触发 */
   onKeyup: Function as PropType<TdInputProps['onKeyup']>,
+  /** 进入输入框时触发 */
+  onMouseenter: Function as PropType<TdInputProps['onMouseenter']>,
+  /** 离开输入框时触发 */
+  onMouseleave: Function as PropType<TdInputProps['onMouseleave']>,
 };
