@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 11:08:06
+ * updated at 2022-01-11 11:45:55
  * */
 
 import { InputProps, InputValue } from '../input';
@@ -19,6 +19,11 @@ export interface TdTagInputProps {
    * 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示标签值，`collapsedTags` 表示折叠标签值，`count` 表示总标签数量
    */
   collapsedItems?: TNode<{ value: TagInputValue; collapsedTags: TagInputValue; count: number }>;
+  /**
+   * 是否禁用标签输入框
+   * @default false
+   */
+  disabled?: boolean;
   /**
    * 透传 Input 输入框组件全部属性
    */
@@ -72,10 +77,7 @@ export interface TdTagInputProps {
   /**
    * 值变化时触发，参数 `trigger` 表示数据变化的触发来源
    */
-  onChange?: (
-    value: TagInputValue,
-    context: { trigger: TagInputTriggerSource; index?: number; item?: string | number; e: MouseEvent | KeyboardEvent },
-  ) => void;
+  onChange?: (value: TagInputValue, context: TagInputChangeContext) => void;
   /**
    * 清空按钮点击时触发
    */
@@ -99,6 +101,13 @@ export interface TdTagInputProps {
 }
 
 export type TagInputValue = Array<string | number>;
+
+export interface TagInputChangeContext {
+  trigger: TagInputTriggerSource;
+  index?: number;
+  item?: string | number;
+  e: MouseEvent | KeyboardEvent;
+}
 
 export type TagInputTriggerSource = 'enter' | 'tag-remove' | 'backspace' | 'clear';
 

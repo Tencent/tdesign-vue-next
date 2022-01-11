@@ -19,7 +19,7 @@ export default defineComponent({
   setup(props) {
     const root = ref(null);
     const inputValueRef = ref<InputValue>();
-    const { isHoverRef, onRootMouseenter, onRootMouseleave } = useHover(props);
+    const { isHoverRef, addHover, cancelHover } = useHover(props);
     const scrollFunctions = useTagScroll(props, root);
     const { onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props);
 
@@ -35,8 +35,8 @@ export default defineComponent({
       root,
       inputValueRef,
       isHoverRef,
-      onRootMouseenter,
-      onRootMouseleave,
+      addHover,
+      cancelHover,
       ...scrollFunctions,
       onInputEnter,
       onClose,
@@ -55,7 +55,12 @@ export default defineComponent({
         newList?.map((item, index) => {
           const tagContent = renderTNodeJSX(this, 'tag', { params: { value: item } });
           return (
-            <Tag onClose={(e) => this.onClose({ e, item, index })} closable={!this.readonly} {...this.tagProps}>
+            <Tag
+              disabled={this.disabled}
+              onClose={(e) => this.onClose({ e, item, index })}
+              closable={!this.readonly && !this.disabled}
+              {...this.tagProps}
+            >
               {tagContent ?? item}
             </Tag>
           );
@@ -95,12 +100,18 @@ export default defineComponent({
         ref="root"
         v-model={this.inputValueRef}
         readonly={this.readonly}
+        disabled={this.disabled}
         label={this.renderLabel}
-        onBlur={this.scrollToLeft}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}
-        onMouseenter={this.onRootMouseenter}
-        onMouseleave={this.onRootMouseleave}
+        onMouseenter={(context) => {
+          this.addHover(context);
+          this.scrollToRightOnEnter();
+        }}
+        onMouseleave={(context) => {
+          this.cancelHover(context);
+          this.scrollToLeftOnLeave();
+        }}
         class={`${prefix}-tag-input`}
         placeholder={!this.value?.length ? this.placeholder : ''}
         status={this.status}

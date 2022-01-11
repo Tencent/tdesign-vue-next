@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 11:08:06
+ * updated at 2022-01-11 11:45:55
  * */
 
 import { TdTagInputProps } from './type';
@@ -15,6 +15,8 @@ export default {
   collapsedItems: {
     type: Function as PropType<TdTagInputProps['collapsedItems']>,
   },
+  /** 是否禁用标签输入框 */
+  disabled: Boolean,
   /** 透传 Input 输入框组件全部属性 */
   inputProps: {
     type: Object as PropType<TdTagInputProps['inputProps']>,

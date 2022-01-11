@@ -56,7 +56,7 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
   };
 
   // 鼠标 hover，自动滑动到最右侧，以便输入新标签
-  const onMouseEnter = () => {
+  const scrollToRightOnEnter = () => {
     // 一闪而过的 mousenter 不需要执行
     mouseEnterTimer.value = setTimeout(() => {
       scrollToRight();
@@ -69,7 +69,7 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
     }, 100);
   };
 
-  const onMouseLeave = () => {
+  const scrollToLeftOnLeave = () => {
     scrollTo(0);
     scrollElement.value.querySelector('input').blur();
     clearTimer(mouseEnterTimer);
@@ -78,27 +78,21 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
   const addListeners = (element: HTMLElement) => {
     if (props.readonly) return;
     on(element, 'mousewheel', onWheel);
-    on(element, 'mouseenter', onMouseEnter);
-    on(element, 'mouseleave', onMouseLeave);
   };
 
   const removeListeners = (element: HTMLElement) => {
     if (props.readonly) return;
     off(element, 'mousewheel', onWheel);
-    off(element, 'mouseenter', onMouseEnter);
-    off(element, 'mouseleave', onMouseLeave);
   };
 
   onMounted(() => {
     const element = root.value?.$el;
     setScrollElement(element);
-    addListeners(element);
   });
 
   onUnmounted(() => {
     clearTimer(wheelTimer);
     clearTimer(mouseEnterTimer);
-    removeListeners(root.value?.$el);
   });
 
   return {
@@ -112,5 +106,7 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
     onWheel,
     addListeners,
     removeListeners,
+    scrollToRightOnEnter,
+    scrollToLeftOnLeave,
   };
 }

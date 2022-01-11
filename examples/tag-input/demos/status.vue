@@ -6,6 +6,11 @@
     </div>
     <br /><br />
     <div class="t-tdesign-demo__tag-input">
+      <label>禁用状态：</label>
+      <t-tag-input :value="tags" disabled />
+    </div>
+    <br /><br />
+    <div class="t-tdesign-demo__tag-input">
       <label>成功状态：</label>
       <t-tag-input :value="tags" status="success" tips="校验通过文本提示" clearable @change="onChange" />
     </div>
