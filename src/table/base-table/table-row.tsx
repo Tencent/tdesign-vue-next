@@ -81,7 +81,7 @@ const TableRowProps = {
     default: 20,
   },
   trs: {
-    type: Object as PropType<object>,
+    type: Map,
     default: () => ({}),
   },
   row: {
@@ -108,7 +108,7 @@ export default defineComponent({
     TableCell,
   },
   props: TableRowProps,
-  emits: ['mounted', ...Object.keys(eventsName).map((key) => eventsName[key])],
+  emits: ['rowMounted', ...Object.keys(eventsName).map((key) => eventsName[key])],
   setup(props, { emit }) {
     const tr = ref(null);
     const isInit = ref(false);
@@ -122,10 +122,10 @@ export default defineComponent({
       const { trs, lazy, row, virtualScroll } = props;
       if (virtualScroll) {
         const { $index }: { $index?: number } = row;
-        trs[$index] = tr.value;
-        emit('mounted');
+        trs.set($index, tr.value);
+        emit('rowMounted');
         onBeforeUnmount(() => {
-          delete trs[$index];
+          trs.delete($index);
         });
       } else if (lazy) {
         observe(tr.value, init);
@@ -139,9 +139,19 @@ export default defineComponent({
   methods: {
     // 渲染行
     renderRow(): Array<VNode> {
-      const { rowData, columns, index: rowIndex, rowspanAndColspanProps, lazy, isInit, rowHeight } = this;
-      if (lazy && !isInit) {
-        return [<td style={{ height: `${rowHeight}px` }} />];
+      const {
+        rowData,
+        columns,
+        index: rowIndex,
+        rowspanAndColspanProps,
+        virtualScroll,
+        lazy,
+        isInit,
+        rowHeight,
+      } = this;
+      const hasHolder = !virtualScroll && lazy && !isInit;
+      if (hasHolder) {
+        return [<td style={{ height: `${rowHeight}px`, border: 'none' }} />];
       }
       const rowBody: Array<VNode> = [];
       let flag = true;

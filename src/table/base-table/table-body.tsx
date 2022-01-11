@@ -1,4 +1,4 @@
-import { VNode, defineComponent, TransitionGroup, onMounted } from 'vue';
+import { VNode, defineComponent, TransitionGroup, PropType } from 'vue';
 import get from 'lodash/get';
 import camelCase from 'lodash/camelCase';
 import { prefix } from '../../config';
@@ -26,13 +26,13 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    handleMounted: {
-      type: Function,
+    handleRowMounted: {
+      type: Function as PropType<() => void>,
       default: () => {},
     },
     trs: {
-      type: Object,
-      default: () => ({}),
+      type: Map,
+      default: () => new Map(),
     },
     onRowHover: baseTableProps.onRowHover,
     onRowMousedown: baseTableProps.onRowMousedown,
@@ -212,7 +212,7 @@ export default defineComponent({
           },
         };
         rowVnode = (
-          <TableRow rowKey={this.rowKey} {...props} onMounted={this.handleMounted} row={row}>
+          <TableRow rowKey={this.rowKey} {...props} onRowMounted={this.handleRowMounted} row={row}>
             {slots}
           </TableRow>
         );

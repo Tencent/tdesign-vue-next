@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="item">
-      <t-table row-key="id" :columns="columns" :data="data" :height="100" :row-height="48" lazy>
+      <t-table row-key="id" :columns="columns" :data="data" :height="200" :row-height="48" lazy>
         <template #op-column>
           <t-icon name="descending-order" />
         </template>
@@ -21,6 +21,10 @@ import { defineComponent, watch, ref } from 'vue';
 import { CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 
 const columns = [
+  {
+    colKey: 'id',
+    title: 'id',
+  },
   {
     colKey: 'instance',
     title: '集群名称',
@@ -109,87 +113,21 @@ const initData = [
     owner: 'peter',
     survivalTime: 1500,
   },
-  {
-    id: 11,
-    instance: 'JQTest11',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 12,
-    instance: 'JQTest12',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 13,
-    instance: 'JQTest13',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 14,
-    instance: 'JQTest14',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 15,
-    instance: 'JQTest15',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 16,
-    instance: 'JQTest16',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 17,
-    instance: 'JQTest17',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 18,
-    instance: 'JQTest18',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 19,
-    instance: 'JQTest19',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-
-  {
-    id: 20,
-    instance: 'JQTest20',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
 ];
-
+const times = Array.from(new Array(1000), () => ''); // 测试共计1w条数据
+const testData = [];
+times.forEach((item, i) => {
+  const k = i % 10;
+  testData[i] = { ...initData[k], id: i + 1 };
+});
 export default defineComponent({
   setup() {
-    const data = ref([...initData]);
+    const data = ref([...testData]);
     const sort = ref({});
     const reset = () => {
       data.value = [];
       setTimeout(() => {
-        data.value = initData;
+        data.value = testData;
       });
     };
 

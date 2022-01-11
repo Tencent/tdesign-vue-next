@@ -47,7 +47,7 @@ export default defineComponent({
   setup(props: any) {
     const scrollBody = ref(null);
     const { data } = toRefs<any>(props);
-    const { trs, scrollHeight, visibleData, translateY, handleScroll, handleMounted } = useVirtualScroll({
+    const { trs, scrollHeight, visibleData, translateY, handleScroll, handleRowMounted } = useVirtualScroll({
       table: scrollBody,
       data,
       fixedHeight: props.fixedHeight,
@@ -60,7 +60,7 @@ export default defineComponent({
       scrollHeight,
       visibleData,
       translateY,
-      handleMounted,
+      handleRowMounted,
       handleVirtualScroll: handleScroll,
     };
   },
@@ -218,7 +218,7 @@ export default defineComponent({
         rowHeight: this.rowHeight,
         trs: this.trs,
         virtualScroll: this.virtualScroll,
-        handleMounted: this.handleMounted,
+        handleRowMounted: this.handleRowMounted,
       };
       return (
         <TableBody {...props} {...rowEvents}>

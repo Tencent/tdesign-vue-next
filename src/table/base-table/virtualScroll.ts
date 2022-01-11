@@ -6,7 +6,7 @@ const useVirtualScroll = ({
   table,
   fixedHeight = false,
   lineHeight = 30,
-  bufferSize = 5,
+  bufferSize = 20,
 }: {
   data: any;
   table: any;
@@ -20,7 +20,7 @@ const useVirtualScroll = ({
     cachedScrollY: [],
   });
   const updateId = ref(0);
-  let trs = {}; // 当前展示的行元素和数据
+  let trs = new Map(); // 当前展示的行元素和数据
 
   let visibleCount = 0; // 可见的节点数量
   let beforeScrollTop = 0; // 上一次的滚动条位置
@@ -66,12 +66,12 @@ const useVirtualScroll = ({
 
   // 更新可视区域的节点数据
   const updateVisibleData = () => {
-    last = Math.min(start + visibleCount + bufferSize, data.value.length);
+    last = Math.min(start + visibleCount + bufferSize * 2, data.value.length);
     state.visibleData = data.value.slice(start, last);
   };
   // 计算每行对应的scrollTop值
   const calculateScrollY = () => {
-    const anchorDom = trs[index]; // 获取锚点元素
+    const anchorDom = trs.get(index); // 获取锚点元素
     if (!anchorDom) {
       return; // 快速调整高度时，新的元素可能来不及加载，暂时跳过更新
     }
@@ -82,7 +82,7 @@ const useVirtualScroll = ({
 
     for (let i = index + 1; i <= state.visibleData[state.visibleData.length - 1].$index; i++) {
       // 计算锚点后面的元素scrollY
-      const tr = trs[i];
+      const tr = trs.get(i);
       const { height } = tr.getBoundingClientRect();
       state.cachedHeight[i] = height;
       const scrollY = state.cachedScrollY[i - 1] + state.cachedHeight[i - 1]; // 当前元素的y 是前一个元素的y+前一个元素高度
@@ -90,7 +90,7 @@ const useVirtualScroll = ({
     }
 
     for (let i = index - 1; i >= state.visibleData[0].$index; i--) {
-      const tr = trs[i];
+      const tr = trs.get(i);
       const { height } = tr.getBoundingClientRect();
       state.cachedHeight[i] = height;
       const scrollY = state.cachedScrollY[i + 1] - state.cachedHeight[i]; // 当前元素的y是下一个元素y - 当前元素高度
@@ -206,7 +206,7 @@ const useVirtualScroll = ({
     updateVisibleData();
   };
   !fixedHeight && watch(updateId, calculateScrollY, { flush: 'post' });
-  const handleMounted = () => {
+  const handleRowMounted = () => {
     updateId.value++;
   };
   watch(data, () => {
@@ -219,12 +219,12 @@ const useVirtualScroll = ({
     offset = 0;
     start = 0;
     revising = false;
-    trs = [];
+    trs = new Map();
     updateVisibleData();
     table.value && (table.value.scrollTop = 0);
   });
   let mounted = false;
-  const refreshTable = (type = 'refresh') => {
+  const refreshTable = () => {
     if (mounted) {
       visibleCount = Math.ceil(table.value.offsetHeight / lineHeight);
       updateVisibleData();
@@ -235,7 +235,7 @@ const useVirtualScroll = ({
       const entry = entries[0];
       if (entry.isIntersecting || entry.intersectionRatio) {
         mounted = true;
-        refreshTable('onMount');
+        refreshTable();
         ob.unobserve(table.value);
       }
     });
@@ -247,7 +247,7 @@ const useVirtualScroll = ({
     ...toRefs(state),
     translateY,
     handleScroll,
-    handleMounted,
+    handleRowMounted,
     refreshTable,
     fixedHeight,
     calculateScrollY,
