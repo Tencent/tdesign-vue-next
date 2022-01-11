@@ -41,6 +41,7 @@
     "dev": "cd site && vite",
     "site": "cd site && vite build --debug",
     "site:preview": "cd site && vite build --mode preview",
+    "postsite:preview": "cp _site/index.html _site/404.html",
     "prebuild": "rimraf es/* esm/* lib/* dist/*",
     "build": "cross-env NODE_ENV=production rollup -c script/rollup.config.js && npm run build:tsc",
     "build:tsc": "concurrently \"npm:build:tsc-*\"",
