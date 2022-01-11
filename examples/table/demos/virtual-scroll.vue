@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="item">
-      <t-table row-key="id" :columns="columns" :data="data" :height="150" virtual-scroll>
+      <t-table row-key="id" :columns="columns" :data="data" :height="200" :row-height="48" virtual-scroll>
         <template #op-column>
           <t-icon name="descending-order" />
         </template>
@@ -20,6 +20,10 @@ import { defineComponent, watch, ref } from 'vue';
 import { CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 
 const columns = [
+  {
+    colKey: 'id',
+    title: 'id',
+  },
   {
     colKey: 'instance',
     title: '集群名称',
@@ -53,28 +57,28 @@ const initData = [
   },
   {
     id: 3,
-    instance: 'JQTest3',
+    instance: 'JQTest',
     status: 2,
     owner: 'jenny',
     survivalTime: 500,
   },
   {
     id: 4,
-    instance: 'JQTest4',
+    instance: 'JQTest',
     status: 1,
     owner: 'peter',
     survivalTime: 1500,
   },
   {
     id: 5,
-    instance: 'JQTest5',
+    instance: 'JQTest',
     status: 1,
     owner: 'peter',
     survivalTime: 1500,
   },
   {
     id: 6,
-    instance: 'JQTest6',
+    instance: 'JQTest',
     status: 1,
     owner: 'peter',
     survivalTime: 1500,
@@ -82,108 +86,43 @@ const initData = [
 
   {
     id: 7,
-    instance: 'JQTest7',
+    instance: 'JQTest',
     status: 1,
     owner: 'peter',
     survivalTime: 1500,
   },
   {
     id: 8,
-    instance: 'JQTest8',
+    instance: 'JQTest',
     status: 1,
     owner: 'peter',
     survivalTime: 1500,
   },
   {
     id: 9,
-    instance: 'JQTest9',
+    instance: 'JQTest',
     status: 1,
     owner: 'peter',
     survivalTime: 1500,
   },
   {
     id: 10,
-    instance: 'JQTest10',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 11,
-    instance: 'JQTest11',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 12,
-    instance: 'JQTest12',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 13,
-    instance: 'JQTest13',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 14,
-    instance: 'JQTest14',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 15,
-    instance: 'JQTest15',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 16,
-    instance: 'JQTest16',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 17,
-    instance: 'JQTest17',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 18,
-    instance: 'JQTest18',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-  {
-    id: 19,
-    instance: 'JQTest19',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-
-  {
-    id: 20,
-    instance: 'JQTest20',
+    instance: 'JQTest',
     status: 1,
     owner: 'peter',
     survivalTime: 1500,
   },
 ];
-
+// 为了使得表格滚动更加平稳，建议指定row-height参数值为接近表格的平均行高
+const times = Array.from(new Array(10000), () => ''); // 测试共计1w条数据
+const testData = [];
+times.forEach((item, i) => {
+  const k = i % 10;
+  testData[i] = { ...initData[k], id: i + 1 };
+});
 export default defineComponent({
   setup() {
-    const data = ref([...initData]);
+    const data = ref([...testData]);
     const sort = ref({});
 
     return {

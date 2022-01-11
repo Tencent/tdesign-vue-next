@@ -96,6 +96,44 @@ const useVirtualScroll = ({
       const scrollY = state.cachedScrollY[i + 1] - state.cachedHeight[i]; // 当前元素的y是下一个元素y - 当前元素高度
       state.cachedScrollY[i] = scrollY;
     }
+    if (state.cachedScrollY[0] > 0) {
+      // 修正滚动过快时，滚动到顶部时，滚动条多余的问题
+      revising = true;
+      const distance = state.cachedScrollY[0]; // 第一个元素scrollY即为多出的量
+      const length = Math.min(last, data.value.length);
+      for (let i = 0; i < length; i++) {
+        state.cachedScrollY[i] -= distance;
+      }
+
+      const scrollTop = state.cachedScrollY[index - 1] ? state.cachedScrollY[index - 1] + offset : offset;
+      table.value.scrollTop = scrollTop;
+      beforeScrollTop = scrollTop;
+      revising = false;
+    }
+    // 修正拖动过快时，滚动到顶端时，滚动条不足的偏差
+    if (state.cachedScrollY[start] < 0) {
+      revising = true;
+      const s = state.cachedHeight.slice(0, Math.max(0, index)).reduce((sum, v) => sum + v, 0) + offset;
+      table.value.scrollTop = s;
+      beforeScrollTop = s;
+      if (s === 0) {
+        index = 0;
+        offset = 0;
+      }
+      revising = false;
+    }
+    if (last === data.value.length) {
+      // 滚动到底部时，修正底部有空余的问题
+      revising = true;
+      for (let i = last - 1; i >= start; i--) {
+        if (i === last - 1) {
+          state.cachedScrollY[i] = scrollHeight.value - state.cachedHeight[i];
+        } else {
+          state.cachedScrollY[i] = state.cachedScrollY[i + 1] - state.cachedHeight[i];
+        }
+      }
+      revising = false;
+    }
   };
 
   // 滚动时动态计算和渲染
@@ -124,6 +162,12 @@ const useVirtualScroll = ({
         index = lastIndex;
         offset = distance;
       }
+      const { clientHeight, scrollHeight } = table.value;
+      if (scrollTop + clientHeight === scrollHeight) {
+        // 滚动条到底了
+        index = data.value.length - visibleCount + 1;
+        calculateScrollY();
+      }
       if (start <= index - bufferSize) {
         // 计算第一个挂载元素
         start = Math.min(data.value.length - visibleCount, index - bufferSize);
@@ -143,50 +187,20 @@ const useVirtualScroll = ({
       if (lastIndex < 0) {
         index = 0;
         offset = 0;
+        calculateScrollY();
       } else {
         index = lastIndex;
         offset = distance;
+        if (scrollTop === 0 && (index !== 0 || offset !== 0)) {
+          // 滚动条到顶时，数据未回到起始位置，重置scrollTop
+          index = 0;
+          offset = 0;
+          calculateScrollY();
+        }
       }
       if (start > index - bufferSize) {
         // 计算第一个挂载元素
         start = Math.max(0, index - bufferSize);
-      }
-    }
-    if (state.cachedScrollY[0] > 0) {
-      // 修正滚动过快时，滚动到顶部时，滚动条多余的问题
-      revising = true;
-      const distance = state.cachedScrollY[0]; // 第一个元素scrollY即为多出的量
-      const length = Math.min(last, data.value.length);
-      for (let i = 0; i < length; i++) {
-        state.cachedScrollY[i] -= distance;
-      }
-
-      const scrollTop = state.cachedScrollY[index - 1] ? state.cachedScrollY[index - 1] + offset : offset;
-      table.value.scrollTop = scrollTop;
-      beforeScrollTop = scrollTop;
-      revising = false;
-    }
-    // 修正拖动过快时，滚动到顶端时，滚动条不足的偏差
-    if (state.cachedScrollY[start] < 0) {
-      revising = true;
-      const s = state.cachedHeight.slice(0, Math.max(0, index)).reduce((sum, v) => sum + v, 0) + offset;
-      table.value.scrollTop = s;
-      beforeScrollTop = s;
-      if (s === 0) {
-        index = 0;
-        offset = 0;
-      }
-      calculateScrollY(); // 先注释，避免滚动过快时反复触发导致堆栈溢出
-      revising = false;
-    }
-    if (last === data.value.length) {
-      // 滚动到底部时，修正底部有空余的问题
-      for (let i = last - 1; i >= start; i--) {
-        if (i === last - 1) {
-          state.cachedScrollY[i] = scrollHeight.value - state.cachedHeight[i];
-        } else {
-          state.cachedScrollY[i] = state.cachedScrollY[i + 1] - state.cachedHeight[i];
-        }
       }
     }
     updateVisibleData();
