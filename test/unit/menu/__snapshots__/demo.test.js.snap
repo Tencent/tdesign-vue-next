@@ -2067,11 +2067,11 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           </span>
         </li>
         <li
-          class="t-submenu t-is-disabled t-is-opened"
+          class="t-submenu t-is-disabled"
         >
           
           <div
-            class="t-menu__item t-is-disabled t-is-opened"
+            class="t-menu__item t-is-disabled"
           >
             
             <svg
@@ -2092,7 +2092,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               
             </span>
             <svg
-              class="t-fake-arrow t-fake-arrow--active"
+              class="t-fake-arrow"
               fill="none"
               height="16"
               style="transform: rotate(0deg);"
@@ -2109,7 +2109,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </svg>
           </div>
           <ul
-            class="t-menu__sub t-is-opened"
+            class="t-menu__sub"
             style="--padding-left: 44px;"
           >
             
