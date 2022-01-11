@@ -67,10 +67,14 @@ export default {
   plugins: [
     // ...
     AutoImport({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({
+        library: 'vue-next'
+      })],
     }),
     Components({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({
+        library: 'vue-next'
+      })],
     }),
   ],
 };
@@ -86,10 +90,14 @@ module.exports = {
   // ...
   plugins: [
     AutoImport({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({
+        library: 'vue-next'
+      })],
     }),
     Components({
-      resolvers: [TDesignResolver()],
+      resolvers: [TDesignResolver({
+        library: 'vue-next'
+      })],
     }),
   ],
 };
