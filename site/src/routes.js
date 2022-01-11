@@ -61,10 +61,6 @@ const routerConfig = {
   },
 };
 
-if (process.env.NODE_ENV === 'preview') {
-  routerConfig.history = createWebHashHistory();
-}
-
 const router = createRouter(routerConfig);
 
 router.beforeEach((to, from, next) => {
