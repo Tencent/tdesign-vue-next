@@ -7,6 +7,9 @@ import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
+import useHover from './useHover';
+
+const CLEAR_CLASS = `${prefix}-tag-input__suffix-clear`;
 
 export default defineComponent({
   name: 'TTagInput',
@@ -15,13 +18,14 @@ export default defineComponent({
 
   setup(props) {
     const root = ref(null);
-    const inputValue = ref<InputValue>();
+    const inputValueRef = ref<InputValue>();
+    const { isHoverRef, onRootMouseenter, onRootMouseleave } = useHover(props);
     const scrollFunctions = useTagScroll(props, root);
     const { onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props);
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
       onInnerEnter(value, context);
-      inputValue.value = '';
+      inputValueRef.value = '';
       nextTick(() => {
         scrollFunctions.scrollToRight();
       });
@@ -29,7 +33,10 @@ export default defineComponent({
 
     return {
       root,
-      inputValue,
+      inputValueRef,
+      isHoverRef,
+      onRootMouseenter,
+      onRootMouseleave,
       ...scrollFunctions,
       onInputEnter,
       onClose,
@@ -72,24 +79,32 @@ export default defineComponent({
       }
       return list;
     },
+
+    renderSuffixIcon() {
+      const suffixIcon = renderTNodeJSX(this, 'suffixIcon');
+      if (!this.readonly && !this.disabled && this.clearable && this.isHoverRef) {
+        return <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.clearAll} />;
+      }
+      return suffixIcon;
+    },
   },
 
   render() {
     return (
       <TInput
         ref="root"
-        v-model={this.inputValue}
+        v-model={this.inputValueRef}
         readonly={this.readonly}
         label={this.renderLabel}
         onBlur={this.scrollToLeft}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}
+        onMouseenter={this.onRootMouseenter}
+        onMouseleave={this.onRootMouseleave}
         class={`${prefix}-tag-input`}
         placeholder={!this.value?.length ? this.placeholder : ''}
         status={this.status}
-        suffixIcon={
-          this.readonly || !this.clearable ? undefined : () => <CloseCircleFilledIcon onClick={this.clearAll} />
-        }
+        suffixIcon={this.renderSuffixIcon}
         {...this.inputProps}
       />
     );

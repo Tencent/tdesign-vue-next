@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-04 10:10:27
+ * updated at 2022-01-11 11:08:06
  * */
 
 import { InputProps, InputValue } from '../input';
@@ -74,7 +74,7 @@ export interface TdTagInputProps {
    */
   onChange?: (
     value: TagInputValue,
-    context: { trigger: TagInputTriggerSource; index?: number; e: MouseEvent | KeyboardEvent },
+    context: { trigger: TagInputTriggerSource; index?: number; item?: string | number; e: MouseEvent | KeyboardEvent },
   ) => void;
   /**
    * 清空按钮点击时触发
@@ -84,8 +84,30 @@ export interface TdTagInputProps {
    * 按键按下 Enter 时触发
    */
   onEnter?: (value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue }) => void;
+  /**
+   * 进入输入框时触发
+   */
+  onMouseenter?: (context: { e: MouseEvent }) => void;
+  /**
+   * 离开输入框时触发
+   */
+  onMouseleave?: (context: { e: MouseEvent }) => void;
+  /**
+   * 移除单个标签时触发
+   */
+  onRemove?: (context: TagInputRemoveContext) => void;
 }
 
 export type TagInputValue = Array<string | number>;
 
-export type TagInputTriggerSource = 'enter' | 'tag-delete' | 'backspace' | 'clear';
+export type TagInputTriggerSource = 'enter' | 'tag-remove' | 'backspace' | 'clear';
+
+export interface TagInputRemoveContext {
+  value: TagInputValue;
+  index: number;
+  item: string | number;
+  e: MouseEvent | KeyboardEvent;
+  trigger: TagInputRemoveTrigger;
+}
+
+export type TagInputRemoveTrigger = 'tag-remove' | 'backspace';

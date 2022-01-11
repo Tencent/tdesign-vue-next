@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-04 10:10:27
+ * updated at 2022-01-11 11:08:06
  * */
 
 import { TdTagInputProps } from './type';
@@ -72,4 +72,10 @@ export default {
   onClear: Function as PropType<TdTagInputProps['onClear']>,
   /** 按键按下 Enter 时触发 */
   onEnter: Function as PropType<TdTagInputProps['onEnter']>,
+  /** 进入输入框时触发 */
+  onMouseenter: Function as PropType<TdTagInputProps['onMouseenter']>,
+  /** 离开输入框时触发 */
+  onMouseleave: Function as PropType<TdTagInputProps['onMouseleave']>,
+  /** 移除单个标签时触发 */
+  onRemove: Function as PropType<TdTagInputProps['onRemove']>,
 };
