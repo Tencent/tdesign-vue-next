@@ -1,12 +1,18 @@
 import { defineComponent, h, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
-import { InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
-
+import {
+  CheckCircleFilledIcon,
+  CloseIcon,
+  ErrorCircleFilledIcon,
+  HelpCircleFilledIcon,
+  InfoCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import { useEmitEvent } from '../hooks/event';
+import { useIcon } from '../hooks/icon';
 
 const name = `${prefix}-alert`;
 
@@ -28,20 +34,14 @@ export default defineComponent({
     const collapsed = ref(true);
 
     const renderIcon = () => {
-      let iconContent;
-      if (typeof props.icon === 'function') {
-        iconContent = props.icon(h);
-      } else if (slots.icon) {
-        iconContent = slots.icon && slots.icon(null)[0];
-      } else {
-        const Component = {
-          info: InfoCircleFilledIcon,
-          success: CheckCircleFilledIcon,
-          warning: ErrorCircleFilledIcon,
-          error: ErrorCircleFilledIcon,
-        }[props.theme as string];
-        iconContent = <Component></Component>;
-      }
+      const Component = {
+        info: InfoCircleFilledIcon,
+        success: CheckCircleFilledIcon,
+        warning: ErrorCircleFilledIcon,
+        error: ErrorCircleFilledIcon,
+        question: HelpCircleFilledIcon,
+      };
+      const iconContent = useIcon(props, slots, 'icon', Component);
       return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
     };
 
@@ -49,12 +49,10 @@ export default defineComponent({
       let closeContent = null;
       if (typeof props.close === 'string') {
         closeContent = props.close;
-      } else if (typeof props.close === 'function') {
-        closeContent = props.close(h);
       } else if (props.close === true) {
         closeContent = <CloseIcon></CloseIcon>;
       } else {
-        closeContent = slots.close && slots.close(null)[0];
+        closeContent = useIcon(props, slots, 'close');
       }
       return closeContent ? (
         <div class={`${name}__close`} onClick={handleClose}>
