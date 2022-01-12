@@ -22,8 +22,8 @@ export function useIcon<P extends Record<string, any>>(
   } else if (slots[iconType]) {
     // 插槽slot
     iconContent = slots[iconType] && slots[iconType](null)[0];
-  } else {
-    const Component = defaultIcons && defaultIcons[props.theme as string];
+  } else if (defaultIcons) {
+    const Component = defaultIcons[props.theme as string];
     iconContent = <Component></Component>;
   }
   return iconContent;
