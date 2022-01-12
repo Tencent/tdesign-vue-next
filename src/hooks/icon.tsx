@@ -1,36 +1,29 @@
 import { h, Slots } from 'vue';
-import {
-  CheckCircleFilledIcon,
-  ErrorCircleFilledIcon,
-  HelpCircleFilledIcon,
-  InfoCircleFilledIcon,
-} from 'tdesign-icons-vue-next';
-import TLoading from '../loading';
 
 /**
- * 渲染自定义icon
- * 使用场景：<t-message theme="info">用于表示普通操作信息提示</t-message>
+ * 渲染icon，用于icon、close等渲染图标的场景
+ * 使用场景：useIcon(props, slots, 'icon', Component);  useIcon(props, slots, 'close');
  * @param props
  * @param slots
+ * @param iconType 要渲染的icon元素
+ * @param defaultIcons 默认icon集合
  * @returns
  */
-export function useIcon<P extends Record<string, any>>(props: P, slots: Slots) {
+export function useIcon<P extends Record<string, any>>(
+  props: P,
+  slots: Slots,
+  iconType: string,
+  defaultIcons?: Record<string, any>,
+) {
   let iconContent;
   // 传入的是渲染函数
-  if (typeof props.icon === 'function') {
-    iconContent = props.icon(h);
-  } else if (slots.icon) {
+  if (typeof props[iconType] === 'function') {
+    iconContent = props[iconType](h);
+  } else if (slots[iconType]) {
     // 插槽slot
-    iconContent = slots.icon && slots.icon(null)[0];
+    iconContent = slots[iconType] && slots[iconType](null)[0];
   } else {
-    const Component = {
-      info: InfoCircleFilledIcon,
-      success: CheckCircleFilledIcon,
-      warning: ErrorCircleFilledIcon,
-      error: ErrorCircleFilledIcon,
-      question: HelpCircleFilledIcon,
-      loading: TLoading,
-    }[props.theme as string];
+    const Component = defaultIcons && defaultIcons[props.theme as string];
     iconContent = <Component></Component>;
   }
   return iconContent;
