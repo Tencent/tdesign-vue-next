@@ -57,6 +57,7 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
 
   // 鼠标 hover，自动滑动到最右侧，以便输入新标签
   const scrollToRightOnEnter = () => {
+    if (props.overTagsDisplayType !== 'scroll') return;
     // 一闪而过的 mousenter 不需要执行
     mouseEnterTimer.value = setTimeout(() => {
       scrollToRight();
@@ -69,6 +70,7 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
   };
 
   const scrollToLeftOnLeave = () => {
+    if (props.overTagsDisplayType !== 'scroll') return;
     scrollTo(0);
     clearTimer(mouseEnterTimer);
   };

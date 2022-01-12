@@ -123,6 +123,7 @@ export default defineComponent({
         class={this.classes}
         status={this.status}
         placeholder={this.tagInputPlaceholder}
+        suffix={this.suffix}
         suffixIcon={this.renderSuffixIcon}
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
