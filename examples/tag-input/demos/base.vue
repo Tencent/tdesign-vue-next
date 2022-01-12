@@ -1,6 +1,6 @@
 <template>
   <div style="width: 60%">
-    <t-tag-input v-model="tags" clearable @paste="onPaste" @enter="onTagInputEnter" />
+    <t-tag-input :value="tags" clearable @paste="onPaste" @change="onChange" @enter="onTagInputEnter" />
     <br /><br />
 
     <!-- 标签数量超出时，滚动显示 -->

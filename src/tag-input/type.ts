@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 14:20:20
  * */
 
 import { InputProps, InputValue } from '../input';
@@ -80,6 +79,10 @@ export interface TdTagInputProps {
    */
   valueDisplay?: string | TNode<{ value: TagInputValue }>;
   /**
+   * 失去焦点时触发
+   */
+  onBlur?: (value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
+  /**
    * 值变化时触发，参数 `trigger` 表示数据变化的触发来源
    */
   onChange?: (value: TagInputValue, context: TagInputChangeContext) => void;
@@ -91,6 +94,10 @@ export interface TdTagInputProps {
    * 按键按下 Enter 时触发
    */
   onEnter?: (value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue }) => void;
+  /**
+   * 聚焦时触发
+   */
+  onFocus?: (value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
   /**
    * 进入输入框时触发
    */

@@ -36,8 +36,8 @@ export default defineComponent({
     });
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
-      onInnerEnter(value, context);
       inputValueRef.value = '';
+      onInnerEnter(value, context);
       nextTick(() => {
         scrollFunctions.scrollToRight();
       });
@@ -113,7 +113,10 @@ export default defineComponent({
       <TInput
         ref="root"
         {...this.inputProps}
-        v-model={this.inputValueRef}
+        value={this.inputValueRef}
+        onChange={(val) => {
+          this.inputValueRef = val;
+        }}
         readonly={this.readonly}
         disabled={this.disabled}
         label={this.renderLabel}
@@ -131,6 +134,12 @@ export default defineComponent({
         onMouseleave={(context) => {
           this.cancelHover(context);
           this.scrollToLeftOnLeave();
+        }}
+        onFocus={(inputValue, context) => {
+          this.onFocus?.(this.value, { e: context.e, inputValue });
+        }}
+        onBlur={(inputValue, context) => {
+          this.onBlur?.(this.value, { e: context.e, inputValue });
         }}
       />
     );

@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-11 14:20:20
  * */
 
 import { TdTagInputProps } from './type';
@@ -76,12 +75,16 @@ export default {
   valueDisplay: {
     type: [String, Function] as PropType<TdTagInputProps['valueDisplay']>,
   },
+  /** 失去焦点时触发 */
+  onBlur: Function as PropType<TdTagInputProps['onBlur']>,
   /** 值变化时触发，参数 `trigger` 表示数据变化的触发来源 */
   onChange: Function as PropType<TdTagInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdTagInputProps['onClear']>,
   /** 按键按下 Enter 时触发 */
   onEnter: Function as PropType<TdTagInputProps['onEnter']>,
+  /** 聚焦时触发 */
+  onFocus: Function as PropType<TdTagInputProps['onFocus']>,
   /** 进入输入框时触发 */
   onMouseenter: Function as PropType<TdTagInputProps['onMouseenter']>,
   /** 离开输入框时触发 */

@@ -70,7 +70,6 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
 
   const scrollToLeftOnLeave = () => {
     scrollTo(0);
-    scrollElement.value.querySelector('input').blur();
     clearTimer(mouseEnterTimer);
   };
 

@@ -177,7 +177,7 @@ export default defineComponent({
 
   render(): VNodeChild {
     const inputEvents = getValidAttrs({
-      onFocus: this.emitFocus,
+      onFocus: (e: FocusEvent) => this.emitFocus(e),
       onBlur: this.emitBlur,
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
