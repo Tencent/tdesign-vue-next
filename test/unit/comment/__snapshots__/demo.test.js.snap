@@ -720,7 +720,7 @@ exports[`Comment Comment replyVue demo works fine 1`] = `
                 评论作者名B
               </span>
               <svg
-                class="t-icon t-icon-caret-right-small t-size-s author-icon author-icon"
+                class="t-icon t-icon-caret-right-small t-size-s author-icon"
               >
                 <use
                   href="#t-icon-caret-right-small"

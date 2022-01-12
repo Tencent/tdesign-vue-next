@@ -25,11 +25,12 @@ export default defineComponent({
     ]);
 
     const createOptions = () => {
+      console.log(value.value);
       options.value.push({
-        value,
-        label: value,
+        label: `选项${value.value}`,
+        value: value.value,
       });
-      console.log('create option:', value);
+      console.log('create option:', value.value);
     };
 
     return {
