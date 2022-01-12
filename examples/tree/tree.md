@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Tree Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -37,11 +36,11 @@ transition | Boolean | true | 节点展开折叠时是否使用过渡动画 | N
 value | Array | [] | 选中值（组件为可选状态时）。支持语法糖。TS 类型：`Array<TreeNodeValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
 defaultValue | Array | [] | 选中值（组件为可选状态时）。非受控属性。TS 类型：`Array<TreeNodeValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
 valueMode | String | onlyLeaf | 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点。可选项：onlyLeaf/parentFirst/all | N
-onActive | Function |  | 节点激活时触发，泛型 `T` 表示树节点 TS 类型。`(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => {}` | N
-onChange | Function |  | 节点选中状态变化时触发，context.node 表示当前变化的选项，泛型 `T` 表示树节点 TS 类型。`(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => {}` | N
-onClick | Function |  | 节点点击时触发，泛型 `T` 表示树节点 TS 类型。`(context: { node: TreeNodeModel<T>; e: MouseEvent }) => {}` | N
-onExpand | Function |  | 节点展开或收起时触发，泛型 `T` 表示树节点 TS 类型。`(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T>; e: MouseEvent }) => {}` | N
-onLoad | Function |  | 异步加载后触发，泛型 `T` 表示树节点 TS 类型。`(context: { node: TreeNodeModel<T> }) => {}` | N
+onActive | Function |  | TS 类型：`(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => void`<br/>节点激活时触发，泛型 `T` 表示树节点 TS 类型 | N
+onChange | Function |  | TS 类型：`(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => void`<br/>节点选中状态变化时触发，context.node 表示当前变化的选项，泛型 `T` 表示树节点 TS 类型 | N
+onClick | Function |  | TS 类型：`(context: { node: TreeNodeModel<T>; e: MouseEvent }) => void`<br/>节点点击时触发，泛型 `T` 表示树节点 TS 类型 | N
+onExpand | Function |  | TS 类型：`(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T>; e: MouseEvent }) => void`<br/>节点展开或收起时触发，泛型 `T` 表示树节点 TS 类型 | N
+onLoad | Function |  | TS 类型：`(context: { node: TreeNodeModel<T> }) => void`<br/>异步加载后触发，泛型 `T` 表示树节点 TS 类型 | N
 
 ### Tree Events
 
@@ -97,7 +96,6 @@ expanded | Boolean | - | 必需。当前节点是否展开 | Y
 indeterminate | Boolean | - | 必需。当前节点是否处于半选状态 | Y
 loading | Boolean | - | 必需。当前节点是否处于加载中状态 | Y
 TreeNodeState | - | - | 继承 `TreeNodeState` 中的全部 API | N
-
 ### TreeNodeModel
 
 名称 | 参数 | 返回值 | 描述
