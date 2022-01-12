@@ -16,10 +16,12 @@ export default defineComponent({
   emits: ['close', 'closed'],
   setup(props, { slots, emit }) {
     const emitEvent = useEmitEvent(props, emit);
-    // alert dom引用
+    // alert的dom引用
     const ele = ref(null);
-    // description dom引用
+    // descriptiond的dom引用
     const description = ref(null);
+    // desc高度
+    const descHeight = ref(0);
     // 是否可见，关闭后置为false
     const visible = ref(true);
     // 是否已收起，使用折叠功能时有效，用于表示是否已折叠；默认折叠
@@ -86,15 +88,16 @@ export default defineComponent({
       if (!messageContent) {
         messageContent = renderTNodeJSX(context, 'message');
       }
-
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
       const height = description.value?.children[0]?.offsetHeight;
       if (hasCollapse && collapsed.value) {
+        // 折叠
         messageContent = (messageContent as Array<SlotReturnValue>).slice(0, props.maxLine as number);
-        height && (description.value.style.height = `${height * props.maxLine + 32}px`);
-      } else {
-        height && (description.value.style.height = `${height * contentLength + 32}px`);
+        height && (description.value.style.height = `${descHeight.value}px`);
+      } else if (hasCollapse) {
+        // 展开
+        height && (description.value.style.height = `${height * (contentLength - props.maxLine) + descHeight.value}px`);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
@@ -138,6 +141,7 @@ export default defineComponent({
 
     onMounted(() => {
       on(ele.value, 'transitionend', handleCloseEnd);
+      descHeight.value = description.value.offsetHeight;
     });
     onBeforeUnmount(() => {
       off(ele.value, 'transitionend', handleCloseEnd);
