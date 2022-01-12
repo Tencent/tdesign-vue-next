@@ -48,7 +48,8 @@ export default defineComponent({
 
     return (
       <Popup
-        {...(this.popupProps, { ...popupProps })}
+        {...this.popupProps}
+        {...popupProps}
         destroyOnClose
         ref="popupElem"
         expandAnimation
