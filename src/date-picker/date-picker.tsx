@@ -20,7 +20,7 @@ import TDate from './panel/date';
 import TDateRange from './panel/date-range';
 import TTimePickerPanel from '../time-picker/panel';
 import { EPickerCols } from '../time-picker/constant';
-import { firstUpperCase, extractTimeFormat } from './utils';
+import { firstUpperCase, extractTimeFormat } from '../_common/js/date-picker/utils';
 import { DateValue, PickContext } from './interface';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
