@@ -41,9 +41,7 @@ export default defineComponent({
       disabled: this.disabled,
       placement: this.placement,
       trigger: this.trigger,
-      overlayClassName: (this.popupProps as TdDropdownProps['popupProps'])?.overlayClassName
-        ? [name, (this.popupProps as TdDropdownProps['popupProps'])?.overlayClassName]
-        : name,
+      overlayClassName: [name, (this.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
     };
 
     return (
