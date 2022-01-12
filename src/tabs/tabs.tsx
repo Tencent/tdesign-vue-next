@@ -63,9 +63,11 @@ export default defineComponent({
       const panels = (this.list?.length ? this.list : this.getSlotPanels()) || [];
       const panelsData = panels.map((item: ComponentPublicInstance) => {
         const selfItem = item;
-        for (const key in item.props) {
+
+        Object.keys(item.props).forEach((key) => {
           selfItem[key] = item.props[key];
-        }
+        });
+
         return selfItem;
       });
       const tabNavProps = {
