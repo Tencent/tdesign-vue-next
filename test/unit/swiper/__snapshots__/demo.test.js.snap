@@ -46,6 +46,7 @@ exports[`Swiper Swiper swiperVue demo works fine 1`] = `
               >
                 <div
                   class="t-alert__description"
+                  style="transition: height .2s;"
                 >
                   【到期提醒】
                   <!---->
@@ -88,6 +89,7 @@ exports[`Swiper Swiper swiperVue demo works fine 1`] = `
               >
                 <div
                   class="t-alert__description"
+                  style="transition: height .2s;"
                 >
                   【到期提醒】
                   <!---->
@@ -130,6 +132,7 @@ exports[`Swiper Swiper swiperVue demo works fine 1`] = `
               >
                 <div
                   class="t-alert__description"
+                  style="transition: height .2s;"
                 >
                   【到期提醒】
                   <!---->
@@ -172,6 +175,7 @@ exports[`Swiper Swiper swiperVue demo works fine 1`] = `
               >
                 <div
                   class="t-alert__description"
+                  style="transition: height .2s;"
                 >
                   【到期提醒】
                   <!---->
@@ -247,6 +251,7 @@ exports[`Swiper Swiper swiperVue demo works fine 1`] = `
               >
                 <div
                   class="t-alert__description"
+                  style="transition: height .2s;"
                 >
                   【到期提醒】
                   <!---->
@@ -289,6 +294,7 @@ exports[`Swiper Swiper swiperVue demo works fine 1`] = `
               >
                 <div
                   class="t-alert__description"
+                  style="transition: height .2s;"
                 >
                   【到期提醒】
                   <!---->
@@ -331,6 +337,7 @@ exports[`Swiper Swiper swiperVue demo works fine 1`] = `
               >
                 <div
                   class="t-alert__description"
+                  style="transition: height .2s;"
                 >
                   【到期提醒】
                   <!---->
@@ -373,6 +380,7 @@ exports[`Swiper Swiper swiperVue demo works fine 1`] = `
               >
                 <div
                   class="t-alert__description"
+                  style="transition: height .2s;"
                 >
                   【到期提醒】
                   <!---->
@@ -452,6 +460,7 @@ exports[`Swiper Swiper verticalVue demo works fine 1`] = `
             >
               <div
                 class="t-alert__description"
+                style="transition: height .2s;"
               >
                 【到期提醒】
                 <!---->
@@ -494,6 +503,7 @@ exports[`Swiper Swiper verticalVue demo works fine 1`] = `
             >
               <div
                 class="t-alert__description"
+                style="transition: height .2s;"
               >
                 【到期提醒】
                 <!---->
@@ -536,6 +546,7 @@ exports[`Swiper Swiper verticalVue demo works fine 1`] = `
             >
               <div
                 class="t-alert__description"
+                style="transition: height .2s;"
               >
                 【到期提醒】
                 <!---->
@@ -578,6 +589,7 @@ exports[`Swiper Swiper verticalVue demo works fine 1`] = `
             >
               <div
                 class="t-alert__description"
+                style="transition: height .2s;"
               >
                 【到期提醒】
                 <!---->

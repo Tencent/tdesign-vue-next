@@ -33,6 +33,7 @@ exports[`Alert Alert baseVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条成功的消息提示
           <!---->
@@ -71,6 +72,7 @@ exports[`Alert Alert baseVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           <div>
             这是一条普通的消息提示
@@ -111,6 +113,7 @@ exports[`Alert Alert baseVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           
            这是一条警示信息 
@@ -151,6 +154,7 @@ exports[`Alert Alert baseVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           
            高危操作/出错信息提示 
@@ -198,6 +202,7 @@ exports[`Alert Alert closeVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条成功的消息提示
           <!---->
@@ -252,6 +257,7 @@ exports[`Alert Alert closeVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条普通的消息提示
           <!---->
@@ -294,6 +300,7 @@ exports[`Alert Alert closeVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条警示信息
           <!---->
@@ -336,6 +343,7 @@ exports[`Alert Alert closeVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           高危操作/出错信息提示
           <!---->
@@ -385,6 +393,7 @@ exports[`Alert Alert collapseVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           
           <div>
@@ -445,6 +454,7 @@ exports[`Alert Alert iconVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条成功的消息提示
           <!---->
@@ -483,6 +493,7 @@ exports[`Alert Alert iconVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条普通的消息提示
           <!---->
@@ -521,6 +532,7 @@ exports[`Alert Alert iconVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条警示消息提示
           <!---->
@@ -559,6 +571,7 @@ exports[`Alert Alert iconVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           高危操作/出错信息提示
           <!---->
@@ -591,6 +604,7 @@ exports[`Alert Alert iconVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条警示信息(以function形式自定义icon)
           <!---->
@@ -623,6 +637,7 @@ exports[`Alert Alert iconVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           高危操作/出错信息提示(以slot形式自定义icon)
           <!---->
@@ -668,6 +683,7 @@ exports[`Alert Alert operationVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是一条普通的消息提示
           <!---->
@@ -726,6 +742,7 @@ exports[`Alert Alert titleVue demo works fine 1`] = `
       >
         <div
           class="t-alert__description"
+          style="transition: height .2s;"
         >
           这是与普通的消息提示相关的文字辅助说明
           <!---->
