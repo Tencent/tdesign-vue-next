@@ -1,4 +1,4 @@
-import { defineComponent, h, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
+import { defineComponent, h, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
 import { InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
 
 import { prefix } from '../config';
@@ -79,9 +79,6 @@ export default defineComponent({
     };
 
     const renderDescription = (context: ComponentPublicInstance) => {
-      const style = {
-        transition: 'height .2s',
-      };
       let messageContent;
 
       messageContent = renderTNodeJSX(context, 'default');
@@ -102,7 +99,7 @@ export default defineComponent({
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
-        <div class={`${name}__description`} style={{ ...style }} ref="description">
+        <div class={`${name}__description`} ref="description">
           {hasCollapse
             ? (messageContent as Array<string | VNode>).map((content) => <div>{content}</div>)
             : messageContent}
