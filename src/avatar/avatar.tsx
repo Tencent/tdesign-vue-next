@@ -1,91 +1,101 @@
-import { defineComponent } from 'vue';
+import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
+import { useEmitEvent } from '../hooks/event';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { Styles } from '../common';
-import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-avatar`;
 
 export default defineComponent({
   name: 'TAvatar',
-  inject: {
-    avatarGroup: {
-      default: undefined,
-    },
-  },
-
-  props: {
-    ...props,
-  },
+  props,
   emits: ['error'],
+  setup(props, { emit }) {
+    const emitEvent = useEmitEvent(props, emit);
+    const avatarGroup = inject('avatarGroup', undefined);
+    const avatar = ref(null);
+    const avatarChild = ref(null);
+    const isImgExist = ref(true);
+    // 内容区在左右两边的间距保持为4
+    const gap = ref(4);
+    const sizeValue = ref('');
+    const scale = ref('');
 
-  data() {
-    return {
-      isImgExist: true,
-      gap: 4,
-      sizeValue: '',
-      scale: '',
-    };
-  },
-  computed: {
-    customAvatarSize(): Styles {
-      return this.isCustomSize()
-        ? { width: this.sizeValue, height: this.sizeValue, 'font-size': `${Number.parseInt(this.sizeValue, 10) / 2}px` }
-        : {};
-    },
-    customImageSize(): Styles {
-      return this.isCustomSize()
+    const isCustomSize = computed(() => sizeValue.value && !CLASSNAMES.SIZE[sizeValue.value]);
+
+    const customAvatarSize = computed<Styles>(() => {
+      return isCustomSize.value
         ? {
-            height: this.sizeValue,
-            width: this.sizeValue,
+            width: sizeValue.value,
+            height: sizeValue.value,
+            'font-size': `${Number.parseInt(sizeValue.value, 10) / 2}px`,
           }
         : {};
-    },
-    customCharaSize(): Styles {
+    });
+    const customImageSize = computed<Styles>(() => {
+      return isCustomSize.value
+        ? {
+            height: sizeValue.value,
+            width: sizeValue.value,
+          }
+        : {};
+    });
+    const customCharacterSize = computed<Styles>(() => {
       return {
-        transform: this.scale,
+        transform: scale.value,
       };
-    },
-  },
-
-  mounted() {
-    const { avatarGroup } = this;
-    this.sizeValue = this.size || avatarGroup?.size;
-    this.$nextTick(() => {
-      this.setScaleParams();
     });
-  },
-  updated() {
-    this.$nextTick(() => {
-      this.setScaleParams();
-    });
-  },
 
-  methods: {
-    handleImgLoadError() {
-      const { onError, hideOnLoadFailed } = this.$props;
-      this.isImgExist = !hideOnLoadFailed;
-      onError && onError();
-      emitEvent(this, 'error');
-    },
-    setScaleParams() {
-      const avater = this.$refs.avatar as HTMLElement;
-      const avaterChild = this.$refs.avatarChild as HTMLElement;
-      const avaterWidth = avater?.offsetWidth;
-      const avaterChildWidth = avaterChild?.offsetWidth;
-      if (this.gap * 2 < avaterWidth) {
-        this.scale =
-          avaterChildWidth > avaterWidth - this.gap * 2
-            ? `scale(${(avaterWidth - this.gap * 2) / avaterChildWidth})`
+    const handleImgLoadError = () => {
+      const { hideOnLoadFailed } = props;
+      isImgExist.value = !hideOnLoadFailed;
+      emitEvent('error');
+    };
+    // 设置字符头像大小自适应
+    const setScaleParams = () => {
+      const $avatar = avatar.value as HTMLElement;
+      const $avatarChild = avatarChild.value as HTMLElement;
+      const avatarWidth = $avatar?.offsetWidth;
+      const avatarChildWidth = $avatarChild?.offsetWidth;
+      if (gap.value * 2 < avatarWidth) {
+        scale.value =
+          avatarChildWidth > avatarWidth - gap.value * 2
+            ? `scale(${(avatarWidth - gap.value * 2) / avatarChildWidth})`
             : 'scale(1)';
       }
-    },
-    isCustomSize() {
-      return this.sizeValue && !CLASSNAMES.SIZE[this.sizeValue];
-    },
+    };
+
+    onMounted(() => {
+      sizeValue.value = props.size || avatarGroup?.size;
+      nextTick(() => {
+        setScaleParams();
+      });
+    });
+
+    onUpdated(() => {
+      nextTick(() => {
+        setScaleParams();
+      });
+    });
+
+    return {
+      avatar,
+      avatarChild,
+      isImgExist,
+      gap,
+      sizeValue,
+      scale,
+      customAvatarSize,
+      customImageSize,
+      customCharacterSize,
+      isCustomSize,
+      handleImgLoadError,
+      setScaleParams,
+    };
   },
+
   render() {
     let content = renderContent(this, 'default', 'content');
     const icon = renderTNodeJSX(this, 'icon');
@@ -101,7 +111,7 @@ export default defineComponent({
       },
     ];
     content = (
-      <span ref="avatarChild" style={{ ...this.customCharaSize }}>
+      <span ref="avatarChild" style={{ ...this.customCharacterSize }}>
         {content}
       </span>
     );
