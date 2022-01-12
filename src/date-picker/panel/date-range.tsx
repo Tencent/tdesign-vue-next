@@ -18,7 +18,7 @@ import {
   getToday,
   firstUpperCase,
   setDateTime,
-} from '../utils';
+} from '../../_common/js/date-picker/utils';
 import props from '../props';
 
 const TODAY = getToday();
