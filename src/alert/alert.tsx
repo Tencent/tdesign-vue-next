@@ -1,12 +1,12 @@
 import { defineComponent, h, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
-import { InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
-
+import { CloseIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import { useEmitEvent } from '../hooks/event';
+import { useIcon } from '../hooks/icon';
 
 const name = `${prefix}-alert`;
 
@@ -28,20 +28,7 @@ export default defineComponent({
     const collapsed = ref(true);
 
     const renderIcon = () => {
-      let iconContent;
-      if (typeof props.icon === 'function') {
-        iconContent = props.icon(h);
-      } else if (slots.icon) {
-        iconContent = slots.icon && slots.icon(null)[0];
-      } else {
-        const Component = {
-          info: InfoCircleFilledIcon,
-          success: CheckCircleFilledIcon,
-          warning: ErrorCircleFilledIcon,
-          error: ErrorCircleFilledIcon,
-        }[props.theme as string];
-        iconContent = <Component></Component>;
-      }
+      const iconContent = useIcon(props, slots);
       return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
     };
 
