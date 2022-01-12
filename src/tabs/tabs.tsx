@@ -64,9 +64,11 @@ export default defineComponent({
       const panelsData = panels.map((item: ComponentPublicInstance) => {
         const selfItem = item;
 
-        Object.keys(item.props).forEach((key) => {
-          selfItem[key] = item.props[key];
-        });
+        if (item.props) {
+          Object.keys(item.props).forEach((key) => {
+            selfItem[key] = item.props[key];
+          });
+        }
 
         return selfItem;
       });
