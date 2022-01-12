@@ -9391,48 +9391,48 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
                     <tr>
                       <!--[-->
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">1 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jan</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">2 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Feb</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">3 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Mar</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">4 月</span></div>
-                      </td>
-                      <!--]-->
-                    </tr>
-                    <tr>
-                      <!--[-->
-                      <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">5 月</span></div>
-                      </td>
-                      <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">6 月</span></div>
-                      </td>
-                      <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">7 月</span></div>
-                      </td>
-                      <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">8 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Apr</span></div>
                       </td>
                       <!--]-->
                     </tr>
                     <tr>
                       <!--[-->
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">9 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">May</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">10 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jun</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">11 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jul</span></div>
+                      </td>
+                      <td class="t-date-picker-cell">
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Aug</span></div>
+                      </td>
+                      <!--]-->
+                    </tr>
+                    <tr>
+                      <!--[-->
+                      <td class="t-date-picker-cell">
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Sep</span></div>
+                      </td>
+                      <td class="t-date-picker-cell">
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Oct</span></div>
+                      </td>
+                      <td class="t-date-picker-cell">
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Nov</span></div>
                       </td>
                       <td class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">12 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Dec</span></div>
                       </td>
                       <!--]-->
                     </tr>
@@ -9476,48 +9476,48 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
                       <tr>
                         <!--[-->
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">1 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jan</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">2 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Feb</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">3 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Mar</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">4 月</span></div>
-                        </td>
-                        <!--]-->
-                      </tr>
-                      <tr>
-                        <!--[-->
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">5 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">6 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">7 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">8 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Apr</span></div>
                         </td>
                         <!--]-->
                       </tr>
                       <tr>
                         <!--[-->
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">9 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">May</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">10 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jun</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">11 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jul</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Aug</span></div>
+                        </td>
+                        <!--]-->
+                      </tr>
+                      <tr>
+                        <!--[-->
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Sep</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Oct</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Nov</span></div>
                         </td>
                         <td class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active t-date-picker__cell--active-start t-date-picker__cell--active-end">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">12 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Dec</span></div>
                         </td>
                         <!--]-->
                       </tr>
@@ -9538,48 +9538,48 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
                       <tr>
                         <!--[-->
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">1 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jan</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">2 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Feb</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">3 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Mar</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">4 月</span></div>
-                        </td>
-                        <!--]-->
-                      </tr>
-                      <tr>
-                        <!--[-->
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">5 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">6 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">7 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">8 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Apr</span></div>
                         </td>
                         <!--]-->
                       </tr>
                       <tr>
                         <!--[-->
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">9 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">May</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">10 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jun</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">11 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jul</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">12 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Aug</span></div>
+                        </td>
+                        <!--]-->
+                      </tr>
+                      <tr>
+                        <!--[-->
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Sep</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Oct</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Nov</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Dec</span></div>
                         </td>
                         <!--]-->
                       </tr>
