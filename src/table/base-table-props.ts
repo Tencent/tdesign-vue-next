@@ -30,6 +30,10 @@ export default {
   expandedRow: {
     type: [String, Function] as PropType<TdBaseTableProps['expandedRow']>,
   },
+  /** 首行内容 */
+  firstFullRow: {
+    type: [String, Function] as PropType<TdBaseTableProps['firstFullRow']>,
+  },
   /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px */
   height: {
     type: [String, Number] as PropType<TdBaseTableProps['height']>,
@@ -37,6 +41,10 @@ export default {
   },
   /** 是否显示鼠标悬浮状态 */
   hover: Boolean,
+  /** 尾行内容 */
+  lastFullRow: {
+    type: [String, Function] as PropType<TdBaseTableProps['lastFullRow']>,
+  },
   /** 加载中状态。值为 true 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式 */
   loading: {
     type: [Boolean, Function] as PropType<TdBaseTableProps['loading']>,

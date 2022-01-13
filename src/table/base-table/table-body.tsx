@@ -16,6 +16,8 @@ export default defineComponent({
     rowClassName: baseTableProps.rowClassName,
     rowKey: baseTableProps.rowKey,
     rowspanAndColspan: baseTableProps.rowspanAndColspan,
+    firstFullRow: baseTableProps.firstFullRow,
+    lastFullRow: baseTableProps.lastFullRow,
     onRowHover: baseTableProps.onRowHover,
     onRowMousedown: baseTableProps.onRowMousedown,
     onRowMouseenter: baseTableProps.onRowMouseenter,
@@ -110,6 +112,12 @@ export default defineComponent({
                 colspan = -1;
               }
             }
+          }
+          if (rowspan > 1 && colspan === -1) {
+            colspan = 1;
+          }
+          if (colspan > 1 && rowspan === -1) {
+            rowspan = 1;
           }
           props[rowIndex][colKey] = {
             leftedColspan,

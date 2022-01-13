@@ -33,6 +33,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   empty?: string | TNode;
   /**
+   * 首行内容
+   */
+  firstFullRow?: string | TNode;
+  /**
    * 展开行内容，可自定义，泛型 T 指表格数据类型
    */
   expandedRow?: string | TNode<{ row: T; index: number }>;
@@ -46,6 +50,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @default false
    */
   hover?: boolean;
+  /**
+   * 尾行内容
+   */
+  lastFullRow?: string | TNode;
   /**
    * 加载中状态。值为 true 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式
    * @default false

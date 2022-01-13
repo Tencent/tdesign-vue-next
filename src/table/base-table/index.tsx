@@ -191,6 +191,8 @@ export default defineComponent({
         rowClassName: this.rowClassName,
         current: this.current,
         rowspanAndColspan: this.rowspanAndColspan,
+        firstFullRow: this.firstFullRow,
+        lastFullRow: this.lastFullRow,
       };
       return (
         <TableBody {...props} {...rowEvents}>
@@ -245,6 +247,7 @@ export default defineComponent({
         scrollBarWidth,
         hasFixedColumns,
         tableHeight,
+        usePadding,
       } = this;
       // handle scroll
       const handleScroll = throttle((e: Event) => {
@@ -255,12 +258,9 @@ export default defineComponent({
       }, 10);
       //  fixed table header
       const paddingRight = `${scrollBarWidth}px`;
+      const headerContainerStyle = columns.length > 1 && usePadding ? { paddingRight } : {};
       fixedTable.push(
-        <div
-          class={`${prefix}-table__header`}
-          style={{ paddingRight: columns.length > 1 ? paddingRight : '' }}
-          ref="scrollHeader"
-        >
+        <div class={`${prefix}-table__header`} style={headerContainerStyle} ref="scrollHeader">
           <table style={{ tableLayout }}>
             <TableColGroup columns={columns} />
             {this.renderHeader()}
