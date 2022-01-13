@@ -100,7 +100,7 @@ exports[`Input :props :prefix-icon 1`] = `
 
 exports[`Input :props :readonly 1`] = `
 <div
-  class="t-input t-size-m"
+  class="t-input t-size-m t-is-readonly"
 >
   <!---->
   <!---->

@@ -699,7 +699,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-input--prefix t-tag-input"
+        class="t-input t-size-m t-is-readonly t-input--prefix t-tag-input"
       >
         <!---->
         <div
