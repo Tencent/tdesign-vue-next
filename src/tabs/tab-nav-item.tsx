@@ -30,6 +30,7 @@ export default defineComponent({
     removable: tabPanelProps.removable,
     value: tabPanelProps.value,
   },
+  emits: ['click'],
   computed: {
     navItemClass(): {} {
       return {
