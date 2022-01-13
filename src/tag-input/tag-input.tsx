@@ -130,6 +130,7 @@ export default defineComponent({
         disabled={this.disabled}
         label={this.renderLabel}
         class={this.classes}
+        tips={this.tips}
         status={this.status}
         placeholder={this.tagInputPlaceholder}
         suffix={this.suffix}

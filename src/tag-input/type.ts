@@ -24,6 +24,11 @@ export interface TdTagInputProps {
    */
   disabled?: boolean;
   /**
+   * 【开发中】拖拽调整标签顺序
+   * @default false
+   */
+  dragSort?: boolean;
+  /**
    * 透传 Input 输入框组件全部属性
    */
   inputProps?: InputProps;
@@ -56,8 +61,9 @@ export interface TdTagInputProps {
   readonly?: boolean;
   /**
    * 输入框状态
+   * @default normal
    */
-  status?: 'success' | 'warning' | 'error';
+  status?: 'normal' | 'success' | 'warning' | 'error';
   /**
    * 后置图标前的后置内容
    */
@@ -74,6 +80,10 @@ export interface TdTagInputProps {
    * 透传 Tag 组件全部属性
    */
   tagProps?: TagProps;
+  /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
   /**
    * 值
    */

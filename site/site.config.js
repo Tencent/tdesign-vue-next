@@ -220,6 +220,13 @@ export default {
           component: () => import('@/examples/input-number/input-number.md'),
         },
         {
+          title: 'TagInput 标签输入框',
+          name: 'tag-input',
+          docType: 'form',
+          path: '/vue-next/components/tag-input',
+          component: () => import('@/examples/tag-input/tag-input.md'),
+        },
+        {
           title: 'Radio 单选框',
           name: 'radio',
           docType: 'form',
@@ -245,13 +252,6 @@ export default {
           docType: 'form',
           path: '/vue-next/components/switch',
           component: () => import('@/examples/switch/switch.md'),
-        },
-        {
-          title: 'TagInput 标签输入框',
-          name: 'tag-input',
-          docType: 'form',
-          path: '/vue-next/components/tag-input',
-          component: () => import('@/examples/tag-input/tag-input.md'),
         },
         {
           title: 'Textarea 多行文本框',
