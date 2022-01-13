@@ -221,7 +221,7 @@ export default defineComponent({
         [`${prefix}-is-${this.status}`]: this.status,
         [`${name}--prefix`]: prefixIcon || labelContent,
         [`${name}--suffix`]: suffixIcon || suffixContent,
-        [`${name}__inner--focused`]: this.focused,
+        [`${name}--focused`]: this.focused,
       },
     ];
     const inputNode = (
