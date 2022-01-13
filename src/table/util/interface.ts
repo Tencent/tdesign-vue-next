@@ -49,8 +49,6 @@ export const EVENT_NAME_WITH_KEBAB = [
   'row-mousedown',
   'row-click',
   'row-db-click',
-  'row-dragstart',
-  'row-dragover',
 ];
 
 export const ExpandProps = {

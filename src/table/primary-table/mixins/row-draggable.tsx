@@ -5,40 +5,42 @@ import { emitEvent } from '../../../utils/event';
 
 export interface RowDragEventArgs {
   index: number;
-  data: any;
-  vNode?: VNode;
+  row: any;
+  targetElm: HTMLElement;
 }
-
 export default defineComponent({
   name: `${prefix}-primary-table-row-draggable`,
   emits: ['drag-sort'],
   data() {
     return {
       draggingRowCurrentIndex: -1,
-      dragging: false,
       currentRowData: null,
     };
   },
+  computed: {
+    dragging(): boolean {
+      return this.draggingRowCurrentIndex !== -1;
+    },
+  },
   methods: {
-    onDragStart({ index, data }: RowDragEventArgs) {
+    onDragStart({ index, row }: RowDragEventArgs) {
       this.draggingRowCurrentIndex = index;
-      this.currentRowData = data;
-      this.dragging = true;
+      this.currentRowData = row;
       this.addDragEndListener();
     },
-    onDragOver({ index: overIndex, vNode, data }: RowDragEventArgs) {
-      const { classList } = vNode.el as HTMLElement;
-      if ([...classList].includes('v-move')) return;
+    onDragOver({ index: overIndex, row, targetElm }: RowDragEventArgs) {
+      // target行在过渡时（即有v-move）触发了dragover事件，无需处理交换;
+      if ([...targetElm.classList].includes('v-move')) return;
 
       const { draggingRowCurrentIndex } = this;
       if (draggingRowCurrentIndex === -1 || draggingRowCurrentIndex === overIndex) return;
 
-      this.emitChange(this.currentRowData, data, draggingRowCurrentIndex, overIndex);
+      this.emitChange(this.currentRowData, row, draggingRowCurrentIndex, overIndex);
       this.draggingRowCurrentIndex = overIndex;
     },
     addDragEndListener() {
       const onDragEnd = () => {
-        this.dragging = false;
+        this.draggingRowCurrentIndex = -1;
         document.removeEventListener('dragend', onDragEnd);
       };
       document.addEventListener('dragend', onDragEnd);

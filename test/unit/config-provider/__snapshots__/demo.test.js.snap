@@ -9672,10 +9672,10 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <div
     style="width: 100%;"
   >
-    <!---->
     <div
       class="t-table t-table--bordered"
       defaultexpandedrowkeys=""
+      dragsort="false"
       expandedrowkeys=""
       expandicon="true"
       expandonrowclick="false"
@@ -9828,10 +9828,13 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <div
     style="width: 100%;"
   >
-    <!---->
     <div
       class="t-table"
       defaultexpandedrowkeys=""
+      dragsort="false"
+      expandedrow="h => {
+      return (0, _vue.createVNode)(\\"div\\", null, [(0, _vue.createTextVNode)(\\"This is expanded row info\\")]);
+    }"
       expandedrowkeys=""
       expandicon="true"
       expandonrowclick="true"
@@ -9973,7 +9976,9 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               
               <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10024,24 +10029,10 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
-                </td>
-                
-              </tr>
-              <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10092,24 +10083,10 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
-                </td>
-                
-              </tr>
-              <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10156,22 +10133,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                   length="4"
                 >
                   C
-                </td>
-                
-              </tr>
-              <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
                 </td>
                 
               </tr>

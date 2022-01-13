@@ -10778,8 +10778,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
   <!--[-->
   <!-- 全局配置：空数据呈现，演示 -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -10835,7 +10834,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
           </table>
         </div>
         <!--[-->
-        <div class="t-table__empty">Empty Data</div>
+        <div style="" class="t-table__empty">Empty Data</div>
         <!--]-->
         <!--]-->
         <!---->
@@ -10843,8 +10842,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
     </div>
   </div><br><br><!-- 全局配置：自定义展开图标和排序图标，演示 -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -10903,13 +10901,6 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                 <td class="" style="" length="4">A</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="4" class="t-table__expandable-cell" style="" length="1">
-                  <div>This is expanded row info</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></span></td>
@@ -10918,26 +10909,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                 <td class="" style="" length="4">B</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="4" class="t-table__expandable-cell" style="" length="1">
-                  <div>This is expanded row info</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="" length="4">Object</td>
                 <td class="" style="" length="4">Miniprogram</td>
                 <td class="" style="" length="4">C</td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="4" class="t-table__expandable-cell" style="" length="1">
-                  <div>This is expanded row info</div>
-                </td>
                 <!--]-->
               </tr>
               <!--]-->
@@ -27917,8 +27894,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
     <!--]-->
   </div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" asyncloading="loading" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" asyncloading="loading" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -27979,9 +27955,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
                 <td class="" style="overflow:hidden;" length="3">zcroson5@virginia.edu</td>
                 <!--]-->
               </tr>
-              <tr draggable="false">
-                <!--[-->
-                <td colspan="3" class="" style="" length="1">
+              <tr>
+                <td colspan="3" class="t-table__row--full t-table__row-last-full-row">
                   <div class="t-table__async-loading t-is-loading">
                     <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
                         <foreignObject x="1" y="1" width="12" height="12">
@@ -27992,7 +27967,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
                     </div>
                   </div>
                 </td>
-                <!--]-->
               </tr>
               <!--]-->
             </tbody>
@@ -28015,8 +27989,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
   <!-- 按钮操作区域 -->
   <div style="margin:16px;"><label class="t-checkbox undefined t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示斑马纹 <!--]--></span></label><label class="t-checkbox undefined t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示表格边框 <!--]--></span></label><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示悬浮效果 <!--]--></span></label></div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-table--bordered t-table--striped t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered t-table--striped t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28117,8 +28090,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
 exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28209,8 +28181,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue corr
     </ul><br>
   </div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28277,8 +28248,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
     <div style="margin:16px;"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 是否允许多字段排序 <!--]--></span></label></div><!-- 本地数据排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div style="margin:16px;"><span> 排序方式：{}</span></div>
     <div style="width: 100%">
-      <!---->
-      <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+      <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
         <div class="t-loading__parent">
           <!--[-->
           <div class="t-table__content">
@@ -28422,8 +28392,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctl
   <div class="item">
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div style="width: 100%">
-      <!---->
-      <div class="t-table t-table__row--draggable" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="true">
+      <div class="t-table t-table__row--draggable" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="true">
         <div class="t-loading__parent">
           <!--[-->
           <div class="t-table__content">
@@ -28517,8 +28486,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctl
 exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28557,7 +28525,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
           </table>
         </div>
         <!--[-->
-        <div class="t-table__empty">暂无数据</div>
+        <div style="" class="t-table__empty">暂无数据</div>
         <!--]-->
         <!--]-->
         <!---->
@@ -28565,8 +28533,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
     </div>
   </div><br><br>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28605,7 +28572,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
           </table>
         </div>
         <!--[-->
-        <div class="t-table__empty">
+        <div style="" class="t-table__empty">
           <!--[--><span style="display:flex;align-items:center;justify-content:center;height:100px;color:rgba(0, 0, 0, 0.26);"> 😊 我是自定义的空内容 😊: slot </span>
           <!--]-->
         </div>
@@ -28616,8 +28583,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
     </div>
   </div><br><br>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28656,7 +28622,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
           </table>
         </div>
         <!--[-->
-        <div class="t-table__empty"><span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">😊 我是自定义的空内容 😊: empty function</span></div>
+        <div style="" class="t-table__empty"><span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">😊 我是自定义的空内容 😊: empty function</span></div>
         <!--]-->
         <!--]-->
         <!---->
@@ -28683,8 +28649,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
       </div>
     </div> <br></div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28738,20 +28703,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest1</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">jenny;peter</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;transform:rotate(90deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -28770,9 +28721,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
+              <tr>
+                <td colspan="5">
                   <div class="more-detail">
                     <p class="title"><b>集群名称:</b></p>
                     <p class="content">JQTest2</p><br>
@@ -28782,7 +28732,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                     <p class="content">test</p>
                   </div>
                 </td>
-                <!--]-->
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
@@ -28802,20 +28751,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest3</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">jenny</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -28831,20 +28766,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 <td class="" style="overflow:hidden;" length="6">
                   <!--[--><a class="link">管理</a><a class="link">删除</a>
                   <!--]-->
-                </td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest4</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">peter</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
                 </td>
                 <!--]-->
               </tr>
@@ -28863,8 +28784,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
   </div>
   <div style="margin:16px 0px;">支持名为 expandedRow 的插槽写法</div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28918,22 +28838,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <!--[-->
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest1</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">jenny;peter</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
-                  <!--]-->
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;transform:rotate(90deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -28952,9 +28856,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
+              <tr>
+                <td colspan="5">
                   <!--[-->
                   <div class="more-detail">
                     <p class="title"><b>集群名称:</b></p>
@@ -28966,7 +28869,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                   </div>
                   <!--]-->
                 </td>
-                <!--]-->
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
@@ -28986,22 +28888,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <!--[-->
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest3</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">jenny</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
-                  <!--]-->
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -29016,22 +28902,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 <td class="" style="" length="6">test</td>
                 <td class="" style="overflow:hidden;" length="6">
                   <!--[--><a class="link">管理</a><a class="link">删除</a>
-                  <!--]-->
-                </td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <!--[-->
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest4</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">peter</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
                   <!--]-->
                 </td>
                 <!--]-->
@@ -29056,8 +28926,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
 <div>
   <div class="table-operations" style="margin:16px;"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 清除筛选条件 <!--]--></span></button><span style="padding-left:36px;">已选筛选条件：{}</span></div><!-- filter-value.sync 等同于 filter-value + filter-change -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -29090,6 +28959,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                   <!--]-->
                                 </div>
                               </div>
+                              <!---->
                             </div>
                             <!--]-->
                             <div class="t-popup__arrow"></div>
@@ -29118,6 +28988,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                   <!--]-->
                                 </div>
                               </div>
+                              <!---->
                             </div>
                             <!--]-->
                             <div class="t-popup__arrow"></div>
@@ -29148,6 +29019,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                   <!---->
                                 </div>
                               </div>
+                              <!---->
                             </div>
                             <!--]-->
                             <div class="t-popup__arrow"></div>
@@ -29256,6 +29128,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                   </div>
                                 </div>
                               </div>
+                              <!---->
                             </div>
                             <!--]-->
                             <div class="t-popup__arrow"></div>
@@ -29348,8 +29221,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
     </div>
   </div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -29478,8 +29350,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
 
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue correctly 1`] = `
 <div style="width: 100%">
-  <!---->
-  <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+  <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
     <div class="t-loading__parent">
       <!--[-->
       <div class="t-table__content">
@@ -29750,14 +29621,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue corre
 
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue correctly 1`] = `
 <div style="width: 100%">
-  <!---->
-  <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
     <div class="t-loading__parent">
       <!--[-->
       <div class="t-table__content">
         <!--[-->
         <div class="t-table__header" style="padding-right:0px;">
-          <table style="table-layout:fixed;padding-right:0px;">
+          <table style="table-layout:fixed;">
             <colgroup>
               <!--[-->
               <col style="width:100px;">
@@ -30164,14 +30034,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
 <div>
   <div style="margin-bottom:10px;">默认加载状态</div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
           <!--[-->
           <div class="t-table__header" style="padding-right:0px;">
-            <table style="table-layout:fixed;padding-right:0px;">
+            <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
                 <col style="width:100px;min-width:100px;">
@@ -30236,14 +30105,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
   </div>
   <div style="margin-bottom:10px;">插槽定义加载状态</div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
           <!--[-->
           <div class="t-table__header" style="padding-right:0px;">
-            <table style="table-layout:fixed;padding-right:0px;">
+            <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
                 <col style="width:100px;min-width:100px;">
@@ -30310,14 +30178,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
   </div>
   <div style="margin-bottom:10px;">渲染函数定义加载状态</div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
           <!--[-->
           <div class="t-table__header" style="padding-right:0px;">
-            <table style="table-layout:fixed;padding-right:0px;">
+            <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
                 <col style="width:100px;min-width:100px;">
@@ -30386,8 +30253,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
 exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-size-s t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-size-s t-table--bordered" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -30482,8 +30348,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correc
 
 exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue correctly 1`] = `
 <div style="width: 100%">
-  <!---->
-  <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
     <div class="t-loading__parent">
       <!--[-->
       <div class="t-table__content">
@@ -30566,8 +30431,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
   <div class="item">
     <div style="margin:16px;">排序方式：[{&quot;sortBy&quot;:&quot;status&quot;,&quot;descending&quot;:true},{&quot;sortBy&quot;:&quot;survivalTime&quot;,&quot;descending&quot;:false}]</div><!-- 支持受控用法 ，也支持非受控用法 -->
     <div style="width: 100%">
-      <!---->
-      <div class="t-table" style="" multiplesort="true" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+      <div class="t-table" style="" multiplesort="true" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
         <div class="t-loading__parent">
           <!--[-->
           <div class="t-table__content">
@@ -30717,8 +30581,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
 exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -30892,8 +30755,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
 
 exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue correctly 1`] = `
 <div style="width: 100%">
-  <!---->
-  <div class="t-table t-table--bordered t-table--striped t-table-table--align-top" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered t-table--striped t-table-table--align-top" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
     <div class="t-loading__parent">
       <!--[-->
       <div class="t-table__content">
@@ -30928,7 +30790,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
         </table>
       </div>
       <!--[-->
-      <div class="t-table__empty">暂无数据</div>
+      <div style="" class="t-table__empty">暂无数据</div>
       <div class="t-table__pagination">
         <div class="t-pagination t-size-m" modelvalue="1">
           <div class="t-pagination__total">共 0 项数据</div>
@@ -31004,8 +30866,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-multiple.vue co
   <!-- 支持非受控属性 default-selected-row-keys -->
   <!-- 支持语法糖 selected-row-keys.sync -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31134,8 +30995,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
   <!-- 支持非受控属性 default-selected-row-keys -->
   <!-- 支持语法糖 selected-row-keys.sync -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31262,39 +31122,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
 exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <div>
-      <div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button">
-          <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-bulletpoint" style="">
-            <path fill="currentColor" d="M14 3H5v1h9V3zM3.5 3H2v1h1.5V3zM5 7.5h9v1H5v-1zM2 7.5h1.5v1H2v-1zM5 12h9v1H5v-1zM2 12h1.5v1H2v-1z" fillopacity="0.9"></path>
-          </svg><span class="t-button__text"><!--[-->自定义列<!--]--></span>
-          <!--]-->
-        </button></div>
-      <div class="t-dialog__ctx t-dialog__ctx--fixed" style="display:none;">
-        <!--[-->
-        <div class="t-dialog__mask"></div>
-        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="max-height:calc(100% - 20%);">
-          <div class="t-dialog__header">
-            <!---->自定义列
-          </div><span class="t-dialog__close"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
-          <div class="t-dialog__body">
-            <!--[-->
-            <div slot="body">
-              <div><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label></div>
-              <div class="t-checkbox-group">
-                <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="instance"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->集群名称<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="status"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->状态<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="owner"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->管理员<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="description"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->描述<!--]--></span></label>
-                <!--]-->
-              </div>
-            </div>
-            <!--]-->
-          </div>
-          <div class="t-dialog__footer">
-            <div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->取消<!--]--></span></button></div>
-          </div>
-        </div>
-        <!--]-->
-      </div>
-    </div>
-    <div class="t-table" style="" multiplesort="false" showcolumns="true" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="true" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31412,8 +31240,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
 <div class="demo-container">
   <!-- 受控用法，示例代码有效，勿删 -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31564,8 +31391,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
   <!-- 第一列展开树结点，缩进为 24px -->
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <div style="width:100%;">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31815,8 +31641,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
   <!-- expandedRow 和 expanded-row-keys 控制是否显示展开收起行，以及哪些行展开 -->
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <div style="width:100%;">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31865,13 +31690,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 <td class="" style="" length="6">important.</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，0</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -31887,13 +31705,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 </td>
                 <td class="" style="" length="6">peter</td>
                 <td class="" style="" length="6">important.</td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，1</div>
-                </td>
                 <!--]-->
               </tr>
               <tr class="" draggable="false">
@@ -31913,13 +31724,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 <td class="" style="" length="6">important.</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，2</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -31937,13 +31741,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 <td class="" style="" length="6">important.</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，3</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -31959,13 +31756,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 </td>
                 <td class="" style="" length="6">jenny</td>
                 <td class="" style="" length="6">important.</td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，4</div>
-                </td>
                 <!--]-->
               </tr>
               <!--]-->
