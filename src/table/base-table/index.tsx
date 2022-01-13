@@ -126,6 +126,9 @@ export default defineComponent({
       ];
       return classes;
     },
+    usePadding(): boolean {
+      return this.fixedHeader || this.scrollableToRight || this.scrollableToLeft;
+    },
   },
   mounted() {
     if (this.hasFixedColumns) {
@@ -257,7 +260,7 @@ export default defineComponent({
           style={{ paddingRight: columns.length > 1 ? paddingRight : '' }}
           ref="scrollHeader"
         >
-          <table style={{ tableLayout, paddingRight }}>
+          <table style={{ tableLayout }}>
             <TableColGroup columns={columns} />
             {this.renderHeader()}
           </table>
