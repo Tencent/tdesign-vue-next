@@ -219,6 +219,8 @@ export default defineComponent({
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-is-${this.status}`]: this.status,
+        [`${prefix}-is-disabled`]: this.disabled,
+        [`${prefix}-is-readonly`]: this.readonly,
         [`${name}--prefix`]: prefixIcon || labelContent,
         [`${name}--suffix`]: suffixIcon || suffixContent,
         [`${name}--focused`]: this.focused,

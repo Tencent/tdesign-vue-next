@@ -10,7 +10,9 @@ import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
 
+const NAME_CLASS = `${prefix}-tag-input`;
 const CLEAR_CLASS = `${prefix}-tag-input__suffix-clear`;
+const BREAK_LINE_CLASS = `${prefix}-tag-input--break-line`;
 
 export default defineComponent({
   name: 'TTagInput',
@@ -26,13 +28,19 @@ export default defineComponent({
 
     const classes = computed(() => {
       return [
-        `${prefix}-tag-input`,
-        { [`${prefix}-tag-input--break-line`]: props.overTagsDisplayType === 'break-line' },
+        NAME_CLASS,
+        {
+          [BREAK_LINE_CLASS]: props.overTagsDisplayType === 'break-line',
+        },
       ];
     });
 
     const tagInputPlaceholder = computed(() => {
       return isHoverRef.value || !props.value?.length ? props.placeholder : '';
+    });
+
+    const showClearIcon = computed(() => {
+      return Boolean(!props.readonly && !props.disabled && props.clearable && isHoverRef.value && props.value?.length);
     });
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
@@ -48,6 +56,7 @@ export default defineComponent({
       inputValueRef,
       isHoverRef,
       tagInputPlaceholder,
+      showClearIcon,
       addHover,
       cancelHover,
       ...scrollFunctions,
@@ -101,7 +110,7 @@ export default defineComponent({
 
     renderSuffixIcon() {
       const suffixIcon = renderTNodeJSX(this, 'suffixIcon');
-      if (!this.readonly && !this.disabled && this.clearable && this.isHoverRef) {
+      if (this.showClearIcon) {
         return <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.clearAll} />;
       }
       return suffixIcon;
