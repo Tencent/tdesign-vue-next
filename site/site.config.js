@@ -254,6 +254,13 @@ export default {
           component: () => import('@/examples/tag-input/tag-input.md'),
         },
         {
+          title: 'SelectInput 筛选器输入框',
+          name: 'select-input',
+          docType: 'form',
+          path: '/vue-next/components/select-input',
+          component: () => import('@/examples/select-input/select-input.md'),
+        },
+        {
           title: 'Textarea 多行文本框',
           name: 'textarea',
           docType: 'form',
