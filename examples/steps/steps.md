@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Steps Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -14,7 +13,7 @@ options | Array | - | 步骤条数据列表（作用和 StepItem 效果一样）
 readonly | Boolean | false | 是否只读 | N
 sequence | String | positive | 步骤条顺序，纵向步骤有效（direction = horizontal）。可选项：positive/reverse | N
 theme | String | default | 步骤条风格。可选项：default/dot | N
-onChange | Function |  | 当前步骤发生变化时触发。`(current: string | number, previous: string | number, context?: { e?: MouseEvent }) => {}` | N
+onChange | Function |  | TS 类型：`(current: string | number, previous: string | number, context?: { e?: MouseEvent }) => void`<br/>当前步骤发生变化时触发 | N
 
 ### Steps Events
 

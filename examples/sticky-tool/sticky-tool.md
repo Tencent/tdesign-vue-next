@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### StickyTool Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -13,8 +12,8 @@ list | Array | [] | 列表。TS 类型：`Array<TdStickyItemProps>` | N
 offset | Object | - | 相对于 placement 的偏移量，示例：[-10, 20] 或 ['10em', '8rem']。TS 类型：`Array<string | number>` | N
 placement | String | right-bottom | 固定位置。可选项：right-top/right-center/right-bottom/left-top/left-center/left-bottom | N
 width | String / Number | - | 宽度 | N
-onClick | Function |  | 点击某一项时触发。`(context: { e: MouseEvent; item: TdStickyItemProps }) => {}` | N
-onHover | Function |  | 悬浮到某一项时触发。`(context: { e: MouseEvent; item: TdStickyItemProps }) => {}` | N
+onClick | Function |  | TS 类型：`(context: { e: MouseEvent; item: TdStickyItemProps }) => void`<br/>点击某一项时触发 | N
+onHover | Function |  | TS 类型：`(context: { e: MouseEvent; item: TdStickyItemProps }) => void`<br/>悬浮到某一项时触发 | N
 
 ### StickyTool Events
 

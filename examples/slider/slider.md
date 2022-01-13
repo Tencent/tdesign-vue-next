@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Slider Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -18,7 +17,7 @@ step | Number | 1 | 步长 | N
 tooltipProps | Object | - | 透传提示组件属性。TS 类型：`TooltipProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/slider/type.ts) | N
 value | Number / Array | - | 滑块值。支持语法糖。TS 类型：`SliderValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/slider/type.ts) | N
 defaultValue | Number / Array | - | 滑块值。非受控属性。TS 类型：`SliderValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/slider/type.ts) | N
-onChange | Function |  | 滑块值变化时触发。`(value: SliderValue) => {}` | N
+onChange | Function |  | TS 类型：`(value: SliderValue) => void`<br/>滑块值变化时触发 | N
 
 ### Slider Events
 

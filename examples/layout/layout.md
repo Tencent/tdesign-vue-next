@@ -1,6 +1,11 @@
 :: BASE_DOC ::
 
 ## API
+### Layout Props
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+direction | String | - | 【开发中】布局方向。可选项：vertical/horizontal | N
 
 ### Header Props
 
