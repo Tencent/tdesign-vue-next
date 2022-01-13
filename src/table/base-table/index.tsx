@@ -196,8 +196,15 @@ export default defineComponent({
     },
     renderEmptyTable(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
+      const { height } = this;
+      const wrapperStyle: { height?: string | number } = {};
+      if (height !== 'auto') {
+        wrapperStyle.height = isNaN(Number(height)) ? height : `${height}px`;
+      }
       return (
-        <div class={`${prefix}-table__empty`}>{useLocale ? this.global.empty : renderTNodeJSX(this, 'empty')}</div>
+        <div style={wrapperStyle} class={`${prefix}-table__empty`}>
+          {useLocale ? this.global.empty : renderTNodeJSX(this, 'empty')}
+        </div>
       );
     },
     renderPagination(): VNode {
