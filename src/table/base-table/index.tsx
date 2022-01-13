@@ -150,12 +150,13 @@ export default defineComponent({
     this.scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
     const { maxHeight } = this;
-    if (maxHeight && (this.$refs.tableContent as HTMLElement).clientHeight > maxHeight) {
-      this.useFixedHeader = true;
-    }
+    this.checkMaxHeight();
   },
   unmounted() {
     window.removeEventListener('resize', debounce(this.checkScrollableToLeftOrRight));
+  },
+  updated() {
+    this.checkMaxHeight();
   },
   methods: {
     // 检查是否还可以向左或者向右滚动
@@ -313,6 +314,12 @@ export default defineComponent({
         emitEvent(this, scrollListenerName, {
           e,
         });
+      }
+    },
+    checkMaxHeight() {
+      const { maxHeight } = this;
+      if (maxHeight && (this.$refs.tableContent as HTMLElement).clientHeight > maxHeight) {
+        this.useFixedHeader = true;
       }
     },
   },
