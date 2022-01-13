@@ -61,9 +61,8 @@ export interface TdTagInputProps {
   readonly?: boolean;
   /**
    * 输入框状态
-   * @default normal
    */
-  status?: 'normal' | 'success' | 'warning' | 'error';
+  status?: 'success' | 'warning' | 'error';
   /**
    * 后置图标前的后置内容
    */

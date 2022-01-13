@@ -55,9 +55,8 @@ export default {
   /** 输入框状态 */
   status: {
     type: String as PropType<TdInputProps['status']>,
-    default: 'normal' as TdInputProps['status'],
     validator(val: TdInputProps['status']): boolean {
-      return ['normal', 'success', 'warning', 'error'].includes(val);
+      return ['success', 'warning', 'error'].includes(val);
     },
   },
   /** 后置图标前的后置内容 */

@@ -64,9 +64,8 @@ export interface TdInputProps {
   size?: SizeEnum;
   /**
    * 输入框状态
-   * @default normal
    */
-  status?: 'normal' | 'success' | 'warning' | 'error';
+  status?: 'success' | 'warning' | 'error';
   /**
    * 后置图标前的后置内容
    */
