@@ -16,6 +16,8 @@ export default {
   },
   /** 是否禁用标签输入框 */
   disabled: Boolean,
+  /** 【开发中】拖拽调整标签顺序 */
+  dragSort: Boolean,
   /** 透传 Input 输入框组件全部属性 */
   inputProps: {
     type: Object as PropType<TdTagInputProps['inputProps']>,
@@ -70,6 +72,10 @@ export default {
   /** 透传 Tag 组件全部属性 */
   tagProps: {
     type: Object as PropType<TdTagInputProps['tagProps']>,
+  },
+  /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdTagInputProps['tips']>,
   },
   /** 值 */
   value: {
