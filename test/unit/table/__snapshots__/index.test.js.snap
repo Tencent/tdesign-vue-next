@@ -4,10 +4,10 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 <div
   style="width: 100%;"
 >
-  <!---->
   <div
     class="t-table t-table__header--fixed"
     defaultexpandedrowkeys=""
+    dragsort="false"
     expandedrowkeys=""
     expandicon="true"
     expandonrowclick="false"
@@ -30,7 +30,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
           style="padding-right: 0px;"
         >
           <table
-            style="table-layout: fixed; padding-right: 0px;"
+            style="table-layout: fixed;"
           >
             <colgroup>
               
@@ -90,7 +90,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
               
               <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -115,7 +117,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
               </tr>
               <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -140,7 +144,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
               </tr>
               <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -183,10 +189,10 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 <div
   style="width: 100%;"
 >
-  <!---->
   <div
     class="t-table t-size-l t-table-table--align-top"
     defaultexpandedrowkeys=""
+    dragsort="false"
     expandedrowkeys=""
     expandicon="true"
     expandonrowclick="false"
@@ -247,10 +253,10 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 <div
   style="width: 100%;"
 >
-  <!---->
   <div
     class="t-table t-table-table--align-bottom"
     defaultexpandedrowkeys=""
+    dragsort="false"
     expandedrowkeys=""
     expandicon="true"
     expandonrowclick="false"
@@ -311,10 +317,10 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
 <div
   style="width: 100%;"
 >
-  <!---->
   <div
     class="t-table t-size-s t-table--bordered t-table--striped t-table--hoverable"
     defaultexpandedrowkeys=""
+    dragsort="false"
     expandedrowkeys=""
     expandicon="true"
     expandonrowclick="false"
@@ -377,7 +383,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -402,7 +410,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             </tr>
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -427,7 +437,9 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             </tr>
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -469,10 +481,10 @@ exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
 <div
   style="width: 100%;"
 >
-  <!---->
   <div
     class="t-table"
     defaultexpandedrowkeys=""
+    dragsort="false"
     expandedrowkeys=""
     expandicon="true"
     expandonrowclick="false"
@@ -533,10 +545,10 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
 <div
   style="width: 100%;"
 >
-  <!---->
   <div
     class="t-table"
     defaultexpandedrowkeys=""
+    dragsort="false"
     expandedrowkeys=""
     expandicon="true"
     expandonrowclick="false"
@@ -602,7 +614,9 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -628,7 +642,9 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             </tr>
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -654,7 +670,9 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             </tr>
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -697,10 +715,10 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
 <div
   style="width: 100%;"
 >
-  <!---->
   <div
     class="t-table"
     defaultexpandedrowkeys=""
+    dragsort="false"
     expandedrowkeys=""
     expandicon="true"
     expandonrowclick="false"
@@ -834,7 +852,9 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             
             <tr
               class=""
+              data="[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -883,7 +903,9 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             </tr>
             <tr
               class=""
+              data="[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -949,10 +971,10 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
 <div
   style="width: 100%;"
 >
-  <!---->
   <div
     class="t-table t-table__cell--fixed t-table--has-fixed"
     defaultexpandedrowkeys=""
+    dragsort="false"
     expandedrowkeys=""
     expandicon="true"
     expandonrowclick="false"
@@ -1016,7 +1038,9 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
             
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -1042,7 +1066,9 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
             </tr>
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -1068,7 +1094,9 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
             </tr>
             <tr
               class=""
+              data="[object Object],[object Object],[object Object]"
               draggable="false"
+              lastfullrow="function () { [native code] }"
             >
               
               <td
