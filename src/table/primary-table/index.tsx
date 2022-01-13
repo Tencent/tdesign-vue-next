@@ -29,9 +29,6 @@ export default defineComponent({
   },
   emits: ['change', 'page-change', ...EVENT_NAME_WITH_KEBAB],
   computed: {
-    rehandleData(): Array<DataType> {
-      return this.asyncLoadingHandler();
-    },
     rehandleColumns(): Array<PrimaryTableCol> {
       let columns = this.columns.map((col) => ({ ...col }));
       columns = this.getShowColumns([...this.columns]);
@@ -64,7 +61,7 @@ export default defineComponent({
     },
   },
   render() {
-    const { $props, $slots, rehandleColumns, showColumns } = this;
+    const { $props, $slots, rehandleColumns } = this;
 
     const rowEvents = {};
     EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
@@ -84,6 +81,8 @@ export default defineComponent({
         );
       },
       onRowClick: this.onRowClick,
+      onRowDragstart: this.onDragStart,
+      onRowDragover: this.onDragOver,
       ...rowEvents,
     };
     if (this.expandOnRowClick) {
@@ -93,10 +92,9 @@ export default defineComponent({
     }
     const baseTableProps = {
       ...$props,
-      data: this.rehandleData,
       columns: rehandleColumns,
       provider: {
-        renderRows: this.renderRows,
+        renderExpandedRow: this.expandedRow ?? this.$slots.expandedRow ? this.renderExpandedRow : undefined,
         sortOnRowDraggable: this.sortOnRowDraggable,
         dragging: this.dragging,
       },
@@ -107,7 +105,6 @@ export default defineComponent({
     };
     return (
       <div style="width: 100%">
-        {showColumns && this.renderShowColumns()}
         <simple-table {...baseTableProps}>{$slots}</simple-table>
       </div>
     );

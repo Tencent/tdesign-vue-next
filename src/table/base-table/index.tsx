@@ -33,12 +33,12 @@ export default defineComponent({
   },
   props: {
     ...baseTableProps,
+    onRowDragover: Function,
+    onRowDragstart: Function,
     provider: {
       type: Object,
       default() {
-        return {
-          renderRows(): void {},
-        };
+        return {};
       },
     },
   },
@@ -178,7 +178,7 @@ export default defineComponent({
     renderBody(): VNode {
       const { $slots } = this;
       const rowEvents = {};
-      EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
+      EVENT_NAME_WITH_KEBAB.concat(['row-dragstart', 'row-dragover']).forEach((eventName) => {
         rowEvents[getPropsApiByEvent(eventName)] = (params: RowEventContext<any>) => {
           emitEvent(this, eventName, params);
         };

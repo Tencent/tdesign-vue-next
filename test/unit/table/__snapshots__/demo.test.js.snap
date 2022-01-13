@@ -8134,7 +8134,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
             style="padding-right: 0px;"
           >
             <table
-              style="table-layout: fixed; padding-right: 0px;"
+              style="table-layout: fixed;"
             >
               <colgroup>
                 
@@ -8325,7 +8325,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
             style="padding-right: 0px;"
           >
             <table
-              style="table-layout: fixed; padding-right: 0px;"
+              style="table-layout: fixed;"
             >
               <colgroup>
                 
@@ -8522,7 +8522,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
             style="padding-right: 0px;"
           >
             <table
-              style="table-layout: fixed; padding-right: 0px;"
+              style="table-layout: fixed;"
             >
               <colgroup>
                 
