@@ -648,7 +648,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       >
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-is-disabled t-tag--disabled"
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
         >
           <!---->
           
@@ -657,7 +657,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
           <!---->
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-is-disabled t-tag--disabled"
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
         >
           <!---->
           
@@ -666,7 +666,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
           <!---->
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-is-disabled t-tag--disabled"
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
         >
           <!---->
           
