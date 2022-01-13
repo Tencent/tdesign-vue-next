@@ -40,7 +40,7 @@ export default defineComponent({
     filterValue: primaryTableProps.filterValue,
     filterIcon: primaryTableProps.filterIcon,
     data: baseTableProps.data,
-    filterRow: Function,
+    filterRow: primaryTableProps.filterRow,
   },
   emits: ['filter-change', 'filter'],
   data() {
