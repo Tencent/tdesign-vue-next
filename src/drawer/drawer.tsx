@@ -189,7 +189,7 @@ export default defineComponent({
       }
     },
     onKeyDown(e: KeyboardEvent) {
-      if (this.closeOnKeydownEsc && e.key === 'Escape') {
+      if (this.closeOnEscKeydown && e.key === 'Escape') {
         emitEvent(this, 'esc-keydown', e);
         this.closeDrawer({ trigger: 'esc', e });
       }
