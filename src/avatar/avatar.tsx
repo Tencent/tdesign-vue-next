@@ -15,8 +15,8 @@ export default defineComponent({
   setup(props, { emit }) {
     const emitEvent = useEmitEvent(props, emit);
     const avatarGroup = inject('avatarGroup', undefined);
-    const avatar = ref(null);
-    const avatarChild = ref(null);
+    const avatar = ref<HTMLElement | null>(null);
+    const avatarChild = ref<HTMLElement | null>(null);
     const isImgExist = ref(true);
     // 内容区在左右两边的间距保持为4
     const gap = ref(4);
