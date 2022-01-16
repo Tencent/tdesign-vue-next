@@ -18,13 +18,13 @@ docClass: timeline
 * Icon: 修复修改 `name` 无法重新渲染 ([7708a56](https://github.com/Tencent/tdesign-vue-next/pull/178/commits/7708a560ed8dd9e934588188c95d9dfb2bedef2a)), ([#41](https://github.com/Tencent/tdesign-vue-next/issues/41)), ([#130](https://github.com/Tencent/tdesign-vue-next/issues/130))
 * Dialog: 修复 `closeOnEscKeydown` 事件 ([72f5bcb](https://github.com/Tencent/tdesign-vue-next/pull/207/commits/72f5bcbe2173186f61481218b9e009c777e3448c)), ([@vnues](https://github.com/vnues))
 * Drawer: 修复 `closeOnEscKeydown` 事件 ([433de96](https://github.com/Tencent/tdesign-vue-next/pull/207/commits/433de96d5ec7e72efe882375b81a1f9ca8a6b520)), ([@vnues](https://github.com/vnues))
-* Datepicker: 修复周起始为月最后一天时，周显示错误的问题，[pr 117](https://github.com/Tencent/tdesign-vue-next/pull/196)，[@xiaosansiji](https://github.com/xiaosansiji)
-* Select: 修复禁用状态下下拉 icon 展示问题，[pr 113](https://github.com/Tencent/tdesign-common/pull/113)，[@pengYYYYY](https://github.com/pengYYYYY)
+* Datepicker: 修复周起始为月最后一天时，周显示错误的问题，([pr 117](https://github.com/Tencent/tdesign-vue-next/pull/196))，([@xiaosansiji](https://github.com/xiaosansiji))
+* Select: 修复禁用状态下下拉 icon 展示问题，([pr 113](https://github.com/Tencent/tdesign-common/pull/113))，([@pengYYYYY](https://github.com/pengYYYYY))
 * Tab: ([@vnues](https://github.com/vnues)), ([#116](https://github.com/Tencent/tdesign-vue-next/issues/116)), ([#115](https://github.com/Tencent/tdesign-vue-next/issues/115))
   * 修复关闭全部选项卡时，无选项卡 ([e3608b3](https://github.com/Tencent/tdesign-vue-next/pull/148/commits/e3608b39d05c1e105a5b3eb48ffb8b13921d2d09))
   * 修复可滑动的选项卡中 点击左右切换会需要先点击选项卡才能点击切换 ([a8bd20a](https://github.com/Tencent/tdesign-vue-next/pull/148/commits/a8bd20a59c9b5b7f56ecfc5eb3b18b2298b738af))
 * Calendar: ([fde826e](https://github.com/Tencent/tdesign-vue-next/pull/163/commits/fde826ed62e17fd3e275824c8fa3c10a7e75afff)), ([@PsTiu](https://github.com/PsTiu))
-  * 修复单元格点击事件无效
+  * 修复单元格三个点击事件无效
   * 修复controllerChange返回值不正确
   * 修复点击了“隐藏周末”后切换为年模式会展示不出单元格
 * Table:
