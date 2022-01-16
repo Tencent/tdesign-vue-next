@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted } from 'vue';
 import GradientIcon from './icon/gradient';
 import { prefix } from '../config';
 import { SIZE_CLASSNAMES } from '../utils/classnames';
@@ -26,6 +26,14 @@ export default defineComponent({
   setup(props, { slots }) {
     const delayShowLoading = ref(false);
 
+    const countDelay = () => {
+      delayShowLoading.value = false;
+      const timer = setTimeout(() => {
+        delayShowLoading.value = true;
+        clearTimeout(timer);
+      }, props.delay);
+    };
+
     // 延时计时是否完成。用于控制延时计时结束前不能显示加载态
     const delayCounted = computed(() => Boolean(!props.delay || (props.delay && delayShowLoading.value)));
 
@@ -41,12 +49,11 @@ export default defineComponent({
       return styles;
     });
 
-    const showText = computed(() => Boolean(props.text || slots.text));
-    const showWrapLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
-    const showNormalLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
-
     const hasContent = computed(() => Boolean(props.default || slots.default || props.content || slots.content));
     const lockFullscreen = computed(() => props.preventScrollThrough && props.fullscreen);
+    const showText = computed(() => Boolean(props.text || slots.text));
+    const showWrapLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
+    const showNormalLoading = computed(() => !hasContent.value && props.loading && delayCounted.value);
 
     const classes = computed(() => {
       const baseClasses = [centerClass, SIZE_CLASSNAMES[props.size], { [inheritColorClass]: props.inheritColor }];
@@ -66,21 +73,19 @@ export default defineComponent({
         normalClasses: baseClasses.concat([name]),
       };
     });
-    const countDelay = () => {
-      delayShowLoading.value = false;
-      const timer = setTimeout(() => {
-        delayShowLoading.value = true;
-        clearTimeout(timer);
-      }, props.delay);
-    };
 
-    watch([props.loading], (value) => {
+    const loadingRef = computed(() => props.loading);
+    watch([loadingRef], (value) => {
       if (value) {
         countDelay();
         lockFullscreen.value && addClass(document.body, lockClass);
       } else {
         lockFullscreen.value && removeClass(document.body, lockClass);
       }
+    });
+
+    onMounted(() => {
+      props.delay && countDelay();
     });
 
     return {
@@ -96,6 +101,7 @@ export default defineComponent({
   },
   render() {
     const { fullScreenClasses, baseClasses, withContentClasses, attachClasses, normalClasses } = this.classes;
+
     const defaultIndicator = <GradientIcon size={this.size} />;
     const indicator = this.loading && renderTNodeJSX(this, 'indicator', defaultIndicator);
     const text = this.showText && <div class={`${prefix}-loading__text`}>{renderTNodeJSX(this, 'text')}</div>;
