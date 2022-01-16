@@ -23,9 +23,9 @@ export default defineComponent({
   setup(props, { slots, emit }) {
     const emitEvent = useEmitEvent(props, emit);
     // alert的dom引用
-    const ele = ref(null);
+    const ele = ref<HTMLElement | null>(null);
     // descriptiond的dom引用
-    const description = ref(null);
+    const description = ref<HTMLElement | null>(null);
     // desc高度
     const descHeight = ref(0);
     // 是否可见，关闭后置为false
@@ -85,7 +85,7 @@ export default defineComponent({
       }
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
       const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
-      const height = description.value?.children[0]?.offsetHeight;
+      const height = (description.value?.children[0] as HTMLElement)?.offsetHeight;
       if (hasCollapse && collapsed.value) {
         // 折叠
         messageContent = (messageContent as Array<SlotReturnValue>).slice(0, props.maxLine as number);

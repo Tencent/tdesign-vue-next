@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Calendar Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -20,10 +19,11 @@ range | Array | - | 用于设置日历的年月份显示范围，[范围开始�
 theme | String | full | 日历风格。可选项：full/card | N
 value | String / Date | - | 当前高亮的日期。TS 类型：`CalendarValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts) | N
 week | Array / Slot / Function | - | 用于自定义日历星期呈现方式。CalendarWeek.day 表示当前是星期几。示例一：['周一', '周二', '周三', '周四', '周五', '星期六', '星期天']。示例二：`({ day }) => '周' + day`。TS 类型：`Array<string> | TNode<CalendarWeek>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts) | N
-onCellClick | Function |  | 日历单元格点击时触发。`(options: { cell: CalendarCell; e: MouseEvent }) => {}` | N
-onCellDoubleClick | Function |  | 日历单元格双击时触发。`(options: { cell: CalendarCell; e: MouseEvent }) => {}` | N
-onCellRightClick | Function |  | 日历单元格右击时触发。`(options: { cell: CalendarCell; e: MouseEvent }) => {}` | N
-onControllerChange | Function |  | 右上角控件组选中值有变化的时候触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts)。`(options: ControllerOptions) => {}` | N
+onCellClick | Function |  | TS 类型：`(options: { cell: CalendarCell; e: MouseEvent }) => void`<br/>日历单元格点击时触发 | N
+onCellDoubleClick | Function |  | TS 类型：`(options: { cell: CalendarCell; e: MouseEvent }) => void`<br/>日历单元格双击时触发 | N
+onCellRightClick | Function |  | TS 类型：`(options: { cell: CalendarCell; e: MouseEvent }) => void`<br/>日历单元格右击时触发 | N
+onControllerChange | Function |  | TS 类型：`(options: ControllerOptions) => void`<br/>右上角控件组选中值有变化的时候触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts)。<br/>`interface ControllerOptions { filterDate: Date; formattedFilterDate: string; mode: string; isShowWeekend: boolean }`<br/> | N
+onMonthChange | Function |  | TS 类型：`(options: { month: string; year: string }) => void`<br/>月份切换时触发 | N
 
 ### Calendar Events
 
@@ -32,7 +32,8 @@ onControllerChange | Function |  | 右上角控件组选中值有变化的时候
 cell-click | `(options: { cell: CalendarCell; e: MouseEvent })` | 日历单元格点击时触发
 cell-double-click | `(options: { cell: CalendarCell; e: MouseEvent })` | 日历单元格双击时触发
 cell-right-click | `(options: { cell: CalendarCell; e: MouseEvent })` | 日历单元格右击时触发
-controller-change | `(options: ControllerOptions)` | 右上角控件组选中值有变化的时候触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts)
+controller-change | `(options: ControllerOptions)` | 右上角控件组选中值有变化的时候触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/calendar/type.ts)。<br/>`interface ControllerOptions { filterDate: Date; formattedFilterDate: string; mode: string; isShowWeekend: boolean }`<br/>
+month-change | `(options: { month: string; year: string })` | 月份切换时触发
 
 ### CalendarController
 

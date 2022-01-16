@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Popup Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -20,10 +19,10 @@ triggerElement | String / Slot / Function | - | 触发元素。TS 类型：`stri
 visible | Boolean | false | 是否显示浮层。支持语法糖。TS 类型：`boolean` | N
 defaultVisible | Boolean | false | 是否显示浮层。非受控属性。TS 类型：`boolean` | N
 zIndex | Number | - | 组件层级，Web 侧样式默认为 5500，移动端和小程序样式默认为 1500 | N
-onVisibleChange | Function |  | 当浮层隐藏或显示时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popup/type.ts)。`(visible: boolean, context: PopupVisibleChangeContext) => {}` | N
+onVisibleChange | Function |  | TS 类型：`(visible: boolean, context: PopupVisibleChangeContext) => void`<br/>当浮层隐藏或显示时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popup/type.ts)。<br/>`interface PopupVisibleChangeContext { e?: PopupTriggerEvent; trigger?: PopupTriggerSource }`<br/><br/>`type PopupTriggerEvent = MouseEvent | FocusEvent | KeyboardEvent`<br/><br/>`type PopupTriggerSource = 'document' | 'trigger-element-click' | 'trigger-element-hover' | 'trigger-element-blur' | 'trigger-element-focus' | 'context-menu' | 'keydown-esc'`<br/> | N
 
 ### Popup Events
 
 名称 | 参数 | 描述
 -- | -- | --
-visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` | 当浮层隐藏或显示时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popup/type.ts)
+visible-change | `(visible: boolean, context: PopupVisibleChangeContext)` | 当浮层隐藏或显示时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popup/type.ts)。<br/>`interface PopupVisibleChangeContext { e?: PopupTriggerEvent; trigger?: PopupTriggerSource }`<br/><br/>`type PopupTriggerEvent = MouseEvent | FocusEvent | KeyboardEvent`<br/><br/>`type PopupTriggerSource = 'document' | 'trigger-element-click' | 'trigger-element-hover' | 'trigger-element-blur' | 'trigger-element-focus' | 'context-menu' | 'keydown-esc'`<br/>

@@ -3813,7 +3813,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              1 月
+                              Jan
                             </span>
                           </div>
                         </td>
@@ -3826,7 +3826,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              2 月
+                              Feb
                             </span>
                           </div>
                         </td>
@@ -3839,7 +3839,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              3 月
+                              Mar
                             </span>
                           </div>
                         </td>
@@ -3852,63 +3852,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              4 月
-                            </span>
-                          </div>
-                        </td>
-                        
-                      </tr>
-                      <tr>
-                        
-                        <td
-                          class="t-date-picker-cell"
-                        >
-                          <div
-                            class="t-date-picker__cell-wrapper"
-                          >
-                            <span
-                              class="t-date-picker__cell-text"
-                            >
-                              5 月
-                            </span>
-                          </div>
-                        </td>
-                        <td
-                          class="t-date-picker-cell"
-                        >
-                          <div
-                            class="t-date-picker__cell-wrapper"
-                          >
-                            <span
-                              class="t-date-picker__cell-text"
-                            >
-                              6 月
-                            </span>
-                          </div>
-                        </td>
-                        <td
-                          class="t-date-picker-cell"
-                        >
-                          <div
-                            class="t-date-picker__cell-wrapper"
-                          >
-                            <span
-                              class="t-date-picker__cell-text"
-                            >
-                              7 月
-                            </span>
-                          </div>
-                        </td>
-                        <td
-                          class="t-date-picker-cell"
-                        >
-                          <div
-                            class="t-date-picker__cell-wrapper"
-                          >
-                            <span
-                              class="t-date-picker__cell-text"
-                            >
-                              8 月
+                              Apr
                             </span>
                           </div>
                         </td>
@@ -3925,7 +3869,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              9 月
+                              May
                             </span>
                           </div>
                         </td>
@@ -3938,7 +3882,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              10 月
+                              Jun
                             </span>
                           </div>
                         </td>
@@ -3951,7 +3895,63 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              11 月
+                              Jul
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          class="t-date-picker-cell"
+                        >
+                          <div
+                            class="t-date-picker__cell-wrapper"
+                          >
+                            <span
+                              class="t-date-picker__cell-text"
+                            >
+                              Aug
+                            </span>
+                          </div>
+                        </td>
+                        
+                      </tr>
+                      <tr>
+                        
+                        <td
+                          class="t-date-picker-cell"
+                        >
+                          <div
+                            class="t-date-picker__cell-wrapper"
+                          >
+                            <span
+                              class="t-date-picker__cell-text"
+                            >
+                              Sep
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          class="t-date-picker-cell"
+                        >
+                          <div
+                            class="t-date-picker__cell-wrapper"
+                          >
+                            <span
+                              class="t-date-picker__cell-text"
+                            >
+                              Oct
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          class="t-date-picker-cell"
+                        >
+                          <div
+                            class="t-date-picker__cell-wrapper"
+                          >
+                            <span
+                              class="t-date-picker__cell-text"
+                            >
+                              Nov
                             </span>
                           </div>
                         </td>
@@ -3964,7 +3964,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              12 月
+                              Dec
                             </span>
                           </div>
                         </td>
@@ -4166,7 +4166,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                1 月
+                                Jan
                               </span>
                             </div>
                           </td>
@@ -4179,7 +4179,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                2 月
+                                Feb
                               </span>
                             </div>
                           </td>
@@ -4192,7 +4192,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                3 月
+                                Mar
                               </span>
                             </div>
                           </td>
@@ -4205,63 +4205,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                4 月
-                              </span>
-                            </div>
-                          </td>
-                          
-                        </tr>
-                        <tr>
-                          
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                5 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                6 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                7 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                8 月
+                                Apr
                               </span>
                             </div>
                           </td>
@@ -4278,7 +4222,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                9 月
+                                May
                               </span>
                             </div>
                           </td>
@@ -4291,7 +4235,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                10 月
+                                Jun
                               </span>
                             </div>
                           </td>
@@ -4304,7 +4248,63 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                11 月
+                                Jul
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Aug
+                              </span>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Sep
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Oct
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Nov
                               </span>
                             </div>
                           </td>
@@ -4317,7 +4317,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                12 月
+                                Dec
                               </span>
                             </div>
                           </td>
@@ -4447,7 +4447,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                1 月
+                                Jan
                               </span>
                             </div>
                           </td>
@@ -4460,7 +4460,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                2 月
+                                Feb
                               </span>
                             </div>
                           </td>
@@ -4473,7 +4473,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                3 月
+                                Mar
                               </span>
                             </div>
                           </td>
@@ -4486,63 +4486,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                4 月
-                              </span>
-                            </div>
-                          </td>
-                          
-                        </tr>
-                        <tr>
-                          
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                5 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                6 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                7 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                8 月
+                                Apr
                               </span>
                             </div>
                           </td>
@@ -4559,7 +4503,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                9 月
+                                May
                               </span>
                             </div>
                           </td>
@@ -4572,7 +4516,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                10 月
+                                Jun
                               </span>
                             </div>
                           </td>
@@ -4585,7 +4529,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                11 月
+                                Jul
                               </span>
                             </div>
                           </td>
@@ -4598,7 +4542,63 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                12 月
+                                Aug
+                              </span>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Sep
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Oct
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Nov
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Dec
                               </span>
                             </div>
                           </td>
@@ -9672,10 +9672,10 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <div
     style="width: 100%;"
   >
-    <!---->
     <div
       class="t-table t-table--bordered"
       defaultexpandedrowkeys=""
+      dragsort="false"
       expandedrowkeys=""
       expandicon="true"
       expandonrowclick="false"
@@ -9828,10 +9828,13 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <div
     style="width: 100%;"
   >
-    <!---->
     <div
       class="t-table"
       defaultexpandedrowkeys=""
+      dragsort="false"
+      expandedrow="h => {
+      return (0, _vue.createVNode)(\\"div\\", null, [(0, _vue.createTextVNode)(\\"This is expanded row info\\")]);
+    }"
       expandedrowkeys=""
       expandicon="true"
       expandonrowclick="true"
@@ -9973,7 +9976,9 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               
               <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10024,24 +10029,10 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
-                </td>
-                
-              </tr>
-              <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10092,24 +10083,10 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
-                </td>
-                
-              </tr>
-              <tr
                 class=""
+                data="[object Object],[object Object],[object Object]"
                 draggable="false"
+                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10156,22 +10133,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                   length="4"
                 >
                   C
-                </td>
-                
-              </tr>
-              <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
                 </td>
                 
               </tr>

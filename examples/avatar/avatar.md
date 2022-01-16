@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Avatar Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -10,9 +9,9 @@ alt | String | - | 头像替换文本 | N
 hideOnLoadFailed | Boolean | false | 加载失败时隐藏图片 | N
 icon | Slot / Function | - | 图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 image | String | - | 图片地址 | N
-shape | String | circle | 形状。可选项：circle/round。TS 类型：`ShapeEnum`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/avatar/type.ts) | N
+shape | String | circle | 形状。可选项：circle/round。TS 类型：`ShapeEnum `。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/avatar/type.ts) | N
 size | String | - | 尺寸，示例值：small/medium/large/24px/38px 等，默认为 large | N
-onError | Function |  | 图片加载失败时触发。`() => {}` | N
+onError | Function |  | TS 类型：`() => void`<br/>图片加载失败时触发 | N
 
 ### Avatar Events
 

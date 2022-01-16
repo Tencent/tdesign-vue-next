@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2022-01-10 09:31:10
  * */
 
 import { TdBaseTableProps } from '../table/type';
@@ -21,14 +21,16 @@ export default {
     type: Array as PropType<TdBaseTableProps['data']>,
     default: (): TdBaseTableProps['data'] => [],
   },
+  /** 是否禁用本地数据排序。当 `data` 数据长度超过分页大小时，会自动进行本地数据排序。如果 `disabledDataSort` 设置为 true，则无论何时，都不会进行本地排序 */
+  disableDataSort: Boolean,
   /** 空表格呈现样式 */
   empty: {
     type: [String, Function] as PropType<TdBaseTableProps['empty']>,
     default: '',
   },
-  /** 展开行内容，可自定义，泛型 T 指表格数据类型 */
-  expandedRow: {
-    type: [String, Function] as PropType<TdBaseTableProps['expandedRow']>,
+  /** 首行内容 */
+  firstFullRow: {
+    type: [String, Function] as PropType<TdBaseTableProps['firstFullRow']>,
   },
   /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px */
   height: {
@@ -37,6 +39,10 @@ export default {
   },
   /** 是否显示鼠标悬浮状态 */
   hover: Boolean,
+  /** 尾行内容 */
+  lastFullRow: {
+    type: [String, Function] as PropType<TdBaseTableProps['lastFullRow']>,
+  },
   /** 加载中状态。值为 true 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式 */
   loading: {
     type: [Boolean, Function] as PropType<TdBaseTableProps['loading']>,
@@ -81,6 +87,10 @@ export default {
     validator(val: TdBaseTableProps['tableLayout']): boolean {
       return ['auto', 'fixed'].includes(val);
     },
+  },
+  /** 表格顶部内容，可以用于自定义列设置等 */
+  topContent: {
+    type: [String, Function] as PropType<TdBaseTableProps['topContent']>,
   },
   /** 行内容上下方向对齐 */
   verticalAlign: {

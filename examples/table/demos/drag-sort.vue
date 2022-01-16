@@ -68,6 +68,7 @@ export default defineComponent({
     const data = ref([...initData]);
 
     const onDragSort = ({ currentIndex, targetIndex }) => {
+      console.log('交换行', currentIndex, targetIndex);
       const temp = data.value[currentIndex];
       data.value[currentIndex] = data.value[targetIndex];
       data.value[targetIndex] = temp;

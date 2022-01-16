@@ -1,4 +1,5 @@
 import { defineComponent, ref, computed, provide, watchEffect, watch, onMounted } from 'vue';
+import { useEmitEvent } from '../hooks/event';
 import { prefix } from '../config';
 import props from './props';
 import { MenuValue } from './type';
@@ -11,7 +12,9 @@ import log from '../_common/js/log/log';
 export default defineComponent({
   name: 'TMenu',
   props: { ...props },
+  emits: ['collapsed', 'change', 'expand'],
   setup(props, ctx) {
+    const emitEvent = useEmitEvent(props, ctx.emit);
     watchEffect(() => {
       if (ctx.slots.options) {
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
@@ -41,23 +44,10 @@ export default defineComponent({
     const activeValue = ref(props.defaultValue || props.value);
     const activeValues = ref([]);
     const expandValues = ref(props.expanded || []);
-    const deliver = (evt: string) => {
-      const func = `on${evt[0].toUpperCase() + evt.slice(1)}`;
-      return (val: any) => {
-        if (typeof props[func] === 'function') {
-          props[func](val);
-          return;
-        }
-        ctx.emit(evt, val);
-      };
-    };
-    const emitChange = deliver('change');
-    const emitExpand = deliver('expand');
-    const emitCollapse = deliver('collapsed');
 
     watchEffect(() => {
       mode.value = props.collapsed ? 'popup' : 'normal';
-      emitCollapse(mode.value);
+      emitEvent('collapsed', mode.value);
     });
 
     const vMenu = new VMenu({ isMutex: isMutex.value, expandValues: expandValues.value });
@@ -71,7 +61,7 @@ export default defineComponent({
       vMenu,
       select: (value: MenuValue) => {
         activeValue.value = value;
-        emitChange(value);
+        emitEvent('change', value);
       },
       open: (value: MenuValue, type: TdOpenType) => {
         if (mode.value === 'normal') {
@@ -85,7 +75,7 @@ export default defineComponent({
           const index = expandValues.value.indexOf(value);
           expandValues.value.splice(index, 1);
         }
-        emitExpand(expandValues.value);
+        emitEvent('expand', expandValues.value);
       },
     });
 

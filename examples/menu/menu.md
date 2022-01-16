@@ -8,7 +8,6 @@
 :::
 
 ## API
-
 ### Menu Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -24,9 +23,9 @@ theme | String | light | 菜单风格。可选项：light/dark | N
 value | String / Number | - | 激活菜单项。支持语法糖。TS 类型：`MenuValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
 defaultValue | String / Number | - | 激活菜单项。非受控属性。TS 类型：`MenuValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
 width | String / Number / Array | '232px' | 菜单宽度。值类型为数组时，分别表示菜单展开和折叠的宽度。[ 展开时的宽度, 折叠时的宽度 ]，示例：['200px', '80px']。TS 类型：`string | number | Array<string | number>` | N
-onChange | Function |  | 激活菜单项发生变化时触发。`(value: MenuValue) => {}` | N
-onCollapsed | Function |  | 侧边栏导航展开/收起发生变化时触发。`(options: { collapsed: boolean; e?: MouseEvent }) => {}` | N
-onExpand | Function |  | 展开的菜单项发生变化时触发。`(value: Array<MenuValue>) => {}` | N
+onChange | Function |  | TS 类型：`(value: MenuValue) => void`<br/>激活菜单项发生变化时触发 | N
+onCollapsed | Function |  | TS 类型：`(options: { collapsed: boolean; e?: MouseEvent }) => void`<br/>侧边栏导航展开/收起发生变化时触发 | N
+onExpand | Function |  | TS 类型：`(value: Array<MenuValue>) => void`<br/>展开的菜单项发生变化时触发 | N
 
 ### Menu Events
 
@@ -48,8 +47,8 @@ operations | Slot / Function | - | 导航操作区域。TS 类型：`TNode`。[�
 theme | String | light | 可选项：light/dark | N
 value | String / Number | - | 激活菜单项。支持语法糖。TS 类型：`MenuValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
 defaultValue | String / Number | - | 激活菜单项。非受控属性。TS 类型：`MenuValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
-onChange | Function |  | 激活菜单项发生变化时触发。`(value: MenuValue) => {}` | N
-onExpand | Function |  | 展开的菜单项发生变化时触发。`(value: Array<MenuValue>) => {}` | N
+onChange | Function |  | TS 类型：`(value: MenuValue) => void`<br/>激活菜单项发生变化时触发 | N
+onExpand | Function |  | TS 类型：`(value: Array<MenuValue>) => void`<br/>展开的菜单项发生变化时触发 | N
 
 ### HeadMenu Events
 
@@ -83,7 +82,7 @@ router | Object | - | 路由对象。如果项目存在 Router，则默认使用
 target | String | - | 链接或路由跳转方式。可选项：_blank/_self/_parent/_top | N
 to | String / Object | - | 路由跳转目标，当且仅当 Router 存在时，该 API 有效。TS 类型：`MenuRoute`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/menu/type.ts) | N
 value | String / Number | - | 菜单项唯一标识。TS 类型：`MenuValue` | N
-onClick | Function |  | 点击时触发。`(context: { e: MouseEvent }) => {}` | N
+onClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击时触发 | N
 
 ### MenuItem Events
 
