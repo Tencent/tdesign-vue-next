@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ref, computed, watch } from 'vue';
 import GradientIcon from './icon/gradient';
 import { prefix } from '../config';
 import { SIZE_CLASSNAMES } from '../utils/classnames';
@@ -6,7 +6,7 @@ import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import props from './props';
-import { ClassName, Styles } from '../common';
+import { Styles } from '../common';
 
 const name = `${prefix}-loading`;
 const centerClass = `${prefix}-loading--center`;
@@ -19,112 +19,93 @@ const inheritColorClass = `${prefix}-loading--inherit-color`;
 
 export default defineComponent({
   name: 'TLoading',
-
   directives: {
     TransferDom,
   },
+  props,
+  setup(props, { slots }) {
+    const delayShowLoading = ref(false);
 
-  props: {
-    ...props,
-  },
+    // 延时计时是否完成。用于控制延时计时结束前不能显示加载态
+    const delayCounted = computed(() => Boolean(!props.delay || (props.delay && delayShowLoading.value)));
 
-  data() {
-    return {
-      delayShowLoading: false,
-    };
-  },
-
-  computed: {
-    styles(): Styles {
+    // loading style
+    const styles = computed(() => {
       const styles: Styles = {};
-      if (this.zIndex !== undefined) {
-        styles.zIndex = this.zIndex;
+      if (props.zIndex !== undefined) {
+        styles.zIndex = props.zIndex;
       }
-      if (!['small', 'medium', 'large'].includes(this.size)) {
-        styles['font-size'] = this.size;
+      if (!['small', 'medium', 'large'].includes(props.size)) {
+        styles['font-size'] = props.size;
       }
       return styles;
-    },
-    showText(): boolean {
-      return Boolean(this.text || this.$slots.text);
-    },
-    baseClasses(): ClassName {
-      return [centerClass, SIZE_CLASSNAMES[this.size], { [inheritColorClass]: this.inheritColor }];
-    },
-    hasContent(): boolean {
-      return Boolean(this.default || this.$slots.default || this.content || this.$slots.content);
-    },
-    withContentClasses(): ClassName {
-      return this.baseClasses.concat([
-        name,
-        fullClass,
-        {
-          [overlayClass]: this.showOverlay,
-        },
-      ]);
-    },
-    fullScreenClasses(): ClassName {
-      return [name, fullscreenClass, centerClass, overlayClass];
-    },
-    attachClasses(): ClassName {
-      return this.baseClasses.concat([name, fullClass, { [overlayClass]: this.showOverlay }]);
-    },
-    normalClasses(): ClassName {
-      return this.baseClasses.concat([name]);
-    },
-    lockFullscreen(): boolean {
-      return this.preventScrollThrough && this.fullscreen;
-    },
-    // 延时计时是否完成。用于控制延时计时结束前不能显示加载态
-    delayCounted(): boolean {
-      return Boolean(!this.delay || (this.delay && this.delayShowLoading));
-    },
-    showWrapLoading(): boolean {
-      return this.hasContent && this.loading && this.delayCounted;
-    },
-    showNormalLoading(): boolean {
-      return !this.hasContent && this.loading && this.delayCounted;
-    },
-  },
+    });
 
-  watch: {
-    loading: {
-      handler(value) {
-        if (value) {
-          this.countDelay();
-          this.lockFullscreen && addClass(document.body, lockClass);
-          return;
-        }
-        this.lockFullscreen && removeClass(document.body, lockClass);
-      },
-      immediate: true,
-    },
-  },
+    const showText = computed(() => Boolean(props.text || slots.text));
+    const showWrapLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
+    const showNormalLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
 
-  created() {
-    this.delay && this.countDelay();
-  },
+    const hasContent = computed(() => Boolean(props.default || slots.default || props.content || slots.content));
+    const lockFullscreen = computed(() => props.preventScrollThrough && props.fullscreen);
 
-  methods: {
-    countDelay() {
-      this.delayShowLoading = false;
+    const classes = computed(() => {
+      const baseClasses = [centerClass, SIZE_CLASSNAMES[props.size], { [inheritColorClass]: props.inheritColor }];
+      const fullScreenClasses = [name, fullscreenClass, centerClass, overlayClass];
+
+      return {
+        baseClasses,
+        attachClasses: baseClasses.concat([name, fullClass, { [overlayClass]: props.showOverlay }]),
+        withContentClasses: baseClasses.concat([
+          name,
+          fullClass,
+          {
+            [overlayClass]: props.showOverlay,
+          },
+        ]),
+        fullScreenClasses,
+        normalClasses: baseClasses.concat([name]),
+      };
+    });
+    const countDelay = () => {
+      delayShowLoading.value = false;
       const timer = setTimeout(() => {
-        this.delayShowLoading = true;
+        delayShowLoading.value = true;
         clearTimeout(timer);
-      }, this.delay);
-    },
-  },
+      }, props.delay);
+    };
 
+    watch([props.loading], (value) => {
+      if (value) {
+        countDelay();
+        lockFullscreen.value && addClass(document.body, lockClass);
+      } else {
+        lockFullscreen.value && removeClass(document.body, lockClass);
+      }
+    });
+
+    return {
+      delayShowLoading,
+      styles,
+      showText,
+      hasContent,
+      classes,
+      lockFullscreen,
+      showWrapLoading,
+      showNormalLoading,
+    };
+  },
   render() {
+    const { fullScreenClasses, baseClasses, withContentClasses, attachClasses, normalClasses } = this.classes;
     const defaultIndicator = <GradientIcon size={this.size} />;
     const indicator = this.loading && renderTNodeJSX(this, 'indicator', defaultIndicator);
     const text = this.showText && <div class={`${prefix}-loading__text`}>{renderTNodeJSX(this, 'text')}</div>;
 
+    // full screen loading
     if (this.fullscreen) {
       if (!this.loading) return null;
       return (
-        <div class={this.fullScreenClasses} style={this.styles} v-transfer-dom={this.attach}>
-          <div class={this.baseClasses}>
+        <div class={fullScreenClasses} style={this.styles} v-transfer-dom={this.attach}>
+          <div class={baseClasses}>
             {indicator}
             {text}
           </div>
@@ -138,7 +119,7 @@ export default defineComponent({
         <div class={relativeClass}>
           {renderContent(this, 'default', 'content')}
           {this.showWrapLoading && (
-            <div class={this.withContentClasses} style={this.styles}>
+            <div class={withContentClasses} style={this.styles}>
               {indicator}
               {text}
             </div>
@@ -150,7 +131,7 @@ export default defineComponent({
     // transfer parent node
     if (this.attach) {
       return (
-        <div class={this.attachClasses} style={this.styles} v-transfer-dom={this.attach}>
+        <div class={attachClasses} style={this.styles} v-transfer-dom={this.attach}>
           {indicator}
           {text}
         </div>
@@ -159,7 +140,7 @@ export default defineComponent({
 
     // Normal Loading without overlay or content
     return (
-      <div class={this.normalClasses} style={this.styles}>
+      <div class={normalClasses} style={this.styles}>
         {indicator}
         {text}
       </div>

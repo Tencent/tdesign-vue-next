@@ -1,4 +1,4 @@
-import { App, Plugin, createApp, defineComponent, h } from 'vue';
+import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
 import LoadingComponent from './loading';
 import { prefix } from '../config';
 import { getAttach, removeClass } from '../utils/dom';
@@ -9,11 +9,11 @@ const lockClass = `${prefix}-loading--lock`;
 let fullScreenLoadingInstance: LoadingInstance = null;
 
 function createLoading(props: TdLoadingProps): LoadingInstance {
-  const options = { ...props };
   const component = defineComponent({
-    data() {
+    setup() {
+      const loadingOptions = reactive(props);
       return {
-        loadingOptions: options as Record<string, any>,
+        loadingOptions,
       };
     },
     render() {
