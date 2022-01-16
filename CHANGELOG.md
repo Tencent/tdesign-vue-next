@@ -5,7 +5,7 @@ toc: false
 docClass: timeline
 ---
 
-## 0.6.4 `2022-01-13`
+## 0.6.4 `2022-01-16`
 
 
 ### Bug Fixes
