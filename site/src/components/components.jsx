@@ -13,8 +13,8 @@ export default defineComponent({
       loaded: false,
       version: packageJson.version,
       options: [
-        { value: packageJson.version, label: packageJson.version },
-        ...historyVersion.map((v) => ({ value: v, label: v })),
+        { value: packageJson.version.replace(/\./g, '_'), label: packageJson.version },
+        ...historyVersion.map((v) => ({ value: v, label: v.replace(/\./g, '_') })),
       ],
     };
   },
@@ -45,11 +45,12 @@ export default defineComponent({
         .then((res) => res.json())
         .then((res) => {
           const options = [];
+          const whiteList = ['0.6.1', '0.6.2'];
           Object.keys(res.versions).forEach((v) => {
             if (v === packageJson.version) return false;
             const nums = v.split('.');
-            if ((nums[0] === '0' && nums[1] < 5) || v.indexOf('alpha') > -1) return false;
-            options.unshift({ label: v, value: v });
+            if ((nums[0] === '0' && nums[1] < 5) || v.indexOf('alpha') > -1 || whiteList.indexOf(v) > -1) return false;
+            options.unshift({ label: v, value: v.replace(/\./g, '_') });
           });
           this.options.push(...options);
         });
@@ -66,7 +67,7 @@ export default defineComponent({
     },
     changeVersion(version) {
       if (version === packageJson.version) return;
-      const historyUrl = `//preview-${version}-tdesign-vue-next.surge.sh`;
+      const historyUrl = `//${version}-tdesign-vue-next.surge.sh`;
       window.open(historyUrl, '_blank');
       this.$nextTick(() => {
         this.version = packageJson.version;
