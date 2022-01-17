@@ -40,6 +40,8 @@ export * from './calendar';
 export * from './comment';
 export * from './list';
 export * from './progress';
+export * from './skeleton';
+export * from './swiper';
 export * from './table';
 export * from './tag';
 export * from './tooltip';
@@ -55,7 +57,6 @@ export * from './message';
 export * from './notification';
 export * from './popconfirm';
 export * from './popup';
-export * from './swiper';
 export * from './upload';
 
 // 全局配置
