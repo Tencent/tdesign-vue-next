@@ -40,17 +40,7 @@
     "dist",
     "lib",
     "esm",
-    "es",
-    "tools",
-    "types/index.ts",
-    "src/addon/**",
-    "src/locale/**",
-    "src/upload/**",
-    "src/dropdown/**",
-    "src/transfer/**",
-    "src/time-picker/**",
-    "src/textarea/**",
-    "src/utils/**"
+    "es"
   ],
   "compileOnSave": false
 }
