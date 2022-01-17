@@ -11,12 +11,6 @@ exports[`Loading Loading attachVue demo works fine 1`] = `
     Hello, I'm Alice.
   </div>
   <div
-    class="loading-attach-demo__title"
-    id="bob"
-  >
-    Hi, I'm Bob.
-  </div>
-  <div
     class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay v-transfer-dom"
   >
     <svg

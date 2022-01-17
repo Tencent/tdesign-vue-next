@@ -19946,7 +19946,6 @@ exports[`ssr snapshot test renders ./examples/list/demos/stripe.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/loading/demos/attach.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
   <div id="alice" class="loading-attach-demo__title">Hello, I&#39;m Alice.</div>
-  <div id="bob" class="loading-attach-demo__title">Hi, I&#39;m Bob.</div>
   <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
       <foreignObject x="1" y="1" width="12" height="12">
         <div class="t-loading__gradient-conic"></div>

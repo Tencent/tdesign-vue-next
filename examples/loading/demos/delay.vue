@@ -26,7 +26,7 @@ import { defineComponent, ref, onMounted } from 'vue';
 
 export default defineComponent({
   setup() {
-    const loading = ref(false);
+    const loading = ref(true);
     const data = ref('');
     const delay = ref(500);
     const loadingData = (time) => {
