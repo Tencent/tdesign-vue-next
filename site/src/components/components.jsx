@@ -54,11 +54,11 @@ export default defineComponent({
         .then((res) => res.json())
         .then((res) => {
           const options = [];
-          const versions = filterVersions(Object.keys(res.versions));
+          const versions = filterVersions(Object.keys(res.versions).filter((v) => !v.includes('alpha')));
           versions.forEach((v) => {
             if (v === packageJson.version) return false;
             const nums = v.split('.');
-            if ((nums[0] === '0' && nums[1] < 5) || v.indexOf('alpha') > -1) return false;
+            if (nums[0] === '0' && nums[1] < 6) return false;
             options.unshift({ label: v, value: v.replace(/\./g, '_') });
           });
           this.options.push(...options);
