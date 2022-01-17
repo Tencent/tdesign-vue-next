@@ -7,6 +7,18 @@ const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/comp
 const currentVersion = packageJson.version.replace(/\./g, '_');
 const registryUrl = 'https://mirrors.tencent.com/npm/tdesign-vue-next';
 
+// 过滤小版本号
+function filterVersions(versions = [], deep = 1) {
+  const versionMap = Object.create(null);
+
+  versions.forEach((v) => {
+    const nums = v.split('.');
+    versionMap[nums[deep]] = v;
+  });
+
+  return Object.values(versionMap);
+}
+
 export default defineComponent({
   data() {
     return {
@@ -42,11 +54,11 @@ export default defineComponent({
         .then((res) => res.json())
         .then((res) => {
           const options = [];
-          const whiteList = ['0.6.1', '0.6.2'];
-          Object.keys(res.versions).forEach((v) => {
+          const versions = filterVersions(Object.keys(res.versions));
+          versions.forEach((v) => {
             if (v === packageJson.version) return false;
             const nums = v.split('.');
-            if ((nums[0] === '0' && nums[1] < 5) || v.indexOf('alpha') > -1 || whiteList.indexOf(v) > -1) return false;
+            if ((nums[0] === '0' && nums[1] < 5) || v.indexOf('alpha') > -1) return false;
             options.unshift({ label: v, value: v.replace(/\./g, '_') });
           });
           this.options.push(...options);
