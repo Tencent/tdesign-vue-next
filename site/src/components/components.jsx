@@ -4,6 +4,7 @@ import packageJson from '@/package.json';
 
 const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
+const currentVersion = packageJson.version.replace(/\./g, '_');
 const registryUrl = 'https://mirrors.tencent.com/npm/tdesign-vue-next';
 
 export default defineComponent({
@@ -11,7 +12,7 @@ export default defineComponent({
     return {
       loaded: false,
       version: packageJson.version,
-      options: [{ value: packageJson.version.replace(/\./g, '_'), label: packageJson.version }],
+      options: [{ value: currentVersion, label: packageJson.version }],
     };
   },
 
@@ -62,7 +63,7 @@ export default defineComponent({
       });
     },
     changeVersion(version) {
-      if (version === packageJson.version) return;
+      if (version === currentVersion) return;
       const historyUrl = `//${version}-tdesign-vue-next.surge.sh`;
       window.open(historyUrl, '_blank');
       this.$nextTick(() => {
