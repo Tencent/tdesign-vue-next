@@ -48,7 +48,7 @@ export const useTNodeJSX = (name: string, options?: OptionsType) => {
 
   // 处理 props 类型的Node
   let propsNode;
-  if (name in instance) {
+  if (Object.keys(instance).includes(name)) {
     propsNode = instance[name];
   }
 
