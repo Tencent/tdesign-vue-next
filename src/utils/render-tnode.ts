@@ -1,59 +1,34 @@
 /* eslint-disable no-undef */
-import { h, isVNode, createTextVNode, VNode, ComponentPublicInstance, Slots } from 'vue';
-import { TNode } from '../common';
-
-// 组件render属性的ts类型
-type RenderTsTypesSimple = string | number | boolean;
-type RenderTsTypesObject = Record<string, any> | Array<any>;
-type RenderTsTypes = VNode | TNode | RenderTsTypesSimple | RenderTsTypesObject;
-
-// 定义组件内容的渲染方式
-enum RenderWay {
-  Text = 'text',
-  JsonString = 'jsonstring',
-  VNode = 'vnode',
-  Unknown = 'unknown',
-}
-
-/**
- * 根据传入的值（对象），判断渲染该值（对象）的方式
- * @param value 传入的值（对象）
- */
-const getValueRenderWay = (value: RenderTsTypes): RenderWay => {
-  // 简单类型
-  if (['string', 'number', 'boolean'].includes(typeof value)) return RenderWay.Text;
-  // 复杂对象
-  if (typeof value === 'object') {
-    // 虚拟dom对象
-    if (isVNode(value)) {
-      return RenderWay.VNode;
-    }
-    // 其他复杂对象或数组
-    return RenderWay.JsonString;
-  }
-  // 未知类型（兜底）
-  return RenderWay.Unknown;
-};
-
-// 通过template的方式渲染TNode
-export const RenderTNodeTemplate = (props: { render: Function; params: Record<string, any> }) => {
-  const { render, params } = props;
-  const renderResult = typeof render === 'function' ? render(h, params) : render;
-  const renderWay = getValueRenderWay(renderResult);
-
-  const renderText = (c: RenderTsTypesSimple | RenderTsTypesObject) => createTextVNode(`${c}`);
-  const renderMap = {
-    [RenderWay.Text]: (c: RenderTsTypesSimple) => renderText(c),
-    [RenderWay.JsonString]: (c: RenderTsTypesObject) => renderText(JSON.stringify(c, null, 2)),
-    [RenderWay.VNode]: (c: VNode) => c,
-  };
-
-  return renderMap[renderWay] ? renderMap[renderWay](renderResult) : h(null);
-};
+import { h, isVNode, VNode, ComponentPublicInstance, Slots } from 'vue';
+import isFunction from 'lodash/isFunction';
+import isEmpty from 'lodash/isEmpty';
+import isObject from 'lodash/isObject';
 
 interface JSXRenderContext {
   defaultNode?: VNode;
   params?: Record<string, any>;
+}
+
+type OptionsType = VNode | JSXRenderContext;
+
+function getDefaultNode(options?: OptionsType) {
+  const params = isObject(options) && 'params' in options ? options.params : null;
+
+  let defaultNode;
+  if (isObject(options) && 'defaultNode' in options) {
+    defaultNode = options.defaultNode;
+  } else if (isVNode(options)) {
+    defaultNode = options;
+  }
+
+  return {
+    params,
+    defaultNode,
+  };
+}
+
+function getParams(options?: OptionsType) {
+  return isObject(options) && 'params' in options ? options.params : null;
 }
 
 /**
@@ -71,12 +46,17 @@ export const renderTNodeJSX = (
   name: string,
   options?: Slots | JSXRenderContext | JSX.Element,
 ) => {
-  const params = typeof options === 'object' && 'params' in options ? options.params : null;
-  const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
+  // assemble params && defaultNode
+  const params = getParams(options);
+  const defaultNode = getDefaultNode(options);
+
+  // 处理 props 类型的Node
   let propsNode;
   if (name in instance) {
     propsNode = instance[name];
   }
+
+  // propsNode 为 false 不渲染
   if (propsNode === false) return;
 
   // 同名优先处理插槽
@@ -86,10 +66,11 @@ export const renderTNodeJSX = (
   if (propsNode === true && defaultNode) {
     return instance.$slots[name] ? instance.$slots[name](params) : defaultNode;
   }
-  if (typeof propsNode === 'function') return propsNode(h, params);
-  const isPropsEmpty = [undefined, params, ''].includes(propsNode);
-  if (isPropsEmpty && instance.$slots[name]) return instance.$slots[name](params);
-  return propsNode;
+  if (isFunction(propsNode)) return propsNode(h, params);
+
+  if (propsNode === true && defaultNode) {
+    return defaultNode;
+  }
 };
 
 /**
@@ -105,7 +86,7 @@ export const renderTNodeJSXDefault = (
   name: string,
   options?: Slots | JSXRenderContext | JSX.Element,
 ) => {
-  const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
+  const defaultNode = getDefaultNode(options);
   return renderTNodeJSX(vm, name, options) || defaultNode;
 };
 
@@ -125,11 +106,14 @@ export const renderContent = (
   name2: string,
   options?: VNode | JSXRenderContext | JSX.Element,
 ) => {
-  const params = typeof options === 'object' && 'params' in options ? options.params : null;
-  const defaultNode = typeof options === 'object' && 'defaultNode' in options ? options.defaultNode : options;
+  const params = getParams(options);
+  const defaultNode = getDefaultNode(options);
+
   const toParams = params ? { params } : undefined;
+
   const node1 = renderTNodeJSX(vm, name1, toParams);
   const node2 = renderTNodeJSX(vm, name2, toParams);
-  const r = [undefined, null, ''].includes(node1) ? node2 : node1;
-  return [undefined, null, ''].includes(r) ? defaultNode : r;
+
+  const res = isEmpty(node1) ? node2 : node1;
+  return isEmpty(res) ? defaultNode : res;
 };
