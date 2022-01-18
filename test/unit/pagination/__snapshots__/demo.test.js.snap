@@ -29,6 +29,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -79,6 +80,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -254,6 +256,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -304,6 +307,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -456,6 +460,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -506,6 +511,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -689,6 +695,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -739,6 +746,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -915,6 +923,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -965,6 +974,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1163,6 +1173,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -1213,6 +1224,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1389,6 +1401,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -1439,6 +1452,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1527,6 +1541,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -1664,6 +1679,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                   </li>
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1768,6 +1784,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -1818,6 +1835,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1906,6 +1924,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -2043,6 +2062,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                   </li>
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -2147,6 +2167,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
             >
               
               <div>
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -2197,6 +2218,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
