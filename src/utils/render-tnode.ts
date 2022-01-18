@@ -72,6 +72,6 @@ export const renderContent = (vm: ComponentPublicInstance, name1: string, name2:
   const node1 = renderTNodeJSX(vm, name1, toParams);
   const node2 = renderTNodeJSX(vm, name2, toParams);
 
-  const res = [undefined, null, ''].includes(node1) ? node2 : node1;
-  return [undefined, null, ''].includes(res) ? defaultNode : res;
+  const res = isEmpty(node1) ? node2 : node1;
+  return isEmpty(res) ? defaultNode : res;
 };
