@@ -36,10 +36,10 @@ export default {
     default: 0,
   },
   /** 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示 */
-  overTagsDisplayType: {
-    type: String as PropType<TdTagInputProps['overTagsDisplayType']>,
-    default: 'scroll' as TdTagInputProps['overTagsDisplayType'],
-    validator(val: TdTagInputProps['overTagsDisplayType']): boolean {
+  excessTagsDisplayType: {
+    type: String as PropType<TdTagInputProps['excessTagsDisplayType']>,
+    default: 'scroll' as TdTagInputProps['excessTagsDisplayType'],
+    validator(val: TdTagInputProps['excessTagsDisplayType']): boolean {
       return ['scroll', 'break-line'].includes(val);
     },
   },
@@ -79,6 +79,9 @@ export default {
   },
   /** 值 */
   value: {
+    type: Array as PropType<TdTagInputProps['value']>,
+  },
+  modelValue: {
     type: Array as PropType<TdTagInputProps['value']>,
   },
   /** 值，非受控属性 */

@@ -1,6 +1,6 @@
 <template>
   <div style="width: 100%">
-    <t-tag-input placeholder="最多只能输入 3 个标签" :max="3" :value="tags" @change="onChange" @enter="onEnter" />
+    <t-tag-input v-model="tags" placeholder="最多只能输入 3 个标签" :max="3" @enter="onEnter" />
   </div>
 </template>
 
@@ -15,9 +15,6 @@ export default defineComponent({
     };
   },
   methods: {
-    onChange(val) {
-      this.tags = val;
-    },
     onEnter(value, { inputValue }) {
       if (value.length >= 3 && inputValue) {
         this.$message.warning('最多只能输入 3 个标签!');

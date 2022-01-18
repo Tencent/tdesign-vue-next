@@ -67,7 +67,6 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 标签数量超出时，滚动显示 -->
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >
@@ -79,7 +78,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
       <div
         class="t-tag-input__prefix"
       >
-        Scroll: 
+        Controlled: 
       </div>
       <span
         class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
@@ -136,9 +135,8 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 标签数量超出时，换行显示 -->
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input t-tag-input--break-line"
+    class="t-input t-size-m t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -148,7 +146,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
       <div
         class="t-tag-input__prefix"
       >
-        BreakLine: 
+        UnControlled: 
       </div>
       <span
         class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
@@ -203,6 +201,8 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
+  <br />
+  <br />
 </div>
 `;
 

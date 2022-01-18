@@ -49,7 +49,7 @@ export interface TdTagInputProps {
    * 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示
    * @default scroll
    */
-  overTagsDisplayType?: 'scroll' | 'break-line';
+  excessTagsDisplayType?: 'scroll' | 'break-line';
   /**
    * 占位符
    */

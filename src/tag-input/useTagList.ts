@@ -1,32 +1,43 @@
-import { ref } from 'vue';
+import { ref, SetupContext, WritableComputedRef } from 'vue';
 import { TagInputValue, TdTagInputProps } from './type';
 import { InputValue } from '../input';
+import useDefault from '../hooks/useDefault';
 
-export default function useTagList(props: TdTagInputProps) {
-  const { onChange } = props;
+export type ChangeParams = [Parameters<TdTagInputProps['onChange']>[1]];
+
+// handle tag add and remove
+export default function useTagList(props: TdTagInputProps, context: SetupContext) {
+  // handle controlled property and uncontrolled property
+  const [tagValue, setTagValue] = useDefault<TdTagInputProps['value'], TdTagInputProps>(
+    props,
+    context.emit,
+    'value',
+    'change',
+  );
+  // const { onChange } = props;
   const oldInputValue = ref<InputValue>();
 
   // 点击标签关闭按钮，删除标签
   const onClose = (p: { e: MouseEvent; index: number; item: string | number }) => {
-    const arr = [...props.value];
+    const arr = [...tagValue.value];
     arr.splice(p.index, 1);
-    onChange?.(arr, { trigger: 'tag-remove', index: p.index, e: p.e });
-    props.onRemove?.({ ...p, trigger: 'tag-remove', value: props.value });
+    setTagValue<ChangeParams>(arr, { trigger: 'tag-remove', index: p.index, e: p.e });
+    props.onRemove?.({ ...p, trigger: 'tag-remove', value: tagValue.value });
   };
 
   const clearAll = (context: { e: MouseEvent }) => {
-    onChange?.([], { trigger: 'clear', e: context.e });
+    setTagValue<ChangeParams>([], { trigger: 'clear', e: context.e });
   };
 
   // 按下 Enter 键，新增标签
   const onInnerEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
     const valueStr = String(value).trim();
     if (!valueStr) return;
-    const isLimitExceeded = props.max && props.value?.length >= props.max;
-    let newValue: TagInputValue = props.value;
+    const isLimitExceeded = props.max && tagValue.value?.length >= props.max;
+    let newValue: TagInputValue = tagValue.value;
     if (!isLimitExceeded) {
-      newValue = props.value instanceof Array ? props.value.concat(String(valueStr)) : [valueStr];
-      onChange?.(newValue, {
+      newValue = tagValue.value instanceof Array ? tagValue.value.concat(String(valueStr)) : [valueStr];
+      setTagValue<ChangeParams>(newValue, {
         trigger: 'enter',
         index: newValue.length - 1,
         e: context.e,
@@ -40,16 +51,17 @@ export default function useTagList(props: TdTagInputProps) {
     const { e } = context;
     // 回车键删除，输入框值为空时，才允许 Backspace 删除标签
     if (!oldInputValue.value && ['Backspace', 'NumpadDelete'].includes(e.code)) {
-      const index = props.value?.length;
-      const item = props.value?.[index];
+      const index = tagValue.value?.length;
+      const item = tagValue.value?.[index];
       const trigger = 'backspace';
-      onChange?.(props.value.slice(0, -1), { e, index, item, trigger });
-      props.onRemove?.({ e, index, item, trigger, value: props.value });
+      setTagValue<ChangeParams>(tagValue.value.slice(0, -1), { e, index, item, trigger });
+      props.onRemove?.({ e, index, item, trigger, value: tagValue.value });
     }
     oldInputValue.value = value;
   };
 
   return {
+    tagValue,
     clearAll,
     onClose,
     onInnerEnter,

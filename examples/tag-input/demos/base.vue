@@ -1,14 +1,13 @@
 <template>
   <div style="width: 60%">
-    <t-tag-input :value="tags" clearable @paste="onPaste" @change="onChange" @enter="onTagInputEnter" />
+    <t-tag-input v-model="tags" clearable @paste="onPaste" @enter="onTagInputEnter" />
     <br /><br />
 
-    <!-- 标签数量超出时，滚动显示 -->
-    <t-tag-input :value="tags" label="Scroll: " clearable @change="onChange" />
+    <t-tag-input :value="tags" label="Controlled: " clearable @change="onChange" />
     <br /><br />
 
-    <!-- 标签数量超出时，换行显示 -->
-    <t-tag-input :value="tags" label="BreakLine: " over-tags-display-type="break-line" clearable @change="onChange" />
+    <t-tag-input :default-value="tags" label="UnControlled: " clearable />
+    <br /><br />
   </div>
 </template>
 
@@ -16,7 +15,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'TTagInputBase',
+  name: 'TTagInputBaseDemo',
   data() {
     return {
       tags: ['Vue', 'React'],

@@ -1,8 +1,8 @@
 <template>
   <div style="width: 100%">
-    <t-tag-input :value="tags" :min-collapsed-num="1" @change="onChange" />
+    <t-tag-input v-model="tags" :min-collapsed-num="1" />
     <br /><br />
-    <t-tag-input :value="tags" :min-collapsed-num="3" @change="onChange">
+    <t-tag-input v-model="tags" :min-collapsed-num="3">
       <template #collapsedItems="{ collapsedTags }">
         <t-popup>
           <t-tag>More({{ collapsedTags?.length }})</t-tag>
@@ -26,11 +26,6 @@ export default defineComponent({
     return {
       tags: ['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter'],
     };
-  },
-  methods: {
-    onChange(val) {
-      this.tags = val;
-    },
   },
 });
 </script>

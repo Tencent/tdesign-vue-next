@@ -19,28 +19,32 @@ export default defineComponent({
 
   props: { ...props },
 
-  setup(props: TdTagInputProps) {
+  setup(props: TdTagInputProps, context) {
+    // const [tagValue, setTagValue] = useDefault<TdTagInputProps['value'], TdTagInputProps>(props, context.emit, 'value', 'change');
     const root = ref(null);
     const inputValueRef = ref<InputValue>();
     const { isHoverRef, addHover, cancelHover } = useHover(props);
     const scrollFunctions = useTagScroll(props, root);
-    const { onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props);
+    // handle tag add and remove
+    const { tagValue, onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props, context);
 
     const classes = computed(() => {
       return [
         NAME_CLASS,
         {
-          [BREAK_LINE_CLASS]: props.overTagsDisplayType === 'break-line',
+          [BREAK_LINE_CLASS]: props.excessTagsDisplayType === 'break-line',
         },
       ];
     });
 
     const tagInputPlaceholder = computed(() => {
-      return isHoverRef.value || !props.value?.length ? props.placeholder : '';
+      return isHoverRef.value || !tagValue.value?.length ? props.placeholder : '';
     });
 
     const showClearIcon = computed(() => {
-      return Boolean(!props.readonly && !props.disabled && props.clearable && isHoverRef.value && props.value?.length);
+      return Boolean(
+        !props.readonly && !props.disabled && props.clearable && isHoverRef.value && tagValue.value?.length,
+      );
     });
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
@@ -52,6 +56,7 @@ export default defineComponent({
     };
 
     return {
+      tagValue,
       root,
       inputValueRef,
       isHoverRef,
@@ -71,8 +76,8 @@ export default defineComponent({
 
   methods: {
     renderLabel() {
-      const displayNode = renderTNodeJSX(this, 'valueDisplay', { params: { value: this.value } });
-      const newList = this.minCollapsedNum ? this.value.slice(0, this.minCollapsedNum) : this.value;
+      const displayNode = renderTNodeJSX(this, 'valueDisplay', { params: { value: this.tagValue } });
+      const newList = this.minCollapsedNum ? this.tagValue.slice(0, this.minCollapsedNum) : this.tagValue;
       const list =
         displayNode ??
         newList?.map((item, index) => {
@@ -94,13 +99,13 @@ export default defineComponent({
         list.unshift(<div class={`${prefix}-tag-input__prefix`}>{label}</div>);
       }
       // 超出省略
-      if (newList.length !== this.value.length) {
-        const len = this.value.length - newList.length;
+      if (newList.length !== this.tagValue.length) {
+        const len = this.tagValue.length - newList.length;
         const more = renderTNodeJSX(this, 'collapsedItems', {
           params: {
-            value: this.value,
-            count: this.value.length,
-            collapsedTags: this.value.slice(this.minCollapsedNum, this.value.length),
+            value: this.tagValue,
+            count: this.tagValue.length,
+            collapsedTags: this.tagValue.slice(this.minCollapsedNum, this.tagValue.length),
           },
         });
         list.push(more ?? <Tag>+{len}</Tag>);
@@ -147,10 +152,10 @@ export default defineComponent({
           this.scrollToLeftOnLeave();
         }}
         onFocus={(inputValue, context) => {
-          this.onFocus?.(this.value, { e: context.e, inputValue });
+          this.onFocus?.(this.tagValue, { e: context.e, inputValue });
         }}
         onBlur={(inputValue, context) => {
-          this.onBlur?.(this.value, { e: context.e, inputValue });
+          this.onBlur?.(this.tagValue, { e: context.e, inputValue });
         }}
       />
     );

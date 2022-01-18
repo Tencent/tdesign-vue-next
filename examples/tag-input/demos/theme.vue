@@ -1,12 +1,12 @@
 <template>
   <div style="width: 50%">
-    <t-tag-input placeholder="添加新标签" :tag-props="{ theme: 'primary' }" :value="tags" @change="onChange" />
+    <t-tag-input v-model="tags" placeholder="添加新标签" :tag-props="{ theme: 'primary' }" />
     <br /><br />
-    <t-tag-input placeholder="添加新标签" :tag-props="{ theme: 'success' }" :value="tags" @change="onChange" />
+    <t-tag-input v-model="tags" placeholder="添加新标签" :tag-props="{ theme: 'success' }" />
     <br /><br />
-    <t-tag-input placeholder="添加新标签" :tag-props="{ theme: 'warning' }" :value="tags" @change="onChange" />
+    <t-tag-input v-model="tags" placeholder="添加新标签" :tag-props="{ theme: 'warning' }" />
     <br /><br />
-    <t-tag-input placeholder="添加新标签" :tag-props="{ theme: 'danger' }" :value="tags" @change="onChange" />
+    <t-tag-input v-model="tags" placeholder="添加新标签" :tag-props="{ theme: 'danger' }" />
   </div>
 </template>
 
@@ -19,11 +19,6 @@ export default defineComponent({
     return {
       tags: ['Vue', 'React', 'Miniprogram'],
     };
-  },
-  methods: {
-    onChange(val) {
-      this.tags = val;
-    },
   },
 });
 </script>

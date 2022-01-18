@@ -1,7 +1,7 @@
 <template>
   <div style="width: 100%">
     <!-- 方式一：使用 tag 定义标签内部内容 -->
-    <t-tag-input :value="tags" clearable :min-collapsed-num="2" @change="onChange">
+    <t-tag-input v-model="tags" clearable :min-collapsed-num="2">
       <template #tag="{ value }">
         <img
           src="https://tdesign.gtimg.com/site/avatar.jpg"
@@ -14,7 +14,7 @@
     <br /><br />
 
     <!-- 方式二：使用 valueDisplay 定义全部内容 -->
-    <t-tag-input :value="tags" clearable @change="onChange">
+    <t-tag-input v-model="tags" clearable>
       <template #valueDisplay="{ value }">
         <t-tag
           v-for="(item, index) in value"
@@ -45,12 +45,6 @@ export default defineComponent({
     };
   },
   methods: {
-    onChange(val) {
-      const timer = setTimeout(() => {
-        this.tags = val;
-        clearTimeout(timer);
-      }, 80);
-    },
     onTagDelete(index) {
       this.tags.splice(index, 1);
     },
