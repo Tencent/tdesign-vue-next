@@ -14,14 +14,15 @@
 </template>
 
 <script>
-export default {
-  data() {
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
     return {
       themes: ['text', 'avatar', 'paragraph', 'avatar-text', 'tab', 'article'],
     };
   },
-  methods: {},
-};
+});
 </script>
 
 <style scoped lang="less">
