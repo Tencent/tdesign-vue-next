@@ -13,10 +13,9 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -46,10 +45,9 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -79,10 +77,9 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -112,10 +109,9 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -146,10 +142,9 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -180,10 +175,9 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -213,10 +207,9 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -246,10 +239,9 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -280,10 +272,9 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -313,10 +304,9 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -347,10 +337,9 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-chevron-down"
+        class="t-icon t-icon-chevron-down t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -380,10 +369,9 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-chevron-up"
+        class="t-icon t-icon-chevron-up t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -496,10 +484,9 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -529,10 +516,9 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -623,10 +609,9 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -656,10 +641,9 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
