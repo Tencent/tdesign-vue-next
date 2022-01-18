@@ -19,6 +19,7 @@ exports[`Select :props :bordered 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -42,6 +43,7 @@ exports[`Select :props :bordered 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -115,6 +117,7 @@ exports[`Select :props :clearable 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -138,6 +141,7 @@ exports[`Select :props :clearable 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -211,6 +215,7 @@ exports[`Select :props :creatable 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -234,6 +239,7 @@ exports[`Select :props :creatable 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -307,6 +313,7 @@ exports[`Select :props :disabled 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -330,6 +337,7 @@ exports[`Select :props :disabled 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -404,6 +412,7 @@ exports[`Select :props :labelInValue 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -427,6 +436,7 @@ exports[`Select :props :labelInValue 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -500,6 +510,7 @@ exports[`Select :props :loading 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -523,6 +534,7 @@ exports[`Select :props :loading 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -606,6 +618,7 @@ exports[`Select :props :multiple 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -647,6 +660,7 @@ exports[`Select :props :multiple 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -720,6 +734,7 @@ exports[`Select :props :placeholder 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -743,6 +758,7 @@ exports[`Select :props :placeholder 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -817,6 +833,7 @@ exports[`Select :props :remote 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -840,6 +857,7 @@ exports[`Select :props :remote 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -913,6 +931,7 @@ exports[`Select :props :reserveKeyword 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -936,6 +955,7 @@ exports[`Select :props :reserveKeyword 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1009,6 +1029,7 @@ exports[`Select :props :size 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1032,6 +1053,7 @@ exports[`Select :props :size 1`] = `
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1106,6 +1128,7 @@ exports[`Select Option :props :disabled 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1136,6 +1159,7 @@ exports[`Select Option :props :disabled 1`] = `
               </li>
               
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1210,6 +1234,7 @@ exports[`Select Option :props :label 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1240,6 +1265,7 @@ exports[`Select Option :props :label 1`] = `
               </li>
               
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1314,6 +1340,7 @@ exports[`Select Option :props :value 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1344,6 +1371,7 @@ exports[`Select Option :props :value 1`] = `
               </li>
               
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1418,6 +1446,7 @@ exports[`Select OptionGroup :props :value 1`] = `
         >
           
           <div>
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1480,6 +1509,7 @@ exports[`Select OptionGroup :props :value 1`] = `
               </li>
               
             </ul>
+            <!---->
           </div>
           
           <!---->

@@ -4,6 +4,7 @@ import isDate from 'validator/lib/isDate';
 import isEmail from 'validator/lib/isEmail';
 import isEmpty from 'lodash/isEmpty';
 import isURL from 'validator/lib/isURL';
+import isNumber from 'lodash/isNumber';
 import { getCharacterLength } from '../utils/helper';
 import { CustomValidator, FormRule, ValueType, AllValidateResult } from './type';
 
@@ -25,9 +26,9 @@ const VALIDATE_MAP = {
   email: isEmail,
   required: (val: ValueType): boolean => !isValueEmpty(val),
   boolean: (val: ValueType): boolean => typeof val === 'boolean',
-  max: (val: ValueType, num: number): boolean => getCharacterLength(val) <= num,
-  min: (val: ValueType, num: number): boolean => val.length >= num,
-  len: (val: ValueType, num: number): boolean => val.length === num,
+  max: (val: ValueType, num: number): boolean => (isNumber(val) ? val <= num : getCharacterLength(val) <= num),
+  min: (val: ValueType, num: number): boolean => (isNumber(val) ? val >= num : getCharacterLength(val) >= num),
+  len: (val: ValueType, num: number): boolean => getCharacterLength(val) === num,
   number: (val: ValueType): boolean => !Number.isNaN(val),
   enum: (val: ValueType, strs: Array<string>): boolean => strs.includes(val),
   idcard: (val: ValueType): boolean => /^(\d{18,18}|\d{15,15}|\d{17,17}x)$/i.test(val),
