@@ -11,8 +11,8 @@ export default defineComponent({
 
   props: { ...props },
 
-  setup(props, { slots }) {
-    const items = computed(() => useChildComponentSlots(slots, 'TSwiperItem'));
+  setup() {
+    const items = computed(() => useChildComponentSlots('TSwiperItem'));
     return {
       items,
     };
