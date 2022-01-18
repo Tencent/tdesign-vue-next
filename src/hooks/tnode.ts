@@ -1,29 +1,25 @@
 import { h, getCurrentInstance, VNode, isVNode } from 'vue';
 import isEmpty from 'lodash/isEmpty';
+import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 
 interface JSXRenderContext {
-  defaultNode?: VNode;
+  defaultNode?: VNode | string;
   params?: Record<string, any>;
 }
 
-type OptionsType = VNode | JSXRenderContext;
+export type OptionsType = VNode | JSXRenderContext | string;
 
 export function getDefaultNode(options?: OptionsType) {
-  const params = isObject(options) && 'params' in options ? options.params : null;
-
   let defaultNode;
   if (isObject(options) && 'defaultNode' in options) {
     defaultNode = options.defaultNode;
-  } else if (isVNode(options)) {
+  } else if (isVNode(options) || isString(options)) {
     defaultNode = options;
   }
 
-  return {
-    params,
-    defaultNode,
-  };
+  return defaultNode;
 }
 
 export function getParams(options?: OptionsType) {
