@@ -643,7 +643,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
           guangzhou
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -665,7 +665,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
           shenzhen
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -722,7 +722,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -1078,7 +1078,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
           guangzhou
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1100,7 +1100,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
           shenzhen
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1159,7 +1159,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -1551,7 +1551,7 @@ exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -1778,7 +1778,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -2141,7 +2141,7 @@ exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
           guangzhou
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2162,7 +2162,7 @@ exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
           shenzhen
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2220,7 +2220,7 @@ exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -2557,7 +2557,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -2890,7 +2890,7 @@ exports[`TreeSelect TreeSelect propsVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
