@@ -25,9 +25,13 @@ const VALIDATE_MAP = {
   email: isEmail,
   required: (val: ValueType): boolean => !isValueEmpty(val),
   boolean: (val: ValueType): boolean => typeof val === 'boolean',
-  max: (val: ValueType, num: number): boolean => getCharacterLength(val) <= num,
-  min: (val: ValueType, num: number): boolean => val.length >= num,
-  len: (val: ValueType, num: number): boolean => val.length === num,
+  max: (val: ValueType, num: number): boolean => {
+    return typeof val === 'number' ? val <= num : getCharacterLength(val) <= num;
+  },
+  min: (val: ValueType, num: number): boolean => {
+    return typeof val === 'number' ? val >= num : getCharacterLength(val) >= num;
+  },
+  len: (val: ValueType, num: number): boolean => getCharacterLength(val) === num,
   number: (val: ValueType): boolean => !Number.isNaN(val),
   enum: (val: ValueType, strs: Array<string>): boolean => strs.includes(val),
   idcard: (val: ValueType): boolean => /^(\d{18,18}|\d{15,15}|\d{17,17}x)$/i.test(val),

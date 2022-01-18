@@ -33,6 +33,7 @@ export interface TdSelectInputProps {
    * 左侧文本
    */
   label?: string | TNode;
+  keys?: SelectInputKeys;
   /**
    * 最小折叠数量，用于标签数量过多的情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠
    * @default 0
@@ -51,12 +52,12 @@ export interface TdSelectInputProps {
   /**
    * 透传 Popup 浮层组件全部属性
    */
-  popupProps?: popupProps;
+  popupProps?: PopupProps;
   /**
    * 是否显示下拉框，受控属性
    * @default false
    */
-  popupVisible?: boolean;
+  visible?: boolean;
   /**
    * 是否只读，值为真会隐藏输入框，且无法打开下拉框
    * @default false
@@ -130,17 +131,23 @@ export interface TdSelectInputProps {
   /**
    * 移除单个标签时触发
    */
-  onRemove?: (context: TagInputRemoveContext) => void;
+  onRemove?: (context: SelectInputRemoveContext) => void;
 }
 
-export type SelectInputValue = string | number | boolean | Map | Symbol | Object | Array<any> | Array<SelectInputValue>;
+export type SelectInputValue = string | number | boolean | Object | Array<any> | Array<SelectInputValue>;
 
-export interface TagInputRemoveContext {
+export interface SelectInputRemoveContext {
   value: SelectInputValue;
   index: number;
   item: string | number;
   e: MouseEvent | KeyboardEvent;
-  trigger: TagInputRemoveTrigger;
+  trigger: SelectInputRemoveTrigger;
 }
 
-export type TagInputRemoveTrigger = 'tag-remove' | 'backspace';
+export type SelectInputRemoveTrigger = 'tag-remove' | 'backspace';
+
+export interface SelectInputKeys {
+  label?: string;
+  value?: string;
+  children?: string;
+}

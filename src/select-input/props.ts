@@ -46,8 +46,16 @@ export default {
   popupProps: {
     type: Object as PropType<TdSelectInputProps['popupProps']>,
   },
+  trigger: String,
   /** 是否显示下拉框，受控属性 */
-  popupVisible: Boolean,
+  visible: {
+    type: Boolean,
+    default: undefined,
+  },
+  keys: Object,
+  onVisibleChange: {
+    type: Function,
+  },
   /** 是否只读，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,
   /** 输入框状态 */
@@ -71,7 +79,7 @@ export default {
   },
   /** 全部标签值。值为数组表示多个标签，值为非数组表示单个数值 */
   value: {
-    type: [String, Array] as PropType<TdSelectInputProps['value']>,
+    type: [String, Object, Array] as PropType<TdSelectInputProps['value']>,
   },
   /** 自定义值呈现的全部内容，参数为所有标签的值 */
   valueDisplay: {
