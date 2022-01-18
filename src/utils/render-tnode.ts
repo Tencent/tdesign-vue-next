@@ -1,35 +1,7 @@
-/* eslint-disable no-undef */
-import { h, isVNode, VNode, ComponentPublicInstance, Slots } from 'vue';
+import { h, ComponentPublicInstance } from 'vue';
 import isFunction from 'lodash/isFunction';
 import isEmpty from 'lodash/isEmpty';
-import isObject from 'lodash/isObject';
-
-interface JSXRenderContext {
-  defaultNode?: VNode;
-  params?: Record<string, any>;
-}
-
-type OptionsType = VNode | JSXRenderContext;
-
-function getDefaultNode(options?: OptionsType) {
-  const params = isObject(options) && 'params' in options ? options.params : null;
-
-  let defaultNode;
-  if (isObject(options) && 'defaultNode' in options) {
-    defaultNode = options.defaultNode;
-  } else if (isVNode(options)) {
-    defaultNode = options;
-  }
-
-  return {
-    params,
-    defaultNode,
-  };
-}
-
-function getParams(options?: OptionsType) {
-  return isObject(options) && 'params' in options ? options.params : null;
-}
+import { getDefaultNode, getParams, OptionsType } from '../hooks/tnode';
 
 /**
  * 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
@@ -41,11 +13,7 @@ function getParams(options?: OptionsType) {
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <close-icon />, params })。 params 为渲染节点时所需的参数
  */
 
-export const renderTNodeJSX = (
-  instance: ComponentPublicInstance,
-  name: string,
-  options?: Slots | JSXRenderContext | JSX.Element,
-) => {
+export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: OptionsType) => {
   // assemble params && defaultNode
   const params = getParams(options);
   const defaultNode = getDefaultNode(options);
@@ -63,14 +31,13 @@ export const renderTNodeJSX = (
   if (instance.$slots[name]) {
     return instance.$slots[name](params);
   }
-  if (propsNode === true && defaultNode) {
-    return instance.$slots[name] ? instance.$slots[name](params) : defaultNode;
-  }
   if (isFunction(propsNode)) return propsNode(h, params);
 
   if (propsNode === true && defaultNode) {
-    return defaultNode;
+    return instance.$slots[name] ? instance.$slots[name](params) : defaultNode;
   }
+
+  return propsNode;
 };
 
 /**
@@ -81,11 +48,7 @@ export const renderTNodeJSX = (
  * @example renderTNodeJSX(this, 'closeBtn', <close-icon />)。this.closeBtn 为空时，则兜底渲染 <close-icon />
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <close-icon />, params }) 。params 为渲染节点时所需的参数
  */
-export const renderTNodeJSXDefault = (
-  vm: ComponentPublicInstance,
-  name: string,
-  options?: Slots | JSXRenderContext | JSX.Element,
-) => {
+export const renderTNodeJSXDefault = (vm: ComponentPublicInstance, name: string, options?: OptionsType) => {
   const defaultNode = getDefaultNode(options);
   return renderTNodeJSX(vm, name, options) || defaultNode;
 };
@@ -100,12 +63,7 @@ export const renderTNodeJSXDefault = (
  * @example renderContent(this, 'default', 'content', '我是默认内容')
  * @example renderContent(this, 'default', 'content', { defaultNode: '我是默认内容', params })
  */
-export const renderContent = (
-  vm: ComponentPublicInstance,
-  name1: string,
-  name2: string,
-  options?: VNode | JSXRenderContext | JSX.Element,
-) => {
+export const renderContent = (vm: ComponentPublicInstance, name1: string, name2: string, options?: OptionsType) => {
   const params = getParams(options);
   const defaultNode = getDefaultNode(options);
 
@@ -114,6 +72,6 @@ export const renderContent = (
   const node1 = renderTNodeJSX(vm, name1, toParams);
   const node2 = renderTNodeJSX(vm, name2, toParams);
 
-  const res = isEmpty(node1) ? node2 : node1;
-  return isEmpty(res) ? defaultNode : res;
+  const res = [undefined, null, ''].includes(node1) ? node2 : node1;
+  return [undefined, null, ''].includes(res) ? defaultNode : res;
 };
