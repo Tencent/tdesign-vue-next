@@ -157,9 +157,7 @@ export default defineComponent({
   },
 
   render() {
-    const labelContent = (
-      <div class={`${name}__info`}>{renderTNodeJSX(this, 'label', this.getLabelContent() as any)}</div>
-    );
+    const labelContent = <div class={`${name}__info`}>{renderTNodeJSX(this, 'label', this.getLabelContent())}</div>;
     // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
     const PLUMP_SEPERATE = 10;
     const seperateClasses = this.percentage > PLUMP_SEPERATE ? `${name}--over-ten` : `${name}--under-ten`;
