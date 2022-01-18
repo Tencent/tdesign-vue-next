@@ -36,29 +36,29 @@ tips | String | - | 小文本提示 | N
 trigger | String / Slot / Function | - | 触发上传的内容。TS 类型：`string | TNode<TriggerContext>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N
 useMockProgress | Boolean | true | 是否显示为模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传 | N
 withCredentials | Boolean | false | 上传请求时是否携带 cookie | N
-onCancelUpload | Function |  | 点击「取消上传」时触发。`() => {}` | N
-onChange | Function |  | 已上传文件列表发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。`(value: Array<UploadFile>, context: UploadChangeContext) => {}` | N
-onDragenter | Function |  | 进入拖拽区域时触发。`(context: { e: DragEvent }) => {}` | N
-onDragleave | Function |  | 拖拽结束时触发。`(context: { e: DragEvent }) => {}` | N
-onFail | Function |  | 上传失败后触发。`(options: { e: ProgressEvent; file: UploadFile }) => {}` | N
-onPreview | Function |  | 点击预览时触发。`(options: { file: UploadFile; e: MouseEvent }) => {}` | N
-onProgress | Function |  | 上传进度变化时触发，真实进度和模拟进度都会触发。type 值为 real 表示真实上传进度，type 值为 mock 表示模拟上传进度。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。`(options: ProgressContext) => {}` | N
-onRemove | Function |  | 移除文件时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。`(context: UploadRemoveContext) => {}` | N
-onSuccess | Function |  | 上传成功后触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。`(context: SuccessContext) => {}` | N
+onCancelUpload | Function |  | TS 类型：`() => void`<br/>点击「取消上传」时触发 | N
+onChange | Function |  | TS 类型：`(value: Array<UploadFile>, context: UploadChangeContext) => void`<br/>已上传文件列表发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile }`<br/> | N
+onDragenter | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>进入拖拽区域时触发 | N
+onDragleave | Function |  | TS 类型：`(context: { e: DragEvent }) => void`<br/>拖拽结束时触发 | N
+onFail | Function |  | TS 类型：`(options: { e: ProgressEvent; file: UploadFile }) => void`<br/>上传失败后触发 | N
+onPreview | Function |  | TS 类型：`(options: { file: UploadFile; e: MouseEvent }) => void`<br/>点击预览时触发 | N
+onProgress | Function |  | TS 类型：`(options: ProgressContext) => void`<br/>上传进度变化时触发，真实进度和模拟进度都会触发。type 值为 real 表示真实上传进度，type 值为 mock 表示模拟上传进度。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface ProgressContext { e?: ProgressEvent; file: UploadFile; percent: number; type: UploadProgressType }`<br/><br/>`type UploadProgressType = 'real' | 'mock'`<br/> | N
+onRemove | Function |  | TS 类型：`(context: UploadRemoveContext) => void`<br/>移除文件时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadRemoveContext { index?: number; file?: UploadFile; e: MouseEvent }`<br/> | N
+onSuccess | Function |  | TS 类型：`(context: SuccessContext) => void`<br/>上传成功后触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface SuccessContext { e?: ProgressEvent; file?: UploadFile; fileList?: UploadFile[]; response: any }`<br/> | N
 
 ### Upload Events
 
 名称 | 参数 | 描述
 -- | -- | --
 cancel-upload | - | 点击「取消上传」时触发
-change | `(value: Array<UploadFile>, context: UploadChangeContext)` | 已上传文件列表发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)
+change | `(value: Array<UploadFile>, context: UploadChangeContext)` | 已上传文件列表发生变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadChangeContext { e?: MouseEvent | ProgressEvent; response?: any; trigger: string; index?: number; file?: UploadFile }`<br/>
 dragenter | `(context: { e: DragEvent })` | 进入拖拽区域时触发
 dragleave | `(context: { e: DragEvent })` | 拖拽结束时触发
 fail | `(options: { e: ProgressEvent; file: UploadFile })` | 上传失败后触发
 preview | `(options: { file: UploadFile; e: MouseEvent })` | 点击预览时触发
-progress | `(options: ProgressContext)` | 上传进度变化时触发，真实进度和模拟进度都会触发。type 值为 real 表示真实上传进度，type 值为 mock 表示模拟上传进度。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)
-remove | `(context: UploadRemoveContext)` | 移除文件时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)
-success | `(context: SuccessContext)` | 上传成功后触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)
+progress | `(options: ProgressContext)` | 上传进度变化时触发，真实进度和模拟进度都会触发。type 值为 real 表示真实上传进度，type 值为 mock 表示模拟上传进度。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface ProgressContext { e?: ProgressEvent; file: UploadFile; percent: number; type: UploadProgressType }`<br/><br/>`type UploadProgressType = 'real' | 'mock'`<br/>
+remove | `(context: UploadRemoveContext)` | 移除文件时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface UploadRemoveContext { index?: number; file?: UploadFile; e: MouseEvent }`<br/>
+success | `(context: SuccessContext)` | 上传成功后触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts)。<br/>`interface SuccessContext { e?: ProgressEvent; file?: UploadFile; fileList?: UploadFile[]; response: any }`<br/>
 
 ### UploadFile
 

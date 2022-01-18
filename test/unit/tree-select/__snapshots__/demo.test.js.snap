@@ -279,7 +279,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -3223,7 +3223,7 @@ exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
@@ -3617,7 +3617,7 @@ exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"

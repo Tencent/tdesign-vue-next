@@ -445,7 +445,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
       class="t-input__suffix t-input__suffix-icon"
     >
       <svg
-        class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+        class="t-icon t-icon-browse-off t-input__suffix-clear"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -502,7 +502,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
       class="t-input__suffix t-input__suffix-icon"
     >
       <svg
-        class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+        class="t-icon t-icon-browse-off t-input__suffix-clear"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"

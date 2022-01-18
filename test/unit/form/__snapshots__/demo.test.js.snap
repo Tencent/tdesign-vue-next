@@ -167,7 +167,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -683,7 +683,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -746,7 +746,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -972,7 +972,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -1111,7 +1111,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -2030,6 +2030,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                   >
                     
                     <div>
+                      <!---->
                       <ul
                         class="t-select__create-option"
                         style="display: none;"
@@ -2080,6 +2081,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                         
                         
                       </ul>
+                      <!---->
                     </div>
                     
                     <!---->

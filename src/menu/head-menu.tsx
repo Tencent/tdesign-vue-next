@@ -1,4 +1,5 @@
 import { defineComponent, computed, provide, ref, reactive, watch, onMounted, watchEffect } from 'vue';
+import { useEmitEvent } from '../hooks/event';
 import log from '../_common/js/log/log';
 import { prefix } from '../config';
 import props from './head-menu-props';
@@ -12,7 +13,9 @@ export default defineComponent({
   name: 'THeadMenu',
   components: { Tabs, TabPanel },
   props,
+  emits: ['change', 'expand'],
   setup(props, ctx) {
+    const emitEvent = useEmitEvent(props, ctx.emit);
     watchEffect(() => {
       if (ctx.slots.options) {
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');
@@ -25,17 +28,6 @@ export default defineComponent({
     const menuClass = computed(() => [`${prefix}-menu`, `${prefix}-head-menu`, `${prefix}-menu--${props.theme}`]);
     const mode = ref(props.expandType);
     const submenu = reactive([]);
-    const deliver = (evt: string) => {
-      const func = `on${evt[0].toUpperCase() + evt.slice(1)}`;
-      return (val: any) => {
-        if (typeof props[func] === 'function') {
-          props[func](val);
-        }
-        ctx.emit(evt, val);
-      };
-    };
-    const emitChange = deliver('change');
-    const emitExpand = deliver('expand');
     const vMenu = new VMenu({ isMutex: true, expandValues: expandValues.value });
 
     provide<TdMenuInterface>('TdMenu', {
@@ -47,7 +39,7 @@ export default defineComponent({
       activeValue,
       activeValues,
       select: (value: MenuValue) => {
-        emitChange(value);
+        emitEvent('change', value);
       },
       open: (value: MenuValue, type: TdOpenType) => {
         const expanded = [...expandValues.value];
@@ -68,13 +60,13 @@ export default defineComponent({
             expanded.push(value);
           }
         }
-        emitExpand(expanded);
+        emitEvent('expand', expanded);
       },
     });
 
     // methods
     const handleTabChange = (value: MenuValue) => {
-      emitChange(value);
+      emitEvent('change', value);
     };
 
     const handleSubmenuExpand = (value: MenuValue) => {

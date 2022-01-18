@@ -15,6 +15,7 @@ import labelInValueVue from '@/examples/select/demos/label-in-value.vue';
 import maxVue from '@/examples/select/demos/max.vue';
 import multipleVue from '@/examples/select/demos/multiple.vue';
 import noborderVue from '@/examples/select/demos/noborder.vue';
+import panelVue from '@/examples/select/demos/panel.vue';
 import popupPropsVue from '@/examples/select/demos/popup-props.vue';
 import prefixVue from '@/examples/select/demos/prefix.vue';
 import remoteSearchVue from '@/examples/select/demos/remote-search.vue';
@@ -34,6 +35,7 @@ const mapper = {
   maxVue,
   multipleVue,
   noborderVue,
+  panelVue,
   popupPropsVue,
   prefixVue,
   remoteSearchVue,

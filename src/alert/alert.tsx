@@ -1,112 +1,103 @@
-import { defineComponent, h, VNode, ComponentPublicInstance } from 'vue';
-import { InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
-
+import { defineComponent, h, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
+import {
+  CheckCircleFilledIcon,
+  CloseIcon,
+  ErrorCircleFilledIcon,
+  HelpCircleFilledIcon,
+  InfoCircleFilledIcon,
+} from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
-import { emitEvent } from '../utils/event';
+import { useEmitEvent } from '../hooks/event';
+import { useIcon } from '../hooks/icon';
 
 const name = `${prefix}-alert`;
 
 export default defineComponent({
   name: 'TAlert',
-  props: { ...props },
+  props,
   emits: ['close', 'closed'],
-  data() {
-    return {
-      // 是否可见，关闭后置为false
-      visible: true,
-      // 是否已收起，使用折叠功能时有效，用于表示是否已折叠；默认折叠
-      collapsed: true,
-    };
-  },
-  mounted() {
-    on(this.$el, 'transitionend', this.handleCloseEnd);
-  },
-  beforeUnmount() {
-    off(this.$el, 'transitionend', this.handleCloseEnd);
-  },
-  methods: {
-    renderIcon() {
-      let iconContent;
-      if (typeof this.icon === 'function') {
-        iconContent = this.icon(h);
-      } else if (this.$slots.icon) {
-        iconContent = this.$slots.icon && this.$slots.icon(null)[0];
-      } else {
-        const Component = {
-          info: InfoCircleFilledIcon,
-          success: CheckCircleFilledIcon,
-          warning: ErrorCircleFilledIcon,
-          error: ErrorCircleFilledIcon,
-        }[this.theme as string];
-        iconContent = <Component></Component>;
-      }
-      return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
-    },
+  setup(props, { slots, emit }) {
+    const emitEvent = useEmitEvent(props, emit);
+    // alert的dom引用
+    const ele = ref<HTMLElement | null>(null);
+    // descriptiond的dom引用
+    const description = ref<HTMLElement | null>(null);
+    // desc高度
+    const descHeight = ref(0);
+    // 是否可见，关闭后置为false
+    const visible = ref(true);
+    // 是否已收起，使用折叠功能时有效，用于表示是否已折叠；默认折叠
+    const collapsed = ref(true);
 
-    renderClose() {
+    const renderIcon = () => {
+      const Component = {
+        info: InfoCircleFilledIcon,
+        success: CheckCircleFilledIcon,
+        warning: ErrorCircleFilledIcon,
+        error: ErrorCircleFilledIcon,
+        question: HelpCircleFilledIcon,
+      };
+      const iconContent = useIcon(props, slots, 'icon', Component);
+      return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
+    };
+
+    const renderClose = () => {
       let closeContent = null;
-      if (typeof this.close === 'string') {
-        closeContent = this.close;
-      } else if (typeof this.close === 'function') {
-        // @ts-ignore: TODO
-        closeContent = this.close(h);
-      } else if (this.close === true) {
+      if (typeof props.close === 'string') {
+        closeContent = props.close;
+      } else if (props.close === true) {
         closeContent = <CloseIcon></CloseIcon>;
       } else {
-        closeContent = this.$slots.close && this.$slots.close(null)[0];
+        closeContent = useIcon(props, slots, 'close');
       }
       return closeContent ? (
-        <div class={`${name}__close`} onClick={this.handleClose}>
+        <div class={`${name}__close`} onClick={handleClose}>
           {closeContent}
         </div>
       ) : null;
-    },
+    };
 
-    renderContent() {
-      return (
-        <div class={`${name}__content`}>
-          {this.renderTitle()}
-          {this.renderMessage()}
-        </div>
-      );
-    },
-
-    renderTitle() {
-      const titleContent = renderTNodeJSX(this as ComponentPublicInstance, 'title');
+    const renderTitle = (context: ComponentPublicInstance) => {
+      const titleContent = renderTNodeJSX(context, 'title');
       return titleContent ? <div class={`${name}__title`}> {titleContent}</div> : null;
-    },
+    };
 
-    renderMessage() {
-      const operationContent = renderTNodeJSX(this as ComponentPublicInstance, 'operation');
+    const renderMessage = (context: ComponentPublicInstance) => {
+      const operationContent = renderTNodeJSX(context, 'operation');
       return (
         <div class={`${name}__message`}>
-          {this.renderDescription()}
+          {renderDescription(context)}
           {operationContent ? <div class={`${name}__operation`}>{operationContent}</div> : null}
         </div>
       );
-    },
+    };
 
-    renderDescription() {
+    const renderDescription = (context: ComponentPublicInstance) => {
       let messageContent;
 
-      messageContent = renderTNodeJSX(this as ComponentPublicInstance, 'default');
+      messageContent = renderTNodeJSX(context, 'default');
       if (!messageContent) {
-        messageContent = renderTNodeJSX(this as ComponentPublicInstance, 'message');
+        messageContent = renderTNodeJSX(context, 'message');
       }
-
       const contentLength = Array.isArray(messageContent) ? (messageContent as Array<SlotReturnValue>).length : 1;
-      const hasCollapse = this.maxLine > 0 && this.maxLine < contentLength;
-      if (hasCollapse && this.collapsed) {
-        messageContent = (messageContent as Array<SlotReturnValue>).slice(0, this.maxLine as number);
+      const hasCollapse = props.maxLine > 0 && props.maxLine < contentLength;
+      const height = (description.value?.children[0] as HTMLElement)?.offsetHeight;
+      if (hasCollapse && collapsed.value) {
+        // 折叠
+        messageContent = (messageContent as Array<SlotReturnValue>).slice(0, props.maxLine as number);
+        height && (description.value.style.height = `${descHeight.value}px`);
+      } else if (hasCollapse) {
+        // 展开
+        height && (description.value.style.height = `${height * (contentLength - props.maxLine) + descHeight.value}px`);
       }
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
-        <div class={`${name}__description`}>
+        <div class={`${name}__description`} ref="description">
           {hasCollapse
             ? (messageContent as Array<string | VNode>).map((content) => <div>{content}</div>)
             : messageContent}
@@ -114,41 +105,71 @@ export default defineComponent({
             <div
               class="t-alert__collapse"
               onClick={() => {
-                this.collapsed = !this.collapsed;
+                collapsed.value = !collapsed.value;
               }}
             >
-              {this.collapsed ? '展开全部' : '收起'}
+              {collapsed.value ? '展开全部' : '收起'}
             </div>
           ) : null}
         </div>
       );
-    },
+    };
+    const renderContent = (context: ComponentPublicInstance) => {
+      return (
+        <div class={`${name}__content`}>
+          {renderTitle(context)}
+          {renderMessage(context)}
+        </div>
+      );
+    };
+    const handleClose = (e: MouseEvent) => {
+      emitEvent('close', { e });
+      addClass(ele.value, `${name}--closing`);
+    };
 
-    handleClose(e: MouseEvent) {
-      emitEvent(this, 'close', { e });
-      addClass(this.$el, `${name}--closing`);
-    },
-
-    handleCloseEnd(e: TransitionEvent) {
+    const handleCloseEnd = (e: TransitionEvent) => {
       if (e.propertyName === 'opacity') {
-        this.visible = false;
-        emitEvent(this, 'closed', { e });
+        visible.value = false;
+        emitEvent('closed', { e });
       }
-    },
+    };
+
+    onMounted(() => {
+      on(ele.value, 'transitionend', handleCloseEnd);
+      descHeight.value = description.value.offsetHeight;
+    });
+    onBeforeUnmount(() => {
+      off(ele.value, 'transitionend', handleCloseEnd);
+    });
+    return {
+      ele,
+      description,
+      visible,
+      collapsed,
+      renderIcon,
+      renderTitle,
+      renderMessage,
+      renderDescription,
+      renderContent,
+      renderClose,
+      handleClose,
+      handleCloseEnd,
+    };
   },
   render() {
+    const { theme, visible, $attrs, renderIcon, renderContent, renderClose } = this;
     const CLASS = [
       `${name}`,
-      `${name}--${this.theme}`,
+      `${name}--${theme}`,
       {
-        [`${prefix}-is-hidden`]: !this.visible,
+        [`${prefix}-is-hidden`]: !visible,
       },
     ];
     return (
-      <div class={CLASS} {...this.$attrs}>
-        {this.renderIcon()}
-        {this.renderContent()}
-        {this.renderClose()}
+      <div class={CLASS} {...$attrs} ref="ele">
+        {renderIcon()}
+        {renderContent(this)}
+        {renderClose()}
       </div>
     );
   },

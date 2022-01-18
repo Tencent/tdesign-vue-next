@@ -8,7 +8,7 @@ import tDocPlugin from './plugin-doc';
 import pwaConfig from './pwaConfig';
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/vue-next/' : './',
+  base: process.env.NODE_ENV === 'production' ? '/vue-next/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '../'),

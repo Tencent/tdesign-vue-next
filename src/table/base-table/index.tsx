@@ -33,12 +33,12 @@ export default defineComponent({
   },
   props: {
     ...baseTableProps,
+    onRowDragover: Function,
+    onRowDragstart: Function,
     provider: {
       type: Object,
       default() {
-        return {
-          renderRows(): void {},
-        };
+        return {};
       },
     },
   },
@@ -126,6 +126,9 @@ export default defineComponent({
       ];
       return classes;
     },
+    usePadding(): boolean {
+      return this.fixedHeader || this.scrollableToRight || this.scrollableToLeft;
+    },
   },
   mounted() {
     if (this.hasFixedColumns) {
@@ -147,12 +150,13 @@ export default defineComponent({
     this.scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
     const { maxHeight } = this;
-    if (maxHeight && (this.$refs.tableContent as HTMLElement).clientHeight > maxHeight) {
-      this.useFixedHeader = true;
-    }
+    this.checkMaxHeight();
   },
   unmounted() {
     window.removeEventListener('resize', debounce(this.checkScrollableToLeftOrRight));
+  },
+  updated() {
+    this.checkMaxHeight();
   },
   methods: {
     // 检查是否还可以向左或者向右滚动
@@ -174,7 +178,7 @@ export default defineComponent({
     renderBody(): VNode {
       const { $slots } = this;
       const rowEvents = {};
-      EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
+      EVENT_NAME_WITH_KEBAB.concat(['row-dragstart', 'row-dragover']).forEach((eventName) => {
         rowEvents[getPropsApiByEvent(eventName)] = (params: RowEventContext<any>) => {
           emitEvent(this, eventName, params);
         };
@@ -187,6 +191,8 @@ export default defineComponent({
         rowClassName: this.rowClassName,
         current: this.current,
         rowspanAndColspan: this.rowspanAndColspan,
+        firstFullRow: this.firstFullRow,
+        lastFullRow: this.lastFullRow,
       };
       return (
         <TableBody {...props} {...rowEvents}>
@@ -196,8 +202,15 @@ export default defineComponent({
     },
     renderEmptyTable(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
+      const { height } = this;
+      const wrapperStyle: { height?: string | number } = {};
+      if (height !== 'auto') {
+        wrapperStyle.height = isNaN(Number(height)) ? height : `${height}px`;
+      }
       return (
-        <div class={`${prefix}-table__empty`}>{useLocale ? this.global.empty : renderTNodeJSX(this, 'empty')}</div>
+        <div style={wrapperStyle} class={`${prefix}-table__empty`}>
+          {useLocale ? this.global.empty : renderTNodeJSX(this, 'empty')}
+        </div>
       );
     },
     renderPagination(): VNode {
@@ -234,6 +247,7 @@ export default defineComponent({
         scrollBarWidth,
         hasFixedColumns,
         tableHeight,
+        usePadding,
       } = this;
       // handle scroll
       const handleScroll = throttle((e: Event) => {
@@ -244,13 +258,10 @@ export default defineComponent({
       }, 10);
       //  fixed table header
       const paddingRight = `${scrollBarWidth}px`;
+      const headerContainerStyle = columns.length > 1 && usePadding ? { paddingRight } : {};
       fixedTable.push(
-        <div
-          class={`${prefix}-table__header`}
-          style={{ paddingRight: columns.length > 1 ? paddingRight : '' }}
-          ref="scrollHeader"
-        >
-          <table style={{ tableLayout, paddingRight }}>
+        <div class={`${prefix}-table__header`} style={headerContainerStyle} ref="scrollHeader">
+          <table style={{ tableLayout }}>
             <TableColGroup columns={columns} />
             {this.renderHeader()}
           </table>
@@ -303,6 +314,12 @@ export default defineComponent({
         emitEvent(this, scrollListenerName, {
           e,
         });
+      }
+    },
+    checkMaxHeight() {
+      const { maxHeight } = this;
+      if (maxHeight && (this.$refs.tableContent as HTMLElement).clientHeight > maxHeight) {
+        this.useFixedHeader = true;
       }
     },
   },

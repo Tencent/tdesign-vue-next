@@ -186,9 +186,6 @@ export default defineComponent({
       });
     },
   },
-  updated() {
-    this.moveActiveTabIntoView();
-  },
   mounted() {
     this.$nextTick(() => {
       this.watchDomChange();
@@ -312,6 +309,7 @@ export default defineComponent({
         return leftOperationsZoneWidth;
       };
       const leftCoverWidth = getLeftCoverWidth();
+
       // 判断当前tab是不是在左边被隐藏
       const isCurrentTabHiddenInLeftZone = () => this.scrollLeft + leftCoverWidth > totalWidthBeforeActiveTab;
       if (isCurrentTabHiddenInLeftZone()) {

@@ -24,6 +24,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -79,6 +80,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -151,6 +153,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -213,6 +216,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
                 
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -290,6 +294,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -397,6 +402,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -425,7 +431,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -453,7 +459,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -521,6 +527,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -628,6 +635,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -656,7 +664,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -684,7 +692,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -772,6 +780,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -879,6 +888,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -907,7 +917,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -935,7 +945,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -1033,6 +1043,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -1068,6 +1079,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -1157,6 +1169,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -1390,6 +1403,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -1464,6 +1478,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -1724,6 +1739,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -1801,6 +1817,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -2052,6 +2069,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -2076,7 +2094,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           )
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2100,7 +2118,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           )
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2124,7 +2142,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           )
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2193,6 +2211,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -2444,6 +2463,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -2466,7 +2486,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           选项四(4) 
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2487,7 +2507,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           选项五(5) 
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2508,7 +2528,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           选项六(6) 
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2529,7 +2549,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           选项七(7) 
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -2602,6 +2622,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -2637,6 +2658,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -2709,6 +2731,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -2816,6 +2839,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -2920,6 +2944,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -2955,6 +2980,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -3037,6 +3063,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -3144,6 +3171,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -3233,6 +3261,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -3301,6 +3330,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -3373,6 +3403,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -3508,6 +3539,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                 
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -3585,6 +3617,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -3620,6 +3653,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -3692,6 +3726,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -3799,6 +3834,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -3827,7 +3863,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -3899,6 +3935,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -4006,6 +4043,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -4085,6 +4123,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -4267,6 +4306,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -4295,7 +4335,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4323,7 +4363,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4391,6 +4431,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -4579,6 +4620,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -4607,7 +4649,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4635,7 +4677,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4663,7 +4705,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4691,7 +4733,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4719,7 +4761,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4747,7 +4789,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -4816,6 +4858,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -4998,6 +5041,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -5026,7 +5070,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5054,7 +5098,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5082,7 +5126,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5110,7 +5154,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             
           </span>
           <svg
-            class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+            class="t-icon t-icon-close t-tag__icon-close"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5181,6 +5225,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -5216,6 +5261,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -5271,6 +5317,283 @@ exports[`Select Select noborderVue demo works fine 1`] = `
 </div>
 `;
 
+exports[`Select Select panelVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-select-base"
+>
+  <!-- 自定义面板顶部内容：如自定义搜索框。同时支持插槽和 Props(this,panelTopContent) -->
+  <div
+    class="t-select__wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup__reference t-select__popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup__content t-select__dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              
+              <div>
+                <div
+                  class="t-textarea"
+                >
+                  <textarea
+                    class="t-textarea__inner narrow-scrollbar"
+                    modelvalue=""
+                    placeholder="请输入关键词搜索"
+                  />
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              
+              <ul
+                class="t-select__create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul>
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="架构云"
+                >
+                  架构云
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="大数据"
+                >
+                  大数据
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="区块链"
+                >
+                  区块链
+                </li>
+                <li
+                  class="t-select-option t-is-disabled t-size-m"
+                  title="物联网"
+                >
+                  物联网
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="人工智能"
+                >
+                  人工智能
+                </li>
+                
+              </ul>
+              <!---->
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select__placeholder"
+        >
+           
+          请选择云解决方案
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+  <!-- 自定义面板底部内容；如新增项 。同时支持插槽和 Props（this,panelBottomContent）-->
+  <div
+    class="t-select__wrap"
+    modelvalue=""
+  >
+    <div
+      class="t-popup__reference t-select__popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup__content t-select__dropdown narrow-scrollbar"
+          >
+            
+            <div>
+              <!---->
+              <ul
+                class="t-select__create-option"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  title=""
+                >
+                  
+                </li>
+              </ul>
+              <!---->
+              <li
+                class="t-select__empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-size-m"
+                  title="云服务器"
+                >
+                  云服务器
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="云数据库"
+                >
+                  云数据库
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="域名注册"
+                >
+                  域名注册
+                </li>
+                
+                
+              </ul>
+              
+              <div
+                class="select-panel-footer"
+              >
+                <button
+                  class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                  type="button"
+                >
+                  <span
+                    class="t-button__text"
+                  >
+                    
+                    新增选项
+                    
+                  </span>
+                </button>
+              </div>
+              
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-size-m"
+      >
+        <!---->
+        <span
+          class="t-select__placeholder"
+        >
+           
+          请选择云产品
+        </span>
+        
+        
+        <span
+          class="t-tag t-tag--default t-size-m t-tag--dark"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        <!---->
+        <!---->
+        <svg
+          class="t-fake-arrow t-select__right-icon"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Select Select popupPropsVue demo works fine 1`] = `
 <div>
   <div
@@ -5293,6 +5616,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -5328,6 +5652,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -5400,6 +5725,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -5435,6 +5761,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -5512,6 +5839,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -5547,6 +5875,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -5634,6 +5963,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -5669,6 +5999,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -5751,6 +6082,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -5858,6 +6190,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -5945,6 +6278,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -5995,6 +6329,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -6067,6 +6402,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6102,6 +6438,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -6174,6 +6511,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6209,6 +6547,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -6287,6 +6626,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6334,6 +6674,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -6405,6 +6746,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6452,6 +6794,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -6523,6 +6866,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6546,6 +6890,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
               >
                 <!---->
               </ul>
+              <!---->
             </div>
             
             <!---->

@@ -594,7 +594,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Breadcrumb Breadcrumb optionVue demo works fine 1`] = `
+exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
 <div
   class="t-breadcrumb"
 >

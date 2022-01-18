@@ -88,7 +88,9 @@ export default defineComponent({
     document.addEventListener('click', (event) => {
       this.outerClickListenerFn(event);
     });
-    this.getInputWidth();
+    setTimeout(() => {
+      this.getInputWidth();
+    }, 0);
   },
   unmounted() {
     document.removeEventListener('click', (event) => {

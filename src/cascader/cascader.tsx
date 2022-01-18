@@ -261,8 +261,9 @@ export default defineComponent({
         overlayClassName={`${name}__dropdown`}
         placement="bottom-left"
         visible={visible}
-        trigger={popupProps?.trigger || 'click'}
         expandAnimation={true}
+        trigger={popupProps?.trigger || 'click'}
+        {...popupProps}
         v-slots={{
           content: () => (
             <panel empty={empty} trigger={trigger} cascaderContext={cascaderContext}>
@@ -270,7 +271,6 @@ export default defineComponent({
             </panel>
           ),
         }}
-        {...popupProps}
       >
         <InputContent
           {...$attrs}

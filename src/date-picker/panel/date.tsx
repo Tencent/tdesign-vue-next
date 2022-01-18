@@ -16,7 +16,7 @@ import {
   getToday,
   firstUpperCase,
   OptionsType,
-} from '../utils';
+} from '../../_common/js/date-picker/utils';
 
 const name = `${prefix}-date-picker-panel`;
 

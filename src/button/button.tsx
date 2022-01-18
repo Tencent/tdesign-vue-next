@@ -21,30 +21,30 @@ export default defineComponent({
       if (variant === 'base') return 'primary';
       return 'default';
     });
+    const buttonClassRef = computed(() => [
+      `${name}`,
+      CLASSNAMES.SIZE[props.size],
+      `${name}--variant-${props.variant}`,
+      `${name}--theme-${mergeThemeRef.value}`,
+      {
+        [CLASSNAMES.STATUS.disabled]: isDisabledRef.value,
+        [CLASSNAMES.STATUS.loading]: props.loading,
+        [`${name}--shape-${props.shape}`]: props.shape !== 'rectangle',
+        [`${name}--ghost`]: props.ghost,
+        [CLASSNAMES.SIZE.block]: props.block,
+      },
+    ]);
+
     return {
       isDisabled: isDisabledRef,
       mergeTheme: mergeThemeRef,
+      buttonClass: buttonClassRef,
     };
   },
   render() {
     let buttonContent = renderContent(this, 'default', 'content');
     const icon = this.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX(this, 'icon');
     const iconOnly = icon && !buttonContent;
-
-    const buttonClass = [
-      `${name}`,
-      CLASSNAMES.SIZE[this.size],
-      `${name}--variant-${this.variant}`,
-      `${name}--theme-${this.mergeTheme}`,
-      {
-        [CLASSNAMES.STATUS.disabled]: this.isDisabled,
-        [CLASSNAMES.STATUS.loading]: this.loading,
-        [`${name}--icon-only`]: iconOnly,
-        [`${name}--shape-${this.shape}`]: this.shape !== 'rectangle',
-        [`${name}--ghost`]: this.ghost,
-        [CLASSNAMES.SIZE.block]: this.block,
-      },
-    ];
 
     buttonContent = buttonContent ? <span class={`${name}__text`}>{buttonContent}</span> : '';
     if (icon) {
@@ -54,7 +54,7 @@ export default defineComponent({
     return (
       <button
         v-ripple
-        class={buttonClass}
+        class={[...this.buttonClass, { [`${name}--icon-only`]: iconOnly }]}
         type={this.type}
         disabled={this.disabled}
         {...this.$attrs}

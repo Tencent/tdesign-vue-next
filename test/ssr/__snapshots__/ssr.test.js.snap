@@ -1024,7 +1024,7 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/icon.vue correctl
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/breadcrumb/demos/option.vue correctly 1`] = `
+exports[`ssr snapshot test renders ./examples/breadcrumb/demos/options.vue correctly 1`] = `
 <div class="t-breadcrumb">
   <!--[-->
   <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-oveflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></div>
@@ -1113,14 +1113,14 @@ exports[`ssr snapshot test renders ./examples/button/demos/icon.vue correctly 1`
         <!--]--><span class="t-button__text"><!--[--> 上传文件 <!--]--></span>
         <!--]-->
       </button></div>
-    <div class="demo-button-col"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-circle" type="button">
+    <div class="demo-button-col"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg class="t-icon t-icon-discount" style="">
           <use href="#t-icon-discount"></use>
         </svg>
         <!--]-->
         <!--]-->
-      </button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-circle" type="button">
+      </button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-cloud-download" style="">
           <path fill="currentColor" d="M4.73 6.26l-.71.09A2.32 2.32 0 002 8.67c0 1.2.89 2.18 2 2.31v1a3.31 3.31 0 01-3-3.31 3.32 3.32 0 012.9-3.32A4.2 4.2 0 018 2c2 0 3.69 1.43 4.1 3.35 1.63.2 2.9 1.6 2.9 3.32a3.31 3.31 0 01-3 3.32v-1c1.11-.14 2-1.11 2-2.32 0-1.22-.9-2.2-2.02-2.32l-.71-.09-.15-.7A3.2 3.2 0 008 3a3.2 3.2 0 00-3.12 2.56l-.15.7z" fillopacity="0.9"></path>
@@ -1167,7 +1167,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/shape.vue correctly 1
 <div class="tdesign-demo-block-column">
   <div class="tdesign-demo-block-row">
     <div class="item"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 填充按钮 <!--]--></span></button></div>
-    <div class="item"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-square" type="button">
+    <div class="item"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-square t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style="">
           <path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path>
@@ -1176,7 +1176,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/shape.vue correctly 1
         <!--]-->
       </button></div>
     <div class="item"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-round" type="button"><span class="t-button__text"><!--[--> 填充按钮 <!--]--></span></button></div>
-    <div class="item"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only t-button--shape-circle" type="button">
+    <div class="item"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-circle t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style="">
           <path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path>
@@ -1187,7 +1187,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/shape.vue correctly 1
   </div>
   <div class="tdesign-demo-block-row">
     <div class="item"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 描边按钮 <!--]--></span></button></div>
-    <div class="item"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square" type="button">
+    <div class="item"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style="">
           <path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path>
@@ -1196,7 +1196,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/shape.vue correctly 1
         <!--]-->
       </button></div>
     <div class="item"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-round" type="button"><span class="t-button__text"><!--[--> 描边按钮 <!--]--></span></button></div>
-    <div class="item"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-circle" type="button">
+    <div class="item"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-circle t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style="">
           <path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path>
@@ -1207,7 +1207,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/shape.vue correctly 1
   </div>
   <div class="tdesign-demo-block-row">
     <div class="item"><button class="t-button t-size-m t-button--variant-dashed t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 虚框按钮 <!--]--></span></button></div>
-    <div class="item"><button class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--icon-only t-button--shape-square" type="button">
+    <div class="item"><button class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-square t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style="">
           <path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path>
@@ -1216,7 +1216,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/shape.vue correctly 1
         <!--]-->
       </button></div>
     <div class="item"><button class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-round" type="button"><span class="t-button__text"><!--[--> 虚框按钮 <!--]--></span></button></div>
-    <div class="item"><button class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--icon-only t-button--shape-circle" type="button">
+    <div class="item"><button class="t-button t-size-m t-button--variant-dashed t-button--theme-default t-button--shape-circle t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style="">
           <path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path>
@@ -1227,7 +1227,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/shape.vue correctly 1
   </div>
   <div class="tdesign-demo-block-row">
     <div class="item"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 文字按钮 <!--]--></span></button></div>
-    <div class="item"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-button--shape-square" type="button">
+    <div class="item"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style="">
           <path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path>
@@ -1236,7 +1236,7 @@ exports[`ssr snapshot test renders ./examples/button/demos/shape.vue correctly 1
         <!--]-->
       </button></div>
     <div class="item"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-round" type="button"><span class="t-button__text"><!--[--> 文字按钮 <!--]--></span></button></div>
-    <div class="item"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-button--shape-circle" type="button">
+    <div class="item"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-circle t-button--icon-only" type="button">
         <!--[-->
         <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style="">
           <path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path>
@@ -1309,6 +1309,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -1404,6 +1405,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -1432,6 +1434,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -1491,6 +1494,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -1613,6 +1617,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -1626,6 +1631,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -1667,6 +1673,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -1762,6 +1769,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -1790,6 +1798,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -1849,6 +1858,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -1973,6 +1983,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -1986,6 +1997,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -2020,6 +2032,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -2115,6 +2128,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -2143,6 +2157,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -2202,6 +2217,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -2540,6 +2556,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -2635,6 +2652,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -2663,6 +2681,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -2722,6 +2741,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -3103,6 +3123,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -3198,6 +3219,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -3226,6 +3248,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -3285,6 +3308,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -3508,6 +3532,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -3603,6 +3628,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -3631,6 +3657,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -3690,6 +3717,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -3819,6 +3847,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -3914,6 +3943,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -3942,6 +3972,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4001,6 +4032,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4137,6 +4169,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4232,6 +4265,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4260,6 +4294,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4319,6 +4354,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4463,6 +4499,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4558,6 +4595,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4586,6 +4624,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4645,6 +4684,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4768,6 +4808,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -4786,6 +4827,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -4820,6 +4862,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4915,6 +4958,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4943,6 +4987,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -5002,6 +5047,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -5142,6 +5188,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -5237,6 +5284,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -5265,6 +5313,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -5324,6 +5373,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -5446,6 +5496,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -5459,6 +5510,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -5493,6 +5545,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -5588,6 +5641,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -5673,6 +5727,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -5728,6 +5783,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -5756,6 +5812,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -5815,6 +5872,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -5942,6 +6000,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -6037,6 +6096,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -6065,6 +6125,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -6124,6 +6185,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -6430,6 +6492,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -6525,6 +6588,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -6553,6 +6617,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -6612,6 +6677,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -6753,6 +6819,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -6848,6 +6915,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -6876,6 +6944,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -6935,6 +7004,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -7083,6 +7153,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -7178,6 +7249,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -7206,6 +7278,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -7265,6 +7338,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -7392,6 +7466,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -7487,6 +7562,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -7515,6 +7591,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -7574,6 +7651,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -8507,6 +8585,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -8602,6 +8681,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -8630,6 +8710,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -8689,6 +8770,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -9391,48 +9473,48 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
                     <tr>
                       <!--[-->
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">1 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jan</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">2 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Feb</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">3 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Mar</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">4 月</span></div>
-                      </td>
-                      <!--]-->
-                    </tr>
-                    <tr>
-                      <!--[-->
-                      <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">5 月</span></div>
-                      </td>
-                      <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">6 月</span></div>
-                      </td>
-                      <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">7 月</span></div>
-                      </td>
-                      <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">8 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Apr</span></div>
                       </td>
                       <!--]-->
                     </tr>
                     <tr>
                       <!--[-->
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">9 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">May</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">10 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jun</span></div>
                       </td>
                       <td class="t-date-picker-cell">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">11 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jul</span></div>
+                      </td>
+                      <td class="t-date-picker-cell">
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Aug</span></div>
+                      </td>
+                      <!--]-->
+                    </tr>
+                    <tr>
+                      <!--[-->
+                      <td class="t-date-picker-cell">
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Sep</span></div>
+                      </td>
+                      <td class="t-date-picker-cell">
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Oct</span></div>
+                      </td>
+                      <td class="t-date-picker-cell">
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Nov</span></div>
                       </td>
                       <td class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active">
-                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">12 月</span></div>
+                        <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Dec</span></div>
                       </td>
                       <!--]-->
                     </tr>
@@ -9476,48 +9558,48 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
                       <tr>
                         <!--[-->
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">1 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jan</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">2 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Feb</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">3 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Mar</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">4 月</span></div>
-                        </td>
-                        <!--]-->
-                      </tr>
-                      <tr>
-                        <!--[-->
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">5 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">6 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">7 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">8 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Apr</span></div>
                         </td>
                         <!--]-->
                       </tr>
                       <tr>
                         <!--[-->
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">9 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">May</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">10 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jun</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">11 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jul</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Aug</span></div>
+                        </td>
+                        <!--]-->
+                      </tr>
+                      <tr>
+                        <!--[-->
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Sep</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Oct</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Nov</span></div>
                         </td>
                         <td class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active t-date-picker__cell--active-start t-date-picker__cell--active-end">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">12 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Dec</span></div>
                         </td>
                         <!--]-->
                       </tr>
@@ -9538,48 +9620,48 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
                       <tr>
                         <!--[-->
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">1 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jan</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">2 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Feb</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">3 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Mar</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">4 月</span></div>
-                        </td>
-                        <!--]-->
-                      </tr>
-                      <tr>
-                        <!--[-->
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">5 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">6 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">7 月</span></div>
-                        </td>
-                        <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">8 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Apr</span></div>
                         </td>
                         <!--]-->
                       </tr>
                       <tr>
                         <!--[-->
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">9 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">May</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">10 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jun</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">11 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Jul</span></div>
                         </td>
                         <td class="t-date-picker-cell">
-                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">12 月</span></div>
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Aug</span></div>
+                        </td>
+                        <!--]-->
+                      </tr>
+                      <tr>
+                        <!--[-->
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Sep</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Oct</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Nov</span></div>
+                        </td>
+                        <td class="t-date-picker-cell">
+                          <div class="t-date-picker__cell-wrapper"><span class="t-date-picker__cell-text">Dec</span></div>
                         </td>
                         <!--]-->
                       </tr>
@@ -10043,6 +10125,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -10055,6 +10138,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
               <li class="t-select-option t-size-m" title="Shenzhen">Shenzhen</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -10081,6 +10165,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -10089,6 +10174,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
             <ul class="t-select__groups" style="display:none;">
               <!---->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -10115,6 +10201,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -10123,6 +10210,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
             <ul class="t-select__groups" style="display:none;">
               <!---->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -10624,6 +10712,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -10639,6 +10728,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -10778,8 +10868,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
   <!--[-->
   <!-- 全局配置：空数据呈现，演示 -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -10835,7 +10924,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
           </table>
         </div>
         <!--[-->
-        <div class="t-table__empty">Empty Data</div>
+        <div style="" class="t-table__empty">Empty Data</div>
         <!--]-->
         <!--]-->
         <!---->
@@ -10843,8 +10932,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
     </div>
   </div><br><br><!-- 全局配置：自定义展开图标和排序图标，演示 -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -10903,13 +10991,6 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                 <td class="" style="" length="4">A</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="4" class="t-table__expandable-cell" style="" length="1">
-                  <div>This is expanded row info</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></span></td>
@@ -10918,26 +10999,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                 <td class="" style="" length="4">B</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="4" class="t-table__expandable-cell" style="" length="1">
-                  <div>This is expanded row info</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="4"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style=""><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></span></td>
                 <td class="" style="" length="4">Object</td>
                 <td class="" style="" length="4">Miniprogram</td>
                 <td class="" style="" length="4">C</td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="4" class="t-table__expandable-cell" style="" length="1">
-                  <div>This is expanded row info</div>
-                </td>
                 <!--]-->
               </tr>
               <!--]-->
@@ -17034,6 +17101,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -17057,6 +17125,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -18444,7 +18513,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/textarea.vue correctly
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18452,7 +18521,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue corr
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -18466,7 +18535,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue corr
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18474,7 +18543,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="2021" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value="2021" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -18488,7 +18557,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-is-disabled" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+  <div class="t-input-number t-size-m t-is-disabled" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18496,7 +18565,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue co
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="3" class="t-input__inner t-is-disabled t-input-number-text-align" disabled autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase t-is-disabled" type="button">
+    <div class="t-input"><input value="3" class="t-input__inner t-is-disabled t-input-number-text-align" disabled autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -18510,7 +18579,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue co
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18518,7 +18587,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder="输入"></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder="输入"></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -18532,7 +18601,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18540,7 +18609,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="3%" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value="3%" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -18554,7 +18623,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-is-controls-right" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m t-is-controls-right" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
         <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -18562,7 +18631,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correc
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="3" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value="3" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
         <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
@@ -18586,7 +18655,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/normal.vue corr
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-s" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-s" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-s" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18594,7 +18663,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-s" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -18603,7 +18672,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!--]-->
     </button>
   </div>
-  <div class="t-input-number t-size-m" modelvalue="3" style="margin:0 50px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m" modelvalue="3" style="margin:0 50px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18611,7 +18680,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -18620,7 +18689,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!--]-->
     </button>
   </div>
-  <div class="t-input-number t-size-l" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-l" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-l" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18628,7 +18697,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-l" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -18642,7 +18711,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m" modelvalue="3.2"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m" modelvalue="3.2"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
@@ -18650,7 +18719,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correc
       <!--]-->
       <!--]-->
     </button>
-    <div class="t-input"><input value="3.20" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+    <div class="t-input"><input value="3.20" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
@@ -20780,18 +20849,18 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
           </svg>
           <!--]--><span class="t-menu__content"><!--[--> 精准监控 <!--]--></span>
         </li>
-        <li class="t-submenu t-is-disabled t-is-opened">
+        <li class="t-submenu t-is-disabled">
           <!--[-->
-          <div class="t-menu__item t-is-disabled t-is-opened">
+          <div class="t-menu__item t-is-disabled">
             <!--[--><svg class="t-icon t-icon-mail" style="">
               <use href="#t-icon-mail"></use>
             </svg>
             <!--]--><span class="t-menu__content"><!--[--><span>消息区</span>
-            <!--]--></span><svg class="t-fake-arrow t-fake-arrow--active" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+            <!--]--></span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
               <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
             </svg>
           </div>
-          <ul class="t-menu__sub t-is-opened" style="--padding-left:44px;">
+          <ul class="t-menu__sub" style="--padding-left:44px;">
             <!--[-->
             <li class="t-menu__item t-menu__item--plain t-submenu__item">
               <!----><span class="t-menu__content"><!--[--> 二级菜单内容 <!--]--></span>
@@ -21998,6 +22067,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22013,6 +22083,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22064,6 +22135,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22079,6 +22151,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22132,6 +22205,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22147,6 +22221,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22206,6 +22281,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
@@ -22221,6 +22297,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22276,6 +22353,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22291,6 +22369,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22349,6 +22428,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22364,6 +22444,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22419,6 +22500,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22434,6 +22516,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22463,6 +22546,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22492,6 +22576,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
                 <li class="t-select-option t-size-m" title="20/20">20/20</li>
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22530,6 +22615,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
@@ -22545,6 +22631,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22574,6 +22661,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
@@ -22603,6 +22691,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
                 <li class="t-select-option t-size-s" title="20/20">20/20</li>
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22641,6 +22730,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22656,6 +22746,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -24194,6 +24285,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24209,6 +24301,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
               <li class="t-select-option t-size-m" title="计算场景"><span>计算场景（高性能计算）</span></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24235,6 +24328,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24252,6 +24346,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24284,6 +24379,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24296,6 +24392,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
               <li class="t-select-option t-is-selected t-size-m" title="选项三"><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24327,6 +24424,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24339,6 +24437,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
               <li class="t-select-option t-is-selected t-size-m" title="选项三"><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24382,6 +24481,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24394,6 +24494,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
               <li class="t-select-option t-is-selected t-size-m" title="选项三"><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24446,6 +24547,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24458,6 +24560,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24496,6 +24599,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
         <div class="t-popup__content tdesign-demo-select__overlay-option t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24577,6 +24681,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
               </li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24603,6 +24708,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
         <div class="t-popup__content tdesign-demo-select__overlay-option t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24704,6 +24810,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24736,6 +24843,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24754,6 +24862,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
               <li class="t-select-option t-size-m" title="选项九"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项九<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24781,6 +24890,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24799,6 +24909,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
               <li class="t-select-option t-size-m" title="选项九"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项九<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24833,6 +24944,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24845,6 +24957,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24871,6 +24984,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24883,6 +24997,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24917,6 +25032,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24929,6 +25045,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24961,6 +25078,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24973,6 +25091,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25011,6 +25130,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25053,6 +25173,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
               </li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25079,6 +25200,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25149,6 +25271,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25180,6 +25303,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25192,6 +25316,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25218,6 +25343,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25230,6 +25356,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25264,6 +25391,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/max.vue correctly 1`]
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25276,6 +25404,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/max.vue correctly 1`]
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25308,6 +25437,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25325,6 +25455,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
                 </label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25356,6 +25487,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25373,6 +25505,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25412,6 +25545,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25429,6 +25563,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
                 </label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25469,6 +25604,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25481,6 +25617,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
               <li class="t-select-option t-size-m" title="很长很长很长的选项三">很长很长很长的选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25504,6 +25641,105 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1`] = `
+<div class="tdesign-demo-select-base">
+  <!-- 自定义面板顶部内容：如自定义搜索框。同时支持插槽和 Props(this,panelTopContent) -->
+  <div class="t-select__wrap" modelvalue>
+    <div class="t-popup__reference t-select__popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+          <!--[-->
+          <div>
+            <!--[-->
+            <div>
+              <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入关键词搜索"></textarea>
+                <!---->
+                <!---->
+              </div>
+            </div>
+            <!--]-->
+            <ul class="t-select__create-option" style="display:none;">
+              <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
+            </ul>
+            <!---->
+            <!---->
+            <ul>
+              <!--[-->
+              <li class="t-select-option t-size-m" title="架构云">架构云</li>
+              <li class="t-select-option t-size-m" title="大数据">大数据</li>
+              <li class="t-select-option t-size-m" title="区块链">区块链</li>
+              <li class="t-select-option t-is-disabled t-size-m" title="物联网">物联网</li>
+              <li class="t-select-option t-size-m" title="人工智能">人工智能</li>
+              <!--]-->
+            </ul>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--[-->
+      <div class="t-select t-size-m">
+        <!----><span class="t-select__placeholder"> 请选择云解决方案</span>
+        <!--[-->
+        <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!---->
+        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+  </div><!-- 自定义面板底部内容；如新增项 。同时支持插槽和 Props（this,panelBottomContent）-->
+  <div class="t-select__wrap" modelvalue>
+    <div class="t-popup__reference t-select__popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+          <!--[-->
+          <div>
+            <!---->
+            <ul class="t-select__create-option" style="display:none;">
+              <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
+            </ul>
+            <!---->
+            <li class="t-select__empty t-size-m">暂无数据</li>
+            <ul class="t-select__groups" style="display:none;">
+              <!--[-->
+              <!--[-->
+              <li class="t-select-option t-size-m" title="云服务器">云服务器</li>
+              <li class="t-select-option t-size-m" title="云数据库">云数据库</li>
+              <li class="t-select-option t-size-m" title="域名注册">域名注册</li>
+              <!--]-->
+              <!--]-->
+            </ul>
+            <!--[-->
+            <div class="select-panel-footer"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->新增选项<!--]--></span></button></div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--[-->
+      <div class="t-select t-size-m">
+        <!----><span class="t-select__placeholder"> 请选择云产品</span>
+        <!--[-->
+        <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!---->
+        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue correctly 1`] = `
 <div>
   <div class="t-select__wrap" modelvalue="1" style="width:200px;display:inline-block;">
@@ -25512,6 +25748,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25524,6 +25761,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
               <li class="t-select-option t-size-m" title="很长很长很很长很长很长的选项三">很长很长很很长很长很长的选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25550,6 +25788,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25562,6 +25801,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
               <li class="t-select-option t-size-m" title="很长很长很很长很长很长的选项三">很长很长很很长很长很长的选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25593,6 +25833,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/prefix.vue correctly 
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25605,6 +25846,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/prefix.vue correctly 
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25635,6 +25877,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25647,6 +25890,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25679,6 +25923,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25691,6 +25936,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25728,6 +25974,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-s t-select__create-option--special" title></li>
             </ul>
@@ -25751,6 +25998,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25777,6 +26025,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25789,6 +26038,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25815,6 +26065,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-l t-select__create-option--special" title></li>
             </ul>
@@ -25827,6 +26078,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
               <li class="t-select-option t-size-l" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25858,6 +26110,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25872,6 +26125,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
               <li class="t-select-option t-size-m" title="人工智能">人工智能</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25898,6 +26152,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25912,6 +26167,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
               <li class="t-select-option t-size-m" title="人工智能">人工智能</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25938,6 +26194,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25946,6 +26203,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
             <ul class="t-select__groups" style="display:none;">
               <!---->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -26124,7 +26382,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
         </div>
       </div>
       <div class="t-slider__input-container">
-        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26132,7 +26390,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!--]-->
             <!--]-->
           </button>
-          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
@@ -26178,7 +26436,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
         </div>
       </div>
       <div class="t-slider__input-container">
-        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26186,7 +26444,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!--]-->
             <!--]-->
           </button>
-          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
@@ -26196,7 +26454,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
           </button>
         </div>
         <div class="t-slider__center-line"></div>
-        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26204,7 +26462,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
             <!--]-->
             <!--]-->
           </button>
-          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
@@ -26243,7 +26501,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
         </div>
       </div>
       <div class="t-slider__input-container is-vertical">
-        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26251,7 +26509,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!--]-->
             <!--]-->
           </button>
-          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
@@ -26297,7 +26555,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
         </div>
       </div>
       <div class="t-slider__input-container is-vertical">
-        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26305,7 +26563,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!--]-->
             <!--]-->
           </button>
-          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
@@ -26315,7 +26573,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
           </button>
         </div>
         <div class="t-slider__center-line"></div>
-        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled" type="button">
+        <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
@@ -26323,7 +26581,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
             <!--]-->
             <!--]-->
           </button>
-          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase" type="button">
+          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
             <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
@@ -27959,8 +28217,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
     <!--]-->
   </div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" asyncloading="loading" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" asyncloading="loading" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28021,9 +28278,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
                 <td class="" style="overflow:hidden;" length="3">zcroson5@virginia.edu</td>
                 <!--]-->
               </tr>
-              <tr draggable="false">
-                <!--[-->
-                <td colspan="3" class="" style="" length="1">
+              <tr>
+                <td colspan="3" class="t-table__row--full t-table__row-last-full-row">
                   <div class="t-table__async-loading t-is-loading">
                     <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
                         <foreignObject x="1" y="1" width="12" height="12">
@@ -28034,7 +28290,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
                     </div>
                   </div>
                 </td>
-                <!--]-->
               </tr>
               <!--]-->
             </tbody>
@@ -28057,8 +28312,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
   <!-- 按钮操作区域 -->
   <div style="margin:16px;"><label class="t-checkbox undefined t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示斑马纹 <!--]--></span></label><label class="t-checkbox undefined t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示表格边框 <!--]--></span></label><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示悬浮效果 <!--]--></span></label></div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-table--bordered t-table--striped t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered t-table--striped t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28159,8 +28413,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
 exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28243,8 +28496,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
 exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28311,8 +28563,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
     <div style="margin:16px;"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 是否允许多字段排序 <!--]--></span></label></div><!-- 本地数据排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div style="margin:16px;"><span> 排序方式：{}</span></div>
     <div style="width: 100%">
-      <!---->
-      <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+      <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
         <div class="t-loading__parent">
           <!--[-->
           <div class="t-table__content">
@@ -28456,8 +28707,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctl
   <div class="item">
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div style="width: 100%">
-      <!---->
-      <div class="t-table t-table__row--draggable" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="true">
+      <div class="t-table t-table__row--draggable" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="true">
         <div class="t-loading__parent">
           <!--[-->
           <div class="t-table__content">
@@ -28551,8 +28801,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctl
 exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28591,7 +28840,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
           </table>
         </div>
         <!--[-->
-        <div class="t-table__empty">暂无数据</div>
+        <div style="" class="t-table__empty">暂无数据</div>
         <!--]-->
         <!--]-->
         <!---->
@@ -28599,8 +28848,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
     </div>
   </div><br><br>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28639,7 +28887,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
           </table>
         </div>
         <!--[-->
-        <div class="t-table__empty">
+        <div style="" class="t-table__empty">
           <!--[--><span style="display:flex;align-items:center;justify-content:center;height:100px;color:rgba(0, 0, 0, 0.26);"> 😊 我是自定义的空内容 😊: slot </span>
           <!--]-->
         </div>
@@ -28650,8 +28898,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
     </div>
   </div><br><br>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28690,7 +28937,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
           </table>
         </div>
         <!--[-->
-        <div class="t-table__empty"><span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">😊 我是自定义的空内容 😊: empty function</span></div>
+        <div style="" class="t-table__empty"><span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">😊 我是自定义的空内容 😊: empty function</span></div>
         <!--]-->
         <!--]-->
         <!---->
@@ -28717,8 +28964,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
       </div>
     </div> <br></div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28772,20 +29018,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest1</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">jenny;peter</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;transform:rotate(90deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -28804,9 +29036,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
+              <tr>
+                <td colspan="5">
                   <div class="more-detail">
                     <p class="title"><b>集群名称:</b></p>
                     <p class="content">JQTest2</p><br>
@@ -28816,7 +29047,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                     <p class="content">test</p>
                   </div>
                 </td>
-                <!--]-->
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
@@ -28836,20 +29066,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest3</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">jenny</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -28865,20 +29081,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 <td class="" style="overflow:hidden;" length="6">
                   <!--[--><a class="link">管理</a><a class="link">删除</a>
                   <!--]-->
-                </td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest4</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">peter</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
                 </td>
                 <!--]-->
               </tr>
@@ -28897,8 +29099,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
   </div>
   <div style="margin:16px 0px;">支持名为 expandedRow 的插槽写法</div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="true" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -28952,22 +29153,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <!--[-->
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest1</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">jenny;peter</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
-                  <!--]-->
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;transform:rotate(90deg);"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -28986,9 +29171,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
+              <tr>
+                <td colspan="5">
                   <!--[-->
                   <div class="more-detail">
                     <p class="title"><b>集群名称:</b></p>
@@ -29000,7 +29184,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                   </div>
                   <!--]-->
                 </td>
-                <!--]-->
               </tr>
               <tr class="" draggable="false">
                 <!--[-->
@@ -29020,22 +29203,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 </td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <!--[-->
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest3</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">jenny</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
-                  <!--]-->
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -29050,22 +29217,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
                 <td class="" style="" length="6">test</td>
                 <td class="" style="overflow:hidden;" length="6">
                   <!--[--><a class="link">管理</a><a class="link">删除</a>
-                  <!--]-->
-                </td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <!--[-->
-                  <div class="more-detail">
-                    <p class="title"><b>集群名称:</b></p>
-                    <p class="content">JQTest4</p><br>
-                    <p class="title"><b>管理员:</b></p>
-                    <p class="content">peter</p><br>
-                    <p class="title"><b>描述:</b></p>
-                    <p class="content">test</p>
-                  </div>
                   <!--]-->
                 </td>
                 <!--]-->
@@ -29090,8 +29241,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
 <div>
   <div class="table-operations" style="margin:16px;"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 清除筛选条件 <!--]--></span></button><span style="padding-left:36px;">已选筛选条件：{}</span></div><!-- filter-value.sync 等同于 filter-value + filter-change -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -29124,6 +29274,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                   <!--]-->
                                 </div>
                               </div>
+                              <!---->
                             </div>
                             <!--]-->
                             <div class="t-popup__arrow"></div>
@@ -29152,6 +29303,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                   <!--]-->
                                 </div>
                               </div>
+                              <!---->
                             </div>
                             <!--]-->
                             <div class="t-popup__arrow"></div>
@@ -29182,6 +29334,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                   <!---->
                                 </div>
                               </div>
+                              <!---->
                             </div>
                             <!--]-->
                             <div class="t-popup__arrow"></div>
@@ -29290,6 +29443,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                   </div>
                                 </div>
                               </div>
+                              <!---->
                             </div>
                             <!--]-->
                             <div class="t-popup__arrow"></div>
@@ -29382,8 +29536,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
     </div>
   </div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -29512,8 +29665,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
 
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue correctly 1`] = `
 <div style="width: 100%">
-  <!---->
-  <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+  <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
     <div class="t-loading__parent">
       <!--[-->
       <div class="t-table__content">
@@ -29784,14 +29936,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue corre
 
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue correctly 1`] = `
 <div style="width: 100%">
-  <!---->
-  <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered t-table__cell--fixed t-table--has-fixed t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
     <div class="t-loading__parent">
       <!--[-->
       <div class="t-table__content">
         <!--[-->
         <div class="t-table__header" style="padding-right:0px;">
-          <table style="table-layout:fixed;padding-right:0px;">
+          <table style="table-layout:fixed;">
             <colgroup>
               <!--[-->
               <col style="width:100px;">
@@ -30198,14 +30349,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
 <div>
   <div style="margin-bottom:10px;">默认加载状态</div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
           <!--[-->
           <div class="t-table__header" style="padding-right:0px;">
-            <table style="table-layout:fixed;padding-right:0px;">
+            <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
                 <col style="width:100px;min-width:100px;">
@@ -30270,14 +30420,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
   </div>
   <div style="margin-bottom:10px;">插槽定义加载状态</div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
           <!--[-->
           <div class="t-table__header" style="padding-right:0px;">
-            <table style="table-layout:fixed;padding-right:0px;">
+            <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
                 <col style="width:100px;min-width:100px;">
@@ -30344,14 +30493,13 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
   </div>
   <div style="margin-bottom:10px;">渲染函数定义加载状态</div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-size-s t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
           <!--[-->
           <div class="t-table__header" style="padding-right:0px;">
-            <table style="table-layout:fixed;padding-right:0px;">
+            <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
                 <col style="width:100px;min-width:100px;">
@@ -30420,8 +30568,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
 exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-size-s t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-size-s t-table--bordered" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -30516,8 +30663,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correc
 
 exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue correctly 1`] = `
 <div style="width: 100%">
-  <!---->
-  <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
     <div class="t-loading__parent">
       <!--[-->
       <div class="t-table__content">
@@ -30600,8 +30746,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
   <div class="item">
     <div style="margin:16px;">排序方式：[{&quot;sortBy&quot;:&quot;status&quot;,&quot;descending&quot;:true},{&quot;sortBy&quot;:&quot;survivalTime&quot;,&quot;descending&quot;:false}]</div><!-- 支持受控用法 ，也支持非受控用法 -->
     <div style="width: 100%">
-      <!---->
-      <div class="t-table" style="" multiplesort="true" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+      <div class="t-table" style="" multiplesort="true" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
         <div class="t-loading__parent">
           <!--[-->
           <div class="t-table__content">
@@ -30751,8 +30896,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
 exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -30857,6 +31001,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -30872,6 +31017,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -30926,8 +31072,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
 
 exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue correctly 1`] = `
 <div style="width: 100%">
-  <!---->
-  <div class="t-table t-table--bordered t-table--striped t-table-table--align-top" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered t-table--striped t-table-table--align-top" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
     <div class="t-loading__parent">
       <!--[-->
       <div class="t-table__content">
@@ -30962,7 +31107,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
         </table>
       </div>
       <!--[-->
-      <div class="t-table__empty">暂无数据</div>
+      <div style="" class="t-table__empty">暂无数据</div>
       <div class="t-table__pagination">
         <div class="t-pagination t-size-m" modelvalue="1">
           <div class="t-pagination__total">共 0 项数据</div>
@@ -30972,6 +31117,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -30987,6 +31133,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -31038,8 +31185,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-multiple.vue co
   <!-- 支持非受控属性 default-selected-row-keys -->
   <!-- 支持语法糖 selected-row-keys.sync -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31168,8 +31314,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
   <!-- 支持非受控属性 default-selected-row-keys -->
   <!-- 支持语法糖 selected-row-keys.sync -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31296,39 +31441,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
 exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue correctly 1`] = `
 <div>
   <div style="width: 100%">
-    <div>
-      <div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button">
-          <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-bulletpoint" style="">
-            <path fill="currentColor" d="M14 3H5v1h9V3zM3.5 3H2v1h1.5V3zM5 7.5h9v1H5v-1zM2 7.5h1.5v1H2v-1zM5 12h9v1H5v-1zM2 12h1.5v1H2v-1z" fillopacity="0.9"></path>
-          </svg><span class="t-button__text"><!--[-->自定义列<!--]--></span>
-          <!--]-->
-        </button></div>
-      <div class="t-dialog__ctx t-dialog__ctx--fixed" style="display:none;">
-        <!--[-->
-        <div class="t-dialog__mask"></div>
-        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="max-height:calc(100% - 20%);">
-          <div class="t-dialog__header">
-            <!---->自定义列
-          </div><span class="t-dialog__close"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
-          <div class="t-dialog__body">
-            <!--[-->
-            <div slot="body">
-              <div><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全选<!--]--></span></label></div>
-              <div class="t-checkbox-group">
-                <!--[--><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="instance"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->集群名称<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="status"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->状态<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="owner"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->管理员<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="description"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->描述<!--]--></span></label>
-                <!--]-->
-              </div>
-            </div>
-            <!--]-->
-          </div>
-          <div class="t-dialog__footer">
-            <div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->取消<!--]--></span></button></div>
-          </div>
-        </div>
-        <!--]-->
-      </div>
-    </div>
-    <div class="t-table" style="" multiplesort="false" showcolumns="true" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="true" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31446,8 +31559,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
 <div class="demo-container">
   <!-- 受控用法，示例代码有效，勿删 -->
   <div style="width: 100%">
-    <!---->
-    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31598,8 +31710,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
   <!-- 第一列展开树结点，缩进为 24px -->
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <div style="width:100%;">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31849,8 +31960,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
   <!-- expandedRow 和 expanded-row-keys 控制是否显示展开收起行，以及哪些行展开 -->
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <div style="width:100%;">
-    <!---->
-    <div class="t-table" style="" multiplesort="false" showcolumns="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+    <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
         <!--[-->
         <div class="t-table__content">
@@ -31899,13 +32009,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 <td class="" style="" length="6">important.</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，0</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -31921,13 +32024,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 </td>
                 <td class="" style="" length="6">peter</td>
                 <td class="" style="" length="6">important.</td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，1</div>
-                </td>
                 <!--]-->
               </tr>
               <tr class="" draggable="false">
@@ -31947,13 +32043,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 <td class="" style="" length="6">important.</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，2</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -31971,13 +32060,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 <td class="" style="" length="6">important.</td>
                 <!--]-->
               </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，3</div>
-                </td>
-                <!--]-->
-              </tr>
               <tr class="" draggable="false">
                 <!--[-->
                 <td class="t-table__expandable-icon-cell" style="overflow:hidden;" length="6"><span class="t-table__expand-box"><span style="transition:transform .2s;display:flex;align-items:center;"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right-circle" style=""><path fill="currentColor" d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z" fillopacity="0.9"></path><path fill="currentColor" d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z" fillopacity="0.9"></path></svg></span></span></td>
@@ -31993,13 +32075,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
                 </td>
                 <td class="" style="" length="6">jenny</td>
                 <td class="" style="" length="6">important.</td>
-                <!--]-->
-              </tr>
-              <tr style="display:none;" draggable="false">
-                <!--[-->
-                <td colspan="6" class="t-table__expandable-cell" style="" length="1">
-                  <div>这是展开项数据，4</div>
-                </td>
                 <!--]-->
               </tr>
               <!--]-->
@@ -37224,6 +37299,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                     </ul>
@@ -37235,6 +37311,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
                       <li class="t-select-option t-size-s" title="2/2">2/2</li>
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->

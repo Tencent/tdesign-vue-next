@@ -2,7 +2,7 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
+ * updated at 2022-01-10 09:31:10
  * */
 
 import { TdPrimaryTableProps } from '../table/type';
@@ -18,6 +18,8 @@ export default {
     type: Array as PropType<TdPrimaryTableProps['columns']>,
     default: (): TdPrimaryTableProps['columns'] => [],
   },
+  /** 是否开始拖拽排序，会显示拖拽图标 */
+  dragSort: Boolean,
   /** 展开行内容，泛型 T 指表格数据类型 */
   expandedRow: {
     type: [String, Function] as PropType<TdPrimaryTableProps['expandedRow']>,
@@ -43,6 +45,10 @@ export default {
   filterIcon: {
     type: Function as PropType<TdPrimaryTableProps['filterIcon']>,
   },
+  /** 自定义过滤状态行及清空筛选等 */
+  filterRow: {
+    type: [String, Function] as PropType<TdPrimaryTableProps['filterRow']>,
+  },
   /** 过滤数据的值 */
   filterValue: {
     type: Object as PropType<TdPrimaryTableProps['filterValue']>,
@@ -63,13 +69,13 @@ export default {
   },
   /** 【开发中】是否显示 自定义显示列控制器 */
   showColumnController: Boolean,
-  /** 【开发中】是否显示为通过拖拽图标进行排序 */
+  /** 【讨论中-待定】是否显示为通过拖拽图标进行排序 */
   showDragCol: Boolean,
-  /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序 */
+  /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDatasort = true` */
   sort: {
     type: [Object, Array] as PropType<TdPrimaryTableProps['sort']>,
   },
-  /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序，非受控属性 */
+  /** 排序控制。sortBy 排序字段；descending 是否进行降序排列。值为数组时，表示正进行多字段排序。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDatasort = true`，非受控属性 */
   defaultSort: {
     type: [Object, Array] as PropType<TdPrimaryTableProps['defaultSort']>,
   },

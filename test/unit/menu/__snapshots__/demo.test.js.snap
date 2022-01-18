@@ -181,7 +181,7 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
     >
       
       <svg
-        class="t-icon t-icon-chevron-right t-menu__operations-icon t-menu__operations-icon"
+        class="t-icon t-icon-chevron-right t-menu__operations-icon"
       >
         <use
           href="#t-icon-chevron-right"
@@ -498,7 +498,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-search t-menu__operations-icon"
           >
             <use
               href="#t-icon-search"
@@ -509,7 +509,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-mail t-menu__operations-icon"
           >
             <use
               href="#t-icon-mail"
@@ -520,7 +520,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-user t-menu__operations-icon"
           >
             <use
               href="#t-icon-user"
@@ -531,7 +531,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-ellipsis t-menu__operations-icon"
           >
             <use
               href="#t-icon-ellipsis"
@@ -689,7 +689,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-search t-menu__operations-icon"
           >
             <use
               href="#t-icon-search"
@@ -700,7 +700,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-mail t-menu__operations-icon"
           >
             <use
               href="#t-icon-mail"
@@ -711,7 +711,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-user t-menu__operations-icon"
           >
             <use
               href="#t-icon-user"
@@ -722,7 +722,7 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-ellipsis t-menu__operations-icon"
           >
             <use
               href="#t-icon-ellipsis"
@@ -857,7 +857,7 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
     >
       
       <svg
-        class="t-icon t-icon-view-list t-menu__operations-icon t-menu__operations-icon"
+        class="t-icon t-icon-view-list t-menu__operations-icon"
       >
         <use
           href="#t-icon-view-list"
@@ -950,7 +950,7 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-search t-menu__operations-icon"
         >
           <use
             href="#t-icon-search"
@@ -961,7 +961,7 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-mail t-menu__operations-icon"
         >
           <use
             href="#t-icon-mail"
@@ -972,7 +972,7 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-user t-menu__operations-icon"
         >
           <use
             href="#t-icon-user"
@@ -983,7 +983,7 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-ellipsis t-menu__operations-icon"
         >
           <use
             href="#t-icon-ellipsis"
@@ -1146,7 +1146,7 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-search t-menu__operations-icon"
         >
           <use
             href="#t-icon-search"
@@ -1157,7 +1157,7 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-mail t-menu__operations-icon"
         >
           <use
             href="#t-icon-mail"
@@ -1168,7 +1168,7 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-user t-menu__operations-icon"
         >
           <use
             href="#t-icon-user"
@@ -1179,7 +1179,7 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-ellipsis t-menu__operations-icon"
         >
           <use
             href="#t-icon-ellipsis"
@@ -1441,7 +1441,7 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-search t-menu__operations-icon"
         >
           <use
             href="#t-icon-search"
@@ -1452,7 +1452,7 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-mail t-menu__operations-icon"
         >
           <use
             href="#t-icon-mail"
@@ -1463,7 +1463,7 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-user t-menu__operations-icon"
         >
           <use
             href="#t-icon-user"
@@ -1474,7 +1474,7 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
         href="javascript:;"
       >
         <svg
-          class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-ellipsis t-menu__operations-icon"
         >
           <use
             href="#t-icon-ellipsis"
@@ -1876,7 +1876,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
       >
         
         <svg
-          class="t-icon t-icon-view-list t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-view-list t-menu__operations-icon"
         >
           <use
             href="#t-icon-view-list"
@@ -2067,11 +2067,11 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           </span>
         </li>
         <li
-          class="t-submenu t-is-disabled t-is-opened"
+          class="t-submenu t-is-disabled"
         >
           
           <div
-            class="t-menu__item t-is-disabled t-is-opened"
+            class="t-menu__item t-is-disabled"
           >
             
             <svg
@@ -2092,7 +2092,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               
             </span>
             <svg
-              class="t-fake-arrow t-fake-arrow--active"
+              class="t-fake-arrow"
               fill="none"
               height="16"
               style="transform: rotate(0deg);"
@@ -2109,7 +2109,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </svg>
           </div>
           <ul
-            class="t-menu__sub t-is-opened"
+            class="t-menu__sub"
             style="--padding-left: 44px;"
           >
             
@@ -2287,7 +2287,7 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
       >
         
         <svg
-          class="t-icon t-icon-view-list t-menu__operations-icon t-menu__operations-icon"
+          class="t-icon t-icon-view-list t-menu__operations-icon"
         >
           <use
             href="#t-icon-view-list"
@@ -2635,7 +2635,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-search t-menu__operations-icon"
           >
             <use
               href="#t-icon-search"
@@ -2646,7 +2646,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-mail t-menu__operations-icon"
           >
             <use
               href="#t-icon-mail"
@@ -2657,7 +2657,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-user t-menu__operations-icon"
           >
             <use
               href="#t-icon-user"
@@ -2668,7 +2668,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-ellipsis t-menu__operations-icon"
           >
             <use
               href="#t-icon-ellipsis"
@@ -2868,7 +2868,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-search t-menu__operations-icon"
           >
             <use
               href="#t-icon-search"
@@ -2879,7 +2879,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-mail t-menu__operations-icon"
           >
             <use
               href="#t-icon-mail"
@@ -2890,7 +2890,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-user t-menu__operations-icon"
           >
             <use
               href="#t-icon-user"
@@ -2901,7 +2901,7 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-ellipsis t-menu__operations-icon"
           >
             <use
               href="#t-icon-ellipsis"
@@ -3160,7 +3160,7 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
     >
       
       <svg
-        class="t-icon t-icon-view-list t-menu__operations-icon t-menu__operations-icon"
+        class="t-icon t-icon-view-list t-menu__operations-icon"
       >
         <use
           href="#t-icon-view-list"
@@ -3884,7 +3884,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-search t-menu__operations-icon"
           >
             <use
               href="#t-icon-search"
@@ -3895,7 +3895,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-mail t-menu__operations-icon"
           >
             <use
               href="#t-icon-mail"
@@ -3906,7 +3906,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-user t-menu__operations-icon"
           >
             <use
               href="#t-icon-user"
@@ -3917,7 +3917,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-ellipsis t-menu__operations-icon"
           >
             <use
               href="#t-icon-ellipsis"
@@ -3999,7 +3999,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-search t-menu__operations-icon"
           >
             <use
               href="#t-icon-search"
@@ -4010,7 +4010,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-mail t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-mail t-menu__operations-icon"
           >
             <use
               href="#t-icon-mail"
@@ -4021,7 +4021,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-user t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-user t-menu__operations-icon"
           >
             <use
               href="#t-icon-user"
@@ -4032,7 +4032,7 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
           href="javascript:;"
         >
           <svg
-            class="t-icon t-icon-ellipsis t-menu__operations-icon t-menu__operations-icon"
+            class="t-icon t-icon-ellipsis t-menu__operations-icon"
           >
             <use
               href="#t-icon-ellipsis"

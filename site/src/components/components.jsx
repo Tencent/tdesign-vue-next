@@ -4,18 +4,27 @@ import packageJson from '@/package.json';
 
 const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
 
-const historyVersion = [];
+const currentVersion = packageJson.version.replace(/\./g, '_');
 const registryUrl = 'https://mirrors.tencent.com/npm/tdesign-vue-next';
+
+// 过滤小版本号
+function filterVersions(versions = [], deep = 1) {
+  const versionMap = Object.create(null);
+
+  versions.forEach((v) => {
+    const nums = v.split('.');
+    versionMap[nums[deep]] = v;
+  });
+
+  return Object.values(versionMap);
+}
 
 export default defineComponent({
   data() {
     return {
       loaded: false,
       version: packageJson.version,
-      options: [
-        { value: packageJson.version, label: packageJson.version },
-        ...historyVersion.map((v) => ({ value: v, label: v })),
-      ],
+      options: [{ value: currentVersion, label: packageJson.version }],
     };
   },
 
@@ -45,11 +54,12 @@ export default defineComponent({
         .then((res) => res.json())
         .then((res) => {
           const options = [];
-          Object.keys(res.versions).forEach((v) => {
+          const versions = filterVersions(Object.keys(res.versions).filter((v) => !v.includes('alpha')));
+          versions.forEach((v) => {
             if (v === packageJson.version) return false;
             const nums = v.split('.');
-            if ((nums[0] === '0' && nums[1] < 5) || v.indexOf('alpha') > -1) return false;
-            options.unshift({ label: v, value: v });
+            if (nums[0] === '0' && nums[1] < 6) return false;
+            options.unshift({ label: v, value: v.replace(/\./g, '_') });
           });
           this.options.push(...options);
         });
@@ -65,8 +75,8 @@ export default defineComponent({
       });
     },
     changeVersion(version) {
-      if (version === packageJson.version) return;
-      const historyUrl = `//preview-${version}-tdesign-vue-next.surge.sh`;
+      if (version === currentVersion) return;
+      const historyUrl = `//${version}-tdesign-vue-next.surge.sh`;
       window.open(historyUrl, '_blank');
       this.$nextTick(() => {
         this.version = packageJson.version;

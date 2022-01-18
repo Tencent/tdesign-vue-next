@@ -87,7 +87,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
         aria-valuemin="0"
         class="t-slider"
         role="slider"
-        tooltip-props="[object Object]"
       >
         <div
           class="t-slider__rail"
@@ -439,7 +438,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
             type="button"
           >
             
@@ -472,7 +471,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             />
           </div>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
             type="button"
           >
             
@@ -611,7 +610,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
             type="button"
           >
             
@@ -644,7 +643,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             />
           </div>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
             type="button"
           >
             
@@ -675,7 +674,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
             type="button"
           >
             
@@ -708,7 +707,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             />
           </div>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
             type="button"
           >
             
@@ -815,7 +814,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           class="t-input-number t-size-m t-is-controls-right t-slider__input"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
             type="button"
           >
             
@@ -848,7 +847,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             />
           </div>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
             type="button"
           >
             
@@ -986,7 +985,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           class="t-input-number t-size-m t-is-controls-right t-slider__input"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
             type="button"
           >
             
@@ -1019,7 +1018,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             />
           </div>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
             type="button"
           >
             
@@ -1050,7 +1049,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           class="t-input-number t-size-m t-is-controls-right t-slider__input"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
             type="button"
           >
             
@@ -1083,7 +1082,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             />
           </div>
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
             type="button"
           >
             

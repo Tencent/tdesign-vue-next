@@ -505,7 +505,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               href="javascript:;"
             >
               <svg
-                class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+                class="t-icon t-icon-search t-menu__operations-icon"
               >
                 <use
                   href="#t-icon-search"
@@ -516,7 +516,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               href="javascript:;"
             >
               <svg
-                class="t-icon t-icon-notification-filled t-menu__operations-icon t-menu__operations-icon"
+                class="t-icon t-icon-notification-filled t-menu__operations-icon"
               >
                 <use
                   href="#t-icon-notification-filled"
@@ -527,7 +527,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               href="javascript:;"
             >
               <svg
-                class="t-icon t-icon-home t-menu__operations-icon t-menu__operations-icon"
+                class="t-icon t-icon-home t-menu__operations-icon"
               >
                 <use
                   href="#t-icon-home"
@@ -871,7 +871,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
               href="javascript:;"
             >
               <svg
-                class="t-icon t-icon-search t-menu__operations-icon t-menu__operations-icon"
+                class="t-icon t-icon-search t-menu__operations-icon"
               >
                 <use
                   href="#t-icon-search"
@@ -882,7 +882,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
               href="javascript:;"
             >
               <svg
-                class="t-icon t-icon-notification-filled t-menu__operations-icon t-menu__operations-icon"
+                class="t-icon t-icon-notification-filled t-menu__operations-icon"
               >
                 <use
                   href="#t-icon-notification-filled"
@@ -893,7 +893,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
               href="javascript:;"
             >
               <svg
-                class="t-icon t-icon-home t-menu__operations-icon t-menu__operations-icon"
+                class="t-icon t-icon-home t-menu__operations-icon"
               >
                 <use
                   href="#t-icon-home"

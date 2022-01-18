@@ -29,7 +29,6 @@
 :::
 
 ## API
-
 ### List Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -41,8 +40,8 @@ layout | String | horizontal | 排列方式（待设计稿输出）。可选项�
 size | String | medium | 尺寸。可选项：small/medium/large | N
 split | Boolean | false | 是否展示分割线 | N
 stripe | Boolean | false | 是否展示斑马纹 | N
-onLoadMore | Function |  | 点击加载更多时触发。`(options: { e: MouseEvent }) => {}` | N
-onScroll | Function |  | 列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离。`(options: { e: Event | WheelEvent; scrollTop: number; scrollBottom: number }) => {}` | N
+onLoadMore | Function |  | TS 类型：`(options: { e: MouseEvent }) => void`<br/>点击加载更多时触发 | N
+onScroll | Function |  | TS 类型：`(options: { e: Event | WheelEvent; scrollTop: number; scrollBottom: number }) => void`<br/>列表滚动时触发，scrollTop 表示顶部滚动距离，scrollBottom 表示底部滚动距离 | N
 
 ### List Events
 

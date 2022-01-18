@@ -36,19 +36,17 @@ export default defineComponent({
     const trigger: VNode[] | VNode | string = this.$slots.default ? this.$slots.default(null) : '';
 
     const contentSlot: VNode[] | VNode | string = renderTNodeJSX(this, 'dropdown');
-    const POPUP_PROPS = this.popupProps as TdDropdownProps['popupProps'];
-    const overlayClassName = POPUP_PROPS && POPUP_PROPS.overlayClassName ? [name, POPUP_PROPS.overlayClassName] : name;
     const popupProps = {
       ...this.$attrs,
       disabled: this.disabled,
       placement: this.placement,
       trigger: this.trigger,
-      overlayClassName,
-      ref: 'popup',
+      overlayClassName: [name, (this.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
     };
 
     return (
       <Popup
+        {...this.popupProps}
         {...popupProps}
         destroyOnClose
         ref="popupElem"
