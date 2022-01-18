@@ -13,9 +13,11 @@
   </t-row>
 </template>
 
-<script>
-export default {
-  data() {
+<script lang="jsx">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
     return {
       animations: [
         { label: '渐变加载动画', value: 'gradient' },
@@ -23,8 +25,7 @@ export default {
       ],
     };
   },
-  methods: {},
-};
+});
 </script>
 
 <style scoped lang="less">

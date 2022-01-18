@@ -22,34 +22,17 @@
 </template>
 
 <script lang="jsx">
-export default {
-  data() {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
     return {
       rowCol: [
-        [1, 1, 1].map(() => ({
-          type: 'rect',
-          content: 'image',
-          width: '33%',
-          height: '180px',
-        })),
+        [1, 1, 1].map(() => ({ type: 'rect', content: 'image', width: '33%', height: '180px' })),
         [
-          {
-            type: 'circle',
-            size: '50px',
-          },
-          {
-            type: 'rect',
-            margin: '20px 0',
-            width: '80%',
-            height: '30px',
-          },
-          {
-            type: 'rect',
-            marginLeft: '20px',
-            width: '80px',
-            height: '30px',
-            content: '确定',
-          },
+          { type: 'circle', size: '50px' },
+          { type: 'rect', margin: '20px 0', width: '80%', height: '30px' },
+          { type: 'rect', marginLeft: '20px', width: '80px', height: '30px', content: '确定' },
         ],
         1,
         1,
@@ -68,8 +51,7 @@ export default {
       ],
     };
   },
-  methods: {},
-};
+});
 </script>
 
 <style scoped lang="less">
@@ -89,6 +71,7 @@ export default {
 
   &-list {
     > li {
+      list-style: none;
       padding: 16px 0;
       .avatar {
         display: inline-block;

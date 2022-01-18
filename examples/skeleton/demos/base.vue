@@ -19,15 +19,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
+<script lang="jsx">
+import { defineComponent, ref } from 'vue';
+
+export default defineComponent({
+  setup() {
+    const loading = ref(true);
     return {
-      loading: true,
+      loading,
     };
   },
-  methods: {},
-};
+});
 </script>
 
 <style scoped>
