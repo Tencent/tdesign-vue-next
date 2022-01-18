@@ -279,11 +279,11 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -506,11 +506,11 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -843,11 +843,11 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
