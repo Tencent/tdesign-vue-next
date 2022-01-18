@@ -9857,6 +9857,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                   >
                     
                     <div>
+                      <!---->
                       <ul
                         class="t-select__create-option"
                         style="display: none;"
@@ -9907,6 +9908,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                         
                         
                       </ul>
+                      <!---->
                     </div>
                     
                     <!---->
@@ -10438,6 +10440,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                     >
                       
                       <div>
+                        <!---->
                         <ul
                           class="t-select__create-option"
                           style="display: none;"
@@ -10488,6 +10491,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                           
                           
                         </ul>
+                        <!---->
                       </div>
                       
                       <!---->
