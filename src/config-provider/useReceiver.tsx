@@ -4,7 +4,7 @@ import defaultConfig from './zh_CN_config';
 export * from './type';
 
 /**
- *
+ * receive component global config
  * @param componentName
  * @returns {t, global}
  */
