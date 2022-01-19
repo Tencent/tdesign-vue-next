@@ -70,6 +70,8 @@ theme | String | - | 必需。消息类型。TS 类型：`MessageThemeList`
 message | String / Object | - | 必需。消息内容。TS 类型：`string | MessageOptions`
 duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表示永久显示
 
+插件返回值：`Promise<MessageInstance>【interface MessageInstance { close: () => void }】`
+
 ### MessagePlugin.info
 
 同时也支持 `this.$message.info`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
@@ -78,6 +80,8 @@ duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表�
 -- | -- | -- | --
 message | String / Object | - | 必需。消息内容。TS 类型：`string | MessageInfoOptions`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/message/type.ts)
 duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表示永久显示
+
+插件返回值：`Promise<MessageInstance>`
 
 ### MessagePlugin.error
 
@@ -88,6 +92,8 @@ duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表�
 message | String / Object | - | 必需。消息内容。TS 类型：`string | MessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表示永久显示
 
+插件返回值：`Promise<MessageInstance>`
+
 ### MessagePlugin.warning
 
 同时也支持 `this.$message.warning`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
@@ -96,6 +102,8 @@ duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表�
 -- | -- | -- | --
 message | String / Object | - | 必需。消息内容。TS 类型：`string | MessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表示永久显示
+
+插件返回值：`Promise<MessageInstance>`
 
 ### MessagePlugin.success
 
@@ -106,6 +114,8 @@ duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表�
 message | String / Object | - | 必需。消息内容。TS 类型：`string | MessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表示永久显示
 
+插件返回值：`Promise<MessageInstance>`
+
 ### MessagePlugin.loading
 
 同时也支持 `this.$message.loading`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
@@ -115,6 +125,8 @@ duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表�
 message | String / Object | - | 必需。消息提醒内容。TS 类型：`string | MessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表示永久显示
 
+插件返回值：`Promise<MessageInstance>`
+
 ### MessagePlugin.question
 
 同时也支持 `this.$message.question`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
@@ -123,6 +135,8 @@ duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表�
 -- | -- | -- | --
 message | String / Object | - | 必需。消息内容。TS 类型：`string | MessageInfoOptions`
 duration | Number | 3000 | 消息显示时长，单位：毫秒。值为 0 表示永久显示
+
+插件返回值：`Promise<MessageInstance>`
 
 ### MessagePlugin.close
 

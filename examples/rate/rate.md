@@ -15,7 +15,7 @@ size | String | - | 评分图标的大小，示例：`20` | N
 texts | Array | - | 评分等级对应的辅助文字。组件内置默认值为：['极差', '失望', '一般', '满意', '惊喜']。自定义值示例：['1分', '2分', '3分', '4分', '5分']。TS 类型：`Array<string>` | N
 value | Number | 0 | 必需。选择评分的值。支持语法糖 | Y
 defaultValue | Number | 0 | 必需。选择评分的值。非受控属性 | Y
-variant | String | outline | 形状类型，有描边类型和填充类型两种。可选项：outline/filled | N
+variant | String | filled | 形状类型，有描边类型和填充类型两种。可选项：outline/filled | N
 onChange | Function |  | TS 类型：`(value: number) => void`<br/>评分数改变时触发 | N
 
 ### Rate Events

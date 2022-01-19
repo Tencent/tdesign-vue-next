@@ -12,8 +12,10 @@ max | Number | Infinity | 最大值 | N
 min | Number | -Infinity | 最小值 | N
 placeholder | String | undefined | 占位符 | N
 size | String | medium | 组件尺寸。可选项：small/medium/large | N
+status | String | - | 文本框状态。可选项：success/warning/error | N
 step | Number | 1 | 数值改变步数，可以是小数 | N
 theme | String | row | 按钮布局。可选项：column/row/normal | N
+tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 value | Number | undefined | 值。支持语法糖 | N
 defaultValue | Number | undefined | 值。非受控属性 | N
 onBlur | Function |  | TS 类型：`(value: number, context: { e: FocusEvent }) => void`<br/>失去焦点时触发 | N

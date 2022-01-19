@@ -56,6 +56,8 @@ NotificationProps | - | - | 继承 `NotificationProps` 中的全部 API | N
 theme | String | info | 必需。消息类型。可选项：info/success/warning/error。TS 类型：`NotificationThemeList`
 options | Object | - | 必需。消息通知内容。TS 类型：`NotificationOptions`
 
+插件返回值：`Promise<NotificationInstance>【interface NotificationInstance { close: () => void }】`
+
 ### NotificationPlugin.info
 
 同时也支持 `this.$notification.info`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，

@@ -22,7 +22,7 @@ placeholder | String | undefined | 占位符 | N
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 readonly | Boolean | false | 输入框是否只读 | N
 size | String | medium | 输入框尺寸。可选项：small/medium/large。TS 类型：`SizeEnum`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-status | String | undefined | 输入框状态。可选项：success/warning/error | N
+status | String | - | 输入框状态。可选项：success/warning/error | N
 suffix | String / Slot / Function | - | 后置图标前的后置内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 suffixIcon | Slot / Function | - | 组件后置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -39,7 +39,7 @@ onKeypress | Function |  | TS 类型：`(value: InputValue, context: { e: Keyboa
 onKeyup | Function |  | TS 类型：`(value: InputValue, context: { e: KeyboardEvent }) => void`<br/>释放键盘时触发 | N
 onMouseenter | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>进入输入框时触发 | N
 onMouseleave | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>离开输入框时触发 | N
-onPaste | Function |  | TS 类型：`(context: { e: ClipboardEvent; pasteValue: string }) => void`<br/>粘贴事件，`pasteValue` 表示粘贴板的内容 | N
+onPaste | Function |  | TS 类型：`(context: { e: ClipboardEvent<HTMLInputElement>; pasteValue: string }) => void`<br/>粘贴事件，`pasteValue` 表示粘贴板的内容 | N
 
 ### Input Events
 
@@ -55,4 +55,4 @@ keypress | `(value: InputValue, context: { e: KeyboardEvent })` | 按下字符�
 keyup | `(value: InputValue, context: { e: KeyboardEvent })` | 释放键盘时触发
 mouseenter | `(context: { e: MouseEvent })` | 进入输入框时触发
 mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发
-paste | `(context: { e: ClipboardEvent; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容
+paste | `(context: { e: ClipboardEvent<HTMLInputElement>; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容
