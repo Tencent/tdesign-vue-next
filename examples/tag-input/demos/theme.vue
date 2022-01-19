@@ -11,16 +11,13 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'TTagInputTheme',
-  data() {
-    return {
-      tags: ['Vue', 'React', 'Miniprogram'],
-    };
+  setup() {
+    const tags = ref(['Vue', 'React', 'Miniprogram']);
+    return { tags };
   },
 });
 </script>
-
-<style lang="less" scoped></style>

@@ -28,23 +28,18 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'TTagInputStatus',
-  data() {
-    return {
-      tags1: ['Vue', 'React', 'Miniprogram'],
-      tags2: ['Vue', 'React', 'Miniprogram'],
-      tags3: ['Vue', 'React', 'Miniprogram'],
-      tags4: ['Vue', 'React', 'Miniprogram'],
-      tags5: ['Vue', 'React', 'Miniprogram'],
-    };
-  },
-  methods: {
-    onChange(val) {
-      this.tags = val;
-    },
+  setup() {
+    const tags1 = ref(['Vue', 'React', 'Miniprogram']);
+    const tags2 = ref(['Vue', 'React', 'Miniprogram']);
+    const tags3 = ref(['Vue', 'React', 'Miniprogram']);
+    const tags4 = ref(['Vue', 'React', 'Miniprogram']);
+    const tags5 = ref(['Vue', 'React', 'Miniprogram']);
+
+    return { tags1, tags2, tags3, tags4, tags5 };
   },
 });
 </script>

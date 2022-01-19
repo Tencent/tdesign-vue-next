@@ -35,19 +35,16 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'TTagInputCustom',
-  data() {
-    return {
-      tags: ['StudentA', 'StudentB', 'StudentC'],
+  setup() {
+    const tags = ref(['StudentA', 'StudentB', 'StudentC']);
+    const onTagDelete = (index) => {
+      tags.value.splice(index, 1);
     };
-  },
-  methods: {
-    onTagDelete(index) {
-      this.tags.splice(index, 1);
-    },
+    return { tags, onTagDelete };
   },
 });
 </script>

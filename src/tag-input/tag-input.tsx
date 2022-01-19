@@ -20,7 +20,6 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
-    // const [tagValue, setTagValue] = useDefault<TdTagInputProps['value'], TdTagInputProps>(props, context.emit, 'value', 'change');
     const root = ref(null);
     const inputValueRef = ref<InputValue>();
     const { isHoverRef, addHover, cancelHover } = useHover(props);

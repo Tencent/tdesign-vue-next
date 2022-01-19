@@ -10,14 +10,13 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'TTagInputExcessDemo',
-  data() {
-    return {
-      tags: ['Vue', 'React'],
-    };
+  setup() {
+    const tags = ref(['Vue', 'React']);
+    return { tags };
   },
 });
 </script>

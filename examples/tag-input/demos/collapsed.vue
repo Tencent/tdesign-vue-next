@@ -18,14 +18,13 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'TTagInputCollapsed',
-  data() {
-    return {
-      tags: ['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter'],
-    };
+  setup() {
+    const tags = ref(['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter']);
+    return { tags };
   },
 });
 </script>
