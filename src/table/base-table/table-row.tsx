@@ -82,7 +82,7 @@ const TableRowProps = {
   },
   trs: {
     type: Map,
-    default: () => ({}),
+    default: () => new Map(),
   },
   row: {
     type: Object as PropType<object>,

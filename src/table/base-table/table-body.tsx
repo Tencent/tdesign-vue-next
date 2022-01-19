@@ -189,8 +189,36 @@ export default defineComponent({
         if (row.__t_table_inner_data__?.level) {
           rowClass.push(`${prefix}-table__row--level-${row.__t_table_inner_data__?.level || 0}`);
         }
+        const {
+          columns,
+          current,
+          scrollType,
+          rowHeight,
+          trs,
+          provider,
+          onRowHover,
+          onRowMouseup,
+          onRowMouseleave,
+          onRowMouseenter,
+          onRowMousedown,
+          onRowDbClick,
+          onRowClick,
+        } = this.$props;
+
         const props = {
-          ...this.$props,
+          columns,
+          current,
+          scrollType,
+          rowHeight,
+          trs,
+          provider,
+          onRowHover,
+          onRowMouseup,
+          onRowMouseleave,
+          onRowMouseenter,
+          onRowMousedown,
+          onRowDbClick,
+          onRowClick,
           key,
           rowClass: rowClass.join(' '),
           rowData: row,
