@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="item">
-      <t-table row-key="id" :columns="columns" :data="data" :height="200" :row-height="48" lazy>
+      <t-table row-key="id" :columns="columns" :data="data" :height="200" :scroll="{ type: 'lazy' }">
         <template #op-column>
           <t-icon name="descending-order" />
         </template>
@@ -18,7 +18,6 @@
 
 <script lang="jsx">
 import { defineComponent, watch, ref } from 'vue';
-import { CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 
 const columns = [
   {
@@ -114,7 +113,7 @@ const initData = [
     survivalTime: 1500,
   },
 ];
-const times = Array.from(new Array(1000), () => ''); // 测试共计1w条数据
+const times = Array.from(new Array(100), () => ''); // 测试共计1w条数据
 const testData = [];
 times.forEach((item, i) => {
   const k = i % 10;
