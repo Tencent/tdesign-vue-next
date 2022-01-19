@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ref, toRefs } from 'vue';
+import { defineComponent, VNode, ref, toRefs, provide } from 'vue';
 import throttle from 'lodash/throttle';
 import mixins from '../../utils/mixins';
 import getConfigReceiverMixins, { TableConfig } from '../../config-provider/config-receiver';
@@ -46,6 +46,7 @@ export default defineComponent({
   emits: ['page-change', 'scroll-x', 'scroll-y', ...EVENT_NAME_WITH_KEBAB],
   setup(props: any) {
     const scrollBody = ref(null);
+    provide('scrollBody', scrollBody);
     const { type, rowHeight, bufferSize = 20, isFixedRowHeight = false } = props.scroll || {};
     const { data } = toRefs<any>(props);
     const {
@@ -68,6 +69,7 @@ export default defineComponent({
       scrollType: type,
       rowHeight,
       trs,
+      bufferSize,
       scrollBody,
       scrollHeight,
       visibleData,
@@ -229,6 +231,7 @@ export default defineComponent({
         scrollType: this.scrollType,
         rowHeight: this.rowHeight,
         trs: this.trs,
+        bufferSize: this.bufferSize,
         handleRowMounted: this.handleRowMounted,
       };
       return (

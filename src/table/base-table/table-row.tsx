@@ -1,4 +1,4 @@
-import { VNode, PropType, defineComponent, h, ref, onMounted, onBeforeUnmount } from 'vue';
+import { VNode, PropType, defineComponent, h, ref, onMounted, onBeforeUnmount, inject, Ref } from 'vue';
 import get from 'lodash/get';
 import { prefix } from '../../config';
 import { RowspanColspan } from '../type';
@@ -22,20 +22,19 @@ const eventsName = {
   dragover: 'row-dragover',
 };
 
-const observe = (element: HTMLElement, callback: Function) => {
+const observe = (element: HTMLElement, root: HTMLElement, callback: Function, marginBottom: number) => {
   try {
     const io = new window.IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (entry.isIntersecting || entry.intersectionRatio) {
+        if (entry.isIntersecting) {
           callback();
           io.unobserve(element);
         }
       },
       {
-        rootMargin: '500px 0px',
-        root: null,
-        threshold: [0, Number.MIN_VALUE, 0.01],
+        rootMargin: `0px 0px ${marginBottom}px 0px`,
+        root,
       },
     );
     io.observe(element);
@@ -80,6 +79,10 @@ const TableRowProps = {
     type: Number as PropType<number>,
     default: 0,
   },
+  bufferSize: {
+    type: Number as PropType<number>,
+    default: 0,
+  },
   trs: {
     type: Map,
     default: () => new Map(),
@@ -107,7 +110,7 @@ export default defineComponent({
   emits: ['rowMounted', 'getRowHeight', ...Object.keys(eventsName).map((key) => eventsName[key])],
   setup(props, { emit }) {
     const tr = ref(null);
-    const isInit = ref(false);
+    const isInit = ref(props.index === 0);
     const init = () => {
       !isInit.value &&
         requestAnimationFrame(() => {
@@ -115,7 +118,7 @@ export default defineComponent({
         });
     };
     onMounted(() => {
-      const { trs, row, scrollType, index, rowHeight } = props;
+      const { trs, row, scrollType, index, rowHeight, bufferSize } = props;
       if (scrollType === 'virtual') {
         const { $index }: { $index?: number } = row;
         trs.set($index, tr.value);
@@ -124,13 +127,19 @@ export default defineComponent({
           trs.delete($index);
         });
       } else if (scrollType === 'lazy') {
-        observe(tr.value, init);
-        // 获取第一行高度
-        if (rowHeight === 0 && index === 0) {
-          setTimeout(() => {
+        const scrollBody: Ref = inject('scrollBody');
+        if (rowHeight === 0) {
+          const rowHeightRef: Ref = inject('rowHeightRef');
+          if (index === 0) {
+            // 获取第一行高度
             const { offsetHeight } = tr.value;
-            offsetHeight && emit('getRowHeight', offsetHeight);
-          }, 100);
+            rowHeightRef.value = offsetHeight;
+          } else {
+            const height = rowHeightRef.value;
+            observe(tr.value, scrollBody.value, init, height * bufferSize);
+          }
+        } else {
+          observe(tr.value, scrollBody.value, init, rowHeight * bufferSize);
         }
       }
     });
@@ -142,10 +151,11 @@ export default defineComponent({
   methods: {
     // 渲染行
     renderRow(): Array<VNode> {
-      const { rowData, columns, index: rowIndex, rowspanAndColspanProps, scrollType, isInit, rowHeight } = this;
+      const { rowData, columns, index: rowIndex, rowspanAndColspanProps, scrollType, isInit } = this;
       const hasHolder = scrollType === 'lazy' && !isInit;
       if (hasHolder) {
-        return [<td style={{ height: `${rowHeight || 20}px`, border: 'none' }} />];
+        const rowHeightRef: Ref = inject('rowHeightRef');
+        return [<td style={{ height: `${rowHeightRef.value}px`, border: 'none' }} />];
       }
       const rowBody: Array<VNode> = [];
       let flag = true;

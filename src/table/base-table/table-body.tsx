@@ -1,4 +1,4 @@
-import { VNode, defineComponent, TransitionGroup, PropType } from 'vue';
+import { VNode, defineComponent, TransitionGroup, PropType, ref, provide } from 'vue';
 import get from 'lodash/get';
 import camelCase from 'lodash/camelCase';
 import { prefix } from '../../config';
@@ -21,7 +21,11 @@ export default defineComponent({
     firstFullRow: baseTableProps.firstFullRow,
     lastFullRow: baseTableProps.lastFullRow,
     rowHeight: {
-      type: Number,
+      type: Number as PropType<number>,
+      default: 0,
+    },
+    bufferSize: {
+      type: Number as PropType<number>,
       default: 0,
     },
     scrollType: {
@@ -56,6 +60,9 @@ export default defineComponent({
     },
   },
   emits: ['row-dragstart', 'row-dragover'],
+  setup(props) {
+    provide('rowHeightRef', ref(props.rowHeight));
+  },
   computed: {
     selectColumn(): any {
       return this.columns.find(({ type }: any) => ['multiple', 'single'].includes(type)) || {};
@@ -166,6 +173,22 @@ export default defineComponent({
       if (typeof rowspanAndColspan === 'function') {
         allRowspanAndColspanProps = this.getRowspanAndColspanProps();
       }
+      const {
+        columns,
+        current,
+        scrollType,
+        rowHeight,
+        bufferSize,
+        trs,
+        provider,
+        onRowHover,
+        onRowMouseup,
+        onRowMouseleave,
+        onRowMouseenter,
+        onRowMousedown,
+        onRowDbClick,
+        onRowClick,
+      } = this.$props;
       data.forEach((row: any, index: number) => {
         const defaultRowClass =
           typeof rowClassName === 'function' ? rowClassName({ row, rowIndex: index }) : rowClassName;
@@ -189,27 +212,13 @@ export default defineComponent({
         if (row.__t_table_inner_data__?.level) {
           rowClass.push(`${prefix}-table__row--level-${row.__t_table_inner_data__?.level || 0}`);
         }
-        const {
-          columns,
-          current,
-          scrollType,
-          rowHeight,
-          trs,
-          provider,
-          onRowHover,
-          onRowMouseup,
-          onRowMouseleave,
-          onRowMouseenter,
-          onRowMousedown,
-          onRowDbClick,
-          onRowClick,
-        } = this.$props;
 
         const props = {
           columns,
           current,
           scrollType,
           rowHeight,
+          bufferSize,
           trs,
           provider,
           onRowHover,
@@ -241,17 +250,8 @@ export default defineComponent({
             },
           },
         };
-        const getRowHeight = (rowHeight: number) => {
-          rowVnode.props.rowHeight = rowHeight; // 这段内容好像没有效果
-        };
         rowVnode = (
-          <TableRow
-            rowKey={this.rowKey}
-            {...props}
-            onRowMounted={this.handleRowMounted}
-            onGetRowHeight={getRowHeight}
-            row={row}
-          >
+          <TableRow rowKey={this.rowKey} {...props} onRowMounted={this.handleRowMounted} row={row}>
             {slots}
           </TableRow>
         );
