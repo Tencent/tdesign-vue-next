@@ -2,9 +2,9 @@ export default {
   strategies: 'injectManifest',
   includeAssets: ['favicon.svg', 'favicon.ico', 'apple-touch-icon.png'],
   manifest: {
-    name: 'TDesign for Vue-next',
+    name: 'TDesign for Vue Next',
     short_name: 'TDesign',
-    description: 'React UI vue-next',
+    description: 'TDesign UI vue-next',
     theme_color: '#ffffff',
     icons: [
       {

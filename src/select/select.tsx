@@ -691,6 +691,7 @@ export default defineComponent({
     const slots = {
       content: () => (
         <div>
+          {renderTNodeJSX(this, 'panelTopContent')}
           <ul v-show={showCreateOption} class={`${name}__create-option`}>
             <t-option value={this.searchInput} label={this.searchInput} class={`${name}__create-option--special`} />
           </ul>
@@ -703,6 +704,7 @@ export default defineComponent({
               {children}
             </ul>
           )}
+          {renderTNodeJSX(this, 'panelBottomContent')}
         </div>
       ),
     };
