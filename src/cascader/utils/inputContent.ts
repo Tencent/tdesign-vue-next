@@ -150,7 +150,11 @@ export function outerClickListenerEffect(
   event: MouseEvent | TouchEvent,
 ) {
   const { visible, setVisible } = cascaderContext;
-  if (!ref || ref.contains(event.target as Node)) {
+  if (
+    !ref ||
+    ref.contains(event.target as Node) ||
+    Array.from((event.target as HTMLElement)?.classList).includes('t-tag')
+  ) {
     return;
   }
 
