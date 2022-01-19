@@ -15,7 +15,7 @@ function getEventPropsName(eventName: string): string {
 /**
  * 受控和非受控逻辑处理，包含 value / modelValue / events
  * @param props 属性
- * @param context 上下文
+ * @param emit 触发方法，context.emit
  * @param key 受控属性名称
  * @param eventName 事件名称
  * @example const [value, setValue] = useDefault();
@@ -72,10 +72,7 @@ export default function useDefault<V, T>(props: T, emit: SetupContext['emit'], k
       return innerValue.value;
     },
     set(value: V) {
-      if (!isUsedKey && !isUsedModelValue) {
-        innerValue.value = value;
-      }
-      emitEvents(value);
+      setInnerValue(value);
     },
   });
 
