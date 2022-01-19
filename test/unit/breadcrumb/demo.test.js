@@ -8,7 +8,7 @@ import customVue from '@/examples/breadcrumb/demos/custom.vue';
 import dropdownVue from '@/examples/breadcrumb/demos/dropdown.vue';
 import hrefVue from '@/examples/breadcrumb/demos/href.vue';
 import iconVue from '@/examples/breadcrumb/demos/icon.vue';
-import optionVue from '@/examples/breadcrumb/demos/option.vue';
+import optionsVue from '@/examples/breadcrumb/demos/options.vue';
 import toVue from '@/examples/breadcrumb/demos/to.vue';
 
 const mapper = {
@@ -17,7 +17,7 @@ const mapper = {
   dropdownVue,
   hrefVue,
   iconVue,
-  optionVue,
+  optionsVue,
   toVue,
 };
 

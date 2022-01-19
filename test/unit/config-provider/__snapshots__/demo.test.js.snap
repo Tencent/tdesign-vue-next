@@ -38,6 +38,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                 >
                   
                   <div>
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -232,6 +233,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -307,6 +309,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                 >
                   
                   <div>
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -429,6 +432,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -6798,6 +6802,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6833,6 +6838,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -6906,6 +6912,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6929,6 +6936,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               >
                 <!---->
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -7002,6 +7010,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -7025,6 +7034,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               >
                 <!---->
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -7333,11 +7343,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -7478,11 +7488,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </div>
         <!---->
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -7802,11 +7812,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -9111,6 +9121,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
           >
             
             <div>
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -9161,6 +9172,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
                 
                 
               </ul>
+              <!---->
             </div>
             
             <!---->

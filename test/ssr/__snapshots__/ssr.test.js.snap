@@ -1024,7 +1024,7 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/icon.vue correctl
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/breadcrumb/demos/option.vue correctly 1`] = `
+exports[`ssr snapshot test renders ./examples/breadcrumb/demos/options.vue correctly 1`] = `
 <div class="t-breadcrumb">
   <!--[-->
   <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-oveflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fillopacity="0.9"></path></svg></span></div>
@@ -1309,6 +1309,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -1404,6 +1405,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -1432,6 +1434,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -1491,6 +1494,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -1613,6 +1617,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -1626,6 +1631,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -1667,6 +1673,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -1762,6 +1769,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -1790,6 +1798,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -1849,6 +1858,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -1973,6 +1983,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -1986,6 +1997,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -2020,6 +2032,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -2115,6 +2128,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -2143,6 +2157,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -2202,6 +2217,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -2540,6 +2556,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -2635,6 +2652,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -2663,6 +2681,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -2722,6 +2741,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -3103,6 +3123,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -3198,6 +3219,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -3226,6 +3248,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -3285,6 +3308,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -3508,6 +3532,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -3603,6 +3628,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -3631,6 +3657,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -3690,6 +3717,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -3819,6 +3847,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -3914,6 +3943,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -3942,6 +3972,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4001,6 +4032,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4137,6 +4169,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4232,6 +4265,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4260,6 +4294,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4319,6 +4354,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4463,6 +4499,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4558,6 +4595,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4586,6 +4624,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4645,6 +4684,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4768,6 +4808,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -4786,6 +4827,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -4820,6 +4862,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -4915,6 +4958,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -4943,6 +4987,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -5002,6 +5047,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -5142,6 +5188,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -5237,6 +5284,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -5265,6 +5313,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -5324,6 +5373,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -5446,6 +5496,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -5459,6 +5510,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -5493,6 +5545,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -5588,6 +5641,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -5673,6 +5727,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -5728,6 +5783,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -5756,6 +5812,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -5815,6 +5872,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -5942,6 +6000,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -6037,6 +6096,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -6065,6 +6125,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -6124,6 +6185,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -6430,6 +6492,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -6525,6 +6588,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -6553,6 +6617,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -6612,6 +6677,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -6753,6 +6819,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -6848,6 +6915,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -6876,6 +6944,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -6935,6 +7004,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -7083,6 +7153,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -7178,6 +7249,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -7206,6 +7278,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -7265,6 +7338,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -7392,6 +7466,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -7487,6 +7562,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -7515,6 +7591,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -7574,6 +7651,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -8507,6 +8585,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -8602,6 +8681,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -8630,6 +8710,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
                 <div>
+                  <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
@@ -8689,6 +8770,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                     <!--]-->
                     <!--]-->
                   </ul>
+                  <!---->
                 </div>
                 <!--]-->
                 <!---->
@@ -10043,6 +10125,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -10055,6 +10138,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
               <li class="t-select-option t-size-m" title="Shenzhen">Shenzhen</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -10081,6 +10165,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -10089,6 +10174,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
             <ul class="t-select__groups" style="display:none;">
               <!---->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -10115,6 +10201,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -10123,6 +10210,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
             <ul class="t-select__groups" style="display:none;">
               <!---->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -10221,7 +10309,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -10271,7 +10359,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
           <!---->
           <!---->
         </div>
-        <!----><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        <!----><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -10341,7 +10429,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -10624,6 +10712,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -10639,6 +10728,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -17011,6 +17101,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -17034,6 +17125,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -18043,7 +18135,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/base.vue correctly 1`] 
       <use href="#t-icon-check-circle-filled"></use>
     </svg><svg class="t-icon t-icon-check-circle-filled" style="">
       <use href="#t-icon-check-circle-filled"></use>
-    </svg><svg class="t-icon t-icon-check-circle-filled" style="font-size:medium;">
+    </svg><svg class="t-icon t-icon-check-circle-filled t-size-m" style="">
       <use href="#t-icon-check-circle-filled"></use>
     </svg><svg class="t-icon t-icon-check-circle-filled t-size-l" style="">
       <use href="#t-icon-check-circle-filled"></use>
@@ -18066,7 +18158,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/enhanced.vue correctly 
 <div class="t-demo-iconfont">
   <div><svg class="t-icon t-icon-cps-icon-home-sheep" style="">
       <use href="#cps-icon-home-sheep"></use>
-    </svg><svg class="t-icon t-icon-cps-icon-home-sheep" style="font-size:medium;">
+    </svg><svg class="t-icon t-icon-cps-icon-home-sheep t-size-m" style="">
       <use href="#cps-icon-home-sheep"></use>
     </svg><svg class="t-icon t-icon-cps-icon-home-sheep t-size-l" style="">
       <use href="#cps-icon-home-sheep"></use>
@@ -18090,14 +18182,14 @@ exports[`ssr snapshot test renders ./examples/icon/demos/enhanced.vue correctly 
 exports[`ssr snapshot test renders ./examples/icon/demos/iconfont.vue correctly 1`] = `
 <div class="t-demo-iconfont">
   <div class="t-demo-row"><i class="t-icon t-icon-loading" style=""></i><i class="t-icon t-icon-close" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i></div><br>
-  <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled t-size-s" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:medium;"></i><i class="t-icon t-icon-check-circle-filled t-size-l" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:25px;"></i><i class="t-icon t-icon-check-circle-filled" style="font-size:2em;"></i></div><br>
+  <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled t-size-s" style=""></i><i class="t-icon t-icon-check-circle-filled" style=""></i><i class="t-icon t-icon-check-circle-filled t-size-m" style=""></i><i class="t-icon t-icon-check-circle-filled t-size-l" style=""></i><i class="t-icon t-icon-check-circle-filled" style="font-size:25px;"></i><i class="t-icon t-icon-check-circle-filled" style="font-size:2em;"></i></div><br>
   <div class="t-demo-row"><i class="t-icon t-icon-check-circle-filled" style="color:red;"></i><i class="t-icon t-icon-check-circle-filled" style="color:green;"></i><i class="t-icon t-icon-check-circle-filled" style="color:orange;"></i></div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/icon/demos/iconfont-enhanced.vue correctly 1`] = `
 <div class="t-demo-iconfont">
-  <div><i class="t-icon cps-icon cps-icon-home-sheep" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:medium;"></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-l" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:25px;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:2em;"></i></div><br>
+  <div><i class="t-icon cps-icon cps-icon-home-sheep" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-m" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep t-size-l" style=""></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:25px;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="font-size:2em;"></i></div><br>
   <div><i class="t-icon cps-icon cps-icon-home-sheep" style="color:red;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="color:green;"></i><i class="t-icon cps-icon cps-icon-home-sheep" style="color:orange;"></i><!-- 引入新 Icon 之后，内置 Icon 依旧有效。name 传入图标名称全称。 --><i class="t-icon t-icon-home" style=""></i></div><br>
 </div>
 `;
@@ -18115,7 +18207,7 @@ exports[`ssr snapshot test renders ./examples/icon/demos/single.vue correctly 1`
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
     </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
-    </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="font-size:medium;">
+    </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled t-size-m" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
     </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled t-size-l" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
@@ -18381,7 +18473,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue corr
 <div>
   <div class="t-input-number t-size-m" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18389,7 +18481,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue corr
     </button>
     <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18403,7 +18495,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
 <div>
   <div class="t-input-number t-size-m"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18411,7 +18503,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
     </button>
     <div class="t-input"><input value="2021" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18425,7 +18517,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue co
 <div>
   <div class="t-input-number t-size-m t-is-disabled" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18433,7 +18525,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue co
     </button>
     <div class="t-input"><input value="3" class="t-input__inner t-is-disabled t-input-number-text-align" disabled autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18447,7 +18539,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
 <div>
   <div class="t-input-number t-size-m"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18455,7 +18547,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
     </button>
     <div class="t-input"><input value class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder="输入"></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18469,7 +18561,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
 <div>
   <div class="t-input-number t-size-m" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18477,7 +18569,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
     </button>
     <div class="t-input"><input value="3%" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18491,7 +18583,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correc
 <div>
   <div class="t-input-number t-size-m t-is-controls-right" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
         <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18499,7 +18591,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correc
     </button>
     <div class="t-input"><input value="3" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
         <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18540,7 +18632,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
   </div>
   <div class="t-input-number t-size-m" modelvalue="3" style="margin:0 50px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18548,7 +18640,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
     </button>
     <div class="t-input"><input value="3" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18579,7 +18671,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correc
 <div>
   <div class="t-input-number t-size-m" modelvalue="3.2"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-m" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -18587,7 +18679,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correc
     </button>
     <div class="t-input"><input value="3.20" class="t-input__inner t-input-number-text-align" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
       <!--[-->
-      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style="font-size:medium;">
+      <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add t-size-m" style="">
         <path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path>
       </svg>
       <!--]-->
@@ -21932,6 +22024,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -21947,6 +22040,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -21998,6 +22092,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22013,6 +22108,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22066,6 +22162,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22081,6 +22178,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22140,6 +22238,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
@@ -22155,6 +22254,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22210,6 +22310,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22225,6 +22326,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22283,6 +22385,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22298,6 +22401,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22353,6 +22457,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22368,6 +22473,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22397,6 +22503,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22426,6 +22533,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
                 <li class="t-select-option t-size-m" title="20/20">20/20</li>
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22464,6 +22572,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
@@ -22479,6 +22588,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22508,6 +22618,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
@@ -22537,6 +22648,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
                 <li class="t-select-option t-size-s" title="20/20">20/20</li>
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -22575,6 +22687,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
             <div>
+              <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
@@ -22590,6 +22703,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
                 <!--]-->
                 <!--]-->
               </ul>
+              <!---->
             </div>
             <!--]-->
             <!---->
@@ -24128,6 +24242,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24143,6 +24258,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
               <li class="t-select-option t-size-m" title="计算场景"><span>计算场景（高性能计算）</span></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24169,6 +24285,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24186,6 +24303,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24218,6 +24336,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24230,6 +24349,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
               <li class="t-select-option t-is-selected t-size-m" title="选项三"><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24261,6 +24381,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24273,6 +24394,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
               <li class="t-select-option t-is-selected t-size-m" title="选项三"><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24316,6 +24438,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24328,6 +24451,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
               <li class="t-select-option t-is-selected t-size-m" title="选项三"><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24380,6 +24504,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24392,6 +24517,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24430,6 +24556,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
         <div class="t-popup__content tdesign-demo-select__overlay-option t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24511,6 +24638,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
               </li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24537,6 +24665,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
         <div class="t-popup__content tdesign-demo-select__overlay-option t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24638,6 +24767,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24670,6 +24800,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24688,6 +24819,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
               <li class="t-select-option t-size-m" title="选项九"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项九<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24715,6 +24847,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24733,6 +24866,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
               <li class="t-select-option t-size-m" title="选项九"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项九<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24767,6 +24901,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24779,6 +24914,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24805,6 +24941,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24817,6 +24954,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24851,6 +24989,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24863,6 +25002,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24895,6 +25035,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -24907,6 +25048,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24945,6 +25087,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -24987,6 +25130,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
               </li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25013,6 +25157,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25083,6 +25228,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25114,6 +25260,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25126,6 +25273,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25152,6 +25300,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25164,6 +25313,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25198,6 +25348,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/max.vue correctly 1`]
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25210,6 +25361,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/max.vue correctly 1`]
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25242,6 +25394,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25259,6 +25412,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
                 </label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25290,6 +25444,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25307,6 +25462,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25346,6 +25502,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25363,6 +25520,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
                 </label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25403,6 +25561,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25415,6 +25574,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
               <li class="t-select-option t-size-m" title="很长很长很长的选项三">很长很长很长的选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25438,6 +25598,105 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1`] = `
+<div class="tdesign-demo-select-base">
+  <!-- 自定义面板顶部内容：如自定义搜索框。同时支持插槽和 Props(this,panelTopContent) -->
+  <div class="t-select__wrap" modelvalue>
+    <div class="t-popup__reference t-select__popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+          <!--[-->
+          <div>
+            <!--[-->
+            <div>
+              <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入关键词搜索"></textarea>
+                <!---->
+                <!---->
+              </div>
+            </div>
+            <!--]-->
+            <ul class="t-select__create-option" style="display:none;">
+              <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
+            </ul>
+            <!---->
+            <!---->
+            <ul>
+              <!--[-->
+              <li class="t-select-option t-size-m" title="架构云">架构云</li>
+              <li class="t-select-option t-size-m" title="大数据">大数据</li>
+              <li class="t-select-option t-size-m" title="区块链">区块链</li>
+              <li class="t-select-option t-is-disabled t-size-m" title="物联网">物联网</li>
+              <li class="t-select-option t-size-m" title="人工智能">人工智能</li>
+              <!--]-->
+            </ul>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--[-->
+      <div class="t-select t-size-m">
+        <!----><span class="t-select__placeholder"> 请选择云解决方案</span>
+        <!--[-->
+        <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!---->
+        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+  </div><!-- 自定义面板底部内容；如新增项 。同时支持插槽和 Props（this,panelBottomContent）-->
+  <div class="t-select__wrap" modelvalue>
+    <div class="t-popup__reference t-select__popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+          <!--[-->
+          <div>
+            <!---->
+            <ul class="t-select__create-option" style="display:none;">
+              <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
+            </ul>
+            <!---->
+            <li class="t-select__empty t-size-m">暂无数据</li>
+            <ul class="t-select__groups" style="display:none;">
+              <!--[-->
+              <!--[-->
+              <li class="t-select-option t-size-m" title="云服务器">云服务器</li>
+              <li class="t-select-option t-size-m" title="云数据库">云数据库</li>
+              <li class="t-select-option t-size-m" title="域名注册">域名注册</li>
+              <!--]-->
+              <!--]-->
+            </ul>
+            <!--[-->
+            <div class="select-panel-footer"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->新增选项<!--]--></span></button></div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--[-->
+      <div class="t-select t-size-m">
+        <!----><span class="t-select__placeholder"> 请选择云产品</span>
+        <!--[-->
+        <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!---->
+        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue correctly 1`] = `
 <div>
   <div class="t-select__wrap" modelvalue="1" style="width:200px;display:inline-block;">
@@ -25446,6 +25705,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25458,6 +25718,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
               <li class="t-select-option t-size-m" title="很长很长很很长很长很长的选项三">很长很长很很长很长很长的选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25484,6 +25745,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25496,6 +25758,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
               <li class="t-select-option t-size-m" title="很长很长很很长很长很长的选项三">很长很长很很长很长很长的选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25527,6 +25790,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/prefix.vue correctly 
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25539,6 +25803,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/prefix.vue correctly 
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25569,6 +25834,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25581,6 +25847,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25613,6 +25880,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
@@ -25625,6 +25893,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
               <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25662,6 +25931,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-s t-select__create-option--special" title></li>
             </ul>
@@ -25685,6 +25955,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
               <!--]-->
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25711,6 +25982,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25723,6 +25995,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
               <li class="t-select-option t-size-m" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25749,6 +26022,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-l t-select__create-option--special" title></li>
             </ul>
@@ -25761,6 +26035,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
               <li class="t-select-option t-size-l" title="选项三">选项三</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25792,6 +26067,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25806,6 +26082,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
               <li class="t-select-option t-size-m" title="人工智能">人工智能</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25832,6 +26109,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25846,6 +26124,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
               <li class="t-select-option t-size-m" title="人工智能">人工智能</li>
               <!--]-->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -25872,6 +26151,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div>
+            <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
@@ -25880,6 +26160,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
             <ul class="t-select__groups" style="display:none;">
               <!---->
             </ul>
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -26060,7 +26341,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
       <div class="t-slider__input-container">
         <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26068,7 +26349,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
           </button>
           <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26114,7 +26395,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
       <div class="t-slider__input-container">
         <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26122,7 +26403,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
           </button>
           <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26132,7 +26413,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
         <div class="t-slider__center-line"></div>
         <div class="t-input-number t-size-m t-is-controls-right t-slider__input"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26140,7 +26421,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
           </button>
           <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26179,7 +26460,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
       <div class="t-slider__input-container is-vertical">
         <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26187,7 +26468,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
           </button>
           <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26233,7 +26514,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
       <div class="t-slider__input-container is-vertical">
         <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26241,7 +26522,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
           </button>
           <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26251,7 +26532,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
         <div class="t-slider__center-line"></div>
         <div class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down t-size-m" style="">
               <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -26259,7 +26540,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
           </button>
           <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off" placeholder></div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase" type="button">
             <!--[-->
-            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up" style="font-size:medium;">
+            <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-up t-size-m" style="">
               <path fill="currentColor" d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z" fillopacity="0.9"></path>
             </svg>
             <!--]-->
@@ -30685,6 +30966,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
                     <div>
+                      <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
@@ -30700,6 +30982,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                         <!--]-->
                         <!--]-->
                       </ul>
+                      <!---->
                     </div>
                     <!--]-->
                     <!---->
@@ -30799,6 +31082,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
@@ -30814,6 +31098,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
                       <!--]-->
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -36711,6 +36996,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
                   <div>
+                    <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                     </ul>
@@ -36722,6 +37008,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
                       <li class="t-select-option t-size-s" title="2/2">2/2</li>
                       <!--]-->
                     </ul>
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -38723,7 +39010,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/base.vue correct
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -38798,7 +39085,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -38870,7 +39157,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -38951,7 +39238,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/filterable.vue c
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -39010,7 +39297,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/lazy.vue correct
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -39085,7 +39372,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/multiple.vue cor
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -39159,7 +39446,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/prefix.vue corre
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -39233,7 +39520,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/props.vue correc
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -39307,7 +39594,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
@@ -39377,7 +39664,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
           <!---->
         </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear" style="font-size:medium;display:none;" name="close">
+        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear" style="display:none;" name="close">
           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fillopacity="0.9"></path>
         </svg>
         <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style="display:none;" name="loading"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
