@@ -72,13 +72,13 @@ const TableRowProps = {
     type: Number as PropType<number>,
     default: 1,
   },
-  lazy: {
-    type: Boolean as PropType<boolean>,
-    default: false,
+  scrollType: {
+    type: String as PropType<string>,
+    default: '',
   },
   rowHeight: {
     type: Number as PropType<number>,
-    default: 20,
+    default: 0,
   },
   trs: {
     type: Map,
@@ -87,10 +87,6 @@ const TableRowProps = {
   row: {
     type: Object as PropType<object>,
     default: () => ({}),
-  },
-  virtualScroll: {
-    type: Boolean as PropType<boolean>,
-    default: false,
   },
   provider: {
     type: Object,
@@ -108,7 +104,7 @@ export default defineComponent({
     TableCell,
   },
   props: TableRowProps,
-  emits: ['rowMounted', ...Object.keys(eventsName).map((key) => eventsName[key])],
+  emits: ['rowMounted', 'getRowHeight', ...Object.keys(eventsName).map((key) => eventsName[key])],
   setup(props, { emit }) {
     const tr = ref(null);
     const isInit = ref(false);
@@ -119,16 +115,23 @@ export default defineComponent({
         });
     };
     onMounted(() => {
-      const { trs, lazy, row, virtualScroll } = props;
-      if (virtualScroll) {
+      const { trs, row, scrollType, index, rowHeight } = props;
+      if (scrollType === 'virtual') {
         const { $index }: { $index?: number } = row;
         trs.set($index, tr.value);
         emit('rowMounted');
         onBeforeUnmount(() => {
           trs.delete($index);
         });
-      } else if (lazy) {
+      } else if (scrollType === 'lazy') {
         observe(tr.value, init);
+        // 获取第一行高度
+        if (rowHeight === 0 && index === 0) {
+          setTimeout(() => {
+            const { offsetHeight } = tr.value;
+            offsetHeight && emit('getRowHeight', offsetHeight);
+          }, 100);
+        }
       }
     });
     return {
@@ -139,19 +142,10 @@ export default defineComponent({
   methods: {
     // 渲染行
     renderRow(): Array<VNode> {
-      const {
-        rowData,
-        columns,
-        index: rowIndex,
-        rowspanAndColspanProps,
-        virtualScroll,
-        lazy,
-        isInit,
-        rowHeight,
-      } = this;
-      const hasHolder = !virtualScroll && lazy && !isInit;
+      const { rowData, columns, index: rowIndex, rowspanAndColspanProps, scrollType, isInit, rowHeight } = this;
+      const hasHolder = scrollType === 'lazy' && !isInit;
       if (hasHolder) {
-        return [<td style={{ height: `${rowHeight}px`, border: 'none' }} />];
+        return [<td style={{ height: `${rowHeight || 20}px`, border: 'none' }} />];
       }
       const rowBody: Array<VNode> = [];
       let flag = true;

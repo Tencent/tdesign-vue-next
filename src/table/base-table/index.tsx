@@ -46,15 +46,27 @@ export default defineComponent({
   emits: ['page-change', 'scroll-x', 'scroll-y', ...EVENT_NAME_WITH_KEBAB],
   setup(props: any) {
     const scrollBody = ref(null);
+    const { type, rowHeight, bufferSize = 20, isFixedRowHeight = false } = props.scroll || {};
     const { data } = toRefs<any>(props);
-    const { trs, scrollHeight, visibleData, translateY, handleScroll, handleRowMounted } = useVirtualScroll({
-      table: scrollBody,
-      data,
-      fixedHeight: props.fixedHeight,
-      lineHeight: props.rowHeight,
-      bufferSize: props.bufferSize,
-    });
+    const {
+      trs = null,
+      scrollHeight = null,
+      visibleData = null,
+      translateY = null,
+      handleScroll = null,
+      handleRowMounted = null,
+    } = type === 'virtual'
+      ? useVirtualScroll({
+          table: scrollBody,
+          data,
+          fixedHeight: isFixedRowHeight,
+          lineHeight: rowHeight,
+          bufferSize,
+        })
+      : {};
     return {
+      scrollType: type,
+      rowHeight,
       trs,
       scrollBody,
       scrollHeight,
@@ -206,7 +218,7 @@ export default defineComponent({
       });
       const props = {
         rowKey: this.rowKey,
-        data: this.virtualScroll ? this.visibleData : this.dataSource,
+        data: this.scrollType === 'virtual' ? this.visibleData : this.dataSource,
         provider: this.provider,
         columns: this.flattedColumns,
         rowClassName: this.rowClassName,
@@ -214,10 +226,9 @@ export default defineComponent({
         rowspanAndColspan: this.rowspanAndColspan,
         firstFullRow: this.firstFullRow,
         lastFullRow: this.lastFullRow,
-        lazy: this.lazy,
+        scrollType: this.scrollType,
         rowHeight: this.rowHeight,
         trs: this.trs,
-        virtualScroll: this.virtualScroll,
         handleRowMounted: this.handleRowMounted,
       };
       return (
@@ -281,7 +292,7 @@ export default defineComponent({
         const { scrollLeft } = target as HTMLElement;
         (this.$refs.scrollHeader as HTMLElement).scrollLeft = scrollLeft;
         this.handleScroll(e as WheelEvent);
-        this.virtualScroll && this.handleVirtualScroll();
+        this.scrollType === 'virtual' && this.handleVirtualScroll();
       }, 10);
       //  fixed table header
       const paddingRight = `${scrollBarWidth}px`;
@@ -300,6 +311,7 @@ export default defineComponent({
         position: 'relative',
         overscrollBehavior: 'none',
       };
+      const isVirtual = this.scrollType === 'virtual';
       fixedTable.push(
         <div
           class={`${prefix}-table__body`}
@@ -308,7 +320,7 @@ export default defineComponent({
           ref="scrollBody"
           onScroll={handleScroll}
         >
-          {this.virtualScroll && (
+          {isVirtual && (
             <div
               style={{
                 position: 'absolute',
@@ -319,10 +331,7 @@ export default defineComponent({
               }}
             />
           )}
-          <table
-            ref="table"
-            style={{ tableLayout, transform: this.virtualScroll && `translate(0, ${this.translateY}px)` }}
-          >
+          <table ref="table" style={{ tableLayout, transform: isVirtual && `translate(0, ${this.translateY}px)` }}>
             <TableColGroup columns={columns} />
             {this.renderBody()}
             {this.renderFooter()}

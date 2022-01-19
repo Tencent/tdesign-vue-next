@@ -138,9 +138,9 @@ const useVirtualScroll = ({
 
   // 滚动时动态计算和渲染
   const handleScroll = () => {
-    if (revising) {
-      return false; // 修正滚动条时，暂停滚动逻辑
-    }
+    // if (revising) {
+    //   return false; // 修正滚动条时，暂停滚动逻辑
+    // }
     const { scrollTop } = table.value;
     let distance = scrollTop - beforeScrollTop; // 滚动差值
     beforeScrollTop = scrollTop;
@@ -187,17 +187,11 @@ const useVirtualScroll = ({
       if (lastIndex < 0) {
         index = 0;
         offset = 0;
-        calculateScrollY();
       } else {
         index = lastIndex;
         offset = distance;
-        if (scrollTop === 0 && (index !== 0 || offset !== 0)) {
-          // 滚动条到顶时，数据未回到起始位置，重置scrollTop
-          index = 0;
-          offset = 0;
-          calculateScrollY();
-        }
       }
+      calculateScrollY();
       if (start > index - bufferSize) {
         // 计算第一个挂载元素
         start = Math.max(0, index - bufferSize);

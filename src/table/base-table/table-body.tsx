@@ -20,11 +20,13 @@ export default defineComponent({
     rowspanAndColspan: baseTableProps.rowspanAndColspan,
     firstFullRow: baseTableProps.firstFullRow,
     lastFullRow: baseTableProps.lastFullRow,
-    lazy: baseTableProps.lazy,
-    rowHeight: baseTableProps.rowHeight,
-    virtualScroll: {
-      type: Boolean,
-      default: false,
+    rowHeight: {
+      type: Number,
+      default: 0,
+    },
+    scrollType: {
+      type: String,
+      default: '',
     },
     handleRowMounted: {
       type: Function as PropType<() => void>,
@@ -211,8 +213,17 @@ export default defineComponent({
             },
           },
         };
+        const getRowHeight = (rowHeight: number) => {
+          rowVnode.props.rowHeight = rowHeight; // 这段内容好像没有效果
+        };
         rowVnode = (
-          <TableRow rowKey={this.rowKey} {...props} onRowMounted={this.handleRowMounted} row={row}>
+          <TableRow
+            rowKey={this.rowKey}
+            {...props}
+            onRowMounted={this.handleRowMounted}
+            onGetRowHeight={getRowHeight}
+            row={row}
+          >
             {slots}
           </TableRow>
         );
