@@ -1488,3 +1488,126 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
   </div>
 </div>
 `;
+
+exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-popup__reference t-cascader__popup t-demo-cascader"
+    modelvalue="1,1.1"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-cascader__dropdown"
+        >
+          
+          <div
+            class="t-cascader__panel"
+            style="width: 0px;"
+          >
+            <div
+              class="t-cascader__panel--empty"
+            >
+              暂无数据
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-cascader t-size-m t-demo-cascader t-demo-cascader"
+      modelvalue="1,1.1"
+    >
+      <span
+        class="t-cascader__placeholder"
+      >
+        请选择
+      </span>
+      <svg
+        class="t-fake-arrow t-cascader__icon"
+        disabled="false"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
+      </svg>
+    </div>
+    
+  </div>
+  <div
+    class="t-popup__reference t-cascader__popup t-demo-cascader"
+    modelvalue="1,1.1,1,1.2"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-cascader__dropdown"
+        >
+          
+          <div
+            class="t-cascader__panel"
+            style="width: 0px;"
+          >
+            <div
+              class="t-cascader__panel--empty"
+            >
+              暂无数据
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-demo-cascader"
+      modelvalue="1,1.1,1,1.2"
+    >
+      <span
+        class="t-cascader__placeholder"
+      >
+        请选择
+      </span>
+      <svg
+        class="t-fake-arrow t-cascader__icon"
+        disabled="false"
+        fill="none"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+          stroke="black"
+          stroke-opacity="0.9"
+          stroke-width="1.3"
+        />
+      </svg>
+    </div>
+    
+  </div>
+</div>
+`;

@@ -1105,7 +1105,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -2852,7 +2852,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-is-disabled t-tag--disabled"
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--disabled"
           style="max-width: 100%;"
           title="shanghai"
         >
@@ -2868,7 +2868,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
           <!---->
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-is-disabled t-tag--disabled"
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--disabled"
           style="max-width: 100%;"
           title="beijing"
         >
@@ -3005,7 +3005,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -3196,7 +3196,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -6021,7 +6021,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -6145,7 +6145,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->

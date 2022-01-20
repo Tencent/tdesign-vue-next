@@ -485,7 +485,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close t-is-disabled t-tag--disabled"
+      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close t-tag--disabled"
     >
       <!---->
       
@@ -548,7 +548,7 @@ exports[`Tag Tag disabledVue demo works fine 1`] = `
     
   </span>
   <span
-    class="t-tag t-tag--default t-size-m t-tag--dark t-is-disabled t-tag--disabled"
+    class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
   >
     <!---->
     

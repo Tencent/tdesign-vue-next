@@ -2,8 +2,10 @@
  * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
  */
 import MockDate from 'mockdate';
+
 import { mount } from '@vue/test-utils';
 import baseVue from '@/examples/date-picker/demos/base.vue';
+import customIconVue from '@/examples/date-picker/demos/custom-icon.vue';
 import datePresetsAltVue from '@/examples/date-picker/demos/date-presets-alt.vue';
 import datePresetsTimeVue from '@/examples/date-picker/demos/date-presets-time.vue';
 import datePresetsVue from '@/examples/date-picker/demos/date-presets.vue';
@@ -15,9 +17,9 @@ import monthVue from '@/examples/date-picker/demos/month.vue';
 import yearVue from '@/examples/date-picker/demos/year.vue';
 
 MockDate.set('2020-12-28');
-
 const mapper = {
   baseVue,
+  customIconVue,
   datePresetsAltVue,
   datePresetsTimeVue,
   datePresetsVue,

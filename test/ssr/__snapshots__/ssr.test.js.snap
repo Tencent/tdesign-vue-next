@@ -9074,7 +9074,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="select date" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -9446,7 +9446,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="select date" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -9530,7 +9530,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="select month" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -9678,7 +9678,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="select month" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -9757,7 +9757,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="select year" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -9895,7 +9895,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="select year" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -10621,7 +10621,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -11213,7 +11213,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/base.vue correct
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue="2021-11-10" allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue="2021-11-10" allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value="2021-11-10">
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -11414,7 +11414,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/custom-icon.vue 
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--prefix t-input--suffix" modelvalue allowinput="0"><span class="t-input__prefix t-input__prefix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse" style=""><path fill="currentColor" d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z" fillopacity="0.9"></path><path fill="currentColor" d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z" fillopacity="0.9"></path></svg></span>
+        <div class="t-input t-size-m t-is-readonly t-input--prefix t-input--suffix" modelvalue allowinput="0"><span class="t-input__prefix t-input__prefix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse" style=""><path fill="currentColor" d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z" fillopacity="0.9"></path><path fill="currentColor" d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z" fillopacity="0.9"></path></svg></span>
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fillopacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fillopacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -11799,7 +11799,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets.vue
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -12188,7 +12188,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue="2020-12-28 至 2020-12-28" allowinput="0">
+          <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue="2020-12-28 至 2020-12-28" allowinput="0">
             <!---->
             <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value="2020-12-28 至 2020-12-28">
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -12396,7 +12396,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue="2020-12-28" allowinput="0">
+          <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue="2020-12-28" allowinput="0">
             <!---->
             <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value="2020-12-28">
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -12785,7 +12785,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-tim
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -13162,7 +13162,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="开始时间 至 结束时间" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -13541,7 +13541,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg></span>
@@ -13749,7 +13749,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-time.vue co
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue="2021-05-01 11:30:20" allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue="2021-05-01 11:30:20" allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value="2021-05-01 11:30:20">
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg></span>
@@ -13951,7 +13951,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
             <!---->
             <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -14149,7 +14149,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
             <!---->
             <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -14347,7 +14347,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
             <!---->
             <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -14721,7 +14721,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
             <!---->
             <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -14919,7 +14919,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
             <!---->
             <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -15121,7 +15121,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/first-day-of-wee
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择日期" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -15210,7 +15210,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/month.vue correc
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择月份" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -15294,7 +15294,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/year.vue correct
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+        <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择年份" type="text" value>
           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -18438,6 +18438,12 @@ exports[`ssr snapshot test renders ./examples/input/demos/size.vue correctly 1`]
 
 exports[`ssr snapshot test renders ./examples/input/demos/status.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
+  <div class="t-input t-size-m">
+    <!---->
+    <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="成功状态">
+    <!---->
+    <!---->
+  </div>
   <div class="t-input t-size-m t-is-success">
     <!---->
     <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="成功状态">
@@ -18455,6 +18461,42 @@ exports[`ssr snapshot test renders ./examples/input/demos/status.vue correctly 1
     <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="错误状态">
     <!---->
     <!---->
+  </div><br>
+  <div class="t-input__wrap">
+    <div class="t-input t-size-m">
+      <!---->
+      <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="成功状态">
+      <!---->
+      <!---->
+    </div>
+    <div class="t-input__tips t-input__tips--normal">这是普通文本提示</div>
+  </div>
+  <div class="t-input__wrap">
+    <div class="t-input t-size-m t-is-success">
+      <!---->
+      <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="成功状态">
+      <!---->
+      <!---->
+    </div>
+    <div class="t-input__tips t-input__tips--success">校验通过文本提示</div>
+  </div>
+  <div class="t-input__wrap">
+    <div class="t-input t-size-m t-is-warning">
+      <!---->
+      <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="警告状态">
+      <!---->
+      <!---->
+    </div>
+    <div class="t-input__tips t-input__tips--warning">校验不通过文本提示</div>
+  </div>
+  <div class="t-input__wrap">
+    <div class="t-input t-size-m t-is-error">
+      <!---->
+      <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="错误状态">
+      <!---->
+      <!---->
+    </div>
+    <div class="t-input__tips t-input__tips--error">校验存在严重问题文本提示</div>
   </div>
 </div>
 `;
@@ -24530,7 +24572,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
+        <div class="t-input t-size-m t-is-readonly t-select__input" modelvalue>
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="支持自定义创建" type="text" value>
           <!---->
@@ -24964,8 +25006,8 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
       <div class="t-select t-is-disabled t-size-m">
         <!---->
         <!---->
-        <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-is-disabled t-tag--disabled" style="max-width:100%px;max-width:100%;" title="shanghai"><!----><span style="max-width:100%px;" class="t-tag--text"><!--[-->shanghai<!--]--></span>
-        <!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-is-disabled t-tag--disabled" style="max-width:100%px;max-width:100%;" title="beijing"><!----><span style="max-width:100%px;" class="t-tag--text"><!--[-->beijing<!--]--></span>
+        <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--disabled" style="max-width:100%px;max-width:100%;" title="shanghai"><!----><span style="max-width:100%px;" class="t-tag--text"><!--[-->shanghai<!--]--></span>
+        <!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--disabled" style="max-width:100%px;max-width:100%;" title="beijing"><!----><span style="max-width:100%px;" class="t-tag--text"><!--[-->beijing<!--]--></span>
         <!----></span>
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+2<!--]--><!----></span>
         <!---->
@@ -25015,7 +25057,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
+        <div class="t-input t-size-m t-is-readonly t-select__input" modelvalue>
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="-请选择-" type="text" value>
           <!---->
@@ -25061,7 +25103,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
+        <div class="t-input t-size-m t-is-readonly t-select__input" modelvalue>
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="-请选择-" type="text" value>
           <!---->
@@ -25860,7 +25902,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
+        <div class="t-input t-size-m t-is-readonly t-select__input" modelvalue>
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="-请选择-" type="text" value>
           <!---->
@@ -25902,7 +25944,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input t-size-m t-select__input" modelvalue>
+        <div class="t-input t-size-m t-is-readonly t-select__input" modelvalue>
           <!---->
           <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="-请输入搜索-" type="text" value>
           <!---->
@@ -28448,14 +28490,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
 
 exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue correctly 1`] = `
 <div>
-  <div style="margin:16px;">
-    <ul>
-      <li>标题默认使用 title 渲染，自定义标题则有以下几种方式</li>
-      <li>1) 使用 title 作为渲染函数，函数参数为：title({ col, colIndex })</li>
-      <li>2) 插槽，使用 title 的值作为插槽名称</li>
-      <li> 3)【不推荐使用】使用 render 作为渲染函数，函数参数为：render({col, colIndex, row, rowIndex, type})，单元格的 type 值为 cell，标题的 type 值为 title。使用排序、过滤等功能时不能使用该方法 </li>
-    </ul><br>
-  </div>
   <div style="width: 100%">
     <div class="t-table" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
       <div class="t-loading__parent">
@@ -29394,7 +29428,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                     </div>
                                     <!--[-->
                                     <div class="t-form-controls">
-                                      <div class="t-input t-size-m t-input--suffix" modelvalue allowinput="0">
+                                      <div class="t-input t-size-m t-is-readonly t-input--suffix" modelvalue allowinput="0">
                                         <!---->
                                         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder="请选择月份" type="text" value>
                                         <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fillopacity="0.9"></path></svg></span>
@@ -32765,14 +32799,14 @@ exports[`ssr snapshot test renders ./examples/tag/demos/delete.vue correctly 1`]
       <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
     </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close" style="max-width:100px;"><svg class="t-icon t-icon-discount" style=""><use href="#t-icon-discount"></use></svg><span style="max-width:100px;" class="t-tag--text"><!--[-->可删除标签可删除标签<!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
       <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
-    </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close t-is-disabled t-tag--disabled" style=""><!----><!--[-->可删除标签<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+    </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close t-tag--disabled" style=""><!----><!--[-->可删除标签<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
     <!--]-->
   </div>
   <div class="tag-block editable"><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fillopacity="0.9"></path></svg> 添加标签 <!--]--><!----></span></div>
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/tag/demos/disabled.vue correctly 1`] = `<div class="tdesign-tag-disabled tag-demo"><span class="t-tag t-tag--check t-tag--default t-tag--disabled check-tag"><!--[--> 失效标签 <!--]--></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-is-disabled t-tag--disabled" style=""><!----><!--[--> 失效标签 <!--]--><!----></span></div>`;
+exports[`ssr snapshot test renders ./examples/tag/demos/disabled.vue correctly 1`] = `<div class="tdesign-tag-disabled tag-demo"><span class="t-tag t-tag--check t-tag--default t-tag--disabled check-tag"><!--[--> 失效标签 <!--]--></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled" style=""><!----><!--[--> 失效标签 <!--]--><!----></span></div>`;
 
 exports[`ssr snapshot test renders ./examples/tag/demos/icon.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
@@ -32811,6 +32845,274 @@ exports[`ssr snapshot test renders ./examples/tag/demos/theme.vue correctly 1`] 
   <div class="tdesign-demo-block"> 深色 <span class="t-tag t-tag--primary t-size-m t-tag--dark" style=""><!----><!--[--> 标签一 <!--]--><!----></span><span class="t-tag t-tag--success t-size-m t-tag--dark" style=""><!----><!--[--> 标签二 <!--]--><!----></span><span class="t-tag t-tag--warning t-size-m t-tag--dark" style=""><!----><!--[--> 标签三 <!--]--><!----></span><span class="t-tag t-tag--danger t-size-m t-tag--dark" style=""><!----><!--[--> 标签四 <!--]--><!----></span></div>
   <div class="tdesign-demo-block light"> 浅色 <span class="t-tag t-tag--primary t-size-m t-tag--light" style=""><!----><!--[--> 标签一 <!--]--><!----></span><span class="t-tag t-tag--success t-size-m t-tag--light" style=""><!----><!--[--> 标签二 <!--]--><!----></span><span class="t-tag t-tag--warning t-size-m t-tag--light" style=""><!----><!--[--> 标签三 <!--]--><!----></span><span class="t-tag t-tag--danger t-size-m t-tag--light" style=""><!----><!--[--> 标签四 <!--]--><!----></span></div>
   <div class="tdesign-demo-block plain"> 朴素 <span class="t-tag t-tag--primary t-size-m t-tag--plain" style=""><!----><!--[--> 标签一 <!--]--><!----></span><span class="t-tag t-tag--success t-size-m t-tag--plain" style=""><!----><!--[--> 标签二 <!--]--><!----></span><span class="t-tag t-tag--warning t-size-m t-tag--plain" style=""><!----><!--[--> 标签三 <!--]--><!----></span><span class="t-tag t-tag--danger t-size-m t-tag--plain" style=""><!----><!--[--> 标签四 <!--]--><!----></span></div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly 1`] = `
+<div style="width:60%;">
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br>
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[-->
+      <div class="t-tag-input__prefix">Controlled: </div><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br>
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[-->
+      <div class="t-tag-input__prefix">UnControlled: </div><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue correctly 1`] = `
+<div style="width:100%;">
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->+4<!--]--><!----></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br>
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--[-->
+      <div class="t-popup__reference">
+        <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+          <div class="t-popup__content">
+            <!--[-->
+            <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="margin-right:4px;"><!----><!--[-->Angular<!--]--><!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style="margin-right:4px;"><!----><!--[-->Flutter<!--]--><!----></span>
+            <!--]-->
+            <!--]-->
+            <!---->
+          </div>
+        </div>
+        <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->More(2)<!--]--><!----></span>
+        <!--]-->
+      </div>
+      <!--]-->
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue correctly 1`] = `
+<div style="width:100%;">
+  <!-- 方式一：使用 tag 定义标签内部内容 -->
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[--><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentA</span>
+      <!--]-->
+      <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+        <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+      </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[--><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentB</span>
+      <!--]-->
+      <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+        <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+      </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->+1<!--]--><!----></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br><!-- 方式二：使用 valueDisplay 定义全部内容 -->
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[-->
+      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentA</span>
+      <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+        <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+      </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentB</span>
+      <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+        <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+      </svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentC</span>
+      <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+        <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+      </svg></span>
+      <!--]-->
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/tag-input/demos/excess.vue correctly 1`] = `
+<div style="width:60%;">
+  <!-- 标签数量超出时，滚动显示 -->
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[-->
+      <div class="t-tag-input__prefix">Scroll: </div><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br><!-- 标签数量超出时，换行显示 -->
+  <div class="t-input t-size-m t-input--prefix t-tag-input t-tag-input--break-line">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[-->
+      <div class="t-tag-input__prefix">BreakLine: </div><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/tag-input/demos/max.vue correctly 1`] = `
+<div style="width:100%;">
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[-->
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder="最多只能输入 3 个标签" type="text">
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correctly 1`] = `
+<div>
+  <div class="t-tdesign-demo__tag-input"><label>禁用状态：</label>
+    <div class="t-input t-size-m t-is-disabled t-input--prefix t-tag-input">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled" style=""><!----><!--[-->Vue<!--]--><!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled" style=""><!----><!--[-->React<!--]--><!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled" style=""><!----><!--[-->Miniprogram<!--]--><!----></span>
+        <!--]-->
+      </div><input class="t-input__inner" disabled autocomplete="false" placeholder type="text">
+      <!---->
+      <!---->
+    </div>
+  </div><br><br>
+  <div class="t-tdesign-demo__tag-input"><label>只读状态：</label>
+    <div class="t-input__wrap">
+      <div class="t-input t-size-m t-is-readonly t-input--prefix t-tag-input">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->Vue<!--]--><!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->React<!--]--><!----></span><span class="t-tag t-tag--default t-size-m t-tag--dark" style=""><!----><!--[-->Miniprogram<!--]--><!----></span>
+          <!--]-->
+        </div><input class="t-input__inner" readonly autocomplete="false" placeholder type="text">
+        <!---->
+        <!---->
+      </div>
+      <div class="t-input__tips t-input__tips--normal">这是普通文本提示</div>
+    </div>
+  </div><br><br>
+  <div class="t-tdesign-demo__tag-input"><label>成功状态：</label>
+    <div class="t-input__wrap">
+      <div class="t-input t-size-m t-is-success t-input--prefix t-tag-input">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+          <!--]-->
+        </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+        <!---->
+        <!---->
+      </div>
+      <div class="t-input__tips t-input__tips--success">校验通过文本提示</div>
+    </div>
+  </div><br>
+  <div class="t-tdesign-demo__tag-input"><label>告警状态：</label>
+    <div class="t-input__wrap">
+      <div class="t-input t-size-m t-is-warning t-input--prefix t-tag-input">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+          <!--]-->
+        </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+        <!---->
+        <!---->
+      </div>
+      <div class="t-input__tips t-input__tips--warning">校验不通过文本提示</div>
+    </div>
+  </div><br>
+  <div class="t-tdesign-demo__tag-input"><label>错误状态：</label>
+    <div class="t-input__wrap">
+      <div class="t-input t-size-m t-is-error t-input--prefix t-tag-input">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+          <!--]-->
+        </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+        <!---->
+        <!---->
+      </div>
+      <div class="t-input__tips t-input__tips--error">校验存在严重问题文本提示</div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctly 1`] = `
+<div style="width:50%;">
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br>
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br>
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div><br><br>
+  <div class="t-input t-size-m t-input--prefix t-tag-input">
+    <!---->
+    <div class="t-input__prefix">
+      <!--[--><span class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
+      <!--]-->
+    </div><input class="t-input__inner" autocomplete="false" placeholder type="text">
+    <!---->
+    <!---->
+  </div>
 </div>
 `;
 
@@ -33049,7 +33351,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/base.vue correct
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -33244,7 +33546,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/base.vue correct
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -33445,7 +33747,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/clearable.vue co
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -33641,7 +33943,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/clearable.vue co
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -33841,7 +34143,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/disabled.vue cor
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-is-disabled t-input--suffix">
+      <div class="t-input t-size-m t-is-disabled t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" disabled readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -34036,7 +34338,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/format.vue corre
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -34237,7 +34539,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -34433,7 +34735,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -34565,7 +34867,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hm.vue correctly
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -34762,7 +35064,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hms.vue correctl
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -34963,7 +35265,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/keyboard.vue cor
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -35159,7 +35461,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/keyboard.vue cor
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -35527,7 +35829,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/range.vue correc
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m">
+      <div class="t-input t-size-m t-is-readonly">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!---->
@@ -35658,7 +35960,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/show-steps.vue c
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -35785,7 +36087,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/step.vue correct
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -35980,7 +36282,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour.vue 
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>
@@ -36175,7 +36477,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour-meri
     </div>
     <!--[-->
     <div class="t-time-picker__group">
-      <div class="t-input t-size-m t-input--suffix">
+      <div class="t-input t-size-m t-is-readonly t-input--suffix">
         <!---->
         <!----><input class="t-input__inner" readonly autocomplete="false" placeholder=" " type="text" value=" ">
         <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fillopacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fillopacity="0.9"></path></svg><!--]--></span>

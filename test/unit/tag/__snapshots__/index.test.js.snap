@@ -35,7 +35,7 @@ exports[`Tag or CheckTag :Tag:props :closable 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :disabled 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark t-is-disabled t-tag--disabled"
+  class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
 >
   <!---->
   <!---->
