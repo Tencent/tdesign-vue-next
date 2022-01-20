@@ -28,7 +28,7 @@ const banner = `/**
  */
 `;
 
-const input = 'src/index.ts';
+const input = 'src/index-lib.ts';
 const inputList = ['src/**/*.ts', 'src/**/*.tsx', '!src/**/demos', '!src/**/*.d.ts', '!src/**/__tests__'];
 
 const getPlugins = ({
@@ -112,8 +112,8 @@ const getPlugins = ({
       terser({
         output: {
           /* eslint-disable */
-        ascii_only: true,
-        /* eslint-enable */
+          ascii_only: true,
+          /* eslint-enable */
         },
       }),
     );
@@ -154,7 +154,12 @@ const esmConfig = {
   // 为了保留 style/index.js
   treeshake: false,
   external: externalDeps.concat(externalPeerDeps),
-  plugins: [multiInput()].concat(getPlugins({ ignoreLess: false })),
+  plugins: [
+    multiInput(),
+    postcss({
+      extensions: ['.sass', '.scss', '.css', '.less'],
+    }),
+  ].concat(getPlugins({ ignoreLess: false })),
   output: {
     banner,
     dir: 'esm/',
@@ -168,7 +173,12 @@ const esmConfig = {
 const cjsConfig = {
   input: inputList,
   external: externalDeps.concat(externalPeerDeps),
-  plugins: [multiInput()].concat(getPlugins()),
+  plugins: [
+    multiInput(),
+    postcss({
+      extensions: ['.sass', '.scss', '.css', '.less'],
+    }),
+  ].concat(getPlugins({ ignoreLess: false })),
   output: {
     banner,
     dir: 'lib/',

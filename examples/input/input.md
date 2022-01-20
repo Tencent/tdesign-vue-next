@@ -39,7 +39,7 @@ onKeypress | Function |  | TS 类型：`(value: InputValue, context: { e: Keyboa
 onKeyup | Function |  | TS 类型：`(value: InputValue, context: { e: KeyboardEvent }) => void`<br/>释放键盘时触发 | N
 onMouseenter | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>进入输入框时触发 | N
 onMouseleave | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>离开输入框时触发 | N
-onPaste | Function |  | TS 类型：`(context: { e: ClipboardEvent; pasteValue: string }) => void`<br/>粘贴事件，`pasteValue` 表示粘贴板的内容 | N
+onPaste | Function |  | TS 类型：`(context: { e: ClipboardEvent<HTMLInputElement>; pasteValue: string }) => void`<br/>粘贴事件，`pasteValue` 表示粘贴板的内容 | N
 
 ### Input Events
 
@@ -55,4 +55,4 @@ keypress | `(value: InputValue, context: { e: KeyboardEvent })` | 按下字符�
 keyup | `(value: InputValue, context: { e: KeyboardEvent })` | 释放键盘时触发
 mouseenter | `(context: { e: MouseEvent })` | 进入输入框时触发
 mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发
-paste | `(context: { e: ClipboardEvent; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容
+paste | `(context: { e: ClipboardEvent<HTMLInputElement>; pasteValue: string })` | 粘贴事件，`pasteValue` 表示粘贴板的内容

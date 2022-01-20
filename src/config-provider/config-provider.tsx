@@ -1,20 +1,19 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, provide } from 'vue';
 import { GlobalConfigProvider } from './type';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { prefix } from '../config';
 
 const name = `${prefix}-config-provider`;
 
-const ConfigProvider = defineComponent({
+export default defineComponent({
   name,
 
-  provide(): { globalConfig: GlobalConfigProvider } {
-    return {
-      globalConfig: this.globalConfig,
-    };
-  },
   props: {
     globalConfig: Object as PropType<GlobalConfigProvider>,
+  },
+
+  setup(props) {
+    provide('globalConfig', props.globalConfig);
   },
 
   render() {
@@ -25,5 +24,3 @@ const ConfigProvider = defineComponent({
     return <div>{defaultNode}</div>;
   },
 });
-
-export default ConfigProvider;
