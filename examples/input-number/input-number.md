@@ -16,7 +16,7 @@ status | String | - | 文本框状态。可选项：success/warning/error | N
 step | Number | 1 | 数值改变步数，可以是小数 | N
 theme | String | row | 按钮布局。可选项：column/row/normal | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-value | Number | undefined | 值。支持语法糖 | N
+value | Number | undefined | 值。支持语法糖 `v-model:value` | N
 defaultValue | Number | undefined | 值。非受控属性 | N
 onBlur | Function |  | TS 类型：`(value: number, context: { e: FocusEvent }) => void`<br/>失去焦点时触发 | N
 onChange | Function |  | TS 类型：`(value: number, context: ChangeContext) => void`<br/>值变化时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/input-number/type.ts)。<br/>`interface ChangeContext { type: ChangeSource; e: InputEvent | MouseEvent | FocusEvent }`<br/><br/>`type ChangeSource = 'add' | 'reduce' | 'input' | ''`<br/> | N

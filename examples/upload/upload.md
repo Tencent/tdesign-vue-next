@@ -18,7 +18,7 @@ data | Object | - | 上传文件时所需的额外数据。TS 类型：`Record<s
 default | String / Slot / Function | - | 触发上传的内容，同 trigger。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 disabled | Boolean | false | 是否禁用 | N
 draggable | Boolean | false | 是否启用拖拽上传 | N
-files | Array | - | 已上传文件列表。支持语法糖。TS 类型：`Array<UploadFile>` | N
+files | Array | - | 已上传文件列表。支持语法糖 `v-model:files`。TS 类型：`Array<UploadFile>` | N
 defaultFiles | Array | - | 已上传文件列表。非受控属性。TS 类型：`Array<UploadFile>` | N
 format | Function | - | 文件上传前转换文件数据。TS 类型：`(file: File) => UploadFile` | N
 formatResponse | Function | - | 用于格式化文件上传后的响应数据。error 用于显示错误提示，如果 error 值为真，组件会判定为上传失败；url 用于上传文件/图片地址。。TS 类型：`(response: any, context: FormatResponseContext) => ResponseType `。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/upload/type.ts) | N

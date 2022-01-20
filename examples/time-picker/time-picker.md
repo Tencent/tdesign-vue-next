@@ -14,7 +14,7 @@ hideDisabledTime | Boolean | true | 是否隐藏禁用状态的时间项 | N
 placeholder | String | undefined | 占位符 | N
 size | String | medium | 尺寸。可选项：small/medium/large | N
 steps | Array | () => [1, 1, 1] | 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']。TS 类型：`Array<string | number>` | N
-value | String | - | 选中值。支持语法糖。TS 类型：`TimePickerValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
+value | String | - | 选中值。支持语法糖 `v-model:value`。TS 类型：`TimePickerValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 defaultValue | String | - | 选中值。非受控属性。TS 类型：`TimePickerValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 onBlur | Function |  | TS 类型：`(context: { trigger: 'hour' | 'minute' | 'second'; input: string; value: TimePickerValue; e: FocusEvent }) => void`<br/>当输入框失去焦点时触发，参数 input 表示输入框内容，value 表示组件当前有效值，trigger 表示触发源头 | N
 onChange | Function |  | TS 类型：`(value: TimePickerValue) => void`<br/>选中值发生变化时触发 | N
@@ -47,7 +47,7 @@ hideDisabledTime | Boolean | true | 是否隐藏禁用状态的时间项 | N
 placeholder | String / Array | undefined | 占位符，值为数组表示可分别为开始日期和结束日期设置占位符。TS 类型：`string | Array<string>` | N
 size | String | medium | 尺寸。可选项：small/medium/large | N
 steps | Array | () => [1, 1, 1] | 时间间隔步数，数组排列 [小时, 分钟, 秒]，示例：[2, 1, 1] 或者 ['2', '1', '1']。TS 类型：`Array<string | number>` | N
-value | Array | - | 选中值。支持语法糖。TS 类型：`TimeRangeValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
+value | Array | - | 选中值。支持语法糖 `v-model:value`。TS 类型：`TimeRangeValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 defaultValue | Array | - | 选中值。非受控属性。TS 类型：`TimeRangeValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/time-picker/type.ts) | N
 onBlur | Function |  | TS 类型：`(context: { value: TimeRangeValue; e: FocusEvent }) => void`<br/>当输入框失去焦点时触发 | N
 onChange | Function |  | TS 类型：`(value: TimeRangeValue) => void`<br/>选中值发生变化时触发 | N
