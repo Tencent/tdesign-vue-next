@@ -7,6 +7,8 @@
       "scripthost"
     ],
     "target": "esnext",
+    "outDir": "lib",
+    "declaration": true,
     "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": false,
