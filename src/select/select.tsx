@@ -700,15 +700,12 @@ export default defineComponent({
           {!hasOptions && displayOptions.length && !loading ? (
             this.renderDataWithOptions()
           ) : (
-            <ul v-show={!loading && displayOptions.length} class={`${prefix}-select__groups`}>
-              {children}
-            </ul>
+            <ul class={`${prefix}-select__groups`}>{children}</ul>
           )}
           {renderTNodeJSX(this, 'panelBottomContent')}
         </div>
       ),
     };
-
     return (
       <div ref="select" class={`${name}__wrap`}>
         <Popup

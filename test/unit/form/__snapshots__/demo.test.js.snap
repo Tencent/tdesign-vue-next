@@ -2050,7 +2050,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                       </li>
                       <ul
                         class="t-select__groups"
-                        style="display: none;"
                       >
                         
                         
