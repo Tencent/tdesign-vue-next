@@ -15,7 +15,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
-    const rowContext = inject<RowProviderType>('rowContext', {} as RowProviderType);
+    const rowContext = inject<RowProviderType>('rowContext', Object.create(null));
 
     const size = useRowSize();
 
