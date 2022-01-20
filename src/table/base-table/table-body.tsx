@@ -9,56 +9,58 @@ import { BaseTableCol } from '../type';
 import { emitEvent } from '../../utils/event';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 
+const props = {
+  data: baseTableProps.data,
+  columns: baseTableProps.columns,
+  rowClassName: baseTableProps.rowClassName,
+  rowKey: baseTableProps.rowKey,
+  rowspanAndColspan: baseTableProps.rowspanAndColspan,
+  firstFullRow: baseTableProps.firstFullRow,
+  lastFullRow: baseTableProps.lastFullRow,
+  rowHeight: {
+    type: Number as PropType<number>,
+    default: 0,
+  },
+  bufferSize: {
+    type: Number as PropType<number>,
+    default: 0,
+  },
+  scrollType: {
+    type: String,
+    default: '',
+  },
+  handleRowMounted: {
+    type: Function as PropType<() => void>,
+    default: () => {},
+  },
+  trs: {
+    type: Map,
+    default: () => new Map(),
+  },
+  onRowHover: baseTableProps.onRowHover,
+  onRowMousedown: baseTableProps.onRowMousedown,
+  onRowMouseenter: baseTableProps.onRowMouseenter,
+  onRowMouseleave: baseTableProps.onRowMouseleave,
+  onRowMouseup: baseTableProps.onRowMouseup,
+  onRowClick: baseTableProps.onRowClick,
+  onRowDbClick: baseTableProps.onRowDbClick,
+  selectedRowKeys: primaryTableProps.selectedRowKeys,
+  provider: {
+    type: Object,
+    default() {
+      return {};
+    },
+  },
+  current: {
+    type: Number,
+    default: 1,
+  },
+};
+
 export default defineComponent({
   name: `${prefix}-table-body`,
   components: { TransitionGroup },
-  props: {
-    data: baseTableProps.data,
-    columns: baseTableProps.columns,
-    rowClassName: baseTableProps.rowClassName,
-    rowKey: baseTableProps.rowKey,
-    rowspanAndColspan: baseTableProps.rowspanAndColspan,
-    firstFullRow: baseTableProps.firstFullRow,
-    lastFullRow: baseTableProps.lastFullRow,
-    rowHeight: {
-      type: Number as PropType<number>,
-      default: 0,
-    },
-    bufferSize: {
-      type: Number as PropType<number>,
-      default: 0,
-    },
-    scrollType: {
-      type: String,
-      default: '',
-    },
-    handleRowMounted: {
-      type: Function as PropType<() => void>,
-      default: () => {},
-    },
-    trs: {
-      type: Map,
-      default: () => new Map(),
-    },
-    onRowHover: baseTableProps.onRowHover,
-    onRowMousedown: baseTableProps.onRowMousedown,
-    onRowMouseenter: baseTableProps.onRowMouseenter,
-    onRowMouseleave: baseTableProps.onRowMouseleave,
-    onRowMouseup: baseTableProps.onRowMouseup,
-    onRowClick: baseTableProps.onRowClick,
-    onRowDbClick: baseTableProps.onRowDbClick,
-    selectedRowKeys: primaryTableProps.selectedRowKeys,
-    provider: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
-    current: {
-      type: Number,
-      default: 1,
-    },
-  },
+  props,
   emits: ['row-dragstart', 'row-dragover'],
   setup(props) {
     provide('rowHeightRef', ref(props.rowHeight));
@@ -167,7 +169,16 @@ export default defineComponent({
       return null;
     },
     renderBody(): Array<VNode> {
-      const { data, rowClassName, rowKey, $slots: slots, rowspanAndColspan, selectedRowKeys, selectColumn } = this;
+      const {
+        data,
+        rowClassName,
+        rowKey,
+        $slots: slots,
+        $props,
+        rowspanAndColspan,
+        selectedRowKeys,
+        selectColumn,
+      } = this;
       let body: Array<VNode> = [];
       let allRowspanAndColspanProps: any;
       if (typeof rowspanAndColspan === 'function') {
@@ -188,7 +199,8 @@ export default defineComponent({
         onRowMousedown,
         onRowDbClick,
         onRowClick,
-      } = this.$props;
+      } = $props;
+
       data.forEach((row: any, index: number) => {
         const defaultRowClass =
           typeof rowClassName === 'function' ? rowClassName({ row, rowIndex: index }) : rowClassName;
