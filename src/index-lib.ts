@@ -1,3 +1,4 @@
+import './style';
 import tdesign from './index';
 
 const ENV = process.env.NODE_ENV;

@@ -28,7 +28,7 @@ const banner = `/**
  */
 `;
 
-const input = 'src/index.ts';
+const input = 'src/index-lib.ts';
 const inputList = ['src/**/*.ts', 'src/**/*.tsx', '!src/**/demos', '!src/**/*.d.ts', '!src/**/__tests__'];
 
 const getPlugins = ({
