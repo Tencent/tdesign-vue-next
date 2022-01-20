@@ -1,8 +1,7 @@
 <template>
-  <div style="width: 60%">
+  <div class="tdesign-demo-block-column" style="width: 80%">
     <!-- 标签数量超出时，滚动显示 -->
     <t-tag-input v-model="tags" label="Scroll: " clearable />
-    <br /><br />
 
     <!-- 标签数量超出时，换行显示 -->
     <t-tag-input v-model="tags" label="BreakLine: " excess-tags-display-type="break-line" clearable />

@@ -2,7 +2,8 @@
 
 exports[`TagInput TagInput baseVue demo works fine 1`] = `
 <div
-  style="width: 60%;"
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
 >
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
@@ -65,8 +66,6 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >
@@ -133,8 +132,6 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >
@@ -201,14 +198,13 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
 </div>
 `;
 
 exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
 <div
-  style="width: 100%;"
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
 >
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
@@ -260,8 +256,6 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >
@@ -404,7 +398,8 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
 
 exports[`TagInput TagInput customTagVue demo works fine 1`] = `
 <div
-  style="width: 100%;"
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
 >
   <!-- 方式一：使用 tag 定义标签内部内容 -->
   <div
@@ -632,7 +627,10 @@ exports[`TagInput TagInput maxVue demo works fine 1`] = `
 `;
 
 exports[`TagInput TagInput statusVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-column"
+  style="width: 100%;"
+>
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -687,8 +685,6 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <br />
-  <br />
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -752,8 +748,6 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <br />
-  <br />
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -852,7 +846,6 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <br />
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -951,7 +944,6 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <br />
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -1055,7 +1047,8 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
 
 exports[`TagInput TagInput themeVue demo works fine 1`] = `
 <div
-  style="width: 50%;"
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
 >
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
@@ -1139,8 +1132,6 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >
@@ -1223,8 +1214,6 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >
@@ -1307,8 +1296,6 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >

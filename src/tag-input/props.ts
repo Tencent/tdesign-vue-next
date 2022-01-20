@@ -18,6 +18,14 @@ export default {
   disabled: Boolean,
   /** 【开发中】拖拽调整标签顺序 */
   dragSort: Boolean,
+  /** 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示 */
+  excessTagsDisplayType: {
+    type: String as PropType<TdTagInputProps['excessTagsDisplayType']>,
+    default: 'scroll' as TdTagInputProps['excessTagsDisplayType'],
+    validator(val: TdTagInputProps['excessTagsDisplayType']): boolean {
+      return ['scroll', 'break-line'].includes(val);
+    },
+  },
   /** 透传 Input 输入框组件全部属性 */
   inputProps: {
     type: Object as PropType<TdTagInputProps['inputProps']>,
@@ -35,14 +43,6 @@ export default {
     type: Number,
     default: 0,
   },
-  /** 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示 */
-  excessTagsDisplayType: {
-    type: String as PropType<TdTagInputProps['excessTagsDisplayType']>,
-    default: 'scroll' as TdTagInputProps['excessTagsDisplayType'],
-    validator(val: TdTagInputProps['excessTagsDisplayType']): boolean {
-      return ['scroll', 'break-line'].includes(val);
-    },
-  },
   /** 占位符 */
   placeholder: {
     type: String,
@@ -50,6 +50,14 @@ export default {
   },
   /** 是否只读，值为真会隐藏标签移除按钮和输入框 */
   readonly: Boolean,
+  /** 尺寸 */
+  size: {
+    type: String as PropType<TdTagInputProps['size']>,
+    default: 'medium' as TdTagInputProps['size'],
+    validator(val: TdTagInputProps['size']): boolean {
+      return ['small', 'medium', 'large'].includes(val);
+    },
+  },
   /** 输入框状态 */
   status: {
     type: String as PropType<TdTagInputProps['status']>,

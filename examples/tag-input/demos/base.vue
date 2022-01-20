@@ -1,13 +1,10 @@
 <template>
-  <div style="width: 60%">
+  <div class="tdesign-demo-block-column" style="width: 80%">
     <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" />
-    <br /><br />
 
     <t-tag-input :value="tags2" label="Controlled: " clearable @change="onChange" />
-    <br /><br />
 
     <t-tag-input :default-value="tags3" label="UnControlled: " clearable />
-    <br /><br />
   </div>
 </template>
 

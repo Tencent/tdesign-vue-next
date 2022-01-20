@@ -83,6 +83,7 @@ export default defineComponent({
           const tagContent = renderTNodeJSX(this, 'tag', { params: { value: item } });
           return (
             <Tag
+              size={this.size}
               disabled={this.disabled}
               onClose={(e) => this.onClose({ e, item, index })}
               closable={!this.readonly && !this.disabled}
@@ -130,6 +131,7 @@ export default defineComponent({
         onChange={(val) => {
           this.inputValueRef = val;
         }}
+        size={this.size}
         readonly={this.readonly}
         disabled={this.disabled}
         label={this.renderLabel}
