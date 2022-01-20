@@ -173,7 +173,6 @@ exports[`Select Select baseVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -1498,7 +1497,6 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -3423,7 +3421,6 @@ exports[`Select Select groupVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -4469,7 +4466,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -5496,7 +5492,6 @@ exports[`Select Select panelVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -6113,82 +6108,15 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                 </li>
               </ul>
               <!---->
-              <!---->
-              <ul>
-                
-                <li
-                  class="t-select-option t-size-m"
-                  title="选项一"
-                >
-                  <label
-                    class="t-checkbox undefined"
-                    modelvalue="false"
-                  >
-                    <input
-                      class="t-checkbox__former"
-                      type="checkbox"
-                    />
-                    <span
-                      class="t-checkbox__input"
-                    />
-                    <span
-                      class="t-checkbox__label"
-                    >
-                      
-                      选项一
-                      
-                    </span>
-                  </label>
-                </li>
-                <li
-                  class="t-select-option t-size-m"
-                  title="选项二"
-                >
-                  <label
-                    class="t-checkbox undefined"
-                    modelvalue="false"
-                  >
-                    <input
-                      class="t-checkbox__former"
-                      type="checkbox"
-                    />
-                    <span
-                      class="t-checkbox__input"
-                    />
-                    <span
-                      class="t-checkbox__label"
-                    >
-                      
-                      选项二
-                      
-                    </span>
-                  </label>
-                </li>
-                <li
-                  class="t-select-option t-size-m"
-                  title="选项三"
-                >
-                  <label
-                    class="t-checkbox undefined"
-                    modelvalue="false"
-                  >
-                    <input
-                      class="t-checkbox__former"
-                      type="checkbox"
-                    />
-                    <span
-                      class="t-checkbox__input"
-                    />
-                    <span
-                      class="t-checkbox__label"
-                    >
-                      
-                      选项三
-                      
-                    </span>
-                  </label>
-                </li>
-                
+              <li
+                class="t-select__empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+              >
+                <!---->
               </ul>
               <!---->
             </div>
@@ -6298,7 +6226,6 @@ exports[`Select Select sizeVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -6886,7 +6813,6 @@ exports[`Select Select statusVue demo works fine 1`] = `
               <!---->
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 <!---->
               </ul>

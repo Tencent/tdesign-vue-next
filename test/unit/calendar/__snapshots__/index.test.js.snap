@@ -57,7 +57,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -328,7 +327,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -1419,7 +1417,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -1690,7 +1687,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -2501,7 +2497,6 @@ exports[`Calendar :props :mode 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -3108,7 +3103,6 @@ exports[`Calendar :props :range 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -3299,7 +3293,6 @@ exports[`Calendar :props :range 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -4272,7 +4265,6 @@ exports[`Calendar :props :theme 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -4543,7 +4535,6 @@ exports[`Calendar :props :theme 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -5489,7 +5480,6 @@ exports[`Calendar :props :value 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -5760,7 +5750,6 @@ exports[`Calendar :props :value 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       

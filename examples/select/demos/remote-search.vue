@@ -33,11 +33,7 @@ export default defineComponent({
       { label: '选项二', value: '2' },
       { label: '选项三', value: '3' },
     ]);
-    const options2 = ref([
-      { label: '选项一', value: '1' },
-      { label: '选项二', value: '2' },
-      { label: '选项三', value: '3' },
-    ]);
+    const options2 = ref([]);
     const value = ref('');
     const value2 = ref([]);
     const loading = ref(false);

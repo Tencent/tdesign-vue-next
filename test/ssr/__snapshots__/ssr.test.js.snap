@@ -1315,7 +1315,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -1440,7 +1440,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -1623,7 +1623,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="全屏风格">全屏风格</li>
@@ -1679,7 +1679,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -1804,7 +1804,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -1989,7 +1989,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="全屏风格">全屏风格</li>
@@ -2038,7 +2038,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -2163,7 +2163,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -2562,7 +2562,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -2687,7 +2687,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -3129,7 +3129,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -3254,7 +3254,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -3538,7 +3538,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -3663,7 +3663,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -3853,7 +3853,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -3978,7 +3978,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -4175,7 +4175,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -4300,7 +4300,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -4505,7 +4505,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -4630,7 +4630,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -4814,7 +4814,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="周一">周一</li>
@@ -4868,7 +4868,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -4993,7 +4993,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -5194,7 +5194,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -5319,7 +5319,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -5502,7 +5502,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="日历">日历</li>
@@ -5551,7 +5551,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -5733,7 +5733,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2018 年">
@@ -5818,7 +5818,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -6006,7 +6006,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -6131,7 +6131,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -6498,7 +6498,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1988 年">
@@ -6623,7 +6623,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -6825,7 +6825,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups" style="display:none;">
+                      <ul class="t-select__groups">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="2010 年">
@@ -6950,7 +6950,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups" style="display:none;">
+                      <ul class="t-select__groups">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="1 月">
@@ -7159,7 +7159,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups" style="display:none;">
+                      <ul class="t-select__groups">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="2010 年">
@@ -7284,7 +7284,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups" style="display:none;">
+                      <ul class="t-select__groups">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="1 月">
@@ -7472,7 +7472,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups" style="display:none;">
+                      <ul class="t-select__groups">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="2010 年">
@@ -7597,7 +7597,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups" style="display:none;">
+                      <ul class="t-select__groups">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="1 月">
@@ -8591,7 +8591,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010">
@@ -8716,7 +8716,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups" style="display:none;">
+                  <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="January">
@@ -10171,7 +10171,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">Empty Data</li>
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!---->
             </ul>
             <!---->
@@ -10207,7 +10207,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
             </ul>
             <li class="t-select__loading-tips t-size-m">loading...</li>
             <!---->
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!---->
             </ul>
             <!---->
@@ -10718,7 +10718,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-m" title="5 / page">5 / page</li>
@@ -17107,7 +17107,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="计算机学院">
@@ -22030,7 +22030,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-m" title="5 条/页">5 条/页</li>
@@ -22098,7 +22098,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="5 条/页">5 条/页</li>
@@ -22168,7 +22168,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="5 条/页">5 条/页</li>
@@ -22244,7 +22244,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
               </ul>
               <!---->
               <li class="t-select__empty t-size-s">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-s" title="5 条/页">5 条/页</li>
@@ -22316,7 +22316,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-m" title="5 条/页">5 条/页</li>
@@ -22391,7 +22391,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="每页 10 条">每页 10 条</li>
@@ -22463,7 +22463,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-m" title="5 条/页">5 条/页</li>
@@ -22578,7 +22578,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
               </ul>
               <!---->
               <li class="t-select__empty t-size-s">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-s" title="5 条/页">5 条/页</li>
@@ -22693,7 +22693,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups" style="display:none;">
+              <ul class="t-select__groups">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="5 条/页">5 条/页</li>
@@ -24291,7 +24291,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-m" title="云服务器">云服务器</li>
@@ -24671,7 +24671,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-m" title="用户一">
@@ -25163,7 +25163,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!--[-->
               <!--[-->
               <li class="t-select-option-group t-size-m">
@@ -25450,7 +25450,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="云服务器"><label class="t-checkbox undefined t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->云服务器<!--]--></span></label></li>
@@ -25662,7 +25662,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-m" title="云服务器">云服务器</li>
@@ -25885,13 +25885,9 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
-            <!---->
-            <ul>
-              <!--[-->
-              <li class="t-select-option t-size-m" title="选项一"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
-              <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
-              <li class="t-select-option t-size-m" title="选项三"><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项三<!--]--></span></label></li>
-              <!--]-->
+            <li class="t-select__empty t-size-m">暂无数据</li>
+            <ul class="t-select__groups">
+              <!---->
             </ul>
             <!---->
           </div>
@@ -25937,7 +25933,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
             </ul>
             <!---->
             <li class="t-select__empty t-size-s">暂无数据</li>
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-s" title="选项一">
@@ -26157,7 +26153,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
             </ul>
             <li class="t-select__loading-tips t-size-m">加载中</li>
             <!---->
-            <ul class="t-select__groups" style="display:none;">
+            <ul class="t-select__groups">
               <!---->
             </ul>
             <!---->
@@ -30972,7 +30968,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups" style="display:none;">
+                      <ul class="t-select__groups">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-is-selected t-size-m" title="5 条/页">5 条/页</li>
@@ -31088,7 +31084,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups" style="display:none;">
+                    <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="5 条/页">5 条/页</li>
