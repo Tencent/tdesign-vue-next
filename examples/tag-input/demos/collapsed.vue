@@ -1,7 +1,6 @@
 <template>
-  <div style="width: 100%">
+  <div class="tdesign-demo-block-column" style="width: 80%">
     <t-tag-input v-model="tags" :min-collapsed-num="1" />
-    <br /><br />
     <t-tag-input v-model="tags" :min-collapsed-num="3">
       <template #collapsedItems="{ collapsedTags }">
         <t-popup>

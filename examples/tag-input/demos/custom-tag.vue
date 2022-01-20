@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%">
+  <div class="tdesign-demo-block-column" style="width: 80%">
     <!-- 方式一：使用 tag 定义标签内部内容 -->
     <t-tag-input v-model="tags" clearable :min-collapsed-num="2">
       <template #tag="{ value }">

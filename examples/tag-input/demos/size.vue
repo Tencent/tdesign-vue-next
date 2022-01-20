@@ -1,10 +1,10 @@
 <template>
   <div class="tdesign-demo-block-column" style="width: 80%">
-    <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" />
+    <t-tag-input v-model="tags1" size="small" clearable @paste="onPaste" @enter="onTagInputEnter" />
 
-    <t-tag-input :value="tags2" label="Controlled: " clearable @change="onChange" />
+    <t-tag-input :value="tags2" clearable @change="onChange" />
 
-    <t-tag-input :default-value="tags3" label="UnControlled: " clearable />
+    <t-tag-input :default-value="tags3" size="large" clearable />
   </div>
 </template>
 
@@ -12,7 +12,7 @@
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  name: 'TTagInputBaseDemo',
+  name: 'TTagInputSizeDemo',
   setup() {
     const tags1 = ref(['Vue', 'React']);
     const tags2 = ref(['Vue', 'React']);
@@ -25,6 +25,7 @@ export default defineComponent({
       console.log(val, context);
       tags2.value = val;
     };
+
     const onPaste = (context) => {
       console.log(context);
     };

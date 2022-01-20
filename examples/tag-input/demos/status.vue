@@ -1,25 +1,25 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-column" style="width: 100%">
     <div class="t-tdesign-demo__tag-input">
       <label>禁用状态：</label>
       <t-tag-input :value="tags1" disabled />
     </div>
-    <br /><br />
+
     <div class="t-tdesign-demo__tag-input">
       <label>只读状态：</label>
       <t-tag-input :value="tags2" tips="这是普通文本提示" readonly />
     </div>
-    <br /><br />
+
     <div class="t-tdesign-demo__tag-input">
       <label>成功状态：</label>
       <t-tag-input v-model="tags3" status="success" tips="校验通过文本提示" clearable />
     </div>
-    <br />
+
     <div class="t-tdesign-demo__tag-input">
       <label>告警状态：</label>
       <t-tag-input v-model="tags4" status="warning" tips="校验不通过文本提示" clearable />
     </div>
-    <br />
+
     <div class="t-tdesign-demo__tag-input">
       <label>错误状态：</label>
       <t-tag-input v-model="tags5" status="error" tips="校验存在严重问题文本提示" clearable />
