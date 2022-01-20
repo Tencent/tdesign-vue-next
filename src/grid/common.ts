@@ -56,7 +56,7 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) 
 
   const getRowGapStyle = (gutter: number) =>
     Object.assign(rowStyle, {
-      rowGap: `${gutter / -2}px`,
+      rowGap: `${gutter}px`,
     });
 
   const strategyMap = {
@@ -69,7 +69,7 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) 
       if (Array.isArray(gutter) && gutter.length) {
         strategyMap.isNumber(gutter[0]);
 
-        if (typeof gutter === 'number') {
+        if (typeof gutter[1] === 'number') {
           getRowGapStyle(gutter[1]);
         }
 
