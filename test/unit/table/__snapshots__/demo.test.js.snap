@@ -180,9 +180,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -210,9 +208,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -240,9 +236,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -270,9 +264,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -300,9 +292,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -547,9 +537,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -594,9 +582,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -641,9 +627,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -688,9 +672,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -735,9 +717,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -887,9 +867,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -950,9 +928,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -1117,9 +1093,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -1144,9 +1118,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -1450,9 +1422,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                 
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="false"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -1493,9 +1463,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="false"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -1536,9 +1504,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="false"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -1579,9 +1545,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="false"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -1732,9 +1696,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
                 
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="true"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -1775,9 +1737,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="true"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -1818,9 +1778,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="true"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -1861,9 +1819,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="true"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -2497,9 +2453,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -2589,9 +2543,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -2729,9 +2681,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -2821,9 +2771,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -3038,9 +2986,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -3130,9 +3076,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -3272,9 +3216,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -3364,9 +3306,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4295,10 +4235,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                firstfullrow="function () { [native code] }"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4329,10 +4266,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                firstfullrow="function () { [native code] }"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4363,10 +4297,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                firstfullrow="function () { [native code] }"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4397,10 +4328,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                firstfullrow="function () { [native code] }"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4431,10 +4359,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                firstfullrow="function () { [native code] }"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4730,9 +4655,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4801,9 +4724,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4872,9 +4793,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -4943,9 +4862,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5014,9 +4931,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5235,10 +5150,11 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
         </div>
         <div
           class="t-table__body"
-          style="height: 200px; width: 100%;"
+          style="height: 200px; width: 100%; position: relative;"
         >
+          <!---->
           <table
-            style="table-layout: fixed;"
+            style="table-layout: fixed; transform: false;"
           >
             <colgroup>
               
@@ -5274,9 +5190,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5345,9 +5259,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5416,9 +5328,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5487,9 +5397,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5558,9 +5466,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5629,9 +5535,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5700,9 +5604,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5771,9 +5673,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5842,9 +5742,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5913,9 +5811,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -5984,9 +5880,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6055,9 +5949,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6126,9 +6018,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6197,9 +6087,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6268,9 +6156,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6339,9 +6225,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6410,9 +6294,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6481,9 +6363,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6552,9 +6432,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6623,9 +6501,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -6819,9 +6695,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -6873,9 +6747,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -6927,9 +6799,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -6981,9 +6851,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7035,9 +6903,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7089,9 +6955,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7143,9 +7007,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7197,9 +7059,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7251,9 +7111,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7305,9 +7163,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7359,9 +7215,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7413,9 +7267,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7467,9 +7319,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7521,9 +7371,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7575,9 +7423,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7629,9 +7475,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7683,9 +7527,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7737,9 +7579,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7791,9 +7631,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -7845,9 +7683,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -8032,10 +7868,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
           </div>
           <div
             class="t-table__body"
-            style="height: 150px;"
+            style="height: 150px; position: relative;"
           >
+            <!---->
             <table
-              style="table-layout: fixed;"
+              style="table-layout: fixed; transform: false;"
             >
               <colgroup>
                 
@@ -8223,10 +8060,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
           </div>
           <div
             class="t-table__body"
-            style="height: 150px;"
+            style="height: 150px; position: relative;"
           >
+            <!---->
             <table
-              style="table-layout: fixed;"
+              style="table-layout: fixed; transform: false;"
             >
               <colgroup>
                 
@@ -8420,10 +8258,11 @@ exports[`Table Table loadingVue demo works fine 1`] = `
           </div>
           <div
             class="t-table__body"
-            style="height: 150px;"
+            style="height: 150px; position: relative;"
           >
+            <!---->
             <table
-              style="table-layout: fixed;"
+              style="table-layout: fixed; transform: false;"
             >
               <colgroup>
                 
@@ -8602,33 +8441,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
-                rowspanandcolspan="({
-  col,
-  rowIndex
-}) => {
-  if (col.colKey === 'needed' && rowIndex === 0) {
-    return {
-      colspan: 2
-    };
-  }
-
-  if (col.colKey === 'type' && rowIndex === 1) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-
-  if (col.colKey === 'default' && rowIndex === 4) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-}"
               >
                 
                 <td
@@ -8671,33 +8484,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
-                rowspanandcolspan="({
-  col,
-  rowIndex
-}) => {
-  if (col.colKey === 'needed' && rowIndex === 0) {
-    return {
-      colspan: 2
-    };
-  }
-
-  if (col.colKey === 'type' && rowIndex === 1) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-
-  if (col.colKey === 'default' && rowIndex === 4) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-}"
               >
                 
                 <td
@@ -8740,33 +8527,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
-                rowspanandcolspan="({
-  col,
-  rowIndex
-}) => {
-  if (col.colKey === 'needed' && rowIndex === 0) {
-    return {
-      colspan: 2
-    };
-  }
-
-  if (col.colKey === 'type' && rowIndex === 1) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-
-  if (col.colKey === 'default' && rowIndex === 4) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-}"
               >
                 
                 <td
@@ -8800,33 +8561,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
-                rowspanandcolspan="({
-  col,
-  rowIndex
-}) => {
-  if (col.colKey === 'needed' && rowIndex === 0) {
-    return {
-      colspan: 2
-    };
-  }
-
-  if (col.colKey === 'type' && rowIndex === 1) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-
-  if (col.colKey === 'default' && rowIndex === 4) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-}"
               >
                 
                 <td
@@ -8878,33 +8613,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
-                rowspanandcolspan="({
-  col,
-  rowIndex
-}) => {
-  if (col.colKey === 'needed' && rowIndex === 0) {
-    return {
-      colspan: 2
-    };
-  }
-
-  if (col.colKey === 'type' && rowIndex === 1) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-
-  if (col.colKey === 'default' && rowIndex === 4) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-}"
               >
                 
                 <td
@@ -8947,33 +8656,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
-                rowspanandcolspan="({
-  col,
-  rowIndex
-}) => {
-  if (col.colKey === 'needed' && rowIndex === 0) {
-    return {
-      colspan: 2
-    };
-  }
-
-  if (col.colKey === 'type' && rowIndex === 1) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-
-  if (col.colKey === 'default' && rowIndex === 4) {
-    return {
-      colspan: 2,
-      rowspan: 2
-    };
-  }
-}"
               >
                 
                 <td
@@ -9162,9 +8845,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
             
             <tr
               class=""
-              data="[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -9213,9 +8894,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -9516,9 +9195,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                 
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="false"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -9561,9 +9238,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="false"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -9606,9 +9281,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="false"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -9651,9 +9324,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                 </tr>
                 <tr
                   class=""
-                  data="[object Object],[object Object],[object Object],[object Object]"
                   draggable="false"
-                  lastfullrow="function () { [native code] }"
                 >
                   
                   <td
@@ -10115,9 +9786,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10169,9 +9838,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10223,9 +9890,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10277,9 +9942,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10331,9 +9994,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10755,9 +10416,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10842,9 +10501,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               </tr>
               <tr
                 class="t-table__row--disabled"
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10930,9 +10587,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11017,9 +10672,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               </tr>
               <tr
                 class="t-table__row--disabled"
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11233,9 +10886,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11322,9 +10973,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11412,9 +11061,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11501,9 +11148,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11701,9 +11346,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11761,9 +11404,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11821,9 +11462,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -11881,9 +11520,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -12186,9 +11823,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -12231,9 +11866,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -12276,9 +11909,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -12321,9 +11952,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -12593,9 +12222,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -12712,9 +12339,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -12832,9 +12457,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -12951,9 +12574,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -13071,9 +12692,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -13292,9 +12911,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -13476,9 +13093,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -13660,9 +13275,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -13844,9 +13457,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -14028,9 +13639,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td

@@ -9983,9 +9983,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10037,9 +10035,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -10091,9 +10087,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td

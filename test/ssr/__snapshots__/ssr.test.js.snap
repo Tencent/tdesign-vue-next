@@ -29968,7 +29968,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
             </thead>
           </table>
         </div>
-        <div class="t-table__body" style="height:200px;width:100%;">
+        <div class="t-table__body" style="height:200px;width:100%;position:relative;overscroll-behavior:none;">
+          <!---->
           <table style="table-layout:fixed;">
             <colgroup>
               <!--[-->
@@ -30340,6 +30341,581 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`] = `
+<div class="demo-container">
+  <div class="item">
+    <div style="width: 100%">
+      <div class="t-table t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+        <div class="t-loading__parent">
+          <!--[-->
+          <div class="t-table__content">
+            <!--[-->
+            <div class="t-table__header" style="padding-right:0px;">
+              <table style="table-layout:fixed;">
+                <colgroup>
+                  <!--[-->
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <!--]-->
+                </colgroup>
+                <thead>
+                  <!--[-->
+                  <tr>
+                    <!--[-->
+                    <td class="" style="" colspan="1" rowspan="1">id</td>
+                    <td class="" style="" colspan="1" rowspan="1">集群名称</td>
+                    <td class="" style="" colspan="1" rowspan="1">状态</td>
+                    <td class="" style="" colspan="1" rowspan="1">存活时间(s)</td>
+                    <td class="" style="" colspan="1" rowspan="1">管理员</td>
+                    <!--]-->
+                  </tr>
+                  <!--]-->
+                </thead>
+              </table>
+            </div>
+            <div class="t-table__body" style="height:200px;position:relative;overscroll-behavior:none;">
+              <!---->
+              <table style="table-layout:fixed;">
+                <colgroup>
+                  <!--[-->
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <!--]-->
+                </colgroup>
+                <tbody class="t-table__body">
+                  <!--[-->
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td class="" style="" length="5">1</td>
+                    <td class="" style="" length="5">JQTest1</td>
+                    <td class="" style="" length="5">
+                      <!--[-->
+                      <p class="status">健康</p>
+                      <!--]-->
+                    </td>
+                    <td class="" style="" length="5">1000</td>
+                    <td class="" style="" length="5">jenny;peter</td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <tr class="" draggable="false">
+                    <!--[-->
+                    <td style="height:0px;border:none;"></td>
+                    <!--]-->
+                  </tr>
+                  <!--]-->
+                </tbody>
+                <!---->
+              </table>
+            </div>
+            <!--]-->
+          </div>
+          <!--[-->
+          <!--]-->
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+    </div><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button" style="margin-top:10px;"><span class="t-button__text"><!--[--> 列表恢复初始状态 <!--]--></span></button>
+  </div>
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 1`] = `
 <div>
   <div style="margin-bottom:10px;">默认加载状态</div>
@@ -30377,7 +30953,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
               </thead>
             </table>
           </div>
-          <div class="t-table__body" style="height:150px;">
+          <div class="t-table__body" style="height:150px;position:relative;overscroll-behavior:none;">
+            <!---->
             <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
@@ -30448,7 +31025,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
               </thead>
             </table>
           </div>
-          <div class="t-table__body" style="height:150px;">
+          <div class="t-table__body" style="height:150px;position:relative;overscroll-behavior:none;">
+            <!---->
             <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
@@ -30521,7 +31099,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
               </thead>
             </table>
           </div>
-          <div class="t-table__body" style="height:150px;">
+          <div class="t-table__body" style="height:150px;position:relative;overscroll-behavior:none;">
+            <!---->
             <table style="table-layout:fixed;">
               <colgroup>
                 <!--[-->
@@ -32082,6 +32661,73 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
         <!--]-->
         <!--]-->
         <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/table/demos/virtual-scroll.vue correctly 1`] = `
+<div class="demo-container">
+  <div class="item">
+    <div style="width: 100%">
+      <div class="t-table t-table__header--fixed" style="" multiplesort="false" showcolumns="false" dragsort="false" expandicon="true" expandonrowclick="false" showcolumncontroller="false" showdragcol="false" sortonrowdraggable="false">
+        <div class="t-loading__parent">
+          <!--[-->
+          <div class="t-table__content">
+            <!--[-->
+            <div class="t-table__header" style="padding-right:0px;">
+              <table style="table-layout:fixed;">
+                <colgroup>
+                  <!--[-->
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <!--]-->
+                </colgroup>
+                <thead>
+                  <!--[-->
+                  <tr>
+                    <!--[-->
+                    <td class="" style="" colspan="1" rowspan="1">id</td>
+                    <td class="" style="" colspan="1" rowspan="1">集群名称</td>
+                    <td class="" style="" colspan="1" rowspan="1">状态</td>
+                    <td class="" style="" colspan="1" rowspan="1">存活时间(s)</td>
+                    <td class="" style="" colspan="1" rowspan="1">管理员</td>
+                    <!--]-->
+                  </tr>
+                  <!--]-->
+                </thead>
+              </table>
+            </div>
+            <div class="t-table__body" style="height:200px;position:relative;overscroll-behavior:none;">
+              <div style="position:absolute;width:1px;height:1px;transition:transform .2s;transform:translate(0, 4800px);"></div>
+              <table style="table-layout:fixed;transform:translate(0, 0px);">
+                <colgroup>
+                  <!--[-->
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <col style="">
+                  <!--]-->
+                </colgroup>
+                <tbody class="t-table__body">
+                  <!--[-->
+                  <!--]-->
+                </tbody>
+                <!---->
+              </table>
+            </div>
+            <!--]-->
+          </div>
+          <!--[-->
+          <!--]-->
+          <!--]-->
+          <!---->
+        </div>
       </div>
     </div>
   </div>

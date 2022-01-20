@@ -72,10 +72,11 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
         </div>
         <div
           class="t-table__body"
-          style="height: 100px;"
+          style="height: 100px; position: relative;"
         >
+          <!---->
           <table
-            style="table-layout: fixed;"
+            style="table-layout: fixed; transform: false;"
           >
             <colgroup>
               
@@ -90,9 +91,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
               
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -117,9 +116,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -144,9 +141,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
               </tr>
               <tr
                 class=""
-                data="[object Object],[object Object],[object Object]"
                 draggable="false"
-                lastfullrow="function () { [native code] }"
               >
                 
                 <td
@@ -383,9 +378,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -410,9 +403,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -437,9 +428,7 @@ exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size,
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -614,9 +603,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -642,9 +629,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -670,9 +655,7 @@ exports[`Table :props :props.columns \`columns\` with align, width, minWidth and
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -852,9 +835,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             
             <tr
               class=""
-              data="[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -903,9 +884,7 @@ exports[`Table :props :props.columns \`columns\` with children 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -1038,9 +1017,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
             
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -1066,9 +1043,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
@@ -1094,9 +1069,7 @@ exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
             </tr>
             <tr
               class=""
-              data="[object Object],[object Object],[object Object]"
               draggable="false"
-              lastfullrow="function () { [native code] }"
             >
               
               <td
