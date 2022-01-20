@@ -19,7 +19,7 @@ import { EVENT_NAME_WITH_KEBAB } from '../util/interface';
 import { emitEvent } from '../../utils/event';
 import { getPropsApiByEvent } from '../../utils/helper';
 import { SIZE_CLASSNAMES } from '../../utils/classnames';
-import useVirtualScroll from './virtualScroll';
+import useVirtualScroll from '../../hooks/virtualScroll';
 
 type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 
@@ -58,7 +58,7 @@ export default defineComponent({
       handleRowMounted = null,
     } = type === 'virtual'
       ? useVirtualScroll({
-          table: scrollBody,
+          container: scrollBody,
           data,
           fixedHeight: isFixedRowHeight,
           lineHeight: rowHeight,

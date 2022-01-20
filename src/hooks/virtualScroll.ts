@@ -3,13 +3,13 @@ import { ref, toRefs, reactive, onMounted, computed, watch } from 'vue';
 // 虚拟滚动Hooks的完整实现，只所以封装成hooks，主要是为了方便跟其他组件搭配使用，比如说表格或者下拉框
 const useVirtualScroll = ({
   data,
-  table,
+  container,
   fixedHeight = false,
   lineHeight = 30,
   bufferSize = 20,
 }: {
   data: any;
-  table: any;
+  container: any;
   fixedHeight: boolean;
   lineHeight: number;
   bufferSize: number;
@@ -77,7 +77,7 @@ const useVirtualScroll = ({
     }
     const anchorDomHeight = anchorDom.getBoundingClientRect().height; // 获取锚点元素的高
 
-    state.cachedScrollY[index] = table.value.scrollTop - offset; // 锚点元素scrollY= 容器滚动高度 - 锚点元素的offset
+    state.cachedScrollY[index] = container.value.scrollTop - offset; // 锚点元素scrollY= 容器滚动高度 - 锚点元素的offset
     state.cachedHeight[index] = anchorDomHeight;
 
     for (let i = index + 1; i <= state.visibleData[state.visibleData.length - 1].$index; i++) {
@@ -106,7 +106,7 @@ const useVirtualScroll = ({
       }
 
       const scrollTop = state.cachedScrollY[index - 1] ? state.cachedScrollY[index - 1] + offset : offset;
-      table.value.scrollTop = scrollTop;
+      container.value.scrollTop = scrollTop;
       beforeScrollTop = scrollTop;
       revising = false;
     }
@@ -114,7 +114,7 @@ const useVirtualScroll = ({
     if (state.cachedScrollY[start] < 0) {
       revising = true;
       const s = state.cachedHeight.slice(0, Math.max(0, index)).reduce((sum, v) => sum + v, 0) + offset;
-      table.value.scrollTop = s;
+      container.value.scrollTop = s;
       beforeScrollTop = s;
       if (s === 0) {
         index = 0;
@@ -141,7 +141,7 @@ const useVirtualScroll = ({
     // if (revising) {
     //   return false; // 修正滚动条时，暂停滚动逻辑
     // }
-    const { scrollTop } = table.value;
+    const { scrollTop } = container.value;
     let distance = scrollTop - beforeScrollTop; // 滚动差值
     beforeScrollTop = scrollTop;
     distance += offset;
@@ -162,7 +162,7 @@ const useVirtualScroll = ({
         index = lastIndex;
         offset = distance;
       }
-      const { clientHeight, scrollHeight } = table.value;
+      const { clientHeight, scrollHeight } = container.value;
       if (scrollTop + clientHeight === scrollHeight) {
         // 滚动条到底了
         index = data.value.length - visibleCount + 1;
@@ -215,12 +215,12 @@ const useVirtualScroll = ({
     revising = false;
     trs = new Map();
     updateVisibleData();
-    table.value && (table.value.scrollTop = 0);
+    container.value && (container.value.scrollTop = 0);
   });
   let mounted = false;
-  const refreshTable = () => {
+  const refreshContainer = () => {
     if (mounted) {
-      visibleCount = Math.ceil(table.value.offsetHeight / lineHeight);
+      visibleCount = Math.ceil(container.value.offsetHeight / lineHeight);
       updateVisibleData();
     }
   };
@@ -229,11 +229,11 @@ const useVirtualScroll = ({
       const entry = entries[0];
       if (entry.isIntersecting || entry.intersectionRatio) {
         mounted = true;
-        refreshTable();
-        ob.unobserve(table.value);
+        refreshContainer();
+        ob.unobserve(container.value);
       }
     });
-    table.value && ob.observe(table.value);
+    container.value && ob.observe(container.value);
   });
   return {
     trs,
@@ -242,7 +242,7 @@ const useVirtualScroll = ({
     translateY,
     handleScroll,
     handleRowMounted,
-    refreshTable,
+    refreshContainer,
     fixedHeight,
     calculateScrollY,
   };
