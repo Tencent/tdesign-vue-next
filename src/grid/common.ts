@@ -59,31 +59,45 @@ export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) 
       rowGap: `${gutter / -2}px`,
     });
 
-  if (typeof gutter === 'number') {
-    getMarginStyle(gutter);
-  } else if (Array.isArray(gutter) && gutter.length) {
-    if (typeof gutter[0] === 'number') {
-      getMarginStyle(gutter[0]);
-    }
-    if (typeof gutter[1] === 'number') {
-      getRowGapStyle(gutter[1]);
-    }
+  const strategyMap = {
+    isNumber: (gutter: TdRowProps['gutter']) => {
+      if (typeof gutter === 'number') {
+        getMarginStyle(gutter);
+      }
+    },
+    isArray: (gutter: TdRowProps['gutter']) => {
+      if (Array.isArray(gutter) && gutter.length) {
+        strategyMap.isNumber(gutter[0]);
 
-    if (isObject(gutter[0]) && gutter[0][currentSize] !== undefined) {
-      getMarginStyle(gutter[0][currentSize]);
-    }
+        if (typeof gutter === 'number') {
+          getRowGapStyle(gutter[1]);
+        }
 
-    if (isObject(gutter[1]) && gutter[1][currentSize] !== undefined) {
-      getRowGapStyle(gutter[1][currentSize]);
-    }
-  } else if (isObject(gutter) && gutter[currentSize]) {
-    if (Array.isArray(gutter[currentSize]) && gutter[currentSize].length) {
-      getMarginStyle(gutter[currentSize][0]);
-      getRowGapStyle(gutter[currentSize][1]);
-    } else {
-      getMarginStyle(gutter[currentSize]);
-    }
-  }
+        if (isObject(gutter[0]) && gutter[0][currentSize] !== undefined) {
+          getMarginStyle(gutter[0][currentSize]);
+        }
+
+        if (isObject(gutter[1]) && gutter[1][currentSize] !== undefined) {
+          getRowGapStyle(gutter[1][currentSize]);
+        }
+      }
+    },
+    isObject: (gutter: TdRowProps['gutter']) => {
+      if (isObject(gutter) && gutter[currentSize]) {
+        if (Array.isArray(gutter) && gutter.length) {
+          getMarginStyle(gutter[currentSize][0]);
+          getRowGapStyle(gutter[currentSize][1]);
+        } else {
+          getMarginStyle(gutter[currentSize]);
+        }
+      }
+    },
+  };
+
+  Object.keys(strategyMap).forEach((item) => {
+    strategyMap[item](gutter);
+  });
+
   return rowStyle;
 }
 
@@ -111,24 +125,39 @@ export function parseFlex(flex: TdColProps['flex']): string {
  */
 export function calcColPadding(gutter: TdRowProps['gutter'], currentSize: string) {
   const paddingObj = {};
-  const getMarginStyle = (gutter: number) =>
+  const getPaddingStyle = (gutter: number) =>
     Object.assign(paddingObj, {
-      marginLeft: `${gutter / -2}px`,
-      marginRight: `${gutter / -2}px`,
+      paddingLeft: `${gutter / 2}px`,
+      paddingRight: `${gutter / 2}px`,
     });
 
-  if (typeof gutter === 'number') {
-    getMarginStyle(gutter);
-  } else if (Array.isArray(gutter) && gutter.length) {
-    if (typeof gutter[0] === 'number') {
-      getMarginStyle(gutter[0]);
-    }
-    if (isObject(gutter[0]) && gutter[0][currentSize]) {
-      getMarginStyle(gutter[0][currentSize]);
-    }
-  } else if (isObject(gutter) && gutter[currentSize]) {
-    getMarginStyle(gutter[currentSize]);
-  }
+  const strategyMap = {
+    isNumber: (gutter: TdRowProps['gutter']) => {
+      if (typeof gutter === 'number') {
+        getPaddingStyle(gutter);
+      }
+    },
+    isArray: (gutter: TdRowProps['gutter']) => {
+      if (Array.isArray(gutter) && gutter.length) {
+        if (typeof gutter[0] === 'number') {
+          getPaddingStyle(gutter[0]);
+        }
+        if (isObject(gutter[0]) && gutter[0][currentSize]) {
+          getPaddingStyle(gutter[0][currentSize]);
+        }
+      }
+    },
+    isObject: (gutter: TdRowProps['gutter']) => {
+      if (isObject(gutter) && gutter[currentSize]) {
+        getPaddingStyle(gutter[currentSize]);
+      }
+    },
+  };
+
+  Object.keys(strategyMap).forEach((item) => {
+    strategyMap[item](gutter);
+  });
+
   return paddingObj;
 }
 
