@@ -99,6 +99,7 @@ export function parseFlex(flex: TdColProps['flex']): string {
   if (typeof flex === 'number') {
     return `${flex} ${flex} 0`;
   }
+  // 判断fle是否
   if (/^\d+(\.\d+)?(px|r?em|%)$/.test(flex)) {
     return `0 0 ${flex}`;
   }

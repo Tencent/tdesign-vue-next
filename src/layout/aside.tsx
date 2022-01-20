@@ -11,7 +11,7 @@ export default defineComponent({
   props,
 
   setup() {
-    const { hasSide } = inject<LayoutProvideType>('layout', {} as LayoutProvideType);
+    const { hasSide } = inject<LayoutProvideType>('layout', Object.create(null));
     if (!hasSide) return;
 
     onMounted(() => {
