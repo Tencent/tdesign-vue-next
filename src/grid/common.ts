@@ -1,4 +1,4 @@
-import { Ref, ref } from 'vue';
+import { ref } from 'vue';
 import isObject from 'lodash/isObject';
 import { TdColProps, TdRowProps } from './type';
 import { calcSize } from '../utils/responsive';
@@ -48,43 +48,40 @@ export function getRowClasses(name: string, props: TdRowProps) {
  */
 export function calcRowStyle(gutter: TdRowProps['gutter'], currentSize: string) {
   const rowStyle = {};
-  if (typeof gutter === 'number') {
+  const getMarginStyle = (gutter: number) =>
     Object.assign(rowStyle, {
       marginLeft: `${gutter / -2}px`,
       marginRight: `${gutter / -2}px`,
     });
+
+  const getRowGapStyle = (gutter: number) =>
+    Object.assign(rowStyle, {
+      rowGap: `${gutter / -2}px`,
+    });
+
+  if (typeof gutter === 'number') {
+    getMarginStyle(gutter);
   } else if (Array.isArray(gutter) && gutter.length) {
     if (typeof gutter[0] === 'number') {
-      Object.assign(rowStyle, {
-        marginLeft: `${gutter[0] / -2}px`,
-        marginRight: `${gutter[0] / -2}px`,
-      });
+      getMarginStyle(gutter[0]);
     }
     if (typeof gutter[1] === 'number') {
-      Object.assign(rowStyle, { rowGap: `${gutter[1]}px` });
+      getRowGapStyle(gutter[1]);
     }
 
     if (isObject(gutter[0]) && gutter[0][currentSize] !== undefined) {
-      Object.assign(rowStyle, {
-        marginLeft: `${gutter[0][currentSize] / -2}px`,
-        marginRight: `${gutter[0][currentSize] / -2}px`,
-      });
+      getMarginStyle(gutter[0][currentSize]);
     }
+
     if (isObject(gutter[1]) && gutter[1][currentSize] !== undefined) {
-      Object.assign(rowStyle, { rowGap: `${gutter[1][currentSize]}px` });
+      getRowGapStyle(gutter[1][currentSize]);
     }
   } else if (isObject(gutter) && gutter[currentSize]) {
     if (Array.isArray(gutter[currentSize]) && gutter[currentSize].length) {
-      Object.assign(rowStyle, {
-        marginLeft: `${gutter[currentSize][0] / -2}px`,
-        marginRight: `${gutter[currentSize][0] / -2}px`,
-      });
-      Object.assign(rowStyle, { rowGap: `${gutter[currentSize][1]}px` });
+      getMarginStyle(gutter[currentSize][0]);
+      getRowGapStyle(gutter[currentSize][1]);
     } else {
-      Object.assign(rowStyle, {
-        marginLeft: `${gutter[currentSize] / -2}px`,
-        marginRight: `${gutter[currentSize] / -2}px`,
-      });
+      getMarginStyle(gutter[currentSize]);
     }
   }
   return rowStyle;
@@ -114,30 +111,23 @@ export function parseFlex(flex: TdColProps['flex']): string {
  */
 export function calcColPadding(gutter: TdRowProps['gutter'], currentSize: string) {
   const paddingObj = {};
-  if (typeof gutter === 'number') {
+  const getMarginStyle = (gutter: number) =>
     Object.assign(paddingObj, {
-      paddingLeft: `${gutter / 2}px`,
-      paddingRight: `${gutter / 2}px`,
+      marginLeft: `${gutter / -2}px`,
+      marginRight: `${gutter / -2}px`,
     });
+
+  if (typeof gutter === 'number') {
+    getMarginStyle(gutter);
   } else if (Array.isArray(gutter) && gutter.length) {
     if (typeof gutter[0] === 'number') {
-      Object.assign(paddingObj, {
-        paddingLeft: `${gutter[0] / 2}px`,
-        paddingRight: `${gutter[0] / 2}px`,
-      });
+      getMarginStyle(gutter[0]);
     }
-
     if (isObject(gutter[0]) && gutter[0][currentSize]) {
-      Object.assign(paddingObj, {
-        paddingLeft: `${gutter[0][currentSize] / 2}px`,
-        paddingRight: `${gutter[0][currentSize] / 2}px`,
-      });
+      getMarginStyle(gutter[0][currentSize]);
     }
   } else if (isObject(gutter) && gutter[currentSize]) {
-    Object.assign(paddingObj, {
-      paddingLeft: `${gutter[currentSize] / 2}px`,
-      paddingRight: `${gutter[currentSize] / 2}px`,
-    });
+    getMarginStyle(gutter[currentSize]);
   }
   return paddingObj;
 }
