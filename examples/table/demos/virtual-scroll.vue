@@ -1,7 +1,13 @@
 <template>
   <div class="demo-container">
     <div class="item">
-      <t-table row-key="id" :columns="columns" :data="data" :height="200" :scroll="{ type: 'virtual', rowHeight: 48 }">
+      <t-table
+        row-key="id"
+        :columns="columns"
+        :data="data"
+        :height="200"
+        :scroll="{ type: 'virtual', rowHeight: 48, bufferSize: 10 }"
+      >
         <template #op-column>
           <t-icon name="descending-order" />
         </template>
@@ -113,7 +119,7 @@ const initData = [
   },
 ];
 // 为了使得表格滚动更加平稳，建议指定row-height参数值为接近表格的平均行高
-const times = Array.from(new Array(100), () => ''); // 测试共计1w条数据
+const times = Array.from(new Array(1000), () => ''); // 测试共计1k条数据
 const testData = [];
 times.forEach((item, i) => {
   const k = i % 10;

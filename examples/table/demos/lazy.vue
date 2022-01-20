@@ -1,7 +1,7 @@
 <template>
   <div class="demo-container">
     <div class="item">
-      <t-table row-key="id" :columns="columns" :data="data" :height="200" :scroll="{ type: 'lazy' }">
+      <t-table row-key="id" :columns="columns" :data="data" :height="200" :scroll="{ type: 'lazy', bufferSize: 10 }">
         <template #op-column>
           <t-icon name="descending-order" />
         </template>
@@ -113,7 +113,7 @@ const initData = [
     survivalTime: 1500,
   },
 ];
-const times = Array.from(new Array(100), () => ''); // 测试共计1w条数据
+const times = Array.from(new Array(1000), () => ''); // 测试共计1k条数据
 const testData = [];
 times.forEach((item, i) => {
   const k = i % 10;
@@ -122,7 +122,6 @@ times.forEach((item, i) => {
 export default defineComponent({
   setup() {
     const data = ref([...testData]);
-    const sort = ref({});
     const reset = () => {
       data.value = [];
       setTimeout(() => {
