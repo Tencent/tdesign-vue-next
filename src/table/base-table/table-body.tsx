@@ -1,4 +1,4 @@
-import { VNode, defineComponent, TransitionGroup } from 'vue';
+import { VNode, defineComponent, TransitionGroup, PropType, ref, provide } from 'vue';
 import get from 'lodash/get';
 import camelCase from 'lodash/camelCase';
 import { prefix } from '../../config';
@@ -9,37 +9,62 @@ import { BaseTableCol } from '../type';
 import { emitEvent } from '../../utils/event';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 
+const props = {
+  data: baseTableProps.data,
+  columns: baseTableProps.columns,
+  rowClassName: baseTableProps.rowClassName,
+  rowKey: baseTableProps.rowKey,
+  rowspanAndColspan: baseTableProps.rowspanAndColspan,
+  firstFullRow: baseTableProps.firstFullRow,
+  lastFullRow: baseTableProps.lastFullRow,
+  rowHeight: {
+    type: Number as PropType<number>,
+    default: 0,
+  },
+  bufferSize: {
+    type: Number as PropType<number>,
+    default: 0,
+  },
+  scrollType: {
+    type: String,
+    default: '',
+  },
+  handleRowMounted: {
+    type: Function as PropType<() => void>,
+    default: () => {},
+  },
+  trs: {
+    type: Map,
+    default: () => new Map(),
+  },
+  onRowHover: baseTableProps.onRowHover,
+  onRowMousedown: baseTableProps.onRowMousedown,
+  onRowMouseenter: baseTableProps.onRowMouseenter,
+  onRowMouseleave: baseTableProps.onRowMouseleave,
+  onRowMouseup: baseTableProps.onRowMouseup,
+  onRowClick: baseTableProps.onRowClick,
+  onRowDbClick: baseTableProps.onRowDbClick,
+  selectedRowKeys: primaryTableProps.selectedRowKeys,
+  provider: {
+    type: Object,
+    default() {
+      return {};
+    },
+  },
+  current: {
+    type: Number,
+    default: 1,
+  },
+};
+
 export default defineComponent({
   name: `${prefix}-table-body`,
   components: { TransitionGroup },
-  props: {
-    data: baseTableProps.data,
-    columns: baseTableProps.columns,
-    rowClassName: baseTableProps.rowClassName,
-    rowKey: baseTableProps.rowKey,
-    rowspanAndColspan: baseTableProps.rowspanAndColspan,
-    firstFullRow: baseTableProps.firstFullRow,
-    lastFullRow: baseTableProps.lastFullRow,
-    onRowHover: baseTableProps.onRowHover,
-    onRowMousedown: baseTableProps.onRowMousedown,
-    onRowMouseenter: baseTableProps.onRowMouseenter,
-    onRowMouseleave: baseTableProps.onRowMouseleave,
-    onRowMouseup: baseTableProps.onRowMouseup,
-    onRowClick: baseTableProps.onRowClick,
-    onRowDbClick: baseTableProps.onRowDbClick,
-    selectedRowKeys: primaryTableProps.selectedRowKeys,
-    provider: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
-    current: {
-      type: Number,
-      default: 1,
-    },
-  },
+  props,
   emits: ['row-dragstart', 'row-dragover'],
+  setup(props) {
+    provide('rowHeightRef', ref(props.rowHeight));
+  },
   computed: {
     selectColumn(): any {
       return this.columns.find(({ type }: any) => ['multiple', 'single'].includes(type)) || {};
@@ -144,12 +169,38 @@ export default defineComponent({
       return null;
     },
     renderBody(): Array<VNode> {
-      const { data, rowClassName, rowKey, $slots: slots, rowspanAndColspan, selectedRowKeys, selectColumn } = this;
+      const {
+        data,
+        rowClassName,
+        rowKey,
+        $slots: slots,
+        $props,
+        rowspanAndColspan,
+        selectedRowKeys,
+        selectColumn,
+      } = this;
       let body: Array<VNode> = [];
       let allRowspanAndColspanProps: any;
       if (typeof rowspanAndColspan === 'function') {
         allRowspanAndColspanProps = this.getRowspanAndColspanProps();
       }
+      const {
+        columns,
+        current,
+        scrollType,
+        rowHeight,
+        bufferSize,
+        trs,
+        provider,
+        onRowHover,
+        onRowMouseup,
+        onRowMouseleave,
+        onRowMouseenter,
+        onRowMousedown,
+        onRowDbClick,
+        onRowClick,
+      } = $props;
+
       data.forEach((row: any, index: number) => {
         const defaultRowClass =
           typeof rowClassName === 'function' ? rowClassName({ row, rowIndex: index }) : rowClassName;
@@ -173,8 +224,22 @@ export default defineComponent({
         if (row.__t_table_inner_data__?.level) {
           rowClass.push(`${prefix}-table__row--level-${row.__t_table_inner_data__?.level || 0}`);
         }
+
         const props = {
-          ...this.$props,
+          columns,
+          current,
+          scrollType,
+          rowHeight,
+          bufferSize,
+          trs,
+          provider,
+          onRowHover,
+          onRowMouseup,
+          onRowMouseleave,
+          onRowMouseenter,
+          onRowMousedown,
+          onRowDbClick,
+          onRowClick,
           key,
           rowClass: rowClass.join(' '),
           rowData: row,
@@ -198,7 +263,7 @@ export default defineComponent({
           },
         };
         rowVnode = (
-          <TableRow rowKey={this.rowKey} {...props}>
+          <TableRow rowKey={this.rowKey} {...props} onRowMounted={this.handleRowMounted} row={row}>
             {slots}
           </TableRow>
         );
