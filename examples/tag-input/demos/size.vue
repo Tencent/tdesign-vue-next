@@ -1,10 +1,10 @@
 <template>
   <div class="tdesign-demo-block-column" style="width: 80%">
-    <t-tag-input v-model="tags1" size="small" clearable @paste="onPaste" @enter="onTagInputEnter" />
+    <t-tag-input v-model="tags1" size="small" clearable />
 
-    <t-tag-input :value="tags2" clearable @change="onChange" />
+    <t-tag-input v-model="tags2" clearable />
 
-    <t-tag-input :default-value="tags3" size="large" clearable />
+    <t-tag-input v-model="tags3" size="large" clearable />
   </div>
 </template>
 
@@ -18,19 +18,7 @@ export default defineComponent({
     const tags2 = ref(['Vue', 'React']);
     const tags3 = ref(['Vue', 'React']);
 
-    const onTagInputEnter = (val, context) => {
-      console.log(val, context);
-    };
-    const onChange = (val, context) => {
-      console.log(val, context);
-      tags2.value = val;
-    };
-
-    const onPaste = (context) => {
-      console.log(context);
-    };
-
-    return { tags1, tags2, tags3, onTagInputEnter, onChange, onPaste };
+    return { tags1, tags2, tags3 };
   },
 });
 </script>
