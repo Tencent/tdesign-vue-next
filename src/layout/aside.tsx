@@ -1,25 +1,26 @@
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted, onUnmounted, inject } from 'vue';
 import { prefix } from '../config';
 import props from './aside-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
+import { LayoutProvideType } from './layout';
+
 export default defineComponent({
   name: 'TAside',
 
-  inject: {
-    layout: {
-      default: undefined,
-    },
-  },
-
   props,
 
-  mounted() {
-    this.layout.hasSider = true;
-  },
+  setup() {
+    const { hasSide } = inject<LayoutProvideType>('layout', Object.create(null));
+    if (!hasSide) return;
 
-  unmounted() {
-    this.layout.hasSider = false;
+    onMounted(() => {
+      hasSide.value = true;
+    });
+
+    onUnmounted(() => {
+      hasSide.value = false;
+    });
   },
 
   render() {
