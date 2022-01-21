@@ -7,7 +7,7 @@
 -- | -- | -- | -- | --
 animation | String | slide | 轮播切换动画效果类型：滑动、淡入淡出等。可选项：slide/fade | N
 autoplay | Boolean | true | 是否自动播放 | N
-current | Number | - | 当前轮播在哪一项（下标）。支持语法糖 `v-model:current` | N
+current | Number | - | 当前轮播在哪一项（下标）。支持语法糖 `v-model` 或 `v-model:current` | N
 defaultCurrent | Number | - | 当前轮播在哪一项（下标）。非受控属性 | N
 direction | String | horizontal | 轮播滑动方向，包括横向滑动和纵向滑动两个方向。可选项：horizontal/vertical | N
 duration | Number | 300 | 滑动动画时长 | N

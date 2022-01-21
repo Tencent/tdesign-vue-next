@@ -33,7 +33,7 @@ line | Boolean / Slot / Function | false | 连接线。值为 false 不显示连
 load | Function | - | 加载子数据的方法，在展开节点时调用（仅当节点 children 为 true 时生效），泛型 `T` 表示树节点 TS 类型。TS 类型：`(node: TreeNodeModel<T>) => Promise<Array<T>>` | N
 operations | Slot / Function | - | 自定义节点操作项，泛型 `T` 表示树节点 TS 类型。TS 类型：`TNode<TreeNodeModel<T>>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 transition | Boolean | true | 节点展开折叠时是否使用过渡动画 | N
-value | Array | [] | 选中值（组件为可选状态时）。支持语法糖 `v-model:value`。TS 类型：`Array<TreeNodeValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
+value | Array | [] | 选中值（组件为可选状态时）。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`Array<TreeNodeValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
 defaultValue | Array | [] | 选中值（组件为可选状态时）。非受控属性。TS 类型：`Array<TreeNodeValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
 valueMode | String | onlyLeaf | 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点。可选项：onlyLeaf/parentFirst/all | N
 onActive | Function |  | TS 类型：`(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => void`<br/>节点激活时触发，泛型 `T` 表示树节点 TS 类型 | N

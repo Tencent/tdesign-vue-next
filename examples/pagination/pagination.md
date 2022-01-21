@@ -5,7 +5,7 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-current | Number | 1 | 当前页。支持语法糖 `v-model:current` | N
+current | Number | 1 | 当前页。支持语法糖 `v-model` 或 `v-model:current` | N
 defaultCurrent | Number | 1 | 当前页。非受控属性 | N
 disabled | Boolean | false | 是否禁用分页组件 | N
 foldedMaxPageBtn | Number | 5 | 折叠时最多显示页码按钮数 | N

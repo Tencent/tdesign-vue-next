@@ -23,7 +23,7 @@ popupProps | Object | - | 透传给 popup 组件的参数。TS 类型：`PopupPr
 prefixIcon | Slot / Function | - | 组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 size | String | medium | 尺寸。可选项：small/medium/large | N
 treeProps | Object | - | 透传 Tree 组件属性。TS 类型：`TreeProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree-select/type.ts) | N
-value | String / Number / Object / Array | - | 选中值。支持语法糖 `v-model:value`。TS 类型：`TreeSelectValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree-select/type.ts) | N
+value | String / Number / Object / Array | - | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`TreeSelectValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree-select/type.ts) | N
 defaultValue | String / Number / Object / Array | - | 选中值。非受控属性。TS 类型：`TreeSelectValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree-select/type.ts) | N
 valueDisplay | Slot / Function | - | 自定义选中项呈现方式。TS 类型：`TNode<{ value: DataOption[]; onClose: () => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 valueType | String | value | 用于控制选中值的类型。假设数据选项为：`[{ label: '姓名', value: 'name' }]`，value 表示值仅返回数据选项中的 value， object 表示值返回全部数据。可选项：value/object | N
