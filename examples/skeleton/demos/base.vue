@@ -3,15 +3,11 @@
     <t-switch v-model="loading" class="mb-20"></t-switch>
 
     <div>
-      <t-skeleton :loading="loading" class="mb-20">
+      <t-skeleton :loading="loading">
         <div class="t-skeleton-demo-paragraph">
-          <p style="line-height: 20px">
-            明月几时有，把酒问青天。 不知天上宫阙，今夕是何年？ 我欲乘风归去，又恐琼楼玉宇， 高处不胜寒。
-            起舞弄清影，何似在人间！
-          </p>
           <p>
-            转朱阁，低绮户，照无眠。 不应有恨，何事长向别时圆？ 人有悲欢离合，月有阴晴圆缺， 此事古难全。
-            但愿人长久，千里共婵娟。
+            骨架屏组件，是指当网络较慢时，在页面真实数据加载之前，给用户展示出页面的大致结构。
+            一方面让用户对页面有一定的心理预期，另一方面可以改善长期停留在空白屏给用户带来的枯燥和不适感。它可以为用户提供更好视觉效果和使用体验。
           </p>
         </div>
       </t-skeleton>
