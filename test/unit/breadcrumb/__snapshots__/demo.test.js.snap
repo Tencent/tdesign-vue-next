@@ -9,7 +9,7 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <a
-      class="t-breadcrumb--text-oveflow t-link"
+      class="t-breadcrumb--text-overflow t-link"
       href=""
       target="_self"
     >
@@ -45,7 +45,7 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -79,7 +79,7 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -122,7 +122,7 @@ exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -145,7 +145,7 @@ exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -168,7 +168,7 @@ exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -200,7 +200,7 @@ exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -221,7 +221,7 @@ exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -249,7 +249,7 @@ exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -280,7 +280,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
       class="t-breadcrumb__item light"
     >
       <a
-        class="t-breadcrumb--text-oveflow t-link"
+        class="t-breadcrumb--text-overflow t-link"
         href=""
         target="_self"
       >
@@ -316,7 +316,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
       class="t-breadcrumb__item light"
     >
       <a
-        class="t-breadcrumb--text-oveflow t-link"
+        class="t-breadcrumb--text-overflow t-link"
         href=""
         target="_self"
       >
@@ -352,7 +352,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
       class="t-breadcrumb__item light"
     >
       <a
-        class="t-breadcrumb--text-oveflow t-link"
+        class="t-breadcrumb--text-overflow t-link"
         href="https://www.tencent.com"
         target="_blank"
       >
@@ -388,7 +388,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
       class="t-breadcrumb__item light"
     >
       <span
-        class="t-breadcrumb--text-oveflow t-disabled"
+        class="t-breadcrumb--text-overflow t-disabled"
       >
         <span
           class="t-breadcrumb__inner"
@@ -422,7 +422,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
       class="t-breadcrumb__item light"
     >
       <span
-        class="t-breadcrumb--text-oveflow"
+        class="t-breadcrumb--text-overflow"
       >
         <span
           class="t-breadcrumb__inner"
@@ -471,7 +471,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -512,7 +512,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -553,7 +553,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -603,7 +603,7 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -637,7 +637,7 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
@@ -671,7 +671,7 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <a
-      class="t-breadcrumb--text-oveflow t-link"
+      class="t-breadcrumb--text-overflow t-link"
       href="https://www.tencent.com"
       target="_self"
     >
@@ -716,7 +716,7 @@ exports[`Breadcrumb Breadcrumb toVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <a
-      class="t-breadcrumb--text-oveflow t-link"
+      class="t-breadcrumb--text-overflow t-link"
       href=""
       target="_self"
     >
@@ -752,7 +752,7 @@ exports[`Breadcrumb Breadcrumb toVue demo works fine 1`] = `
     class="t-breadcrumb__item light"
   >
     <span
-      class="t-breadcrumb--text-oveflow"
+      class="t-breadcrumb--text-overflow"
     >
       <span
         class="t-breadcrumb__inner"
