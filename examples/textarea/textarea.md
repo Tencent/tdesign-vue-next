@@ -15,7 +15,7 @@ placeholder | String | undefined | 占位符 | N
 readonly | Boolean | false | 文本框是否只读 | N
 status | String | - | 文本框状态。可选项：success/warning/error | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-value | String / Number | - | 文本框值。支持语法糖 `v-model:value`。TS 类型：`TextareaValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/textarea/type.ts) | N
+value | String / Number | - | 文本框值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`TextareaValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/textarea/type.ts) | N
 defaultValue | String / Number | - | 文本框值。非受控属性。TS 类型：`TextareaValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/textarea/type.ts) | N
 onBlur | Function |  | TS 类型：`(value: TextareaValue, context: { e: FocusEvent }) => void`<br/>失去焦点时触发 | N
 onChange | Function |  | TS 类型：`(value: TextareaValue, context?: { e?: InputEvent }) => void`<br/>输入内容变化时触发 | N
