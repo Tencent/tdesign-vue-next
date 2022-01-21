@@ -5,7 +5,7 @@ toc: false
 docClass: timeline
 ---
 
-## [0.7.0](https://github.com/Tencent/tdesign-vue-next/compare/0.6.4...0.7.0) `2022-01-21`
+## 0.7.0 `2022-01-21`
 
 ### BREAKING CHANGES
 
