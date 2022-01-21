@@ -5,6 +5,31 @@ toc: false
 docClass: timeline
 ---
 
+## [0.7.0](https://github.com/Tencent/tdesign-vue-next/compare/0.6.4...0.7.0) `2022-01-21`
+
+### BREAKING CHANGES
+
+* FormRule 的 `min` 和 `len` 根据一个中文等于两个字符的计算规则进行，和 `max` 保持一致；`min` 和 `len` 在值为 Number 时，进行数字大小的校验而非数字长度校验 [(pr #220](https://github.com/Tencent/tdesign-vue/pull/220)), ([@pengYYYYY](https://github.com/pengYYYYY))
+
+### Bug Fixes
+
+* Select: 修复下拉面板在远程搜索时的渲染出错 ([issue #237](https://github.com/Tencent/tdesign-vue-next/issues/235)), ([pr #237](https://github.com/Tencent/tdesign-vue-next/pull/237)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Select: 修复下拉面板在远程搜索时的渲染出错 ([pr #235](https://github.com/Tencent/tdesign-vue-next/pull/235)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Icon: 修复 ssr 渲染问题 ([pr #228](https://github.com/Tencent/tdesign-vue/pull/228)), ([@uyarn](https://github.com/uyarn))
+* 修复 `umd` 产物中未包括 `reset` 及 `css variables` 声明的问题 ([pr #236](https://github.com/Tencent/tdesign-vue-next/pull/236)), ([@xiaosansiji](https://github.com/xiaosansiji))
+
+### Features
+
+### Features
+
+* TagInput: 新增属性 `TagInput` 组件 [pr #131](https://github.com/Tencent/tdesign-vue-next/pull/131), [@chaishi](https://github.com/chaishi)
+* Select: 新增属性 `panelTopContent`, `panelBottomContent` 插槽 [pr #221](https://github.com/Tencent/tdesign-vue-next/pull/221), [@pengYYYYY](https://github.com/pengYYYYY)
+* Table:
+  * 新增懒加载、虚拟滚动特性 [pr #155](https://github.com/Tencent/tdesign-vue-next/pull/155), [@Louiszhai](https://github.com/Louiszhai)
+  * 新增 `onCellClick` 事件 [pr #247](https://github.com/Tencent/tdesign-vue-next/pull/247), [@pengYYYYY](https://github.com/pengYYYYY)
+* Skeleton: 新增骨架屏组件，请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用, [pr #214](https://github.com/Tencent/tdesign-vue/pull/214)，[@pengYYYYY](https://github.com/pengYYYYY)
+* Textarea: 新增属性 `status` 用于控制状态，`tips` 用于控制信息提示，[pr 246](https://github.com/Tencent/tdesign-vue-next/pull/246)，[@chaishi](https://github.com/chaishi)
+
 ## 0.6.4 `2022-01-16`
 
 
