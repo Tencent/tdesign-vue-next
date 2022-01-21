@@ -38324,7 +38324,7 @@ exports[`ssr snapshot test renders ./examples/textarea/demos/maxlength.vue corre
 <div>
   <div class="t-textarea"><textarea style="" class="t-textarea__inner t-resize-none narrow-scrollbar" modelvalue placeholder="请输入描述文案，文本长度最多20，maxlength=20" maxlength="20"></textarea>
     <!----><span class="t-textarea__limit">0/20</span>
-  </div>
+  </div><br>
   <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入描述文案，最多20字符（一个汉字占两个字符长度），maxcharacter=20"></textarea><span class="t-textarea__limit">0/20</span>
     <!---->
   </div>

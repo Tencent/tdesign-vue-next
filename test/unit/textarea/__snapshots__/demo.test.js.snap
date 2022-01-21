@@ -79,6 +79,7 @@ exports[`Textarea Textarea maxlengthVue demo works fine 1`] = `
       0/20
     </span>
   </div>
+  <br />
   <div
     class="t-textarea"
   >
