@@ -20,15 +20,13 @@ docClass: timeline
 
 ### Features
 
-### Features
-
-* TagInput: 新增属性 `TagInput` 组件 [pr #131](https://github.com/Tencent/tdesign-vue-next/pull/131), [@chaishi](https://github.com/chaishi)
-* Select: 新增属性 `panelTopContent`, `panelBottomContent` 插槽 [pr #221](https://github.com/Tencent/tdesign-vue-next/pull/221), [@pengYYYYY](https://github.com/pengYYYYY)
+* TagInput: 新增属性 `TagInput` 组件 ([pr #131](https://github.com/Tencent/tdesign-vue-next/pull/131)), ([@chaishi](https://github.com/chaishi))
+* Select: 新增属性 `panelTopContent`, `panelBottomContent` 插槽 ([pr #221](https://github.com/Tencent/tdesign-vue-next/pull/221)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Table:
-  * 新增懒加载、虚拟滚动特性 [pr #155](https://github.com/Tencent/tdesign-vue-next/pull/155), [@Louiszhai](https://github.com/Louiszhai)
-  * 新增 `onCellClick` 事件 [pr #247](https://github.com/Tencent/tdesign-vue-next/pull/247), [@pengYYYYY](https://github.com/pengYYYYY)
-* Skeleton: 新增骨架屏组件，请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用, [pr #214](https://github.com/Tencent/tdesign-vue/pull/214)，[@pengYYYYY](https://github.com/pengYYYYY)
-* Textarea: 新增属性 `status` 用于控制状态，`tips` 用于控制信息提示，[pr 246](https://github.com/Tencent/tdesign-vue-next/pull/246)，[@chaishi](https://github.com/chaishi)
+  * 新增懒加载、虚拟滚动特性 ([pr #155](https://github.com/Tencent/tdesign-vue-next/pull/155)), ([@Louiszhai](https://github.com/Louiszhai))
+  * 新增 `onCellClick` 事件 ([pr #247](https://github.com/Tencent/tdesign-vue-next/pull/247)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Skeleton: 新增骨架屏组件，请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用, ([pr #214](https://github.com/Tencent/tdesign-vue/pull/214))，([@pengYYYYY](https://github.com/pengYYYYY))
+* Textarea: 新增属性 `status` 用于控制状态，`tips` 用于控制信息提示，([pr 246](https://github.com/Tencent/tdesign-vue-next/pull/246)), ([@chaishi](https://github.com/chaishi))
 
 ## 0.6.4 `2022-01-16`
 
