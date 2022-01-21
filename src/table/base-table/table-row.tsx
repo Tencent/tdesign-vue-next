@@ -1,11 +1,13 @@
 import { VNode, PropType, defineComponent, h, ref, onMounted, onBeforeUnmount, inject, Ref } from 'vue';
 import get from 'lodash/get';
+import cell from '@src/date-picker/basic/cell';
 import { prefix } from '../../config';
-import { RowspanColspan } from '../type';
+import { RowspanColspan, TdBaseTableProps } from '../type';
 import baseTableProps from '../base-table-props';
 import TableCell from './table-cell';
 import { CustomData, CellData, CellParams } from '../util/interface';
 import { getPropsApiByEvent } from '../../utils/helper';
+import { emitEvent } from '../../utils/event';
 
 type CreateElement = ReturnType<typeof h>;
 type Attrs = Record<string, any>;
@@ -223,7 +225,14 @@ export default defineComponent({
           type: 'td',
         };
 
-        rowBody.push(<table-cell ref={`${rowIndex}_${index}`} cellData={cellData} length={columns.length} />);
+        const listeners = {
+          onCellClick: (p: Parameters<TdBaseTableProps['onCellClick']>[0]) => {
+            emitEvent<Parameters<TdBaseTableProps['onCellClick']>>(this, 'cell-click', p);
+          },
+        };
+        rowBody.push(
+          <table-cell ref={`${rowIndex}_${index}`} {...listeners} cellData={cellData} length={columns.length} />,
+        );
       });
       return rowBody;
     },

@@ -36,6 +36,7 @@ stripe | Boolean | false | 是否显示斑马纹 | N
 tableLayout | String | fixed | 表格布局方式。可选项：auto/fixed | N
 topContent | String / Slot / Function | - | 表格顶部内容，可以用于自定义列设置等。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 verticalAlign | String | middle | 行内容上下方向对齐。可选项：top/middle/bottom | N
+onCellClick | Function |  | TS 类型：`(context: BaseTableCellEventContext<T>) => void`<br/>单元格点击时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
 onPageChange | Function |  | TS 类型：`(pageInfo: PageInfo, newDataSource: Array<T>) => void`<br/>分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型 | N
 onRowClick | Function |  | TS 类型：`(context: RowEventContext<T>) => void`<br/>行点击时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/> | N
 onRowDbClick | Function |  | TS 类型：`(context: RowEventContext<T>) => void`<br/>行双击时触发，泛型 T 指表格数据类型 | N
@@ -51,6 +52,7 @@ onScrollY | Function |  | TS 类型：`(params: { e: WheelEvent }) => void`<br/>
 
 名称 | 参数 | 描述
 -- | -- | --
+cell-click | `(context: BaseTableCellEventContext<T>)` | 单元格点击时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface BaseTableCellEventContext<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/>
 page-change | `(pageInfo: PageInfo, newDataSource: Array<T>)` | 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型
 row-click | `(context: RowEventContext<T>)` | 行点击时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface RowEventContext<T> { row: T; index: number; e: MouseEvent }`<br/>
 row-db-click | `(context: RowEventContext<T>)` | 行双击时触发，泛型 T 指表格数据类型
@@ -105,6 +107,7 @@ defaultSort | Object / Array | - | 排序控制。sortBy 排序字段；descendi
 sortOnRowDraggable | Boolean | false | 允许表格行拖拽时排序 | N
 `Omit<BaseTableProps<T>, 'columns'>` | - | - | 继承 `Omit<BaseTableProps<T>, 'columns'>` 中的全部 API | N
 onAsyncLoadingClick | Function |  | TS 类型：`(context: { status: 'loading' | 'load-more' }) => void`<br/>异步加载区域被点击时触发 | N
+onCellClick | Function |  | TS 类型：`(context: PrimaryTableCellEventContext<T>) => void`<br/>单元格点击时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface PrimaryTableCellEventContext<T> { row: T; col: PrimaryTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/> | N
 onChange | Function |  | TS 类型：`(data: TableChangeData, context: TableChangeContext<Array<T>>) => void`<br/>分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableChangeData { sorter?: TableSort; filter?: FilterValue; pagination?: PaginationProps }`<br/><br/>`interface TableChangeContext<T> { trigger: TableChangeTrigger; currentData?: T }`<br/><br/>`type TableChangeTrigger = 'filter' | 'sorter' | 'pagination'`<br/> | N
 onDataChange | Function |  | TS 类型：`(data: Array<T>) => void`<br/>表格数据发生变化时触发，比如：本地排序方法 sorter | N
 onDragSort | Function |  | TS 类型：`(context: DragSortContext<T>) => void`<br/>拖拽排序时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface DragSortContext<T> { currentIndex: number; current: T; targetIndex: number; target: T }`<br/> | N
@@ -118,6 +121,7 @@ onSortChange | Function |  | TS 类型：`(sort: TableSort, options: SortOptions
 名称 | 参数 | 描述
 -- | -- | --
 async-loading-click | `(context: { status: 'loading' | 'load-more' })` | 异步加载区域被点击时触发
+cell-click | `(context: PrimaryTableCellEventContext<T>)` | 单元格点击时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface PrimaryTableCellEventContext<T> { row: T; col: PrimaryTableCol; rowIndex: number; colIndex: number; e: MouseEvent }`<br/>
 change | `(data: TableChangeData, context: TableChangeContext<Array<T>>)` | 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface TableChangeData { sorter?: TableSort; filter?: FilterValue; pagination?: PaginationProps }`<br/><br/>`interface TableChangeContext<T> { trigger: TableChangeTrigger; currentData?: T }`<br/><br/>`type TableChangeTrigger = 'filter' | 'sorter' | 'pagination'`<br/>
 data-change | `(data: Array<T>)` | 表格数据发生变化时触发，比如：本地排序方法 sorter
 drag-sort | `(context: DragSortContext<T>)` | 拖拽排序时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/table/type.ts)。<br/>`interface DragSortContext<T> { currentIndex: number; current: T; targetIndex: number; target: T }`<br/>
