@@ -17,6 +17,7 @@ const props = {
   rowspanAndColspan: baseTableProps.rowspanAndColspan,
   firstFullRow: baseTableProps.firstFullRow,
   lastFullRow: baseTableProps.lastFullRow,
+  onCellClick: baseTableProps.onCellClick,
   rowHeight: {
     type: Number as PropType<number>,
     default: 0,
@@ -199,6 +200,7 @@ export default defineComponent({
         onRowMousedown,
         onRowDbClick,
         onRowClick,
+        onCellClick,
       } = $props;
 
       data.forEach((row: any, index: number) => {
@@ -240,6 +242,7 @@ export default defineComponent({
           onRowMousedown,
           onRowDbClick,
           onRowClick,
+          onCellClick,
           key,
           rowClass: rowClass.join(' '),
           rowData: row,

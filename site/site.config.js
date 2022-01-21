@@ -334,6 +334,13 @@ export default {
           component: () => import('@/examples/list/list.md'),
         },
         {
+          title: 'Loading 加载',
+          name: 'loading',
+          docType: 'message',
+          path: '/vue-next/components/loading',
+          component: () => import('@/examples/loading/loading.md'),
+        },
+        {
           title: 'Progress 进度条',
           name: 'progress',
           docType: 'data',
@@ -400,13 +407,6 @@ export default {
           docType: 'message',
           path: '/vue-next/components/drawer',
           component: () => import('@/examples/drawer/drawer.md'),
-        },
-        {
-          title: 'Loading 加载',
-          name: 'loading',
-          docType: 'message',
-          path: '/vue-next/components/loading',
-          component: () => import('@/examples/loading/loading.md'),
         },
         {
           title: 'Message 全局提示',

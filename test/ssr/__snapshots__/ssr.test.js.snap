@@ -30358,7 +30358,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`]
                   <col style="">
                   <col style="">
                   <col style="">
-                  <col style="">
                   <!--]-->
                 </colgroup>
                 <thead>
@@ -30367,7 +30366,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`]
                     <!--[-->
                     <td class="" style="" colspan="1" rowspan="1">id</td>
                     <td class="" style="" colspan="1" rowspan="1">集群名称</td>
-                    <td class="" style="" colspan="1" rowspan="1">状态</td>
                     <td class="" style="" colspan="1" rowspan="1">存活时间(s)</td>
                     <td class="" style="" colspan="1" rowspan="1">管理员</td>
                     <!--]-->
@@ -30385,22 +30383,16 @@ exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`]
                   <col style="">
                   <col style="">
                   <col style="">
-                  <col style="">
                   <!--]-->
                 </colgroup>
                 <tbody class="t-table__body">
                   <!--[-->
                   <tr class="" draggable="false">
                     <!--[-->
-                    <td class="" style="" length="5">1</td>
-                    <td class="" style="" length="5">JQTest1</td>
-                    <td class="" style="" length="5">
-                      <!--[-->
-                      <p class="status">健康</p>
-                      <!--]-->
-                    </td>
-                    <td class="" style="" length="5">1000</td>
-                    <td class="" style="" length="5">jenny;peter</td>
+                    <td class="" style="" length="4">1</td>
+                    <td class="" style="" length="4">当前行高度2行,当前行高度2行,当前行高度2行,当前行高度2行</td>
+                    <td class="" style="" length="4">1000</td>
+                    <td class="" style="" length="4">jenny;peter</td>
                     <!--]-->
                   </tr>
                   <tr class="" draggable="false">
@@ -37184,7 +37176,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/virtual-scroll.vue cor
                   <col style="">
                   <col style="">
                   <col style="">
-                  <col style="">
                   <!--]-->
                 </colgroup>
                 <thead>
@@ -37193,7 +37184,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/virtual-scroll.vue cor
                     <!--[-->
                     <td class="" style="" colspan="1" rowspan="1">id</td>
                     <td class="" style="" colspan="1" rowspan="1">集群名称</td>
-                    <td class="" style="" colspan="1" rowspan="1">状态</td>
                     <td class="" style="" colspan="1" rowspan="1">存活时间(s)</td>
                     <td class="" style="" colspan="1" rowspan="1">管理员</td>
                     <!--]-->
@@ -37207,7 +37197,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/virtual-scroll.vue cor
               <table style="table-layout:fixed;transform:translate(0, 0px);">
                 <colgroup>
                   <!--[-->
-                  <col style="">
                   <col style="">
                   <col style="">
                   <col style="">
