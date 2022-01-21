@@ -18465,7 +18465,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/status.vue correctly 1
   <div class="t-input__wrap">
     <div class="t-input t-size-m">
       <!---->
-      <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="成功状态">
+      <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="普通状态">
       <!---->
       <!---->
     </div>
@@ -38324,7 +38324,7 @@ exports[`ssr snapshot test renders ./examples/textarea/demos/maxlength.vue corre
 <div>
   <div class="t-textarea"><textarea style="" class="t-textarea__inner t-resize-none narrow-scrollbar" modelvalue placeholder="请输入描述文案，文本长度最多20，maxlength=20" maxlength="20"></textarea>
     <!----><span class="t-textarea__limit">0/20</span>
-  </div>
+  </div><br>
   <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入描述文案，最多20字符（一个汉字占两个字符长度），maxcharacter=20"></textarea><span class="t-textarea__limit">0/20</span>
     <!---->
   </div>
@@ -38333,13 +38333,41 @@ exports[`ssr snapshot test renders ./examples/textarea/demos/maxlength.vue corre
 
 exports[`ssr snapshot test renders ./examples/textarea/demos/type.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner t-is-disabled narrow-scrollbar" disabled placeholder>禁用状态</textarea>
+  <div class="t-textarea t-is-disabled"><textarea style="" class="t-textarea__inner t-is-disabled narrow-scrollbar" disabled>禁用状态</textarea>
     <!---->
     <!---->
   </div>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" readonly placeholder>只读状态</textarea>
+  <div class="t-textarea t-is-readonly"><textarea style="" class="t-textarea__inner narrow-scrollbar" readonly>只读状态</textarea>
     <!---->
     <!---->
+  </div>
+  <div class="t-textarea__wrap">
+    <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar">普通状态</textarea>
+      <!---->
+      <!---->
+    </div>
+    <div class="t-textarea__tips t-textarea__tips--normal">这是普通文本提示</div>
+  </div>
+  <div class="t-textarea__wrap">
+    <div class="t-textarea"><textarea style="" class="t-textarea__inner t-is-success narrow-scrollbar">成功状态</textarea>
+      <!---->
+      <!---->
+    </div>
+    <div class="t-textarea__tips t-textarea__tips--success">校验通过文本提示</div>
+  </div>
+  <div class="t-textarea__wrap">
+    <div class="t-textarea"><textarea style="" class="t-textarea__inner t-is-warning narrow-scrollbar">警告状态</textarea>
+      <!---->
+      <!---->
+    </div>
+    <div class="t-textarea__tips t-textarea__tips--warning">校验不通过文本提示</div>
+  </div>
+  <div class="t-textarea__wrap">
+    <div class="t-textarea"><textarea style="" class="t-textarea__inner t-is-error narrow-scrollbar">错误状态</textarea>
+      <!---->
+      <!---->
+    </div>
+    <div class="t-textarea__tips t-textarea__tips--error">校验存在严重问题文本提示</div>
   </div>
 </div>
 `;

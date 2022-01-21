@@ -12,6 +12,8 @@ import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-input`;
+const INPUT_WRAP_CLASS = `${prefix}-input__wrap`;
+const INPUT_TIPS_CLASS = `${prefix}-input__tips`;
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -255,9 +257,9 @@ export default defineComponent({
     const tips = renderTNodeJSX(this, 'tips');
     if (tips) {
       return (
-        <div class={`${prefix}-input__wrap`}>
+        <div class={INPUT_WRAP_CLASS}>
           {inputNode}
-          <div class={`${prefix}-input__tips ${prefix}-input__tips--${this.status || 'normal'}`}>{tips}</div>
+          <div class={`${INPUT_TIPS_CLASS} ${prefix}-input__tips--${this.status || 'normal'}`}>{tips}</div>
         </div>
       );
     }
