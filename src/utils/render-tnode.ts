@@ -1,7 +1,30 @@
-import { h, ComponentPublicInstance } from 'vue';
-import isFunction from 'lodash/isFunction';
+import { h, ComponentPublicInstance, VNode, isVNode } from 'vue';
 import isEmpty from 'lodash/isEmpty';
-import { getDefaultNode, getParams, OptionsType } from '../hooks/tnode';
+import isString from 'lodash/isString';
+import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
+
+export interface JSXRenderContext {
+  defaultNode?: VNode | string;
+  params?: Record<string, any>;
+}
+
+export type OptionsType = VNode | JSXRenderContext | string;
+
+export function getDefaultNode(options?: OptionsType) {
+  let defaultNode;
+  if (isObject(options) && 'defaultNode' in options) {
+    defaultNode = options.defaultNode;
+  } else if (isVNode(options) || isString(options)) {
+    defaultNode = options;
+  }
+
+  return defaultNode;
+}
+
+export function getParams(options?: OptionsType) {
+  return isObject(options) && 'params' in options ? options.params : null;
+}
 
 /**
  * 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况

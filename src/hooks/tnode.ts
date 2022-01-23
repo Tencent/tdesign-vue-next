@@ -1,30 +1,7 @@
-import { h, getCurrentInstance, VNode, isVNode } from 'vue';
+import { h, getCurrentInstance, VNode } from 'vue';
 import isEmpty from 'lodash/isEmpty';
-import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
-import isObject from 'lodash/isObject';
-
-interface JSXRenderContext {
-  defaultNode?: VNode | string;
-  params?: Record<string, any>;
-}
-
-export type OptionsType = VNode | JSXRenderContext | string;
-
-export function getDefaultNode(options?: OptionsType) {
-  let defaultNode;
-  if (isObject(options) && 'defaultNode' in options) {
-    defaultNode = options.defaultNode;
-  } else if (isVNode(options) || isString(options)) {
-    defaultNode = options;
-  }
-
-  return defaultNode;
-}
-
-export function getParams(options?: OptionsType) {
-  return isObject(options) && 'params' in options ? options.params : null;
-}
+import { getDefaultNode, getParams, OptionsType, JSXRenderContext } from '../utils/render-tnode';
 
 /**
  * 用于setup的TNodeJSX，在组合时逻辑时渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况，与render-tnode的大概处理逻辑相同。
