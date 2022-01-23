@@ -199,8 +199,6 @@ export default defineComponent({
 </script>
 
 <style lang="less">
-@import '@common/style/web/_variables.less';
-
 .tdesign-table-expandable-demo {
   :deep([class*='t-table-expandable-icon-cell']) .t-icon {
     background-color: transparent;

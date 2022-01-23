@@ -106,7 +106,6 @@ export default defineComponent({
 </script>
 
 <style lang="less" scoped>
-@import '@common/style/web/index';
 .link {
   cursor: pointer;
   margin-right: 15px;

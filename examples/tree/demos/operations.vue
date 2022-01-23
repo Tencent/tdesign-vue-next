@@ -337,8 +337,6 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-@import url('./common/demo.css');
-
 .tips {
   font-size: 10px;
   color: gray;
