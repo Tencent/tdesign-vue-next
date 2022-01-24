@@ -13,20 +13,19 @@ docClass: timeline
 
 ### Bug Fixes
 
-* Select: 修复下拉面板在远程搜索时的渲染出错 ([issue #237](https://github.com/Tencent/tdesign-vue-next/issues/235)), ([pr #237](https://github.com/Tencent/tdesign-vue-next/pull/237)), ([@pengYYYYY](https://github.com/pengYYYYY))
-* Select: 修复下拉面板在远程搜索时的渲染出错 ([pr #235](https://github.com/Tencent/tdesign-vue-next/pull/235)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Select: 修复下拉面板在远程搜索时的渲染出错 ([issue #235](https://github.com/Tencent/tdesign-vue-next/issues/235)), ([pr #237](https://github.com/Tencent/tdesign-vue-next/pull/237)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Icon: 修复 ssr 渲染问题 ([pr #228](https://github.com/Tencent/tdesign-vue/pull/228)), ([@uyarn](https://github.com/uyarn))
 * 修复 `umd` 产物中未包括 `reset` 及 `css variables` 声明的问题 ([pr #236](https://github.com/Tencent/tdesign-vue-next/pull/236)), ([@xiaosansiji](https://github.com/xiaosansiji))
 
 ### Features
 
-* TagInput: 新增属性 `TagInput` 组件 ([pr #131](https://github.com/Tencent/tdesign-vue-next/pull/131)), ([@chaishi](https://github.com/chaishi))
-* Select: 新增属性 `panelTopContent`, `panelBottomContent` 插槽 ([pr #221](https://github.com/Tencent/tdesign-vue-next/pull/221)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Skeleton: 新增 `Skeleton` 骨架屏组件，请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用, ([pr #214](https://github.com/Tencent/tdesign-vue/pull/214))，([@pengYYYYY](https://github.com/pengYYYYY))
+* TagInput: 新增 `TagInput` 组件，请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用, ([pr #131](https://github.com/Tencent/tdesign-vue-next/pull/131)), ([@chaishi](https://github.com/chaishi))
+* Select: 新增 `panelTopContent`, `panelBottomContent` 插槽 ([pr #221](https://github.com/Tencent/tdesign-vue-next/pull/221)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Textarea: 新增属性 `status` 用于控制状态，`tips` 用于控制信息提示，([pr 246](https://github.com/Tencent/tdesign-vue-next/pull/246)), ([@chaishi](https://github.com/chaishi))
 * Table:
   * 新增懒加载、虚拟滚动特性 ([pr #155](https://github.com/Tencent/tdesign-vue-next/pull/155)), ([@Louiszhai](https://github.com/Louiszhai))
   * 新增 `onCellClick` 事件 ([pr #247](https://github.com/Tencent/tdesign-vue-next/pull/247)), ([@pengYYYYY](https://github.com/pengYYYYY))
-* Skeleton: 新增骨架屏组件，请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用, ([pr #214](https://github.com/Tencent/tdesign-vue/pull/214))，([@pengYYYYY](https://github.com/pengYYYYY))
-* Textarea: 新增属性 `status` 用于控制状态，`tips` 用于控制信息提示，([pr 246](https://github.com/Tencent/tdesign-vue-next/pull/246)), ([@chaishi](https://github.com/chaishi))
 
 ## 0.6.4 `2022-01-16`
 
