@@ -1525,7 +1525,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
           <!--]-->
         </div>
       </div>
-      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
     </div>
   </div>
@@ -2772,7 +2772,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
           <!--]-->
         </div>
       </div>
-      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
     </div>
   </div>
@@ -3339,7 +3339,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
           <!--]-->
         </div>
       </div>
-      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
     </div>
   </div>
@@ -3534,94 +3534,94 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                   <div>
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
-                      <li class="t-select-option t-size-m t-select__create-option--special" title></li>
+                      <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                     </ul>
                     <!---->
-                    <li class="t-select__empty t-size-m">暂无数据</li>
+                    <li class="t-select__empty t-size-s">暂无数据</li>
                     <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
-                      <li class="t-select-option t-size-m" title="2010 年">
+                      <li class="t-select-option t-size-s" title="2010 年">
                         <!--[-->2010 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2011 年">
+                      <li class="t-select-option t-size-s" title="2011 年">
                         <!--[-->2011 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2012 年">
+                      <li class="t-select-option t-size-s" title="2012 年">
                         <!--[-->2012 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2013 年">
+                      <li class="t-select-option t-size-s" title="2013 年">
                         <!--[-->2013 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2014 年">
+                      <li class="t-select-option t-size-s" title="2014 年">
                         <!--[-->2014 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2015 年">
+                      <li class="t-select-option t-size-s" title="2015 年">
                         <!--[-->2015 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2016 年">
+                      <li class="t-select-option t-size-s" title="2016 年">
                         <!--[-->2016 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2017 年">
+                      <li class="t-select-option t-size-s" title="2017 年">
                         <!--[-->2017 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2018 年">
+                      <li class="t-select-option t-size-s" title="2018 年">
                         <!--[-->2018 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2019 年">
+                      <li class="t-select-option t-size-s" title="2019 年">
                         <!--[-->2019 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-is-selected t-size-m" title="2020 年">
+                      <li class="t-select-option t-is-selected t-size-s" title="2020 年">
                         <!--[-->2020 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2021 年">
+                      <li class="t-select-option t-size-s" title="2021 年">
                         <!--[-->2021 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2022 年">
+                      <li class="t-select-option t-size-s" title="2022 年">
                         <!--[-->2022 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2023 年">
+                      <li class="t-select-option t-size-s" title="2023 年">
                         <!--[-->2023 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2024 年">
+                      <li class="t-select-option t-size-s" title="2024 年">
                         <!--[-->2024 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2025 年">
+                      <li class="t-select-option t-size-s" title="2025 年">
                         <!--[-->2025 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2026 年">
+                      <li class="t-select-option t-size-s" title="2026 年">
                         <!--[-->2026 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2027 年">
+                      <li class="t-select-option t-size-s" title="2027 年">
                         <!--[-->2027 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2028 年">
+                      <li class="t-select-option t-size-s" title="2028 年">
                         <!--[-->2028 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2029 年">
+                      <li class="t-select-option t-size-s" title="2029 年">
                         <!--[-->2029 年
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2030 年">
+                      <li class="t-select-option t-size-s" title="2030 年">
                         <!--[-->2030 年
                         <!--]-->
                       </li>
@@ -3635,11 +3635,11 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                 </div>
               </div>
               <!--[-->
-              <div class="t-select t-size-m">
+              <div class="t-select t-size-s">
                 <!---->
                 <!---->
                 <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!--]--><span class="t-tag t-tag--default t-size-s t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3659,58 +3659,58 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                   <div>
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
-                      <li class="t-select-option t-size-m t-select__create-option--special" title></li>
+                      <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                     </ul>
                     <!---->
-                    <li class="t-select__empty t-size-m">暂无数据</li>
+                    <li class="t-select__empty t-size-s">暂无数据</li>
                     <ul class="t-select__groups">
                       <!--[-->
                       <!--[-->
-                      <li class="t-select-option t-size-m" title="1 月">
+                      <li class="t-select-option t-size-s" title="1 月">
                         <!--[-->1 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="2 月">
+                      <li class="t-select-option t-size-s" title="2 月">
                         <!--[-->2 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="3 月">
+                      <li class="t-select-option t-size-s" title="3 月">
                         <!--[-->3 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="4 月">
+                      <li class="t-select-option t-size-s" title="4 月">
                         <!--[-->4 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="5 月">
+                      <li class="t-select-option t-size-s" title="5 月">
                         <!--[-->5 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="6 月">
+                      <li class="t-select-option t-size-s" title="6 月">
                         <!--[-->6 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="7 月">
+                      <li class="t-select-option t-size-s" title="7 月">
                         <!--[-->7 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="8 月">
+                      <li class="t-select-option t-size-s" title="8 月">
                         <!--[-->8 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="9 月">
+                      <li class="t-select-option t-size-s" title="9 月">
                         <!--[-->9 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="10 月">
+                      <li class="t-select-option t-size-s" title="10 月">
                         <!--[-->10 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-size-m" title="11 月">
+                      <li class="t-select-option t-size-s" title="11 月">
                         <!--[-->11 月
                         <!--]-->
                       </li>
-                      <li class="t-select-option t-is-selected t-size-m" title="12 月">
+                      <li class="t-select-option t-is-selected t-size-s" title="12 月">
                         <!--[-->12 月
                         <!--]-->
                       </li>
@@ -3724,11 +3724,11 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                 </div>
               </div>
               <!--[-->
-              <div class="t-select t-size-m">
+              <div class="t-select t-size-s">
                 <!---->
                 <!---->
                 <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                <!--]--><span class="t-tag t-tag--default t-size-s t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3740,7 +3740,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
           </div>
         </div>
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+          <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="month">
             <!--[-->
             <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
             <!--]-->
@@ -3748,8 +3748,8 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
             <!--]-->
           </div>
         </div>
-        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="danger" size="medium" variant="base"><!--[-->隐藏周末<!--]--></span></div>
-        <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
+        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-s t-calendar__control-tag" theme="default" variant="base"><!--[-->隐藏周末<!--]--></span></div>
+        <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--variant-base t-button--theme-warning" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
       </div>
     </div>
     <div class="t-calendar__panel t-calendar__panel--month">
@@ -4063,7 +4063,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
             <!--]-->
           </div>
         </div>
-        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
         <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
       </div>
     </div>
@@ -4385,7 +4385,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
             <!--]-->
           </div>
         </div>
-        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
         <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
       </div>
     </div>
@@ -4715,7 +4715,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
             <!--]-->
           </div>
         </div>
-        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="primary" size="medium"><!--[-->显示周末<!--]--></span></div>
+        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="primary"><!--[-->显示周末<!--]--></span></div>
         <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
       </div>
     </div>
@@ -5078,7 +5078,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
             <!--]-->
           </div>
         </div>
-        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
         <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
       </div>
     </div>
@@ -5404,7 +5404,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
           <!--]-->
         </div>
       </div>
-      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
     </div>
   </div>
@@ -5673,7 +5673,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
             <!--]-->
           </div>
         </div>
-        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+        <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
         <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->本月<!--]--></span></button></div>
       </div>
     </div>
@@ -5903,7 +5903,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
           <!--]-->
         </div>
       </div>
-      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
     </div>
   </div>
@@ -6216,7 +6216,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
           <!--]-->
         </div>
       </div>
-      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
     </div>
   </div>
@@ -6708,7 +6708,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
           <!--]-->
         </div>
       </div>
-      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
       <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
     </div>
   </div>
@@ -7035,7 +7035,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
               <!--]-->
             </div>
           </div>
-          <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+          <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
           <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
         </div>
       </div>
@@ -7369,7 +7369,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
               <!--]-->
             </div>
           </div>
-          <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+          <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
           <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
         </div>
       </div>
@@ -7682,7 +7682,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
               <!--]-->
             </div>
           </div>
-          <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->隐藏周末<!--]--></span></div>
+          <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
           <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->今天<!--]--></span></button></div>
         </div>
       </div>
@@ -8587,94 +8587,94 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                 <div>
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
-                    <li class="t-select-option t-size-m t-select__create-option--special" title></li>
+                    <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                   </ul>
                   <!---->
-                  <li class="t-select__empty t-size-m">暂无数据</li>
+                  <li class="t-select__empty t-size-s">暂无数据</li>
                   <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
-                    <li class="t-select-option t-size-m" title="2010">
+                    <li class="t-select-option t-size-s" title="2010">
                       <!--[-->2010
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2011">
+                    <li class="t-select-option t-size-s" title="2011">
                       <!--[-->2011
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2012">
+                    <li class="t-select-option t-size-s" title="2012">
                       <!--[-->2012
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2013">
+                    <li class="t-select-option t-size-s" title="2013">
                       <!--[-->2013
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2014">
+                    <li class="t-select-option t-size-s" title="2014">
                       <!--[-->2014
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2015">
+                    <li class="t-select-option t-size-s" title="2015">
                       <!--[-->2015
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2016">
+                    <li class="t-select-option t-size-s" title="2016">
                       <!--[-->2016
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2017">
+                    <li class="t-select-option t-size-s" title="2017">
                       <!--[-->2017
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2018">
+                    <li class="t-select-option t-size-s" title="2018">
                       <!--[-->2018
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2019">
+                    <li class="t-select-option t-size-s" title="2019">
                       <!--[-->2019
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-is-selected t-size-m" title="2020">
+                    <li class="t-select-option t-is-selected t-size-s" title="2020">
                       <!--[-->2020
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2021">
+                    <li class="t-select-option t-size-s" title="2021">
                       <!--[-->2021
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2022">
+                    <li class="t-select-option t-size-s" title="2022">
                       <!--[-->2022
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2023">
+                    <li class="t-select-option t-size-s" title="2023">
                       <!--[-->2023
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2024">
+                    <li class="t-select-option t-size-s" title="2024">
                       <!--[-->2024
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2025">
+                    <li class="t-select-option t-size-s" title="2025">
                       <!--[-->2025
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2026">
+                    <li class="t-select-option t-size-s" title="2026">
                       <!--[-->2026
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2027">
+                    <li class="t-select-option t-size-s" title="2027">
                       <!--[-->2027
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2028">
+                    <li class="t-select-option t-size-s" title="2028">
                       <!--[-->2028
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2029">
+                    <li class="t-select-option t-size-s" title="2029">
                       <!--[-->2029
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="2030">
+                    <li class="t-select-option t-size-s" title="2030">
                       <!--[-->2030
                       <!--]-->
                     </li>
@@ -8688,11 +8688,11 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
               </div>
             </div>
             <!--[-->
-            <div class="t-select t-size-m">
+            <div class="t-select t-size-s">
               <!---->
               <!---->
               <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+              <!--]--><span class="t-tag t-tag--default t-size-s t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
               <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -8712,58 +8712,58 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                 <div>
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
-                    <li class="t-select-option t-size-m t-select__create-option--special" title></li>
+                    <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                   </ul>
                   <!---->
-                  <li class="t-select__empty t-size-m">暂无数据</li>
+                  <li class="t-select__empty t-size-s">暂无数据</li>
                   <ul class="t-select__groups">
                     <!--[-->
                     <!--[-->
-                    <li class="t-select-option t-size-m" title="January">
+                    <li class="t-select-option t-size-s" title="January">
                       <!--[-->January
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="February">
+                    <li class="t-select-option t-size-s" title="February">
                       <!--[-->February
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="March">
+                    <li class="t-select-option t-size-s" title="March">
                       <!--[-->March
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="April">
+                    <li class="t-select-option t-size-s" title="April">
                       <!--[-->April
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="May">
+                    <li class="t-select-option t-size-s" title="May">
                       <!--[-->May
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="June">
+                    <li class="t-select-option t-size-s" title="June">
                       <!--[-->June
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="July">
+                    <li class="t-select-option t-size-s" title="July">
                       <!--[-->July
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="August">
+                    <li class="t-select-option t-size-s" title="August">
                       <!--[-->August
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="September">
+                    <li class="t-select-option t-size-s" title="September">
                       <!--[-->September
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="October">
+                    <li class="t-select-option t-size-s" title="October">
                       <!--[-->October
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-size-m" title="November">
+                    <li class="t-select-option t-size-s" title="November">
                       <!--[-->November
                       <!--]-->
                     </li>
-                    <li class="t-select-option t-is-selected t-size-m" title="December">
+                    <li class="t-select-option t-is-selected t-size-s" title="December">
                       <!--[-->December
                       <!--]-->
                     </li>
@@ -8777,11 +8777,11 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
               </div>
             </div>
             <!--[-->
-            <div class="t-select t-size-m">
+            <div class="t-select t-size-s">
               <!---->
               <!---->
               <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+              <!--]--><span class="t-tag t-tag--default t-size-s t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
               <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -8793,7 +8793,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="month">
           <!--[-->
           <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->Month<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->Year<!--]--><!--]--></span></label>
           <!--]-->
@@ -8801,8 +8801,8 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
           <!--]-->
         </div>
       </div>
-      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-calendar__control-tag" theme="default" size="medium"><!--[-->Hide Weekend<!--]--></span></div>
-      <div class="t-calendar__control-section-cell"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->Today<!--]--></span></button></div>
+      <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-s t-calendar__control-tag" theme="default"><!--[-->Hide Weekend<!--]--></span></div>
+      <div class="t-calendar__control-section-cell"><button class="t-button t-size-s t-button--variant-base t-button--theme-warning" type="button"><span class="t-button__text"><!--[-->Today<!--]--></span></button></div>
     </div>
   </div>
   <div class="t-calendar__panel t-calendar__panel--month">
@@ -8826,19 +8826,19 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
           <!--[-->
           <div class="t-calendar__table-body-cell t-is-disabled"><span><div class="t-calendar__table-body-cell-display">29</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
           <div class="t-calendar__table-body-cell t-is-disabled"><span><div class="t-calendar__table-body-cell-display">30</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">01</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">02</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">03</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">04</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">05</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">1</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">2</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">3</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">4</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">5</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
           <!--]-->
         </tr>
         <tr class="t-calendar__table-body-row">
           <!--[-->
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">06</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">07</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">08</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">09</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">6</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">7</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">8</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">9</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
           <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">10</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
           <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">11</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
           <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">12</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
@@ -8873,8 +8873,8 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
           <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">29</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
           <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">30</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
           <div class="t-calendar__table-body-cell"><span><div class="t-calendar__table-body-cell-display">31</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell t-is-disabled"><span><div class="t-calendar__table-body-cell-display">01</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
-          <div class="t-calendar__table-body-cell t-is-disabled"><span><div class="t-calendar__table-body-cell-display">02</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell t-is-disabled"><span><div class="t-calendar__table-body-cell-display">1</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
+          <div class="t-calendar__table-body-cell t-is-disabled"><span><div class="t-calendar__table-body-cell-display">2</div><div class="t-calendar__table-body-cell-content"><!----></div></span></div>
           <!--]-->
         </tr>
         <!--]-->
@@ -38497,7 +38497,7 @@ exports[`ssr snapshot test renders ./examples/tag/demos/delete.vue correctly 1`]
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/tag/demos/disabled.vue correctly 1`] = `<div class="tdesign-tag-disabled tag-demo"><span class="t-tag t-tag--check t-tag--default t-tag--disabled check-tag"><!--[--> 失效标签 <!--]--></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled" style=""><!----><!--[--> 失效标签 <!--]--><!----></span></div>`;
+exports[`ssr snapshot test renders ./examples/tag/demos/disabled.vue correctly 1`] = `<div class="tdesign-tag-disabled tag-demo"><span class="t-tag t-tag--check t-tag--default t-size-m t-tag--disabled check-tag"><!--[--> 失效标签 <!--]--></span><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled" style=""><!----><!--[--> 失效标签 <!--]--><!----></span></div>`;
 
 exports[`ssr snapshot test renders ./examples/tag/demos/icon.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
@@ -38516,7 +38516,7 @@ exports[`ssr snapshot test renders ./examples/tag/demos/plain.vue correctly 1`] 
 
 exports[`ssr snapshot test renders ./examples/tag/demos/selectable.vue correctly 1`] = `
 <div class="tag-demo">
-  <!--[--><span class="t-tag t-tag--check t-tag--default t-tag--checked"><!--[-->选中<!--]--></span><span class="t-tag t-tag--check t-tag--default"><!--[-->未选<!--]--></span><span class="t-tag t-tag--check t-tag--default t-tag--disabled"><!--[-->Disabled<!--]--></span>
+  <!--[--><span class="t-tag t-tag--check t-tag--default t-size-m t-tag--checked"><!--[-->选中<!--]--></span><span class="t-tag t-tag--check t-tag--default t-size-m"><!--[-->未选<!--]--></span><span class="t-tag t-tag--check t-tag--default t-size-m t-tag--disabled"><!--[-->Disabled<!--]--></span>
   <!--]-->
 </div>
 `;
