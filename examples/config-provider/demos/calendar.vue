@@ -27,7 +27,6 @@ const GLOBAL_CONFIG = {
     yearSelection: '{year}',
     // 1 表示周一；7 表示周日
     firstDayOfWeek: 7,
-    // monthSelection: '{month} month',
     monthSelection: ({ month }) => MONTHS[month - 1],
     yearRadio: 'Year',
     monthRadio: 'Month',
@@ -37,6 +36,47 @@ const GLOBAL_CONFIG = {
     thisMonth: 'This Month',
     week: ['Monday', 'Tuesday', 'Wedsday', 'Thuresday', 'Friday', 'Staturday', 'Sunday'].join(),
     cellMonth: MONTHS.join(),
+    fillWithZero: false,
+    controllerConfig: {
+      year: {
+        visible: true,
+        selecteProps: {
+          size: 'small',
+        },
+      },
+      month: {
+        visible: true,
+        selecteProps: {
+          size: 'small',
+        },
+      },
+      mode: {
+        visible: true,
+        radioGroupProps: {
+          size: 'small',
+        },
+      },
+      weekend: {
+        visible: true,
+        showWeekendButtonProps: {
+          size: 'small',
+        },
+        hideWeekendButtonProps: {
+          size: 'small',
+        },
+      },
+      current: {
+        visible: true,
+        currentDayButtonProps: {
+          theme: 'warning',
+          size: 'small',
+        },
+        currentMonthButtonProps: {
+          theme: 'success',
+          size: 'small',
+        },
+      },
+    },
   },
 };
 

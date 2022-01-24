@@ -541,7 +541,7 @@ exports[`Tag Tag disabledVue demo works fine 1`] = `
   class="tdesign-tag-disabled tag-demo"
 >
   <span
-    class="t-tag t-tag--check t-tag--default t-tag--disabled check-tag"
+    class="t-tag t-tag--check t-tag--default t-size-m t-tag--disabled check-tag"
   >
     
      失效标签 
@@ -687,21 +687,21 @@ exports[`Tag Tag selectableVue demo works fine 1`] = `
 >
   
   <span
-    class="t-tag t-tag--check t-tag--default t-tag--checked"
+    class="t-tag t-tag--check t-tag--default t-size-m t-tag--checked"
   >
     
     选中
     
   </span>
   <span
-    class="t-tag t-tag--check t-tag--default"
+    class="t-tag t-tag--check t-tag--default t-size-m"
   >
     
     未选
     
   </span>
   <span
-    class="t-tag t-tag--check t-tag--default t-tag--disabled"
+    class="t-tag t-tag--check t-tag--default t-size-m t-tag--disabled"
   >
     
     Disabled

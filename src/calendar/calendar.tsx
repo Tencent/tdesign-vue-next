@@ -258,12 +258,13 @@ export default defineComponent({
     },
 
     controllerConfigData(): Record<string, any> {
-      if (typeof this.controllerConfig === 'boolean') {
-        return getDefaultControllerConfigData(this.controllerConfig);
+      const controllerConfig = this.controllerConfig ?? this.global.controllerConfig ?? true;
+      if (typeof controllerConfig === 'boolean') {
+        return getDefaultControllerConfigData(controllerConfig);
       }
       return {
         ...getDefaultControllerConfigData(),
-        ...(this.controllerConfig as object),
+        ...controllerConfig,
       };
     },
 

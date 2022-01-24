@@ -549,8 +549,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="default"
         >
           
@@ -1909,8 +1908,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="primary"
         >
           
@@ -2792,8 +2790,7 @@ exports[`Calendar :props :mode 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="default"
         >
           
@@ -3515,8 +3512,7 @@ exports[`Calendar :props :range 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="default"
         >
           
@@ -5972,8 +5968,7 @@ exports[`Calendar :props :value 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="default"
         >
           
