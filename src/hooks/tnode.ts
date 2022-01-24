@@ -18,11 +18,11 @@ export const useTNodeJSX = (name: string, options?: OptionsType) => {
   const defaultNode = getDefaultNode(options);
 
   const instance = getCurrentInstance();
-
+  const { props } = instance;
   // 处理 props 类型的Node
   let propsNode;
-  if (Object.keys(instance).includes(name)) {
-    propsNode = instance[name];
+  if (Object.keys(props).includes(name)) {
+    propsNode = props[name];
   }
 
   // propsNode 为 false 不渲染
