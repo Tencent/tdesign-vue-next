@@ -37,7 +37,9 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
                     <!---->
                     <ul
                       class="t-select__create-option"
@@ -307,7 +309,9 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
                     <!---->
                     <ul
                       class="t-select__create-option"
@@ -6799,7 +6803,9 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6909,7 +6915,9 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -7006,7 +7014,9 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -9116,7 +9126,9 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
