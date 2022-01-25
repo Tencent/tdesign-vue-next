@@ -9300,7 +9300,6 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
         <input
           autocomplete="off"
           class="t-input__inner"
-          placeholder=""
         />
       </div>
       <!---->
