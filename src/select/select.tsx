@@ -690,7 +690,7 @@ export default defineComponent({
     const placeholderText = this.getPlaceholderText();
     const slots = {
       content: () => (
-        <div>
+        <div className={`${prefix}-select__dropdown-inner`}>
           {renderTNodeJSX(this, 'panelTopContent')}
           <ul v-show={showCreateOption} class={`${name}__create-option`}>
             <t-option value={this.searchInput} label={this.searchInput} class={`${name}__create-option--special`} />

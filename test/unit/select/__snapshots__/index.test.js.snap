@@ -18,7 +18,9 @@ exports[`Select :props :bordered 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -115,7 +117,9 @@ exports[`Select :props :clearable 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -212,7 +216,9 @@ exports[`Select :props :creatable 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -309,7 +315,9 @@ exports[`Select :props :disabled 1`] = `
           class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -407,7 +415,9 @@ exports[`Select :props :labelInValue 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -504,7 +514,9 @@ exports[`Select :props :loading 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -611,7 +623,9 @@ exports[`Select :props :multiple 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -726,7 +740,9 @@ exports[`Select :props :placeholder 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -824,7 +840,9 @@ exports[`Select :props :remote 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -921,7 +939,9 @@ exports[`Select :props :reserveKeyword 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -1018,7 +1038,9 @@ exports[`Select :props :size 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -1116,7 +1138,9 @@ exports[`Select Option :props :disabled 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -1221,7 +1245,9 @@ exports[`Select Option :props :label 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -1326,7 +1352,9 @@ exports[`Select Option :props :value 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"
@@ -1431,7 +1459,9 @@ exports[`Select OptionGroup :props :value 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
             <!---->
             <ul
               class="t-select__create-option"

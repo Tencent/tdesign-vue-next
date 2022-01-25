@@ -1308,7 +1308,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -1433,7 +1433,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -1616,7 +1616,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -1672,7 +1672,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -1797,7 +1797,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -1982,7 +1982,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -2031,7 +2031,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -2156,7 +2156,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -2555,7 +2555,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -2680,7 +2680,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -3122,7 +3122,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -3247,7 +3247,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -3531,7 +3531,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-s t-select__create-option--special" title></li>
@@ -3656,7 +3656,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-s t-select__create-option--special" title></li>
@@ -3846,7 +3846,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -3971,7 +3971,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -4168,7 +4168,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -4293,7 +4293,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -4498,7 +4498,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -4623,7 +4623,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -4807,7 +4807,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -4861,7 +4861,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -4986,7 +4986,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -5187,7 +5187,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -5312,7 +5312,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -5495,7 +5495,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -5544,7 +5544,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -5726,7 +5726,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -5811,7 +5811,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -5999,7 +5999,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -6124,7 +6124,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -6491,7 +6491,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -6616,7 +6616,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -6818,7 +6818,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
-                    <div>
+                    <div class="t-select__dropdown-inner">
                       <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -6943,7 +6943,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
-                    <div>
+                    <div class="t-select__dropdown-inner">
                       <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -7152,7 +7152,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
-                    <div>
+                    <div class="t-select__dropdown-inner">
                       <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -7277,7 +7277,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
-                    <div>
+                    <div class="t-select__dropdown-inner">
                       <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -7465,7 +7465,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
-                    <div>
+                    <div class="t-select__dropdown-inner">
                       <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -7590,7 +7590,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
-                    <div>
+                    <div class="t-select__dropdown-inner">
                       <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -8584,7 +8584,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-s t-select__create-option--special" title></li>
@@ -8709,7 +8709,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <div>
+                <div class="t-select__dropdown-inner">
                   <!---->
                   <ul class="t-select__create-option" style="display:none;">
                     <li class="t-select-option t-size-s t-select__create-option--special" title></li>
@@ -10124,7 +10124,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -10164,7 +10164,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -10200,7 +10200,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -10711,7 +10711,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -17100,7 +17100,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -22065,7 +22065,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -22133,7 +22133,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -22203,7 +22203,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -22279,7 +22279,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
@@ -22351,7 +22351,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -22426,7 +22426,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -22498,7 +22498,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -22544,7 +22544,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -22613,7 +22613,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
@@ -22659,7 +22659,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
@@ -22728,7 +22728,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-select__dropdown narrow-scrollbar">
             <!--[-->
-            <div>
+            <div class="t-select__dropdown-inner">
               <!---->
               <ul class="t-select__create-option" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -24283,7 +24283,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -24326,7 +24326,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -24377,7 +24377,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -24422,7 +24422,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -24479,7 +24479,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -24545,7 +24545,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -24597,7 +24597,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content tdesign-demo-select__overlay-option t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -24706,7 +24706,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content tdesign-demo-select__overlay-option t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -24841,7 +24841,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -24888,7 +24888,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -24942,7 +24942,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -24982,7 +24982,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -25030,7 +25030,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -25076,7 +25076,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -25128,7 +25128,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -25198,7 +25198,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -25301,7 +25301,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -25341,7 +25341,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -25389,7 +25389,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/max.vue correctly 1`]
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -25435,7 +25435,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -25485,7 +25485,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -25543,7 +25543,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -25602,7 +25602,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -25648,7 +25648,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!--[-->
             <div>
               <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入关键词搜索"></textarea>
@@ -25697,7 +25697,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -25746,7 +25746,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -25786,7 +25786,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -25831,7 +25831,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/prefix.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -25875,7 +25875,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -25921,7 +25921,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox undefined" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
@@ -25968,7 +25968,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-s t-select__create-option--special" title></li>
@@ -26019,7 +26019,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -26059,7 +26059,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-l t-select__create-option--special" title></li>
@@ -26104,7 +26104,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -26146,7 +26146,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -26188,7 +26188,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
-          <div>
+          <div class="t-select__dropdown-inner">
             <!---->
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
@@ -36622,7 +36622,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                 <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                   <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                     <!--[-->
-                    <div>
+                    <div class="t-select__dropdown-inner">
                       <!---->
                       <ul class="t-select__create-option" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -36738,7 +36738,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
@@ -43044,7 +43044,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
               <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                 <div class="t-popup__content t-select__dropdown narrow-scrollbar">
                   <!--[-->
-                  <div>
+                  <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option" style="display:none;">
                       <li class="t-select-option t-size-s t-select__create-option--special" title></li>
