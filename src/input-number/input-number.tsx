@@ -122,6 +122,7 @@ export default defineComponent({
         't-input',
         {
           't-is-error': this.isError,
+          [`${prefix}-align-${this.align}`]: this.align,
         },
       ];
     },
@@ -165,7 +166,7 @@ export default defineComponent({
       }
       if (this.value === undefined) return '';
       // end input
-      return this.format && !this.inputing ? this.format(this.value) : this.value.toFixed(this.digitsNum);
+      return this.format && !this.inputing ? this.format(this.value) : this.value?.toFixed(this.digitsNum);
     },
   },
   watch: {
@@ -174,6 +175,9 @@ export default defineComponent({
       handler(v) {
         if (v !== undefined) {
           this.isValidNumber(v);
+        }
+        if (!v) {
+          this.filterValue = v;
         }
       },
     },
@@ -261,7 +265,7 @@ export default defineComponent({
     handleStartInput() {
       this.inputing = true;
       if (this.value === undefined) return;
-      this.filterValue = this.value.toFixed(this.digitsNum);
+      this.filterValue = this.value?.toFixed(this.digitsNum);
     },
     handleEndInput(e: FocusEvent) {
       this.inputing = false;

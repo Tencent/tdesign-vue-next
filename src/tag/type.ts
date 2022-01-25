@@ -49,10 +49,10 @@ export interface TdTagProps {
    */
   theme?: 'default' | 'primary' | 'warning' | 'danger' | 'success';
   /**
-   * 标签风格变体
+   * 影响标签风格（theme）
    * @default dark
    */
-  variant?: 'dark' | 'light' | 'outline' | 'light-outline';
+  variant?: 'dark' | 'light' | 'plain';
   /**
    * 点击时触发
    */
