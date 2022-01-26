@@ -7028,11 +7028,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                   
                 </li>
               </ul>
-              <li
+              <div
                 class="t-select__loading-tips t-size-m"
               >
                 loading...
-              </li>
+              </div>
               <!---->
               <ul
                 class="t-select__groups"

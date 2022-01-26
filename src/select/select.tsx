@@ -695,7 +695,7 @@ export default defineComponent({
           <ul v-show={showCreateOption} class={`${name}__create-option`}>
             <t-option value={this.searchInput} label={this.searchInput} class={`${name}__create-option--special`} />
           </ul>
-          {loading && <li class={tipsClass}>{loadingTextSlot || loadingText}</li>}
+          {loading && <div class={tipsClass}>{loadingTextSlot || loadingText}</div>}
           {!loading && !displayOptions.length && !showCreateOption && <li class={emptyClass}>{emptySlot}</li>}
           {!hasOptions && displayOptions.length && !loading ? (
             this.renderDataWithOptions()
