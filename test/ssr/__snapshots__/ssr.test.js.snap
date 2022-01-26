@@ -10205,7 +10205,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
-            <li class="t-select__loading-tips t-size-m">loading...</li>
+            <div class="t-select__loading-tips t-size-m">loading...</div>
             <!---->
             <ul class="t-select__groups">
               <!---->
@@ -26193,7 +26193,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
             <ul class="t-select__create-option" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
-            <li class="t-select__loading-tips t-size-m">加载中</li>
+            <div class="t-select__loading-tips t-size-m">加载中</div>
             <!---->
             <ul class="t-select__groups">
               <!---->
