@@ -1,5 +1,5 @@
 import _Pagination from './pagination';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import { withInstall } from '../utils/withInstall';
 import mapProps from '../utils/map-props';
 import { TdPaginationProps } from './type';
 
@@ -8,7 +8,7 @@ import './style';
 export * from './type';
 export type PaginationProps = TdPaginationProps;
 
-export const Pagination: WithInstallType<typeof _Pagination> = withInstall(
+export const Pagination = withInstall(
   mapProps([
     {
       name: 'current',

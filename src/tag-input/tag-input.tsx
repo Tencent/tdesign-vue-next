@@ -85,7 +85,7 @@ export default defineComponent({
             <Tag
               size={this.size}
               disabled={this.disabled}
-              onClose={(e) => this.onClose({ e, item, index })}
+              onClose={(e: MouseEvent) => this.onClose({ e, item, index })}
               closable={!this.readonly && !this.disabled}
               {...this.tagProps}
             >
@@ -128,7 +128,7 @@ export default defineComponent({
         ref="root"
         {...this.inputProps}
         value={this.inputValueRef}
-        onChange={(val) => {
+        onChange={(val: InputValue) => {
           this.inputValueRef = val;
         }}
         size={this.size}
@@ -144,18 +144,18 @@ export default defineComponent({
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}
-        onMouseenter={(context) => {
+        onMouseenter={(context: { e: MouseEvent }) => {
           this.addHover(context);
           this.scrollToRightOnEnter();
         }}
-        onMouseleave={(context) => {
+        onMouseleave={(context: { e: MouseEvent }) => {
           this.cancelHover(context);
           this.scrollToLeftOnLeave();
         }}
-        onFocus={(inputValue, context) => {
+        onFocus={(inputValue: InputValue, context: { e: MouseEvent }) => {
           this.onFocus?.(this.tagValue, { e: context.e, inputValue });
         }}
-        onBlur={(inputValue, context) => {
+        onBlur={(inputValue: InputValue, context: { e: MouseEvent }) => {
           this.onBlur?.(this.tagValue, { e: context.e, inputValue });
         }}
       />
