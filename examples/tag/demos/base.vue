@@ -26,7 +26,7 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 const onClick = ({ e }) => {
   e.stopPropagation();
 };
