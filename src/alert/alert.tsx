@@ -46,11 +46,12 @@ export default defineComponent({
     };
 
     const renderClose = () => {
+      const { close } = props;
       let closeContent = null;
-      if (typeof props.close === 'string') {
-        closeContent = props.close;
-      } else if (props.close === true) {
-        closeContent = <CloseIcon></CloseIcon>;
+      if (close === true || close === '') {
+        closeContent = <CloseIcon />;
+      } else if (typeof close === 'string') {
+        closeContent = close;
       } else {
         closeContent = useIcon(props, slots, 'close');
       }
