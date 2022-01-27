@@ -1,4 +1,4 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, VNode, ref, computed } from 'vue';
 import {
   CloseCircleFilledIcon,
   CheckCircleFilledIcon,
@@ -13,66 +13,62 @@ import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_R
 import props from './props';
 // import { RenderTNodeTemplate } from '../utils/render-tnode';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { Styles } from '../common';
 
 const name = `${prefix}-progress`;
 
 export default defineComponent({
   name: 'TProgress',
-
-  props: { ...props },
-
-  data() {
-    return {
-      name,
-    };
-  },
-  computed: {
-    statusStyle(): string {
-      if (this.percentage >= 100) {
+  props,
+  emits: [],
+  setup(props) {
+    const statusStyle = computed(() => {
+      if (props.percentage >= 100) {
         return 'success';
       }
-      return this.status;
-    },
-    themeClass(): string {
+      return props.status;
+    });
+
+    const themeClass = computed(() => {
       const Line = PRO_THEME.LINE;
-      if (this.theme === Line) {
+      if (props.theme === Line) {
         return 'thin';
       }
-      return this.theme;
-    },
-    trackBgStyle(): Styles {
-      const { strokeWidth } = this;
-      const height = typeof strokeWidth === 'string' ? strokeWidth : `${strokeWidth}px`;
+      return props.theme;
+    });
+
+    const trackBgStyle = computed(() => {
+      const height = typeof props.strokeWidth === 'string' ? props.strokeWidth : `${props.strokeWidth}px`;
       return {
         height,
-        backgroundColor: this.trackColor,
+        backgroundColor: props.trackColor,
         borderRadius: height,
       };
-    },
-    barStyle(): Styles {
+    });
+
+    const barStyle = computed(() => {
       return {
-        width: `${this.percentage}%`,
-        background: this.color && getBackgroundColor(this.color),
+        width: `${props.percentage}%`,
+        background: props.color && getBackgroundColor(props.color),
       };
-    },
-    circlePathStyle(): Styles {
-      const strokeColor = typeof this.color === 'object' ? '' : this.color;
+    });
+
+    const circlePathStyle = computed(() => {
+      const strokeColor = typeof props.color === 'object' ? '' : props.color;
       return {
         stroke: strokeColor,
       };
-    },
-    isShowIcon(): boolean {
-      return STATUS_ICON.includes(this.status) && typeof this.label === 'boolean';
-    },
+    });
+
+    const isShowIcon = computed(() => STATUS_ICON.includes(props.status) && typeof props.label === 'boolean');
+
     // theme=circle 获取直径
-    diameter(): number {
+    const diameter = computed(() => {
       let diameter = CIRCLE_SIZE_PX.MEDIUM;
-      if (!this.size) {
+      if (!props.size) {
         return diameter;
       }
       const { SMALL, LARGE, MEDIUM } = CIRCLE_SIZE;
-      switch (this.size) {
+      switch (props.size) {
         case SMALL:
           diameter = CIRCLE_SIZE_PX.SMALL;
           break;
@@ -83,54 +79,56 @@ export default defineComponent({
           diameter = CIRCLE_SIZE_PX.LARGE;
           break;
         default:
-          diameter = Number(this.size);
+          diameter = Number(props.size);
           break;
       }
       return diameter;
-    },
-    rPoints(): number {
-      return this.diameter / 2;
-    },
-    radius(): number {
-      return this.rPoints - this.circleStrokeWidth / 2;
-    },
-    circleStyle(): Styles {
-      if (this.theme !== PRO_THEME.CIRCLE) {
+    });
+
+    const rPoints = computed(() => {
+      return diameter.value / 2;
+    });
+
+    const radius = computed(() => {
+      return rPoints.value - circleStrokeWidth.value / 2;
+    });
+
+    const circleStyle = computed(() => {
+      if (props.theme !== PRO_THEME.CIRCLE) {
         return {};
       }
 
-      let fontSize = this.diameter * CIRCLE_FONT_SIZE_RATIO.MEDIUM;
-      if (this.diameter <= CIRCLE_SIZE_PX.SMALL) {
-        fontSize = this.diameter * CIRCLE_FONT_SIZE_RATIO.SMALL;
-      } else if (this.diameter >= CIRCLE_SIZE_PX.LARGE) {
-        fontSize = this.diameter * CIRCLE_FONT_SIZE_RATIO.LARGE;
+      let fontSize = diameter.value * CIRCLE_FONT_SIZE_RATIO.MEDIUM;
+      if (diameter.value <= CIRCLE_SIZE_PX.SMALL) {
+        fontSize = diameter.value * CIRCLE_FONT_SIZE_RATIO.SMALL;
+      } else if (diameter.value >= CIRCLE_SIZE_PX.LARGE) {
+        fontSize = diameter.value * CIRCLE_FONT_SIZE_RATIO.LARGE;
       }
 
       return {
-        width: `${this.diameter}px`,
-        height: `${this.diameter}px`,
+        width: `${diameter.value}px`,
+        height: `${diameter.value}px`,
         fontSize: `${fontSize}px`,
       };
-    },
-    // theme=circle 环形进度条 环形宽度
-    circleStrokeWidth(): number {
-      const defaultWidth = this.size === CIRCLE_SIZE.SMALL ? 4 : 6;
-      return this.strokeWidth ? Number(this.strokeWidth) : defaultWidth;
-    },
-    strokeDashArr(): string {
-      const radius = this.diameter / 2;
-      const perimeter = Math.PI * 2 * (radius - this.circleStrokeWidth);
-      const percent = this.percentage / 100;
-      return `${perimeter * percent}  ${perimeter * (1 - percent)}`;
-    },
-    plumpStyles(): Styles {
-      return {};
-      // return this.percentage > 10 ? { color: '#fff' } : { right: '-2.5rem' };
-    },
-  },
+    });
 
-  methods: {
-    getIconMap() {
+    const circleStrokeWidth = computed(() => {
+      const defaultWidth = props.size === CIRCLE_SIZE.SMALL ? 4 : 6;
+      return props.strokeWidth ? Number(props.strokeWidth) : defaultWidth;
+    });
+
+    const strokeDashArr = computed(() => {
+      const radius = diameter.value / 2;
+      const perimeter = Math.PI * 2 * (radius - circleStrokeWidth.value);
+      const percent = props.percentage / 100;
+      return `${perimeter * percent}  ${perimeter * (1 - percent)}`;
+    });
+
+    const plumpStyles = computed(
+      () => ({}),
+      // return props.percentage > 10 ? { color: '#fff' } : { right: '-2.5rem' };
+    );
+    const getIconMap = () => {
       const CIRCLE_ICONS = {
         success: CheckIcon,
         warning: ErrorIcon,
@@ -141,20 +139,39 @@ export default defineComponent({
         warning: ErrorCircleFilledIcon,
         error: CloseCircleFilledIcon,
       };
-      return this.theme === PRO_THEME.CIRCLE ? CIRCLE_ICONS : NORMAL_ICONS;
-    },
-    getLabelContent() {
-      let labelContent: string | VNode = `${this.percentage}%`;
-      const status = this.status || '';
-      if (STATUS_ICON.includes(status) && this.theme !== PRO_THEME.PLUMP) {
-        const components = this.getIconMap();
+      return props.theme === PRO_THEME.CIRCLE ? CIRCLE_ICONS : NORMAL_ICONS;
+    };
+    const getLabelContent = () => {
+      let labelContent: string | VNode = `${props.percentage}%`;
+      const status = props.status || '';
+      if (STATUS_ICON.includes(status) && props.theme !== PRO_THEME.PLUMP) {
+        const components = getIconMap();
         const component = components[status];
         if (component) {
           labelContent = <component class={[`${name}__icon`]}></component>;
         }
       }
       return labelContent;
-    },
+    };
+
+    return {
+      props,
+      statusStyle,
+      themeClass,
+      trackBgStyle,
+      barStyle,
+      circlePathStyle,
+      isShowIcon,
+      diameter,
+      rPoints,
+      radius,
+      circleStyle,
+      circleStrokeWidth,
+      strokeDashArr,
+      plumpStyles,
+      getIconMap,
+      getLabelContent,
+    };
   },
 
   render() {
