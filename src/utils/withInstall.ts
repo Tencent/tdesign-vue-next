@@ -1,7 +1,5 @@
 import { App, Plugin } from 'vue';
 
-export type WithInstallType<T> = T & Plugin;
-
 export const withInstall = <T>(comp: T, customName?: string): T & Plugin => {
   const c = comp as any;
 

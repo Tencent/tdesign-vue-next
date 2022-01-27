@@ -1,7 +1,7 @@
 import _Checkbox from './checkbox';
 import _Group from './group';
 import mapProps from '../utils/map-props';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdCheckboxProps } from './type';
 
 import './style';
@@ -9,7 +9,7 @@ import './style';
 export * from './type';
 export type CheckboxProps = TdCheckboxProps;
 
-export const Checkbox: WithInstallType<typeof _Checkbox> = withInstall(
+export const Checkbox = withInstall(
   mapProps([
     {
       name: 'checked',
@@ -18,7 +18,7 @@ export const Checkbox: WithInstallType<typeof _Checkbox> = withInstall(
     },
   ])(_Checkbox),
 );
-export const CheckboxGroup: WithInstallType<typeof _Group> = withInstall(
+export const CheckboxGroup = withInstall(
   mapProps([
     {
       name: 'value',

@@ -1,6 +1,6 @@
 import _Row from './row';
 import _Col from './col';
-import { withInstall, WithInstallType } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdRowProps, TdColProps } from './type';
 
 import './style';
@@ -9,6 +9,6 @@ export * from './type';
 export type ColProps = TdColProps;
 export type RowProps = TdRowProps;
 
-export const Row: WithInstallType<typeof _Row> = withInstall(_Row);
-export const Col: WithInstallType<typeof _Col> = withInstall(_Col);
+export const Row = withInstall(_Row);
+export const Col = withInstall(_Col);
 export default { Row, Col };
