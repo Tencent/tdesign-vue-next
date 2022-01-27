@@ -60,6 +60,8 @@ export default defineComponent({
       inlineView: false,
       showTime: false,
       isOpen: false,
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
       startTimeValue: dayjs(),
       endTimeValue: dayjs(),
     };
@@ -156,6 +158,9 @@ export default defineComponent({
         [`${name}--calendar-inline-view`]: this.inlineView,
         [`${name}--range`]: this.range,
       };
+    },
+    tDisabled() {
+      return this.formDisabled || this.disabled;
     },
   },
   mounted() {
@@ -283,7 +288,7 @@ export default defineComponent({
       }
     },
     toggle() {
-      if (!this.disabled) {
+      if (!this.tDisabled) {
         if (this.isOpen) {
           this.close();
         } else {
@@ -292,7 +297,7 @@ export default defineComponent({
       }
     },
     open() {
-      if (!this.disabled) {
+      if (!this.tDisabled) {
         const { formattedValue } = this;
         // set default value;
         if (formattedValue) {
@@ -308,7 +313,7 @@ export default defineComponent({
       }
     },
     close() {
-      if (!this.disabled) {
+      if (!this.tDisabled) {
         this.tempValue = '';
         this.isOpen = false;
         this.showTime = false;
@@ -361,7 +366,7 @@ export default defineComponent({
       this.close();
 
       // set value
-      if (!this.disabled) {
+      if (!this.tDisabled) {
         const selectedDates: any[] = [];
         this.selectedDates = selectedDates;
         this.formattedValue = '';
@@ -551,7 +556,7 @@ export default defineComponent({
     // props
     const {
       popupProps,
-      disabled,
+      tDisabled,
       clearable,
       allowInput,
       size,
@@ -643,7 +648,7 @@ export default defineComponent({
           class={`${name}__popup-reference`}
           trigger="click"
           placement="bottom-left"
-          disabled={disabled}
+          disabled={tDisabled}
           showArrow={false}
           visible={isOpen}
           popupProps={popupProps}
@@ -665,7 +670,7 @@ export default defineComponent({
             <t-input
               ref="native"
               v-model={this.formattedValue}
-              disabled={disabled}
+              disabled={tDisabled}
               clearable={clearable}
               placeholder={this.getPlaceholderText()}
               readonly={!allowInput}

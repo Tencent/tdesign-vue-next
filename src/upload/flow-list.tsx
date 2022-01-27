@@ -36,6 +36,7 @@ export default defineComponent({
     toUploadFiles: Array as PropType<Array<UploadFile>>,
     placeholder: String,
     autoUpload: Boolean,
+    disabled: Boolean,
     remove: Function as PropType<(ctx: FlowRemoveContext) => void>,
     upload: Function as PropType<(files: Array<UploadFile>, e: MouseEvent) => void>,
     cancel: Function as PropType<(e: MouseEvent) => void>,
@@ -245,12 +246,14 @@ export default defineComponent({
                           <span class={`${UPLOAD_NAME}__card-mask-item-divider`}></span>
                         </span>
                       )}
-                      <span
-                        class={`${UPLOAD_NAME}__card-mask-item`}
-                        onClick={(e: MouseEvent) => this.remove({ e, index, file })}
-                      >
-                        <DeleteIcon />
-                      </span>
+                      {!this.disabled && (
+                        <span
+                          class={`${UPLOAD_NAME}__card-mask-item`}
+                          onClick={(e: MouseEvent) => this.remove({ e, index, file })}
+                        >
+                          <DeleteIcon />
+                        </span>
+                      )}
                     </div>
                   </div>
                   <p class={`${UPLOAD_NAME}__card-name`}>{abridgeName(file.name)}</p>

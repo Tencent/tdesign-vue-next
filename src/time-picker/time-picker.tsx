@@ -58,6 +58,9 @@ export default defineComponent({
   },
 
   computed: {
+    tDisabled() {
+      return this.formDisabled || this.disabled;
+    },
     // 传递给选择面板的时间值
     panelValue(): Array<dayjs.Dayjs> {
       const {
@@ -303,7 +306,7 @@ export default defineComponent({
       return (
         <div class={classes} onClick={() => (this.isShowPanel = true)}>
           <t-input
-            disabled={this.disabled}
+            disabled={this.tDisabled}
             size={this.size}
             onClear={this.clear}
             clearable={this.clearable}
@@ -316,7 +319,7 @@ export default defineComponent({
           <input-items
             size={this.size}
             dayjs={this.inputTime}
-            disabled={this.disabled}
+            disabled={this.tDisabled}
             format={this.format}
             steps={this.steps}
             allowInput={this.allowInput}
@@ -333,10 +336,13 @@ export default defineComponent({
 
   render() {
     // 初始化数据
-    const { size, disabled } = this;
+    const {
+      size,
+      $attrs: { className },
+      tDisabled,
+    } = this;
     // 样式类名
-    const classes = [name, CLASSNAMES.SIZE[size] || ''];
-    // TODO: 需要透传外部传入的class
+    const classes = [name, CLASSNAMES.SIZE[size] || '', className];
 
     const slots = {
       content: () => (
@@ -344,7 +350,7 @@ export default defineComponent({
           ref="panel"
           format={this.format}
           value={this.panelValue}
-          disabled={this.disabled}
+          disabled={this.tDisabled}
           isShowPanel={this.isShowPanel}
           onTimePick={this.pickTime}
           onSure={this.makeSure}
@@ -363,7 +369,7 @@ export default defineComponent({
         placement="bottom-left"
         class={classes}
         trigger="click"
-        disabled={disabled}
+        disabled={tDisabled}
         visible={this.isShowPanel}
         overlayClassName={`${COMPONENT_NAME}__panel-container`}
         onVisibleChange={this.panelVisibleChange}

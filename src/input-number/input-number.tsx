@@ -43,6 +43,8 @@ export default defineComponent({
   emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
   data() {
     return {
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
       userInput: null,
       filterValue: null,
       isError: false,
@@ -50,11 +52,14 @@ export default defineComponent({
     };
   },
   computed: {
+    tDisabled(): boolean {
+      return this.formDisabled || this.disabled;
+    },
     disabledReduce(): boolean {
-      return this.disabled || this.isError || Number(this.value) - this.step < this.min;
+      return this.tDisabled || this.isError || Number(this.value) - this.step < this.min;
     },
     disabledAdd(): boolean {
-      return this.disabled || this.isError || Number(this.value) + this.step > this.max;
+      return this.tDisabled || this.isError || Number(this.value) + this.step > this.max;
     },
     valueDecimalPlaces(): number {
       const tempVal =
@@ -84,7 +89,7 @@ export default defineComponent({
       return [
         `${name}__decrease`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabledReduce,
         },
       ];
     },
@@ -97,7 +102,7 @@ export default defineComponent({
       return [
         `${name}__increase`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabledAdd,
         },
       ];
     },
@@ -111,7 +116,7 @@ export default defineComponent({
         't-input-number',
         CLASSNAMES.SIZE[this.size],
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
           't-is-controls-right': this.theme === 'column',
           't-input-number--normal': this.theme === 'normal',
         },
@@ -129,7 +134,7 @@ export default defineComponent({
       return [
         't-input__inner',
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
           [`${name}-text-align`]: this.theme === 'row',
         },
       ];
@@ -146,7 +151,7 @@ export default defineComponent({
     },
     inputAttrs(): InputNumberAttr {
       return {
-        disabled: this.disabled,
+        disabled: this.tDisabled,
         autocomplete: 'off',
         ref: 'refInputElem',
         placeholder: this.placeholder,
@@ -180,7 +185,7 @@ export default defineComponent({
   },
   methods: {
     handleAdd(e: MouseEvent) {
-      if (this.disabledAdd) return;
+      if (this.tDisabledAdd) return;
       const value = this.value || 0;
       const factor = 10 ** this.digitsNum;
       this.handleAction(
@@ -190,7 +195,7 @@ export default defineComponent({
       );
     },
     handleReduce(e: MouseEvent) {
-      if (this.disabledReduce) return;
+      if (this.tDisabledReduce) return;
       const value = this.value || 0;
       const factor = 10 ** this.digitsNum;
       this.handleAction(
@@ -221,7 +226,7 @@ export default defineComponent({
       // only allow one [.e] and two [-]
       let filterVal = s.replace(/[^\d.eE。-]/g, '').replace('。', '.');
       if (this.multiE(filterVal) || this.multiDot(filterVal) || this.multiNegative(filterVal)) {
-        filterVal = filterVal.substr(0, filterVal.length - 1);
+        filterVal = filterVal.substring(0, filterVal.length - 1);
       }
       return filterVal;
     },

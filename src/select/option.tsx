@@ -27,9 +27,13 @@ export default defineComponent({
   data() {
     return {
       isHover: false,
+      formDisabled: undefined,
     };
   },
   computed: {
+    tDisabled() {
+      return this.formDisabled || this.disabled;
+    },
     // 键盘上下按键选中hover样式的选项
     hovering(): boolean {
       return get(this.tSelect, `hoverOptions[${this.tSelect.hoverIndex}][${this.tSelect.realValue}]`) === this.value;
@@ -50,7 +54,7 @@ export default defineComponent({
       return [
         `${prefix}-select-option`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled || this.multiLimitDisabled,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabled || this.multiLimitDisabled,
           [CLASSNAMES.STATUS.selected]: this.selected,
           [CLASSNAMES.SIZE[this.tSelect && this.tSelect.size]]: this.tSelect && this.tSelect.size,
           [`${prefix}-select-option__hover`]: this.hovering,
@@ -120,7 +124,7 @@ export default defineComponent({
   methods: {
     select(e: MouseEvent | KeyboardEvent) {
       e.stopPropagation();
-      if (this.disabled || this.multiLimitDisabled) {
+      if (this.tDisabled || this.multiLimitDisabled) {
         return false;
       }
       const parent = this.$el.parentNode as HTMLElement;

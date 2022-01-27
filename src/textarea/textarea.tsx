@@ -31,6 +31,7 @@ export default defineComponent({
   emits: ['keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
   data() {
     return {
+      formDisabled: undefined,
       focused: false,
       mouseHover: false,
       textareaStyle: {},
@@ -41,7 +42,7 @@ export default defineComponent({
       return [
         name,
         {
-          [`${prefix}-is-disabled`]: this.disabled,
+          [`${prefix}-is-disabled`]: this.tDisabled,
           [`${prefix}-is-readonly`]: this.readonly,
         },
       ];
@@ -49,7 +50,7 @@ export default defineComponent({
     inputAttrs(): Record<string, any> {
       return getValidAttrs({
         autofocus: this.autofocus,
-        disabled: this.disabled,
+        disabled: this.tDisabled,
         readonly: this.readonly,
         placeholder: this.placeholder,
         maxlength: this.maxlength || undefined,
@@ -127,19 +128,19 @@ export default defineComponent({
       }
     },
     emitKeyDown(e: KeyboardEvent) {
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       emitEvent(this, 'keydown', this.value, { e });
     },
     emitKeyUp(e: KeyboardEvent) {
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       emitEvent(this, 'keyup', this.value, { e });
     },
     emitKeypress(e: KeyboardEvent) {
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       emitEvent(this, 'keypress', this.value, { e });
     },
     emitFocus(e: FocusEvent) {
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       this.focused = true;
       emitEvent(this, 'focus', this.value, { e });
     },
@@ -161,7 +162,7 @@ export default defineComponent({
       `${name}__inner`,
       {
         [`${prefix}-is-${this.status}`]: this.status,
-        [CLASSNAMES.STATUS.disabled]: this.disabled,
+        [CLASSNAMES.STATUS.disabled]: this.tDisabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-resize-none`]: this.maxlength,
       },

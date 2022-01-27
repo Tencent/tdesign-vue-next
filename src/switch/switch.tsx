@@ -13,13 +13,22 @@ export default defineComponent({
   name: 'TSwitch',
   props: { ...props },
   emits: ['change'],
+  data() {
+    return {
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
+    };
+  },
   computed: {
+    tDisabled() {
+      return this.formDisabled || this.disabled;
+    },
     classes(): ClassName {
       return [
         `${name}`,
         CLASSNAMES.SIZE[this.size],
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
           [CLASSNAMES.STATUS.loading]: this.loading,
           [CLASSNAMES.STATUS.checked]: this.value === this.activeValue,
         },
@@ -29,7 +38,7 @@ export default defineComponent({
       return [
         `${name}__handle`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
           [CLASSNAMES.STATUS.loading]: this.loading,
         },
       ];
@@ -39,7 +48,7 @@ export default defineComponent({
         `${name}__content`,
         CLASSNAMES.SIZE[this.size],
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
         },
       ];
     },
@@ -94,14 +103,14 @@ export default defineComponent({
       emitEvent(this, 'change', checked);
     },
     toggle(): void {
-      if (this.disabled || this.loading) {
+      if (this.tDisabled || this.loading) {
         return;
       }
       this.handleToggle();
     },
   },
   render() {
-    const { loading, disabled, content, nodeClasses, classes, toggle, contentClasses } = this;
+    const { loading, tDisabled, content, nodeClasses, classes, toggle, contentClasses } = this;
 
     let switchContent: VNodeChild;
     let loadingContent: TNodeReturnValue;
@@ -113,7 +122,7 @@ export default defineComponent({
     }
 
     return (
-      <div class={classes} disabled={disabled} onClick={toggle}>
+      <div class={classes} disabled={tDisabled} onClick={toggle}>
         <span class={nodeClasses}>{loadingContent}</span>
         <div class={contentClasses}>{switchContent}</div>
       </div>

@@ -51,6 +51,8 @@ export default defineComponent({
 
   data() {
     return {
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
       inputWidth: 0,
       visible: false,
       treeStore: null,
@@ -63,6 +65,9 @@ export default defineComponent({
   },
 
   computed: {
+    tDisabled(): boolean {
+      return this.formDisabled || this.disabled;
+    },
     stateFns() {
       return {
         setTreeNodes: (nodes: TreeNode[]) => {
@@ -103,7 +108,7 @@ export default defineComponent({
         clearable = false,
         checkProps = {},
         max = 0,
-        disabled,
+        tDisabled,
         showAllLevels = true,
         minCollapsedNum = 0,
         loading,
@@ -116,7 +121,7 @@ export default defineComponent({
         valueType,
         loading,
         size,
-        disabled,
+        disabled: tDisabled,
         checkStrictly,
         lazy,
         multiple,
@@ -186,7 +191,7 @@ export default defineComponent({
     }
 
     this.init();
-    ['checkStrictly', 'disabled', 'keys', 'lazy', 'load', 'options', 'valueMode'].forEach((key) => {
+    ['checkStrictly', 'tDisabled', 'keys', 'lazy', 'load', 'options', 'valueMode'].forEach((key) => {
       this.$watch(key, () => {
         this.init();
       });
@@ -196,7 +201,7 @@ export default defineComponent({
   methods: {
     // 创建单个 cascader 节点
     init() {
-      const { disabled, keys, checkStrictly = false, lazy = true, load, options, valueMode = 'onlyLeaf' } = this;
+      const { tDisabled, keys, checkStrictly = false, lazy = true, load, options, valueMode = 'onlyLeaf' } = this;
       if (!options || (Array.isArray(options) && !options.length)) return;
 
       this.treeStore = new TreeStore({
@@ -205,7 +210,7 @@ export default defineComponent({
         checkStrictly,
         expandMutex: true,
         expandParent: true,
-        disabled,
+        disabled: tDisabled,
         load,
         lazy,
         valueMode,

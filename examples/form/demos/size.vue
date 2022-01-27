@@ -1,6 +1,15 @@
 <template>
   <div>
-    <t-form ref="form" :data="formData" :colon="true" @reset="onReset" @submit="onSubmit">
+    <div>
+      <t-radio-group v-model="size" variant="default-filled">
+        <t-radio-button value="medium">中尺寸（默认）</t-radio-button>
+        <t-radio-button value="large">大尺寸</t-radio-button>
+      </t-radio-group>
+    </div>
+    <br /><br />
+
+    <!-- 开发中 -->
+    <t-form :data="formData" :size="size" @reset="onReset" @submit="onSubmit">
       <t-form-item label="姓名" name="name">
         <t-input v-model="formData.name" placeholder="请输入内容"></t-input>
       </t-form-item>
@@ -31,19 +40,17 @@ import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const INITIAL_DATA = {
-  name: '',
-  tel: '',
-  gender: '',
-  course: [],
-  status: false,
+  name: 'TDesign',
+  tel: '12345678910',
+  course: ['1'],
 };
-
 const courseOptions = [
   { label: '语文', value: '1' },
   { label: '数学', value: '2' },
   { label: '英语', value: '3' },
 ];
 
+const size = ref('medium');
 const formData = ref({ ...INITIAL_DATA });
 
 const onReset = () => {
@@ -54,7 +61,7 @@ const onSubmit = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Validate Errors: ', firstError, validateResult);
+    console.log('Errors: ', validateResult);
     MessagePlugin.warning(firstError);
   }
 };

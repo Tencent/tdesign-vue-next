@@ -14,9 +14,17 @@ export default defineComponent({
   inject: {
     checkboxGroup: { default: undefined },
   },
+
   inheritAttrs: false,
   props: { ...checkboxProps },
   emits: ['change', 'checked-change'],
+  data() {
+    return {
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
+    };
+  },
+
   computed: {
     labelClasses(): ClassName {
       const { class: className } = this.$attrs;
@@ -31,6 +39,7 @@ export default defineComponent({
       ];
     },
     disabled$(): boolean {
+      if (this.formDisabled) return this.formDisabled;
       if (!this.checkAll && !this.checked$ && this.checkboxGroup?.maxExceeded) {
         return true;
       }

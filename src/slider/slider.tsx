@@ -44,6 +44,9 @@ export default defineComponent({
     };
   },
   computed: {
+    tDisabled() {
+      return this.formDisabled || this.disabled;
+    },
     containerClass(): ClassName {
       return [`${name}__container`, { 'is-vertical': this.vertical }];
     },
@@ -54,12 +57,12 @@ export default defineComponent({
           'is-vertical': this.vertical,
           [`${name}--with-input`]: this.inputNumberProps,
           [`${name}--vertical`]: this.vertical,
-          [`${prefix}-is-disabled`]: this.disabled,
+          [`${prefix}-is-disabled`]: this.tDisabled,
         },
       ];
     },
     sliderRailClass(): ClassName {
-      return [`${name}__rail`, { 'show-input': this.inputNumberProps, disabled: this.disabled }];
+      return [`${name}__rail`, { 'show-input': this.inputNumberProps, disabled: this.tDisabled }];
     },
     sliderNumberClass(): ClassName {
       return [
@@ -293,7 +296,7 @@ export default defineComponent({
     },
     // 全局点击
     onSliderClick(event: MouseEvent): void {
-      if (this.disabled || this.dragging) {
+      if (this.tDisabled || this.dragging) {
         return;
       }
       this.resetSize();
@@ -332,7 +335,7 @@ export default defineComponent({
 
     // mark 点击触发修改事件
     changeValue(point: number) {
-      if (this.disabled || this.dragging) {
+      if (this.tDisabled || this.dragging) {
         return;
       }
       this.resetSize();
@@ -385,7 +388,7 @@ export default defineComponent({
                 this.firstValue = v;
                 this.range ? (this.firstValue = v) : (this.prevValue = v);
               }}
-              disabled={this.disabled}
+              disabled={this.tDisabled}
               min={min}
               max={max}
               decimalPlaces={this.inputDecimalPlaces}
@@ -404,7 +407,7 @@ export default defineComponent({
                 this.secondValue = v;
               }}
               step={this.step}
-              disabled={this.disabled}
+              disabled={this.tDisabled}
               min={min}
               max={max}
               decimalPlaces={this.inputDecimalPlaces}
@@ -418,7 +421,7 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const { min, max, layout, disabled, vertical } = this;
+    const { min, max, layout, tDisabled, vertical } = this;
     const BUTTON_GROUP = this.inputNumberProps && this.renderInputButton();
     const MASKS = this.renderMask();
     return (
@@ -429,7 +432,7 @@ export default defineComponent({
           aria-valuemin={min}
           aria-valuemax={max}
           aria-orientation={layout}
-          aria-disabled={disabled}
+          aria-disabled={tDisabled}
           tooltip-props={this.tooltipProps}
         >
           <div class={this.sliderRailClass} style={this.runwayStyle} onClick={this.onSliderClick} ref="slider">
@@ -438,7 +441,7 @@ export default defineComponent({
               vertical={vertical}
               value={this.firstValue}
               ref="button1"
-              disabled={this.disabled}
+              disabled={tDisabled}
               tooltip-props={this.tooltipProps}
               onInput={(v: number) => {
                 this.firstValue = v;
@@ -449,7 +452,7 @@ export default defineComponent({
                 vertical={vertical}
                 value={this.secondValue}
                 ref="button2"
-                disabled={this.disabled}
+                disabled={tDisabled}
                 tooltip-props={this.tooltipProps}
                 onInput={(v: number) => {
                   this.secondValue = v;
