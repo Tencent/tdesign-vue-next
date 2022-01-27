@@ -2,7 +2,7 @@ import mapProps from '../utils/map-props';
 import _Select from './select';
 import _Option from './option';
 import _OptionGroup from './optionGroup';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdSelectProps, TdOptionProps, TdOptionGroupProps } from './type';
 
 import './style';

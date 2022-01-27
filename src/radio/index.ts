@@ -2,7 +2,7 @@ import _Radio from './radio';
 import _Group from './group';
 import _RadioButton from './radio-button';
 import mapProps from '../utils/map-props';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdRadioProps, TdRadioGroupProps } from './type';
 
 import './style';

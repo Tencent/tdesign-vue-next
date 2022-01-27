@@ -85,7 +85,7 @@ export default defineComponent({
             <Tag
               size={this.size}
               disabled={this.disabled}
-              onClose={(e: MouseEvent) => this.onClose({ e, item, index })}
+              onClose={(context: { e: MouseEvent }) => this.onClose({ e: context.e, item, index })}
               closable={!this.readonly && !this.disabled}
               {...this.tagProps}
             >

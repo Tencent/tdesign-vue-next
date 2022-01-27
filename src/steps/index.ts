@@ -1,7 +1,7 @@
 import _Steps from './steps';
 import _StepItem from './step-item';
 import mapProps from '../utils/map-props';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdStepsProps, TdStepItemProps } from './type';
 
 import './style';

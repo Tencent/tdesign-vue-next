@@ -1,5 +1,5 @@
 import _Upload from './upload';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdUploadProps } from './type';
 import mapProps from '../utils/map-props';
 

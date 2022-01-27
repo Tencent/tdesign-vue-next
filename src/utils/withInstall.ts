@@ -10,3 +10,5 @@ export const withInstall = <T>(comp: T, customName?: string): T & Plugin => {
 
   return c as T & Plugin;
 };
+
+export default withInstall;

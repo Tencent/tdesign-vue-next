@@ -1,5 +1,5 @@
 import _InputNumber from './input-number';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import mapProps from '../utils/map-props';
 import { TdInputNumberProps } from './type';
 

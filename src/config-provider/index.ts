@@ -1,4 +1,4 @@
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import _ConfigProvider from './config-provider';
 
 export * from './type';

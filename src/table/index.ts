@@ -2,7 +2,7 @@ import _BaseTable from './base-table/index';
 import _PrimaryTable from './primary-table/index';
 import _EnhancedTable from './enhanced-table/index';
 import mapProps from '../utils/map-props';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdBaseTableProps, TdPrimaryTableProps } from './type';
 
 import './style';

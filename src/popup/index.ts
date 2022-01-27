@@ -1,6 +1,6 @@
 import _Popup from './popup';
 import mapProps from '../utils/map-props';
-import { withInstall } from '../utils/withInstall';
+import withInstall from '../utils/withInstall';
 import { TdPopupProps } from './type';
 
 import './style';
