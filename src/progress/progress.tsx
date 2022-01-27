@@ -1,4 +1,4 @@
-import { defineComponent, VNode, ref, computed } from 'vue';
+import { defineComponent, VNode, computed } from 'vue';
 import {
   CloseCircleFilledIcon,
   CheckCircleFilledIcon,
@@ -19,7 +19,6 @@ const name = `${prefix}-progress`;
 export default defineComponent({
   name: 'TProgress',
   props,
-  emits: [],
   setup(props) {
     const statusStyle = computed(() => {
       if (props.percentage >= 100) {
