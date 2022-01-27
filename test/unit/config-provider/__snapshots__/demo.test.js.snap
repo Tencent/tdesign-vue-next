@@ -7301,6 +7301,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           see empty data in TreeSelect
+           
         </span>
         
         
@@ -7461,6 +7462,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           see loading text in TreeSelect
+           
         </span>
         
         
@@ -7771,6 +7773,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           style="display: none;"
         >
           tree select
+           
         </span>
         
         

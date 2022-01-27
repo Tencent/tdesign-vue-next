@@ -43,6 +43,8 @@ export default defineComponent({
   emits: ['change', 'clear', 'focus', 'blur', 'remove', 'search'],
   data() {
     return {
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
       visible: false,
       isHover: false,
       focusing: false,
@@ -68,7 +70,7 @@ export default defineComponent({
       return [
         `${prefix}-select`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
           [CLASSNAMES.STATUS.active]: this.visible,
           [CLASSNAMES.SIZE[this.size]]: this.size,
           [`${prefix}-has-prefix`]: this.prefixIconSlot,
@@ -96,19 +98,19 @@ export default defineComponent({
       return (
         !this.clearable ||
         !this.isHover ||
-        this.disabled ||
+        this.tDisabled ||
         (!this.multiple && !this.value && this.value !== 0) ||
         (this.multiple && isArray(this.value) && isEmpty(this.value))
       );
     },
     showLoading(): boolean {
-      return this.loading && !this.disabled;
+      return this.loading && !this.tDisabled;
     },
     showClose(): boolean {
       return (
         this.clearable &&
         this.isHover &&
-        !this.disabled &&
+        !this.tDisabled &&
         ((!this.multiple && (!!this.value || this.value === 0)) ||
           (this.multiple && !isEmpty(this.value as Array<TreeSelectValue>)))
       );
@@ -125,7 +127,7 @@ export default defineComponent({
       return false;
     },
     showFilter(): boolean {
-      if (this.disabled) {
+      if (this.tDisabled) {
         return false;
       }
       if (!this.multiple && this.selectedSingle && (this.filterable || isFunction(this.filter))) {
@@ -245,7 +247,7 @@ export default defineComponent({
       }
     },
     removeTag(index: number, data: TreeOptionData, e: MouseEvent) {
-      if (this.disabled) {
+      if (this.tDisabled) {
         return;
       }
       this.remove({ value: this.value[index], data, e });
@@ -373,7 +375,7 @@ export default defineComponent({
         data={this.data}
         activable={!this.multiple}
         checkable={this.multiple}
-        disabled={this.disabled || this.multiLimitDisabled}
+        disabled={this.tDisabled || this.multiLimitDisabled}
         empty={this.empty}
         size={this.size}
         filter={this.filterByText}
@@ -467,7 +469,7 @@ export default defineComponent({
           <div class={classes} onmouseenter={() => (this.isHover = true)} onmouseleave={() => (this.isHover = false)}>
             {this.prefixIconSlot && <span class={`${prefix}-select__left-icon`}>{this.prefixIconSlot[0]}</span>}
             <span v-show={this.showPlaceholder} class={`${prefix}-select__placeholder`}>
-              {this.placeholder}
+              {this.placeholder || this.global.placeholder}{' '}
             </span>
             {tagItem}
             {collapsedItem}
@@ -477,7 +479,7 @@ export default defineComponent({
               <FakeArrow
                 overlayClassName={`${prefix}-select__right-icon`}
                 overlayStyle={iconStyle}
-                isActive={this.visible && !this.disabled}
+                isActive={this.visible && !this.tDisabled}
               />
             )}
             <CloseCircleFilledIcon

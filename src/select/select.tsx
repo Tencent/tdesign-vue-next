@@ -68,6 +68,8 @@ export default defineComponent({
   ],
   data() {
     return {
+      // Form 表单控制禁用态时的变量
+      formDisabled: undefined,
       isHover: false,
       visible: false,
       searchInput: '',
@@ -90,11 +92,14 @@ export default defineComponent({
     };
   },
   computed: {
+    tDisabled() {
+      return this.formDisabled || this.disabled;
+    },
     classes(): ClassName {
       return [
         `${name}`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
           [CLASSNAMES.STATUS.active]: this.visible,
           [CLASSNAMES.SIZE[this.size]]: this.size,
           [`${prefix}-has-prefix`]: this.$slots.prefixIcon,
@@ -154,7 +159,7 @@ export default defineComponent({
       return Boolean(
         this.clearable &&
           this.isHover &&
-          !this.disabled &&
+          !this.tDisabled &&
           ((!this.multiple && (this.value || this.value === 0)) ||
             (this.multiple && Array.isArray(this.value) && this.value.length)),
       );
@@ -163,7 +168,7 @@ export default defineComponent({
       return (
         !this.clearable ||
         !this.isHover ||
-        this.disabled ||
+        this.tDisabled ||
         (!this.multiple && !this.value && this.value !== 0) ||
         (this.multiple && (!Array.isArray(this.value) || (Array.isArray(this.value) && !this.value.length)))
       );
@@ -172,10 +177,10 @@ export default defineComponent({
       return this.filterable || isFunction(this.filter);
     },
     showLoading(): boolean {
-      return this.loading && !this.disabled;
+      return this.loading && !this.tDisabled;
     },
     showFilter(): boolean {
-      if (this.disabled) return false;
+      if (this.tDisabled) return false;
       if (!this.multiple && this.selectedSingle && this.canFilter) {
         return this.visible;
       }
@@ -382,7 +387,7 @@ export default defineComponent({
     removeTag(index: number, context?: { e?: MouseEvent | KeyboardEvent }) {
       const { e } = context || {};
       e && e.stopPropagation();
-      if (this.disabled) {
+      if (this.tDisabled) {
         return;
       }
       const val = this.value[index];
@@ -798,7 +803,7 @@ export default defineComponent({
               />
             )}
             {this.showArrow && !this.showLoading && (
-              <FakeArrow overlayClassName={`${name}__right-icon`} isActive={this.visible && !this.disabled} />
+              <FakeArrow overlayClassName={`${name}__right-icon`} isActive={this.visible && !this.tDisabled} />
             )}
             {this.showClose && !this.showLoading && this.getCloseIcon()}
             {this.showLoading && <TLoading class={`${name}__right-icon ${name}__active-icon`} size="small" />}

@@ -1,9 +1,10 @@
-import { defineComponent, VNode, nextTick, h } from 'vue';
+import { defineComponent, VNode, nextTick, h, ComponentPublicInstance } from 'vue';
 import { CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
 import isNil from 'lodash/isNil';
+import lodashTemplate from 'lodash/template';
 import { prefix } from '../config';
 import { validate } from './form-model';
 import {
@@ -14,6 +15,7 @@ import {
   ValueType,
   ValidateTriggerType,
   AllValidateResult,
+  FormErrorMessage,
 } from './type';
 import props from './form-item-props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
@@ -21,7 +23,6 @@ import Form, { FormItemInstance } from './form';
 import { ClassName, ScopedSlot, TNodeReturnValue, Styles } from '../common';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { FormConfig } from '../config-provider/config-receiver';
-import { emitEvent } from '../utils/event';
 
 type IconConstructor = typeof ErrorCircleFilledIcon;
 
@@ -97,6 +98,11 @@ export default defineComponent({
       const type = this.errorList[0].type || 'error';
       return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
     },
+
+    disabled(): boolean {
+      return this.form.disabled;
+    },
+
     contentClasses() {
       const getErrorClass: string = this.errorClasses;
       return [CLASS_NAMES.controls, getErrorClass];
@@ -134,7 +140,14 @@ export default defineComponent({
     },
     innerRules(): FormRule[] {
       const parent = this.form;
-      return lodashGet(parent?.rules, this.name) || this.rules || [];
+      if (this.rules?.length) return this.rules || [];
+      if (!this.name) return [];
+      const index = this.name.lastIndexOf('.') || -1;
+      const pRuleName = this.name.slice(index + 1);
+      return lodashGet(parent?.rules, this.name) || lodashGet(parent?.rules, pRuleName) || [];
+    },
+    errorMessages(): FormErrorMessage {
+      return this.form.errorMessage ?? this.global.errorMessage;
     },
   },
 
@@ -142,6 +155,10 @@ export default defineComponent({
     value() {
       this.validate('change');
     },
+  },
+
+  created() {
+    this.addWatch();
   },
 
   mounted() {
@@ -155,12 +172,49 @@ export default defineComponent({
   },
 
   methods: {
+    addWatch() {
+      if (this.disabled === undefined) return;
+      this.$watch(
+        'disabled',
+        (val: TdFormProps['disabled']) => {
+          this.$nextTick(() => {
+            this.setChildrenDisabled(val, this.$children);
+          });
+        },
+        { immediate: true },
+      );
+    },
+    // 设置表单内组件的禁用状态
+    setChildrenDisabled(disabled: boolean, children: ComponentPublicInstance[]) {
+      children.forEach((item) => {
+        if (this.form.controlledComponents?.includes(item.$options.name)) {
+          item.formDisabled = disabled;
+        }
+        if (item.$children?.length) {
+          this.setChildrenDisabled(disabled, item.$children);
+        }
+      });
+    },
     async validate<T>(trigger: ValidateTriggerType): Promise<FormItemValidateResult<T>> {
       this.resetValidating = true;
       const rules =
         trigger === 'all' ? this.innerRules : this.innerRules.filter((item) => (item.trigger || 'change') === trigger);
       const r = await validate(this.value, rules);
-      const errorList = r.filter((item) => item.result !== true);
+      const errorList = r
+        .filter((item) => item.result !== true)
+        .map((item) => {
+          Object.keys(item).forEach((key) => {
+            if (!item.message && this.errorMessages[key]) {
+              const compiled = lodashTemplate(this.errorMessages[key]);
+              // eslint-disable-next-line no-param-reassign
+              item.message = compiled({
+                name: this.label,
+                validate: item[key],
+              });
+            }
+          });
+          return item;
+        });
       this.errorList = errorList;
       // 仅有自定义校验方法才会存在 successList
       this.successList = r.filter((item) => item.result === true && item.message && item.type === 'success');
@@ -228,7 +282,7 @@ export default defineComponent({
     getDefaultIcon(): TNodeReturnValue {
       const resultIcon = (Icon: IconConstructor) => (
         <span class={CLASS_NAMES.status}>
-          <Icon size="20px"></Icon>
+          <Icon />
         </span>
       );
       const list = this.errorList;
@@ -251,12 +305,8 @@ export default defineComponent({
       slotStatusIcon: ScopedSlot,
     ): TNodeReturnValue {
       const resultIcon = (otherContent?: TNodeReturnValue) => <span class={CLASS_NAMES.status}>{otherContent}</span>;
-      const withoutIcon = () => <span class={[CLASS_NAMES.status, `${CLASS_NAMES.status}-without-icon`]}></span>;
       if (statusIcon === true) {
         return this.getDefaultIcon();
-      }
-      if (statusIcon === false) {
-        return withoutIcon();
       }
       if (typeof statusIcon === 'function') {
         return resultIcon(slotStatusIcon());
@@ -272,6 +322,7 @@ export default defineComponent({
       const slotStatusIcon = this.$slots.statusIcon;
       const parentStatusIcon = parent.statusIcon;
       const parentSlotStatusIcon = parent.$slots.statusIcon;
+      if (statusIcon === false) return;
       let resultIcon: TNodeReturnValue = this.getIcon(statusIcon, slotStatusIcon);
       if (resultIcon) return resultIcon;
       if (resultIcon === false) return;

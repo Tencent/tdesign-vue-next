@@ -28,6 +28,18 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['change', 'click'],
+  data() {
+    return {
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
+    };
+  },
+
+  computed: {
+    tDisabled(): boolean {
+      return this.formDisabled || this.disabled;
+    },
+  },
   methods: {
     handleChange(e: Event) {
       if (this.radioGroup && this.radioGroup.handleRadioChange) {
@@ -53,7 +65,7 @@ export default defineComponent({
 
     const inputProps = {
       checked: this.checked,
-      disabled: this.disabled,
+      disabled: this.tDisabled,
       value: this.value,
       name: this.name,
     };
@@ -73,7 +85,7 @@ export default defineComponent({
 
     if (radioGroup) {
       inputProps.checked = this.value === radioGroup.value;
-      inputProps.disabled = this.disabled === undefined ? radioGroup.disabled : this.disabled;
+      inputProps.disabled = this.tDisabled === undefined ? radioGroup.disabled : this.tDisabled;
       inputProps.name = radioGroup.name;
     }
 

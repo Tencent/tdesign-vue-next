@@ -96,6 +96,8 @@ export default defineComponent({
 
   data() {
     return {
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
       dragActive: false,
       // 加载中的文件
       loadingFile: null as UploadFile,
@@ -109,6 +111,9 @@ export default defineComponent({
   },
 
   computed: {
+    tDisabled() {
+      return this.formDisabled || this.disabled;
+    },
     // 默认文件上传风格：文件进行上传和上传成功后不显示 tips
     showTips(): boolean {
       if (this.theme === 'file') {
@@ -168,13 +173,13 @@ export default defineComponent({
 
     handleChange(event: HTMLInputEvent): void {
       const { files } = event.target;
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       this.uploadFiles(files);
       (this.$refs.input as HTMLInputElement).value = '';
     },
 
     handleDragChange(files: FileList): void {
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       this.uploadFiles(files);
     },
 
@@ -412,18 +417,18 @@ export default defineComponent({
     },
 
     triggerUpload() {
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       (this.$refs.input as HTMLInputElement).click();
     },
 
     handleDragenter(e: DragEvent) {
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       this.dragActive = true;
       emitEvent<Parameters<TdUploadProps['onDragenter']>>(this, 'dragenter', { e });
     },
 
     handleDragleave(e: DragEvent) {
-      if (this.disabled) return;
+      if (this.tDisabled) return;
       this.dragActive = false;
       emitEvent<Parameters<TdUploadProps['onDragleave']>>(this, 'dragleave', { e });
     },
@@ -498,7 +503,7 @@ export default defineComponent({
         <input
           ref="input"
           type="file"
-          disabled={this.disabled}
+          disabled={this.tDisabled}
           onChange={this.handleChange}
           multiple={this.multiple}
           accept={this.accept}
@@ -589,7 +594,7 @@ export default defineComponent({
             toUploadFiles={this.toUploadFiles}
             max={this.max}
             onImgPreview={this.handlePreviewImg}
-            disabled={this.disabled}
+            disabled={this.tDisabled}
           ></ImageCard>
         )}
         {this.showUploadList && (

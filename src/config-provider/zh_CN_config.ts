@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import { GlobalConfigProvider } from './type';
 
 const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
@@ -90,6 +91,7 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
   treeSelect: {
     empty: '暂无数据',
     loadingText: '加载中',
+    placeholder: '请选择',
   },
   datePicker: {
     placeholder: {
@@ -126,6 +128,21 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
   },
   form: {
     requiredMark: true,
+    errorMessage: {
+      date: '请输入正确的${name}',
+      url: '请输入正确的${name}',
+      required: '${name}必填',
+      max: '${name}字符长度不能超过 ${validate} 个字符，一个中文等于两个字符',
+      min: '${name}字符长度不能少于 ${validate} 个字符，一个中文等于两个字符',
+      len: '${name}字符长度必须是 ${validate}',
+      enum: '${name}只能是${validate}等',
+      idcard: '请输入正确的${name}',
+      telnumber: '请输入正确的${name}',
+      pattern: '请输入正确的${name}',
+      validator: '${name}不符合要求',
+      boolean: '${name}数据类型必须是布尔类型',
+      number: '${name}必须是数字',
+    },
   },
   input: {
     placeholder: '请输入',

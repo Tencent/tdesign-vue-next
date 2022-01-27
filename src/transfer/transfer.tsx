@@ -36,6 +36,7 @@ const TARGET = 'target';
 type DataType = {
   SOURCE: TransferListType;
   TARGET: TransferListType;
+  formDisabled: boolean;
 };
 
 export default defineComponent({
@@ -62,9 +63,14 @@ export default defineComponent({
     return {
       SOURCE,
       TARGET,
+      // 表单控制禁用态时的变量
+      formDisabled: undefined,
     };
   },
   computed: {
+    tDisabled(): boolean | boolean[] {
+      return this.formDisabled || this.disabled;
+    },
     isTreeMode(): boolean {
       const treeSlot = this.$slots.tree;
       return typeof treeSlot === 'function';
@@ -117,7 +123,7 @@ export default defineComponent({
       return getTransferListOption<boolean>(this.showCheckAll);
     },
     disabledOption(): TransferListOptionBase<boolean> {
-      return getTransferListOption<boolean>(this.disabled);
+      return getTransferListOption<boolean>(this.tDisabled);
     },
     titleOption(): TransferListOptionBase<string | TNode> {
       return getTransferListOption<string | TNode>(this.title);

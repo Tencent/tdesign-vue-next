@@ -232,6 +232,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           请选择
+           
         </span>
         
         
@@ -459,6 +460,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           请选择
+           
         </span>
         
         
@@ -796,6 +798,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           请输入
+           
         </span>
         
         

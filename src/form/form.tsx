@@ -3,7 +3,7 @@ import isEmpty from 'lodash/isEmpty';
 import { prefix } from '../config';
 import { FormValidateResult, TdFormProps, FormValidateParams } from './type';
 import props from './props';
-import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
+import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES, FORM_CONTROL_COMPONENTS } from './const';
 import FormItem from './form-item';
 import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
 import { emitEvent } from '../utils/event';
@@ -41,6 +41,13 @@ export default defineComponent({
           [`${name}-inline`]: this.layout === 'inline',
         },
       ];
+    },
+    controlledComponents(): string[] {
+      let fields = FORM_CONTROL_COMPONENTS;
+      if (this.formControlledComponents?.length) {
+        fields = fields.concat(this.formControlledComponents);
+      }
+      return fields;
     },
   },
 

@@ -17,11 +17,10 @@ exports[`Textarea $attrs textarea attrs should pass to textarea element 1`] = `
 
 exports[`Textarea :props :disabled 1`] = `
 <div
-  class="t-textarea t-is-disabled"
+  class="t-textarea"
 >
   <textarea
-    class="t-textarea__inner t-is-disabled narrow-scrollbar"
-    disabled=""
+    class="t-textarea__inner narrow-scrollbar"
   />
   <!---->
   <!---->
