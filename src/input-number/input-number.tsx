@@ -164,9 +164,9 @@ export default defineComponent({
       if (this.inputing && this.userInput !== null) {
         return this.filterValue;
       }
-      if (this.value === undefined) return '';
+      if ([undefined, null].includes(this.value)) return '';
       // end input
-      return this.format && !this.inputing ? this.format(this.value) : this.value?.toFixed(this.digitsNum);
+      return this.format && !this.inputing ? this.format(this.value) : this.value.toFixed(this.digitsNum);
     },
   },
   watch: {
@@ -175,9 +175,6 @@ export default defineComponent({
       handler(v) {
         if (v !== undefined) {
           this.isValidNumber(v);
-        }
-        if (!v) {
-          this.filterValue = v;
         }
       },
     },
@@ -242,6 +239,7 @@ export default defineComponent({
     },
     async handleBlur(e: FocusEvent) {
       await this.handleEndInput(e);
+      this.clearFilterValue();
       emitEvent(this, 'blur', this.value, { e });
     },
     handleFocus(e: FocusEvent) {
@@ -265,7 +263,7 @@ export default defineComponent({
     handleStartInput() {
       this.inputing = true;
       if (this.value === undefined) return;
-      this.filterValue = this.value?.toFixed(this.digitsNum);
+      this.filterValue = this.value.toFixed(this.digitsNum);
     },
     handleEndInput(e: FocusEvent) {
       this.inputing = false;
@@ -307,6 +305,9 @@ export default defineComponent({
     },
     clearInput() {
       this.userInput = null;
+    },
+    clearFilterValue() {
+      this.filterValue = '';
     },
     multiE(s: string) {
       const m = s.match(/[e]/gi);
