@@ -6877,11 +6877,11 @@ exports[`Select Select statusVue demo works fine 1`] = `
                   
                 </li>
               </ul>
-              <li
+              <div
                 class="t-select__loading-tips t-size-m"
               >
                 加载中
-              </li>
+              </div>
               <!---->
               <ul
                 class="t-select__groups"
