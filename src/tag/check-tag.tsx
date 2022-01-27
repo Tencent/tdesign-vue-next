@@ -1,37 +1,42 @@
-import { defineComponent, ComponentPublicInstance } from 'vue';
+import { defineComponent, ComponentPublicInstance, computed } from 'vue';
+import { useEmitEvent } from '../hooks/event';
 import config from '../config';
 import props from './check-tag-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
-import { emitEvent } from '../utils/event';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
 
 export default defineComponent({
   name: 'TCheckTag',
-  props: { ...props },
+  props,
   emits: ['click', 'change'],
-  computed: {
-    tagClass(): Array<any> {
+  setup(props, { emit }) {
+    const emitEvent = useEmitEvent(props, emit);
+    const tagClass = computed<Array<string | object>>(() => {
       return [
         `${name}`,
         `${name}--check`,
         `${name}--default`,
         {
-          [`${name}--checked`]: !this.disabled && this.checked,
-          [`${name}--disabled`]: this.disabled,
+          [`${name}--checked`]: !props.disabled && props.checked,
+          [`${name}--disabled`]: props.disabled,
         },
       ];
-    },
-  },
-  methods: {
-    handleClick(event: MouseEvent): void {
-      if (!this.disabled) {
-        emitEvent(this, 'click', event);
-        emitEvent(this, 'change', !this.checked);
+    });
+
+    const handleClick = (e: MouseEvent) => {
+      if (!props.disabled) {
+        emitEvent('click', e);
+        emitEvent('change', !props.checked);
       }
-    },
+    };
+
+    return {
+      tagClass,
+      handleClick,
+    };
   },
   render() {
     // 标签内容
