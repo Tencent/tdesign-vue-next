@@ -1,69 +1,65 @@
-import { defineComponent, h } from 'vue';
+import { computed, defineComponent, h, VNode } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
+import { useEmitEvent } from '../hooks/event';
+import { useReceiver, TagConfig } from '../config-provider';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import { ClassName, TNodeReturnValue } from '../common';
-import { emitEvent } from '../utils/event';
-
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { TagConfig } from '../config-provider/config-receiver';
+import { ClassName } from '../common';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<TagConfig>('tag')),
   name: 'TTag',
-  props: { ...props },
+  props,
   emits: ['close', 'click'],
-  computed: {
-    tagClass(): ClassName {
+  setup(props) {
+    const emitEvent = useEmitEvent();
+    const { global: tagGlobalConfig } = useReceiver<TagConfig>('tag');
+    const tagClass = computed<ClassName>(() => {
       return [
         `${name}`,
-        `${name}--${this.theme}`,
-        CLASSNAMES.SIZE[this.size],
-        `${name}--${this.variant}`,
-        this.shape !== 'square' && `${name}--${this.shape}`,
+        `${name}--${props.theme}`,
+        `${name}--${props.variant}`,
         {
-          [`${name}--ellipsis`]: this.maxWidth,
-          [`${name}--close`]: this.closable,
-          [`${name}--disabled`]: this.disabled,
+          [`${name}--ellipsis`]: props.maxWidth,
+          [`${name}--close`]: props.closable,
+          [`${name}--disabled`]: props.disabled,
         },
+        CLASSNAMES.SIZE[props.size],
+        props.shape !== 'square' && `${name}--${props.shape}`,
       ];
-    },
-    tagStyle(): Record<string, string> {
-      if (this.maxWidth) return { maxWidth: `${this.maxWidth}px` };
-      return {};
-    },
-  },
-  methods: {
-    handleClose({ e }: { e: MouseEvent }): void {
-      emitEvent(this, 'close', { e });
-    },
-    handleClick(e: MouseEvent): void {
-      emitEvent(this, 'click', { e });
-    },
-    getCloseIcon() {
-      if (!this.closable) return null;
-      const iconClassName = `${prefix}-tag__icon-close`;
-      // console.log(this.global.closeIcon);
+    });
+    const tagStyle = computed<Record<string, string>>(() => {
+      return props.maxWidth ? { maxWidth: `${props.maxWidth}px` } : {};
+    });
 
-      if (this.global.closeIcon) {
-        const component = this.global.closeIcon();
-        return h(component, {
-          class: iconClassName,
-        });
+    const handleClose: ({ e }: { e: MouseEvent }) => void = (e) => emitEvent('close', e);
+    const handleClick: (e: MouseEvent) => void = (e) => emitEvent('click', { e });
+
+    const getCloseIcon = () => {
+      if (!props.closable) return null;
+      const iconClassName = `${prefix}-tag__icon-close`;
+      if (tagGlobalConfig.value.closeIcon) {
+        return h(tagGlobalConfig.value.closeIcon(h) as VNode, { class: iconClassName });
       }
-      return <CloseIcon onClick={this.handleClose} class={iconClassName} />;
-    },
+      return <CloseIcon onClick={handleClose} class={iconClassName} />;
+    };
+
+    return {
+      tagClass,
+      tagStyle,
+      getCloseIcon,
+      handleClick,
+    };
   },
   render() {
     // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
     const closeIcon = this.getCloseIcon();
     // 标签内容
-    const tagContent: TNodeReturnValue = renderContent(this, 'default', 'content');
+    const tagContent = renderContent(this, 'default', 'content');
     // 图标
     const icon = renderTNodeJSX(this, 'icon');
 
