@@ -8795,7 +8795,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                 class="t-align-left t-text-ellipsis test2"
                 colspan="1"
                 rowspan="2"
-                style="overflow: hidden;"
+                style="overflow: hidden; border-left: 1px solid #E7E7E7;"
               >
                 属性
               </td>
