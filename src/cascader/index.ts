@@ -1,12 +1,12 @@
 import _Cascader from './cascader';
 import mapProps from '../utils/map-props';
-import withInstall from '../utils/withInstall';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
 import './style';
 
 export * from './type';
 
-export const Cascader = withInstall(
+export const Cascader: WithInstallType<typeof _Cascader> = withInstall(
   mapProps([
     {
       name: 'value',

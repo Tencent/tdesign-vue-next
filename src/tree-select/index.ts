@@ -1,11 +1,11 @@
 import _TreeSelect from './tree-select';
 import mapProps from '../utils/map-props';
-import withInstall from '../utils/withInstall';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 
 import './style';
 
 export * from './interface';
-export const TreeSelect = withInstall(
+export const TreeSelect: WithInstallType<typeof _TreeSelect> = withInstall(
   mapProps([
     {
       name: 'value',
