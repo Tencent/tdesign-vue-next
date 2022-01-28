@@ -16,7 +16,7 @@ docClass: timeline
 * Alert: 修复未正常展示关闭按钮的问题， ([e8bd6ba](https://github.com/Tencent/tdesign-vue-next/commit/e8bd6ba50ce164f7976d9c28b04137c1ef5a0e05))
 * Calendar:  ([@PsTiu](https://github.com/PsTiu))
   * 修复日历组件 `monthChange` 事件在年只通过月份下拉框触发的问题 ([1b4e3a2](https://github.com/Tencent/tdesign-vue-next/commit/1b4e3a286f31ab979ddce19674afa9eb92996c46))
-  * 修复日历控制区按钮 `hover` 样式，[pr #169](https://github.com/Tencent/tdesign-common/pull/169)
+  * 修复日历控制区按钮 `hover` 样式 ([pr #169](https://github.com/Tencent/tdesign-common/pull/169))
   * 修复全局配置 `calendar.controllerConfig` 不生效的问题 ([72c1771](https://github.com/Tencent/tdesign-vue-next/commit/72c17717d6f783ed7324f2a4e56d446dda0980eb))
 * InputNumber 修复双向绑定设置成 `undefined` 实现清空，下次激活输入框自动恢复上次的值 ([961a8a5](https://github.com/Tencent/tdesign-vue-next/commit/961a8a540276c42e14b066c2413183f93cdd068f))
 * Select: 修复可过滤状态下，需要双击背景才可关闭下拉框 ([31f0258](https://github.com/Tencent/tdesign-vue-next/commit/31f0258ac67caf14dc7bb2610972f06307ccee96))
@@ -28,14 +28,14 @@ docClass: timeline
 * Table: 修复表头单元格合并显示异常 ([a121a0d](https://github.com/Tencent/tdesign-vue-next/commit/a121a0de2b5f28702b515d49e58a7cb467263be0))
 * Tabs: 修复 `remove` 事件警告 ([2beac1c](https://github.com/Tencent/tdesign-vue-next/commit/2beac1ceefe16bf55e2babed4b4e9bcf488f3094)), ([#248](https://github.com/Tencent/tdesign-vue-next/issues/248))
 * Tag: 修复`click` 事件参数错误 ([e6ade96](https://github.com/Tencent/tdesign-vue-next/commit/e6ade96d0a607a57b41a13fc15694117871a9242))
-* Breadcrumb: 修复面包屑 `item disabled` 状态样式，[pr #190](https://github.com/Tencent/tdesign-common/pull/190)，[@samhou1988](https://github.com/samhou1988)
-* Input: 修复输入框相关样式重复引入的问题，[pr #182](https://github.com/Tencent/tdesign-common/pull/182)，[@xiaosansiji](https://github.com/xiaosansiji)
-* Select/Input/InputNumber/Switch: 背景色、边框样式等与设计不一致的，统一修复，[pr #194](https://github.com/Tencent/tdesign-common/pull/194)，[@uyarn](https://github.com/uyarn)
+* Breadcrumb: 修复面包屑 `item disabled` 状态样式，([pr #190](https://github.com/Tencent/tdesign-common/pull/190)),( [@samhou1988](https://github.com/samhou1988))
+* Input: 修复输入框相关样式重复引入的问题，([pr #182](https://github.com/Tencent/tdesign-common/pull/182)), ([@xiaosansiji](https://github.com/xiaosansiji))
+* Select/Input/InputNumber/Switch: 背景色、边框样式等与设计不一致的，统一修复 ([pr #194](https://github.com/Tencent/tdesign-common/pull/194)),( [@uyarn](https://github.com/uyarn))
 
 ### Features
 
 * InputNumber: 增加 `align` 属性 ([961a8a5](https://github.com/Tencent/tdesign-vue-next/commit/961a8a540276c42e14b066c2413183f93cdd068f))
-* Button: 统一各类型按钮边框宽度，[pr #176](https://github.com/Tencent/tdesign-common/pull/176)，[@BigLiao](https://github.com/BigLiao)
+* Button: 统一各类型按钮边框宽度, ([pr #176](https://github.com/Tencent/tdesign-common/pull/176)), ([@BigLiao](https://github.com/BigLiao))
 
 ## 0.7.0 `2022-01-21`
 
