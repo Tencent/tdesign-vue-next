@@ -1,4 +1,4 @@
-import { defineComponent, VNode, nextTick, h, ComponentPublicInstance } from 'vue';
+import { defineComponent, VNode, nextTick, h, ComponentPublicInstance, Slot } from 'vue';
 import { CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
@@ -178,7 +178,7 @@ export default defineComponent({
         'disabled',
         (val: TdFormProps['disabled']) => {
           this.$nextTick(() => {
-            this.setChildrenDisabled(val, this.$children);
+            this.setChildrenDisabled(val, this.children);
           });
         },
         { immediate: true },
@@ -302,14 +302,15 @@ export default defineComponent({
     },
     getIcon(
       statusIcon: TdFormProps['statusIcon'] | TdFormItemProps['statusIcon'],
-      slotStatusIcon: ScopedSlot,
+      slotStatusIcon: Slot,
+      props?: TdFormItemProps,
     ): TNodeReturnValue {
       const resultIcon = (otherContent?: TNodeReturnValue) => <span class={CLASS_NAMES.status}>{otherContent}</span>;
       if (statusIcon === true) {
         return this.getDefaultIcon();
       }
       if (typeof statusIcon === 'function') {
-        return resultIcon(slotStatusIcon());
+        return resultIcon(slotStatusIcon(h, props));
       }
       if (typeof slotStatusIcon === 'function') {
         return resultIcon(slotStatusIcon());

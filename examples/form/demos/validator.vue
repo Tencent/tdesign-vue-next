@@ -51,7 +51,7 @@
     </t-form>
   </div>
 </template>
-<script>
+<script setup>
 import { defineComponent, ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
@@ -101,41 +101,32 @@ const collegeOptions = [
   { label: '物联网学院', value: '3' },
 ];
 
-export default defineComponent({
-  setup() {
-    const formData = ref({ ...INITIAL_DATA });
-    const form = ref(null);
+const options = [
+  { label: '计算机学院', value: '1' },
+  { label: '软件学院', value: '2' },
+  { label: '物联网学院', value: '3' },
+];
 
-    const onReset = () => {
-      MessagePlugin.success('重置成功');
-    };
+const formData = ref({ ...INITIAL_DATA });
+const form = ref(null);
 
-    const onSubmit = ({ validateResult, firstError, e }) => {
-      e.preventDefault();
-      if (validateResult === true) {
-        MessagePlugin.success('提交成功');
-      } else {
-        console.log('Validate Errors: ', firstError, validateResult);
-        MessagePlugin.warning(firstError);
-      }
-    };
+const onReset = () => {
+  MessagePlugin.success('重置成功');
+};
 
-    const handleClear = () => {
-      form.value.clearValidate();
-    };
+const onSubmit = ({ validateResult, firstError, e }) => {
+  e.preventDefault();
+  if (validateResult === true) {
+    MessagePlugin.success('提交成功');
+  } else {
+    console.log('Validate Errors: ', firstError, validateResult);
+    MessagePlugin.warning(firstError);
+  }
+};
 
-    return {
-      form,
-      rules,
-      formData,
-      courseOptions,
-      collegeOptions,
-      onReset,
-      onSubmit,
-      handleClear,
-    };
-  },
-});
+const handleClear = () => {
+  form.value.clearValidate();
+};
 </script>
 <style scoped>
 .demo-select-base {

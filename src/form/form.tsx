@@ -112,6 +112,7 @@ export default defineComponent({
         e && e.preventDefault();
         e && e.stopPropagation();
       }
+
       this.children.filter((child: any) => this.isFunction(child.resetField)).map((child: any) => child.resetField());
       emitEvent(this, 'reset', { e });
     },
