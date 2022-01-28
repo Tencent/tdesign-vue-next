@@ -1,7 +1,7 @@
 import _Steps from './steps';
 import _StepItem from './step-item';
 import mapProps from '../utils/map-props';
-import withInstall from '../utils/withInstall';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdStepsProps, TdStepItemProps } from './type';
 
 import './style';
@@ -10,7 +10,7 @@ export * from './type';
 export type StepsProps = TdStepsProps;
 export type StepItemProps = TdStepItemProps;
 
-export const Steps = withInstall(
+export const Steps: WithInstallType<typeof _Steps> = withInstall(
   mapProps([
     {
       name: 'current',
@@ -19,5 +19,5 @@ export const Steps = withInstall(
     },
   ])(_Steps),
 );
-export const StepItem = withInstall(_StepItem);
+export const StepItem: WithInstallType<typeof _StepItem> = withInstall(_StepItem);
 export default Steps;

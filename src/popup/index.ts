@@ -1,6 +1,6 @@
 import _Popup from './popup';
 import mapProps from '../utils/map-props';
-import withInstall from '../utils/withInstall';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdPopupProps } from './type';
 
 import './style';
@@ -8,13 +8,12 @@ import './style';
 export * from './type';
 export type PopupProps = TdPopupProps;
 
-export const Popup = withInstall(
-  mapProps([
-    {
-      name: 'visible',
-      event: 'visible-change',
-    },
-  ])(_Popup),
-);
+const LocalPopup = mapProps([
+  {
+    name: 'visible',
+    event: 'visible-change',
+  },
+])(_Popup);
 
+export const Popup: WithInstallType<typeof LocalPopup> = withInstall(LocalPopup);
 export default Popup;

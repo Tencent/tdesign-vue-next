@@ -15,7 +15,7 @@ const maxLengthClass = `${prefix}-breadcrumb__inner`;
 const textFlowClass = `${prefix}-breadcrumb--text-overflow`;
 
 export const EVENT_NAME_WITH_KEBAB = ['click'];
-export interface LocalTBreadcrumb {
+interface LocalTBreadcrumb {
   separator: (() => void) | string;
   theme: string;
   $slots: {
