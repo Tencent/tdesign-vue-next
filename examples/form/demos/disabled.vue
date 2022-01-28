@@ -66,6 +66,7 @@
 import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
+const formDisabled = ref(true);
 const INITIAL_DATA = {
   name: '',
   tel: '',
@@ -78,6 +79,18 @@ const courseOptions = [
   { label: '语文', value: '1' },
   { label: '数学', value: '2' },
   { label: '英语', value: '3' },
+];
+
+const COLLEGE_OPTIONS = [
+  { label: '学院 A', value: 1 },
+  { label: '学院 B', value: 2 },
+  { label: '学院 C', value: 3 },
+];
+
+const ADDRESS_OPTIONS = [
+  { label: '江苏', value: 1, children: [{ label: '南京市', value: 300 }] },
+  { label: '上海', value: 2, children: [{ label: '徐汇区', value: 400 }] },
+  { label: '四川', value: 3, children: [{ label: '成都市', value: 500 }] },
 ];
 
 const onReset = () => {

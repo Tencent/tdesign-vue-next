@@ -33,6 +33,7 @@ export default defineComponent({
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur'],
   data() {
     return {
+      formDisabled: undefined,
       isHover: false,
       focused: false,
       renderType: this.type,

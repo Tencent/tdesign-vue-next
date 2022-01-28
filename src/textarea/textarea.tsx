@@ -38,6 +38,9 @@ export default defineComponent({
     };
   },
   computed: {
+    tDisabled() {
+      return this.formDisabled || this.disabled;
+    },
     textareaClasses(): ClassName {
       return [
         name,

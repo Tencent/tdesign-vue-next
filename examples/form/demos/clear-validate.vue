@@ -127,7 +127,7 @@ const rules = {
 
 const onReset = () => {
   MessagePlugin.success('重置成功');
-  console.log('formData', this.formData);
+  console.log('formData', formData.value);
 };
 
 const onSubmit = ({ validateResult, firstError }) => {

@@ -131,6 +131,7 @@ const onSubmit = ({ validateResult, firstError }) => {
 onMounted(() => {
   formValidatorStatus.value.validate();
 });
+const formStatusIcon = ref(true);
 
 const getStatusIcon = () => <t-icon name="help-circle" size="16px" style="color: #0006" />;
 </script>

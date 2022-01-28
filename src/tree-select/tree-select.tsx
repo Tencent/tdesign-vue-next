@@ -66,6 +66,9 @@ export default defineComponent({
     };
   },
   computed: {
+    tDisabled() {
+      return this.formDisabled || this.disabled;
+    },
     classes(): ClassName {
       return [
         `${prefix}-select`,
