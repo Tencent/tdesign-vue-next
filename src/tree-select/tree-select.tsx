@@ -6,8 +6,9 @@ import isString from 'lodash/isString';
 import isBoolean from 'lodash/isBoolean';
 import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
+import isNil from 'lodash/isNil';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import TLoading from '../loading';
+import Loading from '../loading';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { TreeSelectConfig } from '../config-provider/config-receiver';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -117,7 +118,7 @@ export default defineComponent({
         !this.showFilter &&
         ((isString(this.value) && this.value === '' && !this.selectedSingle) ||
           (isArray(this.value) && isEmpty(this.value)) ||
-          this.value === null)
+          isNil(this.value))
       ) {
         return true;
       }
@@ -412,6 +413,16 @@ export default defineComponent({
         {label}
       </Tag>
     ));
+    const selectedSingle =
+      this.valueDisplay || this.$slots.valueDisplay ? (
+        renderTNodeJSX(this, 'valueDisplay', {
+          params: { value: this.nodeInfo || { [this.realLabel]: '', [this.realValue]: '' } },
+        })
+      ) : (
+        <span title={this.selectedSingle} class={`${prefix}-select__single`}>
+          {this.selectedSingle}
+        </span>
+      );
     const collapsedItem =
       (this.collapsedItems || this.$slots.collapsedItems) &&
       this.minCollapsedNum > 0 &&
@@ -430,12 +441,12 @@ export default defineComponent({
       );
     const slots = {
       content: () => (
-        <>
+        <div>
           <p v-show={this.showLoading} class={`${prefix}-select-loading-tips`}>
             {this.loadingTextSlot}
           </p>
           {treeItem}
-        </>
+        </div>
       ),
     };
     return (
@@ -460,11 +471,7 @@ export default defineComponent({
             </span>
             {tagItem}
             {collapsedItem}
-            {!this.multiple && !this.showPlaceholder && !this.showFilter && (
-              <span title={this.selectedSingle} class={`${prefix}-select__single`}>
-                {this.selectedSingle}
-              </span>
-            )}
+            {!this.multiple && !this.showPlaceholder && !this.showFilter && selectedSingle}
             {searchInput}
             {this.showArrow && !this.showLoading && (
               <FakeArrow
@@ -480,7 +487,7 @@ export default defineComponent({
               size={this.size}
               onClick={({ e }) => this.clear(e)}
             />
-            <TLoading
+            <Loading
               v-show={this.showLoading}
               name="loading"
               class={`${prefix}-select__right-icon ${prefix}-select__active-icon`}
