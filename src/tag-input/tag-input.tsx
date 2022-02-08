@@ -20,10 +20,9 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
-    const root = ref(null);
     const inputValueRef = ref<InputValue>();
-    const { isHoverRef, addHover, cancelHover } = useHover(props);
-    const scrollFunctions = useTagScroll(props, root);
+    const { isHover, addHover, cancelHover } = useHover(props);
+    const scrollFunctions = useTagScroll(props);
     // handle tag add and remove
     const { tagValue, onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props, context);
 
@@ -37,13 +36,11 @@ export default defineComponent({
     });
 
     const tagInputPlaceholder = computed(() => {
-      return isHoverRef.value || !tagValue.value?.length ? props.placeholder : '';
+      return isHover.value || !tagValue.value?.length ? props.placeholder : '';
     });
 
     const showClearIcon = computed(() => {
-      return Boolean(
-        !props.readonly && !props.disabled && props.clearable && isHoverRef.value && tagValue.value?.length,
-      );
+      return Boolean(!props.readonly && !props.disabled && props.clearable && isHover.value && tagValue.value?.length);
     });
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
@@ -56,11 +53,11 @@ export default defineComponent({
 
     return {
       tagValue,
-      root,
       inputValueRef,
-      isHoverRef,
+      isHover,
       tagInputPlaceholder,
       showClearIcon,
+      tagInputRef: scrollFunctions.tagInputRef,
       addHover,
       cancelHover,
       ...scrollFunctions,
@@ -125,7 +122,7 @@ export default defineComponent({
   render() {
     return (
       <TInput
-        ref="root"
+        ref="tagInputRef"
         {...this.inputProps}
         value={this.inputValueRef}
         onChange={(val) => {

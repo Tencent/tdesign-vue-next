@@ -3,41 +3,38 @@
  * 如果标签过多时的处理方式，是标签省略，则不需要此功能
  */
 
-import { onMounted, onUnmounted, ref, Ref } from 'vue';
+import { onMounted, onUnmounted, ref, Ref, toRefs } from 'vue';
 import { TdTagInputProps } from './type';
 import { on, off } from '../utils/dom';
 
-export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
+export default function useTagScroll(props: TdTagInputProps) {
+  const tagInputRef = ref();
+  const { excessTagsDisplayType, readonly, disabled } = toRefs(props);
   // 允许向右滚动的最大距离
   const scrollDistance = ref(0);
-  const scrollElement = ref<HTMLElement>(null);
+  const scrollElement = ref<HTMLElement>();
   const wheelTimer = ref();
   const mouseEnterTimer = ref();
 
-  const setScrollElement = (element: HTMLElement) => {
+  const updateScrollElement = (element: HTMLElement) => {
     scrollElement.value = element;
   };
 
-  const setScrollDistance = () => {
+  const updateScrollDistance = () => {
     scrollDistance.value = scrollElement.value.scrollWidth - scrollElement.value.clientWidth;
   };
 
   const scrollTo = (distance: number) => {
-    scrollElement?.value.scroll({ left: distance, behavior: 'smooth' });
+    scrollElement.value?.scroll({ left: distance, behavior: 'smooth' });
   };
 
   const scrollToRight = () => {
-    setScrollDistance();
+    updateScrollDistance();
     scrollTo(scrollDistance.value);
   };
 
   const scrollToLeft = () => {
     scrollTo(0);
-  };
-
-  const clearTimer = (timer: Ref<any>) => {
-    clearTimeout(timer.value);
-    timer.value = null;
   };
 
   // TODO：MAC 电脑横向滚动，Windows 纵向滚动。当前只处理了横向滚动
@@ -51,56 +48,62 @@ export default function useTagScroll(props: TdTagInputProps, root: Ref<any>) {
       scrollTo(distance);
     }
     wheelTimer.value = setTimeout(() => {
-      clearTimer(wheelTimer);
+      clearTimeout(wheelTimer.value);
     }, 300);
   };
 
   // 鼠标 hover，自动滑动到最右侧，以便输入新标签
   const scrollToRightOnEnter = () => {
-    if (props.excessTagsDisplayType !== 'scroll') return;
+    if (excessTagsDisplayType.value !== 'scroll') return;
     // 一闪而过的 mousenter 不需要执行
     mouseEnterTimer.value = setTimeout(() => {
       scrollToRight();
-      clearTimer(mouseEnterTimer);
+      clearTimeout(mouseEnterTimer.value);
     }, 100);
   };
 
   const scrollToLeftOnLeave = () => {
-    if (props.excessTagsDisplayType !== 'scroll') return;
+    if (excessTagsDisplayType.value !== 'scroll') return;
     scrollTo(0);
-    clearTimer(mouseEnterTimer);
+    clearTimeout(mouseEnterTimer.value);
   };
 
   const addListeners = (element: HTMLElement) => {
-    if (props.readonly || props.disabled) return;
+    if (readonly.value || disabled.value) return;
     on(element, 'mousewheel', onWheel);
   };
 
   const removeListeners = (element: HTMLElement) => {
-    if (props.readonly || props.disabled) return;
+    if (readonly.value || disabled.value) return;
     off(element, 'mousewheel', onWheel);
   };
 
-  onMounted(() => {
-    const element = root.value?.$el;
-    setScrollElement(element);
+  const init = () => {
+    const element = tagInputRef.value?.$el;
+    if (!element) return;
+    updateScrollElement(element);
     addListeners(element);
-  });
+  };
 
-  onUnmounted(() => {
-    clearTimer(wheelTimer);
-    clearTimer(mouseEnterTimer);
-    removeListeners(root.value?.$el);
-  });
+  const clear = () => {
+    clearTimeout(wheelTimer.value);
+    clearTimeout(mouseEnterTimer.value);
+    removeListeners(tagInputRef.value?.$el);
+  };
+
+  onMounted(init);
+
+  onUnmounted(clear);
 
   return {
+    tagInputRef,
     scrollElement,
     scrollDistance,
     scrollTo,
     scrollToRight,
     scrollToLeft,
-    setScrollElement,
-    setScrollDistance,
+    updateScrollElement,
+    updateScrollDistance,
     onWheel,
     addListeners,
     removeListeners,

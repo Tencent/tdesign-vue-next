@@ -1,4 +1,4 @@
-import { ref, SetupContext, WritableComputedRef } from 'vue';
+import { ref, SetupContext } from 'vue';
 import { TagInputValue, TdTagInputProps } from './type';
 import { InputValue } from '../input';
 import useDefault from '../hooks/useDefault';
