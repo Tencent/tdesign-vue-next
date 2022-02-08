@@ -128,6 +128,7 @@ export default defineComponent({
         onChange={(val) => {
           this.inputValueRef = val;
         }}
+        onMousewheel={this.onWheel}
         size={this.size}
         readonly={this.readonly}
         disabled={this.disabled}

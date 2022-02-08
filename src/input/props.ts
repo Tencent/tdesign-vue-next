@@ -8,6 +8,14 @@ import { TdInputProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  /** 文本内容位置，居左/居中/居右 */
+  align: {
+    type: String as PropType<TdInputProps['align']>,
+    default: 'left' as TdInputProps['align'],
+    validator(val: TdInputProps['align']): boolean {
+      return ['left', 'center', 'right'].includes(val);
+    },
+  },
   /** 是否开启自动填充功能 */
   autocomplete: Boolean,
   /** 自动聚焦 */
@@ -16,6 +24,10 @@ export default {
   clearable: Boolean,
   /** 是否禁用输入框 */
   disabled: Boolean,
+  /** 【讨论中】指定输入框展示值的格式 */
+  format: {
+    type: Function as PropType<TdInputProps['format']>,
+  },
   /** 左侧文本 */
   label: {
     type: [String, Function] as PropType<TdInputProps['label']>,
@@ -107,6 +119,8 @@ export default {
   onMouseenter: Function as PropType<TdInputProps['onMouseenter']>,
   /** 离开输入框时触发 */
   onMouseleave: Function as PropType<TdInputProps['onMouseleave']>,
+  /** 输入框中滚动鼠标时触发 */
+  onMousewheel: Function as PropType<TdInputProps['onMousewheel']>,
   /** 粘贴事件，`pasteValue` 表示粘贴板的内容 */
   onPaste: Function as PropType<TdInputProps['onPaste']>,
 };

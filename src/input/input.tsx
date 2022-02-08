@@ -131,6 +131,9 @@ export default defineComponent({
       const clipData = e.clipboardData || window.clipboardData;
       this.onPaste?.({ e, pasteValue: clipData?.getData('text/plain') });
     },
+    onHandleMousewheel(e: WheelEvent) {
+      this.onMousewheel?.({ e });
+    },
     emitPassword() {
       const { renderType } = this;
       const toggleType = renderType === 'password' ? 'text' : 'password';
@@ -233,6 +236,7 @@ export default defineComponent({
         class={classes}
         onMouseenter={this.onInputMouseenter}
         onMouseleave={this.onInputMouseleave}
+        onMousewheel={this.onHandleMousewheel}
         {...{ ...wrapperAttrs }}
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}

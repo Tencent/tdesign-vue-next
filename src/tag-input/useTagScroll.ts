@@ -3,9 +3,8 @@
  * 如果标签过多时的处理方式，是标签省略，则不需要此功能
  */
 
-import { onMounted, onUnmounted, ref, Ref, toRefs } from 'vue';
+import { onMounted, onUnmounted, ref, toRefs } from 'vue';
 import { TdTagInputProps } from './type';
-import { on, off } from '../utils/dom';
 
 export default function useTagScroll(props: TdTagInputProps) {
   const tagInputRef = ref();
@@ -13,7 +12,6 @@ export default function useTagScroll(props: TdTagInputProps) {
   // 允许向右滚动的最大距离
   const scrollDistance = ref(0);
   const scrollElement = ref<HTMLElement>();
-  const wheelTimer = ref();
   const mouseEnterTimer = ref();
 
   const updateScrollElement = (element: HTMLElement) => {
@@ -38,8 +36,9 @@ export default function useTagScroll(props: TdTagInputProps) {
   };
 
   // TODO：MAC 电脑横向滚动，Windows 纵向滚动。当前只处理了横向滚动
-  const onWheel = (e: WheelEvent) => {
-    if (!scrollElement.value || wheelTimer.value) return;
+  const onWheel = ({ e }: { e: WheelEvent }) => {
+    if (readonly.value || disabled.value) return;
+    if (!scrollElement.value) return;
     if (e.deltaX > 0) {
       const distance = Math.min(scrollElement.value.scrollLeft + 120, scrollDistance.value);
       scrollTo(distance);
@@ -47,9 +46,6 @@ export default function useTagScroll(props: TdTagInputProps) {
       const distance = Math.max(scrollElement.value.scrollLeft - 120, 0);
       scrollTo(distance);
     }
-    wheelTimer.value = setTimeout(() => {
-      clearTimeout(wheelTimer.value);
-    }, 300);
   };
 
   // 鼠标 hover，自动滑动到最右侧，以便输入新标签
@@ -68,27 +64,14 @@ export default function useTagScroll(props: TdTagInputProps) {
     clearTimeout(mouseEnterTimer.value);
   };
 
-  const addListeners = (element: HTMLElement) => {
-    if (readonly.value || disabled.value) return;
-    on(element, 'mousewheel', onWheel);
-  };
-
-  const removeListeners = (element: HTMLElement) => {
-    if (readonly.value || disabled.value) return;
-    off(element, 'mousewheel', onWheel);
-  };
-
   const init = () => {
     const element = tagInputRef.value?.$el;
     if (!element) return;
     updateScrollElement(element);
-    addListeners(element);
   };
 
   const clear = () => {
-    clearTimeout(wheelTimer.value);
     clearTimeout(mouseEnterTimer.value);
-    removeListeners(tagInputRef.value?.$el);
   };
 
   onMounted(init);
@@ -105,8 +88,6 @@ export default function useTagScroll(props: TdTagInputProps) {
     updateScrollElement,
     updateScrollDistance,
     onWheel,
-    addListeners,
-    removeListeners,
     scrollToRightOnEnter,
     scrollToLeftOnLeave,
   };

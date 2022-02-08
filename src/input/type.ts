@@ -8,6 +8,11 @@ import { TNode, SizeEnum } from '../common';
 
 export interface TdInputProps {
   /**
+   * 文本内容位置，居左/居中/居右
+   * @default left
+   */
+  align?: 'left' | 'center' | 'right';
+  /**
    * 是否开启自动填充功能
    * @default false
    */
@@ -27,6 +32,10 @@ export interface TdInputProps {
    * @default false
    */
   disabled?: boolean;
+  /**
+   * 【讨论中】指定输入框展示值的格式
+   */
+  format?: (value: number | number) => number | string;
   /**
    * 左侧文本
    */
@@ -131,6 +140,10 @@ export interface TdInputProps {
    * 离开输入框时触发
    */
   onMouseleave?: (context: { e: MouseEvent }) => void;
+  /**
+   * 输入框中滚动鼠标时触发
+   */
+  onMousewheel?: (context: { e: WheelEvent }) => void;
   /**
    * 粘贴事件，`pasteValue` 表示粘贴板的内容
    */
