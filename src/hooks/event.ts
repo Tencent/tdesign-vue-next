@@ -1,3 +1,4 @@
+import { onBeforeUnmount, onMounted } from 'vue';
 import { getPropsApiByEvent } from '../utils/helper';
 
 export type EmitEventName = { event: string; method: string } | string;
@@ -23,4 +24,18 @@ export function useEmitEvent<P extends Record<string, any>>(props: P, emit: (eve
       emit(eventName, ...args);
     }
   };
+}
+
+/**
+ * 用于订阅Listener事件
+ * @param updateSize
+ */
+export function useListener(type: string, listener: () => void): void {
+  onMounted(() => {
+    window.addEventListener(type, listener);
+  });
+
+  onBeforeUnmount(() => {
+    window.removeEventListener(type, listener);
+  });
 }

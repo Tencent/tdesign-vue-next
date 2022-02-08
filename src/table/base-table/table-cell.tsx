@@ -4,6 +4,9 @@ import Popup from '../../popup';
 import { isNodeOverflow } from '../../utils/dom';
 import { TdInstance } from '../util/interface';
 import { getRecord } from '../util/common';
+import { emitEvent } from '../../utils/event';
+import { TdBaseTableProps } from '../type';
+import baseTableProps from '../base-table-props';
 
 const overlayStyle = {
   width: '100%',
@@ -17,6 +20,7 @@ export default defineComponent({
     Popup,
   },
   props: {
+    onCellClick: baseTableProps.onCellClick,
     cellData: {
       type: Object,
       default() {
@@ -146,6 +150,15 @@ export default defineComponent({
       class: [...fixedClass, ...attrClass].filter((notEmpty) => notEmpty).join(' '),
       key: colKey,
       style,
+      onClick: (e: MouseEvent) => {
+        emitEvent<Parameters<TdBaseTableProps['onCellClick']>>(this, 'cell-click', {
+          col,
+          colIndex,
+          row,
+          rowIndex,
+          e,
+        });
+      },
     };
     // 如果被截断给加上 Tooltip 提示
     if (ellipsis && this.isCutOff) {

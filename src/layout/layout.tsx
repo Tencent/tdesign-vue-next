@@ -1,34 +1,31 @@
-import { defineComponent } from 'vue';
+import { defineComponent, computed, provide, ref, Ref } from 'vue';
 import { prefix } from '../config';
-import { ClassName } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-layout`;
 
+export type LayoutProvideType = {
+  hasSide: Ref<boolean>;
+};
+
 export default defineComponent({
   name: 'TLayout',
 
-  provide(): any {
-    return {
-      layout: this,
-    };
-  },
+  setup() {
+    const hasSide = ref(false);
 
-  data() {
-    return {
-      hasSider: false,
-    };
-  },
+    const classes = computed(() => [
+      name,
+      {
+        [`${name}--with-sider`]: hasSide.value,
+      },
+    ]);
 
-  computed: {
-    classes(): ClassName {
-      return [
-        name,
-        {
-          [`${name}--with-sider`]: this.hasSider,
-        },
-      ];
-    },
+    provide('layout', { hasSide });
+
+    return {
+      classes,
+    };
   },
 
   render() {
