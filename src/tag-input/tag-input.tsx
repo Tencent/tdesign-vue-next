@@ -22,12 +22,9 @@ export default defineComponent({
     const tInputValue = ref<InputValue>();
     const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);
     const { isHover, addHover, cancelHover } = useHover(props);
-    const scrollFunctions = useTagScroll(props);
+    const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel } = useTagList(
-      props,
-      context,
-    );
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel } = useTagList(props, context);
 
     const classes = computed(() => {
       return [
@@ -50,7 +47,7 @@ export default defineComponent({
       tInputValue.value = '';
       onInnerEnter(value, context);
       nextTick(() => {
-        scrollFunctions.scrollToRight();
+        scrollToRight();
       });
     };
 
@@ -60,16 +57,17 @@ export default defineComponent({
       isHover,
       tagInputPlaceholder,
       showClearIcon,
-      tagInputRef: scrollFunctions.tagInputRef,
+      tagInputRef,
       addHover,
       cancelHover,
-      ...scrollFunctions,
       onInputEnter,
-      onClose,
       onInnerEnter,
       onInputBackspaceKeyUp,
       clearAll,
       renderLabel,
+      onWheel,
+      scrollToRightOnEnter,
+      scrollToLeftOnLeave,
       classes,
       slots: context.slots,
     };
