@@ -3978,7 +3978,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                       <tr>
                                                         
                                                         <td
-                                                          class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
+                                                          class="t-date-picker-cell"
                                                         >
                                                           <div
                                                             class="t-date-picker__cell-wrapper"
@@ -3991,7 +3991,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                           </div>
                                                         </td>
                                                         <td
-                                                          class="t-date-picker-cell"
+                                                          class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
                                                         >
                                                           <div
                                                             class="t-date-picker__cell-wrapper"

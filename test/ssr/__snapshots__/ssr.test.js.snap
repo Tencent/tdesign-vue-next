@@ -18255,6 +18255,29 @@ exports[`ssr snapshot test renders ./examples/input/demos/addon.vue correctly 1`
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/input/demos/align.vue correctly 1`] = `
+<div class="tdesign-demo-block-column" style="max-width:300px;">
+  <div class="t-input t-size-m">
+    <!---->
+    <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="左对齐">
+    <!---->
+    <!---->
+  </div>
+  <div class="t-input t-size-m t-align-center">
+    <!---->
+    <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="居中对齐">
+    <!---->
+    <!---->
+  </div>
+  <div class="t-input t-size-m t-align-right">
+    <!---->
+    <!----><input class="t-input__inner" autocomplete="false" placeholder="请输入" type="text" value="右对齐">
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/input/demos/base.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
   <div class="t-input t-size-m">
