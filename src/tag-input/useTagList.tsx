@@ -1,12 +1,12 @@
 import { ref, SetupContext, toRefs } from 'vue';
-import { TagInputValue, TdTagInputProps } from './type';
+import { TagInputValue, TdTagInputProps, TagInputChangeContext } from './type';
 import { InputValue } from '../input';
 import Tag from '../tag';
 import useDefault from '../hooks/useDefault';
 import { prefix } from '../config';
 import { useTNodeJSX } from '../hooks/tnode';
 
-export type ChangeParams = [Parameters<TdTagInputProps['onChange']>[1]];
+export type ChangeParams = [TagInputChangeContext];
 
 // handle tag add and remove
 export default function useTagList(props: TdTagInputProps, context: SetupContext) {
@@ -80,6 +80,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
         const tagContent = useTNodeJSX('tag', { slots, params: { value: item } });
         return (
           <Tag
+            key={item}
             size={size.value}
             disabled={disabled.value}
             onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, item, index })}

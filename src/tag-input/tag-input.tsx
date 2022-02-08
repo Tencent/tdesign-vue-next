@@ -1,4 +1,4 @@
-import { defineComponent, ref, nextTick, computed } from 'vue';
+import { defineComponent, ref, computed, toRefs, nextTick } from 'vue';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
@@ -19,7 +19,8 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
-    const inputValueRef = ref<InputValue>();
+    const tInputValue = ref<InputValue>();
+    const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);
     const { isHover, addHover, cancelHover } = useHover(props);
     const scrollFunctions = useTagScroll(props);
     // handle tag add and remove
@@ -32,21 +33,21 @@ export default defineComponent({
       return [
         NAME_CLASS,
         {
-          [BREAK_LINE_CLASS]: props.excessTagsDisplayType === 'break-line',
+          [BREAK_LINE_CLASS]: excessTagsDisplayType.value === 'break-line',
         },
       ];
     });
 
     const tagInputPlaceholder = computed(() => {
-      return isHover.value || !tagValue.value?.length ? props.placeholder : '';
+      return isHover.value || !tagValue.value?.length ? placeholder.value : '';
     });
 
     const showClearIcon = computed(() => {
-      return Boolean(!props.readonly && !props.disabled && props.clearable && isHover.value && tagValue.value?.length);
+      return Boolean(!readonly.value && !disabled.value && clearable.value && isHover.value && tagValue.value?.length);
     });
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
-      inputValueRef.value = '';
+      tInputValue.value = '';
       onInnerEnter(value, context);
       nextTick(() => {
         scrollFunctions.scrollToRight();
@@ -55,7 +56,7 @@ export default defineComponent({
 
     return {
       tagValue,
-      inputValueRef,
+      tInputValue,
       isHover,
       tagInputPlaceholder,
       showClearIcon,
@@ -91,9 +92,9 @@ export default defineComponent({
       <TInput
         ref="tagInputRef"
         {...this.inputProps}
-        value={this.inputValueRef}
+        value={this.tInputValue}
         onChange={(val: InputValue) => {
-          this.inputValueRef = val;
+          this.tInputValue = val;
         }}
         onMousewheel={this.onWheel}
         size={this.size}
