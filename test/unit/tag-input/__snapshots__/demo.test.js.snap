@@ -401,7 +401,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
   class="tdesign-demo-block-column"
   style="width: 80%;"
 >
-  <!-- 方式一：使用 tag 定义标签内部内容 -->
+  <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >
@@ -491,7 +491,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 方式二：使用 valueDisplay 定义全部内容 -->
+  <!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay -->
   <div
     class="t-input t-size-m t-input--prefix t-tag-input"
   >

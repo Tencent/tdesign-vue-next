@@ -3,9 +3,8 @@ import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
 import { TdTagInputProps } from './type';
-import Tag from '../tag';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { useTNodeJSX } from '../hooks/tnode';
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
@@ -24,7 +23,10 @@ export default defineComponent({
     const { isHover, addHover, cancelHover } = useHover(props);
     const scrollFunctions = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll } = useTagList(props, context);
+    const { tagValue, onClose, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel } = useTagList(
+      props,
+      context,
+    );
 
     const classes = computed(() => {
       return [
@@ -66,60 +68,25 @@ export default defineComponent({
       onInnerEnter,
       onInputBackspaceKeyUp,
       clearAll,
+      renderLabel,
       classes,
+      slots: context.slots,
     };
   },
 
-  methods: {
-    renderLabel() {
-      const displayNode = renderTNodeJSX(this, 'valueDisplay', { params: { value: this.tagValue } });
-      const newList = this.minCollapsedNum ? this.tagValue.slice(0, this.minCollapsedNum) : this.tagValue;
-      const list =
-        displayNode ??
-        newList?.map((item, index) => {
-          const tagContent = renderTNodeJSX(this, 'tag', { params: { value: item } });
-          return (
-            <Tag
-              size={this.size}
-              disabled={this.disabled}
-              onClose={(context: { e: MouseEvent }) => this.onClose({ e: context.e, item, index })}
-              closable={!this.readonly && !this.disabled}
-              {...this.tagProps}
-            >
-              {tagContent ?? item}
-            </Tag>
-          );
-        });
-      // 左侧文本
-      const label = renderTNodeJSX(this, 'label');
-      if (![null, undefined, ''].includes(label)) {
-        list.unshift(<div class={`${prefix}-tag-input__prefix`}>{label}</div>);
-      }
-      // 超出省略
-      if (newList.length !== this.tagValue.length) {
-        const len = this.tagValue.length - newList.length;
-        const more = renderTNodeJSX(this, 'collapsedItems', {
-          params: {
-            value: this.tagValue,
-            count: this.tagValue.length,
-            collapsedTags: this.tagValue.slice(this.minCollapsedNum, this.tagValue.length),
-          },
-        });
-        list.push(more ?? <Tag>+{len}</Tag>);
-      }
-      return list;
-    },
-
-    renderSuffixIcon() {
-      const suffixIcon = renderTNodeJSX(this, 'suffixIcon');
-      if (this.showClearIcon) {
-        return <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.clearAll} />;
-      }
-      return suffixIcon;
-    },
-  },
-
   render() {
+    const suffixIconNode = this.showClearIcon ? (
+      <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.clearAll} />
+    ) : (
+      useTNodeJSX('suffixIcon', { slots: this.slots })
+    );
+    // 自定义 Tag 节点
+    const displayNode = useTNodeJSX('valueDisplay', {
+      slots: this.slots,
+      params: { value: this.tagValue },
+    });
+    // 左侧文本
+    const label = useTNodeJSX('label', { slots: this.slots });
     return (
       <TInput
         ref="tagInputRef"
@@ -132,13 +99,13 @@ export default defineComponent({
         size={this.size}
         readonly={this.readonly}
         disabled={this.disabled}
-        label={this.renderLabel}
+        label={() => this.renderLabel({ slots: this.slots, displayNode, label })}
         class={this.classes}
         tips={this.tips}
         status={this.status}
         placeholder={this.tagInputPlaceholder}
         suffix={this.suffix}
-        suffixIcon={this.renderSuffixIcon}
+        suffixIcon={() => suffixIconNode}
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}
