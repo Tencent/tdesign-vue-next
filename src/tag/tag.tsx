@@ -1,12 +1,12 @@
-import { computed, defineComponent, h } from 'vue';
+import { computed, defineComponent, h, VNode } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import { useEmitEvent } from '../hooks/event';
-import { useReceiver } from '../config-provider';
+import { useReceiver, TagConfig } from '../config-provider';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import { ClassName, TNodeReturnValue } from '../common';
+import { ClassName } from '../common';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
@@ -17,20 +17,20 @@ export default defineComponent({
   emits: ['close', 'click'],
   setup(props, { emit }) {
     const emitEvent = useEmitEvent(props, emit);
-    const { global: tagGlobalConfig } = useReceiver<{ closeIcon: Function }>('tag');
+    const { global: tagGlobalConfig } = useReceiver<TagConfig>('tag');
     const tagClass = computed<ClassName>(() => {
       return [
         `${name}`,
         `${name}--${props.theme}`,
-        CLASSNAMES.SIZE[props.size],
         `${name}--${props.variant}`,
-        props.shape !== 'square' && `${name}--${props.shape}`,
         {
           [`${name}--ellipsis`]: props.maxWidth,
           [`${name}--close`]: props.closable,
           [`${prefix}-is-disabled`]: props.disabled,
           [`${name}--disabled`]: props.disabled,
         },
+        CLASSNAMES.SIZE[props.size],
+        props.shape !== 'square' && `${name}--${props.shape}`,
       ];
     });
     const tagStyle = computed<Record<string, string>>(() => {
@@ -44,10 +44,7 @@ export default defineComponent({
       if (!props.closable) return null;
       const iconClassName = `${prefix}-tag__icon-close`;
       if (tagGlobalConfig.value.closeIcon) {
-        const component = tagGlobalConfig.value.closeIcon();
-        return h(component, {
-          class: iconClassName,
-        });
+        return h(tagGlobalConfig.value.closeIcon(h) as VNode, { class: iconClassName });
       }
       return <CloseIcon onClick={handleClose} class={iconClassName} />;
     };
@@ -63,7 +60,7 @@ export default defineComponent({
     // 关闭按钮 自定义组件使用 nativeOnClick 绑定事件
     const closeIcon = this.getCloseIcon();
     // 标签内容
-    const tagContent: TNodeReturnValue = renderContent(this, 'default', 'content');
+    const tagContent = renderContent(this, 'default', 'content');
     // 图标
     const icon = renderTNodeJSX(this, 'icon');
 
