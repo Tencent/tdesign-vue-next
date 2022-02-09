@@ -1,6 +1,7 @@
 /**
  * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
  */
+import MockDate from 'mockdate';
 
 import { mount } from '@vue/test-utils';
 import asyncLoadingVue from '@/examples/table/demos/async-loading.vue';
@@ -27,6 +28,8 @@ import showColumnsVue from '@/examples/table/demos/show-columns.vue';
 import singleSortVue from '@/examples/table/demos/single-sort.vue';
 import treeSelectVue from '@/examples/table/demos/tree-select.vue';
 import treeVue from '@/examples/table/demos/tree.vue';
+
+MockDate.set('2022-01-09');
 
 const mapper = {
   asyncLoadingVue,
