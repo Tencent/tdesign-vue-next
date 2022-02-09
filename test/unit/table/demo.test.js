@@ -29,7 +29,7 @@ import singleSortVue from '@/examples/table/demos/single-sort.vue';
 import treeSelectVue from '@/examples/table/demos/tree-select.vue';
 import treeVue from '@/examples/table/demos/tree.vue';
 
-MockDate.set('2022-01-09');
+MockDate.set('2020-12-28');
 
 const mapper = {
   asyncLoadingVue,
