@@ -219,8 +219,8 @@ export default defineComponent({
 
     const classes = [
       name,
-      CLASSNAMES.SIZE[this.size] || '',
       {
+        [CLASSNAMES.SIZE[this.size]]: this.size !== 'medium',
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-is-${this.status}`]: this.status,

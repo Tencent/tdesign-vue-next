@@ -74,25 +74,29 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
     label: any;
   }) => {
     const newList = minCollapsedNum.value ? tagValue.value.slice(0, minCollapsedNum.value) : tagValue.value;
-    const list =
-      displayNode ??
-      newList?.map((item, index) => {
-        const tagContent = useTNodeJSX('tag', { slots, params: { value: item } });
-        return (
-          <Tag
-            key={item}
-            size={size.value}
-            disabled={disabled.value}
-            onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, item, index })}
-            closable={!readonly.value && !disabled.value}
-            {...tagProps.value}
-          >
-            {tagContent ?? item}
-          </Tag>
-        );
-      });
+    const list = displayNode
+      ? [displayNode]
+      : newList?.map((item, index) => {
+          const tagContent = useTNodeJSX('tag', { slots, params: { value: item } });
+          return (
+            <Tag
+              key={item}
+              size={size.value}
+              disabled={disabled.value}
+              onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, item, index })}
+              closable={!readonly.value && !disabled.value}
+              {...tagProps.value}
+            >
+              {tagContent ?? item}
+            </Tag>
+          );
+        });
     if (![null, undefined, ''].includes(label)) {
-      list.unshift(<div class={`${prefix}-tag-input__prefix`}>{label}</div>);
+      list.unshift(
+        <div class={`${prefix}-tag-input__prefix`} key="label">
+          {label}
+        </div>,
+      );
     }
     // 超出省略
     if (newList.length !== tagValue.value.length) {
@@ -105,7 +109,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
           collapsedTags: tagValue.value.slice(minCollapsedNum.value, tagValue.value.length),
         },
       });
-      list.push(more ?? <Tag>+{len}</Tag>);
+      list.push(more ?? <Tag key="more">+{len}</Tag>);
     }
     return list;
   };

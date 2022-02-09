@@ -3770,7 +3770,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                   class="t-table__filter-pop-content-inner"
                                 >
                                   <div
-                                    class="t-input t-size-m"
+                                    class="t-input"
                                   >
                                     <!---->
                                     <!---->
@@ -3978,7 +3978,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                       <tr>
                                                         
                                                         <td
-                                                          class="t-date-picker-cell"
+                                                          class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
                                                         >
                                                           <div
                                                             class="t-date-picker__cell-wrapper"
@@ -3991,7 +3991,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                           </div>
                                                         </td>
                                                         <td
-                                                          class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
+                                                          class="t-date-picker-cell"
                                                         >
                                                           <div
                                                             class="t-date-picker__cell-wrapper"
@@ -4160,7 +4160,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       >
                                         <div
                                           allowinput="0"
-                                          class="t-input t-size-m t-is-readonly t-input--suffix"
+                                          class="t-input t-is-readonly t-input--suffix"
                                           modelvalue=""
                                         >
                                           <!---->

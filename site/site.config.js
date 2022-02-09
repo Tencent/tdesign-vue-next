@@ -219,13 +219,13 @@ export default {
           path: '/vue-next/components/input-number',
           component: () => import('@/examples/input-number/input-number.md'),
         },
-        // {
-        //   title: 'TagInput 标签输入框',
-        //   name: 'tag-input',
-        //   docType: 'form',
-        //   path: '/vue-next/components/tag-input',
-        //   component: () => import('@/examples/tag-input/tag-input.md'),
-        // },
+        {
+          title: 'TagInput 标签输入框',
+          name: 'tag-input',
+          docType: 'form',
+          path: '/vue-next/components/tag-input',
+          component: () => import('@/examples/tag-input/tag-input.md'),
+        },
         {
           title: 'Radio 单选框',
           name: 'radio',

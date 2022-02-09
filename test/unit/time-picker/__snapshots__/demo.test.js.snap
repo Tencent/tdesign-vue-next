@@ -819,7 +819,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -1708,7 +1708,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -2607,7 +2607,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -3499,7 +3499,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -4395,7 +4395,7 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-disabled t-is-readonly t-input--suffix"
+        class="t-input t-is-disabled t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -5249,7 +5249,7 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -6157,7 +6157,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -7049,7 +7049,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -7615,7 +7615,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -8488,7 +8488,7 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -9387,7 +9387,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -10276,7 +10276,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -11913,7 +11913,7 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly"
+        class="t-input t-is-readonly"
       >
         <!---->
         <!---->
@@ -12457,7 +12457,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -12980,7 +12980,7 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -13833,7 +13833,7 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -14695,7 +14695,7 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
