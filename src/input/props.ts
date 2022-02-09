@@ -105,6 +105,10 @@ export default {
   onChange: Function as PropType<TdInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdInputProps['onClear']>,
+  /** 中文输入结束时触发 */
+  onCompositionend: Function as PropType<TdInputProps['onCompositionend']>,
+  /** 中文输入开始时触发 */
+  onCompositionstart: Function as PropType<TdInputProps['onCompositionstart']>,
   /** 回车键按下时触发 */
   onEnter: Function as PropType<TdInputProps['onEnter']>,
   /** 获得焦点时触发 */
@@ -119,8 +123,8 @@ export default {
   onMouseenter: Function as PropType<TdInputProps['onMouseenter']>,
   /** 离开输入框时触发 */
   onMouseleave: Function as PropType<TdInputProps['onMouseleave']>,
-  /** 输入框中滚动鼠标时触发 */
-  onMousewheel: Function as PropType<TdInputProps['onMousewheel']>,
   /** 粘贴事件，`pasteValue` 表示粘贴板的内容 */
   onPaste: Function as PropType<TdInputProps['onPaste']>,
+  /** 输入框中滚动鼠标时触发 */
+  onWheel: Function as PropType<TdInputProps['onWheel']>,
 };

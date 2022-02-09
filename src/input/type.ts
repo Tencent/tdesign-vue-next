@@ -113,6 +113,14 @@ export interface TdInputProps {
    */
   onClear?: (context: { e: MouseEvent }) => void;
   /**
+   * 中文输入结束时触发
+   */
+  onCompositionend?: (value: InputValue, context: { e: CompositionEvent }) => void;
+  /**
+   * 中文输入开始时触发
+   */
+  onCompositionstart?: (value: InputValue, context: { e: CompositionEvent }) => void;
+  /**
    * 回车键按下时触发
    */
   onEnter?: (value: InputValue, context: { e: KeyboardEvent }) => void;
@@ -141,13 +149,13 @@ export interface TdInputProps {
    */
   onMouseleave?: (context: { e: MouseEvent }) => void;
   /**
-   * 输入框中滚动鼠标时触发
-   */
-  onMousewheel?: (context: { e: WheelEvent }) => void;
-  /**
    * 粘贴事件，`pasteValue` 表示粘贴板的内容
    */
   onPaste?: (context: { e: ClipboardEvent; pasteValue: string }) => void;
+  /**
+   * 输入框中滚动鼠标时触发
+   */
+  onWheel?: (context: { e: WheelEvent }) => void;
 }
 
 export type InputValue = string | number;
