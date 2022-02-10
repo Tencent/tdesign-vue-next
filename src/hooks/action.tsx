@@ -6,19 +6,19 @@ import TButton, { ButtonProps } from '../button';
 import { PopconfirmConfig, DialogConfig, DrawerConfig } from '../config-provider';
 import { ClassName, TNode } from '../common';
 
-export type MixnsFooterButton = string | ButtonProps | TNode;
+export type MixinsFooterButton = string | ButtonProps | TNode;
 
 export interface MixinsConfirmBtn {
   theme?: MixinsThemeType;
   className?: ClassName;
-  confirmBtn: MixnsFooterButton;
+  confirmBtn: MixinsFooterButton;
   globalConfirm: PopconfirmConfig['confirm'] | DrawerConfig['confirm'] | DialogConfig['confirm'];
   globalConfirmBtnTheme?: PopconfirmConfig['confirmBtnTheme'] | DialogConfig['confirmBtnTheme'];
 }
 
 export interface MixinsCancelBtn {
   className?: ClassName;
-  cancelBtn: MixnsFooterButton;
+  cancelBtn: MixinsFooterButton;
   globalCancel: PopconfirmConfig['cancel'] | DrawerConfig['cancel'] | DialogConfig['cancel'];
 }
 
@@ -32,7 +32,7 @@ export interface BtnAction {
 export default function useAction(action: BtnAction) {
   const instance = getCurrentInstance();
   // 全局配置属性综合
-  const getDefaultConfrimBtnProps = (options: MixinsConfirmBtn): ButtonProps => {
+  const getDefaultConfirmBtnProps = (options: MixinsConfirmBtn): ButtonProps => {
     const { globalConfirm, theme, globalConfirmBtnTheme } = options;
     const defaultTheme = globalConfirmBtnTheme?.[theme] || 'primary';
     let props: ButtonProps = {
@@ -81,7 +81,7 @@ export default function useAction(action: BtnAction) {
     if (confirmBtn && instance.slots.confirmBtn) {
       console.warn('Both $props.confirmBtn and $scopedSlots.confirmBtn exist, $props.confirmBtn is preferred.');
     }
-    const defaultButtonProps = getDefaultConfrimBtnProps(options);
+    const defaultButtonProps = getDefaultConfirmBtnProps(options);
     // 属性和插槽都不存在，就返回全局默认配置
     if (!confirmBtn && !instance.slots.confirmBtn) {
       return <TButton class={className} {...defaultButtonProps} />;

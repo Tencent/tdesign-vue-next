@@ -11,7 +11,7 @@ import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import { DrawerConfig } from '../config-provider/config-receiver';
-import useAction from './action';
+import useAction from '../hooks/action';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
@@ -56,7 +56,7 @@ export default defineComponent({
       closeDrawer({ trigger: 'cancel', e });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
-    const ele = ref<HTMLElement | null>(null);
+    const drawerEle = ref<HTMLElement | null>(null);
     const drawerClasses = computed<ClassName>(() => {
       return [
         't-drawer',
@@ -69,7 +69,7 @@ export default defineComponent({
       ];
     });
 
-    const sizeValue = computed<string>(() => {
+    const sizeValue = computed(() => {
       const defaultSize = isNaN(Number(props.size)) ? props.size : `${props.size}px`;
       return (
         {
@@ -79,7 +79,7 @@ export default defineComponent({
         }[props.size] || defaultSize
       );
     });
-    const wrapperStyles = computed<Styles>(() => {
+    const wrapperStyles = computed(() => {
       return {
         // 用于抵消动画效果：transform: translateX(100%); 等
         transform: props.visible ? 'translateX(0)' : undefined,
@@ -93,7 +93,7 @@ export default defineComponent({
     });
 
     const parentNode = computed<HTMLElement>(() => {
-      return ele.value && (ele.value.parentNode as HTMLElement);
+      return drawerEle.value && (drawerEle.value.parentNode as HTMLElement);
     });
 
     const modeAndPlacement = computed<string>(() => {
@@ -211,7 +211,7 @@ export default defineComponent({
     });
 
     return {
-      ele,
+      drawerEle,
       drawerClasses,
       wrapperStyles,
       modeAndPlacement,
@@ -242,7 +242,7 @@ export default defineComponent({
         onKeydown={this.onKeyDown}
         v-transfer-dom={this.attach}
         {...this.$attrs}
-        ref="ele"
+        ref="drawerEle"
       >
         {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wrapperClasses} style={this.wrapperStyles}>
