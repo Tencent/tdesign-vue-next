@@ -29,7 +29,7 @@ export interface BtnAction {
   cancelBtnAction: (e: MouseEvent) => void;
 }
 
-export default function useAction(action: any) {
+export default function useAction(action: BtnAction) {
   const instance = getCurrentInstance();
   // 全局配置属性综合
   const getDefaultConfrimBtnProps = (options: MixinsConfirmBtn): ButtonProps => {
