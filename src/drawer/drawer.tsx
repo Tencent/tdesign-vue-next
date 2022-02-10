@@ -1,5 +1,6 @@
 import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
+import { useReceiver } from '../config-provider/useReceiver';
 import { useEmitEvent } from '../hooks/event';
 import { addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
@@ -9,10 +10,8 @@ import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
-import ActionMixin from '../dialog/actions';
-
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { DrawerConfig } from '../config-provider/config-receiver';
+import { DrawerConfig } from '../config-provider/config-receiver';
+import useAction from './action';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
@@ -20,7 +19,6 @@ const name = `${prefix}-drawer`;
 const lockClass = `${prefix}-drawer--lock`;
 
 export default defineComponent({
-  ...mixins(ActionMixin, getConfigReceiverMixins<DrawerConfig>('drawer')),
   name: 'TDrawer',
 
   components: {
@@ -48,6 +46,8 @@ export default defineComponent({
   ],
 
   setup(props, { emit }) {
+    const { global } = useReceiver<DrawerConfig>('drawer');
+    const { getConfirmBtn, getCancelBtn } = useAction();
     const emitEvent = useEmitEvent(props, emit);
     const ele = ref<HTMLElement | null>(null);
     const drawerClasses = computed<ClassName>(() => {
@@ -142,13 +142,13 @@ export default defineComponent({
       // this.getConfirmBtn is a function of ActionMixin
       const confirmBtn = getConfirmBtn({
         confirmBtn: props.confirmBtn,
-        globalConfirm: this.global.confirm,
-        className: `${prefix}-drawer__confiorm`,
+        globalConfirm: global.value.confirm,
+        className: `${prefix}-drawer__confirm`,
       });
       // this.getCancelBtn is a function of ActionMixin
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn,
-        globalCancel: this.global.cancel,
+        globalCancel: global.value.cancel,
         className: `${prefix}-drawer__cancel`,
       });
       return (
@@ -170,9 +170,9 @@ export default defineComponent({
       () => props.visible,
       (value: boolean) => {
         if (value && !props.showInAttachedElement) {
-          this.preventScrollThrough && addClass(document.body, lockClass);
+          props.preventScrollThrough && addClass(document.body, lockClass);
         } else {
-          this.preventScrollThrough && removeClass(document.body, lockClass);
+          props.preventScrollThrough && removeClass(document.body, lockClass);
         }
       },
       { immediate: true },
