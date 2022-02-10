@@ -2266,7 +2266,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->

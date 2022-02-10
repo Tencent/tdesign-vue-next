@@ -249,7 +249,7 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -449,7 +449,7 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -1329,7 +1329,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
           
           
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
           >
             <!---->
@@ -1615,7 +1615,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -1815,7 +1815,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -2634,7 +2634,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
           
           
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
           >
             <!---->
@@ -2952,7 +2952,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -3152,7 +3152,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -4172,7 +4172,7 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -4372,7 +4372,7 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -5120,7 +5120,7 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
                   class="cell-append-demo-outer"
                 >
                   <span
-                    class="t-tag t-tag--primary t-size-s t-tag--dark activeTag"
+                    class="t-tag t-tag--primary t-tag--dark t-size-s activeTag"
                   >
                     <!---->
                     
@@ -5499,7 +5499,7 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -5699,7 +5699,7 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -7061,7 +7061,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-s t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-s"
                   style="display: none;"
                 >
                   <!---->
@@ -7261,7 +7261,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-s t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-s"
                   style="display: none;"
                 >
                   <!---->
@@ -8331,7 +8331,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -8531,7 +8531,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -9616,7 +9616,7 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -9816,7 +9816,7 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -10863,7 +10863,7 @@ exports[`Calendar Calendar filterVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -11063,7 +11063,7 @@ exports[`Calendar Calendar filterVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -11811,7 +11811,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
           
           
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
           >
             <!---->
@@ -12097,7 +12097,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -12297,7 +12297,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -13463,7 +13463,7 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -13663,7 +13663,7 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -14542,7 +14542,7 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
           
           
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
           >
             <!---->
@@ -14828,7 +14828,7 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -15356,7 +15356,7 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -15556,7 +15556,7 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -16603,7 +16603,7 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -16803,7 +16803,7 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -17812,7 +17812,7 @@ exports[`Calendar Calendar valueVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -18012,7 +18012,7 @@ exports[`Calendar Calendar valueVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -19184,7 +19184,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   
                   
                   <span
-                    class="t-tag t-tag--default t-size-m t-tag--dark"
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
                   >
                     <!---->
@@ -19384,7 +19384,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   
                   
                   <span
-                    class="t-tag t-tag--default t-size-m t-tag--dark"
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
                   >
                     <!---->
@@ -20433,7 +20433,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   
                   
                   <span
-                    class="t-tag t-tag--default t-size-m t-tag--dark"
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
                   >
                     <!---->
@@ -20633,7 +20633,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   
                   
                   <span
-                    class="t-tag t-tag--default t-size-m t-tag--dark"
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
                   >
                     <!---->
@@ -21668,7 +21668,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   
                   
                   <span
-                    class="t-tag t-tag--default t-size-m t-tag--dark"
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
                   >
                     <!---->
@@ -21868,7 +21868,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   
                   
                   <span
-                    class="t-tag t-tag--default t-size-m t-tag--dark"
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
                   >
                     <!---->

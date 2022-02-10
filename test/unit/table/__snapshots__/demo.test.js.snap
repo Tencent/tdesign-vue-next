@@ -9576,7 +9576,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -10150,7 +10150,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   
                   
                   <span
-                    class="t-tag t-tag--default t-size-m t-tag--dark"
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
                   >
                     <!---->
