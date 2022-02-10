@@ -6,7 +6,7 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 activable | Boolean | false | 节点是否可高亮 | N
-actived | Array | - | 高亮的节点值。支持语法糖。TS 类型：`Array<TreeNodeValue>` | N
+actived | Array | - | 高亮的节点值。支持语法糖 `v-model:actived`。TS 类型：`Array<TreeNodeValue>` | N
 defaultActived | Array | - | 高亮的节点值。非受控属性。TS 类型：`Array<TreeNodeValue>` | N
 activeMultiple | Boolean | false | 是否允许多个节点同时高亮 | N
 checkable | Boolean | false | 隐藏节点复选框 | N
@@ -17,7 +17,7 @@ disableCheck | Boolean / Function | false | 禁用复选框，可支持禁用不
 disabled | Boolean | - | 是否禁用树操作 | N
 empty | String / Slot / Function | '' | 数据为空时展示的文本。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 expandAll | Boolean | false | 是否展开全部节点 | N
-expanded | Array | [] | 展开的节点值。支持语法糖。TS 类型：`Array<TreeNodeValue>` | N
+expanded | Array | [] | 展开的节点值。支持语法糖 `v-model:expanded`。TS 类型：`Array<TreeNodeValue>` | N
 defaultExpanded | Array | [] | 展开的节点值。非受控属性。TS 类型：`Array<TreeNodeValue>` | N
 expandLevel | Number | 0 | 默认展开的级别，第一层为 0 | N
 expandMutex | Boolean | false | 同级别展开互斥，手风琴效果 | N
@@ -33,7 +33,7 @@ line | Boolean / Slot / Function | false | 连接线。值为 false 不显示连
 load | Function | - | 加载子数据的方法，在展开节点时调用（仅当节点 children 为 true 时生效），泛型 `T` 表示树节点 TS 类型。TS 类型：`(node: TreeNodeModel<T>) => Promise<Array<T>>` | N
 operations | Slot / Function | - | 自定义节点操作项，泛型 `T` 表示树节点 TS 类型。TS 类型：`TNode<TreeNodeModel<T>>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 transition | Boolean | true | 节点展开折叠时是否使用过渡动画 | N
-value | Array | [] | 选中值（组件为可选状态时）。支持语法糖。TS 类型：`Array<TreeNodeValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
+value | Array | [] | 选中值（组件为可选状态时）。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`Array<TreeNodeValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
 defaultValue | Array | [] | 选中值（组件为可选状态时）。非受控属性。TS 类型：`Array<TreeNodeValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tree/type.ts) | N
 valueMode | String | onlyLeaf | 选中值模式。all 表示父节点和子节点全部会出现在选中值里面；parentFirst 表示当子节点全部选中时，仅父节点在选中值里面；onlyLeaft 表示无论什么情况，选中值仅呈现叶子节点。可选项：onlyLeaf/parentFirst/all | N
 onActive | Function |  | TS 类型：`(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<T> }) => void`<br/>节点激活时触发，泛型 `T` 表示树节点 TS 类型 | N

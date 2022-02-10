@@ -2,13 +2,19 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdInputNumberProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  /** 文本内容位置，居左/居中/居右 */
+  align: {
+    type: String as PropType<TdInputNumberProps['align']>,
+    validator(val: TdInputNumberProps['align']): boolean {
+      return ['left', 'center', 'right'].includes(val);
+    },
+  },
   /** [小数位数](https://en.wiktionary.org/wiki/decimal_place) */
   decimalPlaces: {
     type: Number,
@@ -33,7 +39,7 @@ export default {
   /** 占位符 */
   placeholder: {
     type: String,
-    default: '',
+    default: undefined,
   },
   /** 组件尺寸 */
   size: {
@@ -41,6 +47,13 @@ export default {
     default: 'medium' as TdInputNumberProps['size'],
     validator(val: TdInputNumberProps['size']): boolean {
       return ['small', 'medium', 'large'].includes(val);
+    },
+  },
+  /** 文本框状态 */
+  status: {
+    type: String as PropType<TdInputNumberProps['status']>,
+    validator(val: TdInputNumberProps['status']): boolean {
+      return ['success', 'warning', 'error'].includes(val);
     },
   },
   /** 数值改变步数，可以是小数 */
@@ -55,6 +68,10 @@ export default {
     validator(val: TdInputNumberProps['theme']): boolean {
       return ['column', 'row', 'normal'].includes(val);
     },
+  },
+  /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdInputNumberProps['tips']>,
   },
   /** 值 */
   value: {

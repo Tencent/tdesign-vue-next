@@ -3,6 +3,7 @@ import { useEmitEvent } from '../hooks/event';
 import config from '../config';
 import props from './check-tag-props';
 import { renderContent } from '../utils/render-tnode';
+import CLASSNAMES from '../utils/classnames';
 
 const { prefix } = config;
 const name = `${prefix}-tag`;
@@ -18,6 +19,7 @@ export default defineComponent({
         `${name}`,
         `${name}--check`,
         `${name}--default`,
+        CLASSNAMES.SIZE[props.size],
         {
           [`${name}--checked`]: !props.disabled && props.checked,
           [`${name}--disabled`]: props.disabled,

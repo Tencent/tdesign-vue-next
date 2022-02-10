@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-10 09:31:10
  * */
 
 import { TdPrimaryTableProps } from '../table/type';
@@ -83,6 +82,8 @@ export default {
   sortOnRowDraggable: Boolean,
   /** 异步加载区域被点击时触发 */
   onAsyncLoadingClick: Function as PropType<TdPrimaryTableProps['onAsyncLoadingClick']>,
+  /** 单元格点击时触发 */
+  onCellClick: Function as PropType<TdPrimaryTableProps['onCellClick']>,
   /** 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型 */
   onChange: Function as PropType<TdPrimaryTableProps['onChange']>,
   /** 表格数据发生变化时触发，比如：本地排序方法 sorter */

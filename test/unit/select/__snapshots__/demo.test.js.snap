@@ -23,7 +23,9 @@ exports[`Select Select baseVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -152,7 +154,9 @@ exports[`Select Select baseVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -173,7 +177,6 @@ exports[`Select Select baseVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -293,7 +296,9 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -526,7 +531,9 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -779,7 +786,9 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -1042,7 +1051,9 @@ exports[`Select Select creatableVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -1106,7 +1117,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -1168,7 +1179,9 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
             class="t-popup__content tdesign-demo-select__overlay-option t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -1477,7 +1490,9 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
             class="t-popup__content tdesign-demo-select__overlay-option t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -1498,7 +1513,6 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -1816,7 +1830,9 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -2210,7 +2226,9 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -2621,7 +2639,9 @@ exports[`Select Select disabledVue demo works fine 1`] = `
             class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -2730,7 +2750,9 @@ exports[`Select Select disabledVue demo works fine 1`] = `
             class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -2854,7 +2876,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-is-disabled t-tag--disabled"
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--disabled"
           style="max-width: 100%;"
           title="shanghai"
         >
@@ -2870,7 +2892,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
           <!---->
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-is-disabled t-tag--disabled"
+          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--disabled"
           style="max-width: 100%;"
           title="beijing"
         >
@@ -2943,7 +2965,9 @@ exports[`Select Select filterableVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -3007,7 +3031,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -3062,7 +3086,9 @@ exports[`Select Select filterableVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -3198,7 +3224,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -3260,7 +3286,9 @@ exports[`Select Select groupVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -3402,7 +3430,9 @@ exports[`Select Select groupVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -3423,7 +3453,6 @@ exports[`Select Select groupVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -3616,7 +3645,9 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -3725,7 +3756,9 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -3934,7 +3967,9 @@ exports[`Select Select maxVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -4122,7 +4157,9 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -4430,7 +4467,9 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -4469,7 +4508,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -4857,7 +4895,9 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -5224,7 +5264,9 @@ exports[`Select Select noborderVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -5340,7 +5382,9 @@ exports[`Select Select panelVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               
               <div>
                 <div
@@ -5475,7 +5519,9 @@ exports[`Select Select panelVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -5496,7 +5542,6 @@ exports[`Select Select panelVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -5615,7 +5660,9 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -5724,7 +5771,9 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -5838,7 +5887,9 @@ exports[`Select Select prefixVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -5962,7 +6013,9 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6026,7 +6079,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -6081,7 +6134,9 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6113,82 +6168,15 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                 </li>
               </ul>
               <!---->
-              <!---->
-              <ul>
-                
-                <li
-                  class="t-select-option t-size-m"
-                  title="选项一"
-                >
-                  <label
-                    class="t-checkbox undefined"
-                    modelvalue="false"
-                  >
-                    <input
-                      class="t-checkbox__former"
-                      type="checkbox"
-                    />
-                    <span
-                      class="t-checkbox__input"
-                    />
-                    <span
-                      class="t-checkbox__label"
-                    >
-                      
-                      选项一
-                      
-                    </span>
-                  </label>
-                </li>
-                <li
-                  class="t-select-option t-size-m"
-                  title="选项二"
-                >
-                  <label
-                    class="t-checkbox undefined"
-                    modelvalue="false"
-                  >
-                    <input
-                      class="t-checkbox__former"
-                      type="checkbox"
-                    />
-                    <span
-                      class="t-checkbox__input"
-                    />
-                    <span
-                      class="t-checkbox__label"
-                    >
-                      
-                      选项二
-                      
-                    </span>
-                  </label>
-                </li>
-                <li
-                  class="t-select-option t-size-m"
-                  title="选项三"
-                >
-                  <label
-                    class="t-checkbox undefined"
-                    modelvalue="false"
-                  >
-                    <input
-                      class="t-checkbox__former"
-                      type="checkbox"
-                    />
-                    <span
-                      class="t-checkbox__input"
-                    />
-                    <span
-                      class="t-checkbox__label"
-                    >
-                      
-                      选项三
-                      
-                    </span>
-                  </label>
-                </li>
-                
+              <li
+                class="t-select__empty t-size-m"
+              >
+                暂无数据
+              </li>
+              <ul
+                class="t-select__groups"
+              >
+                <!---->
               </ul>
               <!---->
             </div>
@@ -6217,7 +6205,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-size-m t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -6277,7 +6265,9 @@ exports[`Select Select sizeVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6298,7 +6288,6 @@ exports[`Select Select sizeVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -6401,7 +6390,9 @@ exports[`Select Select sizeVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6510,7 +6501,9 @@ exports[`Select Select sizeVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6625,7 +6618,9 @@ exports[`Select Select statusVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6745,7 +6740,9 @@ exports[`Select Select statusVue demo works fine 1`] = `
             class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6865,7 +6862,9 @@ exports[`Select Select statusVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
               <!---->
               <ul
                 class="t-select__create-option"
@@ -6878,15 +6877,14 @@ exports[`Select Select statusVue demo works fine 1`] = `
                   
                 </li>
               </ul>
-              <li
+              <div
                 class="t-select__loading-tips t-size-m"
               >
                 加载中
-              </li>
+              </div>
               <!---->
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 <!---->
               </ul>

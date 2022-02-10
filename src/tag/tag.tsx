@@ -26,7 +26,6 @@ export default defineComponent({
         {
           [`${name}--ellipsis`]: props.maxWidth,
           [`${name}--close`]: props.closable,
-          [`${prefix}-is-disabled`]: props.disabled,
           [`${name}--disabled`]: props.disabled,
         },
         CLASSNAMES.SIZE[props.size],

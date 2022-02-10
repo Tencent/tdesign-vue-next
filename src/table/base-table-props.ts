@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-10 09:31:10
  * */
 
 import { TdBaseTableProps } from '../table/type';
@@ -32,7 +31,7 @@ export default {
   firstFullRow: {
     type: [String, Function] as PropType<TdBaseTableProps['firstFullRow']>,
   },
-  /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px */
+  /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight` */
   height: {
     type: [String, Number] as PropType<TdBaseTableProps['height']>,
     default: 'auto',
@@ -70,6 +69,10 @@ export default {
   rowspanAndColspan: {
     type: Function as PropType<TdBaseTableProps['rowspanAndColspan']>,
   },
+  /** 懒加载和虚拟滚动 */
+  scroll: {
+    type: Object as PropType<TdBaseTableProps['scroll']>,
+  },
   /** 表格尺寸 */
   size: {
     type: String as PropType<TdBaseTableProps['size']>,
@@ -100,6 +103,8 @@ export default {
       return ['top', 'middle', 'bottom'].includes(val);
     },
   },
+  /** 单元格点击时触发 */
+  onCellClick: Function as PropType<TdBaseTableProps['onCellClick']>,
   /** 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型 */
   onPageChange: Function as PropType<TdBaseTableProps['onPageChange']>,
   /** 行点击时触发，泛型 T 指表格数据类型 */

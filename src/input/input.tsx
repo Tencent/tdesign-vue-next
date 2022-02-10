@@ -12,6 +12,8 @@ import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-input`;
+const INPUT_WRAP_CLASS = `${prefix}-input__wrap`;
+const INPUT_TIPS_CLASS = `${prefix}-input__tips`;
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -123,6 +125,12 @@ export default defineComponent({
       if (this.disabled) return;
       emitEvent(this, 'keypress', this.value, { e });
     },
+    onHandlePaste(e: ClipboardEvent) {
+      if (this.disabled) return;
+      // @ts-ignore
+      const clipData = e.clipboardData || window.clipboardData;
+      this.onPaste?.({ e, pasteValue: clipData?.getData('text/plain') });
+    },
     emitPassword() {
       const { renderType } = this;
       const toggleType = renderType === 'password' ? 'text' : 'password';
@@ -157,14 +165,26 @@ export default defineComponent({
       // 受控
       nextTick(() => this.setInputValue(this.value));
     },
+
+    onInputMouseenter(e: MouseEvent) {
+      this.mouseEvent(true);
+      this.onMouseenter?.({ e });
+    },
+
+    onInputMouseleave(e: MouseEvent) {
+      this.mouseEvent(false);
+      this.onMouseleave?.({ e });
+    },
   },
+
   render(): VNodeChild {
     const inputEvents = getValidAttrs({
-      onFocus: this.emitFocus,
+      onFocus: (e: FocusEvent) => this.emitFocus(e),
       onBlur: this.emitBlur,
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
+      onPaste: this.onHandlePaste,
       // input的change事件是失去焦点或者keydown的时候执行。这与api定义的change不符，所以不做任何变化。
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       onChange: () => {},
@@ -172,10 +192,8 @@ export default defineComponent({
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
 
-    // @ts-ignore: TODO
     const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
 
-    // @ts-ignore: TODO
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
     const label = renderTNodeJSX(this, 'label');
@@ -203,16 +221,18 @@ export default defineComponent({
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-is-${this.status}`]: this.status,
+        [`${prefix}-is-disabled`]: this.disabled,
+        [`${prefix}-is-readonly`]: this.readonly,
         [`${name}--prefix`]: prefixIcon || labelContent,
         [`${name}--suffix`]: suffixIcon || suffixContent,
-        [`${name}__inner--focused`]: this.focused,
+        [`${name}--focused`]: this.focused,
       },
     ];
-    return (
+    const inputNode = (
       <div
         class={classes}
-        onMouseenter={() => this.mouseEvent(true)}
-        onMouseleave={() => this.mouseEvent(false)}
+        onMouseenter={this.onInputMouseenter}
+        onMouseleave={this.onInputMouseleave}
         {...{ ...wrapperAttrs }}
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
@@ -234,5 +254,15 @@ export default defineComponent({
         ) : null}
       </div>
     );
+    const tips = renderTNodeJSX(this, 'tips');
+    if (tips) {
+      return (
+        <div class={INPUT_WRAP_CLASS}>
+          {inputNode}
+          <div class={`${INPUT_TIPS_CLASS} ${prefix}-input__tips--${this.status || 'normal'}`}>{tips}</div>
+        </div>
+      );
+    }
+    return inputNode;
   },
 });

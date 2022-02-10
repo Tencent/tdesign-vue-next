@@ -75,8 +75,9 @@ export default defineComponent({
     });
 
     const loadingRef = computed(() => props.loading);
-    watch([loadingRef], (value) => {
-      if (value) {
+
+    watch([loadingRef], ([isLoading]) => {
+      if (isLoading) {
         countDelay();
         lockFullscreen.value && addClass(document.body, lockClass);
       } else {

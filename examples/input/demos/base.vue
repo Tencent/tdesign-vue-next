@@ -1,9 +1,8 @@
 <template>
   <div class="tdesign-demo-block-column" style="max-width: 500px">
-    <t-input />
-
-    <t-input v-model="input" placeholder="请输入内容（有默认值）" @enter="onEnter" @change="onChange" />
-    <t-input label="价格：" suffix="元" />
+    <t-input clearable @paste="onPaste" />
+    <t-input v-model="input" placeholder="请输入内容（有默认值）" clearable @enter="onEnter" @change="onChange" />
+    <t-input label="价格：" suffix="元" clearable />
   </div>
 </template>
 <script>
@@ -19,8 +18,13 @@ export default defineComponent({
       console.log(val);
     };
 
+    const onPaste = (context) => {
+      console.log(context);
+    };
+
     return {
       input,
+      onPaste,
       onEnter,
       onChange,
     };

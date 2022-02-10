@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="tag-demo">
-      <t-tag>标签一</t-tag>
+      <t-tag @click="onClick">标签一</t-tag>
       <a href="https://www.tencent.com/zh-cn" target="_blank">
         <t-tag>超链接</t-tag>
       </a>
@@ -18,15 +18,19 @@
       <t-tag theme="warning" variant="light">标签三</t-tag>
       <t-tag theme="danger" variant="light">标签四</t-tag>
     </div>
-    <div class="tag-demo plain">
-      <t-tag variant="plain" theme="primary">标签一</t-tag>
-      <t-tag variant="plain" theme="success">标签二</t-tag>
-      <t-tag variant="plain" theme="warning">标签三</t-tag>
-      <t-tag variant="plain" theme="danger">标签四</t-tag>
+    <div class="tag-demo">
+      <t-tag theme="primary" variant="outline">标签一</t-tag>
+      <t-tag theme="success" variant="outline">标签二</t-tag>
+      <t-tag theme="warning" variant="outline">标签三</t-tag>
+      <t-tag theme="danger" variant="outline">标签四</t-tag>
     </div>
   </div>
 </template>
-
+<script setup>
+const onClick = ({ e }) => {
+  e.stopPropagation();
+};
+</script>
 <style lang="less" scoped>
 .tag-demo {
   width: 500px;
