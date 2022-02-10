@@ -1,5 +1,4 @@
 import { App } from 'vue';
-import './style/index.js';
 import * as components from './components';
 
 function install(app: App, config?: Record<string, unknown>): void {

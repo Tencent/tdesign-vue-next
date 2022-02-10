@@ -28,6 +28,7 @@ export * from './radio';
 export * from './select';
 export * from './slider';
 export * from './switch';
+export * from './tag-input';
 export * from './textarea';
 export * from './transfer';
 export * from './time-picker';
@@ -40,6 +41,8 @@ export * from './calendar';
 export * from './comment';
 export * from './list';
 export * from './progress';
+export * from './skeleton';
+export * from './swiper';
 export * from './table';
 export * from './tag';
 export * from './tooltip';
@@ -55,7 +58,6 @@ export * from './message';
 export * from './notification';
 export * from './popconfirm';
 export * from './popup';
-export * from './swiper';
 export * from './upload';
 
 // 全局配置

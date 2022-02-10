@@ -35,7 +35,6 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
@@ -99,7 +98,6 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
@@ -165,7 +163,6 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
         autocomplete="off"
         class="t-input__inner t-is-disabled t-input-number-text-align"
         disabled=""
-        placeholder=""
       />
     </div>
     <button
@@ -294,7 +291,6 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
@@ -359,7 +355,6 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner"
-        placeholder=""
       />
     </div>
     <button
@@ -402,7 +397,6 @@ exports[`InputNumber InputNumber normalVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner"
-        placeholder=""
       />
     </div>
     <!---->
@@ -445,7 +439,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
@@ -506,7 +499,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
@@ -566,7 +558,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
@@ -631,7 +622,6 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button

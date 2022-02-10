@@ -6,7 +6,7 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 checkboxProps | Object | - | 用于控制复选框属性。TS 类型：`CheckboxProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts) | N
-checked | Array | [] | 数据列表选中项。支持语法糖。TS 类型：`Array<TransferValue>` | N
+checked | Array | [] | 数据列表选中项。支持语法糖 `v-model:checked`。TS 类型：`Array<TransferValue>` | N
 defaultChecked | Array | [] | 数据列表选中项。非受控属性。TS 类型：`Array<TransferValue>` | N
 data | Array | [] | 全量数据。TS 类型：`Array<T>` | N
 direction | String | both | 穿梭框可操作方向。可选项：left/right/both | N
@@ -21,7 +21,7 @@ showCheckAll | Boolean / Array | true | 是否显示全选，值类型为数组�
 targetSort | String | original | 目标数据列表排列顺序。可选项：original/push/unshift | N
 title | Array / Slot / Function | [] | 穿梭框标题，示例：['源列表', '目标列表'] 或者 `[() => 'A', () => 'B']` 或者 `({ type }) => type === 'source' ? '源' : '目标'`。TS 类型：`Array<TitleType> | TNode<{ type: TransferListType }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts) | N
 transferItem | Slot / Function | - | 自定义渲染节点。TS 类型：`TNode<TransferItem<T>>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts) | N
-value | Array | [] | 目标数据列表数据。支持语法糖。TS 类型：`Array<TransferValue>` | N
+value | Array | [] | 目标数据列表数据。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`Array<TransferValue>` | N
 defaultValue | Array | [] | 目标数据列表数据。非受控属性。TS 类型：`Array<TransferValue>` | N
 onChange | Function |  | TS 类型：`(targetValue: Array<TransferValue>, context: TargetParams) => void`<br/>数据列表发生变化时触发，`type` 值为 `source`，表示源列表移动到目标列表，值为 `target` 表示目标列表移动到源列表，movedValue 则表示被移动的选项。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts)。<br/>`interface TargetParams { type: TransferListType; movedValue: Array<TransferValue> }`<br/> | N
 onCheckedChange | Function |  | TS 类型：`(options: CheckedOptions) => void`<br/>源数据列表或目标数据列表的选中项发生变化时触发，`context.type` 可以区分触发来源是目标列表，还是源列表。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/transfer/type.ts)。<br/>`interface CheckedOptions { checked: Array<TransferValue>; sourceChecked: Array<TransferValue>; targetChecked: Array<TransferValue>; type: TransferListType }`<br/> | N

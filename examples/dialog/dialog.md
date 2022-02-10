@@ -84,6 +84,8 @@ options | - | - | TS 类型：`DialogOptions`
 -- | -- | -- | --
 options | - | - | TS 类型：`DialogOptions`
 
+插件返回值：`DialogInstance`
+
 ### DialogPlugin.alert
 
 同时也支持 `this.$dialog.alert`。这是一个插件函数，参数形式为顺序参数（形如：(a, b, c)），而非对象参数（形如：({ a, b, c })）。顺序参数如下，
@@ -91,3 +93,5 @@ options | - | - | TS 类型：`DialogOptions`
 参数名称 | 参数类型 | 参数默认值 | 参数说明
 -- | -- | -- | --
 options | Object | - | TS 类型：`Omit<DialogOptions, 'confirmBtn'>`
+
+插件返回值：`DialogInstance`

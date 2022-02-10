@@ -35,7 +35,7 @@ exports[`Tag or CheckTag :Tag:props :closable 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :disabled 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark t-is-disabled t-tag--disabled"
+  class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
 >
   <!---->
   <!---->
@@ -377,7 +377,7 @@ exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `
 
 exports[`Tag or CheckTag CheckTag:props :checked 1`] = `
 <span
-  class="t-tag t-tag--check t-tag--default t-tag--checked"
+  class="t-tag t-tag--check t-tag--default t-size-m t-tag--checked"
 >
   <!---->
 </span>
@@ -385,7 +385,7 @@ exports[`Tag or CheckTag CheckTag:props :checked 1`] = `
 
 exports[`Tag or CheckTag CheckTag:props :disabled 1`] = `
 <span
-  class="t-tag t-tag--check t-tag--default t-tag--disabled"
+  class="t-tag t-tag--check t-tag--default t-size-m t-tag--disabled"
 >
   <!---->
 </span>

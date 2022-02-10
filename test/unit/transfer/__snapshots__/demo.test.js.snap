@@ -4082,7 +4082,9 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                     class="t-popup__content t-select__dropdown narrow-scrollbar"
                   >
                     
-                    <div>
+                    <div
+                      class="t-select__dropdown-inner"
+                    >
                       <!---->
                       <ul
                         class="t-select__create-option"

@@ -1,11 +1,13 @@
-import { VNode, PropType, defineComponent, h } from 'vue';
+import { VNode, PropType, defineComponent, h, ref, onMounted, onBeforeUnmount, inject, Ref } from 'vue';
 import get from 'lodash/get';
+import cell from '@src/date-picker/basic/cell';
 import { prefix } from '../../config';
-import { RowspanColspan } from '../type';
+import { RowspanColspan, TdBaseTableProps } from '../type';
 import baseTableProps from '../base-table-props';
 import TableCell from './table-cell';
 import { CustomData, CellData, CellParams } from '../util/interface';
 import { getPropsApiByEvent } from '../../utils/helper';
+import { emitEvent } from '../../utils/event';
 
 type CreateElement = ReturnType<typeof h>;
 type Attrs = Record<string, any>;
@@ -22,50 +24,141 @@ const eventsName = {
   dragover: 'row-dragover',
 };
 
+const observe = (element: HTMLElement, root: HTMLElement, callback: Function, marginBottom: number) => {
+  try {
+    const io = new window.IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          callback();
+          io.unobserve(element);
+        }
+      },
+      {
+        rootMargin: `0px 0px ${marginBottom}px 0px`,
+        root,
+      },
+    );
+    io.observe(element);
+    return io;
+  } catch (e) {
+    console.error(e);
+    callback();
+  }
+};
+
+const requestAnimationFrame = window.requestAnimationFrame || ((cb) => setTimeout(cb, 1000 / 60));
+const TableRowProps = {
+  rowClass: baseTableProps.rowClassName,
+  columns: baseTableProps.columns,
+  rowKey: baseTableProps.rowKey,
+  rowspanAndColspanProps: {
+    type: Object as PropType<RowspanColspan>,
+    required: false,
+    default() {
+      return {};
+    },
+  },
+  rowData: {
+    type: Object,
+    default(): any {
+      return {};
+    },
+  },
+  index: {
+    type: Number as PropType<number>,
+    default: -1,
+  },
+  current: {
+    type: Number as PropType<number>,
+    default: 1,
+  },
+  scrollType: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  rowHeight: {
+    type: Number as PropType<number>,
+    default: 0,
+  },
+  bufferSize: {
+    type: Number as PropType<number>,
+    default: 0,
+  },
+  trs: {
+    type: Map,
+    default: () => new Map(),
+  },
+  row: {
+    type: Object as PropType<object>,
+    default: () => ({}),
+  },
+  provider: {
+    type: Object,
+    default() {
+      return {
+        sortOnRowDraggable: false,
+      };
+    },
+  },
+};
+
 export default defineComponent({
   name: `${prefix}-table-row`,
   components: {
     TableCell,
   },
-  props: {
-    rowClass: baseTableProps.rowClassName,
-    columns: baseTableProps.columns,
-    rowKey: baseTableProps.rowKey,
-    rowspanAndColspanProps: {
-      type: Object as PropType<RowspanColspan>,
-      required: false,
-      default() {
-        return {};
-      },
-    },
-    rowData: {
-      type: Object,
-      default(): any {
-        return {};
-      },
-    },
-    index: {
-      type: Number,
-      default: -1,
-    },
-    current: {
-      type: Number,
-      default: 1,
-    },
-    provider: {
-      type: Object,
-      default() {
-        return {
-          sortOnRowDraggable: false,
-        };
-      },
-    },
+  props: TableRowProps,
+  emits: ['rowMounted', 'getRowHeight', ...Object.keys(eventsName).map((key) => eventsName[key])],
+  setup(props, { emit }) {
+    const tr = ref(null);
+    const isInit = ref(props.index === 0);
+    const init = () => {
+      !isInit.value &&
+        requestAnimationFrame(() => {
+          isInit.value = true;
+        });
+    };
+    onMounted(() => {
+      const { trs, row, scrollType, index, rowHeight, bufferSize } = props;
+      if (scrollType === 'virtual') {
+        const { $index }: { $index?: number } = row;
+        trs.set($index, tr.value);
+        emit('rowMounted');
+        onBeforeUnmount(() => {
+          trs.delete($index);
+        });
+      } else if (scrollType === 'lazy') {
+        const scrollBody: Ref = inject('scrollBody');
+        if (rowHeight === 0) {
+          const rowHeightRef: Ref = inject('rowHeightRef');
+          if (index === 0) {
+            // 获取第一行高度
+            const { offsetHeight } = tr.value;
+            rowHeightRef.value = offsetHeight;
+          } else {
+            const height = rowHeightRef.value;
+            observe(tr.value, scrollBody.value, init, height * bufferSize);
+          }
+        } else {
+          observe(tr.value, scrollBody.value, init, rowHeight * bufferSize);
+        }
+      }
+    });
+    return {
+      tr,
+      isInit,
+    };
   },
-  emits: [...Object.keys(eventsName).map((key) => eventsName[key])],
   methods: {
     // 渲染行
     renderRow(): Array<VNode> {
-      const { rowData, columns, index: rowIndex, rowspanAndColspanProps } = this;
+      const { rowData, columns, index: rowIndex, rowspanAndColspanProps, scrollType, isInit } = this;
+      const hasHolder = scrollType === 'lazy' && !isInit;
+      if (hasHolder) {
+        const rowHeightRef: Ref = inject('rowHeightRef');
+        return [<td style={{ height: `${rowHeightRef.value}px`, border: 'none' }} />];
+      }
       const rowBody: Array<VNode> = [];
       let flag = true;
       columns.forEach((column, index) => {
@@ -132,7 +225,14 @@ export default defineComponent({
           type: 'td',
         };
 
-        rowBody.push(<table-cell ref={`${rowIndex}_${index}`} cellData={cellData} length={columns.length} />);
+        const listeners = {
+          onCellClick: (p: Parameters<TdBaseTableProps['onCellClick']>[0]) => {
+            emitEvent<Parameters<TdBaseTableProps['onCellClick']>>(this, 'cell-click', p);
+          },
+        };
+        rowBody.push(
+          <table-cell ref={`${rowIndex}_${index}`} {...listeners} cellData={cellData} length={columns.length} />,
+        );
       });
       return rowBody;
     },
@@ -162,7 +262,7 @@ export default defineComponent({
     };
 
     return (
-      <tr {...trProps} draggable={provider.sortOnRowDraggable}>
+      <tr ref="tr" {...trProps} draggable={provider.sortOnRowDraggable}>
         {this.renderRow()}
       </tr>
     );

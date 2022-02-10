@@ -3,6 +3,7 @@ import config from '../config';
 import props from './check-tag-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
+import CLASSNAMES from '../utils/classnames';
 import { emitEvent } from '../utils/event';
 
 const { prefix } = config;
@@ -18,6 +19,7 @@ export default defineComponent({
         `${name}`,
         `${name}--check`,
         `${name}--default`,
+        CLASSNAMES.SIZE[this.size],
         {
           [`${name}--checked`]: !this.disabled && this.checked,
           [`${name}--disabled`]: this.disabled,

@@ -7,6 +7,8 @@
       "scripthost"
     ],
     "target": "esnext",
+    "outDir": "lib",
+    "declaration": true,
     "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": false,
@@ -41,16 +43,6 @@
     "lib",
     "esm",
     "es",
-    "tools",
-    "types/index.ts",
-    "src/addon/**",
-    "src/locale/**",
-    "src/upload/**",
-    "src/dropdown/**",
-    "src/transfer/**",
-    "src/time-picker/**",
-    "src/textarea/**",
-    "src/utils/**"
   ],
   "compileOnSave": false
 }

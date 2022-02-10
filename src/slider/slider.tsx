@@ -157,7 +157,7 @@ export default defineComponent({
       if (Array.isArray(newVal) && this.range) {
         [this.firstValue, this.secondValue] = newVal;
       } else {
-        this.prevValue = newVal as number;
+        this.firstValue = newVal as number;
       }
     },
     firstValue(val: number) {

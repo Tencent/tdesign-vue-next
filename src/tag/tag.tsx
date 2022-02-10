@@ -29,7 +29,6 @@ export default defineComponent({
         {
           [`${name}--ellipsis`]: this.maxWidth,
           [`${name}--close`]: this.closable,
-          [`${prefix}-is-disabled`]: this.disabled,
           [`${name}--disabled`]: this.disabled,
         },
       ];
@@ -43,8 +42,8 @@ export default defineComponent({
     handleClose({ e }: { e: MouseEvent }): void {
       emitEvent(this, 'close', { e });
     },
-    handleClick(event: MouseEvent): void {
-      emitEvent(this, 'click', event);
+    handleClick(e: MouseEvent): void {
+      emitEvent(this, 'click', { e });
     },
     getCloseIcon() {
       if (!this.closable) return null;

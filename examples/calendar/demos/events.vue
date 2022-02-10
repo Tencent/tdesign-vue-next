@@ -1,7 +1,6 @@
 <template>
   <div>
     <t-calendar
-      :value="value"
       @cell-click="cellClick"
       @cell-double-click="cellDoubleClick"
       @cell-right-click="cellRightClick"
@@ -12,12 +11,10 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   setup() {
-    const value = null;
-
     const cellClick = (options) => {
       console.log(`鼠标左键单击单元格 ${options.cell.formattedDate}`);
     };
@@ -39,7 +36,6 @@ export default defineComponent({
     };
 
     return {
-      value,
       cellClick,
       cellDoubleClick,
       cellRightClick,

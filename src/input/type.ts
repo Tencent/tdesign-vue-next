@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-28 14:17:00
  * */
 
 import { TNode, SizeEnum } from '../common';
@@ -76,6 +75,10 @@ export interface TdInputProps {
    */
   suffixIcon?: TNode;
   /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
+  /**
    * 输入框类型
    * @default text
    */
@@ -120,6 +123,18 @@ export interface TdInputProps {
    * 释放键盘时触发
    */
   onKeyup?: (value: InputValue, context: { e: KeyboardEvent }) => void;
+  /**
+   * 进入输入框时触发
+   */
+  onMouseenter?: (context: { e: MouseEvent }) => void;
+  /**
+   * 离开输入框时触发
+   */
+  onMouseleave?: (context: { e: MouseEvent }) => void;
+  /**
+   * 粘贴事件，`pasteValue` 表示粘贴板的内容
+   */
+  onPaste?: (context: { e: ClipboardEvent; pasteValue: string }) => void;
 }
 
 export type InputValue = string | number;

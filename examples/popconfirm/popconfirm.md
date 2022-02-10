@@ -16,7 +16,7 @@ popupProps | Object | - | 透传 Popup 组件属性。TS 类型：`PopupProps`�
 showArrow | Boolean | true | 是否显示浮层箭头 | N
 theme | String | default | 文字提示风格。可选项：default/warning/danger | N
 triggerElement | String / Slot / Function | - | 触发元素。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-visible | Boolean | - | 是否显示气泡确认框。支持语法糖 | N
+visible | Boolean | - | 是否显示气泡确认框。支持语法糖 `v-model:visible` | N
 defaultVisible | Boolean | - | 是否显示气泡确认框。非受控属性 | N
 onCancel | Function |  | TS 类型：`(options: { e: MouseEvent }) => void`<br/>点击取消按钮时触发 | N
 onConfirm | Function |  | TS 类型：`(options: { e: MouseEvent }) => void`<br/>点击确认按钮时触发 | N

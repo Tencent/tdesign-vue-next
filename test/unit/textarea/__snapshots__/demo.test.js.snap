@@ -79,6 +79,7 @@ exports[`Textarea Textarea maxlengthVue demo works fine 1`] = `
       0/20
     </span>
   </div>
+  <br />
   <div
     class="t-textarea"
   >
@@ -102,26 +103,96 @@ exports[`Textarea Textarea typeVue demo works fine 1`] = `
   class="tdesign-demo-block-column"
 >
   <div
-    class="t-textarea"
+    class="t-textarea t-is-disabled"
   >
     <textarea
       class="t-textarea__inner t-is-disabled narrow-scrollbar"
       disabled=""
-      placeholder=""
     />
     <!---->
     <!---->
   </div>
   <div
-    class="t-textarea"
+    class="t-textarea t-is-readonly"
   >
     <textarea
       class="t-textarea__inner narrow-scrollbar"
-      placeholder=""
       readonly=""
     />
     <!---->
     <!---->
+  </div>
+  <div
+    class="t-textarea__wrap"
+  >
+    <div
+      class="t-textarea"
+    >
+      <textarea
+        class="t-textarea__inner narrow-scrollbar"
+      />
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="t-textarea__tips t-textarea__tips--normal"
+    >
+      这是普通文本提示
+    </div>
+  </div>
+  <div
+    class="t-textarea__wrap"
+  >
+    <div
+      class="t-textarea"
+    >
+      <textarea
+        class="t-textarea__inner t-is-success narrow-scrollbar"
+      />
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="t-textarea__tips t-textarea__tips--success"
+    >
+      校验通过文本提示
+    </div>
+  </div>
+  <div
+    class="t-textarea__wrap"
+  >
+    <div
+      class="t-textarea"
+    >
+      <textarea
+        class="t-textarea__inner t-is-warning narrow-scrollbar"
+      />
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="t-textarea__tips t-textarea__tips--warning"
+    >
+      校验不通过文本提示
+    </div>
+  </div>
+  <div
+    class="t-textarea__wrap"
+  >
+    <div
+      class="t-textarea"
+    >
+      <textarea
+        class="t-textarea__inner t-is-error narrow-scrollbar"
+      />
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="t-textarea__tips t-textarea__tips--error"
+    >
+      校验存在严重问题文本提示
+    </div>
   </div>
 </div>
 `;

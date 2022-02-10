@@ -2,10 +2,15 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
+import { TNode } from '../common';
+
 export interface TdInputNumberProps {
+  /**
+   * 文本内容位置，居左/居中/居右
+   */
+  align?: 'left' | 'center' | 'right';
   /**
    * [小数位数](https://en.wiktionary.org/wiki/decimal_place)
    */
@@ -31,7 +36,6 @@ export interface TdInputNumberProps {
   min?: number;
   /**
    * 占位符
-   * @default ''
    */
   placeholder?: string;
   /**
@@ -39,6 +43,10 @@ export interface TdInputNumberProps {
    * @default medium
    */
   size?: 'small' | 'medium' | 'large';
+  /**
+   * 文本框状态
+   */
+  status?: 'success' | 'warning' | 'error';
   /**
    * 数值改变步数，可以是小数
    * @default 1
@@ -49,6 +57,10 @@ export interface TdInputNumberProps {
    * @default row
    */
   theme?: 'column' | 'row' | 'normal';
+  /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
   /**
    * 值
    */

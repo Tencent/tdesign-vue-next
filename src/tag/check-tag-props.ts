@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdCheckTagProps } from '../tag/type';
@@ -23,6 +22,14 @@ export default {
   },
   /** 标签禁用态，失效标签不能触发事件。默认风格（theme=default）才有禁用态 */
   disabled: Boolean,
+  /** 标签尺寸 */
+  size: {
+    type: String as PropType<TdCheckTagProps['size']>,
+    default: 'medium' as TdCheckTagProps['size'],
+    validator(val: TdCheckTagProps['size']): boolean {
+      return ['small', 'medium', 'large'].includes(val);
+    },
+  },
   /** 组件子元素 */
   onChange: Function as PropType<TdCheckTagProps['onChange']>,
   /** 点击标签时触发 */

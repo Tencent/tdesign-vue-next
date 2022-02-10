@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-10 09:31:10
  * */
 
 import { PaginationProps, PageInfo } from '../pagination';
@@ -42,7 +41,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   firstFullRow?: string | TNode;
   /**
-   * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px
+   * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
    * @default 'auto'
    */
   height?: string | number;
@@ -82,6 +81,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   rowspanAndColspan?: (params: RowspanAndColspanParams<T>) => RowspanColspan;
   /**
+   * 懒加载和虚拟滚动
+   */
+  scroll?: TableScroll;
+  /**
    * 表格尺寸
    * @default medium
    */
@@ -105,6 +108,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    * @default middle
    */
   verticalAlign?: 'top' | 'middle' | 'bottom';
+  /**
+   * 单元格点击时触发
+   */
+  onCellClick?: (context: BaseTableCellEventContext<T>) => void;
   /**
    * 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型
    */
@@ -298,6 +305,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onAsyncLoadingClick?: (context: { status: 'loading' | 'load-more' }) => void;
   /**
+   * 单元格点击时触发
+   */
+  onCellClick?: (context: PrimaryTableCellEventContext<T>) => void;
+  /**
    * 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型
    */
   onChange?: (data: TableChangeData, context: TableChangeContext<Array<T>>) => void;
@@ -464,6 +475,27 @@ export interface TableColumnFilter {
   type?: FilterType;
 }
 
+export interface TableScroll {
+  /**
+   * 表示表格除可视区域外，额外渲染的行数，避免表格快速滚动过程中，新出现的内容来不及渲染从而出现空白
+   * @default 20
+   */
+  bufferSize?: number;
+  /**
+   * 表示表格每行内容是否同一个固定高度，仅在 `scroll.type` 为 `virtual` 时有效，该属性设置为 `true` 时，可用于简化虚拟滚动内部计算逻辑，提升性能，此时则需要明确指定 `scroll.rowHeight` 属性的值
+   * @default false
+   */
+  isFixedRowHeight?: boolean;
+  /**
+   * 表格的行高，不会给`<tr>`元素添加样式高度，仅作为滚动时的行高参考。`scroll.type` 为 `lazy` 时，`rowHeight` 用于给未渲染的行节点指定一个初始高度，该属性默认会设置为表格第一行的行高（滚动加载行数量 = 滚动距离 / rowHeight）；`scroll.type` 为 `virtual` 时，`rowHeight` 用于估算每行的大致高度，从而决定应该渲染哪些行，请尽量将该属性设置为表格每行平均高度，从而使得表格滚动过程更加平滑
+   */
+  rowHeight?: number;
+  /**
+   * 表格滚动加载类型，有两种：懒加载和虚拟滚动。值为 `lazy` ，表示表格滚动时会进行懒加载，非可视区域内的表格内容将不会默认渲染，直到该内容可见时，才会进行渲染，并且已渲染的内容滚动到不可见时，不会被销毁；<br />值为`virtual`时，表示表格会进行虚拟滚动，无论滚动条滚动到哪个位置，同一时刻，表格仅渲染该可视区域内的表格内容，当表格需要展示的数据量较大时，建议开启该特性
+   */
+  type: 'lazy' | 'virtual';
+}
+
 export interface RowspanColspan {
   colspan: number;
   rowspan: number;
@@ -474,6 +506,14 @@ export interface RowspanAndColspanParams<T> {
   col: BaseTableCol;
   rowIndex: number;
   colIndex: number;
+}
+
+export interface BaseTableCellEventContext<T> {
+  row: T;
+  col: BaseTableCol;
+  rowIndex: number;
+  colIndex: number;
+  e: MouseEvent;
 }
 
 export interface RowEventContext<T> {
@@ -520,6 +560,14 @@ export type TableSort = SortInfo | Array<SortInfo>;
 export interface SortInfo {
   sortBy: string;
   descending: boolean;
+}
+
+export interface PrimaryTableCellEventContext<T> {
+  row: T;
+  col: PrimaryTableCol;
+  rowIndex: number;
+  colIndex: number;
+  e: MouseEvent;
 }
 
 export interface TableChangeData {
