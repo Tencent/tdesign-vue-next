@@ -24,12 +24,13 @@ export interface MixinsCancelBtn {
 
 export type MixinsThemeType = keyof (PopconfirmConfig['confirmBtnTheme'] & DialogConfig['confirmBtnTheme']);
 
-export default function useAction() {
+export interface BtnAction {
+  confirmBtnAction: (e: MouseEvent) => void;
+  cancelBtnAction: (e: MouseEvent) => void;
+}
+
+export default function useAction(action: any) {
   const instance = getCurrentInstance();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const confirmBtnAction = (e: MouseEvent) => {};
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const cancelBtnAction = (e: MouseEvent) => {};
   // 全局配置属性综合
   const getDefaultConfrimBtnProps = (options: MixinsConfirmBtn): ButtonProps => {
     const { globalConfirm, theme, globalConfirmBtnTheme } = options;
@@ -38,7 +39,7 @@ export default function useAction() {
       theme: defaultTheme,
       content: '确定',
       onClick: (e) => {
-        confirmBtnAction(e);
+        action.confirmBtnAction(e);
       },
     };
     if (isString(globalConfirm)) {
@@ -55,7 +56,7 @@ export default function useAction() {
       theme: 'default',
       content: '取消',
       onClick: (e) => {
-        cancelBtnAction(e);
+        action.cancelBtnAction(e);
       },
     };
     if (isString(globalCancel)) {
@@ -100,7 +101,7 @@ export default function useAction() {
     }
     const defaultButtonProps: ButtonProps = getDefaultCancelBtnProps(options);
     // 属性和插槽都不存在，就返回全局默认配置
-    if (!cancelBtn && instance.slots.cancelBtn) {
+    if (!cancelBtn && !instance.slots.cancelBtn) {
       return <TButton class={className} {...defaultButtonProps} />;
     }
     // 如果属性存在，优先返回属性配置

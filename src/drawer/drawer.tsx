@@ -47,8 +47,15 @@ export default defineComponent({
 
   setup(props, { emit }) {
     const { global } = useReceiver<DrawerConfig>('drawer');
-    const { getConfirmBtn, getCancelBtn } = useAction();
     const emitEvent = useEmitEvent(props, emit);
+    const confirmBtnAction = (e: MouseEvent) => {
+      emitEvent('confirm', e);
+    };
+    const cancelBtnAction = (e: MouseEvent) => {
+      emitEvent('cancel', e);
+      closeDrawer({ trigger: 'cancel', e });
+    };
+    const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
     const ele = ref<HTMLElement | null>(null);
     const drawerClasses = computed<ClassName>(() => {
       return [
@@ -193,13 +200,6 @@ export default defineComponent({
         emitEvent('esc-keydown', e);
         closeDrawer({ trigger: 'esc', e });
       }
-    };
-    const confirmBtnAction = (e: MouseEvent) => {
-      emitEvent('confirm', e);
-    };
-    const cancelBtnAction = (e: MouseEvent) => {
-      emitEvent('cancel', e);
-      closeDrawer({ trigger: 'cancel', e });
     };
     const closeDrawer = (params: DrawerCloseContext) => {
       emitEvent('close', params);
