@@ -5,6 +5,8 @@ const upperFirst = require('lodash/upperFirst');
 
 const framework = 'VueNext(PC)';
 
+const fixedDateComponentList = ['time-Picker', 'date-picker', 'table', 'calendar']; // 需要在测试阶段固定日期的组件，table中因为有filter例子 渲染datepicker需要固定
+
 const CONFIG = {
   'VueNext(PC)': {
     sourcePath: path.resolve(__dirname, '../../examples'),
@@ -45,6 +47,7 @@ import { mount } from '@vue/test-utils';
 
 function getKeyFunction(component) {
   const newComponent = upperFirst(camelCase(component));
+
   return `
 describe('${newComponent}', () => {
   Object.keys(mapper).forEach((demoName) => {
@@ -60,11 +63,17 @@ function outputOneComponentTestFile(component, demoFiles) {
   const outputPath = `${CONFIG[framework].targetPath}/${component}`;
   const imports = [];
   const demos = ['\nconst mapper = {'];
+
   demoFiles.forEach((demo) => {
     const name = camelCase(demo);
     imports.push(`import ${name} from '@/examples/${component}/demos/${demo}';`);
     demos.push(`  ${name},`);
   });
+  if (fixedDateComponentList.includes(component)) {
+    imports.push(`import MockDate from 'mockdate';\n`);
+    imports.push(`MockDate.set('2020-12-28');`);
+  }
+
   demos.push('};');
   const keyData = [imports.join('\n'), demos.join('\n'), getKeyFunction(component)].join('\n');
   const testFileData = data.replace('{{ HERE IS DEMO LIST }}', keyData);
