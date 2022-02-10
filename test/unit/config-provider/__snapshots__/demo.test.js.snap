@@ -2045,7 +2045,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -3642,7 +3642,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -3992,7 +3992,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -4627,7 +4627,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -4948,7 +4948,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -5525,7 +5525,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -5996,7 +5996,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
             style="width: 400px;"
           >
@@ -6039,7 +6039,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
             style="width: 400px;"
           >
@@ -6130,7 +6130,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -6752,7 +6752,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -7316,7 +7316,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -7476,7 +7476,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -7786,7 +7786,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
         >
           <!---->
@@ -8636,7 +8636,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
