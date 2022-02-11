@@ -1,6 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import { TreeNode, CascaderContextType, TreeNodeValue, CascaderProps } from '../interface';
-import { isEmptyValues } from '../cascader';
+import { isEmptyValues } from './helper';
 
 /**
  * icon Class

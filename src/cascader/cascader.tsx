@@ -1,13 +1,12 @@
 import { defineComponent, VNode, Transition } from 'vue';
 
 // utils
-import isEmpty from 'lodash/isEmpty';
 import isEqual from 'lodash/isEqual';
 import { prefix } from '../config';
 import TreeStore from '../_common/js/tree/tree-store';
 import { emitEvent } from '../utils/event';
 import { getPropsApiByEvent } from '../utils/helper';
-import { getTreeValue, getValue } from './utils/helper';
+import { getTreeValue, getValue, isEmptyValues } from './utils/helper';
 
 // common logic
 import { treeNodesEffect, treeStoreExpendEffect } from './utils/cascader';
@@ -32,12 +31,6 @@ import props from './props';
 import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './type';
 
 const name = `${prefix}-cascader`;
-
-// 补充value为Number时的空值校验逻辑，排除NaN
-export function isEmptyValues(value: unknown): boolean {
-  if (typeof value === 'number' && !isNaN(value)) return false;
-  return isEmpty(value);
-}
 
 export default defineComponent({
   name: 'TCascader',
