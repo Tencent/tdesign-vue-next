@@ -21809,19 +21809,6 @@ exports[`ssr snapshot test renders ./examples/notification/demos/content.vue cor
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/notification/demos/fix-plugin.vue correctly 1`] = `
-<div>
-  <p>组件实例方法调用</p>
-  <p>notify.success({ title: &#39;标题名称&#39;, content: &#39;用户表示普通操作信息提示&#39; })</p>
-  <p>notify(&#39;success&#39;, { title: &#39;标题名称&#39;, content: &#39;用户表示普通操作信息提示&#39;, duration: 1000 })</p><br>
-  <div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 1000s <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 2000s <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 默认时长 <!--]--></span></button><!-- 0 表示永远不自动消失 --><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 永久显示 <!--]--></span></button></div><br><br>
-  <p>插件方法调用</p>
-  <p>NotifyPlugin.success({ content: &#39;用户表示普通操作信息提示&#39; })</p>
-  <p>NotifyPlugin(&#39;success&#39;, { content: &#39;用户表示普通操作信息提示&#39;, duration: 1000 })</p><br><br>
-  <div class="t-demo-message-theme"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> info <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> success <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> warning <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> error <!--]--></span></button></div><br><br>
-</div>
-`;
-
 exports[`ssr snapshot test renders ./examples/notification/demos/footer.vue correctly 1`] = `
 <div>
   <div class="t-notification">
@@ -21967,6 +21954,18 @@ exports[`ssr snapshot test renders ./examples/notification/demos/placement.vue c
       <!---->
     </div>
   </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 左上角 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 右上角 <!--]--></span></button><br><br><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 左下角 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 右下角 <!--]--></span></button>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/notification/demos/plugin.vue correctly 1`] = `
+<div>
+  <!-- this.$notify 和 this.$notification 都支持，两者等价 -->
+  <p>插件调用</p><br>
+  <div>
+    <!-- 隐藏图标 --><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 1000s <!--]--></span></button><!-- 自定义 Icon 示例（Content 也可以使用同样的方式自定义复杂内容） --><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 2000s <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 默认时长 <!--]--></span></button><!-- 0 表示永远不自动消失 --><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 永久显示 <!--]--></span></button>
+  </div><br><br><!-- NotifyPlugin 和 NotificationPlugin 都支持，两者等价 -->
+  <p>函数调用</p><br>
+  <div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> info <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> success <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> warning <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> error <!--]--></span></button></div><br><br>
 </div>
 `;
 
