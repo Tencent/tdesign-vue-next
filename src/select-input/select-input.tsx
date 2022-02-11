@@ -1,4 +1,4 @@
-import { computed, defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref, toRefs } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
 import Popup, { PopupVisibleChangeContext } from '../popup';
@@ -6,8 +6,9 @@ import { prefix } from '../config';
 import TagInput, { TagInputValue } from '../tag-input';
 import Input from '../input';
 import props from './props';
-import { TdSelectInputProps, SelectInputKeys } from './type';
+import { TdSelectInputProps, SelectInputKeys, SelectInputChangeContext } from './type';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { SelectInputCommonProperties } from './interface';
 
 const DEFAULT_KEYS = {
   label: 'label',
@@ -34,6 +35,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdSelectInputProps) {
+    const { onChange } = toRefs(props);
     const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
     const tags = computed<TagInputValue>(() => {
       if (!(props.value instanceof Array)) {
@@ -43,22 +45,41 @@ export default defineComponent({
         return isObject(item) ? item[iKeys.value.label] : item;
       });
     });
-    const commonInputProps = computed(() => pick(props, COMMON_PROPERTIES));
-    return { tags, commonInputProps };
+    const commonInputProps = computed<SelectInputCommonProperties>(() => pick(props, COMMON_PROPERTIES));
+    const tOverlayStyle = computed(() => {
+      return (triggerElement: HTMLElement) => ({ width: `${triggerElement.offsetWidth}px` });
+    });
+
+    const onTagInputChange = (val: TagInputValue, context: SelectInputChangeContext) => {
+      onChange.value?.(val, context);
+    };
+
+    return {
+      tags,
+      commonInputProps,
+      tOverlayStyle,
+      onTagInputChange,
+    };
   },
 
   render() {
     return (
       <Popup
-        trigger={'click'}
+        trigger={'focus'}
         placement="bottom"
         content={() => renderTNodeJSX(this, 'content')}
         class={NAME_CLASS}
-        visible={this.visible}
-        onVisibleChange={this.onVisibleChange}
+        overlayStyle={this.tOverlayStyle}
         {...this.popupProps}
       >
-        {this.variant === 'tag' && <TagInput {...this.commonInputProps} value={this.tags} />}
+        {this.variant === 'tag' && (
+          <TagInput
+            {...this.commonInputProps}
+            value={this.tags}
+            onChange={this.onTagInputChange}
+            onRemove={this.onRemove}
+          />
+        )}
         {this.variant === 'text' && <Input {...this.commonInputProps} value={this.tags.join()} />}
       </Popup>
     );

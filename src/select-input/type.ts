@@ -8,9 +8,15 @@ import { InputProps, InputValue } from '../input';
 import { PopupProps } from '../popup';
 import { TagInputProps } from '../tag-input';
 import { TagProps } from '../tag';
+import { TagInputChangeContext } from '../tag-input';
 import { TNode } from '../common';
 
 export interface TdSelectInputProps {
+  /**
+   * 无边框模式
+   * @default false
+   */
+  borderless?: boolean;
   /**
    * 是否可清空
    * @default false
@@ -30,10 +36,13 @@ export interface TdSelectInputProps {
    */
   inputProps?: InputProps;
   /**
+   * 定义字段别名，示例：`{ label: 'text', value: 'id', children: 'list' }`
+   */
+  keys?: SelectInputKeys;
+  /**
    * 左侧文本
    */
   label?: string | TNode;
-  keys?: SelectInputKeys;
   /**
    * 最小折叠数量，用于标签数量过多的情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠
    * @default 0
@@ -52,12 +61,12 @@ export interface TdSelectInputProps {
   /**
    * 透传 Popup 浮层组件全部属性
    */
-  popupProps?: PopupProps;
+  popupProps?: popupProps;
   /**
    * 是否显示下拉框，受控属性
    * @default false
    */
-  visible?: boolean;
+  popupVisible?: boolean;
   /**
    * 是否只读，值为真会隐藏输入框，且无法打开下拉框
    * @default false
@@ -84,9 +93,17 @@ export interface TdSelectInputProps {
    */
   tagProps?: TagProps;
   /**
+   * 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式
+   */
+  tips?: string | TNode;
+  /**
    * 全部标签值。值为数组表示多个标签，值为非数组表示单个数值
    */
   value?: SelectInputValue;
+  /**
+   * 全部标签值。值为数组表示多个标签，值为非数组表示单个数值，非受控属性
+   */
+  defaultValue?: SelectInputValue;
   /**
    * 自定义值呈现的全部内容，参数为所有标签的值
    */
@@ -100,6 +117,10 @@ export interface TdSelectInputProps {
    * 失去焦点时触发
    */
   onBlur?: (value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
+  /**
+   * 值变化时触发，参数 `trigger` 表示数据变化的触发来源
+   */
+  onChange?: (value: SelectInputValue, context: SelectInputChangeContext) => void;
   /**
    * 清空按钮点击时触发
    */
@@ -131,23 +152,25 @@ export interface TdSelectInputProps {
   /**
    * 移除单个标签时触发
    */
-  onRemove?: (context: SelectInputRemoveContext) => void;
+  onRemove?: (context: TagInputRemoveContext) => void;
 }
-
-export type SelectInputValue = string | number | boolean | Object | Array<any> | Array<SelectInputValue>;
-
-export interface SelectInputRemoveContext {
-  value: SelectInputValue;
-  index: number;
-  item: string | number;
-  e: MouseEvent | KeyboardEvent;
-  trigger: SelectInputRemoveTrigger;
-}
-
-export type SelectInputRemoveTrigger = 'tag-remove' | 'backspace';
 
 export interface SelectInputKeys {
   label?: string;
   value?: string;
   children?: string;
 }
+
+export type SelectInputValue = string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>;
+
+export type SelectInputChangeContext = TagInputChangeContext;
+
+export interface TagInputRemoveContext {
+  value: SelectInputValue;
+  index: number;
+  item: string | number;
+  e: MouseEvent | KeyboardEvent;
+  trigger: TagInputRemoveTrigger;
+}
+
+export type TagInputRemoveTrigger = 'tag-remove' | 'backspace';

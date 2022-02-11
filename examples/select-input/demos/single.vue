@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-select-input :value="selectValue" :visible="visible" variant="text" :on-visible-change="onVisibleChange">
+    <t-select-input :value="selectValue" variant="text" clearable>
       <template #content>
         <ul class="tdesign-demo__selet-input-ul">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
@@ -11,6 +11,7 @@
     </t-select-input>
   </div>
 </template>
+
 <script>
 import { defineComponent, ref } from 'vue';
 
@@ -24,20 +25,18 @@ const OPTIONS = [
 ];
 
 export default defineComponent({
+  name: 'SelectInputSingle',
   setup() {
     const visible = ref(false);
+    // const selectValue = ref('tdesign-vue');
     const selectValue = ref({ label: 'tdesign-vue', value: 1 });
-
-    const onVisibleChange = (v) => {
-      visible.value = v;
-    };
+    // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
 
     const onOptionClick = (item) => {
       selectValue.value = item;
-      visible.value = false;
     };
 
-    return { visible, selectValue, options: OPTIONS, onVisibleChange, onOptionClick };
+    return { visible, selectValue, options: OPTIONS, onOptionClick };
   },
 });
 </script>
@@ -63,7 +62,8 @@ export default defineComponent({
 .tdesign-demo__selet-input-ul > li > img {
   max-width: 20px;
   max-height: 20px;
-  vertical-align: center;
+  vertical-align: middle;
+  margin-right: 8px;
 }
 
 .tdesign-demo__select-input-block {

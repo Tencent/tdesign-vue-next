@@ -8,6 +8,8 @@ import { TdSelectInputProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  /** 无边框模式 */
+  borderless: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
   /** 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示总标签数量 */
@@ -19,6 +21,10 @@ export default {
   /** 透传 Input 输入框组件全部属性 */
   inputProps: {
     type: Object as PropType<TdSelectInputProps['inputProps']>,
+  },
+  /** 定义字段别名，示例：`{ label: 'text', value: 'id', children: 'list' }` */
+  keys: {
+    type: Object as PropType<TdSelectInputProps['keys']>,
   },
   /** 左侧文本 */
   label: {
@@ -46,16 +52,8 @@ export default {
   popupProps: {
     type: Object as PropType<TdSelectInputProps['popupProps']>,
   },
-  trigger: String,
   /** 是否显示下拉框，受控属性 */
-  visible: {
-    type: Boolean,
-    default: undefined,
-  },
-  keys: Object,
-  onVisibleChange: {
-    type: Function,
-  },
+  popupVisible: Boolean,
   /** 是否只读，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,
   /** 输入框状态 */
@@ -77,9 +75,17 @@ export default {
   tagProps: {
     type: Object as PropType<TdSelectInputProps['tagProps']>,
   },
+  /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdSelectInputProps['tips']>,
+  },
   /** 全部标签值。值为数组表示多个标签，值为非数组表示单个数值 */
   value: {
-    type: [String, Object, Array] as PropType<TdSelectInputProps['value']>,
+    type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['value']>,
+  },
+  /** 全部标签值。值为数组表示多个标签，值为非数组表示单个数值，非受控属性 */
+  defaultValue: {
+    type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['defaultValue']>,
   },
   /** 自定义值呈现的全部内容，参数为所有标签的值 */
   valueDisplay: {
@@ -95,6 +101,8 @@ export default {
   },
   /** 失去焦点时触发 */
   onBlur: Function as PropType<TdSelectInputProps['onBlur']>,
+  /** 值变化时触发，参数 `trigger` 表示数据变化的触发来源 */
+  onChange: Function as PropType<TdSelectInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdSelectInputProps['onClear']>,
   /** 按键按下 Enter 时触发 */
