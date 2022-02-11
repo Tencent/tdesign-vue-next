@@ -45,9 +45,9 @@ export default defineComponent({
     'cancel',
   ],
 
-  setup(props, { emit }) {
+  setup(props) {
     const { global } = useReceiver<DrawerConfig>('drawer');
-    const emitEvent = useEmitEvent(props, emit);
+    const emitEvent = useEmitEvent();
     const confirmBtnAction = (e: MouseEvent) => {
       emitEvent('confirm', e);
     };
