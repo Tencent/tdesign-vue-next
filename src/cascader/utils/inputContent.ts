@@ -1,6 +1,6 @@
 import isFunction from 'lodash/isFunction';
-import isEmpty from 'lodash/isEmpty';
 import { TreeNode, CascaderContextType, TreeNodeValue, CascaderProps } from '../interface';
+import { isEmptyValues } from '../cascader';
 
 /**
  * icon Class
@@ -65,7 +65,7 @@ export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascade
  */
 export function getCloseShow(isHover: boolean, cascaderContext: CascaderContextType) {
   const { value, disabled, clearable, visible } = cascaderContext;
-  return !!(!visible && clearable && isHover && !disabled && !isEmpty(value));
+  return !!(!visible && clearable && isHover && !disabled && !isEmptyValues(value));
 }
 
 /**

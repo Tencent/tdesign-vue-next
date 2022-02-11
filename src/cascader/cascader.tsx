@@ -33,6 +33,12 @@ import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './ty
 
 const name = `${prefix}-cascader`;
 
+// 补充value为Number时的空值校验逻辑，排除NaN
+export function isEmptyValues(value: unknown): boolean {
+  if (typeof value === 'number' && !isNaN(value)) return false;
+  return isEmpty(value);
+}
+
 export default defineComponent({
   name: 'TCascader',
 
@@ -180,8 +186,7 @@ export default defineComponent({
       setValue(val, 'invalid-value');
       console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
     }
-
-    if (!isEmpty(value)) {
+    if (!isEmptyValues(value)) {
       this.scopeVal = getValue(value, valueType, multiple);
     }
 
