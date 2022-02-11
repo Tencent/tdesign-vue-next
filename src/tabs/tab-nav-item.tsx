@@ -14,7 +14,6 @@ export default defineComponent({
   },
 
   directives: { ripple },
-
   props: {
     index: Number,
     active: {
@@ -30,6 +29,8 @@ export default defineComponent({
     removable: tabPanelProps.removable,
     value: tabPanelProps.value,
   },
+
+  emits: ['click', 'remove'],
   computed: {
     navItemClass(): {} {
       return {

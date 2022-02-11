@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Popconfirm Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -17,11 +16,11 @@ popupProps | Object | - | 透传 Popup 组件属性。TS 类型：`PopupProps`�
 showArrow | Boolean | true | 是否显示浮层箭头 | N
 theme | String | default | 文字提示风格。可选项：default/warning/danger | N
 triggerElement | String / Slot / Function | - | 触发元素。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-visible | Boolean | - | 是否显示气泡确认框。支持语法糖 | N
+visible | Boolean | - | 是否显示气泡确认框。支持语法糖 `v-model:visible` | N
 defaultVisible | Boolean | - | 是否显示气泡确认框。非受控属性 | N
-onCancel | Function |  | 点击取消按钮时触发。`(options: { e: MouseEvent }) => {}` | N
-onConfirm | Function |  | 点击确认按钮时触发。`(options: { e: MouseEvent }) => {}` | N
-onVisibleChange | Function |  | 确认框显示或隐藏时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popconfirm/type.ts)。`(visible: boolean, context?: PopconfirmVisibleChangeContext) => {}` | N
+onCancel | Function |  | TS 类型：`(options: { e: MouseEvent }) => void`<br/>点击取消按钮时触发 | N
+onConfirm | Function |  | TS 类型：`(options: { e: MouseEvent }) => void`<br/>点击确认按钮时触发 | N
+onVisibleChange | Function |  | TS 类型：`(visible: boolean, context?: PopconfirmVisibleChangeContext) => void`<br/>确认框显示或隐藏时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popconfirm/type.ts)。<br/>`interface PopconfirmVisibleChangeContext { trigger?: TriggerSource; e?: MouseEvent }`<br/><br/>`type TriggerSource = 'cancel' | 'confirm' | 'document' | 'trigger-element-click'`<br/> | N
 
 ### Popconfirm Events
 
@@ -29,4 +28,4 @@ onVisibleChange | Function |  | 确认框显示或隐藏时触发。[详细类�
 -- | -- | --
 cancel | `(options: { e: MouseEvent })` | 点击取消按钮时触发
 confirm | `(options: { e: MouseEvent })` | 点击确认按钮时触发
-visible-change | `(visible: boolean, context?: PopconfirmVisibleChangeContext)` | 确认框显示或隐藏时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popconfirm/type.ts)
+visible-change | `(visible: boolean, context?: PopconfirmVisibleChangeContext)` | 确认框显示或隐藏时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/popconfirm/type.ts)。<br/>`interface PopconfirmVisibleChangeContext { trigger?: TriggerSource; e?: MouseEvent }`<br/><br/>`type TriggerSource = 'cancel' | 'confirm' | 'document' | 'trigger-element-click'`<br/>

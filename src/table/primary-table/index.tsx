@@ -14,6 +14,7 @@ import { EVENT_NAME_WITH_KEBAB, RenderExpandRow } from '../util/interface';
 import { PageInfo } from '../../pagination/type';
 import { emitEvent } from '../../utils/event';
 import { getPropsApiByEvent } from '../../utils/helper';
+import { renderTNodeJSX } from '../../utils/render-tnode';
 
 type PageChangeContext = Parameters<TdBaseTableProps['onPageChange']>;
 type ChangeContext = Parameters<TdPrimaryTableProps['onChange']>;
@@ -28,9 +29,6 @@ export default defineComponent({
   },
   emits: ['change', 'page-change', ...EVENT_NAME_WITH_KEBAB],
   computed: {
-    rehandleData(): Array<DataType> {
-      return this.asyncLoadingHandler();
-    },
     rehandleColumns(): Array<PrimaryTableCol> {
       let columns = this.columns.map((col) => ({ ...col }));
       columns = this.getShowColumns([...this.columns]);
@@ -47,18 +45,23 @@ export default defineComponent({
     }
   },
   methods: {
-    // 提供给 BaseTable 添加渲染 Rows 方法
-    renderRows(params: RenderExpandRow): void {
-      const { row, rowIndex, rows } = params;
-      if (row.colKey === 'async-loading-row') {
-        rows.splice(rowIndex, 1, this.renderAsyncLoadingRow());
-        return;
-      }
-      this.renderExpandedRow(params);
+    // 最后一行，通行数据，可能是异步加载状态，可能是其他
+    renderLastFullRow() {
+      const lastFullRow = renderTNodeJSX(this, 'lastFullRow');
+      const asyncLoadingNode = this.renderAsyncLoadingRow();
+      const nodes = [lastFullRow, asyncLoadingNode].filter((v) => ![undefined, null, false].includes(v));
+      if (nodes.length === 0) return null;
+      if (nodes.length === 1) return nodes[0];
+      return (
+        <div>
+          {nodes[0]}
+          {nodes[1]}
+        </div>
+      );
     },
   },
   render() {
-    const { $props, $slots, rehandleColumns, showColumns } = this;
+    const { $props, $slots, rehandleColumns } = this;
 
     const rowEvents = {};
     EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
@@ -78,6 +81,8 @@ export default defineComponent({
         );
       },
       onRowClick: this.onRowClick,
+      onRowDragstart: this.onDragStart,
+      onRowDragover: this.onDragOver,
       ...rowEvents,
     };
     if (this.expandOnRowClick) {
@@ -87,18 +92,19 @@ export default defineComponent({
     }
     const baseTableProps = {
       ...$props,
-      data: this.rehandleData,
       columns: rehandleColumns,
       provider: {
-        renderRows: this.renderRows,
+        renderExpandedRow: this.expandedRow ?? this.$slots.expandedRow ? this.renderExpandedRow : undefined,
         sortOnRowDraggable: this.sortOnRowDraggable,
         dragging: this.dragging,
       },
+      firstFullRow: this.hasFilterCondition ? this.renderFirstFilterRow : this.firstFullRow,
+      lastFullRow: this.renderLastFullRow,
+      empty: this.empty,
       ...listeners,
     };
     return (
       <div style="width: 100%">
-        {showColumns && this.renderShowColumns()}
         <simple-table {...baseTableProps}>{$slots}</simple-table>
       </div>
     );

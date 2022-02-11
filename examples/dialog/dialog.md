@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Dialog Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -10,10 +9,10 @@ attach | String / Function | '' | 对话框挂载的节点，默认挂在组件�
 body | String / Slot / Function | '' | 对话框内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 cancelBtn | String / Object / Slot / Function | '' | 取消按钮，可自定义。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制取消事件。TS 类型：`string | ButtonProps | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/dialog/type.ts) | N
 closeBtn | String / Boolean / Slot / Function | true | 关闭按钮，可以自定义。值为 true 显示默认关闭按钮，值为 false 不显示关闭按钮。值类型为 string 则直接显示值，如：“关闭”。值类型为 TNode，则表示呈现自定义按钮示例。TS 类型：`string | boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-closeOnEscKeydown | Boolean | true | 按下 ESC 时是否触发抽屉关闭事件 | N
+closeOnEscKeydown | Boolean | true | 按下 ESC 时是否触发对话框关闭事件 | N
 closeOnOverlayClick | Boolean | true | 点击蒙层时是否触发关闭事件 | N
-confirmBtn | String / Object / Slot / Function | '' | 确认按钮。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件。TS 类型：`string | ButtonProps | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-default | String / Slot / Function | - | 抽屉内容，同 body。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+confirmBtn | String / Object / Slot / Function | '' | 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件。TS 类型：`string | ButtonProps | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+default | String / Slot / Function | - | 对话框内容，同 body。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 destroyOnClose | Boolean | false | 是否在关闭弹框的时候销毁子元素 | N
 draggable | Boolean | false | 对话框是否可以拖拽（仅在非模态对话框时有效） | N
 footer | Boolean / Slot / Function | true | 底部操作栏，默认会有“确认”和“取消”两个按钮。值为 true 显示默认操作按钮，值为 false 不显示任何内容，值类型为 Function 表示自定义底部内容。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
@@ -24,25 +23,24 @@ preventScrollThrough | Boolean | true | 防止滚动穿透 | N
 showOverlay | Boolean | true | 是否显示遮罩层 | N
 theme | String | default | 对话框风格。可选项：default/info/warning/danger/success | N
 top | String / Number | - | 用于弹框具体窗口顶部的距离，优先级大于 placement | N
-visible | Boolean | false | 控制对话框是否显示。支持语法糖 | N
-defaultVisible | Boolean | false | 控制对话框是否显示。非受控属性 | N
+visible | Boolean | false | 控制对话框是否显示 | N
 width | String / Number | - | 对话框宽度，示例：320, '500px', '80%' | N
 zIndex | Number | - | 对话框层级，Web 侧样式默认为 2500，移动端和小程序样式默认为 1500 | N
-onCancel | Function |  | 如果“取消”按钮存在，则点击“取消”按钮时触发，同时触发关闭事件。`(context: { e: MouseEvent }) => {}` | N
-onClose | Function |  | 关闭事件，点击取消按钮、点击关闭按钮、点击蒙层、按下 ESC 等场景下触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/dialog/type.ts)。`(context: DialogCloseContext) => {}` | N
-onCloseBtnClick | Function |  | 点击右上角关闭按钮时触发。`(context: { e: MouseEvent }) => {}` | N
-onClosed | Function |  | 对话框消失动画效果结束后触发。`() => {}` | N
-onConfirm | Function |  | 如果“确认”按钮存在，则点击“确认”按钮时触发。`(context: { e: MouseEvent }) => {}` | N
-onEscKeydown | Function |  | 按下 ESC 时触发事件。`(context: { e: KeyboardEvent }) => {}` | N
-onOpened | Function |  | 对话框弹出动画效果结束后触发。`() => {}` | N
-onOverlayClick | Function |  | 如果蒙层存在，点击蒙层时触发。`(context: { e: MouseEvent }) => {}` | N
+onCancel | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果“取消”按钮存在，则点击“取消”按钮时触发，同时触发关闭事件 | N
+onClose | Function |  | TS 类型：`(context: DialogCloseContext) => void`<br/>关闭事件，点击取消按钮、点击关闭按钮、点击蒙层、按下 ESC 等场景下触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/dialog/type.ts)。<br/>`type DialogEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay'`<br/><br/>`interface DialogCloseContext { trigger: DialogEventSource; e: MouseEvent | KeyboardEvent }`<br/> | N
+onCloseBtnClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>点击右上角关闭按钮时触发 | N
+onClosed | Function |  | TS 类型：`() => void`<br/>对话框消失动画效果结束后触发 | N
+onConfirm | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果“确认”按钮存在，则点击“确认”按钮时触发 | N
+onEscKeydown | Function |  | TS 类型：`(context: { e: KeyboardEvent }) => void`<br/>按下 ESC 时触发事件 | N
+onOpened | Function |  | TS 类型：`() => void`<br/>对话框弹出动画效果结束后触发 | N
+onOverlayClick | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>如果蒙层存在，点击蒙层时触发 | N
 
 ### Dialog Events
 
 名称 | 参数 | 描述
 -- | -- | --
 cancel | `(context: { e: MouseEvent })` | 如果“取消”按钮存在，则点击“取消”按钮时触发，同时触发关闭事件
-close | `(context: DialogCloseContext)` | 关闭事件，点击取消按钮、点击关闭按钮、点击蒙层、按下 ESC 等场景下触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/dialog/type.ts)
+close | `(context: DialogCloseContext)` | 关闭事件，点击取消按钮、点击关闭按钮、点击蒙层、按下 ESC 等场景下触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/dialog/type.ts)。<br/>`type DialogEventSource = 'esc' | 'close-btn' | 'cancel' | 'overlay'`<br/><br/>`interface DialogCloseContext { trigger: DialogEventSource; e: MouseEvent | KeyboardEvent }`<br/>
 close-btn-click | `(context: { e: MouseEvent })` | 点击右上角关闭按钮时触发
 closed | - | 对话框消失动画效果结束后触发
 confirm | `(context: { e: MouseEvent })` | 如果“确认”按钮存在，则点击“确认”按钮时触发

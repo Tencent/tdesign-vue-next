@@ -18,7 +18,10 @@ exports[`Select :props :bordered 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -38,10 +41,10 @@ exports[`Select :props :bordered 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -114,7 +117,10 @@ exports[`Select :props :clearable 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -134,10 +140,10 @@ exports[`Select :props :clearable 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -210,7 +216,10 @@ exports[`Select :props :creatable 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -230,10 +239,10 @@ exports[`Select :props :creatable 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -306,7 +315,10 @@ exports[`Select :props :disabled 1`] = `
           class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -326,10 +338,10 @@ exports[`Select :props :disabled 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -403,7 +415,10 @@ exports[`Select :props :labelInValue 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -423,10 +438,10 @@ exports[`Select :props :labelInValue 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -499,7 +514,10 @@ exports[`Select :props :loading 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -511,18 +529,18 @@ exports[`Select :props :loading 1`] = `
                 
               </li>
             </ul>
-            <li
+            <div
               class="t-select__loading-tips t-size-m"
             >
               加载中
-            </li>
+            </div>
             <!---->
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -605,7 +623,10 @@ exports[`Select :props :multiple 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -643,10 +664,10 @@ exports[`Select :props :multiple 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -719,7 +740,10 @@ exports[`Select :props :placeholder 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -739,10 +763,10 @@ exports[`Select :props :placeholder 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -816,7 +840,10 @@ exports[`Select :props :remote 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -836,10 +863,10 @@ exports[`Select :props :remote 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -912,7 +939,10 @@ exports[`Select :props :reserveKeyword 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -932,10 +962,10 @@ exports[`Select :props :reserveKeyword 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1008,7 +1038,10 @@ exports[`Select :props :size 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1028,10 +1061,10 @@ exports[`Select :props :size 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               <!---->
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1105,7 +1138,10 @@ exports[`Select Option :props :disabled 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1125,7 +1161,6 @@ exports[`Select Option :props :disabled 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               
               <li
@@ -1136,6 +1171,7 @@ exports[`Select Option :props :disabled 1`] = `
               </li>
               
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1209,7 +1245,10 @@ exports[`Select Option :props :label 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1229,7 +1268,6 @@ exports[`Select Option :props :label 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               
               <li
@@ -1240,6 +1278,7 @@ exports[`Select Option :props :label 1`] = `
               </li>
               
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1313,7 +1352,10 @@ exports[`Select Option :props :value 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1333,7 +1375,6 @@ exports[`Select Option :props :value 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               
               <li
@@ -1344,6 +1385,7 @@ exports[`Select Option :props :value 1`] = `
               </li>
               
             </ul>
+            <!---->
           </div>
           
           <!---->
@@ -1417,7 +1459,10 @@ exports[`Select OptionGroup :props :value 1`] = `
           class="t-popup__content t-select__dropdown narrow-scrollbar"
         >
           
-          <div>
+          <div
+            class="t-select__dropdown-inner"
+          >
+            <!---->
             <ul
               class="t-select__create-option"
               style="display: none;"
@@ -1437,7 +1482,6 @@ exports[`Select OptionGroup :props :value 1`] = `
             </li>
             <ul
               class="t-select__groups"
-              style="display: none;"
             >
               
               <li
@@ -1480,6 +1524,7 @@ exports[`Select OptionGroup :props :value 1`] = `
               </li>
               
             </ul>
+            <!---->
           </div>
           
           <!---->

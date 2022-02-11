@@ -285,7 +285,7 @@ exports[`DatePicker :mode 1`] = `
     >
       <div
         allowinput="0"
-        class="t-input t-size-m t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
         modelvalue=""
       >
         <!---->
@@ -921,7 +921,7 @@ exports[`DatePicker :range 1`] = `
     >
       <div
         allowinput="0"
-        class="t-input t-size-m t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
         modelvalue="2018-08-01 至 2028-04-01"
       >
         <!---->
@@ -1272,7 +1272,7 @@ exports[`DatePicker :value 1`] = `
     >
       <div
         allowinput="0"
-        class="t-input t-size-m t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
         modelvalue="1998-11-11"
       >
         <!---->

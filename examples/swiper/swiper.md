@@ -1,22 +1,37 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Swiper Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-animation | String | slide | 轮播切换动画效果类型。可选项：slide | N
+animation | String | slide | 轮播切换动画效果类型：滑动、淡入淡出等。可选项：slide/fade | N
 autoplay | Boolean | true | 是否自动播放 | N
-current | Number | - | 当前轮播在哪一项（下标）。支持语法糖 | N
+current | Number | - | 当前轮播在哪一项（下标）。支持语法糖 `v-model` 或 `v-model:current` | N
 defaultCurrent | Number | - | 当前轮播在哪一项（下标）。非受控属性 | N
 direction | String | horizontal | 轮播滑动方向，包括横向滑动和纵向滑动两个方向。可选项：horizontal/vertical | N
 duration | Number | 300 | 滑动动画时长 | N
+height | Number | - | 当使用垂直方向滚动时的高度 | N
 interval | Number | 5000 | 轮播间隔时间 | N
-onChange | Function |  | 轮播切换时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/swiper/type.ts)。`(current: number, context: { source: SwiperChangeSource }) => {}` | N
+loop | Boolean | true | 是否循环播放 | N
+navigation | Object | - | 导航器全部配置。TS 类型：`SwiperNavigation` | N
+stopOnHover | Boolean | true | 是否悬浮时停止轮播 | N
+theme | String | light | 深色模式和浅色模式。可选项：light/dark | N
+trigger | String | hover | 触发切换的方式：悬浮、点击等。可选项：hover/click | N
+type | String | default | 样式类型：默认样式、卡片样式。可选项：default/card | N
+onChange | Function |  | TS 类型：`(current: number, context: { source: SwiperChangeSource }) => void`<br/>轮播切换时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/swiper/type.ts)。<br/>`type SwiperChangeSource = 'autoplay' | 'click'`<br/> | N
 
 ### Swiper Events
 
 名称 | 参数 | 描述
 -- | -- | --
-change | `(current: number, context: { source: SwiperChangeSource })` | 轮播切换时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/swiper/type.ts)
+change | `(current: number, context: { source: SwiperChangeSource })` | 轮播切换时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/swiper/type.ts)。<br/>`type SwiperChangeSource = 'autoplay' | 'click'`<br/>
+
+### SwiperNavigation
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+placement | String | inside | 导航器位置，位于主体的内侧或是外侧。可选项：inside/outside | N
+showSlideBtn | String | always | 何时显示导航器的翻页按钮：始终显示、悬浮显示、永不显示。可选项：always/hover/never | N
+size | String | medium | 导航器尺寸。可选项：small/medium/large | N
+type | String | - | 导航器类型，点状(dots)、点条状(dots-bar)、条状(bars)、分式(fraction)等。TS 类型：`SwiperNavigationType`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/swiper/type.ts) | N

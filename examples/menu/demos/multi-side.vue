@@ -152,7 +152,7 @@ export default defineComponent({
 
     return {
       expanded: ['2', '3'],
-      expanded2: ['2', '3'],
+      expanded2: ['2'],
       collapsed,
       collapsed2,
       changeCollapsed,

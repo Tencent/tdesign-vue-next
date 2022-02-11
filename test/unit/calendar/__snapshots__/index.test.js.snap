@@ -36,7 +36,10 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -56,7 +59,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -231,6 +233,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -305,7 +308,10 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -325,7 +331,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -428,6 +433,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -547,8 +553,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="default"
         >
           
@@ -1394,7 +1399,10 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -1414,7 +1422,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -1589,6 +1596,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -1663,7 +1671,10 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -1683,7 +1694,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -1786,6 +1796,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -1905,8 +1916,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="primary"
         >
           
@@ -2472,7 +2482,10 @@ exports[`Calendar :props :mode 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -2492,7 +2505,6 @@ exports[`Calendar :props :mode 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -2667,6 +2679,7 @@ exports[`Calendar :props :mode 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -2787,8 +2800,7 @@ exports[`Calendar :props :mode 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="default"
         >
           
@@ -3077,7 +3089,10 @@ exports[`Calendar :props :range 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -3097,7 +3112,6 @@ exports[`Calendar :props :range 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -3192,6 +3206,7 @@ exports[`Calendar :props :range 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -3266,7 +3281,10 @@ exports[`Calendar :props :range 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -3286,7 +3304,6 @@ exports[`Calendar :props :range 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -3389,6 +3406,7 @@ exports[`Calendar :props :range 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -3508,8 +3526,7 @@ exports[`Calendar :props :range 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="default"
         >
           
@@ -4237,7 +4254,10 @@ exports[`Calendar :props :theme 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -4257,7 +4277,6 @@ exports[`Calendar :props :theme 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -4432,6 +4451,7 @@ exports[`Calendar :props :theme 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -4506,7 +4526,10 @@ exports[`Calendar :props :theme 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -4526,7 +4549,6 @@ exports[`Calendar :props :theme 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -4629,6 +4651,7 @@ exports[`Calendar :props :theme 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -5450,7 +5473,10 @@ exports[`Calendar :props :value 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -5470,7 +5496,6 @@ exports[`Calendar :props :value 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -5645,6 +5670,7 @@ exports[`Calendar :props :value 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -5719,7 +5745,10 @@ exports[`Calendar :props :value 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
@@ -5739,7 +5768,6 @@ exports[`Calendar :props :value 1`] = `
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
@@ -5842,6 +5870,7 @@ exports[`Calendar :props :value 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -5961,8 +5990,7 @@ exports[`Calendar :props :value 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag"
           theme="default"
         >
           

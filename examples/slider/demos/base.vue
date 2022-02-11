@@ -5,7 +5,7 @@
     </div>
 
     <div class="block">
-      <t-slider v-model="value2" range :tooltip-props="{}" />
+      <t-slider v-model="value2" range />
     </div>
   </div>
 </template>

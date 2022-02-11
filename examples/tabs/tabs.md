@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### Tabs Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -12,11 +11,11 @@ list | Array | - | 选项卡列表。TS 类型：`Array<TdTabPanelProps>` | N
 placement | String | top | 选项卡位置。可选项：left/top/bottom/right | N
 size | String | medium | 组件尺寸。可选项：medium/large | N
 theme | String | normal | 选项卡风格，包含 默认风格 和 卡片风格两种。可选项：normal/card | N
-value | String / Number | - | 激活的选项卡值。支持语法糖。TS 类型：`TabValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts) | N
+value | String / Number | - | 激活的选项卡值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`TabValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts) | N
 defaultValue | String / Number | - | 激活的选项卡值。非受控属性。TS 类型：`TabValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tabs/type.ts) | N
-onAdd | Function |  | 添加选项卡时触发。`(context: { e: MouseEvent }) => {}` | N
-onChange | Function |  | 激活的选项卡发生变化时触发。`(value: TabValue) => {}` | N
-onRemove | Function |  | 删除选项卡时触发。`(options: { value: TabValue; index: number; e: MouseEvent }) => {}` | N
+onAdd | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>添加选项卡时触发 | N
+onChange | Function |  | TS 类型：`(value: TabValue) => void`<br/>激活的选项卡发生变化时触发 | N
+onRemove | Function |  | TS 类型：`(options: { value: TabValue; index: number; e: MouseEvent }) => void`<br/>删除选项卡时触发 | N
 
 ### Tabs Events
 
@@ -37,7 +36,7 @@ label | String / Slot / Function | - | 选项卡名称，可自定义选项卡�
 panel | String / Slot / Function | - | 用于自定义选项卡面板内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 removable | Boolean | false | 当前选项卡是否允许移除 | N
 value | String / Number | - | 选项卡的值，唯一标识。TS 类型：`TabValue` | N
-onRemove | Function |  | 点击删除按钮时触发。`(options: { value: TabValue; e: MouseEvent }) => {}` | N
+onRemove | Function |  | TS 类型：`(options: { value: TabValue; e: MouseEvent }) => void`<br/>点击删除按钮时触发 | N
 
 ### TabPanel Events
 

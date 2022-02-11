@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdTextareaProps } from './type';
@@ -26,7 +25,7 @@ export default {
   maxlength: {
     type: Number,
   },
-  /** 名称 */
+  /** 名称，HTML 元素原生属性 */
   name: {
     type: String,
     default: '',
@@ -34,10 +33,21 @@ export default {
   /** 占位符 */
   placeholder: {
     type: String,
-    default: '',
+    default: undefined,
   },
   /** 文本框是否只读 */
   readonly: Boolean,
+  /** 文本框状态 */
+  status: {
+    type: String as PropType<TdTextareaProps['status']>,
+    validator(val: TdTextareaProps['status']): boolean {
+      return ['success', 'warning', 'error'].includes(val);
+    },
+  },
+  /** 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式 */
+  tips: {
+    type: [String, Function] as PropType<TdTextareaProps['tips']>,
+  },
   /** 文本框值 */
   value: {
     type: [String, Number] as PropType<TdTextareaProps['value']>,

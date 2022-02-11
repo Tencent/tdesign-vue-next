@@ -3,7 +3,7 @@
     <template #content>
       <div class="form-container">
         <t-textarea v-model="replyData" placeholder="请输入内容" />
-        <t-button @click="submitReply"> 回复 </t-button>
+        <t-button class="form-submit" @click="submitReply">回复</t-button>
       </div>
     </template>
   </t-comment>
@@ -38,5 +38,8 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  .form-submit {
+    margin-top: 8px;
+  }
 }
 </style>

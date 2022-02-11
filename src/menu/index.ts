@@ -31,6 +31,10 @@ export const HeadMenu: WithInstallType<typeof _HeadMenu> = withInstall(
       event: 'change',
       alias: ['modelValue'],
     },
+    {
+      name: 'expanded',
+      event: 'expand',
+    },
   ])(_HeadMenu),
 );
 export const Submenu: WithInstallType<typeof _Submenu> = withInstall(_Submenu);

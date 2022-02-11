@@ -258,12 +258,13 @@ export default defineComponent({
     },
 
     controllerConfigData(): Record<string, any> {
-      if (typeof this.controllerConfig === 'boolean') {
-        return getDefaultControllerConfigData(this.controllerConfig);
+      const controllerConfig = this.controllerConfig ?? this.global.controllerConfig ?? true;
+      if (typeof controllerConfig === 'boolean') {
+        return getDefaultControllerConfigData(controllerConfig);
       }
       return {
         ...getDefaultControllerConfigData(),
-        ...(this.controllerConfig as object),
+        ...controllerConfig,
       };
     },
 
@@ -321,6 +322,19 @@ export default defineComponent({
       const p = this.curSelectedMode === 'month' ? 'currentDayButtonProps' : 'currentMonthButtonProps';
       return this.checkControllerDisabled('current', p);
     },
+
+    filterYearStr(): string {
+      return `${this.controllerOptions.filterDate.getFullYear()}`;
+    },
+    filterMonthStr(): string {
+      return `${this.controllerOptions.filterDate.getMonth() + 1}`;
+    },
+    filterYearMonth(): { month: string; year: string } {
+      return {
+        year: this.filterYearStr,
+        month: this.filterMonthStr,
+      };
+    },
   },
   watch: {
     value: {
@@ -340,6 +354,12 @@ export default defineComponent({
         this.isShowWeekend = v;
       },
       immediate: true,
+    },
+    filterYearMonth: {
+      handler(v: { month: string; year: string }) {
+        emitEvent<Parameters<TdCalendarProps['onMonthChange']>>(this, 'month-change', v);
+        this.controllerChange();
+      },
     },
   },
   methods: {
@@ -387,17 +407,6 @@ export default defineComponent({
       this.$nextTick(() => {
         const options = this.controllerOptions;
         emitEvent<Parameters<TdCalendarProps['onControllerChange']>>(this, 'controller-change', options);
-      });
-    },
-    // 月份切换响应事件（包括年和月下拉框变化）
-    monthChange(): void {
-      this.$nextTick(() => {
-        const options = {
-          year: `${this.controllerOptions.filterDate.getFullYear()}`,
-          month: `${this.controllerOptions.filterDate.getMonth() + 1}`,
-        };
-        emitEvent<Parameters<TdCalendarProps['onMonthChange']>>(this, 'month-change', options);
-        this.controllerChange();
       });
     },
     onWeekendToggleClick(): void {
@@ -468,7 +477,6 @@ export default defineComponent({
                   size={this.controlSize}
                   disabled={this.isYearDisabled}
                   {...this.controllerConfigData.year.selecteProps}
-                  onChange={this.monthChange}
                 >
                   {this.yearSelectOptionList.map((item) => (
                     <t-option key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
@@ -485,7 +493,6 @@ export default defineComponent({
                   size={this.controlSize}
                   disabled={this.isMonthDisabled}
                   {...this.controllerConfigData.month.selecteProps}
-                  onChange={this.monthChange}
                 >
                   {this.monthSelectOptionList.map((item) => (
                     <t-option key={item.value} value={item.value} label={item.label} disabled={item.disabled}>

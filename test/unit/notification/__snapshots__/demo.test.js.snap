@@ -9,7 +9,7 @@ exports[`Notification Notification baseVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -50,7 +50,7 @@ exports[`Notification Notification baseVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -127,7 +127,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -168,7 +168,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -215,7 +215,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -264,7 +264,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -344,7 +344,7 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -385,7 +385,7 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -428,7 +428,7 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -611,7 +611,7 @@ exports[`Notification Notification footerVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -661,7 +661,7 @@ exports[`Notification Notification footerVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -722,7 +722,7 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -763,7 +763,7 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-error t-is-error"
+        class="t-icon t-icon-info-circle-filled t-is-error"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -804,7 +804,7 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-warning t-is-warning"
+        class="t-icon t-icon-info-circle-filled t-is-warning"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -845,7 +845,7 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-check-circle-filled t-is-success t-is-success"
+        class="t-icon t-icon-check-circle-filled t-is-success"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -920,7 +920,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -977,7 +977,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -1034,7 +1034,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -1106,7 +1106,7 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
     class="t-message-offset"
   >
     <div
-      class="t-input t-size-m"
+      class="t-input"
       modelvalue=""
     >
       <!---->
@@ -1121,7 +1121,7 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
       <!---->
     </div>
     <div
-      class="t-input t-size-m"
+      class="t-input"
       modelvalue=""
     >
       <!---->
@@ -1198,7 +1198,7 @@ exports[`Notification Notification sizeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -1239,7 +1239,7 @@ exports[`Notification Notification sizeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -1355,7 +1355,7 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+        class="t-icon t-icon-info-circle-filled t-is-info"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -1396,7 +1396,7 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-check-circle-filled t-is-success t-is-success"
+        class="t-icon t-icon-check-circle-filled t-is-success"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -1437,7 +1437,7 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-warning t-is-warning"
+        class="t-icon t-icon-info-circle-filled t-is-warning"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"
@@ -1478,7 +1478,7 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
       class="t-notification__icon"
     >
       <svg
-        class="t-icon t-icon-info-circle-filled t-is-error t-is-error"
+        class="t-icon t-icon-info-circle-filled t-is-error"
         fill="none"
         height="1em"
         viewBox="0 0 16 16"

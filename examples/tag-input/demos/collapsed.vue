@@ -1,8 +1,7 @@
 <template>
-  <div style="width: 100%">
-    <t-tag-input :value="tags" :min-collapsed-num="1" @change="onChange" />
-    <br /><br />
-    <t-tag-input :value="tags" :min-collapsed-num="3" @change="onChange">
+  <div class="tdesign-demo-block-column" style="width: 80%">
+    <t-tag-input v-model="tags" :min-collapsed-num="1" />
+    <t-tag-input v-model="tags" :min-collapsed-num="3">
       <template #collapsedItems="{ collapsedTags }">
         <t-popup>
           <t-tag>More({{ collapsedTags?.length }})</t-tag>
@@ -18,19 +17,13 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'TTagInputCollapsed',
-  data() {
-    return {
-      tags: ['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter'],
-    };
-  },
-  methods: {
-    onChange(val) {
-      this.tags = val;
-    },
+  setup() {
+    const tags = ref(['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter']);
+    return { tags };
   },
 });
 </script>

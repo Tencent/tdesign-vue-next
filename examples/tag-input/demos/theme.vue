@@ -1,31 +1,20 @@
 <template>
-  <div style="width: 50%">
-    <t-tag-input placeholder="添加新标签" :tag-props="{ theme: 'primary' }" :value="tags" @change="onChange" />
-    <br /><br />
-    <t-tag-input placeholder="添加新标签" :tag-props="{ theme: 'success' }" :value="tags" @change="onChange" />
-    <br /><br />
-    <t-tag-input placeholder="添加新标签" :tag-props="{ theme: 'warning' }" :value="tags" @change="onChange" />
-    <br /><br />
-    <t-tag-input placeholder="添加新标签" :tag-props="{ theme: 'danger' }" :value="tags" @change="onChange" />
+  <div class="tdesign-demo-block-column" style="width: 80%">
+    <t-tag-input v-model="tags" placeholder="添加新标签" :tag-props="{ theme: 'primary' }" />
+    <t-tag-input v-model="tags" placeholder="添加新标签" :tag-props="{ theme: 'success' }" />
+    <t-tag-input v-model="tags" placeholder="添加新标签" :tag-props="{ theme: 'warning' }" />
+    <t-tag-input v-model="tags" placeholder="添加新标签" :tag-props="{ theme: 'danger' }" />
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
   name: 'TTagInputTheme',
-  data() {
-    return {
-      tags: ['Vue', 'React', 'Miniprogram'],
-    };
-  },
-  methods: {
-    onChange(val) {
-      this.tags = val;
-    },
+  setup() {
+    const tags = ref(['Vue', 'React', 'Miniprogram']);
+    return { tags };
   },
 });
 </script>
-
-<style lang="less" scoped></style>

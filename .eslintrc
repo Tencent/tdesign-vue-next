@@ -79,7 +79,8 @@
     "@typescript-eslint/no-unused-vars": 0,
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/ban-ts-comment": 0,
-    "vue/require-default-prop": 0
+    "vue/require-default-prop": 0,
+    "vue/multi-word-component-names": 0
   },
   "overrides": [
     {

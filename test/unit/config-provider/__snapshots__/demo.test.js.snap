@@ -37,13 +37,16 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
                     >
                       <li
-                        class="t-select-option t-size-m t-select__create-option--special"
+                        class="t-select-option t-size-s t-select__create-option--special"
                         title=""
                       >
                         
@@ -51,18 +54,17 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                     </ul>
                     <!---->
                     <li
-                      class="t-select__empty t-size-m"
+                      class="t-select__empty t-size-s"
                     >
                       暂无数据
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2010"
                       >
                         
@@ -70,7 +72,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2011"
                       >
                         
@@ -78,7 +80,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2012"
                       >
                         
@@ -86,7 +88,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2013"
                       >
                         
@@ -94,7 +96,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2014"
                       >
                         
@@ -102,7 +104,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2015"
                       >
                         
@@ -110,7 +112,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2016"
                       >
                         
@@ -118,7 +120,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2017"
                       >
                         
@@ -126,7 +128,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2018"
                       >
                         
@@ -134,7 +136,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2019"
                       >
                         
@@ -142,7 +144,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-is-selected t-size-m"
+                        class="t-select-option t-is-selected t-size-s"
                         title="2020"
                       >
                         
@@ -150,7 +152,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2021"
                       >
                         
@@ -158,7 +160,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2022"
                       >
                         
@@ -166,7 +168,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2023"
                       >
                         
@@ -174,7 +176,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2024"
                       >
                         
@@ -182,7 +184,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2025"
                       >
                         
@@ -190,7 +192,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2026"
                       >
                         
@@ -198,7 +200,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2027"
                       >
                         
@@ -206,7 +208,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2028"
                       >
                         
@@ -214,7 +216,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2029"
                       >
                         
@@ -222,7 +224,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="2030"
                       >
                         
@@ -232,6 +234,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -240,14 +243,14 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-size-s"
             >
               <!---->
               <!---->
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-size-s t-tag--dark"
                 style="display: none;"
               >
                 <!---->
@@ -306,13 +309,16 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                   class="t-popup__content t-select__dropdown narrow-scrollbar"
                 >
                   
-                  <div>
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
                     <ul
                       class="t-select__create-option"
                       style="display: none;"
                     >
                       <li
-                        class="t-select-option t-size-m t-select__create-option--special"
+                        class="t-select-option t-size-s t-select__create-option--special"
                         title=""
                       >
                         
@@ -320,18 +326,17 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                     </ul>
                     <!---->
                     <li
-                      class="t-select__empty t-size-m"
+                      class="t-select__empty t-size-s"
                     >
                       暂无数据
                     </li>
                     <ul
                       class="t-select__groups"
-                      style="display: none;"
                     >
                       
                       
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="January"
                       >
                         
@@ -339,7 +344,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="February"
                       >
                         
@@ -347,7 +352,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="March"
                       >
                         
@@ -355,7 +360,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="April"
                       >
                         
@@ -363,7 +368,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="May"
                       >
                         
@@ -371,7 +376,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="June"
                       >
                         
@@ -379,7 +384,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="July"
                       >
                         
@@ -387,7 +392,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="August"
                       >
                         
@@ -395,7 +400,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="September"
                       >
                         
@@ -403,7 +408,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="October"
                       >
                         
@@ -411,7 +416,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-size-m"
+                        class="t-select-option t-size-s"
                         title="November"
                       >
                         
@@ -419,7 +424,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                         
                       </li>
                       <li
-                        class="t-select-option t-is-selected t-size-m"
+                        class="t-select-option t-is-selected t-size-s"
                         title="December"
                       >
                         
@@ -429,6 +434,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       
                       
                     </ul>
+                    <!---->
                   </div>
                   
                   <!---->
@@ -437,14 +443,14 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-size-s"
             >
               <!---->
               <!---->
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-size-s t-tag--dark"
                 style="display: none;"
               >
                 <!---->
@@ -487,7 +493,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
         style="height: auto;"
       >
         <div
-          class="t-radio-group t-size-m t-radio-group--filled"
+          class="t-radio-group t-size-s t-radio-group--filled"
           modelvalue="month"
         >
           
@@ -548,8 +554,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
         class="t-calendar__control-section-cell"
       >
         <span
-          class="t-tag t-tag--check t-tag--default t-calendar__control-tag"
-          size="medium"
+          class="t-tag t-tag--check t-tag--default t-size-s t-calendar__control-tag"
           theme="default"
         >
           
@@ -561,7 +566,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
         class="t-calendar__control-section-cell"
       >
         <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          class="t-button t-size-s t-button--variant-base t-button--theme-warning"
           type="button"
         >
           <span
@@ -687,7 +692,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -703,7 +708,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -719,7 +724,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                03
+                3
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -735,7 +740,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                04
+                4
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -751,7 +756,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                05
+                5
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -773,7 +778,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                06
+                6
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -789,7 +794,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                07
+                7
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -805,7 +810,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                08
+                8
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -821,7 +826,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                09
+                9
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1207,7 +1212,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                01
+                1
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -1223,7 +1228,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               <div
                 class="t-calendar__table-body-cell-display"
               >
-                02
+                2
               </div>
               <div
                 class="t-calendar__table-body-cell-content"
@@ -2040,7 +2045,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -3637,7 +3642,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -3813,7 +3818,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              1 月
+                              Jan
                             </span>
                           </div>
                         </td>
@@ -3826,7 +3831,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              2 月
+                              Feb
                             </span>
                           </div>
                         </td>
@@ -3839,7 +3844,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              3 月
+                              Mar
                             </span>
                           </div>
                         </td>
@@ -3852,63 +3857,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              4 月
-                            </span>
-                          </div>
-                        </td>
-                        
-                      </tr>
-                      <tr>
-                        
-                        <td
-                          class="t-date-picker-cell"
-                        >
-                          <div
-                            class="t-date-picker__cell-wrapper"
-                          >
-                            <span
-                              class="t-date-picker__cell-text"
-                            >
-                              5 月
-                            </span>
-                          </div>
-                        </td>
-                        <td
-                          class="t-date-picker-cell"
-                        >
-                          <div
-                            class="t-date-picker__cell-wrapper"
-                          >
-                            <span
-                              class="t-date-picker__cell-text"
-                            >
-                              6 月
-                            </span>
-                          </div>
-                        </td>
-                        <td
-                          class="t-date-picker-cell"
-                        >
-                          <div
-                            class="t-date-picker__cell-wrapper"
-                          >
-                            <span
-                              class="t-date-picker__cell-text"
-                            >
-                              7 月
-                            </span>
-                          </div>
-                        </td>
-                        <td
-                          class="t-date-picker-cell"
-                        >
-                          <div
-                            class="t-date-picker__cell-wrapper"
-                          >
-                            <span
-                              class="t-date-picker__cell-text"
-                            >
-                              8 月
+                              Apr
                             </span>
                           </div>
                         </td>
@@ -3925,7 +3874,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              9 月
+                              May
                             </span>
                           </div>
                         </td>
@@ -3938,7 +3887,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              10 月
+                              Jun
                             </span>
                           </div>
                         </td>
@@ -3951,7 +3900,63 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              11 月
+                              Jul
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          class="t-date-picker-cell"
+                        >
+                          <div
+                            class="t-date-picker__cell-wrapper"
+                          >
+                            <span
+                              class="t-date-picker__cell-text"
+                            >
+                              Aug
+                            </span>
+                          </div>
+                        </td>
+                        
+                      </tr>
+                      <tr>
+                        
+                        <td
+                          class="t-date-picker-cell"
+                        >
+                          <div
+                            class="t-date-picker__cell-wrapper"
+                          >
+                            <span
+                              class="t-date-picker__cell-text"
+                            >
+                              Sep
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          class="t-date-picker-cell"
+                        >
+                          <div
+                            class="t-date-picker__cell-wrapper"
+                          >
+                            <span
+                              class="t-date-picker__cell-text"
+                            >
+                              Oct
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          class="t-date-picker-cell"
+                        >
+                          <div
+                            class="t-date-picker__cell-wrapper"
+                          >
+                            <span
+                              class="t-date-picker__cell-text"
+                            >
+                              Nov
                             </span>
                           </div>
                         </td>
@@ -3964,7 +3969,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                             <span
                               class="t-date-picker__cell-text"
                             >
-                              12 月
+                              Dec
                             </span>
                           </div>
                         </td>
@@ -3987,7 +3992,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -4166,7 +4171,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                1 月
+                                Jan
                               </span>
                             </div>
                           </td>
@@ -4179,7 +4184,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                2 月
+                                Feb
                               </span>
                             </div>
                           </td>
@@ -4192,7 +4197,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                3 月
+                                Mar
                               </span>
                             </div>
                           </td>
@@ -4205,63 +4210,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                4 月
-                              </span>
-                            </div>
-                          </td>
-                          
-                        </tr>
-                        <tr>
-                          
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                5 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                6 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                7 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                8 月
+                                Apr
                               </span>
                             </div>
                           </td>
@@ -4278,7 +4227,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                9 月
+                                May
                               </span>
                             </div>
                           </td>
@@ -4291,7 +4240,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                10 月
+                                Jun
                               </span>
                             </div>
                           </td>
@@ -4304,7 +4253,63 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                11 月
+                                Jul
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Aug
+                              </span>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Sep
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Oct
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Nov
                               </span>
                             </div>
                           </td>
@@ -4317,7 +4322,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                12 月
+                                Dec
                               </span>
                             </div>
                           </td>
@@ -4447,7 +4452,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                1 月
+                                Jan
                               </span>
                             </div>
                           </td>
@@ -4460,7 +4465,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                2 月
+                                Feb
                               </span>
                             </div>
                           </td>
@@ -4473,7 +4478,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                3 月
+                                Mar
                               </span>
                             </div>
                           </td>
@@ -4486,63 +4491,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                4 月
-                              </span>
-                            </div>
-                          </td>
-                          
-                        </tr>
-                        <tr>
-                          
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                5 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                6 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                7 月
-                              </span>
-                            </div>
-                          </td>
-                          <td
-                            class="t-date-picker-cell"
-                          >
-                            <div
-                              class="t-date-picker__cell-wrapper"
-                            >
-                              <span
-                                class="t-date-picker__cell-text"
-                              >
-                                8 月
+                                Apr
                               </span>
                             </div>
                           </td>
@@ -4559,7 +4508,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                9 月
+                                May
                               </span>
                             </div>
                           </td>
@@ -4572,7 +4521,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                10 月
+                                Jun
                               </span>
                             </div>
                           </td>
@@ -4585,7 +4534,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                11 月
+                                Jul
                               </span>
                             </div>
                           </td>
@@ -4598,7 +4547,63 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                               <span
                                 class="t-date-picker__cell-text"
                               >
-                                12 月
+                                Aug
+                              </span>
+                            </div>
+                          </td>
+                          
+                        </tr>
+                        <tr>
+                          
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Sep
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Oct
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Nov
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            class="t-date-picker-cell"
+                          >
+                            <div
+                              class="t-date-picker__cell-wrapper"
+                            >
+                              <span
+                                class="t-date-picker__cell-text"
+                              >
+                                Dec
                               </span>
                             </div>
                           </td>
@@ -4622,7 +4627,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -4943,7 +4948,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -5520,7 +5525,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -5648,7 +5653,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-info-circle-filled t-is-info t-is-info"
+            class="t-icon t-icon-info-circle-filled t-is-info"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5729,7 +5734,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-is-warning t-is-warning"
+            class="t-icon t-icon-error-circle-filled t-is-warning"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5810,7 +5815,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-error-circle-filled t-is-error t-is-error"
+            class="t-icon t-icon-error-circle-filled t-is-error"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5891,7 +5896,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           class="t-dialog__header"
         >
           <svg
-            class="t-icon t-icon-check-circle-filled t-is-success t-is-success"
+            class="t-icon t-icon-check-circle-filled t-is-success"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
@@ -5991,7 +5996,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
             style="width: 400px;"
           >
@@ -6034,7 +6039,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
             style="width: 400px;"
           >
@@ -6051,7 +6056,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -6125,7 +6130,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -6747,7 +6752,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -6797,7 +6802,10 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6833,6 +6841,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                 </li>
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -6905,7 +6914,10 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -6925,10 +6937,10 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 <!---->
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -7001,7 +7013,10 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -7013,18 +7028,18 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                   
                 </li>
               </ul>
-              <li
+              <div
                 class="t-select__loading-tips t-size-m"
               >
                 loading...
-              </li>
+              </div>
               <!---->
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 <!---->
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -7237,41 +7252,41 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            
-            <p
-              class="t-select-loading-tips"
-              style="display: none;"
-            >
-              <div
-                class="t-select__empty"
+            <div>
+              <p
+                class="t-select-loading-tips"
+                style="display: none;"
               >
-                loading...
-              </div>
-            </p>
-            <div
-              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-              modelvalue=""
-              size="medium"
-            >
-              <transition-group-stub>
-                
-                
-              </transition-group-stub>
-              <div
-                class="t-tree__empty"
-              >
-                
-                
                 <div
                   class="t-select__empty"
                 >
-                  Empty Data
+                  loading...
                 </div>
-                
-                
+              </p>
+              <div
+                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+                modelvalue=""
+                size="medium"
+              >
+                <transition-group-stub>
+                  
+                  
+                </transition-group-stub>
+                <div
+                  class="t-tree__empty"
+                >
+                  
+                  
+                  <div
+                    class="t-select__empty"
+                  >
+                    Empty Data
+                  </div>
+                  
+                  
+                </div>
               </div>
             </div>
-            
             
             <!---->
           </div>
@@ -7301,7 +7316,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -7333,11 +7348,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -7397,41 +7412,41 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            
-            <p
-              class="t-select-loading-tips"
-            >
-              <div
-                class="t-select__empty"
+            <div>
+              <p
+                class="t-select-loading-tips"
               >
-                loading...
-              </div>
-            </p>
-            <div
-              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-              modelvalue=""
-              size="medium"
-              style="display: none;"
-            >
-              <transition-group-stub>
-                
-                
-              </transition-group-stub>
-              <div
-                class="t-tree__empty"
-              >
-                
-                
                 <div
                   class="t-select__empty"
                 >
-                  Empty Data
+                  loading...
                 </div>
-                
-                
+              </p>
+              <div
+                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+                modelvalue=""
+                size="medium"
+                style="display: none;"
+              >
+                <transition-group-stub>
+                  
+                  
+                </transition-group-stub>
+                <div
+                  class="t-tree__empty"
+                >
+                  
+                  
+                  <div
+                    class="t-select__empty"
+                  >
+                    Empty Data
+                  </div>
+                  
+                  
+                </div>
               </div>
             </div>
-            
             
             <!---->
           </div>
@@ -7461,7 +7476,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -7478,11 +7493,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </div>
         <!---->
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -7542,205 +7557,205 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            
-            <p
-              class="t-select-loading-tips"
-              style="display: none;"
-            >
-              <div
-                class="t-select__empty"
+            <div>
+              <p
+                class="t-select-loading-tips"
+                style="display: none;"
               >
-                loading...
+                <div
+                  class="t-select__empty"
+                >
+                  loading...
+                </div>
+              </p>
+              <div
+                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+                modelvalue=""
+                size="medium"
+              >
+                <transition-group-stub>
+                  
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="0"
+                    data-value="1"
+                    style="--level: 0;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon t-tree__icon--default"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      <svg
+                        class="t-icon t-icon-chevron-right"
+                        fill="none"
+                        height="1em"
+                        style="font-size: 18px;"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        1
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="1"
+                    data-value="1.1"
+                    style="--level: 1;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        1.1
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="1"
+                    data-value="1.2"
+                    style="--level: 1;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        1.2
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="0"
+                    data-value="2"
+                    style="--level: 0;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon t-tree__icon--default"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      <svg
+                        class="t-icon t-icon-chevron-right"
+                        fill="none"
+                        height="1em"
+                        style="font-size: 18px;"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        2
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="1"
+                    data-value="2.1"
+                    style="--level: 1;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        2.1
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="1"
+                    data-value="2.2"
+                    style="--level: 1;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        2.2
+                      </span>
+                    </span>
+                    
+                  </div>
+                  
+                </transition-group-stub>
+                <!---->
               </div>
-            </p>
-            <div
-              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-              modelvalue=""
-              size="medium"
-            >
-              <transition-group-stub>
-                
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="0"
-                  data-value="1"
-                  style="--level: 0;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon t-tree__icon--default"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    <svg
-                      class="t-icon t-icon-chevron-right"
-                      fill="none"
-                      height="1em"
-                      style="font-size: 18px;"
-                      viewBox="0 0 16 16"
-                      width="1em"
-                    >
-                      <path
-                        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                        fill="currentColor"
-                        fillOpacity="0.9"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      1
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="1"
-                  data-value="1.1"
-                  style="--level: 1;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      1.1
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="1"
-                  data-value="1.2"
-                  style="--level: 1;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      1.2
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="0"
-                  data-value="2"
-                  style="--level: 0;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon t-tree__icon--default"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    <svg
-                      class="t-icon t-icon-chevron-right"
-                      fill="none"
-                      height="1em"
-                      style="font-size: 18px;"
-                      viewBox="0 0 16 16"
-                      width="1em"
-                    >
-                      <path
-                        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                        fill="currentColor"
-                        fillOpacity="0.9"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      2
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="1"
-                  data-value="2.1"
-                  style="--level: 1;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      2.1
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="1"
-                  data-value="2.2"
-                  style="--level: 1;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      2.2
-                    </span>
-                  </span>
-                  
-                </div>
-                
-              </transition-group-stub>
-              <!---->
             </div>
-            
             
             <!---->
           </div>
@@ -7771,7 +7786,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
         >
           <!---->
@@ -7802,11 +7817,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="font-size: medium; display: none;"
+          style="display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
@@ -8621,7 +8636,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -8684,7 +8699,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     Fearure Tag
     
     <svg
-      class="t-icon t-icon-close-circle t-tag__icon-close t-tag__icon-close"
+      class="t-icon t-icon-close-circle t-tag__icon-close"
       fill="none"
       height="1em"
       viewBox="0 0 16 16"
@@ -8710,7 +8725,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     Fearure Tag
     
     <svg
-      class="t-icon t-icon-close-circle t-tag__icon-close t-tag__icon-close"
+      class="t-icon t-icon-close-circle t-tag__icon-close"
       fill="none"
       height="1em"
       viewBox="0 0 16 16"
@@ -8736,7 +8751,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     Fearure Tag
     
     <svg
-      class="t-icon t-icon-close-circle t-tag__icon-close t-tag__icon-close"
+      class="t-icon t-icon-close-circle t-tag__icon-close"
       fill="none"
       height="1em"
       viewBox="0 0 16 16"
@@ -8762,7 +8777,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     Fearure Tag
     
     <svg
-      class="t-icon t-icon-close-circle t-tag__icon-close t-tag__icon-close"
+      class="t-icon t-icon-close-circle t-tag__icon-close"
       fill="none"
       height="1em"
       viewBox="0 0 16 16"
@@ -9110,7 +9125,10 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            <div>
+            <div
+              class="t-select__dropdown-inner"
+            >
+              <!---->
               <ul
                 class="t-select__create-option"
                 style="display: none;"
@@ -9130,7 +9148,6 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
               </li>
               <ul
                 class="t-select__groups"
-                style="display: none;"
               >
                 
                 
@@ -9161,6 +9178,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
                 
                 
               </ul>
+              <!---->
             </div>
             
             <!---->
@@ -9294,7 +9312,6 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
         <input
           autocomplete="off"
           class="t-input__inner"
-          placeholder=""
         />
       </div>
       <!---->
@@ -9331,7 +9348,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               class="t-popconfirm__body"
             >
               <svg
-                class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default t-popconfirm__icon--default"
+                class="t-icon t-icon-info-circle-filled t-popconfirm__icon--default"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -9420,7 +9437,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               class="t-popconfirm__body"
             >
               <svg
-                class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning t-popconfirm__icon--warning"
+                class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -9509,7 +9526,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               class="t-popconfirm__body"
             >
               <svg
-                class="t-icon t-icon-error-circle-filled t-popconfirm__icon--danger t-popconfirm__icon--danger"
+                class="t-icon t-icon-error-circle-filled t-popconfirm__icon--danger"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -9607,7 +9624,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
         class="t-drawer__close-btn"
       >
         <svg
-          class="t-icon t-icon-close t-submenu-icon t-submenu-icon"
+          class="t-icon t-icon-close t-submenu-icon"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -9672,10 +9689,10 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <div
     style="width: 100%;"
   >
-    <!---->
     <div
       class="t-table t-table--bordered"
       defaultexpandedrowkeys=""
+      dragsort="false"
       expandedrowkeys=""
       expandicon="true"
       expandonrowclick="false"
@@ -9748,7 +9765,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                           
                           
                           <svg
-                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-asc"
                             fill="none"
                             height="1em"
                             style="font-size: 18px; transform: rotate(-180deg); top: -1px; left: 0px;"
@@ -9762,7 +9779,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                             />
                           </svg>
                           <svg
-                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-desc t-table__sort-icon t-icon-sort--default t-table-sort-desc"
+                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-desc"
                             fill="none"
                             height="1em"
                             style="font-size: 18px; left: 0px; bottom: -1px;"
@@ -9828,10 +9845,13 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <div
     style="width: 100%;"
   >
-    <!---->
     <div
       class="t-table"
       defaultexpandedrowkeys=""
+      dragsort="false"
+      expandedrow="h => {
+      return (0, _vue.createVNode)(\\"div\\", null, [(0, _vue.createTextVNode)(\\"This is expanded row info\\")]);
+    }"
       expandedrowkeys=""
       expandicon="true"
       expandonrowclick="true"
@@ -9915,7 +9935,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                           
                           
                           <svg
-                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-asc t-table__sort-icon t-icon-sort--default t-table-sort-asc"
+                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-asc"
                             fill="none"
                             height="1em"
                             style="font-size: 18px; transform: rotate(-180deg); top: -1px; left: 0px;"
@@ -9929,7 +9949,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                             />
                           </svg>
                           <svg
-                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-desc t-table__sort-icon t-icon-sort--default t-table-sort-desc"
+                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-desc"
                             fill="none"
                             height="1em"
                             style="font-size: 18px; left: 0px; bottom: -1px;"
@@ -10024,22 +10044,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
-                </td>
-                
-              </tr>
-              <tr
                 class=""
                 draggable="false"
               >
@@ -10092,22 +10096,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                 
               </tr>
               <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
-                </td>
-                
-              </tr>
-              <tr
                 class=""
                 draggable="false"
               >
@@ -10156,22 +10144,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                   length="4"
                 >
                   C
-                </td>
-                
-              </tr>
-              <tr
-                draggable="false"
-                style="display: none;"
-              >
-                
-                <td
-                  class="t-table__expandable-cell"
-                  colspan="4"
-                  length="1"
-                >
-                  <div>
-                    This is expanded row info
-                  </div>
                 </td>
                 
               </tr>

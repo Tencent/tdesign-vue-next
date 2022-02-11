@@ -28,6 +28,7 @@ pgk.dependencies['tdesign-icons-vue-next'] = orgPkg.dependencies['tdesign-icons-
 
 const pgkContent = JSON.stringify(pgk, null, 2);
 import orgJsContent from './main.js?raw';
+import htmlContent from './index.html?raw';
 
 const styleContent = `
 /* 竖排展示 demo 行间距 16px */
@@ -61,7 +62,7 @@ function getDemoContent(demoContent) {
 }
 
 export default defineComponent({
-  name: 'codesandbox',
+  name: 'codesandboxDemo',
   props: {
     code: String,
     demoName: String,
@@ -87,6 +88,9 @@ export default defineComponent({
           files: {
             'package.json': {
               content: pgkContent,
+            },
+            'public/index.html': {
+              content: htmlContent,
             },
             'src/main.js': {
               content: mainJsContent,

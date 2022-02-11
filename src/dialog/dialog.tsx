@@ -172,8 +172,8 @@ export default defineComponent({
     keyboardEvent(e: KeyboardEvent) {
       if (e.code === 'Escape') {
         emitEvent<Parameters<TdDialogProps['onEscKeydown']>>(this, 'esc-keydown', { e });
-        // 根据closeOnKeydownEsc判断按下ESC时是否触发close事件
-        if (this.closeOnKeydownEsc) {
+        // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
+        if (this.closeOnEscKeydown) {
           this.emitCloseEvent({
             trigger: 'esc',
             e,

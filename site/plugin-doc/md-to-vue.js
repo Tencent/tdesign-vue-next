@@ -105,6 +105,8 @@ export default function mdToVue(options) {
             tdDocTabs.onchange = ({ detail: currentTab }) => this.tab = currentTab;
           }
 
+          document.title = \`${mdSegment.title} | TDesign\`;
+
           Prismjs.highlightAll();
     
           tdDocContent.initAnchorHighlight();

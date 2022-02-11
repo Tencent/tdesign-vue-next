@@ -1,7 +1,6 @@
 :: BASE_DOC ::
 
 ## API
-
 ### DatePicker Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
@@ -15,19 +14,20 @@ firstDayOfWeek | Number | - | 第一天从星期几开始。可选项：1/2/3/4/
 format | String | 'YYYY-MM-DD' | 用于格式化日期，[详细文档](https://day.js.org/docs/en/display/format) | N
 inputProps | Object | - | 透传给输入框（Input）组件的参数。TS 类型：`InputProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 mode | String | month | 选择器模式。可选项：year/month/date | N
-placeholder | String / Array | - | 占位符。TS 类型：`string | Array<string>` | N
+placeholder | String / Array | undefined | 占位符。TS 类型：`string | Array<string>` | N
 popupProps | Object | - | 透传给 popup 组件的参数。TS 类型：`PopupProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 prefixIcon | Slot / Function | - | 用于自定义组件前置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 presets | Object | - | 预设快捷日期选择，示例：`{ '元旦': '2021-01-01', '昨天':  dayjs().subtract(1, 'day').format('YYYY-MM-DD'), '特定日期': () => ['2021-02-01'] }`。TS 类型：`PresetDate`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 range | Boolean | false | 是否呈现为日期范围选择器（临时 API，后期将调整为是 DateRangePicker 组件） | N
 size | String | medium | 尺寸。可选项：small/medium/large | N
 suffixIcon | Slot / Function | - | 用于自定义组件后置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-value | String / Array / Date | - | 选中值。支持语法糖。TS 类型：`DateValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
+timePickerProps | Boolean | - | 透传 TimePicker 组件属性。TS 类型：`TimePickerProps`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
+value | String / Array / Date | - | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`DateValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 defaultValue | String / Array / Date | - | 选中值。非受控属性。TS 类型：`DateValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
-onBlur | Function |  | 当输入框失去焦点时触发。`(context: { value: DateValue; e: FocusEvent }) => {}` | N
-onChange | Function |  | 选中值发生变化时触发。`(value: DateValue) => {}` | N
-onFocus | Function |  | 输入框获得焦点时触发。`(context: { value: DateValue; e: FocusEvent }) => {}` | N
-onInput | Function |  | 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值。`(context: { input: string; value: DateValue; e: InputEvent }) => {}` | N
+onBlur | Function |  | TS 类型：`(context: { value: DateValue; e: FocusEvent }) => void`<br/>当输入框失去焦点时触发 | N
+onChange | Function |  | TS 类型：`(value: DateValue) => void`<br/>选中值发生变化时触发 | N
+onFocus | Function |  | TS 类型：`(context: { value: DateValue; e: FocusEvent }) => void`<br/>输入框获得焦点时触发 | N
+onInput | Function |  | TS 类型：`(context: { input: string; value: DateValue; e: InputEvent }) => void`<br/>输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 | N
 
 ### DatePicker Events
 
@@ -55,13 +55,13 @@ presets | Object | - | 预设快捷日期选择，示例：{ '特定日期范围
 separator | String | - | 日期分隔符 | N
 size | String | medium | 尺寸。可选项：small/medium/large | N
 suffixIcon | Slot / Function | - | 组件后置图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-value | Array | - | 选中值。支持语法糖。TS 类型：`DateRangeValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
+value | Array | - | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`DateRangeValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
 defaultValue | Array | - | 选中值。非受控属性。TS 类型：`DateRangeValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts) | N
-onBlur | Function |  | 当输入框失去焦点时触发。`(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => {}` | N
-onChange | Function |  | 选中值发生变化时触发。`(value: DateRangeValue) => {}` | N
-onFocus | Function |  | 输入框获得焦点时触发。`(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => {}` | N
-onInput | Function |  | 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值。`(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent }) => {}` | N
-onPick | Function |  | 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts)。`(value: DateValue, context: PickContext) => {}` | N
+onBlur | Function |  | TS 类型：`(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => void`<br/>当输入框失去焦点时触发 | N
+onChange | Function |  | TS 类型：`(value: DateRangeValue) => void`<br/>选中值发生变化时触发 | N
+onFocus | Function |  | TS 类型：`(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent }) => void`<br/>输入框获得焦点时触发 | N
+onInput | Function |  | TS 类型：`(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent }) => void`<br/>输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 | N
+onPick | Function |  | TS 类型：`(value: DateValue, context: PickContext) => void`<br/>选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期。支持语法糖 `v-model` 或 `v-model:pick`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/> | N
 
 ### DateRangePicker Events
 
@@ -71,4 +71,4 @@ blur | `(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: F
 change | `(value: DateRangeValue)` | 选中值发生变化时触发
 focus | `(context: { value: DateRangeValue; partial: DateRangePickerPartial; e: FocusEvent })` | 输入框获得焦点时触发
 input | `(context: { input: string; value: DateRangeValue; partial: DateRangePickerPartial; e: InputEvent })` | 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值
-pick | `(value: DateValue, context: PickContext)` | 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期。支持语法糖。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts)
+pick | `(value: DateValue, context: PickContext)` | 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期。支持语法糖 `v-model` 或 `v-model:pick`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/date-picker/type.ts)。<br/>`interface PickContext { e: MouseEvent; partial: DateRangePickerPartial }`<br/>

@@ -33,7 +33,7 @@ export default defineComponent({
 
     const loadFunc = (node) =>
       new Promise((resolve) => {
-        setTimeout(() => {
+        let timer = setTimeout(() => {
           let nodes = [];
           if (node.level < 2) {
             nodes = [
@@ -50,7 +50,9 @@ export default defineComponent({
             ];
           }
           resolve(nodes);
-        }, 2000);
+          clearTimeout(timer);
+          timer = null;
+        }, 1000);
       });
 
     return {

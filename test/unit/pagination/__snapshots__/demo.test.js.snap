@@ -28,7 +28,10 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -48,7 +51,6 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -79,6 +81,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -253,7 +256,10 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -273,7 +279,6 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -304,6 +309,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -455,7 +461,10 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -475,7 +484,6 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -506,6 +514,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -649,7 +658,6 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
           <input
             autocomplete="off"
             class="t-input__inner"
-            placeholder=""
           />
         </div>
         <!---->
@@ -688,7 +696,10 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -708,7 +719,6 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -739,6 +749,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -914,7 +925,10 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -934,7 +948,6 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -965,6 +978,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1162,7 +1176,10 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -1182,7 +1199,6 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -1213,6 +1229,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1388,7 +1405,10 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -1408,7 +1428,6 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -1439,6 +1458,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1526,7 +1546,10 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -1664,6 +1687,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                   </li>
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1767,7 +1791,10 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -1787,7 +1814,6 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -1818,6 +1844,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -1905,7 +1932,10 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -2043,6 +2073,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                   </li>
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->
@@ -2146,7 +2177,10 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
               class="t-popup__content t-select__dropdown narrow-scrollbar"
             >
               
-              <div>
+              <div
+                class="t-select__dropdown-inner"
+              >
+                <!---->
                 <ul
                   class="t-select__create-option"
                   style="display: none;"
@@ -2166,7 +2200,6 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                 </li>
                 <ul
                   class="t-select__groups"
-                  style="display: none;"
                 >
                   
                   
@@ -2197,6 +2230,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                   
                   
                 </ul>
+                <!---->
               </div>
               
               <!---->

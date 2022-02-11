@@ -4082,7 +4082,10 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                     class="t-popup__content t-select__dropdown narrow-scrollbar"
                   >
                     
-                    <div>
+                    <div
+                      class="t-select__dropdown-inner"
+                    >
+                      <!---->
                       <ul
                         class="t-select__create-option"
                         style="display: none;"
@@ -4112,6 +4115,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                         </li>
                         
                       </ul>
+                      <!---->
                     </div>
                     
                     <!---->
@@ -4356,7 +4360,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -4973,7 +4977,7 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->

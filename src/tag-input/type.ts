@@ -29,6 +29,11 @@ export interface TdTagInputProps {
    */
   dragSort?: boolean;
   /**
+   * 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示
+   * @default scroll
+   */
+  excessTagsDisplayType?: 'scroll' | 'break-line';
+  /**
    * 透传 Input 输入框组件全部属性
    */
   inputProps?: InputProps;
@@ -46,11 +51,6 @@ export interface TdTagInputProps {
    */
   minCollapsedNum?: number;
   /**
-   * 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示
-   * @default scroll
-   */
-  overTagsDisplayType?: 'scroll' | 'break-line';
-  /**
    * 占位符
    */
   placeholder?: string;
@@ -59,6 +59,11 @@ export interface TdTagInputProps {
    * @default false
    */
   readonly?: boolean;
+  /**
+   * 尺寸
+   * @default medium
+   */
+  size?: 'small' | 'medium' | 'large';
   /**
    * 输入框状态
    */

@@ -109,7 +109,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -151,7 +151,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -167,7 +167,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -265,7 +265,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -307,7 +307,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -625,7 +625,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -667,7 +667,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -683,7 +683,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -730,7 +730,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -746,7 +746,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -915,7 +915,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -956,7 +956,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -972,7 +972,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -1022,7 +1022,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--prefix"
+            class="t-input t-input--prefix"
             modelvalue=""
           >
             <span
@@ -1072,7 +1072,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--prefix t-input--suffix"
+            class="t-input t-input--prefix t-input--suffix"
             modelvalue=""
           >
             <span
@@ -1111,7 +1111,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
               class="t-input__suffix t-input__suffix-icon"
             >
               <svg
-                class="t-icon t-icon-browse-off t-input__suffix-clear t-input__suffix-clear"
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
                 fill="none"
                 height="1em"
                 viewBox="0 0 16 16"
@@ -1204,7 +1204,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1250,7 +1250,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1292,7 +1292,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1334,7 +1334,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1378,7 +1378,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1420,7 +1420,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1497,7 +1497,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -1564,7 +1564,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1689,7 +1689,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1735,7 +1735,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -1781,7 +1781,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -2029,7 +2029,10 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                     class="t-popup__content t-select__dropdown narrow-scrollbar"
                   >
                     
-                    <div>
+                    <div
+                      class="t-select__dropdown-inner"
+                    >
+                      <!---->
                       <ul
                         class="t-select__create-option"
                         style="display: none;"
@@ -2049,7 +2052,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                       </li>
                       <ul
                         class="t-select__groups"
-                        style="display: none;"
                       >
                         
                         
@@ -2080,6 +2082,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                         
                         
                       </ul>
+                      <!---->
                     </div>
                     
                     <!---->
@@ -2160,7 +2163,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->
@@ -2202,7 +2205,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
           >
             <!---->

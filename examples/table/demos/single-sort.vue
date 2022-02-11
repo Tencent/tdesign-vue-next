@@ -104,7 +104,6 @@ export default defineComponent({
 });
 </script>
 <style lang="less">
-@import '@common/style/web/_variables.less';
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {
   background-color: transparent;
 }
@@ -120,7 +119,7 @@ export default defineComponent({
   }
   .status {
     position: relative;
-    color: @success-color;
+    color: #00a870;
     margin-left: 10px;
     &::before {
       position: absolute;
@@ -128,7 +127,7 @@ export default defineComponent({
       left: 0px;
       transform: translateY(-50%);
       content: '';
-      background-color: @success-color;
+      background-color: #00a870;
       width: 6px;
       height: 6px;
       margin-left: -10px;
@@ -136,15 +135,15 @@ export default defineComponent({
     }
   }
   .status.unhealth {
-    color: @error-color;
+    color: #e34d59;
     &::before {
-      background-color: @error-color;
+      background-color: #e34d59;
     }
   }
   .status.warning {
-    color: @warning-color;
+    color: #ed7b2f;
     &::before {
-      background-color: @warning-color;
+      background-color: #ed7b2f;
     }
   }
 }

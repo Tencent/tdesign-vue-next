@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { HTMLAttributes } from 'vue';
 
 declare global {

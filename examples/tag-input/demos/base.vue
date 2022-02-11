@@ -1,38 +1,35 @@
 <template>
-  <div style="width: 60%">
-    <t-tag-input :value="tags" clearable @paste="onPaste" @change="onChange" @enter="onTagInputEnter" />
-    <br /><br />
+  <div class="tdesign-demo-block-column" style="width: 80%">
+    <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" />
 
-    <!-- 标签数量超出时，滚动显示 -->
-    <t-tag-input :value="tags" label="Scroll: " clearable @change="onChange" />
-    <br /><br />
+    <t-tag-input :value="tags2" label="Controlled: " clearable @change="onChange" />
 
-    <!-- 标签数量超出时，换行显示 -->
-    <t-tag-input :value="tags" label="BreakLine: " over-tags-display-type="break-line" clearable @change="onChange" />
+    <t-tag-input :default-value="tags3" label="UnControlled: " clearable />
   </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  name: 'TTagInputBase',
-  data() {
-    return {
-      tags: ['Vue', 'React'],
+  name: 'TTagInputBaseDemo',
+  setup() {
+    const tags1 = ref(['Vue', 'React']);
+    const tags2 = ref(['Vue', 'React']);
+    const tags3 = ref(['Vue', 'React']);
+
+    const onTagInputEnter = (val, context) => {
+      console.log(val, context);
     };
-  },
-  methods: {
-    onTagInputEnter(val, context) {
+    const onChange = (val, context) => {
       console.log(val, context);
-    },
-    onChange(val, context) {
-      console.log(val, context);
-      this.tags = val;
-    },
-    onPaste(context) {
+      tags2.value = val;
+    };
+    const onPaste = (context) => {
       console.log(context);
-    },
+    };
+
+    return { tags1, tags2, tags3, onTagInputEnter, onChange, onPaste };
   },
 });
 </script>

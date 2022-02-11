@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdBaseTableProps } from '../table/type';
@@ -21,22 +20,28 @@ export default {
     type: Array as PropType<TdBaseTableProps['data']>,
     default: (): TdBaseTableProps['data'] => [],
   },
+  /** 是否禁用本地数据排序。当 `data` 数据长度超过分页大小时，会自动进行本地数据排序。如果 `disabledDataSort` 设置为 true，则无论何时，都不会进行本地排序 */
+  disableDataSort: Boolean,
   /** 空表格呈现样式 */
   empty: {
     type: [String, Function] as PropType<TdBaseTableProps['empty']>,
     default: '',
   },
-  /** 展开行内容，可自定义，泛型 T 指表格数据类型 */
-  expandedRow: {
-    type: [String, Function] as PropType<TdBaseTableProps['expandedRow']>,
+  /** 首行内容 */
+  firstFullRow: {
+    type: [String, Function] as PropType<TdBaseTableProps['firstFullRow']>,
   },
-  /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px */
+  /** 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight` */
   height: {
     type: [String, Number] as PropType<TdBaseTableProps['height']>,
     default: 'auto',
   },
   /** 是否显示鼠标悬浮状态 */
   hover: Boolean,
+  /** 尾行内容 */
+  lastFullRow: {
+    type: [String, Function] as PropType<TdBaseTableProps['lastFullRow']>,
+  },
   /** 加载中状态。值为 true 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式 */
   loading: {
     type: [Boolean, Function] as PropType<TdBaseTableProps['loading']>,
@@ -64,6 +69,10 @@ export default {
   rowspanAndColspan: {
     type: Function as PropType<TdBaseTableProps['rowspanAndColspan']>,
   },
+  /** 懒加载和虚拟滚动 */
+  scroll: {
+    type: Object as PropType<TdBaseTableProps['scroll']>,
+  },
   /** 表格尺寸 */
   size: {
     type: String as PropType<TdBaseTableProps['size']>,
@@ -82,6 +91,10 @@ export default {
       return ['auto', 'fixed'].includes(val);
     },
   },
+  /** 表格顶部内容，可以用于自定义列设置等 */
+  topContent: {
+    type: [String, Function] as PropType<TdBaseTableProps['topContent']>,
+  },
   /** 行内容上下方向对齐 */
   verticalAlign: {
     type: String as PropType<TdBaseTableProps['verticalAlign']>,
@@ -90,6 +103,8 @@ export default {
       return ['top', 'middle', 'bottom'].includes(val);
     },
   },
+  /** 单元格点击时触发 */
+  onCellClick: Function as PropType<TdBaseTableProps['onCellClick']>,
   /** 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型 */
   onPageChange: Function as PropType<TdBaseTableProps['onPageChange']>,
   /** 行点击时触发，泛型 T 指表格数据类型 */

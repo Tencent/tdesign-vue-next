@@ -2,10 +2,11 @@
 
 exports[`TagInput TagInput baseVue demo works fine 1`] = `
 <div
-  style="width: 60%;"
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
 >
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -20,7 +21,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -41,7 +42,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         React
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -65,11 +66,8 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
-  <!-- 标签数量超出时，滚动显示 -->
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -79,7 +77,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
       <div
         class="t-tag-input__prefix"
       >
-        Scroll: 
+        Controlled: 
       </div>
       <span
         class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
@@ -89,7 +87,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -110,7 +108,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         React
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -134,11 +132,8 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
-  <!-- 标签数量超出时，换行显示 -->
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input t-tag-input--break-line"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -148,7 +143,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
       <div
         class="t-tag-input__prefix"
       >
-        BreakLine: 
+        UnControlled: 
       </div>
       <span
         class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
@@ -158,7 +153,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -179,7 +174,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         React
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -208,10 +203,11 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
 
 exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
 <div
-  style="width: 100%;"
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
 >
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -226,7 +222,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -260,10 +256,8 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -278,7 +272,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -299,7 +293,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
         React
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -320,7 +314,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
         Miniprogram
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -404,11 +398,12 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
 
 exports[`TagInput TagInput customTagVue demo works fine 1`] = `
 <div
-  style="width: 100%;"
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
 >
-  <!-- 方式一：使用 tag 定义标签内部内容 -->
+  <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -431,7 +426,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -460,7 +455,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -496,14 +491,15 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 方式二：使用 valueDisplay 定义全部内容 -->
+  <!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay -->
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
       class="t-input__prefix"
     >
+      
       
       
       <span
@@ -521,7 +517,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         </span>
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -549,7 +545,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         </span>
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -577,7 +573,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         </span>
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -590,6 +586,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
           />
         </svg>
       </span>
+      
       
       
     </div>
@@ -610,7 +607,7 @@ exports[`TagInput TagInput maxVue demo works fine 1`] = `
   style="width: 100%;"
 >
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -632,7 +629,10 @@ exports[`TagInput TagInput maxVue demo works fine 1`] = `
 `;
 
 exports[`TagInput TagInput statusVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-column"
+  style="width: 100%;"
+>
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -640,7 +640,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       禁用状态：
     </label>
     <div
-      class="t-input t-size-m t-is-disabled t-input--prefix t-tag-input"
+      class="t-input t-is-disabled t-input--prefix t-tag-input"
     >
       <!---->
       <div
@@ -687,8 +687,6 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       <!---->
     </div>
   </div>
-  <br />
-  <br />
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -699,7 +697,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--prefix t-tag-input"
+        class="t-input t-is-readonly t-input--prefix t-tag-input"
       >
         <!---->
         <div
@@ -752,8 +750,6 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <br />
-  <br />
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -764,7 +760,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-is-success t-input--prefix t-tag-input"
+        class="t-input t-is-success t-input--prefix t-tag-input"
       >
         <!---->
         <div
@@ -779,7 +775,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             Vue
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -800,7 +796,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             React
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -821,7 +817,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             Miniprogram
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -852,7 +848,6 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <br />
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -863,7 +858,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-is-warning t-input--prefix t-tag-input"
+        class="t-input t-is-warning t-input--prefix t-tag-input"
       >
         <!---->
         <div
@@ -878,7 +873,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             Vue
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -899,7 +894,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             React
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -920,7 +915,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             Miniprogram
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -951,7 +946,6 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       </div>
     </div>
   </div>
-  <br />
   <div
     class="t-tdesign-demo__tag-input"
   >
@@ -962,7 +956,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-is-error t-input--prefix t-tag-input"
+        class="t-input t-is-error t-input--prefix t-tag-input"
       >
         <!---->
         <div
@@ -977,7 +971,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             Vue
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -998,7 +992,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             React
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -1019,7 +1013,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             Miniprogram
             
             <svg
-              class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
@@ -1055,10 +1049,11 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
 
 exports[`TagInput TagInput themeVue demo works fine 1`] = `
 <div
-  style="width: 50%;"
+  class="tdesign-demo-block-column"
+  style="width: 80%;"
 >
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -1073,7 +1068,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1094,7 +1089,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         React
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1115,7 +1110,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         Miniprogram
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1139,10 +1134,8 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -1157,7 +1150,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1178,7 +1171,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         React
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1199,7 +1192,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         Miniprogram
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1223,10 +1216,8 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -1241,7 +1232,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1262,7 +1253,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         React
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1283,7 +1274,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         Miniprogram
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1307,10 +1298,8 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
     <!---->
   </div>
-  <br />
-  <br />
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -1325,7 +1314,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         Vue
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1346,7 +1335,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         React
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"
@@ -1367,7 +1356,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         Miniprogram
         
         <svg
-          class="t-icon t-icon-close t-tag__icon-close t-tag__icon-close"
+          class="t-icon t-icon-close t-tag__icon-close"
           fill="none"
           height="1em"
           viewBox="0 0 16 16"

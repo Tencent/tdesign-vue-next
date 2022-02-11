@@ -453,7 +453,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     class="t-message-offset"
   >
     <div
-      class="t-input t-size-m"
+      class="t-input"
       modelvalue=""
     >
       <!---->
@@ -468,7 +468,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
       <!---->
     </div>
     <div
-      class="t-input t-size-m"
+      class="t-input"
       modelvalue=""
     >
       <!---->

@@ -7,16 +7,15 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -36,20 +35,18 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -73,16 +70,15 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
     class="t-input-number t-size-m"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -102,20 +98,18 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -140,16 +134,15 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease t-is-disabled"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -170,20 +163,18 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
         autocomplete="off"
         class="t-input__inner t-is-disabled t-input-number-text-align"
         disabled=""
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase t-is-disabled"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -207,16 +198,15 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
     class="t-input-number t-size-m"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -240,16 +230,15 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -274,16 +263,15 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -303,20 +291,18 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -341,16 +327,15 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-chevron-down"
+        class="t-icon t-icon-chevron-down t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -370,20 +355,18 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner"
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-chevron-up"
+        class="t-icon t-icon-chevron-up t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -414,7 +397,6 @@ exports[`InputNumber InputNumber normalVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner"
-        placeholder=""
       />
     </div>
     <!---->
@@ -429,7 +411,7 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
@@ -457,11 +439,10 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
@@ -490,16 +471,15 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     style="margin: 0px 50px;"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -519,20 +499,18 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -552,7 +530,7 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
@@ -580,11 +558,10 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
@@ -617,16 +594,15 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
     modelvalue="3.2"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-remove"
+        class="t-icon t-icon-remove t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
@@ -646,20 +622,18 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
       <input
         autocomplete="off"
         class="t-input__inner t-input-number-text-align"
-        placeholder=""
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only t-button--shape-square t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
       type="button"
     >
       
       
       <svg
-        class="t-icon t-icon-add"
+        class="t-icon t-icon-add t-size-m"
         fill="none"
         height="1em"
-        style="font-size: medium;"
         viewBox="0 0 16 16"
         width="1em"
       >
