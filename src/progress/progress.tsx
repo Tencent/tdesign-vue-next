@@ -11,7 +11,6 @@ import { prefix } from '../config';
 import { getBackgroundColor } from '../utils/helper';
 import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
 import props from './props';
-// import { RenderTNodeTemplate } from '../utils/render-tnode';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 const name = `${prefix}-progress`;
@@ -123,10 +122,6 @@ export default defineComponent({
       return `${perimeter * percent}  ${perimeter * (1 - percent)}`;
     });
 
-    const plumpStyles = computed(
-      () => ({}),
-      // return props.percentage > 10 ? { color: '#fff' } : { right: '-2.5rem' };
-    );
     const getIconMap = () => {
       const CIRCLE_ICONS = {
         success: CheckIcon,
@@ -167,7 +162,6 @@ export default defineComponent({
       circleStyle,
       circleStrokeWidth,
       strokeDashArr,
-      plumpStyles,
       getIconMap,
       getLabelContent,
     };
