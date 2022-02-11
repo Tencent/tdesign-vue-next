@@ -7,7 +7,7 @@ export type EmitEventName = { event: string; method: string } | string;
  * 组件对外传递事件
  * @param args 事件参数
  * @returns {emitEvent}
- * @example useEmitEvent<IProps>(props, emit);
+ * @example const emitEvent = useEmitEvent();
  */
 export function useEmitEvent() {
   const instance = getCurrentInstance();
