@@ -9,14 +9,14 @@ export default defineComponent({
   name: 'TComment',
   props,
   slots: ['avatar', 'reply', 'author', 'datetime', 'content', 'quote', 'actions'],
-  setup() {
-    const reply = useTNodeJSX('reply');
-    const quote = useTNodeJSX('quote');
-    const avatar = useTNodeJSX('avatar');
-    const author = useTNodeJSX('author');
-    const datetime = useTNodeJSX('datetime');
-    const content = useTNodeJSX('content');
-    const actions = useTNodeJSX('actions');
+  setup(props, { slots }) {
+    const reply = props.reply ?? slots.reply?.();
+    const author = props.author ?? slots.author?.();
+    const datetime = props.datetime ?? slots.author?.();
+    const quote = props.quote ?? slots.quote?.();
+    const actions = props.actions ?? slots.actions?.();
+    const content = props.content ?? slots.content?.();
+    const avatar = props.avatar ?? slots.avatar?.();
 
     const showAuthorDatetime = computed(() => author || datetime);
 
