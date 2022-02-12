@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-demo-block-column" style="width: 80%">
-    <!-- 方式一：使用 tag 定义标签内部内容 -->
+    <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
     <t-tag-input v-model="tags" clearable :min-collapsed-num="2">
       <template #tag="{ value }">
         <img
@@ -13,7 +13,7 @@
 
     <br /><br />
 
-    <!-- 方式二：使用 valueDisplay 定义全部内容 -->
+    <!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay -->
     <t-tag-input v-model="tags" clearable>
       <template #valueDisplay="{ value }">
         <t-tag

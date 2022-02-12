@@ -3770,7 +3770,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                   class="t-table__filter-pop-content-inner"
                                 >
                                   <div
-                                    class="t-input t-size-m"
+                                    class="t-input"
                                   >
                                     <!---->
                                     <!---->
@@ -3885,7 +3885,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                         class="t-button__text"
                                                       >
                                                         
-                                                        2022 年
+                                                        2020 年
                                                         
                                                       </span>
                                                     </button>
@@ -3978,7 +3978,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                       <tr>
                                                         
                                                         <td
-                                                          class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
+                                                          class="t-date-picker-cell"
                                                         >
                                                           <div
                                                             class="t-date-picker__cell-wrapper"
@@ -4129,7 +4129,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                           </div>
                                                         </td>
                                                         <td
-                                                          class="t-date-picker-cell"
+                                                          class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
                                                         >
                                                           <div
                                                             class="t-date-picker__cell-wrapper"
@@ -4160,7 +4160,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       >
                                         <div
                                           allowinput="0"
-                                          class="t-input t-size-m t-is-readonly t-input--suffix"
+                                          class="t-input t-is-readonly t-input--suffix"
                                           modelvalue=""
                                         >
                                           <!---->
@@ -8795,7 +8795,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                 class="t-align-left t-text-ellipsis test2"
                 colspan="1"
                 rowspan="2"
-                style="overflow: hidden;"
+                style="overflow: hidden; border-left: 1px solid #E7E7E7;"
               >
                 属性
               </td>
@@ -9508,7 +9508,9 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                     class="t-popup__content t-select__dropdown narrow-scrollbar"
                   >
                     
-                    <div>
+                    <div
+                      class="t-select__dropdown-inner"
+                    >
                       <!---->
                       <ul
                         class="t-select__create-option"
@@ -10080,7 +10082,9 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                       class="t-popup__content t-select__dropdown narrow-scrollbar"
                     >
                       
-                      <div>
+                      <div
+                        class="t-select__dropdown-inner"
+                      >
                         <!---->
                         <ul
                           class="t-select__create-option"

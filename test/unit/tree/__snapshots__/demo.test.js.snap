@@ -1486,7 +1486,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -1510,7 +1510,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -1534,7 +1534,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -3913,7 +3913,7 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
       filter:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
       modelvalue=""
     >
       <!---->
@@ -7362,7 +7362,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         filter:
       </span>
       <div
-        class="t-input t-size-m"
+        class="t-input"
         modelvalue=""
       >
         <!---->
@@ -7978,7 +7978,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8002,7 +8002,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8026,7 +8026,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8509,7 +8509,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8533,7 +8533,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8557,7 +8557,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->

@@ -4,69 +4,115 @@ import { BaseTableCol, CellData } from '../type';
 import baseTableProps from '../base-table-props';
 import { prefix } from '../../config';
 
+type ThProps = {
+  rowspan: number;
+  colspan: number;
+  column: BaseTableCol;
+  index: number;
+  hasChildren: boolean;
+  isFirstColumn: boolean;
+};
+
 export default defineComponent({
   name: `${prefix}-table-header`,
   components: {
     TableCell,
   },
+
   props: {
     columns: baseTableProps.columns,
     bordered: baseTableProps.bordered,
   },
+
+  data() {
+    return {
+      cacheRowMaxRowspan: [],
+    };
+  },
+
   methods: {
     renderHeader(): Array<VNode> {
-      const trContentList: Array<any> = [];
-      this.renderTr(this.columns, 0, trContentList);
-      const theadContent = trContentList.map((item: any) => <tr>{item}</tr>);
-      return theadContent;
+      const { bordered, cacheRowMaxRowspan } = this;
+      const trPropsList: Array<Array<ThProps>> = [];
+      this.renderTr(this.columns, 0, trPropsList, true);
+      return trPropsList.map((thPropsList, rowindex) => {
+        const currentRowMaxRowspan = cacheRowMaxRowspan[rowindex] || 1;
+        return (
+          <tr>
+            {thPropsList.map(({ column, rowspan, colspan, index, hasChildren, isFirstColumn }) => {
+              const withBorder = bordered && index === 0 && !isFirstColumn;
+              return this.renderCell(column, hasChildren ? rowspan : currentRowMaxRowspan, colspan, index, withBorder);
+            })}
+          </tr>
+        );
+      });
     },
-    renderTr(columns: Array<BaseTableCol>, currentRowIndex: number, trContentList: Array<any>): any {
-      const thContent: Array<VNode> = [];
+    renderTr(
+      columns: Array<BaseTableCol>,
+      currentRowIndex: number,
+      trPropsList: Array<any>,
+      isParentFirstColumn: boolean,
+    ): any {
+      const { cacheRowMaxRowspan } = this;
+      const currentRowThProps: Array<ThProps> = [];
       // 当前行
-      if (typeof trContentList[currentRowIndex] === 'undefined') {
+      if (typeof trPropsList[currentRowIndex] === 'undefined') {
         // eslint-disable-next-line no-param-reassign
-        trContentList[currentRowIndex] = [];
+        trPropsList[currentRowIndex] = [];
       }
-      // 实际占用的列
-      let currentColSpan = 0;
-      columns.forEach((column: BaseTableCol, colIndex: number) => {
+      if (typeof cacheRowMaxRowspan[currentRowIndex] === 'undefined') {
+        cacheRowMaxRowspan[currentRowIndex] = 1;
+      }
+      // 占用的列
+      let colspan = 0;
+      // 占用的行
+      let rowspan = 1;
+      columns.forEach((column: BaseTableCol, index: number) => {
         const { children } = column;
         if (children?.length) {
-          const colSpan = this.renderTr(children, currentRowIndex + 1, trContentList);
-          currentColSpan += colSpan;
-          thContent[colIndex] = this.renderCell(column, 1, colSpan, currentRowIndex, colIndex);
+          const isFirstColumn = isParentFirstColumn && index === 0;
+          const { colspan: occupiedCol, rowspan: occupiedRow } = this.renderTr(
+            children,
+            currentRowIndex + 1,
+            trPropsList,
+            isFirstColumn,
+          );
+          colspan += occupiedCol;
+          rowspan += occupiedRow;
+          cacheRowMaxRowspan[currentRowIndex] = Math.max(rowspan, cacheRowMaxRowspan[currentRowIndex]);
+          currentRowThProps[index] = {
+            rowspan: 1,
+            colspan: occupiedCol,
+            column,
+            index,
+            hasChildren: true,
+            isFirstColumn: index === 0 && isParentFirstColumn,
+          };
         }
       });
-      let rowspan = 1;
-      if (trContentList.length >= 1) {
-        rowspan = trContentList.length - currentRowIndex;
-      }
-      // 普通单元格，也许会涉及跨行
-      columns.forEach((column, colIndex: number) => {
+      // 普通单元格
+      columns.forEach((column, index: number) => {
         const { children } = column;
         if (!children || children?.length === 0) {
-          // 上一行有跨行到当前行且单元格是当前行的第一列，要带上边框。
-          const withBorder =
-            currentRowIndex > 0 &&
-            this.bordered &&
-            thContent.length === 0 &&
-            trContentList[currentRowIndex].length === 0;
-          thContent[colIndex] = this.renderCell(column, rowspan, 1, colIndex, currentRowIndex, withBorder);
-          currentColSpan += 1;
+          currentRowThProps[index] = {
+            rowspan,
+            colspan: 1,
+            column,
+            index,
+            hasChildren: false,
+            isFirstColumn: index === 0 && isParentFirstColumn,
+          };
+          colspan += 1;
         }
       });
-      trContentList[currentRowIndex].push(...thContent);
-      return currentColSpan;
+      trPropsList[currentRowIndex].push(...currentRowThProps);
+      return {
+        colspan,
+        rowspan,
+      };
     },
 
-    renderCell(
-      column: BaseTableCol,
-      rowspan: number,
-      colspan: number,
-      colIndex: number,
-      currentRowIndex: number,
-      withBorder?: boolean,
-    ): VNode {
+    renderCell(column: BaseTableCol, rowspan: number, colspan: number, index: number, withBorder?: boolean): VNode {
       const { title, render } = column;
       const customData = {
         type: 'title',
@@ -94,16 +140,14 @@ export default defineComponent({
 
       const cellData = {
         col: column,
-        colIndex,
+        colIndex: index,
         customData,
         customRender,
         type: 'th',
         withBorder,
       };
 
-      return (
-        <table-cell ref={`${currentRowIndex}_${colIndex}`} cellData={cellData} colspan={colspan} rowspan={rowspan} />
-      );
+      return <table-cell cellData={cellData} colspan={colspan} rowspan={rowspan} />;
     },
   },
   render() {

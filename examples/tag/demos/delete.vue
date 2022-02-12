@@ -1,22 +1,22 @@
 <template>
   <div class="tag-demo">
     <div class="tag-block">
-      <t-tag theme="primary" closable> 标签一 </t-tag>
-      <t-tag theme="success" closable> 标签二 </t-tag>
-      <t-tag theme="warning" closable> 标签三 </t-tag>
-      <t-tag theme="danger" closable> 标签四 </t-tag>
+      <t-tag theme="primary" closable>标签一</t-tag>
+      <t-tag theme="success" closable>标签二</t-tag>
+      <t-tag theme="warning" closable>标签三</t-tag>
+      <t-tag theme="danger" closable>标签四</t-tag>
     </div>
     <div class="tag-block light">
-      <t-tag theme="primary" variant="light" closable> 标签一 </t-tag>
-      <t-tag theme="success" variant="light" closable> 标签二 </t-tag>
-      <t-tag theme="warning" variant="light" closable> 标签三 </t-tag>
-      <t-tag theme="danger" variant="light" closable> 标签四 </t-tag>
+      <t-tag theme="primary" variant="light" closable>标签一</t-tag>
+      <t-tag theme="success" variant="light" closable>标签二</t-tag>
+      <t-tag theme="warning" variant="light" closable>标签三</t-tag>
+      <t-tag theme="danger" variant="light" closable>标签四</t-tag>
     </div>
-    <div class="tag-block plain">
-      <t-tag variant="plain" theme="primary" closable> 标签一 </t-tag>
-      <t-tag variant="plain" theme="success" closable> 标签二 </t-tag>
-      <t-tag variant="plain" theme="warning" closable> 标签三 </t-tag>
-      <t-tag variant="plain" theme="danger" closable> 标签四 </t-tag>
+    <div class="tag-block">
+      <t-tag variant="outline" theme="primary" closable>标签一</t-tag>
+      <t-tag variant="outline" theme="success" closable>标签二</t-tag>
+      <t-tag variant="outline" theme="warning" closable>标签三</t-tag>
+      <t-tag variant="outline" theme="danger" closable>标签四</t-tag>
     </div>
     <div class="tag-block">
       <t-tag
@@ -42,7 +42,6 @@
     </div>
   </div>
 </template>
-
 <script lang="jsx">
 import { defineComponent, nextTick, ref } from 'vue';
 import { AddIcon } from 'tdesign-icons-vue-next';
@@ -111,7 +110,6 @@ export default defineComponent({
   },
 });
 </script>
-
 <style lang="less" scoped>
 .tag-block {
   display: flex;
