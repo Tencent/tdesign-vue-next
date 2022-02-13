@@ -15,8 +15,8 @@ export default defineComponent({
   name: 'TTag',
   props,
   emits: ['close', 'click'],
-  setup(props, { emit }) {
-    const emitEvent = useEmitEvent(props, emit);
+  setup(props) {
+    const emitEvent = useEmitEvent();
     const { global: tagGlobalConfig } = useReceiver<TagConfig>('tag');
     const tagClass = computed<ClassName>(() => {
       return [

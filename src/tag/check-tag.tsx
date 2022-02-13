@@ -12,8 +12,8 @@ export default defineComponent({
   name: 'TCheckTag',
   props,
   emits: ['click', 'change'],
-  setup(props, { emit }) {
-    const emitEvent = useEmitEvent(props, emit);
+  setup(props) {
+    const emitEvent = useEmitEvent();
     const tagClass = computed(() => {
       return [
         `${name}`,
