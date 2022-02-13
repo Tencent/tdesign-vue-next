@@ -26,6 +26,8 @@ export default {
       return ['scroll', 'break-line'].includes(val);
     },
   },
+  /** 是否隐藏输入框 */
+  hideInput: Boolean,
   /** 透传 Input 输入框组件全部属性 */
   inputProps: {
     type: Object as PropType<TdTagInputProps['inputProps']>,

@@ -34,6 +34,11 @@ export interface TdTagInputProps {
    */
   excessTagsDisplayType?: 'scroll' | 'break-line';
   /**
+   * 是否隐藏输入框
+   * @default false
+   */
+  hideInput?: boolean;
+  /**
    * 透传 Input 输入框组件全部属性
    */
   inputProps?: InputProps;

@@ -1,26 +1,11 @@
 <template>
   <div class="tdesign-demo__select-input-multiple" style="width: 100%">
-    <div>
-      <t-checkbox v-model="allowInput">是否允许输入</t-checkbox>
-      <t-checkbox v-model="creatable">允许创建新选项（Enter 创建）</t-checkbox>
-    </div>
     <br />
-    <div>
-      <t-radio-group
-        v-model="excessTagsDisplayType"
-        :options="[
-          { label: '选中项过多横向滚动', value: 'scroll' },
-          { label: '选中项过多换行显示', value: 'break-line' },
-        ]"
-      />
-    </div>
-    <br /><br />
     <t-select-input
       :value="value"
-      :allow-input="allowInput"
-      :placeholder="allowInput ? '请选择或输入' : '请选择'"
-      :tag-input-props="{ excessTagsDisplayType }"
-      variant="tag"
+      :min-collapsed-num="1"
+      placeholder="请选择"
+      allow-input
       clearable
       multiple
       @tag-change="onTagChange"
@@ -34,10 +19,67 @@
         />
       </template>
     </t-select-input>
+
+    <br /><br /><br />
+
+    <!-- 第一种方式：使用渲染函数 collapsed-items 自定义折叠项 -->
+    <t-select-input
+      :value="value"
+      :min-collapsed-num="2"
+      :collapsed-items="renderCollapsedItems"
+      placeholder="请选择"
+      allow-input
+      clearable
+      multiple
+      @tag-change="onTagChange"
+    >
+      <template #panel>
+        <t-checkbox-group
+          :value="checkboxValue"
+          :options="options"
+          class="tdesign-demo__pannel-options"
+          @change="onCheckedChange"
+        />
+      </template>
+    </t-select-input>
+
+    <br /><br /><br />
+
+    <!-- 第二种方式：使用插槽 collapsedItems 自定义折叠项 -->
+    <t-select-input
+      :value="value"
+      :min-collapsed-num="3"
+      placeholder="请选择"
+      allow-input
+      clearable
+      multiple
+      @tag-change="onTagChange"
+    >
+      <template #collapsedItems="{ collapsedTags }">
+        <t-popup>
+          <t-tag>More({{ collapsedTags?.length }})</t-tag>
+          <template #content>
+            <t-tag v-for="item in collapsedTags" :key="item" style="margin: 4px 4px 4px 0">
+              {{ item }}
+            </t-tag>
+          </template>
+        </t-popup>
+      </template>
+      <template #panel>
+        <t-checkbox-group
+          :value="checkboxValue"
+          :options="options"
+          class="tdesign-demo__pannel-options"
+          @change="onCheckedChange"
+        />
+      </template>
+    </t-select-input>
   </div>
 </template>
-<script>
+
+<script lang="jsx">
 import { computed, defineComponent, ref } from 'vue';
+import { Tag } from 'tdesign-vue-next';
 
 const OPTIONS = [
   // 全选
@@ -53,15 +95,8 @@ const OPTIONS = [
 export default defineComponent({
   name: 'SelectInputMultiple',
   setup() {
-    const excessTagsDisplayType = ref('break-line');
-    const allowInput = ref(true);
-    const creatable = ref(true);
     const options = ref([...OPTIONS]);
-    const value = ref([
-      { label: 'Vue', value: 1 },
-      { label: 'React', value: 2 },
-      { label: 'Miniprogram', value: 3 },
-    ]);
+    const value = ref(OPTIONS.slice(1));
 
     const checkboxValue = computed(() => {
       const arr = [];
@@ -99,23 +134,24 @@ export default defineComponent({
       if (['tag-remove', 'backspace'].includes(trigger)) {
         value.value.splice(index, 1);
       }
-      // 如果允许创建新条目
-      if (creatable.value && trigger === 'enter') {
+      if (trigger === 'enter') {
         const current = { label: item, value: item };
         value.value.push(current);
         options.value = options.value.concat(current);
       }
     };
 
+    const renderCollapsedItems = (_, { collapsedTags }) => {
+      return <Tag>更多({collapsedTags.length})</Tag>;
+    };
+
     return {
       value,
       checkboxValue,
       options,
-      allowInput,
-      creatable,
-      excessTagsDisplayType,
       onCheckedChange,
       onTagChange,
+      renderCollapsedItems,
     };
   },
 });

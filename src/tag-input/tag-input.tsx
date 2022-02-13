@@ -51,6 +51,10 @@ export default defineComponent({
       });
     };
 
+    const onClick = () => {
+      tagInputRef.value.focus();
+    };
+
     return {
       tagValue,
       tInputValue,
@@ -68,24 +72,27 @@ export default defineComponent({
       onWheel,
       scrollToRightOnEnter,
       scrollToLeftOnLeave,
+      onClick,
       classes,
       slots: context.slots,
     };
   },
 
   render() {
+    const props = this.$props;
     const suffixIconNode = this.showClearIcon ? (
       <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.clearAll} />
     ) : (
-      useTNodeJSX('suffixIcon', { slots: this.slots })
+      useTNodeJSX('suffixIcon', { props, slots: this.slots })
     );
     // 自定义 Tag 节点
     const displayNode = useTNodeJSX('valueDisplay', {
       slots: this.slots,
+      props,
       params: { value: this.tagValue },
     });
     // 左侧文本
-    const label = useTNodeJSX('label', { slots: this.slots });
+    const label = useTNodeJSX('label', { props, slots: this.slots });
     return (
       <TInput
         ref="tagInputRef"
@@ -94,9 +101,9 @@ export default defineComponent({
         onChange={(val: InputValue) => {
           this.tInputValue = val;
         }}
-        onMousewheel={this.onWheel}
+        onWheel={this.onWheel}
         size={this.size}
-        readonly={this.readonly}
+        readonly={this.readonly || this.hideInput}
         disabled={this.disabled}
         label={() => this.renderLabel({ slots: this.slots, displayNode, label })}
         class={this.classes}
@@ -122,6 +129,7 @@ export default defineComponent({
         onBlur={(inputValue: InputValue, context: { e: MouseEvent }) => {
           this.onBlur?.(this.tagValue, { e: context.e, inputValue });
         }}
+        onClick={this.onClick}
       />
     );
   },

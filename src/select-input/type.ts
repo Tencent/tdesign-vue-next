@@ -8,10 +8,16 @@ import { InputProps, InputValue } from '../input';
 import { PopupProps } from '../popup';
 import { TagInputProps } from '../tag-input';
 import { TagProps } from '../tag';
+import { PopupVisibleChangeContext } from '../popup';
 import { TagInputChangeContext } from '../tag-input';
 import { TNode } from '../common';
 
 export interface TdSelectInputProps {
+  /**
+   * 是否允许输入
+   * @default false
+   */
+  allowInput?: boolean;
   /**
    * 无边框模式
    * @default false
@@ -49,10 +55,14 @@ export interface TdSelectInputProps {
    */
   minCollapsedNum?: number;
   /**
-   * 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示
-   * @default scroll
+   * 是否为多选模式，默认为单选
+   * @default false
    */
-  overTagsDisplayType?: 'scroll' | 'break-line';
+  multiple?: boolean;
+  /**
+   * 下拉框内容，可完全自定义
+   */
+  panel?: string | TNode;
   /**
    * 占位符
    * @default ''
@@ -61,10 +71,9 @@ export interface TdSelectInputProps {
   /**
    * 透传 Popup 浮层组件全部属性
    */
-  popupProps?: popupProps;
+  popupProps?: PopupProps;
   /**
    * 是否显示下拉框，受控属性
-   * @default false
    */
   popupVisible?: boolean;
   /**
@@ -109,18 +118,9 @@ export interface TdSelectInputProps {
    */
   valueDisplay?: string | TNode<{ value: SelectInputValue }>;
   /**
-   * 值的呈现方式，有两种：文本 和 标签。一般情况，单选选择器使用 `text` 模式，多选选择器使用 `tag` 模式
-   * @default text
-   */
-  variant?: 'text' | 'tag';
-  /**
    * 失去焦点时触发
    */
   onBlur?: (value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
-  /**
-   * 值变化时触发，参数 `trigger` 表示数据变化的触发来源
-   */
-  onChange?: (value: SelectInputValue, context: SelectInputChangeContext) => void;
   /**
    * 清空按钮点击时触发
    */
@@ -133,6 +133,10 @@ export interface TdSelectInputProps {
    * 聚焦时触发
    */
   onFocus?: (value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
+  /**
+   * 输入框值发生变化时触发
+   */
+  onInputChange?: (value: InputValue, context?: { e?: InputEvent | MouseEvent }) => void;
   /**
    * 进入输入框时触发
    */
@@ -148,11 +152,11 @@ export interface TdSelectInputProps {
   /**
    * 下拉框显示或隐藏时触发
    */
-  onPopupVisible?: () => void;
+  onPopupVisibleChange?: (visible: boolean, context: PopupVisibleChangeContext) => void;
   /**
-   * 移除单个标签时触发
+   * 值变化时触发，参数 `context.trigger` 表示数据变化的触发来源；`context.index` 指当前变化项的下标；`context.item` 指当前变化项；`context.e` 表示事件参数
    */
-  onRemove?: (context: TagInputRemoveContext) => void;
+  onTagChange?: (value: SelectInputValue, context: SelectInputChangeContext) => void;
 }
 
 export interface SelectInputKeys {
@@ -164,13 +168,3 @@ export interface SelectInputKeys {
 export type SelectInputValue = string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>;
 
 export type SelectInputChangeContext = TagInputChangeContext;
-
-export interface TagInputRemoveContext {
-  value: SelectInputValue;
-  index: number;
-  item: string | number;
-  e: MouseEvent | KeyboardEvent;
-  trigger: TagInputRemoveTrigger;
-}
-
-export type TagInputRemoveTrigger = 'tag-remove' | 'backspace';

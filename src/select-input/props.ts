@@ -8,6 +8,8 @@ import { TdSelectInputProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  /** 是否允许输入 */
+  allowInput: Boolean,
   /** 无边框模式 */
   borderless: Boolean,
   /** 是否可清空 */
@@ -35,13 +37,11 @@ export default {
     type: Number,
     default: 0,
   },
-  /** 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示 */
-  overTagsDisplayType: {
-    type: String as PropType<TdSelectInputProps['overTagsDisplayType']>,
-    default: 'scroll' as TdSelectInputProps['overTagsDisplayType'],
-    validator(val: TdSelectInputProps['overTagsDisplayType']): boolean {
-      return ['scroll', 'break-line'].includes(val);
-    },
+  /** 是否为多选模式，默认为单选 */
+  multiple: Boolean,
+  /** 下拉框内容，可完全自定义 */
+  panel: {
+    type: [String, Function] as PropType<TdSelectInputProps['panel']>,
   },
   /** 占位符 */
   placeholder: {
@@ -53,7 +53,10 @@ export default {
     type: Object as PropType<TdSelectInputProps['popupProps']>,
   },
   /** 是否显示下拉框，受控属性 */
-  popupVisible: Boolean,
+  popupVisible: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否只读，值为真会隐藏输入框，且无法打开下拉框 */
   readonly: Boolean,
   /** 输入框状态 */
@@ -71,6 +74,10 @@ export default {
   suffixIcon: {
     type: Function as PropType<TdSelectInputProps['suffixIcon']>,
   },
+  /** 透传 TagInput 组件全部属性 */
+  tagInputProps: {
+    type: Object as PropType<TdSelectInputProps['tagInputProps']>,
+  },
   /** 透传 Tag 标签组件全部属性 */
   tagProps: {
     type: Object as PropType<TdSelectInputProps['tagProps']>,
@@ -83,6 +90,9 @@ export default {
   value: {
     type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['value']>,
   },
+  modelValue: {
+    type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['value']>,
+  },
   /** 全部标签值。值为数组表示多个标签，值为非数组表示单个数值，非受控属性 */
   defaultValue: {
     type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['defaultValue']>,
@@ -91,24 +101,16 @@ export default {
   valueDisplay: {
     type: [String, Function] as PropType<TdSelectInputProps['valueDisplay']>,
   },
-  /** 值的呈现方式，有两种：文本 和 标签。一般情况，单选选择器使用 `text` 模式，多选选择器使用 `tag` 模式 */
-  variant: {
-    type: String as PropType<TdSelectInputProps['variant']>,
-    default: 'text' as TdSelectInputProps['variant'],
-    validator(val: TdSelectInputProps['variant']): boolean {
-      return ['text', 'tag'].includes(val);
-    },
-  },
   /** 失去焦点时触发 */
   onBlur: Function as PropType<TdSelectInputProps['onBlur']>,
-  /** 值变化时触发，参数 `trigger` 表示数据变化的触发来源 */
-  onChange: Function as PropType<TdSelectInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdSelectInputProps['onClear']>,
   /** 按键按下 Enter 时触发 */
   onEnter: Function as PropType<TdSelectInputProps['onEnter']>,
   /** 聚焦时触发 */
   onFocus: Function as PropType<TdSelectInputProps['onFocus']>,
+  /** 输入框值发生变化时触发 */
+  onInputChange: Function as PropType<TdSelectInputProps['onInputChange']>,
   /** 进入输入框时触发 */
   onMouseenter: Function as PropType<TdSelectInputProps['onMouseenter']>,
   /** 离开输入框时触发 */
@@ -116,7 +118,7 @@ export default {
   /** 粘贴事件，`pasteValue` 表示粘贴板的内容 */
   onPaste: Function as PropType<TdSelectInputProps['onPaste']>,
   /** 下拉框显示或隐藏时触发 */
-  onPopupVisible: Function as PropType<TdSelectInputProps['onPopupVisible']>,
-  /** 移除单个标签时触发 */
-  onRemove: Function as PropType<TdSelectInputProps['onRemove']>,
+  onPopupVisibleChange: Function as PropType<TdSelectInputProps['onPopupVisibleChange']>,
+  /** 值变化时触发，参数 `context.trigger` 表示数据变化的触发来源；`context.index` 指当前变化项的下标；`context.item` 指当前变化项；`context.e` 表示事件参数 */
+  onTagChange: Function as PropType<TdSelectInputProps['onTagChange']>,
 };

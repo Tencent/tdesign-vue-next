@@ -1,10 +1,16 @@
 <template>
   <div>
-    <t-select-input :value="selectValue" style="width: 300px" placeholder="Please Select" clearable @clear="onClear">
+    <t-select-input
+      :value="selectValue"
+      placeholder="请输入任意关键词"
+      allow-input
+      style="width: 300px"
+      @input-change="onInputChange"
+    >
       <template #panel>
         <ul class="tdesign-demo__selet-input-ul">
-          <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
-            <img src="/favicon.ico" /> {{ item.label }}
+          <li v-for="item in options" :key="item" @click="() => onOptionClick(item)">
+            <img src="/favicon.ico" /> {{ item }}
           </li>
         </ul>
       </template>
@@ -15,37 +21,30 @@
 <script>
 import { defineComponent, ref } from 'vue';
 
-const OPTIONS = [
-  { label: 'tdesign-vue', value: 1 },
-  { label: 'tdesign-react', value: 2 },
-  { label: 'tdesign-miniprogram', value: 3 },
-  { label: 'tdesign-angular', value: 4 },
-  { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-react', value: 6 },
-];
+const OPTIONS = ['Student A', 'Student B', 'Student C', 'Student D', 'Student E', 'Student F'];
 
 export default defineComponent({
   name: 'SelectInputSingle',
   setup() {
     const visible = ref(false);
-    // const selectValue = ref('tdesign-vue');
-    const selectValue = ref({ label: 'tdesign-vue', value: 1 });
-    // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
+    const selectValue = ref();
+    const options = ref(OPTIONS);
 
     const onOptionClick = (item) => {
       selectValue.value = item;
     };
 
-    const onClear = () => {
-      selectValue.value = undefined;
+    const onInputChange = (keyword) => {
+      selectValue.value = keyword;
+      options.value = new Array(5).fill(null).map((t, index) => `${keyword} Student ${index}`);
     };
 
     return {
       visible,
       selectValue,
-      options: OPTIONS,
+      options,
       onOptionClick,
-      onClear,
+      onInputChange,
     };
   },
 });

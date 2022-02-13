@@ -30,7 +30,7 @@ export default defineComponent({
   name: 'TInput',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur'],
+  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
   data() {
     return {
       isHover: false,
@@ -60,7 +60,7 @@ export default defineComponent({
       handler(val) {
         if (val === true) {
           this.$nextTick(() => {
-            (this.$refs.refInputElem as HTMLInputElement).focus();
+            (this.$refs.inputRef as HTMLInputElement).focus();
           });
         }
       },
@@ -84,7 +84,7 @@ export default defineComponent({
       return null;
     },
     setInputValue(v: InputValue = ''): void {
-      const input = this.$refs.refInputElem as HTMLInputElement;
+      const input = this.$refs.inputRef as HTMLInputElement;
       const sV = String(v);
       if (!input) {
         return;
@@ -94,11 +94,11 @@ export default defineComponent({
       }
     },
     focus(): void {
-      const input = this.$refs.refInputElem as HTMLInputElement;
+      const input = this.$refs.inputRef as HTMLInputElement;
       input?.focus();
     },
     blur(): void {
-      const input = this.$refs.refInputElem as HTMLInputElement;
+      const input = this.$refs.inputRef as HTMLInputElement;
       input?.blur();
     },
     handleInput(e: InputEvent): void {
@@ -132,7 +132,7 @@ export default defineComponent({
       this.onPaste?.({ e, pasteValue: clipData?.getData('text/plain') });
     },
     onHandleMousewheel(e: WheelEvent) {
-      this.onMousewheel?.({ e });
+      this.onWheel?.({ e });
     },
     emitPassword() {
       const { renderType } = this;
@@ -160,6 +160,10 @@ export default defineComponent({
     },
     onHandleonCompositionstart(e: CompositionEvent) {
       emitEvent(this, 'compositionstart', this.value, { e });
+    },
+    onRootClick(e: MouseEvent) {
+      (this.$refs.inputRef as HTMLInputElement).focus();
+      this.$emit('click', e);
     },
     inputValueChangeHandle(e: InputEvent | CompositionEvent) {
       const { target } = e;
@@ -241,9 +245,10 @@ export default defineComponent({
     const inputNode = (
       <div
         class={classes}
+        onClick={this.onRootClick}
         onMouseenter={this.onInputMouseenter}
         onMouseleave={this.onInputMouseleave}
-        onwheel={this.onHandleMousewheel}
+        onWheel={this.onHandleMousewheel}
         {...{ ...wrapperAttrs }}
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
@@ -252,7 +257,7 @@ export default defineComponent({
           class={`${name}__inner`}
           {...{ ...this.inputAttrs }}
           {...inputEvents}
-          ref="refInputElem"
+          ref="inputRef"
           value={this.value}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
         />

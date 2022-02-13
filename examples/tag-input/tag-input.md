@@ -10,6 +10,7 @@ collapsedItems | Slot / Function | - | 标签过多的情况下，折叠项内�
 disabled | Boolean | false | 是否禁用标签输入框 | N
 dragSort | Boolean | false | 【开发中】拖拽调整标签顺序 | N
 excessTagsDisplayType | String | scroll | 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示。可选项：scroll/break-line | N
+hideInput | Boolean | false | 是否隐藏输入框 | N
 inputProps | Object | - | 透传 Input 输入框组件全部属性。TS 类型：`InputProps` `import { InputProps, InputValue } from '@Input'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts) | N
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 max | Number | - | 最大允许输入的标签数量 | N

@@ -2,11 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { InputProps } from '../input';
 import { PopupProps } from '../popup';
+import { TimePickerProps } from '../time-picker';
 import { TNode } from '../common';
 
 export interface TdDatePickerProps {
@@ -16,7 +16,7 @@ export interface TdDatePickerProps {
    */
   allowInput?: boolean;
   /**
-   * 是否显示清楚按钮
+   * 是否显示清除按钮
    * @default false
    */
   clearable?: boolean;
@@ -39,8 +39,7 @@ export interface TdDatePickerProps {
    */
   firstDayOfWeek?: number;
   /**
-   * 用于格式化日期，[详细文档](https://day.js.org/docs/en/display/format)
-   * @default 'YYYY-MM-DD'
+   * 用于格式化日期，全局配置默认为：'YYYY-MM-DD'，[详细文档](https://day.js.org/docs/en/display/format)
    */
   format?: string;
   /**
@@ -82,6 +81,10 @@ export interface TdDatePickerProps {
    * 用于自定义组件后置图标
    */
   suffixIcon?: TNode;
+  /**
+   * 透传 TimePicker 组件属性
+   */
+  timePickerProps?: TimePickerProps;
   /**
    * 选中值
    */

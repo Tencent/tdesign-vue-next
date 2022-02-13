@@ -25,8 +25,8 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
   const onClose = (p: { e: MouseEvent; index: number; item: string | number }) => {
     const arr = [...tagValue.value];
     arr.splice(p.index, 1);
-    setTagValue<ChangeParams>(arr, { trigger: 'tag-remove', index: p.index, e: p.e });
-    onRemove.value?.({ ...p, trigger: 'tag-remove', value: tagValue.value });
+    setTagValue<ChangeParams>(arr, { trigger: 'tag-remove', ...p });
+    onRemove.value?.({ ...p, trigger: 'tag-remove', value: arr });
   };
 
   const clearAll = (context: { e: MouseEvent }) => {
@@ -44,6 +44,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
       setTagValue<ChangeParams>(newValue, {
         trigger: 'enter',
         index: newValue.length - 1,
+        item: valueStr,
         e: context.e,
       });
     }
@@ -53,10 +54,11 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
   // 按下回退键，删除标签
   const onInputBackspaceKeyUp = (value: InputValue, context: { e: KeyboardEvent }) => {
     const { e } = context;
+    if (!tagValue.value || !tagValue.value.length) return;
     // 回车键删除，输入框值为空时，才允许 Backspace 删除标签
     if (!oldInputValue.value && ['Backspace', 'NumpadDelete'].includes(e.code)) {
-      const index = tagValue.value?.length;
-      const item = tagValue.value?.[index];
+      const index = tagValue.value.length - 1;
+      const item = tagValue.value[index];
       const trigger = 'backspace';
       setTagValue<ChangeParams>(tagValue.value.slice(0, -1), { e, index, item, trigger });
       onRemove.value?.({ e, index, item, trigger, value: tagValue.value });
@@ -77,7 +79,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
     const list = displayNode
       ? [displayNode]
       : newList?.map((item, index) => {
-          const tagContent = useTNodeJSX('tag', { slots, params: { value: item } });
+          const tagContent = useTNodeJSX('tag', { props, slots, params: { value: item } });
           return (
             <Tag
               key={item}
@@ -102,6 +104,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
     if (newList.length !== tagValue.value.length) {
       const len = tagValue.value.length - newList.length;
       const more = useTNodeJSX('collapsedItems', {
+        props,
         slots,
         params: {
           value: tagValue,

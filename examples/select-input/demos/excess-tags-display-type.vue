@@ -1,26 +1,37 @@
 <template>
   <div class="tdesign-demo__select-input-multiple" style="width: 100%">
-    <div>
-      <t-checkbox v-model="allowInput">是否允许输入</t-checkbox>
-      <t-checkbox v-model="creatable">允许创建新选项（Enter 创建）</t-checkbox>
-    </div>
+    <!-- excessTagsDisplayType: 'scroll'，超出时，滚动显示 -->
+    <p>第一种呈现方式：超出时滚动显示</p>
     <br />
-    <div>
-      <t-radio-group
-        v-model="excessTagsDisplayType"
-        :options="[
-          { label: '选中项过多横向滚动', value: 'scroll' },
-          { label: '选中项过多换行显示', value: 'break-line' },
-        ]"
-      />
-    </div>
-    <br /><br />
     <t-select-input
       :value="value"
-      :allow-input="allowInput"
-      :placeholder="allowInput ? '请选择或输入' : '请选择'"
-      :tag-input-props="{ excessTagsDisplayType }"
-      variant="tag"
+      :tag-input-props="{ excessTagsDisplayType: 'scroll' }"
+      placeholder="请选择"
+      allow-input
+      clearable
+      multiple
+      @tag-change="onTagChange"
+    >
+      <template #panel>
+        <t-checkbox-group
+          :value="checkboxValue"
+          :options="options"
+          class="tdesign-demo__pannel-options"
+          @change="onCheckedChange"
+        />
+      </template>
+    </t-select-input>
+
+    <br /><br /><br />
+
+    <!-- excessTagsDisplayType: 'scroll'，超出时，换行显示 -->
+    <p>第二种呈现方式：超出时换行显示</p>
+    <br />
+    <t-select-input
+      :value="value"
+      :tag-input-props="{ excessTagsDisplayType: 'break-line' }"
+      placeholder="请选择"
+      allow-input
       clearable
       multiple
       @tag-change="onTagChange"
@@ -53,15 +64,8 @@ const OPTIONS = [
 export default defineComponent({
   name: 'SelectInputMultiple',
   setup() {
-    const excessTagsDisplayType = ref('break-line');
-    const allowInput = ref(true);
-    const creatable = ref(true);
     const options = ref([...OPTIONS]);
-    const value = ref([
-      { label: 'Vue', value: 1 },
-      { label: 'React', value: 2 },
-      { label: 'Miniprogram', value: 3 },
-    ]);
+    const value = ref(OPTIONS.slice(1));
 
     const checkboxValue = computed(() => {
       const arr = [];
@@ -99,8 +103,7 @@ export default defineComponent({
       if (['tag-remove', 'backspace'].includes(trigger)) {
         value.value.splice(index, 1);
       }
-      // 如果允许创建新条目
-      if (creatable.value && trigger === 'enter') {
+      if (trigger === 'enter') {
         const current = { label: item, value: item };
         value.value.push(current);
         options.value = options.value.concat(current);
@@ -111,9 +114,6 @@ export default defineComponent({
       value,
       checkboxValue,
       options,
-      allowInput,
-      creatable,
-      excessTagsDisplayType,
       onCheckedChange,
       onTagChange,
     };
