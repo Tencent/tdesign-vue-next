@@ -104,7 +104,7 @@ export default {
   },
   /** 失去焦点时触发 */
   onBlur: Function as PropType<TdTagInputProps['onBlur']>,
-  /** 值变化时触发，参数 `trigger` 表示数据变化的触发来源 */
+  /** 值变化时触发，参数 `context.trigger` 表示数据变化的触发来源；`context.index` 指当前变化项的下标；`context.item` 指当前变化项；`context.e` 表示事件参数 */
   onChange: Function as PropType<TdTagInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdTagInputProps['onClear']>,

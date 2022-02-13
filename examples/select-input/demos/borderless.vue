@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-select-input :value="selectValue" style="width: 300px" placeholder="Please Select" clearable @clear="onClear">
+    <t-select-input :value="selectValue" borderless placeholder="Please Select" clearable @clear="onClear">
       <template #panel>
         <ul class="tdesign-demo__selet-input-ul">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">

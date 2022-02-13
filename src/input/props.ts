@@ -28,6 +28,8 @@ export default {
   format: {
     type: Function as PropType<TdInputProps['format']>,
   },
+  /** 是否隐藏 `<input>` 元素 */
+  hideInput: Boolean,
   /** 左侧文本 */
   label: {
     type: [String, Function] as PropType<TdInputProps['label']>,

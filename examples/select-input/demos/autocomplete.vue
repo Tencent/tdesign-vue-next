@@ -14,17 +14,20 @@
           </li>
         </ul>
       </template>
+      <template #suffixIcon><search-icon /></template>
     </t-select-input>
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
+import { SearchIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = ['Student A', 'Student B', 'Student C', 'Student D', 'Student E', 'Student F'];
 
 export default defineComponent({
   name: 'SelectInputSingle',
+  components: { SearchIcon },
   setup() {
     const visible = ref(false);
     const selectValue = ref();

@@ -104,13 +104,13 @@ export interface TdTagInputProps {
   /**
    * 自定义值呈现的全部内容，参数为所有标签的值
    */
-  valueDisplay?: string | TNode<{ value: TagInputValue }>;
+  valueDisplay?: string | TNode<{ value: TagInputValue; onClose: () => void }>;
   /**
    * 失去焦点时触发
    */
   onBlur?: (value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
   /**
-   * 值变化时触发，参数 `trigger` 表示数据变化的触发来源
+   * 值变化时触发，参数 `context.trigger` 表示数据变化的触发来源；`context.index` 指当前变化项的下标；`context.item` 指当前变化项；`context.e` 表示事件参数
    */
   onChange?: (value: TagInputValue, context: TagInputChangeContext) => void;
   /**

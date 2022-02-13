@@ -74,6 +74,10 @@ export default {
   suffixIcon: {
     type: Function as PropType<TdSelectInputProps['suffixIcon']>,
   },
+  /** 自定义标签的内部内容，每一个标签的当前值。注意和 `valueDisplay` 区分，`valueDisplay`  是用来定义全部标签内容，而非某一个标签 */
+  tag: {
+    type: [String, Function] as PropType<TdSelectInputProps['tag']>,
+  },
   /** 透传 TagInput 组件全部属性 */
   tagInputProps: {
     type: Object as PropType<TdSelectInputProps['tagInputProps']>,
@@ -88,9 +92,6 @@ export default {
   },
   /** 全部标签值。值为数组表示多个标签，值为非数组表示单个数值 */
   value: {
-    type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['value']>,
-  },
-  modelValue: {
     type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['value']>,
   },
   /** 全部标签值。值为数组表示多个标签，值为非数组表示单个数值，非受控属性 */

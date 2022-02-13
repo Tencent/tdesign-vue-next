@@ -162,7 +162,7 @@ export default defineComponent({
       emitEvent(this, 'compositionstart', this.value, { e });
     },
     onRootClick(e: MouseEvent) {
-      (this.$refs.inputRef as HTMLInputElement).focus();
+      (this.$refs.inputRef as HTMLInputElement)?.focus();
       this.$emit('click', e);
     },
     inputValueChangeHandle(e: InputEvent | CompositionEvent) {
@@ -253,14 +253,16 @@ export default defineComponent({
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
         {labelContent}
-        <input
-          class={`${name}__inner`}
-          {...{ ...this.inputAttrs }}
-          {...inputEvents}
-          ref="inputRef"
-          value={this.value}
-          onInput={(e: Event) => this.handleInput(e as InputEvent)}
-        />
+        {!this.hideInput && (
+          <input
+            class={`${name}__inner`}
+            {...{ ...this.inputAttrs }}
+            {...inputEvents}
+            ref="inputRef"
+            value={this.value}
+            onInput={(e: Event) => this.handleInput(e as InputEvent)}
+          />
+        )}
         {suffixContent}
         {suffixIcon ? (
           <span class={[`${name}__suffix`, `${name}__suffix-icon`, { [`${name}__clear`]: this.showClear }]}>

@@ -21,10 +21,18 @@ export default defineComponent({
   setup(props: TdTagInputProps, context) {
     const tInputValue = ref<InputValue>();
     const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);
-    const { isHover, addHover, cancelHover } = useHover(props);
+    const { isHover, addHover, cancelHover } = useHover({
+      readonly: props.readonly,
+      disabled: props.disabled,
+      onMouseenter: props.onMouseenter,
+      onMouseleave: props.onMouseleave,
+    });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel } = useTagList(props, context);
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(
+      props,
+      context,
+    );
 
     const classes = computed(() => {
       return [
@@ -73,6 +81,7 @@ export default defineComponent({
       scrollToRightOnEnter,
       scrollToLeftOnLeave,
       onClick,
+      onClose,
       classes,
       slots: context.slots,
     };
@@ -89,7 +98,10 @@ export default defineComponent({
     const displayNode = useTNodeJSX('valueDisplay', {
       slots: this.slots,
       props,
-      params: { value: this.tagValue },
+      params: {
+        value: this.tagValue,
+        onClose: (index: number) => this.onClose({ e: undefined, index, item: undefined }),
+      },
     });
     // 左侧文本
     const label = useTNodeJSX('label', { props, slots: this.slots });
@@ -103,8 +115,9 @@ export default defineComponent({
         }}
         onWheel={this.onWheel}
         size={this.size}
-        readonly={this.readonly || this.hideInput}
+        readonly={this.readonly}
         disabled={this.disabled}
+        hideInput={this.hideInput}
         label={() => this.renderLabel({ slots: this.slots, displayNode, label })}
         class={this.classes}
         tips={this.tips}

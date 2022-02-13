@@ -94,6 +94,10 @@ export interface TdSelectInputProps {
    */
   suffixIcon?: TNode;
   /**
+   * 自定义标签的内部内容，每一个标签的当前值。注意和 `valueDisplay` 区分，`valueDisplay`  是用来定义全部标签内容，而非某一个标签
+   */
+  tag?: string | TNode<{ value: string | number }>;
+  /**
    * 透传 TagInput 组件全部属性
    */
   tagInputProps?: TagInputProps;
@@ -116,7 +120,7 @@ export interface TdSelectInputProps {
   /**
    * 自定义值呈现的全部内容，参数为所有标签的值
    */
-  valueDisplay?: string | TNode<{ value: SelectInputValue }>;
+  valueDisplay?: string | TNode<{ value: SelectInputValue; onClose: () => void }>;
   /**
    * 失去焦点时触发
    */

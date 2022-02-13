@@ -37,6 +37,11 @@ export interface TdInputProps {
    */
   format?: (value: number | number) => number | string;
   /**
+   * 是否隐藏 `<input>` 元素
+   * @default false
+   */
+  hideInput?: boolean;
+  /**
    * 左侧文本
    */
   label?: string | TNode;

@@ -1,12 +1,56 @@
 <template>
-  <div>
-    <t-select-input :value="selectValue" style="width: 300px" placeholder="Please Select" clearable @clear="onClear">
+  <div class="tdesign-demo-select-input-custom-tag">
+    <!-- 单选，使用 valueDisplay 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.valueDisplay -->
+    <t-select-input :value="selectValue1" placeholder="Please Select" clearable @clear="onClear">
+      <template #valueDisplay>
+        <span>
+          <img src="/favicon.ico" class="tdesign-demo-select-input__img" />
+          {{ selectValue1.label }}
+        </span>
+      </template>
       <template #panel>
         <ul class="tdesign-demo__selet-input-ul">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
             <img src="/favicon.ico" /> {{ item.label }}
           </li>
         </ul>
+      </template>
+    </t-select-input>
+
+    <br /><br />
+
+    <!-- 多选，第一种方式：使用 tag 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.tag -->
+    <t-select-input :value="selectValue2" placeholder="Please Select" multiple>
+      <template #tag="{ value }">
+        <span>
+          <img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img" />
+          {{ value }}
+        </span>
+      </template>
+      <template #panel>
+        <div class="tdesign-demo__select-empty">暂无示意数据</div>
+      </template>
+    </t-select-input>
+
+    <br /><br />
+
+    <!-- 多选，第二种方式：使用 valueDisplay 插槽定义全部选中项的内容，也可使用同名渲染函数 props.valueDisplay -->
+    <t-select-input :value="selectValue3" placeholder="Please Select" multiple>
+      <template #valueDisplay="{ value, onClose }">
+        <!-- <span><img src="/favicon.ico" class="tdesign-demo-select-input__img" />{{ value }}</span> -->
+        <t-tag
+          v-for="(item, index) in value"
+          :key="item"
+          closable
+          style="margin-right: 4px"
+          @close="() => onClose(index)"
+        >
+          <img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img" />
+          <span>{{ item }}</span>
+        </t-tag>
+      </template>
+      <template #panel>
+        <div class="tdesign-demo__select-empty">暂无示意数据</div>
       </template>
     </t-select-input>
   </div>
@@ -28,21 +72,21 @@ export default defineComponent({
   name: 'SelectInputSingle',
   setup() {
     const visible = ref(false);
-    // const selectValue = ref('tdesign-vue');
-    const selectValue = ref({ label: 'tdesign-vue', value: 1 });
-    // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
+    const selectValue1 = ref({ label: 'tdesign-vue', value: 1 });
 
     const onOptionClick = (item) => {
-      selectValue.value = item;
+      selectValue1.value = item;
     };
 
     const onClear = () => {
-      selectValue.value = undefined;
+      selectValue1.value = undefined;
     };
 
     return {
       visible,
-      selectValue,
+      selectValue1,
+      selectValue2: ['tdesign-vue', 'tdesign-react'],
+      selectValue3: ['tdesign-vue', 'tdesign-react', 'tdesign-mobile-vue'],
       options: OPTIONS,
       onOptionClick,
       onClear,
@@ -83,5 +127,19 @@ export default defineComponent({
 
 .tdesign-demo__select-input-block > label {
   width: 60px;
+}
+
+.tdesign-demo-select-input-custom-tag img.tdesign-demo-select-input__img {
+  max-width: 18px;
+  max-height: 18px;
+  margin: 0;
+  vertical-align: -4px;
+  margin-right: 4px;
+}
+
+.tdesign-demo__select-empty {
+  text-align: center;
+  color: var(--td-text-color-disabled);
+  line-height: 32px;
 }
 </style>
