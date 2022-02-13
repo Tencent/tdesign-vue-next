@@ -1,3 +1,4 @@
+import isEmpty from 'lodash/isEmpty';
 import {
   TreeNode,
   CascaderContextType,
@@ -58,6 +59,17 @@ export const getValue = (value: CascaderValue, valueType: CascaderProps['valueTy
   }
   return value[(value as Array<CascaderValue>).length - 1];
 };
+
+/**
+ * 空值校验
+ * 补充value为Number时的空值校验逻辑，排除NaN
+ * @param value
+ * @returns
+ */
+export function isEmptyValues(value: unknown): boolean {
+  if (typeof value === 'number' && !isNaN(value)) return false;
+  return isEmpty(value);
+}
 
 export default {
   getFullPathLabel,
