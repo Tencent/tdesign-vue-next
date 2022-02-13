@@ -20,8 +20,8 @@ export default defineComponent({
   name: 'TAlert',
   props,
   emits: ['close', 'closed'],
-  setup(props, { slots, emit }) {
-    const emitEvent = useEmitEvent(props, emit);
+  setup(props, { slots }) {
+    const emitEvent = useEmitEvent();
     // alert的dom引用
     const ele = ref<HTMLElement | null>(null);
     // descriptiond的dom引用
