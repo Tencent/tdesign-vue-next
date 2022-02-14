@@ -38664,12 +38664,8 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue cor
     <!---->
     <div class="t-input__prefix">
       <!--[-->
-<<<<<<< HEAD
-      <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentA</span>
-=======
       <!--[-->
-      <!--[--><span class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentA</span>
->>>>>>> develop
+      <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentA</span>
       <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
         <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
       </svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width:20px;max-height:20px;border-radius:50%;"><span>  StudentB</span>
@@ -45314,7 +45310,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/filterable.vue c
       <div class="t-select t-size-m t-select-selected">
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
+        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
         <div class="t-input t-select__input" modelvalue style="display:none;">
           <!---->
           <!----><input class="t-input__inner" autocomplete="false" placeholder="shenzhen" type="text" value>
@@ -45596,13 +45592,8 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/props.vue correc
       <div class="t-select t-size-m t-select-selected">
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
         <!--[-->
-<<<<<<< HEAD
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-=======
-        <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
         <div class="t-input t-select__input" modelvalue style="display:none;">
->>>>>>> develop
           <!---->
           <!----><input class="t-input__inner" autocomplete="false" placeholder="shenzhen" type="text" value>
           <!---->
@@ -45675,13 +45666,8 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
       <div class="t-select t-size-m t-select-selected">
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
         <!--[-->
-<<<<<<< HEAD
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="[object Object]" class="t-select__single">[object Object]</span>
-        <div class="t-input t-size-m t-select__input" modelvalue style="display:none;">
-=======
-        <!--]--><span class="t-tag t-tag--default t-size-m t-tag--dark" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="[object Object]" class="t-select__single">[object Object]</span>
         <div class="t-input t-select__input" modelvalue style="display:none;">
->>>>>>> develop
           <!---->
           <!----><input class="t-input__inner" autocomplete="false" placeholder="[object Object]" type="text" value>
           <!---->
