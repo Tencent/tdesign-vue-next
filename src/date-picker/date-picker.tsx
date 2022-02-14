@@ -25,7 +25,7 @@ import { DateValue, PickContext } from './interface';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 dayjs.extend(isBetween);
 

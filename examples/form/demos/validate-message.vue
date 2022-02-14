@@ -76,6 +76,7 @@
 import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
+const errorConfig = ref('default');
 const INITIAL_DATA = {
   account: '',
   password: '',

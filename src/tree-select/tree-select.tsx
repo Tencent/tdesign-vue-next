@@ -29,7 +29,7 @@ import { prefix } from '../config';
 
 import { RemoveOptions, NodeOptions } from './interface';
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-tree-select`;
 
@@ -458,7 +458,7 @@ export default defineComponent({
       ),
     };
     return (
-      <div ref="treeSelect">
+      <div ref="treeSelect" class={`${prefix}-select__wrap`}>
         <Popup
           ref="popup"
           class={`${prefix}-select__popup-reference`}

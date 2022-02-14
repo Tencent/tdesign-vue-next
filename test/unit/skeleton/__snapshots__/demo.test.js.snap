@@ -350,7 +350,6 @@ exports[`skeleton skeleton baseVue demo works fine 1`] = `
 <div>
   <div
     class="t-switch t-size-m t-is-checked mb-20"
-    disabled="false"
     modelvalue="true"
   >
     <span

@@ -9,7 +9,7 @@ import CLASSNAMES from '../utils/classnames';
 import { prefix } from '../config';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const imageProps = {
   showUploadProgress: props.showUploadProgress,

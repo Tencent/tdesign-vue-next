@@ -23,7 +23,7 @@ import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 export type OptionInstance = InstanceType<typeof Option>;
 
@@ -69,6 +69,12 @@ export default defineComponent({
     'search',
     'visible-change',
   ],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       isHover: false,

@@ -7,7 +7,7 @@ import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import ripple from '../utils/ripple';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-button`;
 
@@ -18,7 +18,7 @@ export default defineComponent({
   props,
   setup(props) {
     const disabled = useFormDisabled();
-    const isDisabledRef = computed(() => props.disabled || props.loading || disabled);
+    const isDisabledRef = computed(() => props.disabled || props.loading || disabled.value);
     const mergeThemeRef = computed(() => {
       const { theme, variant } = props;
       if (theme) return theme;
@@ -40,7 +40,7 @@ export default defineComponent({
     ]);
 
     return {
-      isDisabled: isDisabledRef,
+      disabled: isDisabledRef,
       mergeTheme: mergeThemeRef,
       buttonClass: buttonClassRef,
     };

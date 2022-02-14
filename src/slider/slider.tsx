@@ -9,7 +9,7 @@ import TSliderButton from './slider-button';
 import { SliderValue, TdSliderProps } from './type';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-slider`;
 interface MarkItem {

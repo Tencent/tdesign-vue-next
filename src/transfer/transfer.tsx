@@ -31,7 +31,7 @@ import props from './props';
 import { TNode } from '../common';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const SOURCE = 'source';
 const TARGET = 'target';

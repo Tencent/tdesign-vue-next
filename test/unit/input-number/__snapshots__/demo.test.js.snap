@@ -134,7 +134,7 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
     modelvalue="3"
   >
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
       type="button"
     >
       
@@ -166,7 +166,7 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
       />
     </div>
     <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
       type="button"
     >
       

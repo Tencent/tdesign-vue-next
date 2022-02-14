@@ -12,7 +12,7 @@ import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-input`;
 const INPUT_WRAP_CLASS = `${prefix}-input__wrap`;

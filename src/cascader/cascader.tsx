@@ -31,7 +31,7 @@ import props from './props';
 import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './type';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-cascader`;
 

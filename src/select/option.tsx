@@ -11,7 +11,7 @@ import Checkbox from '../checkbox/index';
 import { ClassName } from '../common';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const selectName = `${prefix}-select`;
 
