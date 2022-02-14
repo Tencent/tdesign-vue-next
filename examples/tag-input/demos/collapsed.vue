@@ -16,14 +16,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'TTagInputCollapsed',
-  setup() {
-    const tags = ref(['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter']);
-    return { tags };
-  },
-});
+const tags = ref(['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter']);
 </script>

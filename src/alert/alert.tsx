@@ -20,8 +20,9 @@ export default defineComponent({
   name: 'TAlert',
   props,
   emits: ['close', 'closed'],
-  setup(props, { slots }) {
+  setup(props) {
     const emitEvent = useEmitEvent();
+    const renderIconTNode = useIcon();
     // alert的dom引用
     const ele = ref<HTMLElement | null>(null);
     // descriptiond的dom引用
@@ -41,7 +42,7 @@ export default defineComponent({
         error: ErrorCircleFilledIcon,
         question: HelpCircleFilledIcon,
       };
-      const iconContent = useIcon(props, slots, 'icon', Component);
+      const iconContent = renderIconTNode('icon', Component);
       return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
     };
 
@@ -53,7 +54,7 @@ export default defineComponent({
       } else if (typeof close === 'string') {
         closeContent = close;
       } else {
-        closeContent = useIcon(props, slots, 'close');
+        closeContent = renderIconTNode('close');
       }
       return closeContent ? (
         <div class={`${name}__close`} onClick={handleClose}>
