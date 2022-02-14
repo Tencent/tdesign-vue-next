@@ -37,7 +37,6 @@ export default defineComponent({
   data() {
     return {
       isHover: false,
-      formDisabled: undefined,
     };
   },
   computed: {

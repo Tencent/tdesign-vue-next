@@ -1,4 +1,4 @@
-import { defineComponent, VNode, toRefs } from 'vue';
+import { defineComponent, VNode } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
