@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue';
 import { prefix } from '../config';
 import props from './props';
-import { useTNodeJSX } from '../hooks/tnode';
+import { renderTNodeJSX } from '../utils/render-tnode';
 
 const preName = `${prefix}-comment`;
 
@@ -9,19 +9,20 @@ export default defineComponent({
   name: 'TComment',
   props,
   slots: ['avatar', 'reply', 'author', 'datetime', 'content', 'quote', 'actions'],
-  setup(props, { slots }) {
-    const reply = props.reply ?? slots.reply?.();
-    const author = props.author ?? slots.author?.();
-    const datetime = props.datetime ?? slots.author?.();
-    const quote = props.quote ?? slots.quote?.();
-    const actions = props.actions ?? slots.actions?.();
-    const content = props.content ?? slots.content?.();
-    const avatar = props.avatar ?? slots.avatar?.();
-
+  render() {
+    const reply = renderTNodeJSX(this, 'reply');
+    const author = renderTNodeJSX(this, 'author');
+    const datetime = renderTNodeJSX(this, 'datetime');
+    const quote = renderTNodeJSX(this, 'quote');
+    const actions = renderTNodeJSX(this, 'actions');
+    const content = renderTNodeJSX(this, 'content');
+    const avatar = renderTNodeJSX(this, 'avatar');
     const showAuthorDatetime = computed(() => author || datetime);
 
     const replyDom = reply ? <div class={`${preName}__reply`}>{reply}</div> : null;
+
     const quoteDom = quote ? <div class={`${preName}__quote`}>{quote}</div> : null;
+
     const avatarDom = avatar ? (
       <div class={`${preName}__avatar`}>
         {typeof avatar === 'string' ? <img src={avatar} alt="" class={`${preName}__avatar-image`} /> : avatar}
@@ -56,7 +57,7 @@ export default defineComponent({
       </div>
     );
 
-    return () => (
+    return (
       <div class={preName}>
         <div class={`${preName}__inner`}>
           {avatarDom}
