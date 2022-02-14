@@ -1,4 +1,4 @@
-import { defineComponent, h, VNodeChild, nextTick, toRefs } from 'vue';
+import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';

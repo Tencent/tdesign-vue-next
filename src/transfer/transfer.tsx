@@ -39,7 +39,6 @@ const TARGET = 'target';
 type DataType = {
   SOURCE: TransferListType;
   TARGET: TransferListType;
-  formDisabled: boolean;
 };
 
 export default defineComponent({
@@ -72,7 +71,6 @@ export default defineComponent({
     return {
       SOURCE,
       TARGET,
-      formDisabled: undefined,
     };
   },
   computed: {

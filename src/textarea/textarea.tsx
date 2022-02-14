@@ -1,4 +1,4 @@
-import { defineComponent, toRefs } from 'vue';
+import { defineComponent } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
