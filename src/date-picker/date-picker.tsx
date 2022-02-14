@@ -69,7 +69,6 @@ export default defineComponent({
       inlineView: false,
       showTime: false,
       isOpen: false,
-      // 表单控制禁用态时的变量
       startTimeValue: dayjs(),
       endTimeValue: dayjs(),
     };
