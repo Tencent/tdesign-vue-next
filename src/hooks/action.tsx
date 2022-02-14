@@ -31,6 +31,7 @@ export interface BtnAction {
 
 export default function useAction(action: BtnAction) {
   const instance = getCurrentInstance();
+  const renderTNodeJSX = useTNodeJSX();
   // 全局配置属性综合
   const getDefaultConfirmBtnProps = (options: MixinsConfirmBtn): ButtonProps => {
     const { globalConfirm, theme, globalConfirmBtnTheme } = options;
@@ -91,7 +92,7 @@ export default function useAction(action: BtnAction) {
       return getButtonByProps(confirmBtn as string | ButtonProps, defaultButtonProps, className);
     }
     // 渲染插槽 或 function 类型的 confirmBtn，属性优先级更高
-    return useTNodeJSX('confirmBtn');
+    return renderTNodeJSX('confirmBtn');
   };
   const getCancelBtn = (options: MixinsCancelBtn) => {
     const { cancelBtn, className } = options;
@@ -109,7 +110,7 @@ export default function useAction(action: BtnAction) {
       return getButtonByProps(cancelBtn as string | ButtonProps, defaultButtonProps);
     }
     // 渲染插槽 或 function 类型的 confirmBtn，属性优先级更高
-    return useTNodeJSX('cancelBtn');
+    return renderTNodeJSX('cancelBtn');
   };
   return { getConfirmBtn, getCancelBtn };
 }
