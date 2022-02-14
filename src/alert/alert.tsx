@@ -20,7 +20,7 @@ export default defineComponent({
   name: 'TAlert',
   props,
   emits: ['close', 'closed'],
-  setup(props, { slots }) {
+  setup(props) {
     const emitEvent = useEmitEvent();
     const renderIconTNode = useIcon();
     // alert的dom引用
