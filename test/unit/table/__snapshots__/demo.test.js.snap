@@ -3770,7 +3770,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                   class="t-table__filter-pop-content-inner"
                                 >
                                   <div
-                                    class="t-input t-size-m"
+                                    class="t-input"
                                   >
                                     <!---->
                                     <!---->
@@ -4160,7 +4160,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       >
                                         <div
                                           allowinput="0"
-                                          class="t-input t-size-m t-is-readonly t-input--suffix"
+                                          class="t-input t-is-readonly t-input--suffix"
                                           modelvalue=""
                                         >
                                           <!---->

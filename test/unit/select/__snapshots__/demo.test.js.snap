@@ -1117,7 +1117,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-is-readonly t-select__input"
+          class="t-input t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -3031,7 +3031,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-is-readonly t-select__input"
+          class="t-input t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -3224,7 +3224,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-is-readonly t-select__input"
+          class="t-input t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -6079,7 +6079,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-is-readonly t-select__input"
+          class="t-input t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
@@ -6205,7 +6205,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-is-readonly t-select__input"
+          class="t-input t-is-readonly t-select__input"
           modelvalue=""
         >
           <!---->
