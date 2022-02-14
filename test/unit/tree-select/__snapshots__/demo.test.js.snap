@@ -236,7 +236,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -463,7 +463,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -800,7 +800,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
