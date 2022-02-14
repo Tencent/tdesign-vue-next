@@ -4,7 +4,9 @@ import isFunction from 'lodash/isFunction';
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext } from '../utils/render-tnode';
 
 /**
- * 用于setup的TNodeJSX，在组合时逻辑时渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况，与render-tnode的大概处理逻辑相同。
+ * 通过 JSX 的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
+ * 优先级：Props 大于插槽
+ * 如果 props 值为 true ，则使用插槽渲染。如果也没有插槽的情况下，则使用 defaultNode 渲染
  * @example const renderTNodeJSX = useTNodeJSX()
  * @return renderTNodeJSX
  * @param name 插槽和属性名称

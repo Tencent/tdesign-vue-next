@@ -19,6 +19,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
+    const renderTNode = useTNodeJSX();
     const tInputValue = ref<InputValue>();
     const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);
     const { isHover, addHover, cancelHover } = useHover(props);
@@ -69,23 +70,24 @@ export default defineComponent({
       scrollToRightOnEnter,
       scrollToLeftOnLeave,
       classes,
+      renderTNode,
       slots: context.slots,
     };
   },
 
   render() {
+    const { renderTNode } = this;
     const suffixIconNode = this.showClearIcon ? (
       <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.clearAll} />
     ) : (
-      useTNodeJSX('suffixIcon', { slots: this.slots })
+      renderTNode('suffixIcon')
     );
     // 自定义 Tag 节点
-    const displayNode = useTNodeJSX('valueDisplay', {
-      slots: this.slots,
+    const displayNode = renderTNode('valueDisplay', {
       params: { value: this.tagValue },
     });
     // 左侧文本
-    const label = useTNodeJSX('label', { slots: this.slots });
+    const label = renderTNode('label');
     return (
       <TInput
         ref="tagInputRef"

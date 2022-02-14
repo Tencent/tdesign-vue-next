@@ -7,14 +7,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'TTagInputTheme',
-  setup() {
-    const tags = ref(['Vue', 'React', 'Miniprogram']);
-    return { tags };
-  },
-});
+const tags = ref(['Vue', 'React', 'Miniprogram']);
 </script>
