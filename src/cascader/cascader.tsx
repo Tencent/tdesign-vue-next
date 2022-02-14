@@ -60,7 +60,6 @@ export default defineComponent({
 
   data() {
     return {
-      // 表单控制禁用态时的变量
       inputWidth: 0,
       visible: false,
       treeStore: null,
