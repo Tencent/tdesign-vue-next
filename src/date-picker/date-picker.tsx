@@ -24,6 +24,9 @@ import { firstUpperCase, extractTimeFormat } from '../_common/js/date-picker/uti
 import { DateValue, PickContext } from './interface';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
+// hooks
+import { useFormDisabled } from '../form/form';
+
 dayjs.extend(isBetween);
 
 const onOpenDebounce = debounce((vm?: any) => {
@@ -46,6 +49,12 @@ export default defineComponent({
   },
   props,
   emits: ['input', 'open', 'close', 'focus', 'click', 'change', 'pick'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       tempValue: '' as string | number | dayjs.Dayjs | Date,
@@ -61,7 +70,6 @@ export default defineComponent({
       showTime: false,
       isOpen: false,
       // 表单控制禁用态时的变量
-      formDisabled: undefined,
       startTimeValue: dayjs(),
       endTimeValue: dayjs(),
     };
@@ -158,9 +166,6 @@ export default defineComponent({
         [`${name}--calendar-inline-view`]: this.inlineView,
         [`${name}--range`]: this.range,
       };
-    },
-    tDisabled() {
-      return this.formDisabled || this.disabled;
     },
   },
   mounted() {
@@ -288,7 +293,7 @@ export default defineComponent({
       }
     },
     toggle() {
-      if (!this.tDisabled) {
+      if (!this.disabled) {
         if (this.isOpen) {
           this.close();
         } else {
@@ -297,7 +302,7 @@ export default defineComponent({
       }
     },
     open() {
-      if (!this.tDisabled) {
+      if (!this.disabled) {
         const { formattedValue } = this;
         // set default value;
         if (formattedValue) {
@@ -313,7 +318,7 @@ export default defineComponent({
       }
     },
     close() {
-      if (!this.tDisabled) {
+      if (!this.disabled) {
         this.tempValue = '';
         this.isOpen = false;
         this.showTime = false;
@@ -366,7 +371,7 @@ export default defineComponent({
       this.close();
 
       // set value
-      if (!this.tDisabled) {
+      if (!this.disabled) {
         const selectedDates: any[] = [];
         this.selectedDates = selectedDates;
         this.formattedValue = '';
@@ -556,7 +561,7 @@ export default defineComponent({
     // props
     const {
       popupProps,
-      tDisabled,
+      disabled,
       clearable,
       allowInput,
       size,
@@ -648,7 +653,7 @@ export default defineComponent({
           class={`${name}__popup-reference`}
           trigger="click"
           placement="bottom-left"
-          disabled={tDisabled}
+          disabled={disabled}
           showArrow={false}
           visible={isOpen}
           popupProps={popupProps}
@@ -670,7 +675,7 @@ export default defineComponent({
             <t-input
               ref="native"
               v-model={this.formattedValue}
-              disabled={tDisabled}
+              disabled={disabled}
               clearable={clearable}
               placeholder={this.getPlaceholderText()}
               readonly={!allowInput}

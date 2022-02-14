@@ -4,8 +4,11 @@ import CLASSNAMES from '../utils/classnames';
 import TLoading from '../loading';
 import { SwitchValue } from './type';
 import props from './props';
-import { ClassName, TNodeReturnValue } from '../common';
+import { TNodeReturnValue } from '../common';
 import { emitEvent } from '../utils/event';
+
+// hooks
+import { useFormDisabled } from '../form/form';
 
 const name = `${prefix}-switch`;
 
@@ -13,52 +16,49 @@ export default defineComponent({
   name: 'TSwitch',
   props: { ...props },
   emits: ['change'],
-  data() {
+  setup() {
+    const disabled = useFormDisabled();
     return {
-      // 表单控制禁用态时的变量
-      formDisabled: undefined,
+      disabled,
     };
   },
   computed: {
-    tDisabled() {
-      return this.formDisabled || this.disabled;
-    },
-    classes(): ClassName {
+    classes() {
       return [
         `${name}`,
         CLASSNAMES.SIZE[this.size],
         {
-          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
           [CLASSNAMES.STATUS.loading]: this.loading,
           [CLASSNAMES.STATUS.checked]: this.value === this.activeValue,
         },
       ];
     },
-    nodeClasses(): ClassName {
+    nodeClasses() {
       return [
         `${name}__handle`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
           [CLASSNAMES.STATUS.loading]: this.loading,
         },
       ];
     },
-    contentClasses(): ClassName {
+    contentClasses() {
       return [
         `${name}__content`,
         CLASSNAMES.SIZE[this.size],
         {
-          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
         },
       ];
     },
-    activeValue(): SwitchValue {
+    activeValue() {
       if (this.customValue && this.customValue.length > 0) {
         return this.customValue[0];
       }
       return true;
     },
-    inactiveValue(): SwitchValue {
+    inactiveValue() {
       if (this.customValue && this.customValue.length > 1) {
         return this.customValue[1];
       }
@@ -103,14 +103,14 @@ export default defineComponent({
       emitEvent(this, 'change', checked);
     },
     toggle(): void {
-      if (this.tDisabled || this.loading) {
+      if (this.disabled || this.loading) {
         return;
       }
       this.handleToggle();
     },
   },
   render() {
-    const { loading, tDisabled, content, nodeClasses, classes, toggle, contentClasses } = this;
+    const { loading, disabled, content, nodeClasses, classes, toggle, contentClasses } = this;
 
     let switchContent: VNodeChild;
     let loadingContent: TNodeReturnValue;
@@ -122,7 +122,7 @@ export default defineComponent({
     }
 
     return (
-      <div class={classes} disabled={tDisabled} onClick={toggle}>
+      <div class={classes} disabled={disabled} onClick={toggle}>
         <span class={nodeClasses}>{loadingContent}</span>
         <div class={contentClasses}>{switchContent}</div>
       </div>

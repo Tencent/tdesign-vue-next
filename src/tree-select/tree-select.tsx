@@ -27,6 +27,8 @@ import { ClassName, TreeOptionData } from '../common';
 import { prefix } from '../config';
 
 import { RemoveOptions, NodeOptions } from './interface';
+// hooks
+import { useFormDisabled } from '../form/form';
 
 const name = `${prefix}-tree-select`;
 
@@ -40,6 +42,12 @@ export default defineComponent({
     ...props,
   },
   emits: ['change', 'clear', 'focus', 'blur', 'remove', 'search'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       // 表单控制禁用态时的变量
@@ -65,14 +73,11 @@ export default defineComponent({
     };
   },
   computed: {
-    tDisabled() {
-      return this.formDisabled || this.disabled;
-    },
     classes(): ClassName {
       return [
         `${prefix}-select`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
           [CLASSNAMES.STATUS.active]: this.visible,
           [CLASSNAMES.SIZE[this.size]]: this.size,
           [`${prefix}-has-prefix`]: this.prefixIconSlot,
@@ -100,19 +105,19 @@ export default defineComponent({
       return (
         !this.clearable ||
         !this.isHover ||
-        this.tDisabled ||
+        this.disabled ||
         (!this.multiple && !this.value && this.value !== 0) ||
         (this.multiple && isArray(this.value) && isEmpty(this.value))
       );
     },
     showLoading(): boolean {
-      return this.loading && !this.tDisabled;
+      return this.loading && !this.disabled;
     },
     showClose(): boolean {
       return (
         this.clearable &&
         this.isHover &&
-        !this.tDisabled &&
+        !this.disabled &&
         ((!this.multiple && (!!this.value || this.value === 0)) ||
           (this.multiple && !isEmpty(this.value as Array<TreeSelectValue>)))
       );
@@ -129,7 +134,7 @@ export default defineComponent({
       return false;
     },
     showFilter(): boolean {
-      if (this.tDisabled) {
+      if (this.disabled) {
         return false;
       }
       if (!this.multiple && this.selectedSingle && (this.filterable || isFunction(this.filter))) {
@@ -253,7 +258,7 @@ export default defineComponent({
       }
     },
     removeTag(index: number, data: TreeOptionData, e: MouseEvent) {
-      if (this.tDisabled) {
+      if (this.disabled) {
         return;
       }
       this.remove({ value: this.value[index], data, e });
@@ -381,7 +386,7 @@ export default defineComponent({
         data={this.data}
         activable={!this.multiple}
         checkable={this.multiple}
-        disabled={this.tDisabled || this.multiLimitDisabled}
+        disabled={this.disabled || this.multiLimitDisabled}
         empty={this.empty}
         size={this.size}
         filter={this.filterByText}
@@ -479,7 +484,7 @@ export default defineComponent({
               <FakeArrow
                 overlayClassName={`${prefix}-select__right-icon`}
                 overlayStyle={iconStyle}
-                isActive={this.visible && !this.tDisabled}
+                isActive={this.visible && !this.disabled}
               />
             )}
             <CloseCircleFilledIcon

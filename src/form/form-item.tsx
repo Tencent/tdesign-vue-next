@@ -20,7 +20,7 @@ import {
 import props from './form-item-props';
 import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
 import Form, { FormItemInstance } from './form';
-import { ClassName, ScopedSlot, TNodeReturnValue, Styles } from '../common';
+import { ClassName, TNodeReturnValue, Styles } from '../common';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { FormConfig } from '../config-provider/config-receiver';
 
@@ -157,10 +157,6 @@ export default defineComponent({
     },
   },
 
-  created() {
-    this.addWatch();
-  },
-
   mounted() {
     this.initialValue = cloneDeep(this.value);
     this.form.children.push(this);
@@ -172,29 +168,6 @@ export default defineComponent({
   },
 
   methods: {
-    addWatch() {
-      if (this.disabled === undefined) return;
-      this.$watch(
-        'disabled',
-        (val: TdFormProps['disabled']) => {
-          this.$nextTick(() => {
-            this.setChildrenDisabled(val, this.children);
-          });
-        },
-        { immediate: true },
-      );
-    },
-    // 设置表单内组件的禁用状态
-    setChildrenDisabled(disabled: boolean, children: ComponentPublicInstance[]) {
-      children.forEach((item) => {
-        if (this.form.controlledComponents?.includes(item.$options.name)) {
-          item.formDisabled = disabled;
-        }
-        if (item.$children?.length) {
-          this.setChildrenDisabled(disabled, item.$children);
-        }
-      });
-    },
     async validate<T>(trigger: ValidateTriggerType): Promise<FormItemValidateResult<T>> {
       this.resetValidating = true;
       const rules =

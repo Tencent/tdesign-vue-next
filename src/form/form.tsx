@@ -1,4 +1,14 @@
-import { defineComponent, VNode, ComponentPublicInstance } from 'vue';
+import {
+  defineComponent,
+  VNode,
+  inject,
+  computed,
+  ComponentPublicInstance,
+  provide,
+  getCurrentInstance,
+  toRefs,
+  Ref,
+} from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import { prefix } from '../config';
 import { FormValidateResult, TdFormProps, FormValidateParams } from './type';
@@ -12,11 +22,26 @@ export type FormItemInstance = InstanceType<typeof FormItem>;
 
 type Result = FormValidateResult<TdFormProps['data']>;
 
+export interface FormDisabledProvider {
+  disabled: Ref<TdFormProps['disabled']>;
+}
+
+/**
+ * 用于实现 form 的全局禁用状态
+ * @param propsDisabled
+ * @returns
+ */
+export function useFormDisabled() {
+  const { props } = getCurrentInstance();
+  const propsDisabled = toRefs(props).disabled as Ref<boolean>;
+  const formDisabled = inject<FormDisabledProvider>('formDisabled', Object.create(null)).disabled;
+  return computed(() => propsDisabled.value || formDisabled?.value);
+}
+
 const name = `${prefix}-form`;
 
 export default defineComponent({
   name: 'TForm',
-
   provide(): { form: ComponentPublicInstance } {
     return {
       form: this,
@@ -26,6 +51,13 @@ export default defineComponent({
   props: { ...props },
 
   emits: ['validate', 'submit', 'reset', 'form-item-destroyed'],
+
+  setup(props) {
+    const { disabled } = toRefs(props);
+    provide<FormDisabledProvider>('formDisabled', {
+      disabled,
+    });
+  },
 
   data() {
     return {

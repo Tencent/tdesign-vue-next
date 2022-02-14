@@ -1,10 +1,13 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, VNode, toRefs } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import { omit } from '../utils/helper';
 import props from './props';
 import { emitEvent } from '../utils/event';
 import { TdRadioProps } from './type';
+
+// hooks
+import { useFormDisabled } from '../form/form';
 
 const name = `${prefix}-radio`;
 export const radioBtnName = `${prefix}-radio-button`;
@@ -28,17 +31,11 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['change', 'click'],
-  data() {
+  setup() {
+    const disabled = useFormDisabled();
     return {
-      // 表单控制禁用态时的变量
-      formDisabled: undefined,
+      disabled,
     };
-  },
-
-  computed: {
-    tDisabled(): boolean {
-      return this.formDisabled || this.disabled;
-    },
   },
   methods: {
     handleChange(e: Event) {
@@ -65,7 +62,7 @@ export default defineComponent({
 
     const inputProps = {
       checked: this.checked,
-      disabled: this.tDisabled,
+      disabled: this.disabled,
       value: this.value,
       name: this.name,
     };
@@ -85,7 +82,7 @@ export default defineComponent({
 
     if (radioGroup) {
       inputProps.checked = this.value === radioGroup.value;
-      inputProps.disabled = this.tDisabled === undefined ? radioGroup.disabled : this.tDisabled;
+      inputProps.disabled = this.disabled === undefined ? radioGroup.disabled : this.disabled;
       inputProps.name = radioGroup.name;
     }
 

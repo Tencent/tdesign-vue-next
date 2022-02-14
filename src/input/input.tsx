@@ -1,4 +1,4 @@
-import { defineComponent, h, VNodeChild, nextTick } from 'vue';
+import { defineComponent, h, VNodeChild, nextTick, toRefs } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
@@ -10,6 +10,9 @@ import { prefix } from '../config';
 import props from './props';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
+
+// hooks
+import { useFormDisabled } from '../form/form';
 
 const name = `${prefix}-input`;
 const INPUT_WRAP_CLASS = `${prefix}-input__wrap`;
@@ -31,25 +34,27 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
-      formDisabled: undefined,
       isHover: false,
       focused: false,
       renderType: this.type,
     };
   },
   computed: {
-    tDisabled(): boolean {
-      return this.formDisabled || this.disabled;
-    },
     showClear(): boolean {
-      return this.value && !this.tDisabled && this.clearable && this.isHover;
+      return this.value && !this.disabled && this.clearable && this.isHover;
     },
     inputAttrs(): Record<string, any> {
       return getValidAttrs({
         autofocus: this.autofocus,
-        disabled: this.tDisabled,
+        disabled: this.disabled,
         readonly: this.readonly,
         autocomplete: this.autocomplete,
         placeholder: this.placeholder ?? this.t(this.global.placeholder),
@@ -113,7 +118,7 @@ export default defineComponent({
     },
 
     handleKeydown(e: KeyboardEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       const { code } = e;
       if (code === 'Enter' || code === 'NumpadEnter') {
         emitEvent(this, 'enter', this.value, { e });
@@ -122,15 +127,15 @@ export default defineComponent({
       }
     },
     handleKeyUp(e: KeyboardEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       emitEvent(this, 'keyup', this.value, { e });
     },
     handleKeypress(e: KeyboardEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       emitEvent(this, 'keypress', this.value, { e });
     },
     onHandlePaste(e: ClipboardEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       // @ts-ignore
       const clipData = e.clipboardData || window.clipboardData;
       this.onPaste?.({ e, pasteValue: clipData?.getData('text/plain') });
@@ -147,7 +152,7 @@ export default defineComponent({
       this.emitFocus(e);
     },
     emitFocus(e: FocusEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       this.focused = true;
       emitEvent(this, 'focus', this.value, { e });
     },
@@ -222,10 +227,10 @@ export default defineComponent({
       name,
       CLASSNAMES.SIZE[this.size] || '',
       {
-        [CLASSNAMES.STATUS.disabled]: this.tDisabled,
+        [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-is-${this.status}`]: this.status,
-        [`${prefix}-is-disabled`]: this.tDisabled,
+        [`${prefix}-is-disabled`]: this.disabled,
         [`${prefix}-is-readonly`]: this.readonly,
         [`${name}--prefix`]: prefixIcon || labelContent,
         [`${name}--suffix`]: suffixIcon || suffixContent,

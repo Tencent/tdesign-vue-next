@@ -6,6 +6,9 @@ import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import ripple from '../utils/ripple';
 
+// hooks
+import { useFormDisabled } from '../form/form';
+
 const name = `${prefix}-button`;
 
 export default defineComponent({
@@ -14,7 +17,8 @@ export default defineComponent({
   inheritAttrs: false,
   props,
   setup(props) {
-    const isDisabledRef = computed(() => props.disabled || props.loading);
+    const disabled = useFormDisabled();
+    const isDisabledRef = computed(() => props.disabled || props.loading || disabled);
     const mergeThemeRef = computed(() => {
       const { theme, variant } = props;
       if (theme) return theme;

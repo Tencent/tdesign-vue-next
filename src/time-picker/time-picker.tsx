@@ -20,6 +20,9 @@ import props from './props';
 
 import { EPickerCols, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM } from './constant';
 
+// hooks
+import { useFormDisabled } from '../form/form';
+
 const name = `${prefix}-time-picker`;
 
 dayjs.extend(customParseFormat);
@@ -40,6 +43,13 @@ export default defineComponent({
 
   emits: ['change', 'input', 'close', 'open', 'focus', 'blur'],
 
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
+
   data() {
     const { defaultValue, value } = this.$props;
     // 初始化默认值
@@ -56,11 +66,7 @@ export default defineComponent({
       needClear: false,
     };
   },
-
   computed: {
-    tDisabled() {
-      return this.formDisabled || this.disabled;
-    },
     // 传递给选择面板的时间值
     panelValue(): Array<dayjs.Dayjs> {
       const {
@@ -306,7 +312,7 @@ export default defineComponent({
       return (
         <div class={classes} onClick={() => (this.isShowPanel = true)}>
           <t-input
-            disabled={this.tDisabled}
+            disabled={this.disabled}
             size={this.size}
             onClear={this.clear}
             clearable={this.clearable}
@@ -319,7 +325,7 @@ export default defineComponent({
           <input-items
             size={this.size}
             dayjs={this.inputTime}
-            disabled={this.tDisabled}
+            disabled={this.disabled}
             format={this.format}
             steps={this.steps}
             allowInput={this.allowInput}
@@ -339,7 +345,7 @@ export default defineComponent({
     const {
       size,
       $attrs: { className },
-      tDisabled,
+      disabled,
     } = this;
     // 样式类名
     const classes = [name, CLASSNAMES.SIZE[size] || '', className];
@@ -350,7 +356,7 @@ export default defineComponent({
           ref="panel"
           format={this.format}
           value={this.panelValue}
-          disabled={this.tDisabled}
+          disabled={this.disabled}
           isShowPanel={this.isShowPanel}
           onTimePick={this.pickTime}
           onSure={this.makeSure}
@@ -369,7 +375,7 @@ export default defineComponent({
         placement="bottom-left"
         class={classes}
         trigger="click"
-        disabled={tDisabled}
+        disabled={disabled}
         visible={this.isShowPanel}
         overlayClassName={`${COMPONENT_NAME}__panel-container`}
         onVisibleChange={this.panelVisibleChange}
