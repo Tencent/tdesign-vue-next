@@ -1,4 +1,5 @@
-import { defineComponent, VNodeChild } from 'vue';
+import { defineComponent, VNodeChild, computed, ComponentPublicInstance, ref } from 'vue';
+import { useEmitEvent } from '../hooks/event';
 import TLoading from '../loading';
 import { prefix } from '../config';
 import props from './props';
@@ -16,28 +17,55 @@ export default defineComponent({
     ...props,
   },
   emits: ['scroll', 'load-more'],
-  computed: {
-    listClass(): ClassName {
+  setup(props, { emit }) {
+    const emitEvent = useEmitEvent(props, emit);
+    /** 列表基础逻辑 start */
+    const listClass = computed<ClassName>(() => {
       return [
         `${name}`,
-        CLASSNAMES.SIZE[this.size],
+        CLASSNAMES.SIZE[props.size],
         {
-          [`${name}--split`]: this.split,
-          [`${name}--stripe`]: this.stripe,
-          [`${name}--vertical-action`]: this.layout === 'vertical',
+          [`${name}--split`]: props.split,
+          [`${name}--stripe`]: props.stripe,
+          [`${name}--vertical-action`]: props.layout === 'vertical',
         },
       ];
-    },
-    loadingClass(): ClassName {
-      return typeof this.asyncLoading === 'string' && ['loading', 'load-more'].includes(this.asyncLoading)
-        ? `${name}__load ${name}__load--${this.asyncLoading}`
+    });
+    const renderContent = (context: ComponentPublicInstance): VNodeChild => {
+      const propsHeaderContent = renderTNodeJSX(context, 'header');
+      const propsFooterContent = renderTNodeJSX(context, 'footer');
+      return [
+        propsHeaderContent && <div class={`${name}__header`}>{propsHeaderContent}</div>,
+        <ul class={`${name}__inner`}>{renderTNodeJSX(context, 'default')}</ul>,
+        propsFooterContent && <div class={`${name}__footer`}>{propsFooterContent}</div>,
+      ];
+    };
+    /** 列表基础逻辑 end */
+
+    /** 滚动相关逻辑 start */
+    const scrollRef = ref<HTMLElement>(null);
+
+    const handleScroll = (e: WheelEvent | Event) => {
+      const listElement = scrollRef.value;
+      const { scrollTop, scrollHeight, clientHeight } = listElement;
+      emitEvent('scroll', {
+        $event: e,
+        scrollTop,
+        scrollBottom: scrollHeight - clientHeight - scrollTop,
+      });
+    };
+    /** 滚动相关逻辑 end */
+
+    /** loading加载相关逻辑 start */
+    const loadingClass = computed(() => {
+      return typeof props.asyncLoading === 'string' && ['loading', 'load-more'].includes(props.asyncLoading)
+        ? `${name}__load ${name}__load--${props.asyncLoading}`
         : `${name}__load`;
-    },
-  },
-  methods: {
-    renderLoading() {
-      if (this.asyncLoading && typeof this.asyncLoading === 'string') {
-        if (this.asyncLoading === LOADING) {
+    });
+
+    const renderLoading = (context: ComponentPublicInstance) => {
+      if (props.asyncLoading && typeof props.asyncLoading === 'string') {
+        if (props.asyncLoading === LOADING) {
           return (
             <div>
               <TLoading />
@@ -45,48 +73,39 @@ export default defineComponent({
             </div>
           );
         }
-        if (this.asyncLoading === LOAD_MORE) {
+        if (props.asyncLoading === LOAD_MORE) {
           return <span>点击加载更多</span>;
         }
       }
-      return renderTNodeJSX(this, 'asyncLoading');
-    },
-    handleScroll(e: WheelEvent | Event) {
-      const listElement = this.$el as HTMLElement;
-      const { scrollTop, scrollHeight, clientHeight } = listElement;
-      emitEvent(this, 'scroll', {
-        $event: e,
-        scrollTop,
-        scrollBottom: scrollHeight - clientHeight - scrollTop,
-      });
-    },
-    handleLoadMore(e: MouseEvent) {
-      if (typeof this.asyncLoading === 'string' && this.asyncLoading !== LOAD_MORE) return;
-      emitEvent(this, 'load-more', { e });
-    },
-    renderContent(): VNodeChild {
-      const propsHeaderContent = renderTNodeJSX(this, 'header');
-      const propsFooterContent = renderTNodeJSX(this, 'footer');
+      return renderTNodeJSX(context, 'asyncLoading');
+    };
 
-      return [
-        propsHeaderContent && <div class={`${name}__header`}>{propsHeaderContent}</div>,
-        <ul class={`${name}__inner`}>{renderTNodeJSX(this, 'default')}</ul>,
-        propsFooterContent && <div class={`${name}__footer`}>{propsFooterContent}</div>,
-      ];
-    },
+    const handleLoadMore = (e: MouseEvent) => {
+      if (typeof props.asyncLoading === 'string' && props.asyncLoading !== LOAD_MORE) return;
+      emitEvent('load-more', { e });
+    };
+    /** loading加载相关逻辑 end */
+    return {
+      listClass,
+      loadingClass,
+      renderLoading,
+      renderContent,
+      scrollRef,
+      handleScroll,
+      handleLoadMore,
+    };
   },
-  render() {
-    let listContent = this.renderContent();
 
+  render() {
+    let listContent = this.renderContent(this);
     listContent = [
       listContent,
       <div class={this.loadingClass} onClick={this.handleLoadMore}>
-        {this.renderLoading()}
+        {this.renderLoading(this)}
       </div>,
     ];
-
     return (
-      <div class={this.listClass} onScroll={this.handleScroll}>
+      <div class={this.listClass} onScroll={this.handleScroll} ref="scrollRef">
         {listContent}
       </div>
     );
