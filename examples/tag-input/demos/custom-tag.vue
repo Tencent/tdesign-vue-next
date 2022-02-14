@@ -41,5 +41,4 @@ const tags = ref(['StudentA', 'StudentB', 'StudentC']);
 const onTagDelete = (index) => {
   tags.value.splice(index, 1);
 };
-return { tags, onTagDelete };
 </script>
