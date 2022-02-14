@@ -69,10 +69,16 @@ import { MessagePlugin } from 'tdesign-vue-next';
 const formDisabled = ref(true);
 const INITIAL_DATA = {
   name: '',
-  tel: '',
+  message: true,
   gender: '',
   course: [],
-  status: false,
+  college: '',
+  personalProfile: '',
+  address1: undefined,
+  address2: undefined,
+  gradePoint: undefined,
+  date: '',
+  avatar: [{ url: 'https://tdesign.gtimg.com/site/avatar.jpg' }],
 };
 const formData = ref({ ...INITIAL_DATA });
 const courseOptions = [

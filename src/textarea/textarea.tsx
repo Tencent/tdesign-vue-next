@@ -10,7 +10,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import { ClassName } from '../common';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-textarea`;
 const TEXTAREA_WRAP_CLASS = `${prefix}-textarea__wrap`;

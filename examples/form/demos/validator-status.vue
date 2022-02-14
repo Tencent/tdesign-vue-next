@@ -133,7 +133,7 @@ onMounted(() => {
 });
 const formStatusIcon = ref(true);
 
-const getStatusIcon = () => <t-icon name="help-circle" size="16px" style="color: #0006" />;
+const getStatusIcon = () => <t-icon name="help-circle" size="16px" style={{ color: '#0006' }} />;
 </script>
 <style>
 .tdesign-demo-form-status .t-input {

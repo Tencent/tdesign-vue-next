@@ -6,7 +6,6 @@ exports[`Switch Switch baseVue demo works fine 1`] = `
 >
   <div
     class="t-switch t-size-m"
-    disabled="false"
     modelvalue="false"
   >
     <span
@@ -22,7 +21,6 @@ exports[`Switch Switch baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-switch t-size-m t-is-checked"
-    disabled="false"
     modelvalue="true"
   >
     <span
@@ -48,7 +46,6 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
   >
     <div
       class="t-switch t-size-l t-is-checked"
-      disabled="false"
       modelvalue="true"
     >
       <span
@@ -64,7 +61,6 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-l"
-      disabled="false"
       modelvalue="false"
     >
       <span
@@ -84,7 +80,6 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
   >
     <div
       class="t-switch t-size-l t-is-checked"
-      disabled="false"
       modelvalue="true"
     >
       <span
@@ -100,7 +95,6 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-l"
-      disabled="false"
       modelvalue="false"
     >
       <span
@@ -120,7 +114,6 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
   >
     <div
       class="t-switch t-size-l t-is-checked"
-      disabled="false"
       modelvalue="true"
     >
       <span
@@ -148,7 +141,6 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-l"
-      disabled="false"
       modelvalue="false"
     >
       <span
@@ -180,7 +172,6 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
   >
     <div
       class="t-switch t-size-l t-is-checked"
-      disabled="false"
       modelvalue="true"
     >
       <span
@@ -208,7 +199,6 @@ exports[`Switch Switch describeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-l"
-      disabled="false"
       modelvalue="false"
     >
       <span
@@ -247,7 +237,6 @@ exports[`Switch Switch sizeVue demo works fine 1`] = `
   >
     <div
       class="t-switch t-size-l t-is-checked"
-      disabled="false"
       modelvalue="true"
     >
       <span
@@ -263,7 +252,6 @@ exports[`Switch Switch sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-m"
-      disabled="false"
       modelvalue="false"
     >
       <span
@@ -279,7 +267,6 @@ exports[`Switch Switch sizeVue demo works fine 1`] = `
     </div>
     <div
       class="t-switch t-size-s"
-      disabled="false"
       modelvalue="false"
     >
       <span
@@ -303,7 +290,6 @@ exports[`Switch Switch statusVue demo works fine 1`] = `
 >
   <div
     class="t-switch t-size-l t-is-checked"
-    disabled="false"
     modelvalue="true"
   >
     <span
@@ -319,7 +305,6 @@ exports[`Switch Switch statusVue demo works fine 1`] = `
   </div>
   <div
     class="t-switch t-size-l t-is-loading t-is-checked"
-    disabled="false"
     modelvalue="true"
   >
     <span

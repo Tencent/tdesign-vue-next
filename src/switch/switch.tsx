@@ -8,7 +8,7 @@ import { TNodeReturnValue } from '../common';
 import { emitEvent } from '../utils/event';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-switch`;
 

@@ -614,6 +614,7 @@ exports[`Button Button loadingVue demo works fine 1`] = `
 >
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
+    disabled=""
     type="button"
   >
     
@@ -653,6 +654,7 @@ exports[`Button Button loadingVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled t-is-loading"
+    disabled=""
     type="button"
   >
     
@@ -1290,6 +1292,7 @@ exports[`Button Button statusVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
+    disabled=""
     type="button"
   >
     

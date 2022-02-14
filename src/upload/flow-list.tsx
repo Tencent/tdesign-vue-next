@@ -16,7 +16,7 @@ import { FlowRemoveContext } from './interface';
 import props from './props';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const flowListProps = {
   showUploadProgress: props.showUploadProgress,

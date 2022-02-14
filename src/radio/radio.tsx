@@ -7,7 +7,7 @@ import { emitEvent } from '../utils/event';
 import { TdRadioProps } from './type';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-radio`;
 export const radioBtnName = `${prefix}-radio-button`;

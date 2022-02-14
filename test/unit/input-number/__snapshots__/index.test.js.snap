@@ -66,7 +66,7 @@ exports[`InputNumber :props :disabled, function can not be call 1`] = `
   class="t-input-number t-size-m t-is-disabled"
 >
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
     type="button"
   >
     
@@ -98,7 +98,7 @@ exports[`InputNumber :props :disabled, function can not be call 1`] = `
     />
   </div>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
     type="button"
   >
     
@@ -250,7 +250,7 @@ exports[`InputNumber :props :max, value 16 > max 10 1`] = `
   class="t-input-number t-size-m"
 >
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
     type="button"
   >
     
@@ -281,7 +281,7 @@ exports[`InputNumber :props :max, value 16 > max 10 1`] = `
     />
   </div>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
     type="button"
   >
     
@@ -311,7 +311,7 @@ exports[`InputNumber :props :min, value -1 < min 1 1`] = `
   class="t-input-number t-size-m"
 >
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
     type="button"
   >
     
@@ -342,7 +342,7 @@ exports[`InputNumber :props :min, value -1 < min 1 1`] = `
     />
   </div>
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
     type="button"
   >
     

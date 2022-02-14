@@ -21,7 +21,7 @@ import props from './props';
 import { EPickerCols, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM } from './constant';
 
 // hooks
-import { useFormDisabled } from '../form/form';
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-time-picker`;
 

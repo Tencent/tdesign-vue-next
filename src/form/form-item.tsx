@@ -283,7 +283,7 @@ export default defineComponent({
         return this.getDefaultIcon();
       }
       if (typeof statusIcon === 'function') {
-        return resultIcon(slotStatusIcon(h, props));
+        return resultIcon(statusIcon(h, props) as TNodeReturnValue);
       }
       if (typeof slotStatusIcon === 'function') {
         return resultIcon(slotStatusIcon());

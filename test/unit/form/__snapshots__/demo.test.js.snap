@@ -350,7 +350,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m"
-            disabled="false"
             modelvalue="false"
           >
             <span
@@ -1181,19 +1180,80 @@ exports[`Form Form loginVue demo works fine 1`] = `
 `;
 
 exports[`Form Form validatorStatusVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-form-status"
+>
   <!--
-      1. statusIcon 值为 true，显示默认图标。默认图标有 成功、失败、警告 等，不同的状态图标不同
-      2. statusIcon 值为 false，不显示图标
-      3. statusIcon 值类型为 function，可以自定义右侧状态图标
-      4. statusIcon 为 slot(插槽)，可自定义右侧状态图标
-    -->
+    1. statusIcon 值为 true，显示默认图标。默认图标有 成功、失败、警告 等，不同的状态图标不同
+    2. statusIcon 值为 false，不显示图标
+    3. statusIcon 值类型为 function，可以自定义右侧状态图标
+    4. statusIcon 为 slot(插槽)，可自定义右侧状态图标
+  -->
+  <div>
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+      modelvalue="true"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="true"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          显示校验图标
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="false"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          隐藏校验图标
+          
+          
+        </span>
+      </label>
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+      
+    </div>
+  </div>
+  <br />
+  <br />
   <form
     class="t-form"
   >
     
     <div
-      class="t-form__item t-form-item__fail t-form__item-with-help t-form__item-with-extra"
+      class="t-form__item t-form-item__fail"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1222,7 +1282,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="校验不通过状态"
               type="text"
             />
             <!---->
@@ -1231,11 +1291,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <div
-          class="t-form__help"
-        >
-          这是校验通过后的提示信息
-        </div>
+        <!---->
       </div>
     </div>
     <div
@@ -1268,7 +1324,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="校验警告状态"
               type="text"
             />
             <!---->
@@ -1310,7 +1366,49 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="不带绿色边框的成功状态"
+              type="text"
+            />
+            <!---->
+            <!---->
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__success"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 80px;"
+      >
+        <label
+          for=""
+        >
+          成功
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 80px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              autocomplete="false"
+              class="t-input__inner"
+              placeholder="带绿色边框的成功状态"
               type="text"
             />
             <!---->
@@ -1352,16 +1450,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="隐藏状态icon"
+              placeholder="隐藏状态图标"
               type="text"
             />
             <!---->
             <!---->
           </div>
           
-          <span
-            class="t-form__status t-form__status-without-icon"
-          />
+          <!---->
         </div>
         <!---->
       </div>
@@ -1396,7 +1492,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <input
               autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="校验警告状态"
               type="text"
             />
             <!---->
@@ -1484,6 +1580,61 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         <!---->
       </div>
     </div>
+    <!-- 自定义图标：可以使用渲染函数 statusIcon，也可以使用插槽 statusIcon -->
+    <div
+      class="t-form__item t-form-item__help"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 80px;"
+      >
+        <label
+          for=""
+        >
+          帮助
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 80px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              autocomplete="false"
+              class="t-input__inner"
+              placeholder="自定义右侧图标"
+              type="text"
+            />
+            <!---->
+            <!---->
+          </div>
+          <!-- &lt;t-icon slot="statusIcon" name='help-circle' size="24px" style="color: #0006"/&gt; -->
+          
+          <span
+            class="t-form__status"
+          >
+            <svg
+              class="t-icon t-icon-help-circle"
+              style="font-size: 16px; color: rgba(0, 0, 0, 0.4);"
+            >
+              <use
+                href="#t-icon-help-circle"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
+      </div>
+    </div>
     
     <div
       class="t-form__item t-form-item__add0"
@@ -1553,65 +1704,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
     </div>
     
     <div
-      class="t-form__item t-form-item__help t-form__item-with-help t-form__item-with-extra"
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 80px;"
-      >
-        <label
-          for=""
-        >
-          帮助
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 80px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input"
-            modelvalue=""
-          >
-            <!---->
-            <!---->
-            <input
-              autocomplete="false"
-              class="t-input__inner"
-              placeholder="请输入"
-              type="text"
-            />
-            <!---->
-            <!---->
-          </div>
-          
-          <span
-            class="t-form__status"
-          >
-            
-            <svg
-              class="t-icon t-icon-help-circle"
-              style="font-size: 16px;"
-            >
-              <use
-                href="#t-icon-help-circle"
-              />
-            </svg>
-            
-          </span>
-        </div>
-        <div
-          class="t-form__help"
-        >
-          自定义帮助icon
-        </div>
-      </div>
-    </div>
-    <div
       class="t-form__item t-form-item__"
       style="padding-top: 8px;"
     >
@@ -1642,7 +1734,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               提交 
+              提交
               
             </span>
           </button>
@@ -1654,14 +1746,12 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               重置 
+              重置
               
             </span>
           </button>
           
-          <span
-            class="t-form__status t-form__status-without-icon"
-          />
+          <!---->
         </div>
         <!---->
       </div>
@@ -1746,7 +1836,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -1791,7 +1881,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -2128,6 +2218,30 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                       >
                         
                         
+                        <li
+                          class="t-select-option t-size-m"
+                          title="计算机学院"
+                        >
+                          
+                          计算机学院
+                          
+                        </li>
+                        <li
+                          class="t-select-option t-size-m"
+                          title="软件学院"
+                        >
+                          
+                          软件学院
+                          
+                        </li>
+                        <li
+                          class="t-select-option t-size-m"
+                          title="物联网学院"
+                        >
+                          
+                          物联网学院
+                          
+                        </li>
                         
                         
                       </ul>
