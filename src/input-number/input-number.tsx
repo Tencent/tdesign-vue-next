@@ -8,6 +8,9 @@ import { ChangeSource } from './type';
 import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
+// hooks
+import { useFormDisabled } from '../form/form';
+
 const name = `${prefix}-input-number`;
 
 type InputNumberEvent = {
@@ -41,10 +44,14 @@ export default defineComponent({
   },
   props: { ...props },
   emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
+  setup(props) {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
-      // 表单控制禁用态时的变量
-      formDisabled: undefined,
       userInput: null,
       filterValue: null,
       isError: false,
@@ -52,14 +59,11 @@ export default defineComponent({
     };
   },
   computed: {
-    tDisabled(): boolean {
-      return this.formDisabled || this.disabled;
-    },
     disabledReduce(): boolean {
-      return this.tDisabled || this.isError || Number(this.value) - this.step < this.min;
+      return this.disabled || this.isError || Number(this.value) - this.step < this.min;
     },
     disabledAdd(): boolean {
-      return this.tDisabled || this.isError || Number(this.value) + this.step > this.max;
+      return this.disabled || this.isError || Number(this.value) + this.step > this.max;
     },
     valueDecimalPlaces(): number {
       const tempVal =
@@ -89,7 +93,7 @@ export default defineComponent({
       return [
         `${name}__decrease`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.tDisabledReduce,
+          [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
         },
       ];
     },
@@ -102,7 +106,7 @@ export default defineComponent({
       return [
         `${name}__increase`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.tDisabledAdd,
+          [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
         },
       ];
     },
@@ -116,7 +120,7 @@ export default defineComponent({
         't-input-number',
         CLASSNAMES.SIZE[this.size],
         {
-          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
           't-is-controls-right': this.theme === 'column',
           't-input-number--normal': this.theme === 'normal',
         },
@@ -135,7 +139,7 @@ export default defineComponent({
       return [
         't-input__inner',
         {
-          [CLASSNAMES.STATUS.disabled]: this.tDisabled,
+          [CLASSNAMES.STATUS.disabled]: this.disabled,
           [`${name}-text-align`]: this.theme === 'row',
         },
       ];
@@ -152,7 +156,7 @@ export default defineComponent({
     },
     inputAttrs(): InputNumberAttr {
       return {
-        disabled: this.tDisabled,
+        disabled: this.disabled,
         autocomplete: 'off',
         ref: 'refInputElem',
         placeholder: this.placeholder,
@@ -186,7 +190,7 @@ export default defineComponent({
   },
   methods: {
     handleAdd(e: MouseEvent) {
-      if (this.tDisabledAdd) return;
+      if (this.disabledAdd) return;
       const value = this.value || 0;
       const factor = 10 ** this.digitsNum;
       this.handleAction(
@@ -196,7 +200,7 @@ export default defineComponent({
       );
     },
     handleReduce(e: MouseEvent) {
-      if (this.tDisabledReduce) return;
+      if (this.disabledReduce) return;
       const value = this.value || 0;
       const factor = 10 ** this.digitsNum;
       this.handleAction(

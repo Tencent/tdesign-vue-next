@@ -8,6 +8,9 @@ import TSliderMark from './slider-mark';
 import TSliderButton from './slider-button';
 import { SliderValue, TdSliderProps } from './type';
 
+// hooks
+import { useFormDisabled } from '../form/form';
+
 const name = `${prefix}-slider`;
 interface MarkItem {
   point: number;
@@ -29,6 +32,12 @@ export default defineComponent({
     event: 'change',
   },
   props: { ...props },
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       firstValue: 0,
@@ -44,9 +53,6 @@ export default defineComponent({
     };
   },
   computed: {
-    tDisabled() {
-      return this.formDisabled || this.disabled;
-    },
     containerClass(): ClassName {
       return [`${name}__container`, { 'is-vertical': this.vertical }];
     },
@@ -57,12 +63,12 @@ export default defineComponent({
           'is-vertical': this.vertical,
           [`${name}--with-input`]: this.inputNumberProps,
           [`${name}--vertical`]: this.vertical,
-          [`${prefix}-is-disabled`]: this.tDisabled,
+          [`${prefix}-is-disabled`]: this.disabled,
         },
       ];
     },
     sliderRailClass(): ClassName {
-      return [`${name}__rail`, { 'show-input': this.inputNumberProps, disabled: this.tDisabled }];
+      return [`${name}__rail`, { 'show-input': this.inputNumberProps, disabled: this.disabled }];
     },
     sliderNumberClass(): ClassName {
       return [
@@ -296,7 +302,7 @@ export default defineComponent({
     },
     // 全局点击
     onSliderClick(event: MouseEvent): void {
-      if (this.tDisabled || this.dragging) {
+      if (this.disabled || this.dragging) {
         return;
       }
       this.resetSize();
@@ -335,7 +341,7 @@ export default defineComponent({
 
     // mark 点击触发修改事件
     changeValue(point: number) {
-      if (this.tDisabled || this.dragging) {
+      if (this.disabled || this.dragging) {
         return;
       }
       this.resetSize();
@@ -388,7 +394,7 @@ export default defineComponent({
                 this.firstValue = v;
                 this.range ? (this.firstValue = v) : (this.prevValue = v);
               }}
-              disabled={this.tDisabled}
+              disabled={this.disabled}
               min={min}
               max={max}
               decimalPlaces={this.inputDecimalPlaces}
@@ -407,7 +413,7 @@ export default defineComponent({
                 this.secondValue = v;
               }}
               step={this.step}
-              disabled={this.tDisabled}
+              disabled={this.disabled}
               min={min}
               max={max}
               decimalPlaces={this.inputDecimalPlaces}
@@ -421,7 +427,7 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const { min, max, layout, tDisabled, vertical } = this;
+    const { min, max, layout, disabled, vertical } = this;
     const BUTTON_GROUP = this.inputNumberProps && this.renderInputButton();
     const MASKS = this.renderMask();
     return (
@@ -432,7 +438,7 @@ export default defineComponent({
           aria-valuemin={min}
           aria-valuemax={max}
           aria-orientation={layout}
-          aria-disabled={tDisabled}
+          aria-disabled={disabled}
           tooltip-props={this.tooltipProps}
         >
           <div class={this.sliderRailClass} style={this.runwayStyle} onClick={this.onSliderClick} ref="slider">
@@ -441,7 +447,7 @@ export default defineComponent({
               vertical={vertical}
               value={this.firstValue}
               ref="button1"
-              disabled={tDisabled}
+              disabled={disabled}
               tooltip-props={this.tooltipProps}
               onInput={(v: number) => {
                 this.firstValue = v;
@@ -452,7 +458,7 @@ export default defineComponent({
                 vertical={vertical}
                 value={this.secondValue}
                 ref="button2"
-                disabled={tDisabled}
+                disabled={disabled}
                 tooltip-props={this.tooltipProps}
                 onInput={(v: number) => {
                   this.secondValue = v;

@@ -7,6 +7,9 @@ import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 import { TdCheckboxProps } from './type';
 
+// hooks
+import { useFormDisabled } from '../form/form';
+
 const name = `${prefix}-checkbox`;
 
 export default defineComponent({
@@ -18,10 +21,11 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...checkboxProps },
   emits: ['change', 'checked-change'],
-  data() {
+
+  setup() {
+    const formDisabled = useFormDisabled();
     return {
-      // 表单控制禁用态时的变量
-      formDisabled: undefined,
+      formDisabled,
     };
   },
 

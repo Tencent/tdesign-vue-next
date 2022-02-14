@@ -15,6 +15,28 @@ import { returnFileSize, abridgeName, UPLOAD_NAME } from './util';
 import { FlowRemoveContext } from './interface';
 import props from './props';
 
+// hooks
+import { useFormDisabled } from '../form/form';
+
+const flowListProps = {
+  showUploadProgress: props.showUploadProgress,
+  // 已上传完成的文件
+  files: Array as PropType<Array<UploadFile>>,
+  // 上传队列中的文件（可能存在已经上传过的文件）
+  toUploadFiles: Array as PropType<Array<UploadFile>>,
+  placeholder: String,
+  autoUpload: Boolean,
+  disabled: Boolean,
+  remove: Function as PropType<(ctx: FlowRemoveContext) => void>,
+  upload: Function as PropType<(files: Array<UploadFile>, e: MouseEvent) => void>,
+  cancel: Function as PropType<(e: MouseEvent) => void>,
+  display: {
+    type: String as PropType<'file-flow' | 'image-flow'>,
+    validator(val: string) {
+      return ['file-flow', 'image-flow'].includes(val);
+    },
+  },
+};
 export default defineComponent({
   name: 'TUploadFlowList',
 
@@ -28,26 +50,15 @@ export default defineComponent({
     BrowseIcon,
   },
 
-  props: {
-    showUploadProgress: props.showUploadProgress,
-    // 已上传完成的文件
-    files: Array as PropType<Array<UploadFile>>,
-    // 上传队列中的文件（可能存在已经上传过的文件）
-    toUploadFiles: Array as PropType<Array<UploadFile>>,
-    placeholder: String,
-    autoUpload: Boolean,
-    disabled: Boolean,
-    remove: Function as PropType<(ctx: FlowRemoveContext) => void>,
-    upload: Function as PropType<(files: Array<UploadFile>, e: MouseEvent) => void>,
-    cancel: Function as PropType<(e: MouseEvent) => void>,
-    display: {
-      type: String as PropType<'file-flow' | 'image-flow'>,
-      validator(val: string) {
-        return ['file-flow', 'image-flow'].includes(val);
-      },
-    },
-  },
+  props: flowListProps,
   emits: ['dragleave', 'change', 'dragenter', 'imgPreview'],
+
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
 
   data() {
     return {

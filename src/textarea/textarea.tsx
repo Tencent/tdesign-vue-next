@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, toRefs } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
@@ -8,6 +8,9 @@ import calcTextareaHeight from './calcTextareaHeight';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { ClassName } from '../common';
+
+// hooks
+import { useFormDisabled } from '../form/form';
 
 const name = `${prefix}-textarea`;
 const TEXTAREA_WRAP_CLASS = `${prefix}-textarea__wrap`;
@@ -29,23 +32,25 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
-      formDisabled: undefined,
       focused: false,
       mouseHover: false,
       textareaStyle: {},
     };
   },
   computed: {
-    tDisabled() {
-      return this.formDisabled || this.disabled;
-    },
     textareaClasses(): ClassName {
       return [
         name,
         {
-          [`${prefix}-is-disabled`]: this.tDisabled,
+          [`${prefix}-is-disabled`]: this.disabled,
           [`${prefix}-is-readonly`]: this.readonly,
         },
       ];
@@ -53,7 +58,7 @@ export default defineComponent({
     inputAttrs(): Record<string, any> {
       return getValidAttrs({
         autofocus: this.autofocus,
-        disabled: this.tDisabled,
+        disabled: this.disabled,
         readonly: this.readonly,
         placeholder: this.placeholder,
         maxlength: this.maxlength || undefined,
@@ -131,19 +136,19 @@ export default defineComponent({
       }
     },
     emitKeyDown(e: KeyboardEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       emitEvent(this, 'keydown', this.value, { e });
     },
     emitKeyUp(e: KeyboardEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       emitEvent(this, 'keyup', this.value, { e });
     },
     emitKeypress(e: KeyboardEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       emitEvent(this, 'keypress', this.value, { e });
     },
     emitFocus(e: FocusEvent) {
-      if (this.tDisabled) return;
+      if (this.disabled) return;
       this.focused = true;
       emitEvent(this, 'focus', this.value, { e });
     },
@@ -165,7 +170,7 @@ export default defineComponent({
       `${name}__inner`,
       {
         [`${prefix}-is-${this.status}`]: this.status,
-        [CLASSNAMES.STATUS.disabled]: this.tDisabled,
+        [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-resize-none`]: this.maxlength,
       },

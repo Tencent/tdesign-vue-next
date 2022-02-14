@@ -30,6 +30,9 @@ import getConfigReceiverMixins from '../config-provider/config-receiver';
 import props from './props';
 import { TNode } from '../common';
 
+// hooks
+import { useFormDisabled } from '../form/form';
+
 const SOURCE = 'source';
 const TARGET = 'target';
 
@@ -59,6 +62,12 @@ export default defineComponent({
     'checked-change',
     'update:value',
   ],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data(): DataType {
     return {
       SOURCE,
@@ -68,9 +77,6 @@ export default defineComponent({
     };
   },
   computed: {
-    tDisabled(): boolean | boolean[] {
-      return this.formDisabled || this.disabled;
-    },
     isTreeMode(): boolean {
       const treeSlot = this.$slots.tree;
       return typeof treeSlot === 'function';
@@ -123,7 +129,7 @@ export default defineComponent({
       return getTransferListOption<boolean>(this.showCheckAll);
     },
     disabledOption(): TransferListOptionBase<boolean> {
-      return getTransferListOption<boolean>(this.tDisabled);
+      return getTransferListOption<boolean>(this.disabled);
     },
     titleOption(): TransferListOptionBase<string | TNode> {
       return getTransferListOption<string | TNode>(this.title);
