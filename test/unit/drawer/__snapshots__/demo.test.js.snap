@@ -659,7 +659,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             标签 A
           </span>
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -680,7 +680,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             标签 B
           </span>
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -701,7 +701,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
             标签 C
           </span>
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->

@@ -1,5 +1,5 @@
 import _Transfer from './transfer';
-import withInstall from '../utils/withInstall';
+import { withInstall, WithInstallType } from '../utils/withInstall';
 import mapProps from '../utils/map-props';
 import { TdTransferProps } from './type';
 
@@ -7,7 +7,7 @@ import './style';
 
 export type TransferProps = TdTransferProps;
 
-export const Transfer = withInstall(
+export const Transfer: WithInstallType<typeof _Transfer> = withInstall(
   mapProps([
     {
       name: 'checked',

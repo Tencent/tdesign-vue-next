@@ -17,6 +17,7 @@ import monthVue from '@/examples/date-picker/demos/month.vue';
 import yearVue from '@/examples/date-picker/demos/year.vue';
 
 MockDate.set('2020-12-28');
+
 const mapper = {
   baseVue,
   customIconVue,

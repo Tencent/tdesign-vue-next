@@ -55,13 +55,20 @@ export default defineComponent({
     };
   },
   props: { ...props },
-  emits: ['change', 'input', 'clear', 'keydown', 'keyup', 'keypress', 'focus', 'blur', 'remove', 'create', 'search'],
-  setup() {
-    const disabled = useFormDisabled();
-    return {
-      disabled,
-    };
-  },
+  emits: [
+    'change',
+    'input',
+    'clear',
+    'keydown',
+    'keyup',
+    'keypress',
+    'focus',
+    'blur',
+    'remove',
+    'create',
+    'search',
+    'visible-change',
+  ],
   data() {
     return {
       isHover: false,
@@ -274,6 +281,7 @@ export default defineComponent({
       }
     },
     searchInput(val) {
+      if (!val && !this.visible) return;
       if (isFunction(this.onSearch) || this.$attrs.search) {
         this.debounceOnRemote();
       }
@@ -298,7 +306,6 @@ export default defineComponent({
     visible() {
       this.visible && document.addEventListener('keydown', this.keydownEvent);
       !this.visible && document.removeEventListener('keydown', this.keydownEvent);
-      this.visible && Array.isArray(this.hoverOptions) && this.initHoverindex();
     },
   },
   mounted() {
@@ -333,10 +340,7 @@ export default defineComponent({
       return false;
     },
     visibleChange(val: boolean) {
-      if (this.focusing && !val) {
-        this.visible = true;
-        return;
-      }
+      emitEvent<Parameters<TdSelectProps['onVisibleChange']>>(this, 'visible-change', val);
       this.visible = val;
       if (!val) {
         this.searchInput = '';
@@ -474,6 +478,10 @@ export default defineComponent({
       }
       switch (e.code) {
         case 'ArrowDown':
+          if (this.hoverIndex === -1) {
+            this.initHoverindex();
+            return;
+          }
           if (this.hoverIndex < this.hoverOptions.length - 1) {
             this.hoverIndex += 1;
             this.arrowDownOption();
@@ -483,6 +491,10 @@ export default defineComponent({
           }
           break;
         case 'ArrowUp':
+          if (this.hoverIndex === -1) {
+            this.initHoverindex();
+            return;
+          }
           if (this.hoverIndex > 0) {
             this.hoverIndex -= 1;
             this.arrowUpOption();

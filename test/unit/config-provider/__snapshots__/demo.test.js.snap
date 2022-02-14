@@ -2045,7 +2045,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -3642,7 +3642,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -3992,7 +3992,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -4627,7 +4627,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -4948,7 +4948,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -5525,7 +5525,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -5996,7 +5996,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
             style="width: 400px;"
           >
@@ -6039,7 +6039,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
             style="width: 400px;"
           >
@@ -6130,7 +6130,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -6752,7 +6752,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -7252,41 +7252,41 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            
-            <p
-              class="t-select-loading-tips"
-              style="display: none;"
-            >
-              <div
-                class="t-select__empty"
+            <div>
+              <p
+                class="t-select-loading-tips"
+                style="display: none;"
               >
-                loading...
-              </div>
-            </p>
-            <div
-              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-              modelvalue=""
-              size="medium"
-            >
-              <transition-group-stub>
-                
-                
-              </transition-group-stub>
-              <div
-                class="t-tree__empty"
-              >
-                
-                
                 <div
                   class="t-select__empty"
                 >
-                  Empty Data
+                  loading...
                 </div>
-                
-                
+              </p>
+              <div
+                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+                modelvalue=""
+                size="medium"
+              >
+                <transition-group-stub>
+                  
+                  
+                </transition-group-stub>
+                <div
+                  class="t-tree__empty"
+                >
+                  
+                  
+                  <div
+                    class="t-select__empty"
+                  >
+                    Empty Data
+                  </div>
+                  
+                  
+                </div>
               </div>
             </div>
-            
             
             <!---->
           </div>
@@ -7317,7 +7317,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -7413,41 +7413,41 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            
-            <p
-              class="t-select-loading-tips"
-            >
-              <div
-                class="t-select__empty"
+            <div>
+              <p
+                class="t-select-loading-tips"
               >
-                loading...
-              </div>
-            </p>
-            <div
-              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-              modelvalue=""
-              size="medium"
-              style="display: none;"
-            >
-              <transition-group-stub>
-                
-                
-              </transition-group-stub>
-              <div
-                class="t-tree__empty"
-              >
-                
-                
                 <div
                   class="t-select__empty"
                 >
-                  Empty Data
+                  loading...
                 </div>
-                
-                
+              </p>
+              <div
+                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+                modelvalue=""
+                size="medium"
+                style="display: none;"
+              >
+                <transition-group-stub>
+                  
+                  
+                </transition-group-stub>
+                <div
+                  class="t-tree__empty"
+                >
+                  
+                  
+                  <div
+                    class="t-select__empty"
+                  >
+                    Empty Data
+                  </div>
+                  
+                  
+                </div>
               </div>
             </div>
-            
             
             <!---->
           </div>
@@ -7478,7 +7478,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -7559,205 +7559,205 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             class="t-popup__content t-select__dropdown narrow-scrollbar"
           >
             
-            
-            <p
-              class="t-select-loading-tips"
-              style="display: none;"
-            >
-              <div
-                class="t-select__empty"
+            <div>
+              <p
+                class="t-select-loading-tips"
+                style="display: none;"
               >
-                loading...
+                <div
+                  class="t-select__empty"
+                >
+                  loading...
+                </div>
+              </p>
+              <div
+                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+                modelvalue=""
+                size="medium"
+              >
+                <transition-group-stub>
+                  
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="0"
+                    data-value="1"
+                    style="--level: 0;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon t-tree__icon--default"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      <svg
+                        class="t-icon t-icon-chevron-right"
+                        fill="none"
+                        height="1em"
+                        style="font-size: 18px;"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        1
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="1"
+                    data-value="1.1"
+                    style="--level: 1;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        1.1
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="1"
+                    data-value="1.2"
+                    style="--level: 1;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        1.2
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="0"
+                    data-value="2"
+                    style="--level: 0;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon t-tree__icon--default"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      <svg
+                        class="t-icon t-icon-chevron-right"
+                        fill="none"
+                        height="1em"
+                        style="font-size: 18px;"
+                        viewBox="0 0 16 16"
+                        width="1em"
+                      >
+                        <path
+                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+                          fill="currentColor"
+                          fillOpacity="0.9"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        2
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="1"
+                    data-value="2.1"
+                    style="--level: 1;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        2.1
+                      </span>
+                    </span>
+                    
+                  </div>
+                  <div
+                    class="t-tree__item t-tree__item--open"
+                    data-level="1"
+                    data-value="2.2"
+                    style="--level: 1;"
+                  >
+                    
+                    <span
+                      class="t-tree__icon t-folder-icon"
+                      ignore="active"
+                      trigger="expand"
+                    >
+                      
+                    </span>
+                    <span
+                      class="t-tree__label t-tree__label--strictly"
+                    >
+                      <span
+                        style="position: relative;"
+                      >
+                        2.2
+                      </span>
+                    </span>
+                    
+                  </div>
+                  
+                </transition-group-stub>
+                <!---->
               </div>
-            </p>
-            <div
-              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-              modelvalue=""
-              size="medium"
-            >
-              <transition-group-stub>
-                
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="0"
-                  data-value="1"
-                  style="--level: 0;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon t-tree__icon--default"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    <svg
-                      class="t-icon t-icon-chevron-right"
-                      fill="none"
-                      height="1em"
-                      style="font-size: 18px;"
-                      viewBox="0 0 16 16"
-                      width="1em"
-                    >
-                      <path
-                        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                        fill="currentColor"
-                        fillOpacity="0.9"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      1
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="1"
-                  data-value="1.1"
-                  style="--level: 1;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      1.1
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="1"
-                  data-value="1.2"
-                  style="--level: 1;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      1.2
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="0"
-                  data-value="2"
-                  style="--level: 0;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon t-tree__icon--default"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    <svg
-                      class="t-icon t-icon-chevron-right"
-                      fill="none"
-                      height="1em"
-                      style="font-size: 18px;"
-                      viewBox="0 0 16 16"
-                      width="1em"
-                    >
-                      <path
-                        d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                        fill="currentColor"
-                        fillOpacity="0.9"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      2
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="1"
-                  data-value="2.1"
-                  style="--level: 1;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      2.1
-                    </span>
-                  </span>
-                  
-                </div>
-                <div
-                  class="t-tree__item t-tree__item--open"
-                  data-level="1"
-                  data-value="2.2"
-                  style="--level: 1;"
-                >
-                  
-                  <span
-                    class="t-tree__icon t-folder-icon"
-                    ignore="active"
-                    trigger="expand"
-                  >
-                    
-                  </span>
-                  <span
-                    class="t-tree__label t-tree__label--strictly"
-                  >
-                    <span
-                      style="position: relative;"
-                    >
-                      2.2
-                    </span>
-                  </span>
-                  
-                </div>
-                
-              </transition-group-stub>
-              <!---->
             </div>
-            
             
             <!---->
           </div>
@@ -7789,7 +7789,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
         >
           <!---->
@@ -8639,7 +8639,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -9315,7 +9315,6 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
         <input
           autocomplete="off"
           class="t-input__inner"
-          placeholder=""
         />
       </div>
       <!---->

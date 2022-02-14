@@ -131,6 +131,7 @@ export default defineComponent({
         't-input',
         {
           't-is-error': this.isError,
+          [`${prefix}-align-${this.align}`]: this.align,
         },
       ];
     },
@@ -172,7 +173,7 @@ export default defineComponent({
       if (this.inputing && this.userInput !== null) {
         return this.filterValue;
       }
-      if (this.value === undefined) return '';
+      if ([undefined, null].includes(this.value)) return '';
       // end input
       return this.format && !this.inputing ? this.format(this.value) : this.value.toFixed(this.digitsNum);
     },
@@ -247,6 +248,7 @@ export default defineComponent({
     },
     async handleBlur(e: FocusEvent) {
       await this.handleEndInput(e);
+      this.clearFilterValue();
       emitEvent(this, 'blur', this.value, { e });
     },
     handleFocus(e: FocusEvent) {
@@ -312,6 +314,9 @@ export default defineComponent({
     },
     clearInput() {
       this.userInput = null;
+    },
+    clearFilterValue() {
+      this.filterValue = '';
     },
     multiE(s: string) {
       const m = s.match(/[e]/gi);
