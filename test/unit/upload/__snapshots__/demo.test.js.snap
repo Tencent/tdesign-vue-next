@@ -179,7 +179,7 @@ exports[`Upload Upload customDragVue demo works fine 1`] = `
         />
         <div
           class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-          style="width: auto; top: 10%; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 10%);"
+          style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
         >
           <div
             class="t-dialog__header"
@@ -531,7 +531,7 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
           />
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 10%);"
+            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
           >
             <div
               class="t-dialog__header"
@@ -649,7 +649,7 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
           />
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 10%);"
+            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
           >
             <div
               class="t-dialog__header"
@@ -767,7 +767,7 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
           />
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 10%);"
+            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
           >
             <div
               class="t-dialog__header"
@@ -886,7 +886,7 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
           />
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 10%);"
+            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
           >
             <div
               class="t-dialog__header"
@@ -1047,7 +1047,7 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
         />
         <div
           class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-          style="width: auto; top: 10%; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 10%);"
+          style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
         >
           <div
             class="t-dialog__header"
@@ -1356,7 +1356,7 @@ exports[`Upload Upload singleCustomVue demo works fine 1`] = `
           />
           <div
             class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-            style="width: auto; top: 10%; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 10%);"
+            style="width: auto; top: 10%; transform: translate(-50%, 0); max-height: calc(100% - 10%);"
           >
             <div
               class="t-dialog__header"

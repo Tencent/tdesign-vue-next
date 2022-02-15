@@ -15683,7 +15683,7 @@ exports[`ssr snapshot test renders ./examples/dialog/demos/position.vue correctl
   <div class="t-dialog__ctx t-dialog__ctx--fixed" style="display:none;">
     <!--[-->
     <div class="t-dialog__mask"></div>
-    <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="top:50px;transform:translate(-50%, 0);transform-origin:25% 25%;max-height:calc(100% - 50px);">
+    <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="top:50px;transform:translate(-50%, 0);max-height:calc(100% - 50px);">
       <div class="t-dialog__header">
         <!---->对话框标题
       </div><span class="t-dialog__close"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span>
@@ -45825,7 +45825,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/custom-drag.vue corre
     <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
       <!--[-->
       <div class="t-dialog__mask"></div>
-      <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);transform-origin:25% 25%;max-height:calc(100% - 10%);">
+      <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);max-height:calc(100% - 10%);">
         <div class="t-dialog__header">
           <!---->
           <!---->
@@ -45935,7 +45935,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/image.vue correctly 1
       <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
         <!--[-->
         <div class="t-dialog__mask"></div>
-        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);transform-origin:25% 25%;max-height:calc(100% - 10%);">
+        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);max-height:calc(100% - 10%);">
           <div class="t-dialog__header">
             <!---->
             <!---->
@@ -45974,7 +45974,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/image.vue correctly 1
       <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
         <!--[-->
         <div class="t-dialog__mask"></div>
-        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);transform-origin:25% 25%;max-height:calc(100% - 10%);">
+        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);max-height:calc(100% - 10%);">
           <div class="t-dialog__header">
             <!---->
             <!---->
@@ -46013,7 +46013,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/image.vue correctly 1
       <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
         <!--[-->
         <div class="t-dialog__mask"></div>
-        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);transform-origin:25% 25%;max-height:calc(100% - 10%);">
+        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);max-height:calc(100% - 10%);">
           <div class="t-dialog__header">
             <!---->
             <!---->
@@ -46052,7 +46052,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/image.vue correctly 1
       <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
         <!--[-->
         <div class="t-dialog__mask"></div>
-        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);transform-origin:25% 25%;max-height:calc(100% - 10%);">
+        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);max-height:calc(100% - 10%);">
           <div class="t-dialog__header">
             <!---->
             <!---->
@@ -46097,7 +46097,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/img-flow-list.vue cor
     <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
       <!--[-->
       <div class="t-dialog__mask"></div>
-      <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);transform-origin:25% 25%;max-height:calc(100% - 10%);">
+      <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);max-height:calc(100% - 10%);">
         <div class="t-dialog__header">
           <!---->
           <!---->
@@ -46203,7 +46203,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-custom.vue cor
       <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
         <!--[-->
         <div class="t-dialog__mask"></div>
-        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);transform-origin:25% 25%;max-height:calc(100% - 10%);">
+        <div class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed" style="width:auto;top:10%;transform:translate(-50%, 0);max-height:calc(100% - 10%);">
           <div class="t-dialog__header">
             <!---->
             <!---->
