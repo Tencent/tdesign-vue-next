@@ -1,4 +1,4 @@
-import { App, createApp, ref, Plugin, defineComponent, h } from 'vue';
+import { App, createApp, ref, Plugin, defineComponent, h, onMounted } from 'vue';
 import DialogComponent from './dialog';
 import { getAttach } from '../utils/dom';
 import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, DialogInstance } from './type';
@@ -6,12 +6,16 @@ import { DialogOptions, DialogMethod, DialogConfirmMethod, DialogAlertMethod, Di
 const createDialog: DialogMethod = (props: DialogOptions) => {
   const options = { ...props };
   const wrapper = document.createElement('div');
-  const visible = ref(true);
+  const visible = ref(false);
   const { className } = options;
   const component = defineComponent({
-    data() {
+    setup() {
+      const dialogOptions = ref<Record<string, any>>(options);
+      onMounted(() => {
+        visible.value = true;
+      });
       return {
-        dialogOptions: options as Record<string, any>,
+        dialogOptions,
       };
     },
     render() {
