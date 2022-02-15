@@ -1771,7 +1771,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="top: 50px; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 50px);"
+        style="top: 50px; transform: translate(-50%, 0); max-height: calc(100% - 50px);"
       >
         <div
           class="t-dialog__header"
