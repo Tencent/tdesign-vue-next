@@ -74,7 +74,10 @@ export default defineComponent({
     mouseEvent(v: boolean) {
       this.isHover = v;
     },
-    renderIcon(icon: string | Function | undefined, iconType: 'prefix-icon' | 'suffix-icon') {
+    renderIcon(
+      icon: string | Function | undefined,
+      iconType: 'prefix-icon' | 'suffix-icon' | 'prefixIcon' | 'suffixIcon',
+    ) {
       if (typeof icon === 'function') {
         return icon(h);
       }
@@ -201,9 +204,10 @@ export default defineComponent({
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
 
-    const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
+    const prefixIcon =
+      this.renderIcon(this.prefixIcon, 'prefixIcon') || this.renderIcon(this.prefixIcon, 'prefix-icon');
 
-    let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
+    let suffixIcon = this.renderIcon(this.suffixIcon, 'suffixIcon') || this.renderIcon(this.prefixIcon, 'suffix-icon');
 
     const label = renderTNodeJSX(this, 'label');
     const suffix = renderTNodeJSX(this, 'suffix');
