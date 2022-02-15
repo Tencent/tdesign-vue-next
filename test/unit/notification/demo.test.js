@@ -7,7 +7,7 @@ import baseVue from '@/examples/notification/demos/base.vue';
 import closeAllVue from '@/examples/notification/demos/close-all.vue';
 import closeVue from '@/examples/notification/demos/close.vue';
 import contentVue from '@/examples/notification/demos/content.vue';
-import fixPluginVue from '@/examples/notification/demos/fix-plugin.vue';
+import pluginVue from '@/examples/notification/demos/plugin.vue';
 import footerVue from '@/examples/notification/demos/footer.vue';
 import iconVue from '@/examples/notification/demos/icon.vue';
 import offsetVue from '@/examples/notification/demos/offset.vue';
@@ -23,7 +23,7 @@ const mapper = {
   closeAllVue,
   closeVue,
   contentVue,
-  fixPluginVue,
+  pluginVue,
   footerVue,
   iconVue,
   offsetVue,
