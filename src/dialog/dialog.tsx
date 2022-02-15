@@ -130,7 +130,7 @@ export default defineComponent({
         `${name}__modal-${props.theme}`,
       ];
       if (['modeless', 'modal'].includes(props.mode)) {
-        // dialogClass.push(`${name}--fixed`);
+        dialogClass.push(`${name}--fixed`);
       }
       return dialogClass;
     });
