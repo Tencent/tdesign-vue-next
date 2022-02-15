@@ -6,7 +6,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
     class="tag-demo"
   >
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
+      class="t-tag t-tag--default t-tag--dark t-size-m"
     >
       <!---->
       
@@ -19,7 +19,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       target="_blank"
     >
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark"
+        class="t-tag t-tag--default t-tag--dark t-size-m"
       >
         <!---->
         
@@ -33,7 +33,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
     class="tag-demo"
   >
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark"
+      class="t-tag t-tag--primary t-tag--dark t-size-m"
     >
       <!---->
       
@@ -42,7 +42,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--dark"
+      class="t-tag t-tag--success t-tag--dark t-size-m"
     >
       <!---->
       
@@ -51,7 +51,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--dark"
+      class="t-tag t-tag--warning t-tag--dark t-size-m"
     >
       <!---->
       
@@ -60,7 +60,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--dark"
+      class="t-tag t-tag--danger t-tag--dark t-size-m"
     >
       <!---->
       
@@ -73,7 +73,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
     class="tag-demo light"
   >
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--light"
+      class="t-tag t-tag--primary t-tag--light t-size-m"
     >
       <!---->
       
@@ -82,7 +82,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--light"
+      class="t-tag t-tag--success t-tag--light t-size-m"
     >
       <!---->
       
@@ -91,7 +91,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--light"
+      class="t-tag t-tag--warning t-tag--light t-size-m"
     >
       <!---->
       
@@ -100,7 +100,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--light"
+      class="t-tag t-tag--danger t-tag--light t-size-m"
     >
       <!---->
       
@@ -113,7 +113,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
     class="tag-demo"
   >
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--outline"
+      class="t-tag t-tag--primary t-tag--outline t-size-m"
     >
       <!---->
       
@@ -122,7 +122,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--outline"
+      class="t-tag t-tag--success t-tag--outline t-size-m"
     >
       <!---->
       
@@ -131,7 +131,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--outline"
+      class="t-tag t-tag--warning t-tag--outline t-size-m"
     >
       <!---->
       
@@ -140,7 +140,7 @@ exports[`Tag Tag baseVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--outline"
+      class="t-tag t-tag--danger t-tag--outline t-size-m"
     >
       <!---->
       
@@ -160,7 +160,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
     class="tag-block"
   >
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close"
+      class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"
     >
       <!---->
       
@@ -181,7 +181,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close"
+      class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"
     >
       <!---->
       
@@ -202,7 +202,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close"
+      class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"
     >
       <!---->
       
@@ -223,7 +223,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close"
+      class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"
     >
       <!---->
       
@@ -248,7 +248,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
     class="tag-block light"
   >
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--light t-tag--close"
+      class="t-tag t-tag--primary t-tag--light t-tag--close t-size-m"
     >
       <!---->
       
@@ -269,7 +269,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--light t-tag--close"
+      class="t-tag t-tag--success t-tag--light t-tag--close t-size-m"
     >
       <!---->
       
@@ -290,7 +290,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--light t-tag--close"
+      class="t-tag t-tag--warning t-tag--light t-tag--close t-size-m"
     >
       <!---->
       
@@ -311,7 +311,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--light t-tag--close"
+      class="t-tag t-tag--danger t-tag--light t-tag--close t-size-m"
     >
       <!---->
       
@@ -336,7 +336,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
     class="tag-block"
   >
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--outline t-tag--close"
+      class="t-tag t-tag--primary t-tag--outline t-tag--close t-size-m"
     >
       <!---->
       
@@ -357,7 +357,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--outline t-tag--close"
+      class="t-tag t-tag--success t-tag--outline t-tag--close t-size-m"
     >
       <!---->
       
@@ -378,7 +378,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--outline t-tag--close"
+      class="t-tag t-tag--warning t-tag--outline t-tag--close t-size-m"
     >
       <!---->
       
@@ -399,7 +399,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--outline t-tag--close"
+      class="t-tag t-tag--danger t-tag--outline t-tag--close t-size-m"
     >
       <!---->
       
@@ -425,7 +425,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
   >
     
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+      class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
       style="max-width: 100px;"
     >
       <!---->
@@ -452,7 +452,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+      class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
       style="max-width: 100px;"
     >
       <svg
@@ -485,7 +485,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
       </svg>
     </span>
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close t-tag--disabled"
+      class="t-tag t-tag--default t-tag--dark t-tag--close t-tag--disabled t-size-m"
     >
       <!---->
       
@@ -511,7 +511,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
     class="tag-block editable"
   >
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
+      class="t-tag t-tag--default t-tag--dark t-size-m"
     >
       <!---->
       
@@ -548,7 +548,7 @@ exports[`Tag Tag disabledVue demo works fine 1`] = `
     
   </span>
   <span
-    class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
+    class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
   >
     <!---->
     
@@ -567,7 +567,7 @@ exports[`Tag Tag iconVue demo works fine 1`] = `
     class="tdesign-demo-block-row"
   >
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
+      class="t-tag t-tag--default t-tag--dark t-size-m"
     >
       <svg
         class="t-icon t-icon-discount"
@@ -586,7 +586,7 @@ exports[`Tag Tag iconVue demo works fine 1`] = `
     class="tdesign-demo-block-row"
   >
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
+      class="t-tag t-tag--default t-tag--dark t-size-m"
     >
       
       <svg
@@ -611,7 +611,7 @@ exports[`Tag Tag longTextVue demo works fine 1`] = `
   class="tdesign-tag-ellipsis"
 >
   <span
-    class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis"
+    class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-size-m"
     style="max-width: 150px;"
     title="默认超八个字超长文本标签超长省略文本标签"
   >
@@ -634,7 +634,7 @@ exports[`Tag Tag plainVue demo works fine 1`] = `
   class="tdesign-tag-outline"
 >
   <span
-    class="t-tag t-tag--primary t-size-m t-tag--outline"
+    class="t-tag t-tag--primary t-tag--outline t-size-m"
   >
     <!---->
     
@@ -643,7 +643,7 @@ exports[`Tag Tag plainVue demo works fine 1`] = `
     <!---->
   </span>
   <span
-    class="t-tag t-tag--success t-size-m t-tag--outline"
+    class="t-tag t-tag--success t-tag--outline t-size-m"
   >
     <!---->
     
@@ -652,7 +652,7 @@ exports[`Tag Tag plainVue demo works fine 1`] = `
     <!---->
   </span>
   <span
-    class="t-tag t-tag--default t-size-m t-tag--outline"
+    class="t-tag t-tag--default t-tag--outline t-size-m"
   >
     <!---->
     
@@ -661,7 +661,7 @@ exports[`Tag Tag plainVue demo works fine 1`] = `
     <!---->
   </span>
   <span
-    class="t-tag t-tag--warning t-size-m t-tag--outline"
+    class="t-tag t-tag--warning t-tag--outline t-size-m"
   >
     <!---->
     
@@ -670,7 +670,7 @@ exports[`Tag Tag plainVue demo works fine 1`] = `
     <!---->
   </span>
   <span
-    class="t-tag t-tag--danger t-size-m t-tag--outline"
+    class="t-tag t-tag--danger t-tag--outline t-size-m"
   >
     <!---->
     
@@ -717,7 +717,7 @@ exports[`Tag Tag shapeVue demo works fine 1`] = `
     class="tag-demo"
   >
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark"
+      class="t-tag t-tag--default t-tag--dark t-size-m"
     >
       <!---->
       
@@ -726,29 +726,7 @@ exports[`Tag Tag shapeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark"
-    >
-      <!---->
-      
-      标签一
-      
-      <!---->
-    </span>
-  </div>
-  <div
-    class="tag-demo"
-  >
-    <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--round"
-    >
-      <!---->
-      
-      标签一
-      
-      <!---->
-    </span>
-    <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--round"
+      class="t-tag t-tag--primary t-tag--dark t-size-m"
     >
       <!---->
       
@@ -761,7 +739,7 @@ exports[`Tag Tag shapeVue demo works fine 1`] = `
     class="tag-demo"
   >
     <span
-      class="t-tag t-tag--default t-size-m t-tag--dark t-tag--mark"
+      class="t-tag t-tag--default t-tag--dark t-size-m t-tag--round"
     >
       <!---->
       
@@ -770,7 +748,29 @@ exports[`Tag Tag shapeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--mark"
+      class="t-tag t-tag--primary t-tag--dark t-size-m t-tag--round"
+    >
+      <!---->
+      
+      标签一
+      
+      <!---->
+    </span>
+  </div>
+  <div
+    class="tag-demo"
+  >
+    <span
+      class="t-tag t-tag--default t-tag--dark t-size-m t-tag--mark"
+    >
+      <!---->
+      
+      标签一
+      
+      <!---->
+    </span>
+    <span
+      class="t-tag t-tag--primary t-tag--dark t-size-m t-tag--mark"
     >
       <!---->
       
@@ -787,7 +787,7 @@ exports[`Tag Tag sizeVue demo works fine 1`] = `
   class="tag-demo"
 >
   <span
-    class="t-tag t-tag--default t-size-s t-tag--dark"
+    class="t-tag t-tag--default t-tag--dark t-size-s"
   >
     <!---->
     
@@ -796,7 +796,7 @@ exports[`Tag Tag sizeVue demo works fine 1`] = `
     <!---->
   </span>
   <span
-    class="t-tag t-tag--default t-size-m t-tag--dark"
+    class="t-tag t-tag--default t-tag--dark t-size-m"
   >
     <!---->
     
@@ -805,7 +805,7 @@ exports[`Tag Tag sizeVue demo works fine 1`] = `
     <!---->
   </span>
   <span
-    class="t-tag t-tag--default t-size-l t-tag--dark"
+    class="t-tag t-tag--default t-tag--dark t-size-l"
   >
     <!---->
     
@@ -825,7 +825,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
   >
      深色 
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--dark"
+      class="t-tag t-tag--primary t-tag--dark t-size-m"
     >
       <!---->
       
@@ -834,7 +834,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--dark"
+      class="t-tag t-tag--success t-tag--dark t-size-m"
     >
       <!---->
       
@@ -843,7 +843,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--dark"
+      class="t-tag t-tag--warning t-tag--dark t-size-m"
     >
       <!---->
       
@@ -852,7 +852,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--dark"
+      class="t-tag t-tag--danger t-tag--dark t-size-m"
     >
       <!---->
       
@@ -866,7 +866,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
   >
      浅色 
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--light"
+      class="t-tag t-tag--primary t-tag--light t-size-m"
     >
       <!---->
       
@@ -875,7 +875,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--light"
+      class="t-tag t-tag--success t-tag--light t-size-m"
     >
       <!---->
       
@@ -884,7 +884,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--light"
+      class="t-tag t-tag--warning t-tag--light t-size-m"
     >
       <!---->
       
@@ -893,7 +893,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--light"
+      class="t-tag t-tag--danger t-tag--light t-size-m"
     >
       <!---->
       
@@ -907,7 +907,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
   >
      朴素 
     <span
-      class="t-tag t-tag--primary t-size-m t-tag--outline"
+      class="t-tag t-tag--primary t-tag--outline t-size-m"
     >
       <!---->
       
@@ -916,7 +916,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--success t-size-m t-tag--outline"
+      class="t-tag t-tag--success t-tag--outline t-size-m"
     >
       <!---->
       
@@ -925,7 +925,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--warning t-size-m t-tag--outline"
+      class="t-tag t-tag--warning t-tag--outline t-size-m"
     >
       <!---->
       
@@ -934,7 +934,7 @@ exports[`Tag Tag themeVue demo works fine 1`] = `
       <!---->
     </span>
     <span
-      class="t-tag t-tag--danger t-size-m t-tag--outline"
+      class="t-tag t-tag--danger t-tag--outline t-size-m"
     >
       <!---->
       

@@ -1,12 +1,17 @@
-import { ref, SetupContext, WritableComputedRef } from 'vue';
-import { TagInputValue, TdTagInputProps } from './type';
+import { ref, SetupContext, toRefs } from 'vue';
+import { TagInputValue, TdTagInputProps, TagInputChangeContext } from './type';
 import { InputValue } from '../input';
+import Tag from '../tag';
 import useDefault from '../hooks/useDefault';
+import { prefix } from '../config';
+import { useTNodeJSX } from '../hooks/tnode';
 
-export type ChangeParams = [Parameters<TdTagInputProps['onChange']>[1]];
+export type ChangeParams = [TagInputChangeContext];
 
 // handle tag add and remove
 export default function useTagList(props: TdTagInputProps, context: SetupContext) {
+  const renderTnode = useTNodeJSX();
+  const { onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps } = toRefs(props);
   // handle controlled property and uncontrolled property
   const [tagValue, setTagValue] = useDefault<TdTagInputProps['value'], TdTagInputProps>(
     props,
@@ -22,7 +27,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
     const arr = [...tagValue.value];
     arr.splice(p.index, 1);
     setTagValue<ChangeParams>(arr, { trigger: 'tag-remove', index: p.index, e: p.e });
-    props.onRemove?.({ ...p, trigger: 'tag-remove', value: tagValue.value });
+    onRemove.value?.({ ...p, trigger: 'tag-remove', value: tagValue.value });
   };
 
   const clearAll = (context: { e: MouseEvent }) => {
@@ -33,7 +38,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
   const onInnerEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
     const valueStr = String(value).trim();
     if (!valueStr) return;
-    const isLimitExceeded = props.max && tagValue.value?.length >= props.max;
+    const isLimitExceeded = max && tagValue.value?.length >= max.value;
     let newValue: TagInputValue = tagValue.value;
     if (!isLimitExceeded) {
       newValue = tagValue.value instanceof Array ? tagValue.value.concat(String(valueStr)) : [valueStr];
@@ -55,9 +60,58 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
       const item = tagValue.value?.[index];
       const trigger = 'backspace';
       setTagValue<ChangeParams>(tagValue.value.slice(0, -1), { e, index, item, trigger });
-      props.onRemove?.({ e, index, item, trigger, value: tagValue.value });
+      onRemove.value?.({ e, index, item, trigger, value: tagValue.value });
     }
     oldInputValue.value = value;
+  };
+
+  const renderLabel = ({
+    slots,
+    displayNode,
+    label,
+  }: {
+    slots: SetupContext['slots'];
+    displayNode: any;
+    label: any;
+  }) => {
+    const newList = minCollapsedNum.value ? tagValue.value.slice(0, minCollapsedNum.value) : tagValue.value;
+    const list = displayNode
+      ? [displayNode]
+      : newList?.map((item, index) => {
+          const tagContent = renderTnode('tag', { params: { value: item } });
+          return (
+            <Tag
+              key={item}
+              size={size.value}
+              disabled={disabled.value}
+              onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, item, index })}
+              closable={!readonly.value && !disabled.value}
+              {...tagProps.value}
+            >
+              {tagContent ?? item}
+            </Tag>
+          );
+        });
+    if (![null, undefined, ''].includes(label)) {
+      list.unshift(
+        <div class={`${prefix}-tag-input__prefix`} key="label">
+          {label}
+        </div>,
+      );
+    }
+    // 超出省略
+    if (newList.length !== tagValue.value.length) {
+      const len = tagValue.value.length - newList.length;
+      const more = renderTnode('collapsedItems', {
+        params: {
+          value: tagValue,
+          count: tagValue.value.length,
+          collapsedTags: tagValue.value.slice(minCollapsedNum.value, tagValue.value.length),
+        },
+      });
+      list.push(more ?? <Tag key="more">+{len}</Tag>);
+    }
+    return list;
   };
 
   return {
@@ -66,5 +120,6 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
     onClose,
     onInnerEnter,
     onInputBackspaceKeyUp,
+    renderLabel,
   };
 }

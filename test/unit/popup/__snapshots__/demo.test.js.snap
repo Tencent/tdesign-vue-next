@@ -1141,7 +1141,7 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->

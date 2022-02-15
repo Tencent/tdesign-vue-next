@@ -250,7 +250,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-s t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-s"
                 style="display: none;"
               >
                 <!---->
@@ -450,7 +450,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-s t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-s"
                 style="display: none;"
               >
                 <!---->
@@ -2045,7 +2045,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -3642,7 +3642,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -3992,7 +3992,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -4627,7 +4627,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -4948,7 +4948,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -5525,7 +5525,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
       >
         <div
           allowinput="0"
-          class="t-input t-size-m t-is-readonly t-input--suffix"
+          class="t-input t-is-readonly t-input--suffix"
           modelvalue=""
         >
           <!---->
@@ -5996,7 +5996,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m"
+            class="t-input"
             modelvalue=""
             style="width: 400px;"
           >
@@ -6039,7 +6039,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input t-size-m t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
             style="width: 400px;"
           >
@@ -6130,7 +6130,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -6752,7 +6752,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input t-size-m"
+            class="t-input"
           >
             <!---->
             <!---->
@@ -6862,7 +6862,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -6961,7 +6961,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7060,7 +7060,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7305,7 +7305,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7316,7 +7316,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -7465,7 +7465,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7476,7 +7476,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
           style="display: none;"
         >
@@ -7775,7 +7775,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7786,7 +7786,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-size-m t-select__input"
+          class="t-input t-select__input"
           modelvalue=""
         >
           <!---->
@@ -8636,7 +8636,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-time-picker__group"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--suffix"
+        class="t-input t-is-readonly t-input--suffix"
       >
         <!---->
         <!---->
@@ -8692,7 +8692,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <!-- 自定义关闭按钮示例 -->
   <span
-    class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close"
+    class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"
   >
     <!---->
     
@@ -8718,7 +8718,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     </svg>
   </span>
   <span
-    class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close"
+    class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"
   >
     <!---->
     
@@ -8744,7 +8744,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     </svg>
   </span>
   <span
-    class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close"
+    class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"
   >
     <!---->
     
@@ -8770,7 +8770,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     </svg>
   </span>
   <span
-    class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close"
+    class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"
   >
     <!---->
     
@@ -9194,7 +9194,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->

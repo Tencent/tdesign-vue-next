@@ -8,17 +8,10 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'TTagInputSizeDemo',
-  setup() {
-    const tags1 = ref(['Vue', 'React']);
-    const tags2 = ref(['Vue', 'React']);
-    const tags3 = ref(['Vue', 'React']);
-
-    return { tags1, tags2, tags3 };
-  },
-});
+const tags1 = ref(['Vue', 'React']);
+const tags2 = ref(['Vue', 'React']);
+const tags3 = ref(['Vue', 'React']);
 </script>
