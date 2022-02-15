@@ -21492,14 +21492,24 @@ exports[`ssr snapshot test renders ./examples/loading/demos/indicatorSlot.vue co
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/loading/demos/preventScrollThrough.vue correctly 1`] = `<!---->`;
+exports[`ssr snapshot test renders ./examples/loading/demos/preventScrollThrough.vue correctly 1`] = `
+<div class="t-loading t-loading__fullscreen t-loading--center t-loading__overlay" style="">
+  <div class="t-loading--center t-size-m"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+      <foreignObject x="1" y="1" width="12" height="12">
+        <div class="t-loading__gradient-conic"></div>
+      </foreignObject>
+    </svg>
+    <!---->
+  </div>
+</div>
+`;
 
 exports[`ssr snapshot test renders ./examples/loading/demos/service.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
   <div id="loading-service-demo" class="loading-service-demo">Loading 挂载容器</div>
   <p>this.$loading(true)</p>
   <p>this.$loading({ attach: &#39;#loading-service-demo&#39;, showOverlay: true })</p>
-  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn" type="button"><span class="t-button__text"><!--[-->插件方式加载（局部）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->插件方式加载（全屏）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->插件方式加载（全屏-滚动穿透）<!--]--></span></button></div>
+  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn" type="button"><span class="t-button__text"><!--[--> 插件方式加载（局部） <!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->插件方式加载（全屏）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->插件方式加载（全屏-滚动穿透）<!--]--></span></button></div>
   <p>LoadingPlugin(true)</p>
   <p>LoadingPlugin({ attach: &#39;#loading-service-demo&#39;, showOverlay: true })</p>
   <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn" type="button"><span class="t-button__text"><!--[-->函数方式加载（局部）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->函数方式加载（全屏）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->函数方式加载（全屏-滚动穿透）<!--]--></span></button></div>
