@@ -12,7 +12,7 @@ const separatorClass = `${prefix}-breadcrumb__separator`;
 const disableClass = `${prefix}-disabled`;
 const linkClass = `${prefix}-link`;
 const maxLengthClass = `${prefix}-breadcrumb__inner`;
-const textFlowClass = `${prefix}-breadcrumb--text-oveflow`;
+const textFlowClass = `${prefix}-breadcrumb--text-overflow`;
 
 export const EVENT_NAME_WITH_KEBAB = ['click'];
 interface LocalTBreadcrumb {

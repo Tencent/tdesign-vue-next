@@ -266,7 +266,7 @@ export default defineComponent({
     return (
       <div
         ref="button"
-        class={[{ hover: this.hovering, dragging: this.dragging }, 't-slider__button-wrapper']}
+        class={`${prefix}-slider__button-wrapper`}
         style={this.wrapperStyle}
         tabindex="0"
         show-tooltip={this.showTooltip}
@@ -292,7 +292,7 @@ export default defineComponent({
           overlayClassName={this.overlayClassName}
           attach={this.attach}
         >
-          <div class={['t-slider__button', { hover: this.hovering, dragging: this.dragging }]} />
+          <div class={[`${prefix}-slider__button`, { [`${prefix}-slider__button--dragging`]: this.dragging }]} />
         </t-popup>
       </div>
     );

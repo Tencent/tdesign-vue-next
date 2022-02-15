@@ -131,6 +131,9 @@ export default defineComponent({
       const clipData = e.clipboardData || window.clipboardData;
       this.onPaste?.({ e, pasteValue: clipData?.getData('text/plain') });
     },
+    onHandleMousewheel(e: WheelEvent) {
+      this.onMousewheel?.({ e });
+    },
     emitPassword() {
       const { renderType } = this;
       const toggleType = renderType === 'password' ? 'text' : 'password';
@@ -151,8 +154,12 @@ export default defineComponent({
       this.focused = false;
       emitEvent(this, 'blur', this.value, { e });
     },
-    onCompositionend(e: CompositionEvent) {
+    onHandleCompositionend(e: CompositionEvent) {
       this.inputValueChangeHandle(e);
+      emitEvent(this, 'compositionend', this.value, { e });
+    },
+    onHandleonCompositionstart(e: CompositionEvent) {
+      emitEvent(this, 'compositionstart', this.value, { e });
     },
     inputValueChangeHandle(e: InputEvent | CompositionEvent) {
       const { target } = e;
@@ -185,6 +192,8 @@ export default defineComponent({
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
       onPaste: this.onHandlePaste,
+      onCompositionend: this.onHandleCompositionend,
+      onCompositionstart: this.onHandleonCompositionstart,
       // input的change事件是失去焦点或者keydown的时候执行。这与api定义的change不符，所以不做任何变化。
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       onChange: () => {},
@@ -216,11 +225,12 @@ export default defineComponent({
 
     const classes = [
       name,
-      CLASSNAMES.SIZE[this.size] || '',
       {
+        [CLASSNAMES.SIZE[this.size]]: this.size !== 'medium',
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-is-${this.status}`]: this.status,
+        [`${prefix}-align-${this.align}`]: this.align !== 'left',
         [`${prefix}-is-disabled`]: this.disabled,
         [`${prefix}-is-readonly`]: this.readonly,
         [`${name}--prefix`]: prefixIcon || labelContent,
@@ -233,6 +243,7 @@ export default defineComponent({
         class={classes}
         onMouseenter={this.onInputMouseenter}
         onMouseleave={this.onInputMouseleave}
+        onwheel={this.onHandleMousewheel}
         {...{ ...wrapperAttrs }}
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
@@ -244,7 +255,6 @@ export default defineComponent({
           ref="refInputElem"
           value={this.value}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
-          onCompositionend={this.onCompositionend}
         />
         {suffixContent}
         {suffixIcon ? (

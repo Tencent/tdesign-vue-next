@@ -586,14 +586,14 @@ exports[`Comment Comment replyFormVue demo works fine 1`] = `
             <!---->
           </div>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-m t-button--variant-base t-button--theme-primary form-submit"
             type="button"
           >
             <span
               class="t-button__text"
             >
               
-               回复 
+              回复
               
             </span>
           </button>

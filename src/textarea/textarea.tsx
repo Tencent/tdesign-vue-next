@@ -57,7 +57,7 @@ export default defineComponent({
       });
     },
     characterNumber(): number {
-      const characterInfo = getCharacterLength(String(this.value));
+      const characterInfo = getCharacterLength(String(this.value || ''));
       if (typeof characterInfo === 'object') {
         return characterInfo.length;
       }

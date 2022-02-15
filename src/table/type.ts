@@ -109,6 +109,10 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   verticalAlign?: 'top' | 'middle' | 'bottom';
   /**
+   * 单元格点击时触发
+   */
+  onCellClick?: (context: BaseTableCellEventContext<T>) => void;
+  /**
    * 分页发生变化时触发。参数 newDataSource 表示分页后的数据。本地数据进行分页时，newDataSource 和源数据 data 会不一样。泛型 T 指表格数据类型
    */
   onPageChange?: (pageInfo: PageInfo, newDataSource: Array<T>) => void;
@@ -205,7 +209,8 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
   width?: string | number;
 }
 
-export interface TdPrimaryTableProps<T extends TableRowData =  TableRowData> extends Omit<TdBaseTableProps<T>, 'columns'> {
+export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
+  extends Omit<TdBaseTableProps<T>, 'columns'> {
   /**
    * 异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `loading-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容
    */
@@ -300,6 +305,10 @@ export interface TdPrimaryTableProps<T extends TableRowData =  TableRowData> ext
    */
   onAsyncLoadingClick?: (context: { status: 'loading' | 'load-more' }) => void;
   /**
+   * 单元格点击时触发
+   */
+  onCellClick?: (context: PrimaryTableCellEventContext<T>) => void;
+  /**
    * 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型
    */
   onChange?: (data: TableChangeData, context: TableChangeContext<Array<T>>) => void;
@@ -329,7 +338,8 @@ export interface TdPrimaryTableProps<T extends TableRowData =  TableRowData> ext
   onSortChange?: (sort: TableSort, options: SortOptions<T>) => void;
 }
 
-export interface PrimaryTableCol<T extends TableRowData = TableRowData> extends Omit<BaseTableCol, 'cell' | 'title' | 'render'> {
+export interface PrimaryTableCol<T extends TableRowData = TableRowData>
+  extends Omit<BaseTableCol, 'cell' | 'title' | 'render'> {
   /**
    * 【开发中】是否允许用户选择是否显示当前列，表格属性 `showColumnController` 为真时有效
    * @default true
@@ -346,7 +356,7 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData> extends 
   /**
    * 是否禁用行选中，colKey 值为 row-select 时，配置有效
    */
-  disabled?: (options: {row: T; rowIndex: number }) => boolean;
+  disabled?: (options: { row: T; rowIndex: number }) => boolean;
   /**
    * 过滤规则，支持多选(multiple)、单选(single)、输入框(input) 等三种形式。想要自定义过滤组件，可通过 `filter.component` 实现，自定义过滤组件需要包含参数 value 和事件 change
    */
@@ -486,25 +496,60 @@ export interface TableScroll {
   type: 'lazy' | 'virtual';
 }
 
-export interface RowspanColspan { colspan: number; rowspan: number };
+export interface RowspanColspan {
+  colspan: number;
+  rowspan: number;
+}
 
-export interface RowspanAndColspanParams<T> { row: T; col: BaseTableCol; rowIndex: number; colIndex: number };
+export interface RowspanAndColspanParams<T> {
+  row: T;
+  col: BaseTableCol;
+  rowIndex: number;
+  colIndex: number;
+}
 
-export interface RowEventContext<T> { row: T; index: number; e: MouseEvent };
+export interface BaseTableCellEventContext<T> {
+  row: T;
+  col: BaseTableCol;
+  rowIndex: number;
+  colIndex: number;
+  e: MouseEvent;
+}
 
-export interface TableRowData { [key: string]: any; children?: TableRowData[]; };
+export interface RowEventContext<T> {
+  row: T;
+  index: number;
+  e: MouseEvent;
+}
 
-export interface BaseTableCellParams<T> { row: T; rowIndex: number; col: BaseTableCol<T>; colIndex: number };
+export interface TableRowData {
+  [key: string]: any;
+  children?: TableRowData[];
+}
 
-export interface CellData<T> extends BaseTableCellParams<T> { type: 'th' | 'td' };
+export interface BaseTableCellParams<T> {
+  row: T;
+  rowIndex: number;
+  col: BaseTableCol<T>;
+  colIndex: number;
+}
 
-export interface BaseTableRenderParams<T> extends BaseTableCellParams<T> { type: RenderType };
+export interface CellData<T> extends BaseTableCellParams<T> {
+  type: 'th' | 'td';
+}
+
+export interface BaseTableRenderParams<T> extends BaseTableCellParams<T> {
+  type: RenderType;
+}
 
 export type RenderType = 'cell' | 'title';
 
 export type DataType = TableRowData;
 
-export interface ExpandArrowRenderParams<T> { row: T; index: number };
+export interface ExpandArrowRenderParams<T> {
+  row: T;
+  index: number;
+}
 
 export type FilterValue = { [key: string]: FilterItemValue };
 
@@ -512,27 +557,70 @@ export type FilterItemValue = string | number | undefined | Array<string | numbe
 
 export type TableSort = SortInfo | Array<SortInfo>;
 
-export interface SortInfo { sortBy: string; descending: boolean };
+export interface SortInfo {
+  sortBy: string;
+  descending: boolean;
+}
 
-export interface TableChangeData { sorter?: TableSort; filter?: FilterValue; pagination?: PaginationProps };
+export interface PrimaryTableCellEventContext<T> {
+  row: T;
+  col: PrimaryTableCol;
+  rowIndex: number;
+  colIndex: number;
+  e: MouseEvent;
+}
 
-export interface TableChangeContext<T> { trigger: TableChangeTrigger; currentData?: T };
+export interface TableChangeData {
+  sorter?: TableSort;
+  filter?: FilterValue;
+  pagination?: PaginationProps;
+}
+
+export interface TableChangeContext<T> {
+  trigger: TableChangeTrigger;
+  currentData?: T;
+}
 
 export type TableChangeTrigger = 'filter' | 'sorter' | 'pagination';
 
-export interface DragSortContext<T> { currentIndex: number; current: T; targetIndex: number; target: T };
+export interface DragSortContext<T> {
+  currentIndex: number;
+  current: T;
+  targetIndex: number;
+  target: T;
+}
 
-export interface ExpandOptions<T> { expandedRowData: Array<T> };
+export interface ExpandOptions<T> {
+  expandedRowData: Array<T>;
+}
 
-export interface SelectOptions<T> { selectedRowData: Array<T>; type: 'uncheck' | 'check'; currentRowKey?: string; currentRowData?: T };
+export interface SelectOptions<T> {
+  selectedRowData: Array<T>;
+  type: 'uncheck' | 'check';
+  currentRowKey?: string;
+  currentRowData?: T;
+}
 
-export interface SortOptions<T> { currentDataSource?: Array<T>; col: PrimaryTableCol };
+export interface SortOptions<T> {
+  currentDataSource?: Array<T>;
+  col: PrimaryTableCol;
+}
 
-export interface PrimaryTableCellParams<T> { row: T; rowIndex: number; col: PrimaryTableCol<T>; colIndex: number };
+export interface PrimaryTableCellParams<T> {
+  row: T;
+  rowIndex: number;
+  col: PrimaryTableCol<T>;
+  colIndex: number;
+}
 
-export type CheckProps<T> = CheckboxProps | RadioProps | ((options: { row: T; rowIndex: number }) => CheckboxProps | RadioProps);
+export type CheckProps<T> =
+  | CheckboxProps
+  | RadioProps
+  | ((options: { row: T; rowIndex: number }) => CheckboxProps | RadioProps);
 
-export interface PrimaryTableRenderParams<T> extends PrimaryTableCellParams<T> { type: RenderType };
+export interface PrimaryTableRenderParams<T> extends PrimaryTableCellParams<T> {
+  type: RenderType;
+}
 
 export type SorterFun<T> = (a: T, b: T) => SortNumber;
 
@@ -540,7 +628,12 @@ export type SortNumber = 1 | -1 | 0;
 
 export type SortType = 'desc' | 'asc' | 'all';
 
-export interface TableTreeConfig { indent?: number; treeNodeColumnIndex?: number; childrenKey?: 'children'; checkStrictly?: boolean };
+export interface TableTreeConfig {
+  indent?: number;
+  treeNodeColumnIndex?: number;
+  childrenKey?: 'children';
+  checkStrictly?: boolean;
+}
 
 export type TableRowValue = string | number;
 

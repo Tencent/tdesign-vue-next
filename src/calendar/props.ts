@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-23 15:12:22
  * */
 
 import { TdCalendarProps } from './type';
@@ -20,7 +19,7 @@ export default {
   /** 右上角控制器配置。值为 false 则表示不显示控制器，值为 true 则显示控制器默认配置，值类型为 CalendarController 则显示为自定义控制器配置 */
   controllerConfig: {
     type: [Boolean, Object] as PropType<TdCalendarProps['controllerConfig']>,
-    default: true,
+    default: undefined,
   },
   /** 小于 10 的日期，是否使用 '0' 填充。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9` */
   fillWithZero: {

@@ -334,11 +334,24 @@ export default {
           component: () => import('@/examples/list/list.md'),
         },
         {
+          title: 'Loading 加载',
+          name: 'loading',
+          docType: 'message',
+          path: '/vue-next/components/loading',
+          component: () => import('@/examples/loading/loading.md'),
+        },
+        {
           title: 'Progress 进度条',
           name: 'progress',
           docType: 'data',
           path: '/vue-next/components/progress',
           component: () => import('@/examples/progress/progress.md'),
+        },
+        {
+          title: 'Skeleton  骨架屏',
+          name: 'skeleton',
+          path: '/vue/components/skeleton',
+          component: () => import('@/examples/skeleton/skeleton.md'),
         },
         {
           title: 'Swiper 轮播框',
@@ -400,13 +413,6 @@ export default {
           docType: 'message',
           path: '/vue-next/components/drawer',
           component: () => import('@/examples/drawer/drawer.md'),
-        },
-        {
-          title: 'Loading 加载',
-          name: 'loading',
-          docType: 'message',
-          path: '/vue-next/components/loading',
-          component: () => import('@/examples/loading/loading.md'),
         },
         {
           title: 'Message 全局提示',

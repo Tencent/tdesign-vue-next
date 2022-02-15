@@ -1,13 +1,14 @@
 :: BASE_DOC ::
 
 ## API
+
 ### Calendar Props
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 cell | String / Slot / Function | - | 单元格插槽。TS 类型：`string | TNode<CalendarCell>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 cellAppend | String / Slot / Function | - | 单元格插槽，在原来的内容之后追加。TS 类型：`string | TNode<CalendarCell>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-controllerConfig | Boolean / Object | true | 右上角控制器配置。值为 false 则表示不显示控制器，值为 true 则显示控制器默认配置，值类型为 CalendarController 则显示为自定义控制器配置。TS 类型：`boolean | CalendarController` | N
+controllerConfig | Boolean / Object | undefined | 右上角控制器配置。值为 false 则表示不显示控制器，值为 true 则显示控制器默认配置，值类型为 CalendarController 则显示为自定义控制器配置。TS 类型：`boolean | CalendarController` | N
 fillWithZero | Boolean | undefined | 小于 10 的日期，是否使用 '0' 填充。默认表现为 `01` `02`，值为 false 表现为 `1` `2` `9` | N
 firstDayOfWeek | Number | - | 第一天从星期几开始，仅在日历展示维度为月份时（mode = month）有效。默认为 1。可选项：1/2/3/4/5/6/7 | N
 format | String | 'YYYY-MM-DD' | 用于格式化日期，决定事件参数 formattedFilterDate 的输出值。[详细文档](https://day.js.org/docs/en/display/format) | N

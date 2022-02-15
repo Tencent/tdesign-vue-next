@@ -19,7 +19,7 @@
     </t-step-item>
     <t-step-item title="步骤4" content="这里是提示文字">
       <template v-if="current === 3" #extra>
-        <t-button size="small" @click="current--"> 下一步 </t-button>
+        <t-button size="small" @click="current--"> 上一步 </t-button>
       </template>
     </t-step-item>
   </t-steps>

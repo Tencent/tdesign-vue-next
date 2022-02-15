@@ -82,6 +82,8 @@ export default {
   sortOnRowDraggable: Boolean,
   /** 异步加载区域被点击时触发 */
   onAsyncLoadingClick: Function as PropType<TdPrimaryTableProps['onAsyncLoadingClick']>,
+  /** 单元格点击时触发 */
+  onCellClick: Function as PropType<TdPrimaryTableProps['onCellClick']>,
   /** 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型 */
   onChange: Function as PropType<TdPrimaryTableProps['onChange']>,
   /** 表格数据发生变化时触发，比如：本地排序方法 sorter */

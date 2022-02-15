@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, computed } from 'vue';
 import { prefix } from '../config';
 
 const name = `${prefix}-fake-arrow`;
@@ -19,16 +19,17 @@ export default defineComponent({
     },
   },
 
-  computed: {
-    classes(): Array<string | object> {
-      return [
-        name,
-        {
-          [`${name}--active`]: this.isActive,
-        },
-        this.overlayClassName,
-      ];
-    },
+  setup(props) {
+    const classes = computed(() => [
+      name,
+      {
+        [`${name}--active`]: props.isActive,
+      },
+      props.overlayClassName,
+    ]);
+    return {
+      classes,
+    };
   },
 
   render() {
