@@ -1,4 +1,4 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { useEmitEvent } from '../hooks/event';
 import { prefix } from '../config';
@@ -18,6 +18,21 @@ const lockClass = `${prefix}-dialog--lock`;
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
+}
+
+let mousePosition: { x: number; y: number } | null;
+const getClickPosition = (e: MouseEvent) => {
+  mousePosition = {
+    x: e.clientX,
+    y: e.clientY,
+  };
+  setTimeout(() => {
+    mousePosition = null;
+  }, 100);
+};
+
+if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
+  document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
 // 注册元素的拖拽事件
@@ -88,6 +103,7 @@ export default defineComponent({
     const emitEvent = useEmitEvent();
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
+    const dialogEle = ref<HTMLElement | null>(null);
     const { global } = useReceiver<DialogConfig>('dialog');
     const confirmBtnAction = (e: MouseEvent) => {
       emitEvent<Parameters<TdDialogProps['onConfirm']>>('confirm', { e });
@@ -114,7 +130,7 @@ export default defineComponent({
         `${name}__modal-${props.theme}`,
       ];
       if (['modeless', 'modal'].includes(props.mode)) {
-        dialogClass.push(`${name}--fixed`);
+        // dialogClass.push(`${name}--fixed`);
       }
       return dialogClass;
     });
@@ -128,7 +144,6 @@ export default defineComponent({
         topStyle = {
           top: topValue,
           transform: 'translate(-50%, 0)',
-          transformOrigin: '25% 25%',
           maxHeight: `calc(100% - ${topValue})`,
         };
       } else if (placement === 'top') {
@@ -147,6 +162,13 @@ export default defineComponent({
             document.body.style.cssText = bodyCssText;
           }
           addClass(document.body, lockClass);
+          nextTick(() => {
+            if (mousePosition && dialogEle.value) {
+              dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
+                mousePosition.y - dialogEle.value.offsetTop
+              }px`;
+            }
+          });
         } else {
           document.body.style.cssText = '';
           removeClass(document.body, lockClass);
@@ -254,6 +276,7 @@ export default defineComponent({
           class={dialogClass.value}
           style={dialogStyle.value}
           v-draggable={isModeless.value && props.draggable}
+          ref="dialogEle"
         >
           <div class={`${name}__header`}>
             {getIcon()}
@@ -282,6 +305,7 @@ export default defineComponent({
       maskClass,
       dialogClass,
       dialogStyle,
+      dialogEle,
       afterEnter,
       afterLeave,
       hasEventOn,
