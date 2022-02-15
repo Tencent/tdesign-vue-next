@@ -6,7 +6,6 @@ import TButton from '../button';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
-import { ClassName, Styles } from '../common';
 import { addClass, removeClass } from '../utils/dom';
 import { DialogConfig } from '../config-provider/config-receiver';
 import { useReceiver } from '../config-provider';
@@ -121,8 +120,8 @@ export default defineComponent({
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
     const isModeless = computed(() => props.mode === 'modeless');
-    const maskClass = computed<ClassName>(() => [`${name}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
-    const dialogClass = computed<ClassName>(() => {
+    const maskClass = computed(() => [`${name}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
+    const dialogClass = computed(() => {
       const dialogClass = [
         `${name}`,
         `${name}--default`,
@@ -134,7 +133,7 @@ export default defineComponent({
       }
       return dialogClass;
     });
-    const dialogStyle = computed<Styles>(() => {
+    const dialogStyle = computed(() => {
       const { top, placement } = props;
       let topStyle = {};
 
