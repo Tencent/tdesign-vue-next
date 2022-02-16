@@ -18,20 +18,20 @@ export default defineComponent({
   props,
   setup(props) {
     const disabled = useFormDisabled();
-    const isDisabledRef = computed(() => props.disabled || props.loading || disabled.value);
-    const mergeThemeRef = computed(() => {
+    const isDisabled = computed(() => props.disabled || props.loading || disabled.value);
+    const mergeTheme = computed(() => {
       const { theme, variant } = props;
       if (theme) return theme;
       if (variant === 'base') return 'primary';
       return 'default';
     });
-    const buttonClassRef = computed(() => [
+    const buttonClass = computed(() => [
       `${name}`,
       CLASSNAMES.SIZE[props.size],
       `${name}--variant-${props.variant}`,
-      `${name}--theme-${mergeThemeRef.value}`,
+      `${name}--theme-${mergeTheme.value}`,
       {
-        [CLASSNAMES.STATUS.disabled]: isDisabledRef.value,
+        [CLASSNAMES.STATUS.disabled]: isDisabled.value,
         [CLASSNAMES.STATUS.loading]: props.loading,
         [`${name}--shape-${props.shape}`]: props.shape !== 'rectangle',
         [`${name}--ghost`]: props.ghost,
@@ -40,9 +40,9 @@ export default defineComponent({
     ]);
 
     return {
-      disabled: isDisabledRef,
-      mergeTheme: mergeThemeRef,
-      buttonClass: buttonClassRef,
+      disabled: isDisabled,
+      mergeTheme,
+      buttonClass,
     };
   },
   render() {

@@ -211,11 +211,11 @@ draggingText | String | '拖拽到此区域' | 语言配置，'拖拽到此区�
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
-fileNameText | String | '文件名' | 语言配置，'文件名' 描述文本 | N
-fileOperationDateText | String | '上传日期' | 语言配置，'上传日期' 描述文本 | N
-fileOperationText | String | '操作' | 语言配置，'操作' 描述文本 | N
-fileSizeText | String | '文件尺寸' | 语言配置，'文件尺寸' 描述文本 | N
-fileStatusText | String | '状态' | 语言配置，'状态' 描述文本 | N
+fileNameText | String | '文件名' | 【开发中】语言配置，'文件名' 描述文本 | N
+fileOperationDateText | String | '上传日期' | 【开发中】语言配置，'上传日期' 描述文本 | N
+fileOperationText | String | '操作' | 【开发中】语言配置，'操作' 描述文本 | N
+fileSizeText | String | '文件尺寸' | 【开发中】语言配置，'文件尺寸' 描述文本 | N
+fileStatusText | String | '状态' | 【开发中】语言配置，'状态' 描述文本 | N
 
 ### FormConfig
 
