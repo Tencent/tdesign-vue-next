@@ -235,9 +235,11 @@ export default defineComponent({
     const classes = [
       name,
       {
+        [CLASSNAMES.SIZE[this.size]]: this.size !== 'medium',
         [CLASSNAMES.STATUS.disabled]: this.disabled,
         [CLASSNAMES.STATUS.focused]: this.focused,
         [`${prefix}-is-${this.status}`]: this.status,
+        [`${prefix}-align-${this.align}`]: this.align !== 'left',
         [`${prefix}-is-disabled`]: this.disabled,
         [`${prefix}-is-readonly`]: this.readonly,
         [`${name}--prefix`]: prefixIcon || labelContent,
