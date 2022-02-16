@@ -199,7 +199,7 @@ export default defineComponent({
         <ul
           class={`${COMPONENT_NAME}__panel-body-scroll`}
           ref={`${col}_scroller`}
-          onMousewheel={debounce(() => this.handleScroll(col), 50)}
+          onScroll={debounce(() => this.handleScroll(col), 50)}
         >
           {this.generateColRows(col)}
         </ul>
