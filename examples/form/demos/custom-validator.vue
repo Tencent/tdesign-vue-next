@@ -56,13 +56,6 @@ const onValidate = ({ validateResult, firstError }) => {
   }
 };
 
-const handleBlur = () => {
-  form.value.validate({
-    fields: ['account'],
-    trigger: 'blur',
-  });
-};
-
 const rePassword = (val) =>
   new Promise((resolve) => {
     const timer = setTimeout(() => {
@@ -70,6 +63,16 @@ const rePassword = (val) =>
       clearTimeout(timer);
     });
   });
+
+const passwordValidator = (val) => {
+  if (val.length > 0 && val.length <= 2) {
+    return { result: false, message: '太简单了！再开动一下你的小脑筋吧！', type: 'error' };
+  }
+  if (val.length > 2 && val.length < 4) {
+    return { result: false, message: '还差一点点，就是一个完美的密码了！', type: 'warning' };
+  }
+  return { result: true, message: '太强了，你确定自己记得住吗！', type: 'success' };
+};
 
 const rules = {
   account: [
@@ -81,7 +84,7 @@ const rules = {
       trigger: 'blur',
     },
   ],
-  password: [{ required: true, message: '密码必填', type: 'error' }],
+  password: [{ required: true, message: '密码必填', type: 'error' }, { validator: passwordValidator }],
   rePassword: [
     // 自定义校验规则
     { required: true, message: '密码必填', type: 'error' },
