@@ -5,7 +5,9 @@
 </template>
 
 <script setup>
-const current = 1;
+import { ref } from 'vue';
+
+const current = ref(1);
 const globalConfig = {
   pagination: {
     itemsPerPage: '{size} / page',
