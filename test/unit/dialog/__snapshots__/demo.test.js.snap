@@ -71,6 +71,7 @@ exports[`Dialog Dialog asyncVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm"
+              disabled=""
               type="button"
             >
               

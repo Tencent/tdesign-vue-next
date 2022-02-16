@@ -187,11 +187,12 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
     </span>
   </label>
   <label
-    class="t-radio"
+    class="t-radio t-is-disabled"
     modelvalue="false"
   >
     <input
       class="t-radio__former"
+      disabled=""
       name=""
       type="radio"
       value="sz"

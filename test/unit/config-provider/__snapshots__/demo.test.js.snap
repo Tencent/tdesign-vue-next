@@ -7149,7 +7149,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -7213,7 +7212,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -7236,6 +7234,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <!-- &lt;t-cascader placeholder="see loading text in Cascader" loading style="width: 400px;" /&gt; -->
   <!-- &lt;br&gt;&lt;br&gt; -->
   <div
+    class="t-select__wrap"
     style="width: 400px;"
   >
     <div
@@ -7301,6 +7300,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           see empty data in TreeSelect
+           
         </span>
         
         
@@ -7396,6 +7396,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <br />
   <div
+    class="t-select__wrap"
     style="width: 400px;"
   >
     <div
@@ -7461,6 +7462,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           see loading text in TreeSelect
+           
         </span>
         
         
@@ -7540,6 +7542,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <br />
   <div
+    class="t-select__wrap"
     modelvalue=""
     style="width: 400px;"
   >
@@ -7771,6 +7774,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           style="display: none;"
         >
           tree select
+           
         </span>
         
         

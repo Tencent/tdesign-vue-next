@@ -8,6 +8,9 @@ import { ChangeSource } from './type';
 import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-input-number`;
 
 type InputNumberEvent = {
@@ -41,6 +44,12 @@ export default defineComponent({
   },
   props: { ...props },
   emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
+  setup(props) {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       userInput: null,
@@ -222,7 +231,7 @@ export default defineComponent({
       // only allow one [.e] and two [-]
       let filterVal = s.replace(/[^\d.eE。-]/g, '').replace('。', '.');
       if (this.multiE(filterVal) || this.multiDot(filterVal) || this.multiNegative(filterVal)) {
-        filterVal = filterVal.substr(0, filterVal.length - 1);
+        filterVal = filterVal.substring(0, filterVal.length - 1);
       }
       return filterVal;
     },

@@ -30,6 +30,9 @@ import {
 import props from './props';
 import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './type';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-cascader`;
 
 export default defineComponent({
@@ -47,6 +50,13 @@ export default defineComponent({
   },
 
   emits: ['change', 'remove', 'blur', 'focus'],
+
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
 
   data() {
     return {

@@ -13,7 +13,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
       modelvalue="12"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -29,7 +28,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -81,7 +79,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
       modelvalue="30,70"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -97,7 +94,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -134,7 +130,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -374,7 +369,6 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -391,7 +385,6 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"
@@ -508,7 +501,6 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -525,7 +517,6 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"
@@ -562,7 +553,6 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"
@@ -745,7 +735,6 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -761,7 +750,6 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -878,7 +866,6 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -894,7 +881,6 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -931,7 +917,6 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -1114,7 +1099,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -1130,7 +1114,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -1262,7 +1245,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -1278,7 +1260,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -1315,7 +1296,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -1449,7 +1429,6 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="30"
         aria-valuemin="10"
@@ -1465,7 +1444,6 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: -50%;"
@@ -1549,7 +1527,6 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="30"
         aria-valuemin="10"
@@ -1565,7 +1542,6 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: -50%;"
@@ -1602,7 +1578,6 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: -50%;"
@@ -1692,7 +1667,6 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -1708,7 +1682,6 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -1761,7 +1734,6 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="horizontal"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -1777,7 +1749,6 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -1814,7 +1785,6 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="left: 0%;"
@@ -1874,7 +1844,6 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
       vertical=""
     >
       <div
-        aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -1891,7 +1860,6 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"
@@ -2024,7 +1992,6 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
       vertical=""
     >
       <div
-        aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -2041,7 +2008,6 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"
@@ -2078,7 +2044,6 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"
@@ -2216,7 +2181,6 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -2233,7 +2197,6 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"
@@ -2286,7 +2249,6 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
       show-tooltip="true"
     >
       <div
-        aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
@@ -2303,7 +2265,6 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"
@@ -2340,7 +2301,6 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            disabled="false"
             ontouchstart="function () { [native code] }"
             show-tooltip="true"
             style="bottom: 0%;"

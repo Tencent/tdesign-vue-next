@@ -1,7 +1,13 @@
 <template>
   <div>
-    <!--  scrollToFirstError="smooth" -->
-    <t-form ref="form" :data="formData" :rules="rules" @reset="onReset" @submit="onSubmit">
+    <t-form
+      ref="form"
+      :data="formData"
+      :rules="rules"
+      scroll-to-first-error="smooth"
+      @reset="onReset"
+      @submit="onSubmit"
+    >
       <t-form-item label="用户名" help="这是用户名字段帮助说明" name="account">
         <t-input v-model="formData.account"></t-input>
       </t-form-item>
@@ -33,10 +39,7 @@
       <t-form-item
         label="入学时间"
         name="date"
-        :rules="[
-          { required: true, message: '此项必填' },
-          { date: { delimiters: ['/', '-', '.'] }, message: '日期格式有误' },
-        ]"
+        :rules="[{ date: { delimiters: ['/', '-', '.'] }, message: '日期格式有误' }]"
       >
         <t-input v-model="formData.date"></t-input>
       </t-form-item>
@@ -44,28 +47,74 @@
         <t-input v-model="formData.content.url"></t-input>
       </t-form-item>
       <t-form-item style="padding-top: 8px">
-        <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
-        <t-button theme="default" variant="base" type="reset" style="margin-right: 10px">重置</t-button>
-        <t-button theme="default" variant="base" @click="handleClear">清空校验结果</t-button>
+        <t-button theme="primary" type="submit" style="margin-right: 10px"> 提交 </t-button>
+        <t-button theme="default" variant="base" type="reset" style="margin-right: 10px"> 重置 </t-button>
+        <t-button theme="default" variant="base" style="margin-right: 10px" @click="handleClear">
+          清空校验结果
+        </t-button>
+        <t-button theme="default" variant="base" @click="clearFieldsValidateResult"> 清除指定字段的校验结果 </t-button>
       </t-form-item>
     </t-form>
   </div>
 </template>
 <script setup>
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
+
+const INITIAL_DATA = {
+  account: '',
+  password: '',
+  description: '',
+  email: '',
+  gender: '',
+  college: '',
+  date: '',
+  content: {
+    url: '',
+  },
+  course: [],
+};
+
+const formData = { ...INITIAL_DATA };
+
+const courseOptions = [
+  { label: '语文', value: '1' },
+  { label: '数学', value: '2' },
+  { label: '英语', value: '3' },
+  { label: '体育', value: '4' },
+];
+const options = [
+  { label: '计算机学院', value: '1' },
+  { label: '软件学院', value: '2' },
+  { label: '物联网学院', value: '3' },
+];
 
 const rules = {
   account: [
-    { required: true, message: '姓名必填', type: 'error' },
-    { min: 2, message: '至少需要两个字', type: 'error' },
+    { required: true, message: '姓名必填' },
+    { min: 2, message: '至少需要两个字符，一个中文等于两个字符' },
+    { max: 10, message: '姓名字符长度超出' },
   ],
-  password: [{ required: true, message: '密码必填', type: 'error' }],
-  email: [{ required: true, message: '格式必须为邮箱', type: 'warning' }],
-  gender: [{ required: true, message: '性别必填', type: 'warning' }],
-  course: [{ required: true, message: '课程必填', type: 'warning' }],
+  description: [
+    { validator: (val) => val.length >= 5, message: '至少 5 个字，中文长度等于英文长度' },
+    { validator: (val) => val.length < 20, message: '不能超过 20 个字，中文长度等于英文长度' },
+  ],
+  password: [
+    { required: true, message: '密码必填' },
+    { len: 8, message: '请输入 8 位密码' },
+    { pattern: /[A-Z]+/, message: '密码必须包含大写字母' },
+  ],
+  email: [
+    { required: true, message: '邮箱必填' },
+    { email: { ignore_max_length: true }, message: '请输入正确的邮箱地址' },
+  ],
+  gender: [{ required: true, message: '性别必填' }],
+  course: [
+    { required: true, message: '课程必填' },
+    { validator: (val) => val.length <= 2, message: '最多选择 2 门课程' },
+  ],
   'content.url': [
-    { required: true, message: '个人网站必填', type: 'warning' },
+    { required: true, message: '个人网站必填' },
     {
       url: {
         protocols: ['http', 'https', 'ftp'],
@@ -76,56 +125,27 @@ const rules = {
   ],
 };
 
-const INITIAL_DATA = {
-  account: '',
-  password: '',
-  email: '',
-  gender: '',
-  date: '',
-  content: {
-    url: '',
-  },
-  course: [],
-};
-
-const courseOptions = [
-  { label: '语文', value: '1' },
-  { label: '数学', value: '2' },
-  { label: '英语', value: '3' },
-  { label: '体育', value: '4' },
-];
-
-const collegeOptions = [
-  { label: '计算机学院', value: '1' },
-  { label: '软件学院', value: '2' },
-  { label: '物联网学院', value: '3' },
-];
-
-const options = [
-  { label: '计算机学院', value: '1' },
-  { label: '软件学院', value: '2' },
-  { label: '物联网学院', value: '3' },
-];
-
-const formData = ref({ ...INITIAL_DATA });
-const form = ref(null);
-
 const onReset = () => {
   MessagePlugin.success('重置成功');
+  console.log('formData', formData.value);
 };
 
-const onSubmit = ({ validateResult, firstError, e }) => {
-  e.preventDefault();
+const onSubmit = ({ validateResult, firstError }) => {
   if (validateResult === true) {
     MessagePlugin.success('提交成功');
   } else {
-    console.log('Validate Errors: ', firstError, validateResult);
+    console.log('Errors: ', validateResult);
     MessagePlugin.warning(firstError);
   }
 };
 
+const form = ref(null);
 const handleClear = () => {
   form.value.clearValidate();
+};
+const clearFieldsValidateResult = () => {
+  form.value.clearValidate(['email', 'course', 'content.url']);
+  MessagePlugin.success('已清除邮箱、课程、个人网站等字段校验结果');
 };
 </script>
 <style scoped>

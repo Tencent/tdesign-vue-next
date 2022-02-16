@@ -5,6 +5,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
   class="tdesign-tree-select-base"
 >
   <div
+    class="t-select__wrap"
     modelvalue=""
   >
     <div
@@ -232,6 +233,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           请选择
+           
         </span>
         
         
@@ -332,6 +334,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
   class="tdesign-tree-select-lazy"
 >
   <div
+    class="t-select__wrap"
     modelvalue=""
   >
     <div
@@ -459,6 +462,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           请选择
+           
         </span>
         
         
@@ -559,6 +563,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
   class="tdesign-tree-select-prefix"
 >
   <div
+    class="t-select__wrap"
     modelvalue=""
   >
     <div
@@ -796,6 +801,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           请输入
+           
         </span>
         
         

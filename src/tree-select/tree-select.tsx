@@ -28,6 +28,8 @@ import { ClassName, TreeOptionData } from '../common';
 import { prefix } from '../config';
 
 import { RemoveOptions, NodeOptions } from './interface';
+// hooks
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-tree-select`;
 
@@ -41,6 +43,12 @@ export default defineComponent({
     ...props,
   },
   emits: ['change', 'clear', 'focus', 'blur', 'remove', 'search'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       visible: false,
@@ -450,7 +458,7 @@ export default defineComponent({
       ),
     };
     return (
-      <div ref="treeSelect">
+      <div ref="treeSelect" class={`${prefix}-select__wrap`}>
         <Popup
           ref="popup"
           class={`${prefix}-select__popup-reference`}
@@ -467,7 +475,7 @@ export default defineComponent({
           <div class={classes} onmouseenter={() => (this.isHover = true)} onmouseleave={() => (this.isHover = false)}>
             {this.prefixIconSlot && <span class={`${prefix}-select__left-icon`}>{this.prefixIconSlot[0]}</span>}
             <span v-show={this.showPlaceholder} class={`${prefix}-select__placeholder`}>
-              {this.placeholder}
+              {this.placeholder || this.global.placeholder}{' '}
             </span>
             {tagItem}
             {collapsedItem}

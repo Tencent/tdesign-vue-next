@@ -8,6 +8,28 @@ import props from './props';
 import CLASSNAMES from '../utils/classnames';
 import { prefix } from '../config';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
+const imageProps = {
+  showUploadProgress: props.showUploadProgress,
+  files: {
+    type: Array as PropType<Array<UploadFile>>,
+  },
+  loadingFile: {
+    type: Object as PropType<UploadFile>,
+  },
+  trigger: {
+    type: Function as PropType<(e: MouseEvent) => void>,
+  },
+  remove: {
+    type: Function as PropType<(options: UploadRemoveOptions) => void>,
+  },
+  multiple: Boolean,
+  max: Number,
+  disabled: Boolean,
+};
+
 export default defineComponent({
   name: 'TImageUpload',
 
@@ -18,26 +40,16 @@ export default defineComponent({
     BrowseIcon,
     TLoading,
   },
-  props: {
-    showUploadProgress: props.showUploadProgress,
-    files: {
-      type: Array as PropType<Array<UploadFile>>,
-    },
-    loadingFile: {
-      type: Object as PropType<UploadFile>,
-    },
-    trigger: {
-      type: Function as PropType<(e: MouseEvent) => void>,
-    },
-    remove: {
-      type: Function as PropType<(options: UploadRemoveOptions) => void>,
-    },
-    multiple: Boolean,
-    max: Number,
-    disabled: Boolean,
-  },
+  props: imageProps,
 
   emits: ['img-preview'],
+
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
 
   computed: {
     showTrigger(): boolean {
@@ -69,11 +81,16 @@ export default defineComponent({
                   <span class={`${UPLOAD_NAME}__card-mask-item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
                     <BrowseIcon onClick={({ e }: { e: MouseEvent }) => this.onViewClick(e, file)} />
                   </span>
-                  <span class={`${UPLOAD_NAME}__card-mask-item-divider`}></span>
-
-                  <span class={`${UPLOAD_NAME}__card-mask-item`} onClick={(e: MouseEvent) => e.stopPropagation()}>
-                    <DeleteIcon onClick={({ e }: { e: MouseEvent }) => this.remove({ e, file, index })} />
-                  </span>
+                  {!this.disabled && [
+                    <span class={`${UPLOAD_NAME}__card-mask-item-divider`} key="divider"></span>,
+                    <span
+                      class={`${UPLOAD_NAME}__card-mask-item`}
+                      onClick={(e: MouseEvent) => e.stopPropagation()}
+                      key="delete-icon"
+                    >
+                      <DeleteIcon nativeOnClick={(e: MouseEvent) => this.remove({ e, file, index })} />
+                    </span>,
+                  ]}
                 </div>
               </div>
             </li>

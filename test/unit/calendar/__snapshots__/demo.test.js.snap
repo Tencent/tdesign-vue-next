@@ -2690,7 +2690,6 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
     </label>
     <div
       class="t-switch t-size-l t-is-checked"
-      disabled="false"
       modelvalue="true"
     >
       <span
@@ -6547,7 +6546,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          disabled="false"
           modelvalue="true"
         >
           <span
@@ -6568,7 +6566,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          disabled="false"
           modelvalue="false"
         >
           <span
@@ -6594,7 +6591,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          disabled="false"
           modelvalue="true"
         >
           <span
@@ -6613,7 +6609,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          disabled="false"
           modelvalue="false"
         >
           <span
@@ -6634,7 +6629,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          disabled="false"
           modelvalue="true"
         >
           <span
@@ -6653,7 +6647,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          disabled="false"
           modelvalue="false"
         >
           <span
@@ -6674,7 +6667,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          disabled="false"
           modelvalue="true"
         >
           <span
@@ -6693,7 +6685,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          disabled="false"
           modelvalue="false"
         >
           <span
@@ -6714,7 +6705,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          disabled="false"
           modelvalue="false"
         >
           <span
@@ -6733,7 +6723,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          disabled="false"
           modelvalue="false"
         >
           <span
@@ -6752,7 +6741,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          disabled="false"
           modelvalue="true"
         >
           <span
@@ -6773,7 +6761,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          disabled="false"
           modelvalue="false"
         >
           <span
@@ -6792,7 +6779,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          disabled="false"
           modelvalue="false"
         >
           <span
@@ -6811,7 +6797,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          disabled="false"
           modelvalue="true"
         >
           <span
@@ -8084,7 +8069,6 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
     </label>
     <div
       class="t-switch t-size-m"
-      disabled="false"
       modelvalue="false"
     >
       <span

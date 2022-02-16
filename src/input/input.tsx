@@ -11,6 +11,9 @@ import props from './props';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-input`;
 const INPUT_WRAP_CLASS = `${prefix}-input__wrap`;
 const INPUT_TIPS_CLASS = `${prefix}-input__tips`;
@@ -31,6 +34,12 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       isHover: false,
