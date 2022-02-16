@@ -30,18 +30,10 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      renderPopupContent() {
-        return <div>浮层内容是指浮层里面显示的全部内容，这里的浮层内容使用渲染函数定义</div>;
-      },
-    };
-  },
-});
+<script setup lang="jsx">
+const renderPopupContent = () => {
+  return <div>浮层内容是指浮层里面显示的全部内容，这里的浮层内容使用渲染函数定义</div>;
+};
 </script>
 <style scoped>
 .t-popup-demo-base-item {

@@ -19,8 +19,7 @@
   </t-calendar>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import dayjs from 'dayjs';
 
 const dataList = [
@@ -38,25 +37,15 @@ const dataList = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const isShow = (data) =>
-      data.mode === 'month' ? dayjs(data.formattedDate).date() === 15 : dayjs(data.formattedDate).month() === 7;
+const isShow = (data) =>
+  data.mode === 'month' ? dayjs(data.formattedDate).date() === 15 : dayjs(data.formattedDate).month() === 7;
 
-    const displayNum = (cellData) => {
-      if (cellData.mode === 'month') {
-        return cellData.date.getDate();
-      }
-      return cellData.date.getMonth() + 1;
-    };
-
-    return {
-      dataList,
-      displayNum,
-      isShow,
-    };
-  },
-});
+const displayNum = (cellData) => {
+  if (cellData.mode === 'month') {
+    return cellData.date.getDate();
+  }
+  return cellData.date.getMonth() + 1;
+};
 </script>
 
 <style lang="less" scoped>

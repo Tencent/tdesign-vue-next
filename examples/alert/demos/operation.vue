@@ -7,17 +7,8 @@
     </t-alert>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    const handleOperation = () => {
-      alert('operation clicked');
-    };
-    return {
-      handleOperation,
-    };
-  },
-});
+<script setup>
+const handleOperation = () => {
+  alert('operation clicked');
+};
 </script>

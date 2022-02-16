@@ -19,23 +19,16 @@
     </t-step-item>
     <t-step-item title="步骤4" content="这里是提示文字">
       <template v-if="current === 3" #extra>
-        <t-button size="small" @click="current--"> 下一步 </t-button>
+        <t-button size="small" @click="current--"> 上一步 </t-button>
       </template>
     </t-step-item>
   </t-steps>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const current = ref(0);
-    return {
-      current,
-    };
-  },
-});
+const current = ref(0);
 </script>
 <style lang="less" scoped>
 .steps-demos-extra {

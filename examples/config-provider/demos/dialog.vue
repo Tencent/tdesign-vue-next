@@ -14,33 +14,25 @@
   </t-config-provider>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      globalConfig: {
-        dialog: {
-          confirm: 'confirm',
-          // cancel: 'cancel',
-          cancel: {
-            theme: 'default',
-            variant: 'outline',
-            content: 'cancel',
-          },
-          confirmBtnTheme: {
-            default: 'primary',
-            info: 'primary',
-            warning: 'warning',
-            danger: 'danger',
-            success: 'success',
-          },
-        },
-      },
-    };
+<script setup>
+const globalConfig = {
+  dialog: {
+    confirm: 'confirm',
+    // cancel: 'cancel',
+    cancel: {
+      theme: 'default',
+      variant: 'outline',
+      content: 'cancel',
+    },
+    confirmBtnTheme: {
+      default: 'primary',
+      info: 'primary',
+      warning: 'warning',
+      danger: 'danger',
+      success: 'success',
+    },
   },
-});
+};
 </script>
 <style scoped>
 .tdesign-demo-item--locale-provider-base {

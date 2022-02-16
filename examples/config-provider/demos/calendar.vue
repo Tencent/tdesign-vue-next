@@ -4,9 +4,7 @@
   </t-config-provider>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const MONTHS = [
   'January',
   'February',
@@ -22,7 +20,7 @@ const MONTHS = [
   'December',
 ];
 
-const GLOBAL_CONFIG = {
+const globalConfig = {
   calendar: {
     yearSelection: '{year}',
     // 1 表示周一；7 表示周日
@@ -79,14 +77,6 @@ const GLOBAL_CONFIG = {
     },
   },
 };
-
-export default defineComponent({
-  setup() {
-    return {
-      globalConfig: GLOBAL_CONFIG,
-    };
-  },
-});
 </script>
 
 <style scoped>

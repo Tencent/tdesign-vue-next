@@ -3,8 +3,8 @@
     <t-transfer v-model:checked="checked" :data="list" />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const list = [];
 for (let i = 0; i < 20; i++) {
@@ -14,13 +14,5 @@ for (let i = 0; i < 20; i++) {
     disabled: i % 4 < 1,
   });
 }
-export default defineComponent({
-  setup() {
-    const checked = ref(list.map((item) => item.value).filter((v) => v % 2 === 0));
-    return {
-      checked,
-      list,
-    };
-  },
-});
+const checked = ref(list.map((item) => item.value).filter((v) => v % 2 === 0));
 </script>

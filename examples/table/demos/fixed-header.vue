@@ -1,9 +1,7 @@
 <template>
   <t-table row-key="index" :data="data" :columns="columns" :max-height="200" />
 </template>
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const data = [];
 for (let i = 0; i < 20; i++) {
   data.push({
@@ -54,12 +52,4 @@ const columns = [
     title: '说明',
   },
 ];
-export default defineComponent({
-  setup() {
-    return {
-      data,
-      columns,
-    };
-  },
-});
 </script>

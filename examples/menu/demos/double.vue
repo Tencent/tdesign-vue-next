@@ -57,17 +57,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const expanded = ref(['1']);
-    const expanded2 = ref(['1']);
-    return {
-      expanded,
-      expanded2,
-    };
-  },
-});
+const expanded = ref(['1']);
+const expanded2 = ref(['1']);
 </script>

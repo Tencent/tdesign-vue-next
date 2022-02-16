@@ -6,7 +6,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
   style="width: 80%;"
 >
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -14,7 +14,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     >
       
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -35,7 +35,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -67,7 +67,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -80,7 +80,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         Controlled: 
       </div>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -101,7 +101,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -133,7 +133,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -146,7 +146,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         UnControlled: 
       </div>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -167,7 +167,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -207,7 +207,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
   style="width: 80%;"
 >
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -215,7 +215,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
     >
       
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -236,7 +236,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark"
+        class="t-tag t-tag--default t-tag--dark t-size-m"
       >
         <!---->
         
@@ -257,7 +257,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -265,7 +265,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
     >
       
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -286,7 +286,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -307,7 +307,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -344,7 +344,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="margin-right: 4px;"
               >
                 <!---->
@@ -354,7 +354,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
                 <!---->
               </span>
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="margin-right: 4px;"
               >
                 <!---->
@@ -371,7 +371,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
         </transition-stub>
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
         >
           <!---->
           
@@ -401,9 +401,9 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
   class="tdesign-demo-block-column"
   style="width: 80%;"
 >
-  <!-- 方式一：使用 tag 定义标签内部内容 -->
+  <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -411,7 +411,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
     >
       
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -440,7 +440,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -469,7 +469,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark"
+        class="t-tag t-tag--default t-tag--dark t-size-m"
       >
         <!---->
         
@@ -491,9 +491,9 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 方式二：使用 valueDisplay 定义全部内容 -->
+  <!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay -->
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -501,8 +501,9 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
     >
       
       
+      
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         style="margin-right: 4px;"
       >
         <!---->
@@ -530,7 +531,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         style="margin-right: 4px;"
       >
         <!---->
@@ -558,7 +559,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         style="margin-right: 4px;"
       >
         <!---->
@@ -587,6 +588,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
       </span>
       
       
+      
     </div>
     <input
       autocomplete="false"
@@ -605,7 +607,7 @@ exports[`TagInput TagInput maxVue demo works fine 1`] = `
   style="width: 100%;"
 >
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -638,7 +640,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       禁用状态：
     </label>
     <div
-      class="t-input t-size-m t-is-disabled t-input--prefix t-tag-input"
+      class="t-input t-is-disabled t-input--prefix t-tag-input"
     >
       <!---->
       <div
@@ -646,7 +648,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       >
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
+          class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
         >
           <!---->
           
@@ -655,7 +657,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
           <!---->
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
+          class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
         >
           <!---->
           
@@ -664,7 +666,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
           <!---->
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
+          class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
         >
           <!---->
           
@@ -695,7 +697,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-is-readonly t-input--prefix t-tag-input"
+        class="t-input t-is-readonly t-input--prefix t-tag-input"
       >
         <!---->
         <div
@@ -703,7 +705,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
         >
           
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
           >
             <!---->
             
@@ -712,7 +714,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
           >
             <!---->
             
@@ -721,7 +723,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             <!---->
           </span>
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
           >
             <!---->
             
@@ -758,7 +760,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-is-success t-input--prefix t-tag-input"
+        class="t-input t-is-success t-input--prefix t-tag-input"
       >
         <!---->
         <div
@@ -766,7 +768,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
         >
           
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -787,7 +789,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             </svg>
           </span>
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -808,7 +810,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             </svg>
           </span>
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -856,7 +858,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-is-warning t-input--prefix t-tag-input"
+        class="t-input t-is-warning t-input--prefix t-tag-input"
       >
         <!---->
         <div
@@ -864,7 +866,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
         >
           
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -885,7 +887,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             </svg>
           </span>
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -906,7 +908,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             </svg>
           </span>
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -954,7 +956,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-size-m t-is-error t-input--prefix t-tag-input"
+        class="t-input t-is-error t-input--prefix t-tag-input"
       >
         <!---->
         <div
@@ -962,7 +964,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
         >
           
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -983,7 +985,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             </svg>
           </span>
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -1004,7 +1006,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
             </svg>
           </span>
           <span
-            class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -1051,7 +1053,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
   style="width: 80%;"
 >
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -1059,7 +1061,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     >
       
       <span
-        class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1080,7 +1082,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1101,7 +1103,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1133,7 +1135,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -1141,7 +1143,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     >
       
       <span
-        class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1162,7 +1164,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1183,7 +1185,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1215,7 +1217,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -1223,7 +1225,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     >
       
       <span
-        class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1244,7 +1246,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1265,7 +1267,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1297,7 +1299,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input t-size-m t-input--prefix t-tag-input"
+    class="t-input t-input--prefix t-tag-input"
   >
     <!---->
     <div
@@ -1305,7 +1307,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     >
       
       <span
-        class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1326,7 +1328,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         
@@ -1347,7 +1349,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
         </svg>
       </span>
       <span
-        class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close"
+        class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"
       >
         <!---->
         

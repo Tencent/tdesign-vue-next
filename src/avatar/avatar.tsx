@@ -12,8 +12,8 @@ export default defineComponent({
   name: 'TAvatar',
   props,
   emits: ['error'],
-  setup(props, { emit }) {
-    const emitEvent = useEmitEvent(props, emit);
+  setup(props) {
+    const emitEvent = useEmitEvent();
     const avatarGroup = inject('avatarGroup', undefined);
     const avatar = ref<HTMLElement | null>(null);
     const avatarChild = ref<HTMLElement | null>(null);

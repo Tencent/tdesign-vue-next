@@ -16,8 +16,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const initData = [
   {
@@ -104,54 +104,42 @@ const columns = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const filterValue = ref({});
-    const data = ref([...initData]);
+const filterValue = ref({});
+const data = ref([...initData]);
 
-    const request = (filters) => {
-      const timer = setTimeout(() => {
-        clearTimeout(timer);
-        const newData = initData.filter((item) => {
-          let result = true;
-          if (filters.firstName) {
-            result = item.firstName === filters.firstName;
-          }
-          if (result && filters.lastName && filters.lastName.length) {
-            result = filters.lastName.includes(item.lastName);
-          }
-          if (result && filters.email) {
-            result = item.email.indexOf(filters.email) !== -1;
-          }
-          if (result && filters.createTime) {
-            result = item.createTime === filters.createTime;
-          }
-          return result;
-        });
-        data.value = newData;
-      }, 100);
-    };
+const request = (filters) => {
+  const timer = setTimeout(() => {
+    clearTimeout(timer);
+    const newData = initData.filter((item) => {
+      let result = true;
+      if (filters.firstName) {
+        result = item.firstName === filters.firstName;
+      }
+      if (result && filters.lastName && filters.lastName.length) {
+        result = filters.lastName.includes(item.lastName);
+      }
+      if (result && filters.email) {
+        result = item.email.indexOf(filters.email) !== -1;
+      }
+      if (result && filters.createTime) {
+        result = item.createTime === filters.createTime;
+      }
+      return result;
+    });
+    data.value = newData;
+  }, 100);
+};
 
-    const onFilterChange = (filters) => {
-      filterValue.value = filters;
-      console.log(filters);
-      request(filters);
-    };
+const onFilterChange = (filters) => {
+  filterValue.value = filters;
+  console.log(filters);
+  request(filters);
+};
 
-    const setFilters = () => {
-      filterValue.value = {};
-      data.value = [...initData];
-    };
-
-    return {
-      filterValue,
-      data,
-      columns,
-      onFilterChange,
-      setFilters,
-    };
-  },
-});
+const setFilters = () => {
+  filterValue.value = {};
+  data.value = [...initData];
+};
 </script>
 <style scoped>
 .table-operations {

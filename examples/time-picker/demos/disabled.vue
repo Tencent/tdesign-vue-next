@@ -4,17 +4,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'Disabled',
-  setup() {
-    const time1 = ref('11:12:10');
-
-    return {
-      time1,
-    };
-  },
-});
+const time1 = ref('11:12:10');
 </script>

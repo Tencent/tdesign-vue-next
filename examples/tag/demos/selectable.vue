@@ -12,9 +12,7 @@
     </t-check-tag>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const tags = [
   {
     name: '选中',
@@ -29,19 +27,13 @@ const tags = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    return {
-      tags,
-      handleClick(tag, index) {
-        console.log(tag, index);
-      },
-      handleChange(isChecked) {
-        console.log(isChecked);
-      },
-    };
-  },
-});
+const handleClick = (tag, index) => {
+  console.log(tag, index);
+};
+
+const handleChange = (isChecked) => {
+  console.log(isChecked);
+};
 </script>
 <style lang="less" scoped>
 .tag-demo {

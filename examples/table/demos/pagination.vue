@@ -3,8 +3,8 @@
     <t-table row-key="index" :data="data" :columns="columns" :pagination="pagination" @change="onChange" />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const data = [];
 const TOTAL = 60;
@@ -59,24 +59,13 @@ const columns = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const pagination = ref({
-      defaultCurrent: 2,
-      defaultPageSize: 5,
-      total: TOTAL,
-    });
-
-    const onChange = (params, context) => {
-      console.log(params, context);
-    };
-
-    return {
-      data,
-      columns,
-      pagination,
-      onChange,
-    };
-  },
+const pagination = ref({
+  defaultCurrent: 2,
+  defaultPageSize: 5,
+  total: TOTAL,
 });
+
+const onChange = (params, context) => {
+  console.log(params, context);
+};
 </script>

@@ -2,11 +2,11 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-24 15:22:00
  * */
 
 import { CalendarController } from '../calendar';
 import { ButtonProps } from '../button';
+import { FormErrorMessage } from '../form';
 import { TNode } from '../common';
 
 export interface GlobalConfigProvider {
@@ -38,6 +38,10 @@ export interface GlobalConfigProvider {
    * 输入框组件全局配置
    */
   input?: InputConfig;
+  /**
+   * 列表组件全局配置
+   */
+  list?: ListConfig;
   /**
    * 分页组件全局配置
    */
@@ -117,7 +121,7 @@ export interface PaginationConfig {
 
 export interface CalendarConfig {
   /**
-   * 月份描述文本
+   * 语言配置，月份描述文本
    * @default '一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月'
    */
   cellMonth?: string;
@@ -136,47 +140,47 @@ export interface CalendarConfig {
    */
   firstDayOfWeek?: number;
   /**
-   * “隐藏周末”描述文本
+   * 语言配置，“隐藏周末”描述文本
    * @default '隐藏周末'
    */
   hideWeekend?: string;
   /**
-   * 模式切换时的“月”描述文本
+   * 语言配置，模式切换时的“月”描述文本
    * @default '月'
    */
   monthRadio?: string;
   /**
-   * "月"选择描述文本
+   * 语言配置，"月"选择描述文本
    * @default '{month} 月'
    */
   monthSelection?: string;
   /**
-   * “显示周末”描述文本
+   * 语言配置，“显示周末”描述文本
    * @default '显示周末末'
    */
   showWeekend?: string;
   /**
-   * “本月”描述文本
+   * 语言配置，“本月”描述文本
    * @default '本月'
    */
   thisMonth?: string;
   /**
-   * “今天”描述文本
+   * 语言配置，“今天”描述文本
    * @default '今天'
    */
   today?: string;
   /**
-   * 星期描述文本，示例：'周一,周二,周三,周四,周五,周六,周日'
+   * 语言配置，星期描述文本，示例：'周一,周二,周三,周四,周五,周六,周日'
    * @default 一,二,三,四,五,六,日
    */
   week?: string;
   /**
-   * 模式切换时的“年”描述文本
+   * 语言配置，模式切换时的“年”描述文本
    * @default '年'
    */
   yearRadio?: string;
   /**
-   * “年”选择描述文本
+   * 语言配置，“年”选择描述文本
    * @default '{year} 年'
    */
   yearSelection?: string;
@@ -220,27 +224,27 @@ export interface TransferConfig {
 
 export interface TimePickerConfig {
   /**
-   * “上午”描述文本
+   * 语言配置，“上午”描述文本
    * @default '上午'
    */
   anteMeridiem?: string;
   /**
-   * “确定”描述文本
+   * 语言配置，“确定”描述文本
    * @default '确定'
    */
   confirm?: string;
   /**
-   * “此刻”描述文本
+   * 语言配置，“此刻”描述文本
    * @default '此刻'
    */
   now?: string;
   /**
-   * 占位符描述文本
+   * 语言配置，占位符描述文本
    * @default '请选择时间'
    */
   placeholder?: string;
   /**
-   * “下午”描述文本
+   * 语言配置，“下午”描述文本
    * @default '下午'
    */
   postMeridiem?: string;
@@ -272,6 +276,11 @@ export interface DatePickerConfig {
    * @default 'YYYY-MM-DD'
    */
   format?: string;
+  /**
+   * “月” 描述文本
+   * @default '月'
+   */
+  monthAriaLabel?: string;
   /**
    * 星期文本描述，默认值：['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']
    */
@@ -397,7 +406,7 @@ export interface PopconfirmConfig {
 
 export interface TableConfig {
   /**
-   * “暂无数据”描述文本
+   * 语言配置，'暂无数据' 描述文本
    * @default '暂无数据'
    */
   empty?: string;
@@ -405,6 +414,36 @@ export interface TableConfig {
    * 展开和收起图标（配置传入收起图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件
    */
   expandIcon?: TNode;
+  /**
+   * 语言配置，'输入关键词过滤' 描述文本
+   * @default '输入关键词过滤'
+   */
+  filterInputPlaceholder?: string;
+  /**
+   * 语言配置，'点击加载更多' 描述文本
+   * @default '点击加载更多'
+   */
+  loadingMoreText?: string;
+  /**
+   * 语言配置，'正在加载中，请稍后' 描述文本
+   * @default '正在加载中，请稍后'
+   */
+  loadingText?: string;
+  /**
+   * 语言配置，'点击升序' 描述文本
+   * @default '点击升序'
+   */
+  sortAscendingOperationText?: string;
+  /**
+   * 语言配置，'点击取消排序' 描述文本
+   * @default '点击取消排序'
+   */
+  sortCancelOperationText?: string;
+  /**
+   * 语言配置，'点击降序' 描述文本
+   * @default '点击降序'
+   */
+  sortDescendingOperationText?: string;
   /**
    * 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件
    */
@@ -456,24 +495,131 @@ export interface TreeSelectConfig {
    * @default '加载中'
    */
   loadingText?: string;
+  /**
+   * 占位符描述文本
+   * @default '请选择'
+   */
+  placeholder?: string;
+}
+
+export interface ListConfig {
+  /**
+   * 语言配置，'点击加载更多' 描述文本
+   * @default '点击加载更多'
+   */
+  loadingMoreText?: string;
+  /**
+   * 语言配置，'正在加载中，请稍后' 描述文本
+   * @default '正在加载中，请稍后'
+   */
+  loadingText?: string;
 }
 
 export interface UploadConfig {
   /**
-   * “取消上传” 描述文本
+   * 语言配置，“取消上传” 描述文本
    * @default '取消上传'
    */
   cancelUploadText?: string;
   /**
-   * 文件大小超出限制时提醒文本
+   * 语言配置，拖拽相关。示例：{ dragDropText: '释放图标', draggingText: '拖拽到此区域', clickAndDragText: '点击上方“选择文件”或将文件拖到此区域' }
+   */
+  dragger?: UploadConfigDragger;
+  /**
+   * 语言配置，文件信息相关。示例：{  fileNameText: '文件名', fileSizeText: '文件尺寸', fileStatusText: '状态', fileOperationText: '操作', fileOperationDateText: '上传日期' }
+   */
+  file?: UploadConfigFileList;
+  /**
+   * 语言配置，上传进度相关。示例：{ uploadText: '上传中', waitingText: '待上传', 'failText': '上传失败', successText: '上传成功' }
+   */
+  progress?: UploadConfigProgress;
+  /**
+   * 语言配置，文件大小超出限制时提醒文本
    * @default '文件大小不能超过 {sizeLimit}'
    */
   sizeLimitMessage?: string;
+  /**
+   * 语言配置，上传功能触发文案。示例：{ image: '点击上传图片', normal: '点击上传',  fileInput: '选择文件',reupload: '重新上传',fileInput: '删除' }
+   */
+  triggerUploadText?: UploadTriggerUploadText;
+}
+
+export interface UploadConfigProgress {
+  /**
+   * 语言配置，“上传失败”文本描述
+   * @default '上传失败'
+   */
+  failText?: string;
+  /**
+   * 语言配置，“上传成功”文本描述
+   * @default '上传成功'
+   */
+  successText?: string;
+  /**
+   * 语言配置，“上传中”文本描述
+   * @default '上传中'
+   */
+  uploadingText?: string;
+  /**
+   * 语言配置，“待上传”文本描述
+   * @default '待上传'
+   */
+  waitingText?: string;
+}
+
+export interface UploadConfigDragger {
+  /**
+   * 语言配置，'点击上方“选择文件”或将文件拖到此区域' 描述文本
+   * @default '点击上方“选择文件”或将文件拖到此区域'
+   */
+  clickAndDragText?: string;
+  /**
+   * 语言配置，'释放图标' 描述文本
+   * @default '释放图标'
+   */
+  dragDropText?: string;
+  /**
+   * 语言配置，'拖拽到此区域' 描述文本
+   * @default '拖拽到此区域'
+   */
+  draggingText?: string;
+}
+
+export interface UploadConfigFileList {
+  /**
+   * 语言配置，'文件名' 描述文本
+   * @default '文件名'
+   */
+  fileNameText?: string;
+  /**
+   * 语言配置，'上传日期' 描述文本
+   * @default '上传日期'
+   */
+  fileOperationDateText?: string;
+  /**
+   * 语言配置，'操作' 描述文本
+   * @default '操作'
+   */
+  fileOperationText?: string;
+  /**
+   * 语言配置，'文件尺寸' 描述文本
+   * @default '文件尺寸'
+   */
+  fileSizeText?: string;
+  /**
+   * 语言配置，'状态' 描述文本
+   * @default '状态'
+   */
+  fileStatusText?: string;
 }
 
 export interface FormConfig {
   /**
-   * 是否显示必填符号，默认显示
+   * 表单错误信息配置，示例：`{ idcard: '请输入正确的身份证号码', max: '字符长度不能超过 ${max}' }`
+   */
+  errorMessage?: FormErrorMessage;
+  /**
+   * 是否显示必填符号（*），默认显示
    * @default true
    */
   requiredMark?: boolean;
@@ -498,3 +644,11 @@ export interface ConfigPresetDate {
 }
 
 export type DateConfigValue = string | Date | Array<DateConfigValue>;
+
+export interface UploadTriggerUploadText {
+  image?: string;
+  normal?: string;
+  fileInput?: string;
+  reupload?: string;
+  delete?: string;
+}

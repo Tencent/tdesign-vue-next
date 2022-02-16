@@ -30,6 +30,9 @@ import getConfigReceiverMixins from '../config-provider/config-receiver';
 import props from './props';
 import { TNode } from '../common';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const SOURCE = 'source';
 const TARGET = 'target';
 
@@ -58,6 +61,12 @@ export default defineComponent({
     'checked-change',
     'update:value',
   ],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data(): DataType {
     return {
       SOURCE,

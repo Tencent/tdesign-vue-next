@@ -6,6 +6,9 @@ import props from './props';
 import { emitEvent } from '../utils/event';
 import { TdRadioProps } from './type';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-radio`;
 export const radioBtnName = `${prefix}-radio-button`;
 
@@ -28,6 +31,12 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['change', 'click'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   methods: {
     handleChange(e: Event) {
       if (this.radioGroup && this.radioGroup.handleRadioChange) {

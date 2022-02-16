@@ -11,17 +11,9 @@
     </t-dropdown>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      handleClick(data, { e }) {
-        console.log(data);
-        e.preventDefault();
-      },
-    };
-  },
-});
+<script setup>
+const handleClick = (data, { e }) => {
+  console.log(data);
+  e.preventDefault();
+};
 </script>

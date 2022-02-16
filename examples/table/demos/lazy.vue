@@ -7,8 +7,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const columns = [
   {
@@ -106,21 +106,12 @@ times.forEach((item, i) => {
   const k = i % 10;
   testData[i] = { ...initData[k], id: i + 1 };
 });
-export default defineComponent({
-  setup() {
-    const data = ref([...testData]);
-    const reset = () => {
-      data.value = [];
-      setTimeout(() => {
-        data.value = testData;
-      });
-    };
 
-    return {
-      data,
-      columns,
-      reset,
-    };
-  },
-});
+const data = ref([...testData]);
+const reset = () => {
+  data.value = [];
+  setTimeout(() => {
+    data.value = testData;
+  });
+};
 </script>

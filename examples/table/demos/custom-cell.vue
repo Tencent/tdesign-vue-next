@@ -14,8 +14,7 @@
     </t-table>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent } from 'vue';
+<script setup lang="jsx">
 import { AttachIcon } from 'tdesign-icons-vue-next';
 
 const data = [
@@ -68,18 +67,6 @@ const columns = [
     width: 235,
   },
 ];
-
-export default defineComponent({
-  components: {
-    AttachIcon,
-  },
-  setup() {
-    return {
-      data,
-      columns,
-    };
-  },
-});
 </script>
 <style scoped>
 .link {

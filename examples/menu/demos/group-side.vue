@@ -24,34 +24,22 @@
   </t-menu>
 </template>
 
-<script>
-import { defineComponent, ref, computed } from 'vue';
+<script setup>
+import { ref, computed } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const collapsed = ref(true);
-    const iconUrl = ref('https://www.tencent.com/img/index/menu_logo_hover.png');
+const collapsed = ref(true);
+const iconUrl = ref('https://www.tencent.com/img/index/menu_logo_hover.png');
 
-    const iconName = computed(() => (collapsed.value ? 'chevron-right' : 'chevron-left'));
+const iconName = computed(() => (collapsed.value ? 'chevron-right' : 'chevron-left'));
 
-    const changeCollapsed = () => {
-      collapsed.value = !collapsed.value;
-      iconUrl.value = collapsed.value
-        ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png'
-        : 'https://www.tencent.com/img/index/menu_logo_hover.png';
-    };
+const changeCollapsed = () => {
+  collapsed.value = !collapsed.value;
+  iconUrl.value = collapsed.value
+    ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png'
+    : 'https://www.tencent.com/img/index/menu_logo_hover.png';
+};
 
-    const changeHandler = (active) => {
-      console.log('change', active);
-    };
-
-    return {
-      iconUrl,
-      iconName,
-      collapsed,
-      changeCollapsed,
-      changeHandler,
-    };
-  },
-});
+const changeHandler = (active) => {
+  console.log('change', active);
+};
 </script>

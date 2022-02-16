@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const data1 = [
   {
@@ -78,22 +78,12 @@ const data2 = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const items = ref(data1);
-    const transition = ref(true);
+const items = ref(data1);
+const transition = ref(true);
 
-    const toggleData = () => {
-      items.value = items.value === data1 ? data2 : data1;
-    };
-
-    return {
-      items,
-      transition,
-      toggleData,
-    };
-  },
-});
+const toggleData = () => {
+  items.value = items.value === data1 ? data2 : data1;
+};
 </script>
 <style scoped>
 .tdesign-tree-base .t-button {

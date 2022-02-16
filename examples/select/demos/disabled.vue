@@ -19,8 +19,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   { label: '选项一', value: '1' },
@@ -28,15 +28,6 @@ const options = [
   { label: '选项三', value: '3' },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
-    const value2 = ref(['shanghai', 'beijing']);
-    return {
-      value,
-      value2,
-      options,
-    };
-  },
-});
+const value = ref('');
+const value2 = ref(['shanghai', 'beijing']);
 </script>

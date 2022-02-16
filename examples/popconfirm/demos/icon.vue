@@ -43,26 +43,17 @@
     </div>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 import { BrowseIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  setup() {
-    const visible1 = ref(false);
-    const visible2 = ref(false);
-    const visible3 = ref(false);
+const visible1 = ref(false);
+const visible2 = ref(false);
+const visible3 = ref(false);
 
-    return {
-      visible1,
-      visible2,
-      visible3,
-      customIcon() {
-        return <BrowseIcon style={{ marginRight: 8, color: ' #0052d9' }} />;
-      },
-    };
-  },
-});
+const customIcon = () => {
+  return <BrowseIcon style={{ marginRight: 8, color: ' #0052d9' }} />;
+};
 </script>
 <style scoped>
 .popconfirm-demo .tdesign-demo-block {

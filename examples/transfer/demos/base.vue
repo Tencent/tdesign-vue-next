@@ -9,8 +9,8 @@
     />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const list = [];
 for (let i = 0; i < 20; i++) {
@@ -21,32 +21,20 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-export default defineComponent({
-  setup() {
-    const targetValue = ref([]);
-    const checked = ref(['2']);
+const targetValue = ref([]);
+const checked = ref(['2']);
 
-    const handleCheckedChange = ({ checked: checkedVal, sourceChecked, targetChecked, type }) => {
-      console.log('handleCheckedChange', {
-        checkedVal,
-        sourceChecked,
-        targetChecked,
-        type,
-      });
-      checked.value = checkedVal;
-    };
+const handleCheckedChange = ({ checked: checkedVal, sourceChecked, targetChecked, type }) => {
+  console.log('handleCheckedChange', {
+    checkedVal,
+    sourceChecked,
+    targetChecked,
+    type,
+  });
+  checked.value = checkedVal;
+};
 
-    const onChange = (newTargetValue) => {
-      console.log('newTargetValue', newTargetValue);
-    };
-
-    return {
-      list,
-      targetValue,
-      checked,
-      handleCheckedChange,
-      onChange,
-    };
-  },
-});
+const onChange = (newTargetValue) => {
+  console.log('newTargetValue', newTargetValue);
+};
 </script>

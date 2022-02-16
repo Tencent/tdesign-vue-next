@@ -52,16 +52,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import { EditIcon, DownloadIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: { EditIcon, DownloadIcon },
-  setup() {
-    return {
-      avatarUrl: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    };
-  },
-});
+const avatarUrl = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

@@ -6,20 +6,11 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const checked1 = ref(true);
-    const checked2 = ref(true);
-
-    return {
-      checked1,
-      checked2,
-    };
-  },
-});
+const checked1 = ref(true);
+const checked2 = ref(true);
 </script>
 
 <style scoped>

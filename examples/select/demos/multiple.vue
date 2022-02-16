@@ -15,8 +15,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const options1 = [
   { label: '架构云', value: '1' },
@@ -41,19 +41,7 @@ const options2 = [
   { label: '低代码平台', value: '6' },
 ];
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(['1', '3']);
-    const value2 = ref(['1', '2', '3', '4', '5', '6']);
-    const value3 = ref(['3', '5', '6', '2']);
-
-    return {
-      value1,
-      value2,
-      value3,
-      options1,
-      options2,
-    };
-  },
-});
+const value1 = ref(['1', '3']);
+const value2 = ref(['1', '2', '3', '4', '5', '6']);
+const value3 = ref(['3', '5', '6', '2']);
 </script>

@@ -2,8 +2,8 @@
   <div>
     <div class="controls">
       <t-radio-group v-model="formData.layout" variant="default-filled">
-        <t-radio-button value="vertical"> 纵向布局 </t-radio-button>
-        <t-radio-button value="inline"> 行内布局 </t-radio-button>
+        <t-radio-button value="vertical">纵向布局</t-radio-button>
+        <t-radio-button value="inline">行内布局</t-radio-button>
       </t-radio-group>
     </div>
     <t-form
@@ -16,16 +16,16 @@
       @submit="onSubmit"
     >
       <t-form-item label="名字" name="name">
-        <t-input v-model="formData.name" />
+        <t-input v-model="formData.name"></t-input>
       </t-form-item>
       <t-form-item label="密码" name="password">
-        <t-input v-model="formData.password" type="password" />
+        <t-input v-model="formData.password" type="password"></t-input>
       </t-form-item>
     </t-form>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const INITIAL_DATA = {
@@ -33,32 +33,21 @@ const INITIAL_DATA = {
   name: '',
   password: '',
 };
-export default defineComponent({
-  setup() {
-    const formData = ref({ ...INITIAL_DATA });
+const formData = ref({ ...INITIAL_DATA });
 
-    const onReset = () => {
-      MessagePlugin.success('重置成功');
-    };
+const onReset = () => {
+  MessagePlugin.success('重置成功');
+};
 
-    const onSubmit = ({ validateResult, firstError }) => {
-      if (validateResult === true) {
-        MessagePlugin.success('提交成功');
-      } else {
-        console.log('Validate Errors: ', firstError, validateResult);
-        MessagePlugin.warning(firstError);
-      }
-    };
-
-    return {
-      formData,
-      onReset,
-      onSubmit,
-    };
-  },
-});
+const onSubmit = ({ validateResult, firstError }) => {
+  if (validateResult === true) {
+    MessagePlugin.success('提交成功');
+  } else {
+    console.log('Validate Errors: ', firstError, validateResult);
+    MessagePlugin.warning(firstError);
+  }
+};
 </script>
-
 <style lang="less" scoped>
 .controls {
   margin-bottom: 32px;

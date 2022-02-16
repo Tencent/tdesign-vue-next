@@ -9,17 +9,9 @@
     ></t-textarea>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
-    const value2 = ref('');
-    return {
-      value,
-      value2,
-    };
-  },
-});
+const value = ref('');
+const value2 = ref('');
 </script>

@@ -12,18 +12,10 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      empty() {
-        return <div>😊 空数据（ empty props ）</div>;
-      },
-    };
-  },
-});
+<script setup lang="jsx">
+const empty = () => {
+  return <div>😊 空数据（ empty props ）</div>;
+};
 </script>
 <style scoped>
 .demo-tree-base {

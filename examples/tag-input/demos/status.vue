@@ -27,21 +27,14 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'TTagInputStatus',
-  setup() {
-    const tags1 = ref(['Vue', 'React', 'Miniprogram']);
-    const tags2 = ref(['Vue', 'React', 'Miniprogram']);
-    const tags3 = ref(['Vue', 'React', 'Miniprogram']);
-    const tags4 = ref(['Vue', 'React', 'Miniprogram']);
-    const tags5 = ref(['Vue', 'React', 'Miniprogram']);
-
-    return { tags1, tags2, tags3, tags4, tags5 };
-  },
-});
+const tags1 = ref(['Vue', 'React', 'Miniprogram']);
+const tags2 = ref(['Vue', 'React', 'Miniprogram']);
+const tags3 = ref(['Vue', 'React', 'Miniprogram']);
+const tags4 = ref(['Vue', 'React', 'Miniprogram']);
+const tags5 = ref(['Vue', 'React', 'Miniprogram']);
 </script>
 
 <style lang="less">

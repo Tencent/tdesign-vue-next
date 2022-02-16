@@ -23,21 +23,12 @@
     </div>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent, computed } from 'vue';
+<script setup lang="jsx">
 import { UserIcon, EllipsisIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  setup() {
-    const icon = computed(() => () => <UserIcon />);
-    const ellipsisIcon = computed(() => () => <EllipsisIcon />);
-    return {
-      icon,
-      ellipsisIcon,
-      image: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    };
-  },
-});
+const icon = () => <UserIcon />;
+const ellipsisIcon = () => <EllipsisIcon />;
+const image = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>
 <style lang="less" scoped>
 .demo-avatar {

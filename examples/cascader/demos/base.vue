@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -42,18 +42,10 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('1.1');
+const value = ref('1.1');
 
-    return {
-      options,
-      value,
-      onChange(e, context) {
-        console.log(e);
-        console.log(context);
-      },
-    };
-  },
-});
+const onChange = (e, context) => {
+  console.log(e);
+  console.log(context);
+};
 </script>

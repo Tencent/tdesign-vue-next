@@ -26,8 +26,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const items = [
   {
@@ -68,51 +68,38 @@ const icon = (createElement, node) => {
   });
 };
 
-export default defineComponent({
-  setup() {
-    const index = ref(2);
+const index = ref(2);
 
-    const check = (node) => {
-      console.info('check:', node);
-    };
+const check = (node) => {
+  console.info('check:', node);
+};
 
-    const tree = ref(null);
-    const remove = (node) => {
-      tree.value.remove(node.value);
-    };
+const tree = ref(null);
+const remove = (node) => {
+  tree.value.remove(node.value);
+};
 
-    const getInsertItem = () => {
-      let item = null;
-      index.value += 1;
-      const value = `t${index.value}`;
-      item = {
-        icon: '',
-        label: value,
-        value,
-      };
-      return item;
-    };
-    const append = (node) => {
-      const item = getInsertItem();
-      if (item) {
-        if (!node) {
-          tree.value.appendTo('', item);
-        } else {
-          tree.value.appendTo(node.value, item);
-        }
-      }
-    };
-
-    return {
-      items,
-      icon,
-      check,
-      changeIcon,
-      remove,
-      append,
-    };
-  },
-});
+const getInsertItem = () => {
+  let item = null;
+  index.value += 1;
+  const value = `t${index.value}`;
+  item = {
+    icon: '',
+    label: value,
+    value,
+  };
+  return item;
+};
+const append = (node) => {
+  const item = getInsertItem();
+  if (item) {
+    if (!node) {
+      tree.value.appendTo('', item);
+    } else {
+      tree.value.appendTo(node.value, item);
+    }
+  }
+};
 </script>
 <style>
 .tdesign-tree-state .title {

@@ -9,8 +9,7 @@
     </t-dropdown>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const options = [
@@ -32,17 +31,9 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const clickHandler = (data) => {
-      MessagePlugin.success(`选中【${data.content}】`);
-    };
-    return {
-      clickHandler,
-      options,
-    };
-  },
-});
+const clickHandler = (data) => {
+  MessagePlugin.success(`选中【${data.content}】`);
+};
 </script>
 <style lang="less" scoped>
 .tdesign-demo-dropdown {

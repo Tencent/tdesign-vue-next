@@ -4,15 +4,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const time1 = ref('09:18:17');
-    return {
-      time1,
-    };
-  },
-});
+const time1 = ref('09:18:17');
 </script>

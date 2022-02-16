@@ -9,21 +9,11 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(12);
-    const value2 = ref([30, 70]);
-
-    return {
-      value1,
-      value2,
-      tooltipProps: {},
-    };
-  },
-});
+const value1 = ref(12);
+const value2 = ref([30, 70]);
 </script>
 <style>
 .block {

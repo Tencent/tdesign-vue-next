@@ -5,24 +5,17 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import { MessagePlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    return {
-      openSomeMsg() {
-        MessagePlugin.info('这是第一条消息');
-        MessagePlugin.warning('这是第二条消息');
-        MessagePlugin.error('这是第三条消息');
-      },
-      closeAll() {
-        MessagePlugin.closeAll();
-      },
-    };
-  },
-});
+const openSomeMsg = () => {
+  MessagePlugin.info('这是第一条消息');
+  MessagePlugin.warning('这是第二条消息');
+  MessagePlugin.error('这是第三条消息');
+};
+const closeAll = () => {
+  MessagePlugin.closeAll();
+};
 </script>
 
 <style scoped>

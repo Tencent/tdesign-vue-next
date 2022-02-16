@@ -14,18 +14,9 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('1');
-    const theme = ref('normal');
-
-    return {
-      theme,
-      value,
-    };
-  },
-});
+const value = ref('1');
+const theme = ref('normal');
 </script>

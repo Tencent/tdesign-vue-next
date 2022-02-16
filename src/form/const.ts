@@ -24,3 +24,24 @@ export const CLASS_NAMES = {
   error: `${is}-error`,
   warning: `${is}-warning`,
 };
+
+// 允许 Form 统一控制的表单
+export const FORM_CONTROL_COMPONENTS = [
+  'TInput',
+  'TInputNumber',
+  'TTextarea',
+  'TCascader',
+  'TSelect',
+  'TOption',
+  'TSwitch',
+  'TCheckbox',
+  'TCheckboxGroup',
+  'TRadio',
+  'TRadioGroup',
+  'TTreeSelect',
+  'TDatePicker',
+  'TTimePicker',
+  'TUpload',
+  'TTransfer',
+  'TSlider',
+];

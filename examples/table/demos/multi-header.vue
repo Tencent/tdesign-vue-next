@@ -1,9 +1,7 @@
 <template>
   <t-table row-key="property" :data="data" :columns="columns" :bordered="true" />
 </template>
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const data = [
   {
     platform: '公有',
@@ -93,12 +91,4 @@ const columns = [
     ],
   },
 ];
-export default defineComponent({
-  setup() {
-    return {
-      data,
-      columns,
-    };
-  },
-});
 </script>

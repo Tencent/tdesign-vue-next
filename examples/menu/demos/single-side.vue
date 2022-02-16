@@ -152,16 +152,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      changeHandler(active) {
-        console.log('change', active);
-      },
-    };
-  },
-});
+<script setup>
+const changeHandler = (active) => {
+  console.log('change', active);
+};
 </script>

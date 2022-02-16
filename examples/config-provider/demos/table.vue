@@ -16,8 +16,7 @@
   </t-config-provider>
 </template>
 
-<script lang="jsx">
-import { defineComponent } from 'vue';
+<script setup lang="jsx">
 import { ChevronRightIcon, CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 
 const columns = [
@@ -42,26 +41,17 @@ const data = [
   { type: 'Object', platform: 'Miniprogram', property: 'C' },
 ];
 
-export default defineComponent({
-  setup() {
-    const expandedRow = (h) => {
-      return <div>This is expanded row info</div>;
-    };
-    return {
-      // 全局特性配置
-      globalConfig: {
-        table: {
-          empty: 'Empty Data',
-          expandIcon: (h) => h && <ChevronRightIcon />,
-          sortIcon: (h) => h && <CaretDownSmallIcon size="18px" />,
-        },
-      },
-      columns,
-      data,
-      expandedRow,
-    };
+const expandedRow = (h) => {
+  return <div>This is expanded row info</div>;
+};
+
+const globalConfig = {
+  table: {
+    empty: 'Empty Data',
+    expandIcon: (h) => h && <ChevronRightIcon />,
+    sortIcon: (h) => h && <CaretDownSmallIcon size="18px" />,
   },
-});
+};
 </script>
 <style scoped>
 .tdesign-demo-item--locale-provider-base {

@@ -33,33 +33,22 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import dayjs from 'dayjs';
 
-export default defineComponent({
-  setup() {
-    const selectedDate = ref(dayjs().toISOString());
-    const selectedDates = ref([dayjs().toISOString(), dayjs().toISOString()]);
-    const presets = {
-      '7天前': dayjs().subtract(6, 'day'),
-      今天: dayjs(),
-    };
+const selectedDate = ref(dayjs().toISOString());
+const selectedDates = ref([dayjs().toISOString(), dayjs().toISOString()]);
+const presets = {
+  '7天前': dayjs().subtract(6, 'day'),
+  今天: dayjs(),
+};
 
-    const presetsRange = {
-      最近7天: [dayjs().subtract(6, 'day'), dayjs()],
-      最近3天: [dayjs().subtract(2, 'day'), dayjs()],
-      今天: [dayjs()],
-    };
-
-    return {
-      selectedDate,
-      selectedDates,
-      presets,
-      presetsRange,
-    };
-  },
-});
+const presetsRange = {
+  最近7天: [dayjs().subtract(6, 'day'), dayjs()],
+  最近3天: [dayjs().subtract(2, 'day'), dayjs()],
+  今天: [dayjs()],
+};
 </script>
 <style scoped>
 .tdesign-demo-item--datepicker {

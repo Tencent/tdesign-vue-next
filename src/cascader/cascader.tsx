@@ -1,13 +1,12 @@
 import { defineComponent, VNode, Transition } from 'vue';
 
 // utils
-import isEmpty from 'lodash/isEmpty';
 import isEqual from 'lodash/isEqual';
 import { prefix } from '../config';
 import TreeStore from '../_common/js/tree/tree-store';
 import { emitEvent } from '../utils/event';
 import { getPropsApiByEvent } from '../utils/helper';
-import { getTreeValue, getValue } from './utils/helper';
+import { getTreeValue, getValue, isEmptyValues } from './utils/helper';
 
 // common logic
 import { treeNodesEffect, treeStoreExpendEffect } from './utils/cascader';
@@ -31,6 +30,9 @@ import {
 import props from './props';
 import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './type';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-cascader`;
 
 export default defineComponent({
@@ -48,6 +50,13 @@ export default defineComponent({
   },
 
   emits: ['change', 'remove', 'blur', 'focus'],
+
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
 
   data() {
     return {
@@ -180,8 +189,7 @@ export default defineComponent({
       setValue(val, 'invalid-value');
       console.warn('TDesign Cascader Warn:', 'cascader props value invalid, v-model automatic calibration');
     }
-
-    if (!isEmpty(value)) {
+    if (!isEmptyValues(value)) {
       this.scopeVal = getValue(value, valueType, multiple);
     }
 

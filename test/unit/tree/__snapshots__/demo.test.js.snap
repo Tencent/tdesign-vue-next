@@ -32,7 +32,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -73,7 +72,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -114,7 +112,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -524,7 +521,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -568,7 +564,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -1486,7 +1481,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -1510,7 +1505,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -1534,7 +1529,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -2036,7 +2031,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -2077,7 +2071,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -2566,7 +2559,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -3127,7 +3119,6 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -3168,7 +3159,6 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -3749,7 +3739,6 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -3790,7 +3779,6 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -3913,7 +3901,7 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
       filter:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
       modelvalue=""
     >
       <!---->
@@ -4730,7 +4718,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -4771,7 +4758,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -4937,7 +4923,6 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m t-is-checked"
-            disabled="false"
             modelvalue="true"
           >
             <span
@@ -4981,7 +4966,6 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m t-is-checked"
-            disabled="false"
             modelvalue="true"
           >
             <span
@@ -7286,7 +7270,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -7327,7 +7310,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -7362,7 +7344,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         filter:
       </span>
       <div
-        class="t-input t-size-m"
+        class="t-input"
         modelvalue=""
       >
         <!---->
@@ -7978,7 +7960,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8002,7 +7984,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8026,7 +8008,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8509,7 +8491,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8533,7 +8515,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->
@@ -8557,7 +8539,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input t-size-m"
+      class="t-input"
     >
       <!---->
       <!---->

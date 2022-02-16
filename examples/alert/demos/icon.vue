@@ -12,18 +12,8 @@
     </t-alert>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent } from 'vue';
+<script lang="jsx" setup>
 import { Icon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: {
-    Icon,
-  },
-  setup() {
-    return {
-      warningIcon: () => <Icon name="error-circle-filled" />,
-    };
-  },
-});
+const warningIcon = () => <Icon name="error-circle-filled" />;
 </script>

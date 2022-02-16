@@ -16,9 +16,7 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
   {
@@ -61,15 +59,6 @@ const data = [
     description: 'test',
   },
 ];
-
-export default defineComponent({
-  setup() {
-    return {
-      columns,
-      data,
-    };
-  },
-});
 </script>
 
 <style lang="less" scoped>

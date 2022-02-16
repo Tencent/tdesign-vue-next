@@ -22,8 +22,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const options = [
   { label: '选项一', value: '1' },
@@ -37,27 +37,15 @@ const options = [
   { label: '选项九', value: '9' },
 ];
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(['1', '2', '3']);
-    const value2 = ref(['4', '5', '6', '7']);
+const value1 = ref(['1', '2', '3']);
+const value2 = ref(['4', '5', '6', '7']);
 
-    const valueDisplay = (h, { value, onClose }) => {
-      if (!(value instanceof Array)) return;
-      return value.map((item, index) => (
-        <t-tag key={index} closable={true} onClose={() => onClose(index)}>
-          {item.label}({item.value[0].toUpperCase()})
-        </t-tag>
-      ));
-    };
-
-    return {
-      value1,
-      value2,
-      options,
-      valueDisplay,
-    };
-  },
-  methods: {},
-});
+const valueDisplay = (h, { value, onClose }) => {
+  if (!(value instanceof Array)) return;
+  return value.map((item, index) => (
+    <t-tag key={index} closable={true} onClose={() => onClose(index)}>
+      {item.label}({item.value[0].toUpperCase()})
+    </t-tag>
+  ));
+};
 </script>

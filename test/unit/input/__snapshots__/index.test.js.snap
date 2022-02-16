@@ -2,7 +2,7 @@
 
 exports[`Input $attrs input attrs should pass to input element 1`] = `
 <div
-  class="t-input t-size-m t-input--suffix"
+  class="t-input t-input--suffix"
   maxlength="20"
 >
   <!---->
@@ -42,7 +42,7 @@ exports[`Input $attrs input attrs should pass to input element 1`] = `
 
 exports[`Input :props :autocomplete 1`] = `
 <div
-  class="t-input t-size-m"
+  class="t-input"
 >
   <!---->
   <!---->
@@ -59,7 +59,7 @@ exports[`Input :props :autocomplete 1`] = `
 
 exports[`Input :props :disabled 1`] = `
 <div
-  class="t-input t-size-m t-is-disabled"
+  class="t-input t-is-disabled"
 >
   <!---->
   <!---->
@@ -77,7 +77,7 @@ exports[`Input :props :disabled 1`] = `
 
 exports[`Input :props :prefix-icon 1`] = `
 <div
-  class="t-input t-size-m t-input--prefix"
+  class="t-input t-input--prefix t-input--suffix"
 >
   <span
     class="t-input__prefix t-input__prefix-icon"
@@ -94,13 +94,19 @@ exports[`Input :props :prefix-icon 1`] = `
     type="text"
   />
   <!---->
-  <!---->
+  <span
+    class="t-input__suffix t-input__suffix-icon"
+  >
+    <i
+      class="icon"
+    />
+  </span>
 </div>
 `;
 
 exports[`Input :props :readonly 1`] = `
 <div
-  class="t-input t-size-m t-is-readonly"
+  class="t-input t-is-readonly"
 >
   <!---->
   <!---->
@@ -135,7 +141,7 @@ exports[`Input :props :size 1`] = `
 
 exports[`Input :props :suffix-icon 1`] = `
 <div
-  class="t-input t-size-m t-input--suffix"
+  class="t-input t-input--suffix"
 >
   <!---->
   <!---->

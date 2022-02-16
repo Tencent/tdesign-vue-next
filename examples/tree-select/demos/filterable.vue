@@ -17,8 +17,8 @@
     <t-tree-select v-else v-model="value" :data="options" clearable :filter="filterFunction" placeholder="请选择" />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -51,21 +51,12 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('shenzhen');
-    const type = ref('default');
+const value = ref('shenzhen');
+const type = ref('default');
 
-    return {
-      value,
-      type,
-      options,
-      filterFunction(searchText, node) {
-        return node.data.label.indexOf(searchText) >= 0;
-      },
-    };
-  },
-});
+const filterFunction = (searchText, node) => {
+  return node.data.label.indexOf(searchText) >= 0;
+};
 </script>
 <style scoped>
 .tdesign-tree-select-filterable {

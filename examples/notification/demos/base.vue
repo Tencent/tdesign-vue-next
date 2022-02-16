@@ -12,17 +12,10 @@
     <t-button v-if="!show" variant="outline" @click="show = true"> 点击打开计时通知 </t-button>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const show = ref(true);
-    return {
-      show,
-    };
-  },
-});
+const show = ref(true);
 </script>
 <style scoped>
 .t-notification + .t-notification {

@@ -30,8 +30,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const valueOptions = [
   {
@@ -139,28 +139,14 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const valueMode = ref('onlyLeaf');
-    const checkable = ref(true);
-    const checkStrictly = ref(false);
+const valueMode = ref('onlyLeaf');
+const checkable = ref(true);
+const checkStrictly = ref(false);
 
-    const onClick = (context) => {
-      console.info('onClick:', context);
-    };
-    const onChange = (checked, context) => {
-      console.info('onChange:', checked, context);
-    };
-
-    return {
-      valueMode,
-      checkable,
-      checkStrictly,
-      valueOptions,
-      items,
-      onClick,
-      onChange,
-    };
-  },
-});
+const onClick = (context) => {
+  console.info('onClick:', context);
+};
+const onChange = (checked, context) => {
+  console.info('onChange:', checked, context);
+};
 </script>

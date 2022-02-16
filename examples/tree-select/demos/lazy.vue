@@ -11,8 +11,8 @@
     />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -27,41 +27,31 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
+const value = ref('');
 
-    const loadFunc = (node) =>
-      new Promise((resolve) => {
-        let timer = setTimeout(() => {
-          let nodes = [];
-          if (node.level < 2) {
-            nodes = [
-              {
-                label: `${node.label}.1`,
-                value: `${node.value}.1`,
-                children: true,
-              },
-              {
-                label: `${node.label}.2`,
-                value: `${node.value}.2`,
-                children: true,
-              },
-            ];
-          }
-          resolve(nodes);
-          clearTimeout(timer);
-          timer = null;
-        }, 1000);
-      });
-
-    return {
-      value,
-      options,
-      loadFunc,
-    };
-  },
-});
+const loadFunc = (node) =>
+  new Promise((resolve) => {
+    let timer = setTimeout(() => {
+      let nodes = [];
+      if (node.level < 2) {
+        nodes = [
+          {
+            label: `${node.label}.1`,
+            value: `${node.value}.1`,
+            children: true,
+          },
+          {
+            label: `${node.label}.2`,
+            value: `${node.value}.2`,
+            children: true,
+          },
+        ];
+      }
+      resolve(nodes);
+      clearTimeout(timer);
+      timer = null;
+    }, 1000);
+  });
 </script>
 <style scoped>
 .tdesign-tree-select-lazy {

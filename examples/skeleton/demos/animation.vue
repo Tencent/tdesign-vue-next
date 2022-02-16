@@ -13,17 +13,9 @@
   </t-row>
 </template>
 
-<script lang="jsx">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      animations: [
-        { label: '渐变加载动画', value: 'gradient' },
-        { label: '闪烁加载动画', value: 'flashed' },
-      ],
-    };
-  },
-});
+<script setup lang="jsx">
+const animations = [
+  { label: '渐变加载动画', value: 'gradient' },
+  { label: '闪烁加载动画', value: 'flashed' },
+];
 </script>

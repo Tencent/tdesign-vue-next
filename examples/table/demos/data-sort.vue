@@ -32,8 +32,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, watch, ref } from 'vue';
+<script setup lang="jsx">
+import { watch, ref } from 'vue';
 import { CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 
 const columns = [
@@ -87,56 +87,42 @@ const initData = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const data = ref([...initData]);
-    const sort = ref({});
-    const singleSort = ref({
-      sortBy: 'status',
-      descending: true,
-    });
+const data = ref([...initData]);
+const sort = ref({});
+const singleSort = ref({
+  sortBy: 'status',
+  descending: true,
+});
 
-    const multipleSorts = ref([
-      {
-        sortBy: 'status',
-        descending: true,
-      },
-    ]);
+const multipleSorts = ref([
+  {
+    sortBy: 'status',
+    descending: true,
+  },
+]);
 
-    const allowMultipleSort = ref(false);
-    const globalLocale = ref({
-      table: {
-        sortIcon: (h) => h && <CaretDownSmallIcon size="16px" />,
-      },
-    });
-
-    watch(
-      () => allowMultipleSort.value,
-      (val) => {
-        sort.value = val ? multipleSorts.value : singleSort.value;
-      },
-    );
-
-    const sortChange = (sortVal, options) => {
-      sort.value = sortVal;
-      console.log('#### sortChange:', sortVal, options);
-    };
-
-    const dataChange = (dataVal) => {
-      data.value = dataVal;
-    };
-
-    return {
-      data,
-      columns,
-      sort,
-      sortChange,
-      dataChange,
-      globalLocale,
-      allowMultipleSort,
-    };
+const allowMultipleSort = ref(false);
+const globalLocale = ref({
+  table: {
+    sortIcon: (h) => h && <CaretDownSmallIcon size="16px" />,
   },
 });
+
+watch(
+  () => allowMultipleSort.value,
+  (val) => {
+    sort.value = val ? multipleSorts.value : singleSort.value;
+  },
+);
+
+const sortChange = (sortVal, options) => {
+  sort.value = sortVal;
+  console.log('#### sortChange:', sortVal, options);
+};
+
+const dataChange = (dataVal) => {
+  data.value = dataVal;
+};
 </script>
 <style lang="less">
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {

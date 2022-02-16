@@ -20,6 +20,9 @@ import props from './props';
 
 import { EPickerCols, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM } from './constant';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-time-picker`;
 
 dayjs.extend(customParseFormat);
@@ -40,6 +43,13 @@ export default defineComponent({
 
   emits: ['change', 'input', 'close', 'open', 'focus', 'blur'],
 
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
+
   data() {
     const { defaultValue, value } = this.$props;
     // 初始化默认值
@@ -56,7 +66,6 @@ export default defineComponent({
       needClear: false,
     };
   },
-
   computed: {
     // 传递给选择面板的时间值
     panelValue(): Array<dayjs.Dayjs> {
@@ -333,10 +342,13 @@ export default defineComponent({
 
   render() {
     // 初始化数据
-    const { size, disabled } = this;
+    const {
+      size,
+      $attrs: { className },
+      disabled,
+    } = this;
     // 样式类名
-    const classes = [name, CLASSNAMES.SIZE[size] || ''];
-    // TODO: 需要透传外部传入的class
+    const classes = [name, CLASSNAMES.SIZE[size] || '', className];
 
     const slots = {
       content: () => (
