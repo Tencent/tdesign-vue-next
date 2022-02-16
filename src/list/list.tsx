@@ -17,8 +17,8 @@ export default defineComponent({
     ...props,
   },
   emits: ['scroll', 'load-more'],
-  setup(props, { emit }) {
-    const emitEvent = useEmitEvent(props, emit);
+  setup(props) {
+    const emitEvent = useEmitEvent();
     /** 列表基础逻辑 start */
     const listClass = computed<ClassName>(() => {
       return [
@@ -43,10 +43,9 @@ export default defineComponent({
     /** 列表基础逻辑 end */
 
     /** 滚动相关逻辑 start */
-    const scrollRef = ref<HTMLElement>(null);
 
     const handleScroll = (e: WheelEvent | Event) => {
-      const listElement = scrollRef.value;
+      const listElement = e.target as HTMLElement;
       const { scrollTop, scrollHeight, clientHeight } = listElement;
       emitEvent('scroll', {
         $event: e,
@@ -90,7 +89,6 @@ export default defineComponent({
       loadingClass,
       renderLoading,
       renderContent,
-      scrollRef,
       handleScroll,
       handleLoadMore,
     };
@@ -105,7 +103,7 @@ export default defineComponent({
       </div>,
     ];
     return (
-      <div class={this.listClass} onScroll={this.handleScroll} ref="scrollRef">
+      <div class={this.listClass} onScroll={this.handleScroll}>
         {listContent}
       </div>
     );
