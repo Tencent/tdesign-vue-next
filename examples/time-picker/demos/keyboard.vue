@@ -7,27 +7,20 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const time1 = ref('20:22:33');
-    const time2 = ref('22:22:22');
-    return {
-      time1,
-      time2,
-      blur(v) {
-        console.log('blur');
-        console.log(v);
-      },
-      focus(v) {
-        console.log('focus');
-        console.log(v);
-      },
-    };
-  },
-});
+const time1 = ref('20:22:33');
+const time2 = ref('22:22:22');
+
+const blur = (v) => {
+  console.log('blur');
+  console.log(v);
+};
+const focus = (v) => {
+  console.log('focus');
+  console.log(v);
+};
 </script>
 
 <style lang="less" scoped>

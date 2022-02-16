@@ -12,32 +12,22 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
-    const options = ref([
-      { label: '选项一', value: '1' },
-      { label: '选项二', value: '2' },
-      { label: '选项三', value: '3' },
-    ]);
+const value = ref('');
+const options = ref([
+  { label: '选项一', value: '1' },
+  { label: '选项二', value: '2' },
+  { label: '选项三', value: '3' },
+]);
 
-    const createOptions = () => {
-      console.log(value.value);
-      options.value.push({
-        label: `选项${value.value}`,
-        value: value.value,
-      });
-      console.log('create option:', value.value);
-    };
-
-    return {
-      value,
-      options,
-      createOptions,
-    };
-  },
-});
+const createOptions = () => {
+  console.log(value.value);
+  options.value.push({
+    label: `选项${value.value}`,
+    value: value.value,
+  });
+  console.log('create option:', value.value);
+};
 </script>

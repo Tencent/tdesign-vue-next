@@ -24,25 +24,18 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(12);
-    const value2 = ref([12, 20]);
-    return {
-      value1,
-      value2,
-      min: 10,
-      max: 30,
-      marks: {
-        10: 'min:10',
-        30: 'max:30',
-      },
-    };
-  },
-});
+const value1 = ref(12);
+const value2 = ref([12, 20]);
+
+const min = 10;
+const max = 30;
+const marks = {
+  10: 'min:10',
+  30: 'max:30',
+};
 </script>
 <style>
 .block {

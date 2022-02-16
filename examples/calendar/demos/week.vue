@@ -21,19 +21,11 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      week: ['星期1', '星期2', '星期3', '星期4', '星期5', '星期6', '星期天'],
-      renderWeek(h, params) {
-        if (params.day === 3) return <span style="color:#dd4a68">周三啦</span>;
-        if (params.day === 6 || params.day === 7) return <span style="color:#0052d9">放假啦</span>;
-        return <span style="color:#000000e6">{`星期${params.day}`}</span>;
-      },
-    };
-  },
-});
+<script lang="jsx" setup>
+const week = ['星期1', '星期2', '星期3', '星期4', '星期5', '星期6', '星期天'];
+const renderWeek = (h, params) => {
+  if (params.day === 3) return <span style="color:#dd4a68">周三啦</span>;
+  if (params.day === 6 || params.day === 7) return <span style="color:#0052d9">放假啦</span>;
+  return <span style="color:#000000e6">{`星期${params.day}`}</span>;
+};
 </script>

@@ -20,22 +20,14 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
-    const visible2 = ref(false);
-    return {
-      visible,
-      visible2,
-      closeBtn() {
-        return <span>close</span>;
-      },
-    };
-  },
-});
+const visible = ref(false);
+const visible2 = ref(false);
+const closeBtn = () => {
+  return <span>close</span>;
+};
 </script>
 
 <style scoped>

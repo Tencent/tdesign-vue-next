@@ -28,25 +28,15 @@
     </t-tabs>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('first');
-    const theme = ref('normal');
+const value = ref('first');
+const theme = ref('normal');
 
-    const handlerChange = (newValue) => {
-      value.value = newValue;
-    };
-
-    return {
-      handlerChange,
-      theme,
-      value,
-    };
-  },
-});
+const handlerChange = (newValue) => {
+  value.value = newValue;
+};
 </script>
 <style lang="less">
 .t-demo-tabs {

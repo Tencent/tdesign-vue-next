@@ -5,39 +5,33 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import { NotifyPlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    return {
-      showInOffset() {
-        NotifyPlugin({
-          title: '标题名称',
-          content: '这是一条可以自动关闭的消息通知',
-          offset: {
-            top: 30,
-            right: 30,
-          },
-          duration: 3000,
-        });
-      },
-      showInOffset2() {
-        NotifyPlugin({
-          title: '标题名称',
-          content: '这是一条可以自动关闭的消息通知',
-          placement: 'top-left',
-          offset: {
-            top: 30,
-            left: 30,
-          },
-          duration: 3000,
-        });
-      },
-    };
-  },
-});
+const showInOffset = () => {
+  NotifyPlugin({
+    title: '标题名称',
+    content: '这是一条可以自动关闭的消息通知',
+    offset: {
+      top: 30,
+      right: 30,
+    },
+    duration: 3000,
+  });
+};
+
+const showInOffset2 = () => {
+  NotifyPlugin({
+    title: '标题名称',
+    content: '这是一条可以自动关闭的消息通知',
+    placement: 'top-left',
+    offset: {
+      top: 30,
+      left: 30,
+    },
+    duration: 3000,
+  });
+};
 </script>
 
 <style scoped>

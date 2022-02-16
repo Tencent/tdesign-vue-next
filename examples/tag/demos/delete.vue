@@ -42,73 +42,56 @@
     </div>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent, nextTick, ref } from 'vue';
+<script setup lang="jsx">
+import { nextTick, ref } from 'vue';
 import { AddIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: {
-    AddIcon,
+const inputVisible = ref(false);
+const tags = ref([
+  {
+    name: '可删除标签可删除标签',
+    type: 'default',
+    showClose: true,
+    maxWidth: 100,
   },
-  setup() {
-    const inputVisible = ref(false);
-    const tags = ref([
-      {
-        name: '可删除标签可删除标签',
-        type: 'default',
-        showClose: true,
-        maxWidth: 100,
-      },
-      {
-        name: '可删除标签可删除标签',
-        type: 'default',
-        icon: () => <t-icon name="discount" />,
-        showClose: true,
-        maxWidth: 100,
-      },
-      {
-        name: '可删除标签',
-        type: 'default',
-        showClose: true,
-        disabled: true,
-      },
-    ]);
-    const input = ref('');
-
-    const handleClose = (index) => {
-      console.log(index);
-      tags.value.splice(index, 1);
-    };
-
-    const handleClick = (event) => {
-      console.log(event);
-    };
-
-    const handleInputEnter = (val) => {
-      if (val && !tags.value.some((item) => item.name === val)) {
-        tags.value.push({ name: val, type: 'default', showClose: true });
-      }
-      inputVisible.value = false;
-    };
-
-    const handleClickAdd = () => {
-      inputVisible.value = true;
-      nextTick(() => {
-        input.value.focus();
-      });
-    };
-
-    return {
-      inputVisible,
-      tags,
-      input,
-      handleClose,
-      handleClick,
-      handleInputEnter,
-      handleClickAdd,
-    };
+  {
+    name: '可删除标签可删除标签',
+    type: 'default',
+    icon: () => <t-icon name="discount" />,
+    showClose: true,
+    maxWidth: 100,
   },
-});
+  {
+    name: '可删除标签',
+    type: 'default',
+    showClose: true,
+    disabled: true,
+  },
+]);
+const input = ref('');
+
+const handleClose = (index) => {
+  console.log(index);
+  tags.value.splice(index, 1);
+};
+
+const handleClick = (event) => {
+  console.log(event);
+};
+
+const handleInputEnter = (val) => {
+  if (val && !tags.value.some((item) => item.name === val)) {
+    tags.value.push({ name: val, type: 'default', showClose: true });
+  }
+  inputVisible.value = false;
+};
+
+const handleClickAdd = () => {
+  inputVisible.value = true;
+  nextTick(() => {
+    input.value.focus();
+  });
+};
 </script>
 <style lang="less" scoped>
 .tag-block {

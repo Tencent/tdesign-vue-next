@@ -33,9 +33,9 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref, watch } from 'vue';
-import { EnhancedTable } from 'tdesign-vue-next';
+<script setup lang="jsx">
+import { ref, watch } from 'vue';
+import { EnhancedTable as TEnhancedTable } from 'tdesign-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 
 const initData = [];
@@ -96,45 +96,29 @@ const columns = [
   { colKey: 'description', title: '描述' },
 ];
 
-export default defineComponent({
-  components: { TEnhancedTable: EnhancedTable },
-  setup() {
-    const data = ref(initData);
-    const checkStrictly = ref('true');
-    const selectedRowKeys = ref([]);
-    const expandedRowKeys = ref([]);
+const data = ref(initData);
+const checkStrictly = ref('true');
+const selectedRowKeys = ref([]);
+const expandedRowKeys = ref([]);
 
-    watch(
-      () => checkStrictly.value,
-      () => {
-        selectedRowKeys.value = [];
-        data.value = cloneDeep(data.value);
-      },
-    );
-
-    const rehandleSelectChange = (value, { selectedRowData }) => {
-      selectedRowKeys.value = value;
-      console.log(value, selectedRowData);
-    };
-
-    const expandedRowRender = (h, { row }) => <div>这是展开项数据，{row.key}</div>;
-
-    const onExpandChange = (val) => {
-      expandedRowKeys.value = val;
-    };
-
-    return {
-      checkStrictly,
-      selectedRowKeys,
-      expandedRowKeys,
-      data,
-      columns,
-      rehandleSelectChange,
-      expandedRowRender,
-      onExpandChange,
-    };
+watch(
+  () => checkStrictly.value,
+  () => {
+    selectedRowKeys.value = [];
+    data.value = cloneDeep(data.value);
   },
-});
+);
+
+const rehandleSelectChange = (value, { selectedRowData }) => {
+  selectedRowKeys.value = value;
+  console.log(value, selectedRowData);
+};
+
+const expandedRowRender = (h, { row }) => <div>这是展开项数据，{row.key}</div>;
+
+const onExpandChange = (val) => {
+  expandedRowKeys.value = val;
+};
 </script>
 
 <style lang="less">

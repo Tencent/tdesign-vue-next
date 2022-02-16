@@ -3,9 +3,7 @@
     <t-transfer :data="list" :disabled="[false, true]" :default-value="defaultValue" />
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const list = [];
 for (let i = 0; i < 20; i++) {
   list.push({
@@ -15,12 +13,5 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-export default defineComponent({
-  setup() {
-    return {
-      list,
-      defaultValue: list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0),
-    };
-  },
-});
+const defaultValue = list.map((item) => item.value).filter((v) => parseInt(v, 10) % 2 === 0);
 </script>

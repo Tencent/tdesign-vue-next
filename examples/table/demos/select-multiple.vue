@@ -24,8 +24,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const columns = [
   {
@@ -81,28 +81,16 @@ const data = [
     description: 'test',
   },
 ];
-export default defineComponent({
-  setup() {
-    const selectedRowKeys = ref([3, '2']);
+const selectedRowKeys = ref([3, '2']);
 
-    const rehandleClickOp = ({ text, row }) => {
-      console.log(text, row);
-    };
+const rehandleClickOp = ({ text, row }) => {
+  console.log(text, row);
+};
 
-    const rehandleSelectChange = (value, { selectedRowData }) => {
-      selectedRowKeys.value = value;
-      console.log(value, selectedRowData);
-    };
-
-    return {
-      selectedRowKeys,
-      columns,
-      data,
-      rehandleClickOp,
-      rehandleSelectChange,
-    };
-  },
-});
+const rehandleSelectChange = (value, { selectedRowData }) => {
+  selectedRowKeys.value = value;
+  console.log(value, selectedRowData);
+};
 </script>
 
 <style lang="less" scoped>

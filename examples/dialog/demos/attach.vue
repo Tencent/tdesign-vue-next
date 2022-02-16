@@ -46,24 +46,14 @@
     </t-dialog>
   </div>
 </template>
-<script>
-import { defineComponent, ref, getCurrentInstance } from 'vue';
+<script setup>
+import { ref, getCurrentInstance } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visibleBody = ref(false);
-    const visibleIdAttach = ref(false);
-    const visibleFunctionAttach = ref(false);
-    const { ctx } = getCurrentInstance();
-    const getAttach = () => ctx.$root.$el;
-    return {
-      visibleBody,
-      visibleIdAttach,
-      visibleFunctionAttach,
-      getAttach,
-    };
-  },
-});
+const visibleBody = ref(false);
+const visibleIdAttach = ref(false);
+const visibleFunctionAttach = ref(false);
+const { ctx } = getCurrentInstance();
+const getAttach = () => ctx.$root.$el;
 </script>
 <style scoped>
 .t-button {

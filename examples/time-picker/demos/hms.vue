@@ -4,24 +4,18 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('12:20:30');
-    return {
-      value,
-      timechange(time) {
-        console.log(time);
-      },
-      open() {
-        console.log('open');
-      },
-      close() {
-        console.log('close');
-      },
-    };
-  },
-});
+const value = ref('12:20:30');
+
+const timechange = (time) => {
+  console.log(time);
+};
+const open = () => {
+  console.log('open');
+};
+const close = () => {
+  console.log('close');
+};
 </script>

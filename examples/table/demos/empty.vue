@@ -15,9 +15,7 @@
     <t-table :data="data" :columns="columns" :empty="empty" :row-key="rowKey" />
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent } from 'vue';
-
+<script setup lang="jsx">
 const columns = [
   {
     colKey: 'type',
@@ -45,20 +43,12 @@ const columns = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const empty = () => (
-      <span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">
-        😊 我是自定义的空内容 😊: empty function
-      </span>
-    );
+const data = [];
+const rowKey = 'property';
 
-    return {
-      data: [],
-      rowKey: 'property',
-      columns,
-      empty,
-    };
-  },
-});
+const empty = () => (
+  <span style="display:flex;align-items:center;justify-content:center;height:100px;color: rgba(0, 0, 0, 0.26)">
+    😊 我是自定义的空内容 😊: empty function
+  </span>
+);
 </script>

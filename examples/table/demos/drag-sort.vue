@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
@@ -63,24 +63,14 @@ const initData = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const data = ref([...initData]);
+const data = ref([...initData]);
 
-    const onDragSort = ({ currentIndex, targetIndex }) => {
-      console.log('交换行', currentIndex, targetIndex);
-      const temp = data.value[currentIndex];
-      data.value[currentIndex] = data.value[targetIndex];
-      data.value[targetIndex] = temp;
-    };
-
-    return {
-      data,
-      columns,
-      onDragSort,
-    };
-  },
-});
+const onDragSort = ({ currentIndex, targetIndex }) => {
+  console.log('交换行', currentIndex, targetIndex);
+  const temp = data.value[currentIndex];
+  data.value[currentIndex] = data.value[targetIndex];
+  data.value[targetIndex] = temp;
+};
 </script>
 <style scoped lang="less">
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {

@@ -18,8 +18,8 @@
     />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const data = [];
 for (let i = 0; i < 5; i++) {
@@ -68,24 +68,11 @@ const columns = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const stripe = ref(true);
-    const bordered = ref(true);
-    const hover = ref(false);
+const stripe = ref(true);
+const bordered = ref(true);
+const hover = ref(false);
 
-    const handleRowClick = (e) => {
-      console.log(e);
-    };
-
-    return {
-      data,
-      columns,
-      stripe,
-      bordered,
-      hover,
-      handleRowClick,
-    };
-  },
-});
+const handleRowClick = (e) => {
+  console.log(e);
+};
 </script>

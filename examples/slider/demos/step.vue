@@ -9,20 +9,12 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(12);
-    const value2 = ref([30, 70]);
-    return {
-      value1,
-      value2,
-      step: 4,
-    };
-  },
-});
+const value1 = ref(12);
+const value2 = ref([30, 70]);
+const step = 4;
 </script>
 <style>
 .block {

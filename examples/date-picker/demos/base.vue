@@ -3,15 +3,8 @@
     <t-date-picker v-model="date" theme="primary" mode="date" clearable />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const date = ref('2021-11-10');
-    return {
-      date,
-    };
-  },
-});
+const date = ref('2021-11-10');
 </script>

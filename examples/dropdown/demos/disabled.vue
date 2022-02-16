@@ -10,8 +10,7 @@
     </t-dropdown>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const options = [
@@ -34,17 +33,6 @@ const options = [
     disabled: true,
   },
 ];
-
-export default defineComponent({
-  components: {
-    ChevronDownIcon,
-  },
-  setup() {
-    return {
-      options,
-    };
-  },
-});
 </script>
 <style scoped>
 .t-button {

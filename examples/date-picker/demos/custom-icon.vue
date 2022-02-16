@@ -7,20 +7,10 @@
     </t-date-picker>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent } from 'vue';
+<script setup lang="jsx">
 import { BrowseIcon, LockOnIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: {
-    LockOnIcon,
-  },
-  setup() {
-    return {
-      renderPrefixIcon() {
-        return <BrowseIcon />;
-      },
-    };
-  },
-});
+const renderPrefixIcon = () => {
+  return <BrowseIcon />;
+};
 </script>

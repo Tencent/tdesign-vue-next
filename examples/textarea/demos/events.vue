@@ -11,31 +11,25 @@
     />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
-    return {
-      value,
-      onKeypress(value, e) {
-        console.log('onKeypress: ', value, e);
-      },
-      onKeydown(value, e) {
-        console.log('onKeydown: ', value, e);
-      },
-      onKeyup(value, e) {
-        console.log('onKeyup: ', value, e);
-      },
+const value = ref('');
 
-      onFocus(value, e) {
-        console.log('onFocus: ', value, e);
-      },
-      onBlur(value, e) {
-        console.log('onBlur: ', value, e);
-      },
-    };
-  },
-});
+const onKeypress = (value, e) => {
+  console.log('onKeypress: ', value, e);
+};
+const onKeydown = (value, e) => {
+  console.log('onKeydown: ', value, e);
+};
+const onKeyup = (value, e) => {
+  console.log('onKeyup: ', value, e);
+};
+
+const onFocus = (value, e) => {
+  console.log('onFocus: ', value, e);
+};
+const onBlur = (value, e) => {
+  console.log('onBlur: ', value, e);
+};
 </script>

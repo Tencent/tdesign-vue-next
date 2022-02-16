@@ -18,17 +18,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { Icon } from 'tdesign-icons-vue-next';
 
-export default {
-  components: {
-    Icon,
-  },
-  data() {
-    return {
-      newSvgUrl: 'https://tdesign.gtimg.com/icon/default-demo/index.js',
-    };
-  },
-};
+const newSvgUrl = 'https://tdesign.gtimg.com/icon/default-demo/index.js';
 </script>

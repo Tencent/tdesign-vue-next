@@ -19,8 +19,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -49,17 +49,8 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value1 = ref('');
-    const value2 = ref('');
-    return {
-      value1,
-      value2,
-      options,
-    };
-  },
-});
+const value1 = ref('');
+const value2 = ref('');
 </script>
 <style scoped>
 .tdesign-demo-select-base {

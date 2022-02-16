@@ -34,8 +34,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const items = [
   {
@@ -112,92 +112,79 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const showLine = ref(true);
-    const showIcon = ref(true);
+const showLine = ref(true);
+const showIcon = ref(true);
 
-    const getLineNodes = (node) => {
-      const nodes = node.getParents().reverse();
-      const lineNodes = [];
-      nodes.forEach((item, index) => {
-        const line = {};
-        const nextItem = nodes[index + 1];
-        if (index < nodes.length - 1 && nextItem) {
-          line.cross = !nextItem.isLast();
-        }
-        lineNodes.push(line);
-      });
-      return lineNodes;
-    };
+const getLineNodes = (node) => {
+  const nodes = node.getParents().reverse();
+  const lineNodes = [];
+  nodes.forEach((item, index) => {
+    const line = {};
+    const nextItem = nodes[index + 1];
+    if (index < nodes.length - 1 && nextItem) {
+      line.cross = !nextItem.isLast();
+    }
+    lineNodes.push(line);
+  });
+  return lineNodes;
+};
 
-    const lineClass = (node) => {
-      const list = ['custom-line'];
-      if (node.isFirst()) {
-        list.push('custom-line-first');
-      }
-      if (node.isLeaf()) {
-        list.push('custom-line-leaf');
-      }
-      if (node.isLast()) {
-        list.push('custom-line-last');
-      }
-      return list;
-    };
+const lineClass = (node) => {
+  const list = ['custom-line'];
+  if (node.isFirst()) {
+    list.push('custom-line-first');
+  }
+  if (node.isLeaf()) {
+    list.push('custom-line-leaf');
+  }
+  if (node.isLast()) {
+    list.push('custom-line-last');
+  }
+  return list;
+};
 
-    const renderLine = (createElement, node) => {
-      if (!showLine.value) return null;
+const renderLine = (createElement, node) => {
+  if (!showLine.value) return null;
 
-      const lineChildren = [];
+  const lineChildren = [];
 
-      const lines = getLineNodes(node).map((item) =>
-        createElement('span', {
-          class: {
-            'custom-line-cross': item.cross,
-          },
-        }),
-      );
+  const lines = getLineNodes(node).map((item) =>
+    createElement('span', {
+      class: {
+        'custom-line-cross': item.cross,
+      },
+    }),
+  );
 
-      lineChildren.push(
-        createElement(
-          'div',
-          {
-            class: 'custom-line-box',
-          },
-          lines,
-        ),
-      );
+  lineChildren.push(
+    createElement(
+      'div',
+      {
+        class: 'custom-line-box',
+      },
+      lines,
+    ),
+  );
 
-      if (node.isLeaf()) {
-        const iconNode = createElement(
-          'i',
-          {
-            class: 'custom-line-icon',
-          },
-          [<t-icon name="heart-filled" />],
-        );
-        lineChildren.push(iconNode);
-      }
+  if (node.isLeaf()) {
+    const iconNode = createElement(
+      'i',
+      {
+        class: 'custom-line-icon',
+      },
+      [<t-icon name="heart-filled" />],
+    );
+    lineChildren.push(iconNode);
+  }
 
-      return createElement(
-        'div',
-        {
-          class: lineClass(node),
-        },
-        lineChildren,
-      );
-    };
-
-    return {
-      items,
-      showLine,
-      showIcon,
-      getLineNodes,
-      lineClass,
-      renderLine,
-    };
-  },
-});
+  return createElement(
+    'div',
+    {
+      class: lineClass(node),
+    },
+    lineChildren,
+  );
+};
 </script>
 <style>
 .tdesign-tree-line .operations .t-button {

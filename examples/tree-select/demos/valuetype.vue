@@ -12,8 +12,8 @@
     />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -46,21 +46,11 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref({ label: '深圳市', value: 'shenzhen' });
-    const mulValue = ref([
-      { label: '广州市', value: 'guangzhou' },
-      { label: '深圳市', value: 'shenzhen' },
-    ]);
-
-    return {
-      value,
-      mulValue,
-      options,
-    };
-  },
-});
+const value = ref({ label: '深圳市', value: 'shenzhen' });
+const mulValue = ref([
+  { label: '广州市', value: 'guangzhou' },
+  { label: '深圳市', value: 'shenzhen' },
+]);
 </script>
 <style scoped>
 .tdesign-tree-select-base {

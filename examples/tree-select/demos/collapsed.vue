@@ -17,8 +17,8 @@
     </t-tree-select>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -50,17 +50,8 @@ const options = [
     ],
   },
 ];
-export default defineComponent({
-  setup() {
-    const value = ref(['guangzhou', 'shenzhen']);
-    const slotValue = ref(['guangzhou', 'shenzhen']);
-
-    return { options, value, slotValue };
-  },
-  data() {
-    return {};
-  },
-});
+const value = ref(['guangzhou', 'shenzhen']);
+const slotValue = ref(['guangzhou', 'shenzhen']);
 </script>
 <style scoped>
 .tdesign-tree-select-collapsed {

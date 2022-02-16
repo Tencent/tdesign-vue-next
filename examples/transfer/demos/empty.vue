@@ -6,15 +6,6 @@
     <t-transfer :data="list" empty="No Data" />
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const list = [];
-export default defineComponent({
-  setup() {
-    return {
-      list,
-    };
-  },
-});
 </script>

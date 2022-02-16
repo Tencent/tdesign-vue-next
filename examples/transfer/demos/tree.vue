@@ -13,8 +13,8 @@
     </t-transfer>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const items = [
   {
@@ -62,31 +62,20 @@ const items = [
     ],
   },
 ];
-export default defineComponent({
-  setup() {
-    const targetValue = ref([]);
-    const checked = ref([]);
 
-    const handleCheckedChange = ({ checked, sourceChecked, targetChecked, type }) => {
-      console.log('handleCheckedChange', {
-        checked,
-        sourceChecked,
-        targetChecked,
-        type,
-      });
-    };
+const targetValue = ref([]);
+const checked = ref([]);
 
-    const onChange = (newTargetValue) => {
-      console.log('onChange', newTargetValue);
-    };
+const handleCheckedChange = ({ checked, sourceChecked, targetChecked, type }) => {
+  console.log('handleCheckedChange', {
+    checked,
+    sourceChecked,
+    targetChecked,
+    type,
+  });
+};
 
-    return {
-      targetValue,
-      checked,
-      items,
-      handleCheckedChange,
-      onChange,
-    };
-  },
-});
+const onChange = (newTargetValue) => {
+  console.log('onChange', newTargetValue);
+};
 </script>

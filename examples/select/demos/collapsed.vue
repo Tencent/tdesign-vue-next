@@ -32,8 +32,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const options = [
   {
@@ -50,33 +50,22 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref(['1', '3']);
-
-    const collapsedItems = (h, { value, count }) => {
-      if (!(value instanceof Array) || !count) return;
-      return (
-        <t-popup
-          v-slots={{
-            content: () => {
-              value.map((item) => <p style="padding: 10px;">{item.label}</p>);
-            },
-          }}
-        >
-          <span v-show={count > 0} style="color: #ED7B2F;">
-            +{count}
-          </span>
-        </t-popup>
-      );
-    };
-
-    return {
-      options,
-      value,
-      collapsedItems,
-      minCollapsedNum: 1,
-    };
-  },
-});
+const value = ref(['1', '3']);
+const minCollapsedNum = 1;
+const collapsedItems = (h, { value, count }) => {
+  if (!(value instanceof Array) || !count) return;
+  return (
+    <t-popup
+      v-slots={{
+        content: () => {
+          value.map((item) => <p style="padding: 10px;">{item.label}</p>);
+        },
+      }}
+    >
+      <span v-show={count > 0} style="color: #ED7B2F;">
+        +{count}
+      </span>
+    </t-popup>
+  );
+};
 </script>

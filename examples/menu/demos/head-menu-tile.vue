@@ -25,8 +25,8 @@
   </t-head-menu>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const menus = [
   {
@@ -73,18 +73,9 @@ const menus = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const active = ref('2-1');
+const active = ref('2-1');
 
-    const changeHandler = (val) => {
-      active.value = val;
-    };
-    return {
-      active,
-      menus,
-      changeHandler,
-    };
-  },
-});
+const changeHandler = (val) => {
+  active.value = val;
+};
 </script>
