@@ -14,22 +14,12 @@
     </t-alert>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
+<script setup>
+const beforeClose = () => window.confirm('确认关闭吗？');
 
-export default defineComponent({
-  setup() {
-    const beforeClose = () => window.confirm('确认关闭吗？');
+const handleClosed = () => {
+  console.log('关闭');
+};
 
-    const handleClosed = () => {
-      console.log('关闭');
-    };
-
-    return {
-      warningClose: () => 'FunctionPropClose',
-      beforeClose,
-      handleClosed,
-    };
-  },
-});
+const warningClose = () => 'FunctionPropClose';
 </script>

@@ -7,26 +7,20 @@
   </t-steps>
 </template>
 
-<script lang="jsx">
+<script setup lang="jsx">
 import { LoginIcon, CartIcon, WalletIcon, CheckCircleIcon } from 'tdesign-icons-vue-next';
 
-export default {
-  setup() {
-    return {
-      renderLoginIcon() {
-        return <LoginIcon size="24" class="icon-margin" />;
-      },
-      renderCartIcon() {
-        return <CartIcon size="24" class="icon-margin" />;
-      },
-      renderWalletIcon() {
-        return <WalletIcon size="24" class="icon-margin" />;
-      },
-      renderSuccessIcon() {
-        return <CheckCircleIcon size="24" class="icon-margin" />;
-      },
-    };
-  },
+const renderLoginIcon = () => {
+  return <LoginIcon size="24" class="icon-margin" />;
+};
+const renderCartIcon = () => {
+  return <CartIcon size="24" class="icon-margin" />;
+};
+const renderWalletIcon = () => {
+  return <WalletIcon size="24" class="icon-margin" />;
+};
+const renderSuccessIcon = () => {
+  return <CheckCircleIcon size="24" class="icon-margin" />;
 };
 </script>
 <style lang="less">

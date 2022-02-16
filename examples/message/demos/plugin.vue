@@ -61,24 +61,16 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent } from 'vue';
+<script setup lang="jsx">
 import { MessagePlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    return {
-      MessagePlugin,
-      content() {
-        return (
-          <div>
-            操作有误，<a href="#">前往查看</a>
-          </div>
-        );
-      },
-    };
-  },
-});
+const content = () => {
+  return (
+    <div>
+      操作有误，<a href="#">前往查看</a>
+    </div>
+  );
+};
 </script>
 
 <style scoped>

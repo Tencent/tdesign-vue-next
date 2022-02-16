@@ -13,8 +13,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const steps = [
   { title: '已完成的步骤', value: 'first', content: '点击切换步骤' },
@@ -23,14 +23,5 @@ const steps = [
   { title: '已完成的步骤', value: 'forth', content: '点击切换步骤' },
 ];
 
-export default defineComponent({
-  setup() {
-    const current = ref('third');
-
-    return {
-      current,
-      steps,
-    };
-  },
-});
+const current = ref('third');
 </script>

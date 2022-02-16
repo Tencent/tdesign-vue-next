@@ -30,8 +30,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref, computed } from 'vue';
+<script setup lang="jsx">
+import { ref, computed } from 'vue';
 
 const options = [
   { label: '用户一', value: '1', description: '这是一段用户描述信息，可自定义内容' },
@@ -45,35 +45,24 @@ const options = [
   { label: '用户九', value: '9', description: '这是一段用户描述信息，可自定义内容' },
 ];
 
-export default defineComponent({
-  setup() {
-    const value1 = ref([]);
-    const value2 = ref([]);
-    const optionRender = (h, option) => (
-      <div class="tdesign-demo__user-option">
-        <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
-        <div class="tdesign-demo__user-option-info">
-          <div>{option.label}</div>
-          <div class="tdesign-demo__user-option-desc">{option.description}</div>
-        </div>
-      </div>
-    );
-    const optionsData = computed(() =>
-      options.map((item) => ({
-        ...item,
-        // options 自定义下拉选项关键代码
-        content: (h) => optionRender(h, item),
-      })),
-    );
-
-    return {
-      value1,
-      value2,
-      options,
-      optionsData,
-    };
-  },
-});
+const value1 = ref([]);
+const value2 = ref([]);
+const optionRender = (h, option) => (
+  <div class="tdesign-demo__user-option">
+    <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
+    <div class="tdesign-demo__user-option-info">
+      <div>{option.label}</div>
+      <div class="tdesign-demo__user-option-desc">{option.description}</div>
+    </div>
+  </div>
+);
+const optionsData = computed(() =>
+  options.map((item) => ({
+    ...item,
+    // options 自定义下拉选项关键代码
+    content: (h) => optionRender(h, item),
+  })),
+);
 </script>
 
 <style>

@@ -42,36 +42,26 @@
     <t-button v-if="!visible4" theme="primary" @click="visible4 = true"> theme: success </t-button>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible1 = ref(false);
-    const visible2 = ref(false);
-    const visible3 = ref(false);
-    const visible4 = ref(false);
+const visible1 = ref(false);
+const visible2 = ref(false);
+const visible3 = ref(false);
+const visible4 = ref(false);
 
-    return {
-      visible1,
-      visible2,
-      visible3,
-      visible4,
-      close1() {
-        visible1.value = false;
-      },
-      close2() {
-        visible2.value = false;
-      },
-      close3() {
-        visible3.value = false;
-      },
-      close4() {
-        visible4.value = false;
-      },
-    };
-  },
-});
+const close1 = () => {
+  visible1.value = false;
+};
+const close2 = () => {
+  visible2.value = false;
+};
+const close3 = () => {
+  visible3.value = false;
+};
+const close4 = () => {
+  visible4.value = false;
+};
 </script>
 <style scoped>
 .t-button {

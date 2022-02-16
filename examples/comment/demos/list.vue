@@ -19,9 +19,7 @@
   </t-list>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const commentsData = [
   {
     id: 'A',
@@ -45,13 +43,6 @@ const commentsData = [
     content: '评论作者名C写的评论内容。',
   },
 ];
-export default defineComponent({
-  setup() {
-    return {
-      commentsData,
-    };
-  },
-});
 </script>
 
 <style lang="less" scoped>

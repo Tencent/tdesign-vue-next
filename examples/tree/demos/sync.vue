@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { defineComponent, ref, computed } from 'vue';
 
 const items = [
@@ -119,83 +119,67 @@ const items = [
     ],
   },
 ];
-export default defineComponent({
-  setup() {
-    const checked = ref(['1.1.1.1', '1.1.1.2']);
-    const expanded = ref(['1', '1.1', '1.1.1', '2']);
-    const actived = ref(['2']);
 
-    const allChecked = computed(() => {
-      let arr = [];
-      if (Array.isArray(checked.value)) {
-        arr = checked.value;
-      }
-      return arr.join(', ');
-    });
+const checked = ref(['1.1.1.1', '1.1.1.2']);
+const expanded = ref(['1', '1.1', '1.1.1', '2']);
+const actived = ref(['2']);
+const valueMode = 'onlyLeaf';
 
-    const allExpanded = computed(() => {
-      let arr = [];
-      if (Array.isArray(expanded.value)) {
-        arr = expanded.value;
-      }
-      return arr.join(', ');
-    });
-
-    const allActived = computed(() => {
-      let arr = [];
-      if (Array.isArray(actived.value)) {
-        arr = actived.value;
-      }
-      return arr.join(', ');
-    });
-
-    const getValueFromString = (val) => {
-      const arr = val.split(',');
-      const vals = [];
-      arr
-        .map((str) => str.trim())
-        .forEach((tag) => {
-          const match = /^\{([^{}]+)\}$/.exec(tag);
-          if (match && match[1]) {
-            vals.push(match[1]);
-          }
-        });
-      return vals;
-    };
-
-    const onAllCheckedInput = (val) => {
-      console.log('checked input on change', val);
-      const vals = getValueFromString(val);
-      checked.value = vals;
-    };
-
-    const onAllExpandedInput = (val) => {
-      console.log('expanded input on change', val);
-      const vals = getValueFromString(val);
-      expanded.value = vals;
-    };
-
-    const onAllActivedInput = (val) => {
-      console.log('actived input on change', val);
-      const vals = getValueFromString(val);
-      actived.value = vals;
-    };
-
-    return {
-      checked,
-      expanded,
-      actived,
-      valueMode: 'onlyLeaf',
-      items,
-      allChecked,
-      allExpanded,
-      allActived,
-      onAllCheckedInput,
-      onAllExpandedInput,
-      onAllActivedInput,
-    };
-  },
+const allChecked = computed(() => {
+  let arr = [];
+  if (Array.isArray(checked.value)) {
+    arr = checked.value;
+  }
+  return arr.join(', ');
 });
+
+const allExpanded = computed(() => {
+  let arr = [];
+  if (Array.isArray(expanded.value)) {
+    arr = expanded.value;
+  }
+  return arr.join(', ');
+});
+
+const allActived = computed(() => {
+  let arr = [];
+  if (Array.isArray(actived.value)) {
+    arr = actived.value;
+  }
+  return arr.join(', ');
+});
+
+const getValueFromString = (val) => {
+  const arr = val.split(',');
+  const vals = [];
+  arr
+    .map((str) => str.trim())
+    .forEach((tag) => {
+      const match = /^\{([^{}]+)\}$/.exec(tag);
+      if (match && match[1]) {
+        vals.push(match[1]);
+      }
+    });
+  return vals;
+};
+
+const onAllCheckedInput = (val) => {
+  console.log('checked input on change', val);
+  const vals = getValueFromString(val);
+  checked.value = vals;
+};
+
+const onAllExpandedInput = (val) => {
+  console.log('expanded input on change', val);
+  const vals = getValueFromString(val);
+  expanded.value = vals;
+};
+
+const onAllActivedInput = (val) => {
+  console.log('actived input on change', val);
+  const vals = getValueFromString(val);
+  actived.value = vals;
+};
 </script>
 <style scoped>
 .demo-tree-base {

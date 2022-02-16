@@ -7,17 +7,8 @@
     </t-alert>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      warningClose: () => 'FunctionPropClose',
-    };
-  },
-  methods: {
-    handleOperation() {
-      alert('operation clicked');
-    },
-  },
+<script setup>
+const handleOperation = () => {
+  alert('operation clicked');
 };
 </script>

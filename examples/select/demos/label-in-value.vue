@@ -22,7 +22,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { defineComponent, ref } from 'vue';
 
 const options = [
@@ -31,19 +31,9 @@ const options = [
   { label: '选项三', value: '3' },
 ];
 
-export default defineComponent({
-  setup() {
-    const handleChange = (value) => {
-      console.log('handleChange:', value);
-    };
-    const value = ref({ value: '1', label: '选项一' });
-    const value2 = ref([{ value: '1', label: '选项一' }]);
-    return {
-      value,
-      value2,
-      options,
-      handleChange,
-    };
-  },
-});
+const handleChange = (value) => {
+  console.log('handleChange:', value);
+};
+const value = ref({ value: '1', label: '选项一' });
+const value2 = ref([{ value: '1', label: '选项一' }]);
 </script>

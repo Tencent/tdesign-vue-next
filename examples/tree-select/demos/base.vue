@@ -3,8 +3,8 @@
     <t-tree-select v-model="value" :data="options" clearable placeholder="请选择" />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -37,15 +37,7 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
-    return {
-      value,
-      options,
-    };
-  },
-});
+const value = ref('');
 </script>
 <style scoped>
 .tdesign-tree-select-base {

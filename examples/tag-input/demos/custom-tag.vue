@@ -34,17 +34,11 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'TTagInputCustom',
-  setup() {
-    const tags = ref(['StudentA', 'StudentB', 'StudentC']);
-    const onTagDelete = (index) => {
-      tags.value.splice(index, 1);
-    };
-    return { tags, onTagDelete };
-  },
-});
+const tags = ref(['StudentA', 'StudentB', 'StudentC']);
+const onTagDelete = (index) => {
+  tags.value.splice(index, 1);
+};
 </script>

@@ -10,8 +10,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const list = [];
 for (let i = 0; i < 20; i++) {
@@ -22,31 +22,20 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-export default defineComponent({
-  setup() {
-    const targetValue = ref([]);
-    const checkedValue = ref([]);
+const targetValue = ref([]);
+const checkedValue = ref([]);
 
-    const transferItem = (h, { data, index, type }) => {
-      const sourceLabel = (
-        <span class="transfer-item">
-          {data.label} - {data.description}
-        </span>
-      );
-      const targetLabel = (
-        <span class="transfer-item">
-          {index} - {data.label}
-        </span>
-      );
-      return type === 'source' ? sourceLabel : targetLabel;
-    };
-
-    return {
-      targetValue,
-      checkedValue,
-      list,
-      transferItem,
-    };
-  },
-});
+const transferItem = (h, { data, index, type }) => {
+  const sourceLabel = (
+    <span class="transfer-item">
+      {data.label} - {data.description}
+    </span>
+  );
+  const targetLabel = (
+    <span class="transfer-item">
+      {index} - {data.label}
+    </span>
+  );
+  return type === 'source' ? sourceLabel : targetLabel;
+};
 </script>

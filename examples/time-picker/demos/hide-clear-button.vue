@@ -7,18 +7,10 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const time1 = ref('11:12:10');
-
-    return {
-      time1,
-    };
-  },
-});
+const time1 = ref('11:12:10');
 </script>
 <style lang="less" scoped>
 .tdesign-demo-block {

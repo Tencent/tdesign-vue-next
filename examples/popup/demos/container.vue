@@ -13,16 +13,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      getAttach: () => document.querySelector('#second-popup'),
-    };
-  },
-});
+<script setup>
+const getAttach = () => document.querySelector('#second-popup');
 </script>
 <style scoped>
 .t-popup-demo-block {

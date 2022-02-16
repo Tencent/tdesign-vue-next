@@ -11,8 +11,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -29,14 +29,5 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('1');
-
-    return {
-      value,
-      options,
-    };
-  },
-});
+const value = ref('1');
 </script>

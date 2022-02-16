@@ -27,8 +27,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref, computed } from 'vue';
+<script setup>
+import { ref, computed } from 'vue';
 
 const items = [
   {
@@ -124,77 +124,60 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const checked = ref(['1.1.1.1', '1.1.1.2']);
-    const expanded = ref(['1', '1.1', '1.1.1', '2']);
-    const actived = ref(['2']);
+const checked = ref(['1.1.1.1', '1.1.1.2']);
+const expanded = ref(['1', '1.1', '1.1.1', '2']);
+const actived = ref(['2']);
 
-    const allChecked = computed(() => {
-      let arr = [];
-      if (Array.isArray(checked.value)) {
-        arr = checked.value;
-      }
-      return arr.join(', ');
-    });
-
-    const allExpanded = computed(() => {
-      let arr = [];
-      if (Array.isArray(expanded.value)) {
-        arr = expanded.value;
-      }
-      return arr.join(', ');
-    });
-
-    const allActived = computed(() => {
-      let arr = [];
-      if (Array.isArray(actived.value)) {
-        arr = actived.value;
-      }
-      return arr.join(', ');
-    });
-
-    const onClick = (context) => {
-      console.info('onClick:', context);
-    };
-
-    const onChange = (vals, context) => {
-      console.info('onChange:', vals, context);
-      const checked = vals.filter((val) => val !== '2.1');
-      console.info('节点 2.1 不允许选中');
-      checked.value = checked;
-    };
-
-    const handleExpand = (vals, context) => {
-      console.info('onExpand:', vals, context);
-      const expanded = vals.filter((val) => val !== '2');
-      console.info('节点 2 不允许展开');
-      expanded.value = expanded;
-    };
-
-    const onActive = (vals, context) => {
-      console.info('onActive:', vals, context);
-      const actived = vals.filter((val) => val !== '2');
-      console.info('节点 2 不允许激活');
-      actived.value = actived;
-    };
-
-    return {
-      checked,
-      expanded,
-      actived,
-      valueMode: 'onlyLeaf',
-      items,
-      allChecked,
-      allExpanded,
-      allActived,
-      onClick,
-      onChange,
-      handleExpand,
-      onActive,
-    };
-  },
+const allChecked = computed(() => {
+  let arr = [];
+  if (Array.isArray(checked.value)) {
+    arr = checked.value;
+  }
+  return arr.join(', ');
 });
+
+const allExpanded = computed(() => {
+  let arr = [];
+  if (Array.isArray(expanded.value)) {
+    arr = expanded.value;
+  }
+  return arr.join(', ');
+});
+
+const allActived = computed(() => {
+  let arr = [];
+  if (Array.isArray(actived.value)) {
+    arr = actived.value;
+  }
+  return arr.join(', ');
+});
+
+const onClick = (context) => {
+  console.info('onClick:', context);
+};
+
+const onChange = (vals, context) => {
+  console.info('onChange:', vals, context);
+  const checked = vals.filter((val) => val !== '2.1');
+  console.info('节点 2.1 不允许选中');
+  checked.value = checked;
+};
+
+const handleExpand = (vals, context) => {
+  console.info('onExpand:', vals, context);
+  const expanded = vals.filter((val) => val !== '2');
+  console.info('节点 2 不允许展开');
+  expanded.value = expanded;
+};
+
+const onActive = (vals, context) => {
+  console.info('onActive:', vals, context);
+  const actived = vals.filter((val) => val !== '2');
+  console.info('节点 2 不允许激活');
+  actived.value = actived;
+};
+
+const valueMode = 'onlyLeaf';
 </script>
 <style scoped>
 .demo-tree-base {

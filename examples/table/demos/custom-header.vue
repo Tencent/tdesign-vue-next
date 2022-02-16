@@ -6,8 +6,7 @@
     </t-table>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent } from 'vue';
+<script setup lang="jsx">
 import { AppIcon } from 'tdesign-icons-vue-next';
 
 const data = [
@@ -51,18 +50,6 @@ const columns = [
     },
   },
 ];
-
-export default defineComponent({
-  components: {
-    AppIcon,
-  },
-  setup() {
-    return {
-      data,
-      columns,
-    };
-  },
-});
 </script>
 <style scoped>
 .link {

@@ -11,9 +11,7 @@
     </t-dropdown>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
-
+<script setup lang="ts">
 const options = [
   {
     content: '选项一',
@@ -42,14 +40,6 @@ const options = [
     value: 4,
   },
 ];
-
-export default defineComponent({
-  setup() {
-    return {
-      options,
-    };
-  },
-});
 </script>
 <style scoped>
 .t-button {

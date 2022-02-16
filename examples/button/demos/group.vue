@@ -20,14 +20,8 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import { MoreIcon } from 'tdesign-icons-vue-next';
-
-export default {
-  components: {
-    MoreIcon,
-  },
-};
 </script>
 <style scoped>
 .demo-button-row {

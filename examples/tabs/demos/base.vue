@@ -17,28 +17,20 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const tabList = [
   { label: '选项卡一', value: 1, panel: () => <p style="padding: 25px">这是选项卡一的内容，使用 t-tabs 渲染</p> },
   { label: '选项卡二', value: 2, panel: () => <p style="padding: 25px">这是选项卡二的内容，使用 t-tabs 渲染</p> },
   { label: '选项卡三', value: 3, panel: () => <p style="padding: 25px">这是选项卡三的内容，使用 t-tabs 渲染</p> },
 ];
-export default defineComponent({
-  setup() {
-    const value = ref(1);
-    const tab = ref(1);
-    return {
-      tab,
-      value,
-      tabList,
-      panelRender() {
-        return <p style="padding: 25px;">选项卡3的内容，使用 t-tab-pannel 渲染</p>;
-      },
-    };
-  },
-});
+
+const value = ref(1);
+const tab = ref(1);
+const panelRender = () => {
+  return <p style="padding: 25px;">选项卡3的内容，使用 t-tab-pannel 渲染</p>;
+};
 </script>
 
 <style lang="less">

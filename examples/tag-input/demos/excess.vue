@@ -8,14 +8,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'TTagInputExcessDemo',
-  setup() {
-    const tags = ref(['Vue', 'React']);
-    return { tags };
-  },
-});
+const tags = ref(['Vue', 'React']);
 </script>

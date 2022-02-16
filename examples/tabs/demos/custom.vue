@@ -16,56 +16,46 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 let id = 0;
-export default defineComponent({
-  setup() {
-    const value = ref('first');
-    const panelData = ref([
-      {
-        value: 'first',
-        label: '原有选项卡1',
-        removable: true,
-        content: '原有选项卡1内容',
-      },
-      {
-        value: 'second',
-        label: '原有选项卡2',
-        removable: true,
-        content: '原有选项卡2内容',
-      },
-    ]);
-
-    const addTab = () => {
-      panelData.value.push({
-        value: `${id}`,
-        label: `新选项卡${id}`,
-        removable: true,
-        content: '新选项卡内容',
-      });
-      value.value = `${id}`;
-      id += 1;
-    };
-
-    const removeTab = ({ value: val }) => {
-      const index = panelData.value.findIndex((data) => data.value === val);
-      if (index < 0) return false;
-      panelData.value.splice(index, 1);
-      if (panelData.value.length === 0) return;
-      if (value.value === val) {
-        value.value = panelData.value[index - 1].value;
-      }
-    };
-    return {
-      value,
-      panelData,
-      addTab,
-      removeTab,
-    };
+const value = ref('first');
+const panelData = ref([
+  {
+    value: 'first',
+    label: '原有选项卡1',
+    removable: true,
+    content: '原有选项卡1内容',
   },
-});
+  {
+    value: 'second',
+    label: '原有选项卡2',
+    removable: true,
+    content: '原有选项卡2内容',
+  },
+]);
+
+const addTab = () => {
+  panelData.value.push({
+    value: `${id}`,
+    label: `新选项卡${id}`,
+    removable: true,
+    content: '新选项卡内容',
+  });
+  value.value = `${id}`;
+  id += 1;
+};
+
+const removeTab = ({ value: val }) => {
+  const index = panelData.value.findIndex((data) => data.value === val);
+  if (index < 0) return false;
+  panelData.value.splice(index, 1);
+  if (panelData.value.length === 0) return;
+  if (value.value === val) {
+    value.value = panelData.value[index - 1].value;
+  }
+};
 </script>
 
 <style lang="less">

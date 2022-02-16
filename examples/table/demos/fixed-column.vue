@@ -20,8 +20,8 @@
     </t-table>
   </div>
 </template>
-<script>
-import { defineComponent, ref, computed } from 'vue';
+<script setup>
+import { ref, computed } from 'vue';
 
 const data = [];
 for (let i = 0; i < 5; i++) {
@@ -38,68 +38,58 @@ for (let i = 0; i < 5; i++) {
   });
 }
 
-export default defineComponent({
-  setup() {
-    const leftFixedColumn = ref(1);
-    const rightFixedColumn = ref(2);
+const leftFixedColumn = ref(1);
+const rightFixedColumn = ref(2);
 
-    const columns = computed(() => {
-      return [
-        {
-          align: 'center',
-          width: 100,
-          colKey: 'index',
-          title: '序号',
-          fixed: 'left',
-        },
-        {
-          colKey: 'platform',
-          title: '平台',
-          width: 100,
-          fixed: leftFixedColumn.value >= 2 ? 'left' : undefined,
-        },
-        {
-          colKey: 'type',
-          title: '类型',
-          width: 150,
-        },
-        {
-          colKey: 'default',
-          title: '默认值',
-          width: 150,
-        },
-        {
-          colKey: 'detail.postion',
-          title: '详情信息',
-          width: 250,
-        },
-        {
-          colKey: 'description',
-          title: '说明',
-          width: 100,
-        },
-        {
-          colKey: 'needed',
-          title: '是否必传',
-          width: 150,
-          fixed: rightFixedColumn.value >= 2 ? 'right' : undefined,
-        },
-        {
-          colKey: 'operation',
-          title: '操作',
-          width: 100,
-          fixed: 'right',
-          cell: 'operation',
-        },
-      ];
-    });
-    return {
-      leftFixedColumn,
-      rightFixedColumn,
-      data,
-      columns,
-    };
-  },
+const columns = computed(() => {
+  return [
+    {
+      align: 'center',
+      width: 100,
+      colKey: 'index',
+      title: '序号',
+      fixed: 'left',
+    },
+    {
+      colKey: 'platform',
+      title: '平台',
+      width: 100,
+      fixed: leftFixedColumn.value >= 2 ? 'left' : undefined,
+    },
+    {
+      colKey: 'type',
+      title: '类型',
+      width: 150,
+    },
+    {
+      colKey: 'default',
+      title: '默认值',
+      width: 150,
+    },
+    {
+      colKey: 'detail.postion',
+      title: '详情信息',
+      width: 250,
+    },
+    {
+      colKey: 'description',
+      title: '说明',
+      width: 100,
+    },
+    {
+      colKey: 'needed',
+      title: '是否必传',
+      width: 150,
+      fixed: rightFixedColumn.value >= 2 ? 'right' : undefined,
+    },
+    {
+      colKey: 'operation',
+      title: '操作',
+      width: 100,
+      fixed: 'right',
+      cell: 'operation',
+    },
+  ];
 });
 </script>
 <style lang="less" scoped>

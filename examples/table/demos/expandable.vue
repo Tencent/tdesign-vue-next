@@ -71,8 +71,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref, watch } from 'vue';
+<script setup lang="jsx">
+import { ref, watch } from 'vue';
 
 import { ChevronRightCircleIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
 
@@ -125,77 +125,61 @@ const data = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const expandControl = ref('true');
-    const expandIcon = ref(true);
-    const expandOnRowClick = ref(true);
-    const expandedRowKeys = ref(['2']);
+const expandControl = ref('true');
+const expandIcon = ref(true);
+const expandOnRowClick = ref(true);
+const expandedRowKeys = ref(['2']);
 
-    const expandedRow = (h, { row }) => (
-      <div class="more-detail">
-        <p class="title">
-          <b>集群名称:</b>
-        </p>
-        <p class="content">{row.instance}</p>
-        <br />
-        <p class="title">
-          <b>管理员:</b>
-        </p>
-        <p class="content">{row.owner}</p>
-        <br />
-        <p class="title">
-          <b>描述:</b>
-        </p>
-        <p class="content">{row.description}</p>
-      </div>
-    );
+const expandedRow = (h, { row }) => (
+  <div class="more-detail">
+    <p class="title">
+      <b>集群名称:</b>
+    </p>
+    <p class="content">{row.instance}</p>
+    <br />
+    <p class="title">
+      <b>管理员:</b>
+    </p>
+    <p class="content">{row.owner}</p>
+    <br />
+    <p class="title">
+      <b>描述:</b>
+    </p>
+    <p class="content">{row.description}</p>
+  </div>
+);
 
-    const rehandleExpandChange = (value, { expandedRowData }) => {
-      expandedRowKeys.value = value;
-      console.log('rehandleExpandChange', value, expandedRowData);
-    };
+const rehandleExpandChange = (value, { expandedRowData }) => {
+  expandedRowKeys.value = value;
+  console.log('rehandleExpandChange', value, expandedRowData);
+};
 
-    const rehandleClickOp = ({ text, row }) => {
-      console.log(text, row);
-    };
+const rehandleClickOp = ({ text, row }) => {
+  console.log(text, row);
+};
 
-    watch(
-      () => expandControl.value,
-      (val) => {
-        if (val === 'true') {
-          // expandIcon 默认为 true，表示显示默认展开图标
-          expandIcon.value = true;
-        } else if (val === 'false') {
-          // expandIcon 值为 false，则表示隐藏全部展开图标
-          expandIcon.value = false;
-        } else if (val === 'custom') {
-          // 完全自由控制表格的每一行是否显示展开图标，以及显示什么内容
-          expandIcon.value = (h, { row, index }) => {
-            // 第一行不显示展开图标
-            if (index === 0) return false;
-            // 第三行，使用自定义展开图标
-            if (row.id === 3) return <ChevronRightIcon />;
-            // 其他行，使用表格同款展开图标
-            return <ChevronRightCircleIcon />;
-          };
-        }
-      },
-    );
-
-    return {
-      expandIcon,
-      expandedRowKeys,
-      expandOnRowClick,
-      expandControl,
-      columns,
-      data,
-      expandedRow,
-      rehandleExpandChange,
-      rehandleClickOp,
-    };
+watch(
+  () => expandControl.value,
+  (val) => {
+    if (val === 'true') {
+      // expandIcon 默认为 true，表示显示默认展开图标
+      expandIcon.value = true;
+    } else if (val === 'false') {
+      // expandIcon 值为 false，则表示隐藏全部展开图标
+      expandIcon.value = false;
+    } else if (val === 'custom') {
+      // 完全自由控制表格的每一行是否显示展开图标，以及显示什么内容
+      expandIcon.value = (h, { row, index }) => {
+        // 第一行不显示展开图标
+        if (index === 0) return false;
+        // 第三行，使用自定义展开图标
+        if (row.id === 3) return <ChevronRightIcon />;
+        // 其他行，使用表格同款展开图标
+        return <ChevronRightCircleIcon />;
+      };
+    }
   },
-});
+);
 </script>
 
 <style lang="less">

@@ -15,23 +15,17 @@
     />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
+const visible = ref(false);
 
-    return {
-      visible,
-      close() {
-        console.error('===close');
-        visible.value = false;
-      },
-      onConfirm() {
-        console.log('click确定');
-      },
-    };
-  },
-});
+const close = () => {
+  console.error('===close');
+  visible.value = false;
+};
+
+const onConfirm = () => {
+  console.log('click确定');
+};
 </script>

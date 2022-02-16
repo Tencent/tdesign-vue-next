@@ -22,19 +22,11 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
-    const placement = ref('right');
-    return {
-      visible,
-      placement,
-    };
-  },
-});
+const visible = ref(false);
+const placement = ref('right');
 </script>
 <style scoped>
 .btn-top-margin {

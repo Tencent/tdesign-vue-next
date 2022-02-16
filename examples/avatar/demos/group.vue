@@ -16,19 +16,11 @@
     </div>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent, computed } from 'vue';
+<script setup lang="jsx">
 import { UserIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  setup() {
-    const icon = computed(() => () => <UserIcon />);
-    return {
-      icon,
-      image: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    };
-  },
-});
+const icon = () => <UserIcon />;
+const image = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>
 <style lang="less" scoped>
 .demo-avatar {

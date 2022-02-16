@@ -11,8 +11,8 @@
     @change="rehandleChange"
   />
 </template>
-<script>
-import { defineComponent, ref, onMounted } from 'vue';
+<script setup>
+import { ref, onMounted } from 'vue';
 
 const columns = [
   {
@@ -42,57 +42,46 @@ const columns = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const data = ref([]);
-    const isLoading = ref(false);
+const data = ref([]);
+const isLoading = ref(false);
 
-    const pagination = ref({
-      current: 1,
-      pageSize: 10,
-    });
-
-    const fetchData = async (paginationVal = pagination.value) => {
-      try {
-        isLoading.value = true;
-        const { current, pageSize } = pagination.value;
-        // 请求可能存在跨域问题
-        const response = await fetch(`https://randomuser.me/api?page=${current}&results=${pageSize}`);
-        const { results } = await response.json();
-        console.log(results);
-        data.value = results;
-        pagination.value = {
-          ...paginationVal,
-          total: 120,
-        };
-        console.log('分页数据', results);
-      } catch (err) {
-        console.log(err);
-        data.value = [];
-      }
-      isLoading.value = false;
-    };
-
-    const rehandleChange = async (changeParams, triggerAndData) => {
-      console.log('分页、排序、过滤等发生变化时会触发 change 事件：', changeParams, triggerAndData);
-      const { current, pageSize } = changeParams.pagination;
-      const pagination = { current, pageSize };
-      await fetchData(pagination);
-    };
-
-    onMounted(async () => {
-      await fetchData(pagination.value);
-    });
-
-    return {
-      data,
-      isLoading,
-      columns,
-      rowKey: 'property',
-      verticalAlign: 'top',
-      pagination,
-      rehandleChange,
-    };
-  },
+const pagination = ref({
+  current: 1,
+  pageSize: 10,
 });
+
+const fetchData = async (paginationVal = pagination.value) => {
+  try {
+    isLoading.value = true;
+    const { current, pageSize } = pagination.value;
+    // 请求可能存在跨域问题
+    const response = await fetch(`https://randomuser.me/api?page=${current}&results=${pageSize}`);
+    const { results } = await response.json();
+    console.log(results);
+    data.value = results;
+    pagination.value = {
+      ...paginationVal,
+      total: 120,
+    };
+    console.log('分页数据', results);
+  } catch (err) {
+    console.log(err);
+    data.value = [];
+  }
+  isLoading.value = false;
+};
+
+const rehandleChange = async (changeParams, triggerAndData) => {
+  console.log('分页、排序、过滤等发生变化时会触发 change 事件：', changeParams, triggerAndData);
+  const { current, pageSize } = changeParams.pagination;
+  const pagination = { current, pageSize };
+  await fetchData(pagination);
+};
+
+onMounted(async () => {
+  await fetchData(pagination.value);
+});
+
+const rowKey = 'property';
+const verticalAlign = 'top';
 </script>

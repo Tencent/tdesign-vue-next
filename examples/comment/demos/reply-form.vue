@@ -9,28 +9,19 @@
   </t-comment>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { NotifyPlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    const replyData = ref('');
+const replyData = ref('');
 
-    const submitReply = () => {
-      NotifyPlugin.info({
-        title: '回复内容',
-        content: replyData.value,
-        duration: 3000,
-      });
-    };
-
-    return {
-      replyData,
-      submitReply,
-    };
-  },
-});
+const submitReply = () => {
+  NotifyPlugin.info({
+    title: '回复内容',
+    content: replyData.value,
+    duration: 3000,
+  });
+};
 </script>
 
 <style lang="less" scoped>

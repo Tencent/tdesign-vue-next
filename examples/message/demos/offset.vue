@@ -6,27 +6,19 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import { MessagePlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    const showOffsetMsg = () => {
-      MessagePlugin.info({
-        content: '用户表示普通操作信息提示',
-        placement: 'top',
-        offset: {
-          top: '50px',
-          left: '-300px',
-        },
-      });
-    };
-    return {
-      showOffsetMsg,
-    };
-  },
-});
+const showOffsetMsg = () => {
+  MessagePlugin.info({
+    content: '用户表示普通操作信息提示',
+    placement: 'top',
+    offset: {
+      top: '50px',
+      left: '-300px',
+    },
+  });
+};
 </script>
 
 <style scoped>

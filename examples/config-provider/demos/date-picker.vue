@@ -15,9 +15,7 @@
   </t-config-provider>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const DATE_PICK_CONFIGS = {
   placeholder: {
     date: 'select date',
@@ -34,15 +32,9 @@ const DATE_PICK_CONFIGS = {
   selectDate: 'Select Date',
 };
 
-export default defineComponent({
-  setup() {
-    return {
-      globalConfig: {
-        datePicker: DATE_PICK_CONFIGS,
-      },
-    };
-  },
-});
+const globalConfig = {
+  datePicker: DATE_PICK_CONFIGS,
+};
 </script>
 
 <style scoped>

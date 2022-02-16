@@ -10,9 +10,7 @@
     />
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const data = [
   {
     platform: '公有',
@@ -126,15 +124,6 @@ const rowspanAndColspan = ({ col, rowIndex }) => {
   }
 };
 
-export default defineComponent({
-  setup() {
-    return {
-      data,
-      columns,
-      rowspanAndColspan,
-      rowKey: 'default',
-      size: 'small',
-    };
-  },
-});
+const rowKey = 'default';
+const size = 'small';
 </script>

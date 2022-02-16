@@ -10,20 +10,11 @@
   </t-calendar>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import dayjs from 'dayjs';
 
-export default defineComponent({
-  setup() {
-    const getShow = (data) =>
-      data.mode === 'month'
-        ? dayjs().format('YYYY-MM-DD') === data.formattedDate
-        : data.date.getMonth() === new Date().getMonth();
-
-    return {
-      getShow,
-    };
-  },
-});
+const getShow = (data) =>
+  data.mode === 'month'
+    ? dayjs().format('YYYY-MM-DD') === data.formattedDate
+    : data.date.getMonth() === new Date().getMonth();
 </script>

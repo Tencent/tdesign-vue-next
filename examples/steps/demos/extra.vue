@@ -25,17 +25,10 @@
   </t-steps>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const current = ref(0);
-    return {
-      current,
-    };
-  },
-});
+const current = ref(0);
 </script>
 <style lang="less" scoped>
 .steps-demos-extra {

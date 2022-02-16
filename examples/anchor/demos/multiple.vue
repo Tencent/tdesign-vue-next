@@ -12,15 +12,10 @@
     </t-anchor>
   </div>
 </template>
-<script>
-import { defineComponent, computed, getCurrentInstance } from 'vue';
+<script setup>
+import { computed, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
 
-export default defineComponent({
-  setup() {
-    const { ctx } = getCurrentInstance();
-    const path = computed(() => get(ctx, '$route.path', ''));
-    return { path };
-  },
-});
+const { ctx } = getCurrentInstance();
+const path = computed(() => get(ctx, '$route.path', ''));
 </script>

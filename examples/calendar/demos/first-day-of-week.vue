@@ -10,8 +10,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   { value: 1, label: '周一' },
@@ -23,16 +23,7 @@ const options = [
   { value: 7, label: '周日' },
 ];
 
-export default defineComponent({
-  setup() {
-    const firstDayOfWeek = ref(3);
-
-    return {
-      firstDayOfWeek,
-      options,
-    };
-  },
-});
+const firstDayOfWeek = ref(3);
 </script>
 
 <style scoped>

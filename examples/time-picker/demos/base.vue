@@ -5,19 +5,11 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const time1 = ref('20:22');
-    const time2 = ref('21:22');
-    return {
-      time1,
-      time2,
-    };
-  },
-});
+const time1 = ref('20:22');
+const time2 = ref('21:22');
 </script>
 
 <style scoped>

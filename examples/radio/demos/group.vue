@@ -15,8 +15,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -37,20 +37,10 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
-    const onChange = (checkedValues) => {
-      console.log('checkedValues:', value.value, checkedValues);
-    };
-
-    return {
-      value,
-      options,
-      onChange,
-    };
-  },
-});
+const value = ref('');
+const onChange = (checkedValues) => {
+  console.log('checkedValues:', value.value, checkedValues);
+};
 </script>
 
 <style scoped>

@@ -22,48 +22,25 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
+const visible = ref(false);
 
-    const onVisibleChange = (val, context = {}) => {
-      if (context && context.trigger === 'confirm') {
-        const msg = MessagePlugin.info('提交中');
-        const timer = setTimeout(() => {
-          MessagePlugin.close(msg);
-          MessagePlugin.success('提交成功！');
-          visible.value = false;
-          clearTimeout(timer);
-        }, 1000);
-      } else {
-        visible.value = val;
-      }
-    };
-
-    return {
-      visible,
-      onVisibleChange,
-      confirmBtn() {
-        return (
-          <t-button theme="primary" size="small">
-            删除
-          </t-button>
-        );
-      },
-      cancelBtn() {
-        return (
-          <t-button size="small" variant="dashed">
-            取消
-          </t-button>
-        );
-      },
-    };
-  },
-});
+const onVisibleChange = (val, context = {}) => {
+  if (context && context.trigger === 'confirm') {
+    const msg = MessagePlugin.info('提交中');
+    const timer = setTimeout(() => {
+      MessagePlugin.close(msg);
+      MessagePlugin.success('提交成功！');
+      visible.value = false;
+      clearTimeout(timer);
+    }, 1000);
+  } else {
+    visible.value = val;
+  }
+};
 </script>
 
 <style scoped>
