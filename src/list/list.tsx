@@ -1,13 +1,12 @@
 import { defineComponent, VNodeChild, computed, ComponentPublicInstance, ref } from 'vue';
+import { useTNodeJSX } from '../hooks/tnode';
 import { useEmitEvent } from '../hooks/event';
 import TLoading from '../loading';
 import { prefix } from '../config';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
 import { ClassName } from '../common';
-import { emitEvent } from '../utils/event';
 
 const name = `${prefix}-list`;
 
@@ -17,8 +16,9 @@ export default defineComponent({
     ...props,
   },
   emits: ['scroll', 'load-more'],
-  setup(props, { emit }) {
-    const emitEvent = useEmitEvent(props, emit);
+  setup(props) {
+    const emitEvent = useEmitEvent();
+    const renderTNodeJSX = useTNodeJSX();
     /** 列表基础逻辑 start */
     const listClass = computed<ClassName>(() => {
       return [
@@ -31,22 +31,21 @@ export default defineComponent({
         },
       ];
     });
-    const renderContent = (context: ComponentPublicInstance): VNodeChild => {
-      const propsHeaderContent = renderTNodeJSX(context, 'header');
-      const propsFooterContent = renderTNodeJSX(context, 'footer');
+    const renderContent = (): VNodeChild => {
+      const propsHeaderContent = renderTNodeJSX('header');
+      const propsFooterContent = renderTNodeJSX('footer');
       return [
         propsHeaderContent && <div class={`${name}__header`}>{propsHeaderContent}</div>,
-        <ul class={`${name}__inner`}>{renderTNodeJSX(context, 'default')}</ul>,
+        <ul class={`${name}__inner`}>{renderTNodeJSX('default')}</ul>,
         propsFooterContent && <div class={`${name}__footer`}>{propsFooterContent}</div>,
       ];
     };
     /** 列表基础逻辑 end */
 
     /** 滚动相关逻辑 start */
-    const scrollRef = ref<HTMLElement>(null);
 
     const handleScroll = (e: WheelEvent | Event) => {
-      const listElement = scrollRef.value;
+      const listElement = e.target as HTMLElement;
       const { scrollTop, scrollHeight, clientHeight } = listElement;
       emitEvent('scroll', {
         $event: e,
@@ -63,7 +62,7 @@ export default defineComponent({
         : `${name}__load`;
     });
 
-    const renderLoading = (context: ComponentPublicInstance) => {
+    const renderLoading = () => {
       if (props.asyncLoading && typeof props.asyncLoading === 'string') {
         if (props.asyncLoading === LOADING) {
           return (
@@ -77,7 +76,7 @@ export default defineComponent({
           return <span>点击加载更多</span>;
         }
       }
-      return renderTNodeJSX(context, 'asyncLoading');
+      return renderTNodeJSX('asyncLoading');
     };
 
     const handleLoadMore = (e: MouseEvent) => {
@@ -90,22 +89,21 @@ export default defineComponent({
       loadingClass,
       renderLoading,
       renderContent,
-      scrollRef,
       handleScroll,
       handleLoadMore,
     };
   },
 
   render() {
-    let listContent = this.renderContent(this);
+    let listContent = this.renderContent();
     listContent = [
       listContent,
       <div class={this.loadingClass} onClick={this.handleLoadMore}>
-        {this.renderLoading(this)}
+        {this.renderLoading()}
       </div>,
     ];
     return (
-      <div class={this.listClass} onScroll={this.handleScroll} ref="scrollRef">
+      <div class={this.listClass} onScroll={this.handleScroll}>
         {listContent}
       </div>
     );
