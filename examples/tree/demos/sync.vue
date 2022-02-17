@@ -1,13 +1,13 @@
 <template>
   <div class="tdesign-tree-base">
     <t-addon prepend="checked:">
-      <t-input :value="allChecked" @input="onAllCheckedInput" />
+      <t-input :value="allChecked" @change="onAllCheckedInput" />
     </t-addon>
     <t-addon prepend="expanded:">
-      <t-input :value="allExpanded" @input="onAllExpandedInput" />
+      <t-input :value="allExpanded" @change="onAllExpandedInput" />
     </t-addon>
     <t-addon prepend="actived:">
-      <t-input :value="allActived" @input="onAllActivedInput" />
+      <t-input :value="allActived" @change="onAllActivedInput" />
     </t-addon>
     <t-tree
       :data="items"
