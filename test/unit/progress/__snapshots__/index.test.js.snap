@@ -589,7 +589,7 @@ exports[`Progress :props :theme :theme circle progress has t-progress__circle-ou
     <div
       class="t-progress__info"
     >
-      0%
+      10%
     </div>
     <svg
       height="112"
@@ -611,7 +611,7 @@ exports[`Progress :props :theme :theme circle progress has t-progress__circle-ou
         cy="56"
         fill="none"
         r="53"
-        stroke-dasharray="0  314.1592653589793"
+        stroke-dasharray="35.18583772020568  316.6725394818512"
         stroke-linecap="round"
         stroke-width="6"
         transform="matrix(0,-1,1,0,0,112)"
@@ -702,17 +702,7 @@ exports[`Progress :props :theme :theme:circle 1`] = `
         stroke=""
         stroke-width="6"
       />
-      <circle
-        class="t-progress__circle-inner"
-        cx="56"
-        cy="56"
-        fill="none"
-        r="53"
-        stroke-dasharray="0  314.1592653589793"
-        stroke-linecap="round"
-        stroke-width="6"
-        transform="matrix(0,-1,1,0,0,112)"
-      />
+      <!---->
     </svg>
   </div>
 </div>
