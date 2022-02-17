@@ -43,7 +43,7 @@ const label = (h, node) => {
   });
 };
 </script>
-<style>
+<style scoped>
 .tdesign-tree-demo .t-tree {
   margin-bottom: 20px;
 }

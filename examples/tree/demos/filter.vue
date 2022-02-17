@@ -1,7 +1,7 @@
 <template>
   <div class="tdesign-tree-base">
     <t-addon prepend="filter:">
-      <t-input v-model="filterText" @input="onInput" />
+      <t-input v-model="filterText" @change="onInput" />
     </t-addon>
     <t-tree :data="items" expand-on-click-node :default-expanded="expanded" :filter="filterByText" hover line />
   </div>
