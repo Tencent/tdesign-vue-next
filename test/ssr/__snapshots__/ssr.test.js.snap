@@ -21399,13 +21399,15 @@ exports[`ssr snapshot test renders ./examples/list/demos/stripe.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/loading/demos/attach.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
-  <div id="alice" class="loading-attach-demo__title">Hello, I&#39;m Alice.</div>
-  <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
-      <foreignObject x="1" y="1" width="12" height="12">
-        <div class="t-loading__gradient-conic"></div>
-      </foreignObject>
-    </svg>
+  <div id="alice" class="loading-attach-demo__title">Hello, I&#39;m Alice. I&#39;m going to be a front-end developer.</div>
+  <div class="t-loading--center t-size-s t-loading t-loading--full t-loading__overlay" style="">
     <!---->
+    <!---->
+  </div>
+  <div>
+    <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch__content t-size-m">隐藏</div>
+    </div>
   </div>
 </div>
 `;
@@ -21418,7 +21420,12 @@ exports[`ssr snapshot test renders ./examples/loading/demos/base.vue correctly 1
       </foreignObject>
     </svg>
     <!---->
-  </div>
+  </div><!-- 自定义加载图标 -->
+  <!-- <t-loading>
+    <template #indicator>
+      <img src="https://tdesign.gtimg.com/icon/loading.png" class="t-icon-loading" />
+    </template>
+  </t-loading> -->
 </div>
 `;
 
@@ -21432,9 +21439,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/delay.vue correctly 
       </svg>
       <!---->
     </div>
-    <div class="switch-demo">
-      <!--v-if-->
-    </div>
+    <!--v-if-->
   </div>
   <div class="wrap">
     <div class="t-loading__parent">
@@ -21444,29 +21449,34 @@ exports[`ssr snapshot test renders ./examples/loading/demos/delay.vue correctly 
       <!---->
     </div>
   </div>
-  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 快速重新加载数据（无loading） <!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 慢速重新加载数据 <!--]--></span></button></div>
+  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->快速重新加载数据（无loading）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->慢速重新加载数据<!--]--></span></button></div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/loading/demos/fullscreen.vue correctly 1`] = `
-<div>
+<div class="tdesign-demo-block-column">
   <!---->
-  <div class="switch-demo"> 全局加载开关（开启加载1秒后自动归位）： <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+  <!-- <t-loading :loading="loading" text="加载中..." attach="body" fullscreen /> -->
+  <div> 全局加载开关（开启加载1秒后自动归位）： <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-m">
         <!---->
       </div>
     </div>
-  </div>
+  </div><!-- 绑定到任意元素 -->
+  <!-- <div id="alice" class="loading-attach-demo__title">Hello, I'm Alice.</div> -->
+  <!-- <t-loading :loading="loading" text="加载中..." attach="#alice" fullscreen /> -->
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/loading/demos/icon-text.vue correctly 1`] = `
-<div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-    <foreignObject x="1" y="1" width="12" height="12">
-      <div class="t-loading__gradient-conic"></div>
-    </foreignObject>
-  </svg>
-  <div class="t-loading__text">加载中...</div>
+<div>
+  <div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+      <foreignObject x="1" y="1" width="12" height="12">
+        <div class="t-loading__gradient-conic"></div>
+      </foreignObject>
+    </svg>
+    <div class="t-loading__text">加载中...</div>
+  </div>
 </div>
 `;
 
@@ -21496,13 +21506,13 @@ exports[`ssr snapshot test renders ./examples/loading/demos/preventScrollThrough
 
 exports[`ssr snapshot test renders ./examples/loading/demos/service.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
-  <div id="loading-service-demo" class="loading-service-demo">我是service的容器</div>
+  <div id="loading-service-demo" class="loading-service-demo">Loading 挂载容器</div>
   <p>this.$loading(true)</p>
   <p>this.$loading({ attach: &#39;#loading-service-demo&#39;, showOverlay: true })</p>
-  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 服务方式加载（全屏） <!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 服务方式加载（局部） <!--]--></span></button></div>
+  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn" type="button"><span class="t-button__text"><!--[--> 插件方式加载（局部） <!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->插件方式加载（全屏）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->插件方式加载（全屏-滚动穿透）<!--]--></span></button></div>
   <p>LoadingPlugin(true)</p>
   <p>LoadingPlugin({ attach: &#39;#loading-service-demo&#39;, showOverlay: true })</p>
-  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 函数方式加载（全屏） <!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn" type="button"><span class="t-button__text"><!--[--> 函数方式加载（局部） <!--]--></span></button></div>
+  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn" type="button"><span class="t-button__text"><!--[-->函数方式加载（局部）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->函数方式加载（全屏）<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->函数方式加载（全屏-滚动穿透）<!--]--></span></button></div>
 </div>
 `;
 
@@ -21514,7 +21524,16 @@ exports[`ssr snapshot test renders ./examples/loading/demos/size.vue correctly 1
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
       </svg>
-      <div class="t-loading__text">加载中（小）...</div>
+      <div class="t-loading__text">加载中(小)...</div>
+    </div>
+  </div>
+  <div>
+    <div class="t-loading--center t-loading" style="font-size:26px;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="26px">
+        <foreignObject x="1" y="1" width="12" height="12">
+          <div class="t-loading__gradient-conic"></div>
+        </foreignObject>
+      </svg>
+      <div class="t-loading__text">加载中(size=26px)...</div>
     </div>
   </div>
   <div>
@@ -21523,7 +21542,16 @@ exports[`ssr snapshot test renders ./examples/loading/demos/size.vue correctly 1
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
       </svg>
-      <div class="t-loading__text">加载中（中）...</div>
+      <div class="t-loading__text">加载中(中)...</div>
+    </div>
+  </div>
+  <div>
+    <div class="t-loading--center t-size-m t-loading" style="font-size:46px;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+        <foreignObject x="1" y="1" width="12" height="12">
+          <div class="t-loading__gradient-conic"></div>
+        </foreignObject>
+      </svg>
+      <div class="t-loading__text">加载中(样式定义)...</div>
     </div>
   </div>
   <div>
@@ -21532,7 +21560,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/size.vue correctly 1
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
       </svg>
-      <div class="t-loading__text">加载中（大）...</div>
+      <div class="t-loading__text">加载中(大)...</div>
     </div>
   </div>
 </div>
@@ -21552,7 +21580,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/text.vue correctly 1
   <div class="t-loading--center t-size-m t-loading" style="">
     <!---->
     <div class="t-loading__text">
-      <!--[--> 插槽文字加载中...
+      <!--[-->插槽文字加载中...
       <!--]-->
     </div>
   </div>
@@ -21577,7 +21605,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/wrap.vue correctly 1
       <!---->
     </div>
   </div><br>
-  <div><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 加载中 <!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 加载完成 <!--]--></span></button></div>
+  <div><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->加载中<!--]--></span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->加载完成<!--]--></span></button></div>
 </div>
 `;
 

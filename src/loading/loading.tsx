@@ -53,7 +53,8 @@ export default defineComponent({
     const lockFullscreen = computed(() => props.preventScrollThrough && props.fullscreen);
     const showText = computed(() => Boolean(props.text || slots.text));
     const showWrapLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
-    const showNormalLoading = computed(() => !hasContent.value && props.loading && delayCounted.value);
+    const showFullScreenLoading = computed(() => props.fullscreen && props.loading && delayCounted.value);
+    const showNormalLoading = computed(() => props.attach && props.loading && delayCounted.value);
 
     const classes = computed(() => {
       const baseClasses = [centerClass, SIZE_CLASSNAMES[props.size], { [inheritColorClass]: props.inheritColor }];
@@ -98,6 +99,7 @@ export default defineComponent({
       lockFullscreen,
       showWrapLoading,
       showNormalLoading,
+      showFullScreenLoading,
     };
   },
   render() {
@@ -109,7 +111,7 @@ export default defineComponent({
 
     // full screen loading
     if (this.fullscreen) {
-      if (!this.loading) return null;
+      if (!this.showFullScreenLoading) return null;
       return (
         <div class={fullScreenClasses} style={this.styles} v-transfer-dom={this.attach}>
           <div class={baseClasses}>
