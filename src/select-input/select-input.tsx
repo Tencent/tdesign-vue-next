@@ -21,6 +21,8 @@ const DEFAULT_KEYS = {
 const NAME_CLASS = `${prefix}-select-input`;
 const BASE_CLASS_BORDERLESS = `${prefix}-select-input--borderless`;
 const BASE_CLASS_MULTIPLE = `${prefix}-select-input--multiple`;
+const BASE_CLASS_POPUP_VISIBLE = `${prefix}-select-input--popup-visible`;
+const BASE_CLASS_EMPTY = `${prefix}-select-input--empty`;
 
 // 单位：px
 const MAX_POPUP_WIDTH = 1000;
@@ -36,7 +38,6 @@ const COMMON_PROPERTIES = [
   'suffix',
   'suffixIcon',
   'onPaste',
-  'onClear',
   'onBlur',
   'onFocus',
   'onEnter',
@@ -53,10 +54,30 @@ export default defineComponent({
     const selectInputRef = ref();
     const tagInputRef = ref();
     const inputRef = ref();
-    const { onTagChange, multiple, onInputChange, allowInput, popupProps, borderless, onMouseenter, onMouseleave } =
-      toRefs(props);
+    const {
+      onTagChange,
+      multiple,
+      value,
+      onInputChange,
+      allowInput,
+      popupVisible,
+      popupProps,
+      borderless,
+      onMouseenter,
+      onMouseleave,
+    } = toRefs(props);
     const inputValue = ref();
     const innerPopupVisible = ref(false);
+
+    const popupClasses = computed(() => [
+      NAME_CLASS,
+      {
+        [BASE_CLASS_BORDERLESS]: borderless.value,
+        [BASE_CLASS_MULTIPLE]: multiple.value,
+        [BASE_CLASS_POPUP_VISIBLE]: popupVisible.value ?? innerPopupVisible.value,
+        [BASE_CLASS_EMPTY]: value.value instanceof Array ? !value.value.length : !value.value,
+      },
+    ]);
 
     const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
     const tags = computed<TagInputValue>(() => {
@@ -74,8 +95,6 @@ export default defineComponent({
       if (!tags.value || !tags.value.length) return props.placeholder;
       return '';
     });
-
-    const hideInput = ref(false);
 
     const isMultipleBorderless = computed(() => multiple.value && borderless.value && tags.value.length);
 
@@ -103,14 +122,6 @@ export default defineComponent({
       tOverlayStyle.value = result;
     });
 
-    watch([allowInput, tags, multiple, borderless], () => {
-      if (isMultipleBorderless.value) {
-        hideInput.value = true;
-      } else {
-        hideInput.value = allowInput.value ? false : !!tags.value.length;
-      }
-    });
-
     watch(
       [tags],
       () => {
@@ -120,6 +131,10 @@ export default defineComponent({
     );
 
     const onTagInputChange = (val: TagInputValue, context: SelectInputChangeContext) => {
+      // 避免触发浮层的显示或隐藏
+      if (context.trigger === 'tag-remove') {
+        context.e?.stopPropagation();
+      }
       onTagChange.value?.(val, context);
     };
 
@@ -130,25 +145,19 @@ export default defineComponent({
       }
     };
 
-    const onSelectInputMouseenter = (p: { e: MouseEvent }) => {
-      if (isMultipleBorderless.value) {
-        hideInput.value = false;
-      }
-      onMouseenter.value?.(p);
-    };
-    const onSelectInputMouseleave = (p: { e: MouseEvent }) => {
-      if (isMultipleBorderless.value) {
-        hideInput.value = true;
-      }
-      onMouseenter.value?.(p);
+    const onInnerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
+      innerPopupVisible.value = visible;
+      props.onPopupVisibleChange?.(visible, context);
     };
 
-    const onInnerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
-      props.onPopupVisibleChange?.(visible, context);
-      innerPopupVisible.value = visible;
+    const onInnerClear = (context: { e: MouseEvent }) => {
+      context?.e?.stopPropagation();
+      props.onClear?.(context);
+      inputValue.value = '';
     };
 
     return {
+      innerPopupVisible,
       isMultipleBorderless,
       tags,
       inputValue,
@@ -158,22 +167,17 @@ export default defineComponent({
       selectInputRef,
       tagInputRef,
       inputRef,
-      hideInput,
+      popupClasses,
+      onInnerClear,
       onTagInputChange,
       onInnerInputChange,
-      onSelectInputMouseenter,
-      onSelectInputMouseleave,
       onInnerPopupVisibleChange,
     };
   },
 
   render() {
-    const visibleProps =
-      this.popupVisible !== undefined
-        ? {
-            visible: this.popupVisible,
-          }
-        : {};
+    // 浮层显示的受控与非受控
+    const visibleProps = { visible: this.popupVisible ?? this.innerPopupVisible };
     // 单选，值的呈现方式
     const singleValueDisplay = !this.multiple
       ? useTNodeJSX('valueDisplay', { props: this.$props, slots: this.$slots })
@@ -184,14 +188,8 @@ export default defineComponent({
     return (
       <Popup
         ref="selectInputRef"
-        class={[
-          NAME_CLASS,
-          {
-            [BASE_CLASS_BORDERLESS]: this.borderless,
-            [BASE_CLASS_MULTIPLE]: this.multiple,
-          },
-        ]}
-        trigger={this.multiple ? 'click' : 'focus'}
+        class={this.popupClasses}
+        trigger={'click'}
         placement="bottom-left"
         content={this.panel}
         v-slots={{ ...this.$slots, content: this.$slots.panel }}
@@ -206,7 +204,6 @@ export default defineComponent({
             ref="tagInputRef"
             {...this.commonInputProps}
             v-slots={this.$slots}
-            hideInput={this.hideInput}
             minCollapsedNum={this.minCollapsedNum}
             collapsedItems={this.collapsedItems}
             tag={this.tag}
@@ -215,8 +212,7 @@ export default defineComponent({
             value={this.tags}
             onChange={this.onTagInputChange}
             tagProps={this.tagProps}
-            onMouseenter={this.onSelectInputMouseenter}
-            onMouseleave={this.onSelectInputMouseleave}
+            onClear={this.onInnerClear}
             {...this.tagInputProps}
           />
         )}
@@ -224,14 +220,13 @@ export default defineComponent({
           <Input
             ref="inputRef"
             {...this.commonInputProps}
-            v-slots={this.$slots}
+            v-slots={{ ...this.$slots }}
             placeholder={singleValueDisplay ? '' : this.placeholder}
             value={singleValueDisplay ? undefined : this.inputValue}
             label={prefix.length ? () => prefix : undefined}
             onChange={this.onInnerInputChange}
             readonly={!this.allowInput}
-            onMouseenter={this.onSelectInputMouseenter}
-            onMouseleave={this.onSelectInputMouseleave}
+            onClear={this.onInnerClear}
             {...this.inputProps}
           />
         )}

@@ -5,7 +5,7 @@
       :min-collapsed-num="1"
       borderless
       allow-input
-      placeholder="请选择"
+      placeholder="select frameworks"
       clearable
       multiple
       @tag-change="onTagChange"
@@ -18,25 +18,30 @@
           @change="onCheckedChange"
         />
       </template>
+      <template #suffixIcon>
+        <chevron-down-icon />
+      </template>
     </t-select-input>
   </div>
 </template>
 <script>
 import { computed, defineComponent, ref } from 'vue';
+import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = [
   // 全选
-  { label: 'Check All', checkAll: true },
+  { label: 'all frameworks', checkAll: true },
   { label: 'tdesign-vue', value: 1 },
   { label: 'tdesign-react', value: 2 },
   { label: 'tdesign-miniprogram', value: 3 },
   { label: 'tdesign-angular', value: 4 },
   { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-react', value: 6 },
+  { label: 'tdesign-mobile-reacttdesign-mobile-react', value: 6 },
 ];
 
 export default defineComponent({
-  name: 'SelectInputMultiple',
+  name: 'SelectInputMultipleleBorderless',
+  components: { ChevronDownIcon },
   setup() {
     const allowInput = ref(true);
     const creatable = ref(true);

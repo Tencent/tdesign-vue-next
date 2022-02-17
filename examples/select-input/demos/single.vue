@@ -1,6 +1,14 @@
 <template>
   <div>
-    <t-select-input :value="selectValue" style="width: 300px" placeholder="Please Select" clearable @clear="onClear">
+    <t-select-input
+      :value="selectValue"
+      :popup-visible="popupVisible"
+      style="width: 300px"
+      placeholder="Please Select"
+      clearable
+      @popup-visible-change="onPopupVisibleChange"
+      @clear="onClear"
+    >
       <template #panel>
         <ul class="tdesign-demo__selet-input-ul">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
@@ -8,12 +16,16 @@
           </li>
         </ul>
       </template>
+      <template #suffixIcon>
+        <chevron-down-icon />
+      </template>
     </t-select-input>
   </div>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
+import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = [
   { label: 'tdesign-vue', value: 1 },
@@ -26,26 +38,37 @@ const OPTIONS = [
 
 export default defineComponent({
   name: 'SelectInputSingle',
+  components: { ChevronDownIcon },
   setup() {
     const visible = ref(false);
     // const selectValue = ref('tdesign-vue');
     const selectValue = ref({ label: 'tdesign-vue', value: 1 });
     // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
 
+    const popupVisible = ref(false);
+
     const onOptionClick = (item) => {
       selectValue.value = item;
+      // 选中后立即关闭浮层
+      popupVisible.value = false;
     };
 
     const onClear = () => {
       selectValue.value = undefined;
     };
 
+    const onPopupVisibleChange = (val, context) => {
+      popupVisible.value = val;
+    };
+
     return {
       visible,
       selectValue,
       options: OPTIONS,
+      popupVisible,
       onOptionClick,
       onClear,
+      onPopupVisibleChange,
     };
   },
 });

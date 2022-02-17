@@ -1,6 +1,15 @@
 <template>
   <div>
-    <t-select-input :value="selectValue" borderless placeholder="Please Select" clearable @clear="onClear">
+    <t-select-input
+      :value="selectValue"
+      :popup-visible="popupVisible"
+      :suffix-icon="suffixIconRender"
+      borderless
+      placeholder="Please Select"
+      clearable
+      @popup-visible-change="onPopupVisibleChange"
+      @clear="onClear"
+    >
       <template #panel>
         <ul class="tdesign-demo__selet-input-ul">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
@@ -12,8 +21,9 @@
   </div>
 </template>
 
-<script>
+<script lang="jsx">
 import { defineComponent, ref } from 'vue';
+import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = [
   { label: 'tdesign-vue', value: 1 },
@@ -25,27 +35,37 @@ const OPTIONS = [
 ];
 
 export default defineComponent({
-  name: 'SelectInputSingle',
+  name: 'SelectInputSingleBorderless',
   setup() {
     const visible = ref(false);
-    // const selectValue = ref('tdesign-vue');
     const selectValue = ref({ label: 'tdesign-vue', value: 1 });
-    // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
+
+    const popupVisible = ref(false);
 
     const onOptionClick = (item) => {
       selectValue.value = item;
+      popupVisible.value = false;
     };
 
     const onClear = () => {
       selectValue.value = undefined;
     };
 
+    const suffixIconRender = () => <ChevronDownIcon />;
+
+    const onPopupVisibleChange = (val, context) => {
+      popupVisible.value = val;
+    };
+
     return {
       visible,
       selectValue,
+      popupVisible,
       options: OPTIONS,
       onOptionClick,
       onClear,
+      suffixIconRender,
+      onPopupVisibleChange,
     };
   },
 });

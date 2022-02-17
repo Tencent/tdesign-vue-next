@@ -63,6 +63,11 @@ export default defineComponent({
       tagInputRef.value.focus();
     };
 
+    const onClearClick = (context: { e: MouseEvent }) => {
+      clearAll(context);
+      tInputValue.value = '';
+    };
+
     return {
       tagValue,
       tInputValue,
@@ -75,12 +80,12 @@ export default defineComponent({
       onInputEnter,
       onInnerEnter,
       onInputBackspaceKeyUp,
-      clearAll,
       renderLabel,
       onWheel,
       scrollToRightOnEnter,
       scrollToLeftOnLeave,
       onClick,
+      onClearClick,
       onClose,
       classes,
       slots: context.slots,
@@ -90,7 +95,7 @@ export default defineComponent({
   render() {
     const props = this.$props;
     const suffixIconNode = this.showClearIcon ? (
-      <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.clearAll} />
+      <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.onClearClick} />
     ) : (
       useTNodeJSX('suffixIcon', { props, slots: this.slots })
     );
@@ -117,7 +122,6 @@ export default defineComponent({
         size={this.size}
         readonly={this.readonly}
         disabled={this.disabled}
-        hideInput={this.hideInput}
         label={() => this.renderLabel({ slots: this.slots, displayNode, label })}
         class={this.classes}
         tips={this.tips}

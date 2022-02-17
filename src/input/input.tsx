@@ -1,10 +1,10 @@
 import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import camelCase from 'lodash/camelCase';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 import getConfigReceiverMixins, { InputConfig } from '../config-provider/config-receiver';
 import mixins from '../utils/mixins';
-
 import CLASSNAMES from '../utils/classnames';
 import { prefix } from '../config';
 import props from './props';
@@ -80,6 +80,9 @@ export default defineComponent({
       }
       if (this.$slots[iconType]) {
         return this.$slots[iconType](null);
+      }
+      if (this.$slots[camelCase(iconType)]) {
+        return this.$slots[camelCase(iconType)](null);
       }
       return null;
     },
@@ -253,16 +256,14 @@ export default defineComponent({
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
         {labelContent}
-        {!this.hideInput && (
-          <input
-            class={`${name}__inner`}
-            {...{ ...this.inputAttrs }}
-            {...inputEvents}
-            ref="inputRef"
-            value={this.value}
-            onInput={(e: Event) => this.handleInput(e as InputEvent)}
-          />
-        )}
+        <input
+          class={`${name}__inner`}
+          {...{ ...this.inputAttrs }}
+          {...inputEvents}
+          ref="inputRef"
+          value={this.value}
+          onInput={(e: Event) => this.handleInput(e as InputEvent)}
+        />
         {suffixContent}
         {suffixIcon ? (
           <span class={[`${name}__suffix`, `${name}__suffix-icon`, { [`${name}__clear`]: this.showClear }]}>
