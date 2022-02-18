@@ -19,7 +19,6 @@ exports[`Loading Loading attachVue demo works fine 1`] = `
   <div>
     <div
       class="t-switch t-size-m"
-      disabled="false"
       modelvalue="false"
     >
       <span
