@@ -29,7 +29,7 @@ export interface BtnAction {
   cancelBtnAction: (e: MouseEvent) => void;
 }
 
-export default function useAction(action: BtnAction) {
+export function useAction(action: BtnAction) {
   const instance = getCurrentInstance();
   const renderTNodeJSX = useTNodeJSX();
   // 全局配置属性综合
