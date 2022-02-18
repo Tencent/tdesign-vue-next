@@ -29,10 +29,9 @@ export const useTNodeJSX = () => {
     if (Object.keys(instance.props).includes(name)) {
       propsNode = instance.props[name];
     }
-    const slotNode = instance.slots[name];
 
     // 同名插槽和属性同时存在，则提醒用户只需要选择一种方式即可
-    if (slotNode && propsNode && propsNode !== true) {
+    if (instance.slots[name] && propsNode && propsNode !== true) {
       log.warn('', `Both slots.${name} and props.${name} exist, props.${name} is preferred`);
     }
     // propsNode 为 false 不渲染
@@ -41,12 +40,11 @@ export const useTNodeJSX = () => {
       return instance.slots[name]?.(params) || defaultNode;
     }
 
-    // 同名 function props 和 slot 优先处理 function props
+    // 同名 props 和 slot 优先处理 props
     if (isFunction(propsNode)) return propsNode(h, params);
-    // props 为其他数据类型，只要不为空，则直接输出
-    if (!isEmpty(propsNode)) return propsNode;
-    // 兜底输出插槽内容
-    return instance.slots[name]?.(params) || defaultNode;
+    const isPropsEmpty = [undefined, params, ''].includes(propsNode);
+    if (isPropsEmpty && instance.slots[name]) return instance.slots[name](params);
+    return propsNode;
   };
 };
 

@@ -233,7 +233,7 @@ export default defineComponent({
   render() {
     if (this.destroyOnClose && !this.visible) return;
     const defaultCloseBtn = <close-icon class="t-submenu-icon"></close-icon>;
-    const body = renderContent(this, 'default', 'body');
+    const body = renderContent(this, 'body', 'default');
     const defaultFooter = this.getDefaultFooter();
     return (
       <div
