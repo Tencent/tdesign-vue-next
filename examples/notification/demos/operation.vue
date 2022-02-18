@@ -18,7 +18,7 @@
     </t-notification>
   </div>
 </template>
-<script setup>
+<script lang="jsx" setup>
 import { ref } from 'vue';
 
 const visible = ref(true);

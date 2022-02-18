@@ -7,7 +7,7 @@
     </t-notification>
   </div>
 </template>
-<script setup>
+<script lang="jsx" setup>
 const content = () => {
   return <div>这是一条消息通知</div>;
 };
