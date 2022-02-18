@@ -11,7 +11,7 @@
     </t-notification>
   </div>
 </template>
-<script setup>
+<script lang="jsx" setup>
 const footer = () => {
   return (
     <div slot="footer" class="t-notification__detail">
