@@ -48,9 +48,7 @@ exports[`Button :props :content 1`] = `
     <span
       class="t-button__text"
     >
-      
-      bar
-      
+      foo
     </span>
   </button>
   <button
@@ -60,9 +58,7 @@ exports[`Button :props :content 1`] = `
     <span
       class="t-button__text"
     >
-      
-      bar
-      
+      foo
     </span>
   </button>
   <button
