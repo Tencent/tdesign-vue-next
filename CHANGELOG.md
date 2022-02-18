@@ -5,6 +5,36 @@ toc: false
 docClass: timeline
 ---
 
+## 0.8.0 `2022-02-18`
+
+
+### Bug Fixes
+
+* Form: ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
+  * 修复 `FormItem.statusIcon` 优先级没有大于 `Form.statusIcon` 的问题
+  * 修复 `FormItem.rules` 优先级没有大于 `Form.rules` 的问题
+* Progress: 修复环状进度条小于 5% 时渲染错误 ([pr #329](https://github.com/Tencent/tdesign-vue-next/pull/329)), ([@uyarn](https://github.com/uyarn))
+* TimePicker: 修复部分鼠标滚动选择出现偏差 ([pr #324](https://github.com/Tencent/tdesign-vue-next/pull/324)), ([@uyarn](https://github.com/uyarn))
+* Input: 修复 `prefixIcon`, `suffixIcon` 对驼峰写法不支持 ([pr #324](https://github.com/Tencent/tdesign-vue-next/pull/324))
+* Cascader 解决value类型为Number时，数据回填异常及clearable失效问题 ([ccf478b](https://github.com/Tencent/tdesign-vue-next/commit/ccf478be940daf95ea64667be96ccd27637f283a))
+* Textarea: 修复 `value` 未定义时字数统计展示异常的问题 ([pr #298](https://github.com/Tencent/tdesign-vue-next/pull/298)), ([issue #387](https://github.com/Tencent/tdesign-vue-next/issues/387))
+* Loading: 修复存在 `attach` 时，当 `loading` 设置为 `false`，无法隐藏加载元素 ([pr #315](https://github.com/Tencent/tdesign-vue-next/pull/315))
+
+
+### Features
+
+* Form: ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
+  * 支持对象和数组嵌套的复杂数据校验，同时可以判断是数组的第几项校验不通过，
+  * 支持统一配置校验信息，无需每个字段的每个规则都单独配置 `message`
+  * 支持表单 `disabled`
+* Popup: ([pr #313](https://github.com/Tencent/tdesign-vue/pull/313)), ([@uyarn](https://github.com/uyarn))
+  * 支持嵌套使用
+  * 去除额外 `reference` 包裹元素
+  * 弹窗展开动画优化
+  * `overlayStyle` 类型为 Function 时，增加 `popupElement` 作为第二个参数，表示浮层元素 DOM 节点
+  * 新增 `onScroll` 属性，响应下拉选项滚动事件
+* TreeSelect: 增加 `t-select-warper` `class` ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
+
 ## 0.8.0 `2022-01-28`
 
 ### BREAKING CHANGES
