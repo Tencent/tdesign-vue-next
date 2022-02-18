@@ -14,7 +14,7 @@ export default defineComponent({
     getContent() {
       if (this.dot) return '';
       if (typeof this.count === 'function') {
-        return renderTNodeJSX(this as ComponentPublicInstance, 'count');
+        return renderTNodeJSX(this, 'count');
       }
       if (Number.isNaN(Number(this.count))) {
         return this.count;

@@ -604,9 +604,7 @@ export default defineComponent({
     },
     getLoadingText() {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
-      return useLocale
-        ? this.t(this.global.loadingText)
-        : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
+      return useLocale ? this.t(this.global.loadingText) : renderTNodeJSX(this, 'loadingText');
     },
     getPlaceholderText() {
       return this.placeholder || this.t(this.global.placeholder);
