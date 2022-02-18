@@ -1,17 +1,16 @@
 <template>
   <div>
     <div class="t-message-offset">
-      <t-input v-model="offsetX" placeholder="请输入横向偏移量" />
-      <t-input v-model="offsetY" placeholder="请输入纵向偏移量" />
+      <t-input v-model="offsetX" placeholder="请输入横向偏移量"></t-input>
+      <t-input v-model="offsetY" placeholder="请输入纵向偏移量"></t-input>
     </div>
-    <t-button variant="outline" @click="$notify.info(infoList[0])"> 左上角 </t-button>
-    <t-button variant="outline" @click="$notify.info(infoList[1])"> 右上角 </t-button>
+    <t-button variant="outline" @click="$notify.info(infoList[0])">左上角</t-button>
+    <t-button variant="outline" @click="$notify.info(infoList[1])">右上角</t-button>
     <br /><br />
-    <t-button variant="outline" @click="$notify.info(infoList[2])"> 左下角 </t-button>
-    <t-button variant="outline" @click="$notify.info(infoList[3])"> 右下角 </t-button>
+    <t-button variant="outline" @click="$notify.info(infoList[2])">左下角</t-button>
+    <t-button variant="outline" @click="$notify.info(infoList[3])">右下角</t-button>
   </div>
 </template>
-
 <script setup>
 import { ref, computed } from 'vue';
 
@@ -33,7 +32,6 @@ const infoList = computed(() =>
   })),
 );
 </script>
-
 <style scoped>
 .t-button {
   margin-right: 16px;
