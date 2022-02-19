@@ -9,7 +9,7 @@ import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
 import { DialogConfig } from '../config-provider/config-receiver';
 import { useReceiver } from '../config-provider';
-import useAction from '../hooks/action';
+import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 const name = `${prefix}-dialog`;

@@ -11,7 +11,7 @@ import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import { DrawerConfig } from '../config-provider/config-receiver';
-import useAction from '../hooks/action';
+import { useAction } from '../dialog/hooks';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
