@@ -27,13 +27,12 @@ tag | String / Slot / Function | - | 自定义标签的内部内容，每一个�
 tagInputProps | Object | - | 透传 TagInput 组件全部属性。TS 类型：`TagInputProps`，[TagInput API Documents](./tag-input?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts) | N
 tagProps | Object | - | 透传 Tag 标签组件全部属性。TS 类型：`TagProps`，[Tag API Documents](./tag?tab=api)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts) | N
 tips | String / Slot / Function | - | 输入框下方提示文本，会根据不同的 `status` 呈现不同的样式。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-value | String / Number / Boolean / Object / Array / Date | - | 全部标签值。值为数组表示多个标签，值为非数组表示单个数值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`SelectInputValue` `type SelectInputValue = string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts) | N
-defaultValue | String / Number / Boolean / Object / Array / Date | - | 全部标签值。值为数组表示多个标签，值为非数组表示单个数值。非受控属性。TS 类型：`SelectInputValue` `type SelectInputValue = string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts) | N
+value | String / Number / Boolean / Object / Array / Date | - | 全部标签值。值为数组表示多个标签，值为非数组表示单个数值。TS 类型：`SelectInputValue` `type SelectInputValue = string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts) | N
 valueDisplay | String / Slot / Function | - | 自定义值呈现的全部内容，参数为所有标签的值。TS 类型：`string | TNode<{ value: SelectInputValue; onClose: () => void }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-onBlur | Function |  | TS 类型：`(value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void`<br/>失去焦点时触发 | N
+onBlur | Function |  | TS 类型：`(value: SelectInputValue, context: SelectInputFocusContext) => void`<br/>失去焦点时触发，`context.inputValue` 表示输入框的值；`context.tagInputValue` 表示标签输入框的值 | N
 onClear | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>清空按钮点击时触发 | N
 onEnter | Function |  | TS 类型：`(value: SelectInputValue, context: { e: KeyboardEvent; inputValue: InputValue }) => void`<br/>按键按下 Enter 时触发 | N
-onFocus | Function |  | TS 类型：`(value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void`<br/>聚焦时触发 | N
+onFocus | Function |  | TS 类型：`(value: SelectInputValue, context: SelectInputFocusContext) => void`<br/>聚焦时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts)。<br/>`interface SelectInputFocusContext { inputValue: InputValue; tagInputValue?: TagInputValue; e: FocusEvent }`<br/> | N
 onInputChange | Function |  | TS 类型：`(value: InputValue, context?: { e?: InputEvent | MouseEvent }) => void`<br/>输入框值发生变化时触发 | N
 onMouseenter | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>进入输入框时触发 | N
 onMouseleave | Function |  | TS 类型：`(context: { e: MouseEvent }) => void`<br/>离开输入框时触发 | N
@@ -45,10 +44,10 @@ onTagChange | Function |  | TS 类型：`(value: SelectInputValue, context: Sele
 
 名称 | 参数 | 描述
 -- | -- | --
-blur | `(value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent })` | 失去焦点时触发
+blur | `(value: SelectInputValue, context: SelectInputFocusContext)` | 失去焦点时触发，`context.inputValue` 表示输入框的值；`context.tagInputValue` 表示标签输入框的值
 clear | `(context: { e: MouseEvent })` | 清空按钮点击时触发
 enter | `(value: SelectInputValue, context: { e: KeyboardEvent; inputValue: InputValue })` | 按键按下 Enter 时触发
-focus | `(value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent })` | 聚焦时触发
+focus | `(value: SelectInputValue, context: SelectInputFocusContext)` | 聚焦时触发。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/select-input/type.ts)。<br/>`interface SelectInputFocusContext { inputValue: InputValue; tagInputValue?: TagInputValue; e: FocusEvent }`<br/>
 input-change | `(value: InputValue, context?: { e?: InputEvent | MouseEvent })` | 输入框值发生变化时触发
 mouseenter | `(context: { e: MouseEvent })` | 进入输入框时触发
 mouseleave | `(context: { e: MouseEvent })` | 离开输入框时触发

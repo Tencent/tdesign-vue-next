@@ -6,7 +6,7 @@
 
 import { InputProps, InputValue } from '../input';
 import { PopupProps } from '../popup';
-import { TagInputProps } from '../tag-input';
+import { TagInputProps, TagInputValue } from '../tag-input';
 import { TagProps } from '../tag';
 import { PopupVisibleChangeContext } from '../popup';
 import { TagInputChangeContext } from '../tag-input';
@@ -114,17 +114,13 @@ export interface TdSelectInputProps {
    */
   value?: SelectInputValue;
   /**
-   * 全部标签值。值为数组表示多个标签，值为非数组表示单个数值，非受控属性
-   */
-  defaultValue?: SelectInputValue;
-  /**
    * 自定义值呈现的全部内容，参数为所有标签的值
    */
   valueDisplay?: string | TNode<{ value: SelectInputValue; onClose: () => void }>;
   /**
-   * 失去焦点时触发
+   * 失去焦点时触发，`context.inputValue` 表示输入框的值；`context.tagInputValue` 表示标签输入框的值
    */
-  onBlur?: (value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
+  onBlur?: (value: SelectInputValue, context: SelectInputFocusContext) => void;
   /**
    * 清空按钮点击时触发
    */
@@ -136,7 +132,7 @@ export interface TdSelectInputProps {
   /**
    * 聚焦时触发
    */
-  onFocus?: (value: SelectInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
+  onFocus?: (value: SelectInputValue, context: SelectInputFocusContext) => void;
   /**
    * 输入框值发生变化时触发
    */
@@ -170,5 +166,11 @@ export interface SelectInputKeys {
 }
 
 export type SelectInputValue = string | number | boolean | Date | Object | Array<any> | Array<SelectInputValue>;
+
+export interface SelectInputFocusContext {
+  inputValue: InputValue;
+  tagInputValue?: TagInputValue;
+  e: FocusEvent;
+}
 
 export type SelectInputChangeContext = TagInputChangeContext;

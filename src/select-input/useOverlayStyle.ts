@@ -7,10 +7,10 @@ import { TdPopupProps, PopupVisibleChangeContext } from '../popup';
 // 单位：px
 const MAX_POPUP_WIDTH = 1000;
 
-export default function useOverlayStyle(props: TdSelectInputProps, context: SetupContext) {
+export default function useOverlayStyle(props: TdSelectInputProps) {
   const { popupProps, borderless } = toRefs(props);
   const innerPopupVisible = ref(false);
-  const tOverlayStyle = ref();
+  const tOverlayStyle = ref<TdPopupProps['overlayStyle']>();
 
   const macthWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
     // 避免因滚动条出现文本省略，预留宽度 8
@@ -31,7 +31,7 @@ export default function useOverlayStyle(props: TdSelectInputProps, context: Setu
     props.onPopupVisibleChange?.(newVisible, context);
   };
 
-  watch([innerPopupVisible], () => {
+  watch([innerPopupVisible, popupProps], () => {
     if (tOverlayStyle.value) return;
     let result: TdPopupProps['overlayStyle'] = {};
     const overlayStyle = popupProps.value?.overlayStyle || {};

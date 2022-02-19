@@ -1,6 +1,8 @@
-import { TdSelectInputProps } from '..';
+import { TdSelectInputProps } from './type';
 
 export interface SelectInputCommonProperties {
+  status?: TdSelectInputProps['status'];
+  tips?: TdSelectInputProps['tips'];
   clearable?: TdSelectInputProps['clearable'];
   disabled?: TdSelectInputProps['disabled'];
   label?: TdSelectInputProps['label'];
@@ -9,4 +11,7 @@ export interface SelectInputCommonProperties {
   suffix?: TdSelectInputProps['suffix'];
   suffixIcon?: TdSelectInputProps['suffixIcon'];
   onPaste?: TdSelectInputProps['onPaste'];
+  onEnter?: TdSelectInputProps['onEnter'];
+  onMouseenter?: TdSelectInputProps['onMouseenter'];
+  onMouseleave?: TdSelectInputProps['onMouseleave'];
 }

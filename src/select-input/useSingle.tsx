@@ -3,10 +3,10 @@ import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
 import Input, { InputValue } from '../input';
 import { SelectInputCommonProperties } from './interface';
-import { TdSelectInputProps, SelectInputKeys } from './type';
+import { TdSelectInputProps } from './type';
 
 export interface RenderSelectSingleInputParams {
-  prefix: VNode[];
+  prefixContent: VNode[];
   singleValueDisplay: VNode;
   tPlaceholder: string;
 }
@@ -23,8 +23,6 @@ const COMMON_PROPERTIES = [
   'suffix',
   'suffixIcon',
   'onPaste',
-  'onBlur',
-  'onFocus',
   'onEnter',
   'onMouseenter',
   'onMouseleave',
@@ -38,7 +36,7 @@ const DEFAULT_KEYS = {
 export default function useSingle(props: TdSelectInputProps, context: SetupContext) {
   const { value } = toRefs(props);
   const inputRef = ref();
-  const inputValue = ref();
+  const inputValue = ref<string | number>('');
 
   const commonInputProps = computed<SelectInputCommonProperties>(() => pick(props, COMMON_PROPERTIES));
 
@@ -55,12 +53,11 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
     }
   };
 
-  const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
-
   watch(
     [value],
     () => {
-      inputValue.value = isObject(value.value) ? value.value[iKeys.value.label] : value.value;
+      const iKeys = { ...DEFAULT_KEYS, ...props.keys };
+      inputValue.value = isObject(value.value) ? value.value[iKeys.label] : value.value;
     },
     { immediate: true },
   );
@@ -74,10 +71,16 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         autoWidth={props.borderless}
         placeholder={p.singleValueDisplay ? '' : props.placeholder}
         value={p.singleValueDisplay ? undefined : inputValue.value}
-        label={p.prefix.length ? () => p.prefix : undefined}
+        label={p.prefixContent.length ? () => p.prefixContent : undefined}
         onChange={onInnerInputChange}
         readonly={!props.allowInput}
         onClear={onInnerClear}
+        onBlur={(val, context) => {
+          props.onBlur?.(value, { ...context, inputValue: val });
+        }}
+        onFocus={(val, context) => {
+          props.onFocus?.(value, { ...context, inputValue: val });
+        }}
         {...props.inputProps}
       />
     );

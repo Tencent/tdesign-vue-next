@@ -94,15 +94,11 @@ export default {
   value: {
     type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['value']>,
   },
-  /** 全部标签值。值为数组表示多个标签，值为非数组表示单个数值，非受控属性 */
-  defaultValue: {
-    type: [String, Number, Boolean, Object, Array, Date] as PropType<TdSelectInputProps['defaultValue']>,
-  },
   /** 自定义值呈现的全部内容，参数为所有标签的值 */
   valueDisplay: {
     type: [String, Function] as PropType<TdSelectInputProps['valueDisplay']>,
   },
-  /** 失去焦点时触发 */
+  /** 失去焦点时触发，`context.inputValue` 表示输入框的值；`context.tagInputValue` 表示标签输入框的值 */
   onBlur: Function as PropType<TdSelectInputProps['onBlur']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdSelectInputProps['onClear']>,

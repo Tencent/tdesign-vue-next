@@ -21,11 +21,10 @@ export default defineComponent({
 
   setup(props: TdSelectInputProps, context: SetupContext) {
     const selectInputRef = ref();
-    const tagInputRef = ref();
     const { multiple, value, popupVisible, popupProps, borderless } = toRefs(props);
     const { commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context);
-    const { tags, tPlaceholder, renderSelectMultiple } = useMultiple(props, context);
-    const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props, context);
+    const { tPlaceholder, renderSelectMultiple } = useMultiple(props, context);
+    const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
 
     const popupClasses = computed(() => [
       NAME_CLASS,
@@ -39,12 +38,10 @@ export default defineComponent({
 
     return {
       innerPopupVisible,
-      tags,
       commonInputProps,
       tOverlayStyle,
       tPlaceholder,
       selectInputRef,
-      tagInputRef,
       popupClasses,
       popupProps,
       onInnerClear,
@@ -61,7 +58,7 @@ export default defineComponent({
     const singleValueDisplay = !this.multiple ? renderTNodeJSX(this, 'valueDisplay') : null;
     // 左侧文本
     const label = renderTNodeJSX(this, 'label');
-    const prefix = [singleValueDisplay, label].filter((v) => v);
+    const prefixContent = [singleValueDisplay, label].filter((v) => v);
     return (
       <Popup
         ref="selectInputRef"
@@ -82,7 +79,7 @@ export default defineComponent({
               onInnerClear: this.onInnerClear,
             })
           : this.renderSelectSingle({
-              prefix,
+              prefixContent,
               singleValueDisplay,
               tPlaceholder: this.tPlaceholder,
             })}

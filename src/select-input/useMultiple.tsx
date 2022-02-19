@@ -1,4 +1,4 @@
-import { SetupContext, computed } from 'vue';
+import { SetupContext, computed, ref } from 'vue';
 import isObject from 'lodash/isObject';
 import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
 import TagInput, { TagInputValue } from '../tag-input';
@@ -16,6 +16,7 @@ const DEFAULT_KEYS = {
 };
 
 export default function useMultiple(props: TdSelectInputProps, context: SetupContext) {
+  const tagInputRef = ref();
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
     if (!(props.value instanceof Array)) {
@@ -27,8 +28,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
   });
 
   const tPlaceholder = computed<string>(() => {
-    if (!tags.value || !tags.value.length) return props.placeholder;
-    return '';
+    return !tags.value || !tags.value.length ? props.placeholder : '';
   });
 
   const onTagInputChange = (val: TagInputValue, context: SelectInputChangeContext) => {
@@ -55,6 +55,12 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         onChange={onTagInputChange}
         tagProps={props.tagProps}
         onClear={p.onInnerClear}
+        onBlur={(val, context) => {
+          props.onBlur?.(props.value, { ...context, tagInputValue: val });
+        }}
+        onFocus={(val, context) => {
+          props.onFocus?.(props.value, { ...context, tagInputValue: val });
+        }}
         {...props.tagInputProps}
       />
     );
@@ -63,6 +69,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
   return {
     tags,
     tPlaceholder,
+    tagInputRef,
     renderSelectMultiple,
   };
 }
