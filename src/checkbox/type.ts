@@ -81,14 +81,16 @@ export interface TdCheckboxGroupProps {
   options?: Array<CheckboxOption>;
   /**
    * 选中值
+   * @default []
    */
   value?: CheckboxGroupValue;
   /**
    * 选中值，非受控属性
+   * @default []
    */
   defaultValue?: CheckboxGroupValue;
   /**
-   * 值变化时触发。`context.current` 表示当前变化的数据项；`context.type` 表示引起选中数据变化的是选中或是取消选中
+   * 值变化时触发。`context.current` 表示当前变化的数据项，如果是全选则为空；`context.type` 表示引起选中数据变化的是选中或是取消选中
    */
   onChange?: (value: CheckboxGroupValue, context: CheckboxGroupChangeContext) => void;
 }
