@@ -7,7 +7,7 @@
           :offset-top="50"
           :offset-bottom="50"
           :container="getContainer"
-          @fixedChange="handleFixedChange"
+          @fixed-change="handleFixedChange"
         >
           <t-button>FixedTop top:{{ fixedTop }}</t-button>
         </t-affix>
@@ -16,28 +16,17 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const fixedTop = ref(0);
-    const affixContainerRef = ref(null);
+const fixedTop = ref(0);
+const affixContainerRef = ref(null);
 
-    const getContainer = () => affixContainerRef.value;
+const getContainer = () => affixContainerRef.value;
 
-    const handleFixedChange = (affixed, { top }) => {
-      fixedTop.value = top;
-    };
-
-    return {
-      fixedTop,
-      affixContainerRef,
-      getContainer,
-      handleFixedChange,
-    };
-  },
-});
+const handleFixedChange = (affixed, { top }) => {
+  fixedTop.value = top;
+};
 </script>
 
 <style lang="less" scoped>

@@ -71,7 +71,7 @@ export default defineComponent({
       const defaultClose = <CloseIcon />;
       return (
         <span class={`${name}__close`} onClick={this.close}>
-          {renderTNodeJSX(this as ComponentPublicInstance, 'closeBtn', defaultClose)}
+          {renderTNodeJSX(this, 'closeBtn', defaultClose)}
         </span>
       );
     },
@@ -97,7 +97,7 @@ export default defineComponent({
     return (
       <div class={this.classes} onMouseenter={this.clearTimer} onMouseleave={this.setTimer}>
         {this.renderIcon()}
-        {renderContent(this as ComponentPublicInstance, 'default', 'content')}
+        {renderContent(this, 'content', 'default')}
         {this.renderClose()}
       </div>
     );

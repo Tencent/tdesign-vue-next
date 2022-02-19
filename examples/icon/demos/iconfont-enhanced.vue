@@ -19,15 +19,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { IconFont } from 'tdesign-icons-vue-next';
 
-export default {
-  components: { IconFont },
-  data() {
-    return {
-      newIconfontUrl: 'https://tdesign.gtimg.com/icon/default-demo/index.css',
-    };
-  },
-};
+const newIconfontUrl = 'https://tdesign.gtimg.com/icon/default-demo/index.css';
 </script>

@@ -16,32 +16,21 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref, computed } from 'vue';
+<script setup lang="jsx">
+import { ref, computed } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const listCount = ref(3);
-    const asyncLoadingRadio = ref('load-more');
+const listCount = ref(3);
+const asyncLoadingRadio = ref('load-more');
 
-    const loadMore = () => {
-      asyncLoadingRadio.value = 'loading';
-    };
+const loadMore = () => {
+  asyncLoadingRadio.value = 'loading';
+};
 
-    const asyncLoading = computed(() => {
-      if (asyncLoadingRadio.value === 'loading-custom') {
-        return () => <div> 没有更多数据了 </div>;
-      }
-      return asyncLoadingRadio.value;
-    });
-
-    return {
-      listCount,
-      asyncLoadingRadio,
-      asyncLoading,
-      loadMore,
-      imageUrl: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    };
-  },
+const asyncLoading = computed(() => {
+  if (asyncLoadingRadio.value === 'loading-custom') {
+    return () => <div> 没有更多数据了 </div>;
+  }
+  return asyncLoadingRadio.value;
 });
+const imageUrl = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>

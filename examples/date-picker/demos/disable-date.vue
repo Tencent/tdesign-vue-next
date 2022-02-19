@@ -17,40 +17,27 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import dayjs from 'dayjs';
 
-export default defineComponent({
-  setup() {
-    const disableDate = [dayjs().subtract(1, 'day').format(), dayjs().subtract(2, 'day').format()];
-    const disableDate2 = {
-      before: dayjs().subtract(2, 'day').format(),
-      after: dayjs().add(3, 'day').format(),
-    };
-    const disableDate3 = {
-      from: dayjs().add(1, 'day').format(),
-      to: dayjs().add(3, 'day').format(),
-    };
-    const disableDate4 = {
-      before: dayjs().subtract(2, 'day').format(),
-      after: dayjs().add(10, 'day').format(),
-    };
-    return {
-      disableDate,
-      disableDate2,
-      disableDate3,
-      disableDate4,
-      getDisableDate(date) {
-        // 禁用所有周六
-        return dayjs(date).day() === 6;
-      },
-      onChange(value) {
-        console.log(value);
-      },
-    };
-  },
-});
+const disableDate = [dayjs().subtract(1, 'day').format(), dayjs().subtract(2, 'day').format()];
+const disableDate2 = {
+  before: dayjs().subtract(2, 'day').format(),
+  after: dayjs().add(3, 'day').format(),
+};
+const disableDate3 = {
+  from: dayjs().add(1, 'day').format(),
+  to: dayjs().add(3, 'day').format(),
+};
+const disableDate4 = {
+  before: dayjs().subtract(2, 'day').format(),
+  after: dayjs().add(10, 'day').format(),
+};
+
+const getDisableDate = (date) => {
+  // 禁用所有周六
+  return dayjs(date).day() === 6;
+};
 </script>
 <style scoped>
 .tdesign-demo-item--datepicker {

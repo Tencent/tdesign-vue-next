@@ -15,7 +15,7 @@ export default defineComponent({
   props,
   emits: ['change', 'expand'],
   setup(props, ctx) {
-    const emitEvent = useEmitEvent(props, ctx.emit);
+    const emitEvent = useEmitEvent();
     watchEffect(() => {
       if (ctx.slots.options) {
         log.warnOnce('TMenu', '`options` slot is going to be deprecated, please use `operations` for slot instead.');

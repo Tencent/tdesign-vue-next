@@ -8,14 +8,6 @@
     <t-alert theme="error"> 高危操作/出错信息提示 </t-alert>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      infoMessage: () => <div>这是一条普通的消息提示</div>,
-    };
-  },
-});
+<script setup lang="jsx">
+const infoMessage = () => <div>这是一条普通的消息提示</div>;
 </script>

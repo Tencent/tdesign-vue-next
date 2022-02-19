@@ -60,8 +60,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const items = [
   {
@@ -79,264 +79,249 @@ const getLabelContent = (node) => {
   return label;
 };
 
-export default defineComponent({
-  setup() {
-    const index = ref(2);
-    const activeId = ref('');
-    const activeIds = ref([]);
-    const expandIds = ref([]);
-    const checkedIds = ref([]);
-    const useActived = ref(false);
-    const expandParent = ref(true);
-    const filterText = ref('');
-    const filterByText = ref(null);
+const index = ref(2);
+const activeId = ref('');
+const activeIds = ref([]);
+const expandIds = ref([]);
+const checkedIds = ref([]);
+const useActived = ref(false);
+const expandParent = ref(true);
+const filterText = ref('');
+const filterByText = ref(null);
 
-    const renderOperations = (createElement, node) => `value: ${node.value}`;
+const renderOperations = (createElement, node) => `value: ${node.value}`;
 
-    const getLabel = (createElement, node) => {
-      const label = getLabelContent(node);
-      const { data } = node;
-      data.label = label;
-      return label;
+const getLabel = (createElement, node) => {
+  const label = getLabelContent(node);
+  const { data } = node;
+  data.label = label;
+  return label;
+};
+
+const getActivedNode = () => {
+  const activeNode = tree.value.getItem(activeId.value);
+  return activeNode;
+};
+
+const tree = ref(null);
+const setLabel = (value) => {
+  const node = tree.value.getItem(value);
+  const label = getLabelContent(node);
+  const { data } = node;
+  data.label = label;
+};
+
+const getItem = () => {
+  const node = tree.value.getItem('node1');
+  console.info('getItem:', node.label);
+};
+
+const getAllItems = () => {
+  const nodes = tree.value.getItems();
+  console.info(
+    'getAllItems:',
+    nodes.map((node) => node.value),
+  );
+};
+
+const getAllActived = () => {
+  console.info('getActived value:', activeIds.value.slice(0));
+};
+
+const getActiveChildren = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  let nodes = [];
+  if (node) {
+    nodes = node.getChildren(true) || [];
+  }
+  console.info(
+    'getActiveChildren:',
+    nodes.map((node) => node.value),
+  );
+};
+
+const getActiveChecked = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  const nodes = tree.value.getItems(node.value);
+  console.info(
+    'getChecked:',
+    nodes.filter((node) => node.checked).map((node) => node.value),
+  );
+};
+
+const getInsertItem = () => {
+  let item = null;
+  if (useActived.value) {
+    item = getActivedNode();
+  } else {
+    index.value += 1;
+    const value = `t${index.value}`;
+    item = {
+      value,
     };
+  }
+  return item;
+};
 
-    const getActivedNode = () => {
-      const activeNode = tree.value.getItem(activeId.value);
-      return activeNode;
-    };
-
-    const tree = ref(null);
-    const setLabel = (value) => {
-      const node = tree.value.getItem(value);
-      const label = getLabelContent(node);
-      const { data } = node;
-      data.label = label;
-    };
-
-    const getItem = () => {
-      const node = tree.value.getItem('node1');
-      console.info('getItem:', node.label);
-    };
-
-    const getAllItems = () => {
-      const nodes = tree.value.getItems();
-      console.info(
-        'getAllItems:',
-        nodes.map((node) => node.value),
-      );
-    };
-
-    const getAllActived = () => {
-      console.info('getActived value:', activeIds.value.slice(0));
-    };
-
-    const getActiveChildren = () => {
-      const node = getActivedNode();
-      if (!node) return;
-      let nodes = [];
-      if (node) {
-        nodes = node.getChildren(true) || [];
-      }
-      console.info(
-        'getActiveChildren:',
-        nodes.map((node) => node.value),
-      );
-    };
-
-    const getActiveChecked = () => {
-      const node = getActivedNode();
-      if (!node) return;
-      const nodes = tree.value.getItems(node.value);
-      console.info(
-        'getChecked:',
-        nodes.filter((node) => node.checked).map((node) => node.value),
-      );
-    };
-
-    const getInsertItem = () => {
-      let item = null;
-      if (useActived.value) {
-        item = getActivedNode();
-      } else {
-        index.value += 1;
-        const value = `t${index.value}`;
-        item = {
-          value,
+const getPlainData = (item) => {
+  const root = item;
+  if (!root) return null;
+  const children = item.getChildren(true) || [];
+  const list = [root].concat(children);
+  const nodeMap = {};
+  const nodeList = list.map((item) => {
+    const node = {
+      walkData() {
+        const data = {
+          ...this.data,
         };
-      }
-      return item;
-    };
-
-    const getPlainData = (item) => {
-      const root = item;
-      if (!root) return null;
-      const children = item.getChildren(true) || [];
-      const list = [root].concat(children);
-      const nodeMap = {};
-      const nodeList = list.map((item) => {
-        const node = {
-          walkData() {
-            const data = {
-              ...this.data,
-            };
-            const itemChildren = this.getChildren();
-            if (Array.isArray(itemChildren)) {
-              data.children = [];
-              itemChildren.forEach((childItem) => {
-                const childNode = nodeMap[childItem.value];
-                const childData = childNode.walkData();
-                data.children.push(childData);
-              });
-            }
-            return data;
-          },
-          ...item,
-        };
-        nodeMap[item.value] = node;
-        return node;
-      });
-      const [rootNode] = nodeList;
-      const data = rootNode.walkData();
-      return data;
-    };
-
-    const append = (node) => {
-      const item = getInsertItem();
-      if (item) {
-        if (!node) {
-          tree.value.appendTo('', item);
-        } else {
-          tree.value.appendTo(node.value, item);
+        const itemChildren = this.getChildren();
+        if (Array.isArray(itemChildren)) {
+          data.children = [];
+          itemChildren.forEach((childItem) => {
+            const childNode = nodeMap[childItem.value];
+            const childData = childNode.walkData();
+            data.children.push(childData);
+          });
         }
-        setLabel(item.value);
-      }
+        return data;
+      },
+      ...item,
     };
+    nodeMap[item.value] = node;
+    return node;
+  });
+  const [rootNode] = nodeList;
+  const data = rootNode.walkData();
+  return data;
+};
 
-    const insertBefore = (node) => {
-      const item = getInsertItem();
-      if (item) {
-        tree.value.insertBefore(node.value, item);
-        setLabel(item.value);
-      }
-    };
+const append = (node) => {
+  const item = getInsertItem();
+  if (item) {
+    if (!node) {
+      tree.value.appendTo('', item);
+    } else {
+      tree.value.appendTo(node.value, item);
+    }
+    setLabel(item.value);
+  }
+};
 
-    const insertAfter = (node) => {
-      const item = getInsertItem();
-      if (item) {
-        tree.value.insertAfter(node.value, item);
-        setLabel(item.value);
-      }
-    };
+const insertBefore = (node) => {
+  const item = getInsertItem();
+  if (item) {
+    tree.value.insertBefore(node.value, item);
+    setLabel(item.value);
+  }
+};
 
-    const getActiveParent = () => {
-      const node = getActivedNode();
-      if (!node) return;
-      const parent = tree.value.getParent(node.value);
-      console.info('getParent', parent?.value);
-    };
+const insertAfter = (node) => {
+  const item = getInsertItem();
+  if (item) {
+    tree.value.insertAfter(node.value, item);
+    setLabel(item.value);
+  }
+};
 
-    const getActiveParents = () => {
-      const node = getActivedNode();
-      if (!node) return;
-      const parents = tree.value.getParents(node.value);
-      console.info(
-        'getParents',
-        parents.map((node) => node.value),
-      );
-    };
+const getActiveParent = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  const parent = tree.value.getParent(node.value);
+  console.info('getParent', parent?.value);
+};
 
-    const setActiveChecked = () => {
-      const node = getActivedNode();
-      if (!node) return;
-      tree.value.setItem(node?.value, {
-        checked: true,
-      });
-    };
+const getActiveParents = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  const parents = tree.value.getParents(node.value);
+  console.info(
+    'getParents',
+    parents.map((node) => node.value),
+  );
+};
 
-    const setActiveExpanded = () => {
-      const node = getActivedNode();
-      if (!node) return;
-      tree.value.setItem(node?.value, {
-        expanded: true,
-      });
-    };
+const setActiveChecked = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  tree.value.setItem(node?.value, {
+    checked: true,
+  });
+};
 
-    const getActiveIndex = () => {
-      const node = getActivedNode();
-      if (!node) return;
-      const index = tree.value.getIndex(node.value);
-      console.info('getIndex', index);
-    };
+const setActiveExpanded = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  tree.value.setItem(node?.value, {
+    expanded: true,
+  });
+};
 
-    const getActivePlainData = () => {
-      const node = getActivedNode();
-      if (!node) return;
-      const data = getPlainData(node);
-      return data;
-    };
+const getActiveIndex = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  const index = tree.value.getIndex(node.value);
+  console.info('getIndex', index);
+};
 
-    const remove = (node) => {
-      tree.value.remove(node.value);
-    };
+const getActivePlainData = () => {
+  const node = getActivedNode();
+  if (!node) return;
+  const data = getPlainData(node);
+  return data;
+};
 
-    const onChange = (vals, state) => {
-      console.info('on change:', vals, state);
-      checkedIds.value = vals;
-    };
+const remove = (node) => {
+  tree.value.remove(node.value);
+};
 
-    const onExpand = (vals, state) => {
-      console.info('on expand:', vals, state);
-      expandIds.value = vals;
-    };
+const onChange = (vals, state) => {
+  console.info('on change:', vals, state);
+  checkedIds.value = vals;
+};
 
-    const onActive = (vals, state) => {
-      console.info('on active:', vals, state);
-      activeIds.value = vals;
-      activeId.value = vals[0] || '';
-    };
+const onExpand = (vals, state) => {
+  console.info('on expand:', vals, state);
+  expandIds.value = vals;
+};
 
-    const onInputChange = (state) => {
-      console.info('on input:', state);
-      filterByText.value = (node) => {
-        const label = node?.data?.label || '';
-        const rs = label.indexOf(filterText.value) >= 0;
-        return rs;
-      };
-    };
+const onActive = (vals, state) => {
+  console.info('on active:', vals, state);
+  activeIds.value = vals;
+  activeId.value = vals[0] || '';
+};
 
-    return {
-      useActived,
-      items,
-      filterText,
-      filterByText,
-      getItem,
-      getAllItems,
-      expandParent,
-      renderOperations,
-      tree,
-      getLabel,
-      getAllActived,
-      getActiveChecked,
-      getActiveChildren,
-      setActiveChecked,
-      getActiveParent,
-      getActiveParents,
-      getActiveIndex,
-      setActiveExpanded,
-      getActivePlainData,
-      append,
-      insertBefore,
-      insertAfter,
-      remove,
-      onChange,
-      onExpand,
-      onActive,
-      onInputChange,
-    };
-  },
-});
+const onInputChange = (state) => {
+  console.info('on input:', state);
+  filterByText.value = (node) => {
+    const label = node?.data?.label || '';
+    const rs = label.indexOf(filterText.value) >= 0;
+    return rs;
+  };
+};
 </script>
 <style scoped>
+.tdesign-tree-demo .t-tree {
+  margin-bottom: 20px;
+}
+.tdesign-tree-demo .title {
+  margin-bottom: 10px;
+}
+.tdesign-tree-demo .tips {
+  margin-bottom: 10px;
+}
+.tdesign-tree-demo .operations {
+  margin-bottom: 10px;
+}
+.tdesign-tree-demo .t-form__item {
+  margin-bottom: 5px;
+}
+.tdesign-tree-demo .t-button {
+  margin: 0 10px 10px 0;
+}
+
 .tips {
   font-size: 10px;
   color: gray;

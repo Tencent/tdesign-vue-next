@@ -10,6 +10,7 @@ export type ChangeParams = [TagInputChangeContext];
 
 // handle tag add and remove
 export default function useTagList(props: TdTagInputProps, context: SetupContext) {
+  const renderTNode = useTNodeJSX();
   const { onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps } = toRefs(props);
   // handle controlled property and uncontrolled property
   const [tagValue, setTagValue] = useDefault<TdTagInputProps['value'], TdTagInputProps>(
@@ -79,7 +80,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
     const list = displayNode
       ? [displayNode]
       : newList?.map((item, index) => {
-          const tagContent = useTNodeJSX('tag', { props, slots, params: { value: item } });
+          const tagContent = renderTNode('tag', { params: { value: item } });
           return (
             <Tag
               key={item}
@@ -103,9 +104,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
     // 超出省略
     if (newList.length !== tagValue.value.length) {
       const len = tagValue.value.length - newList.length;
-      const more = useTNodeJSX('collapsedItems', {
-        props,
-        slots,
+      const more = renderTNode('collapsedItems', {
         params: {
           value: tagValue,
           count: tagValue.value.length,

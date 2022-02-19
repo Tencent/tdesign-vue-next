@@ -22,6 +22,9 @@ import { SelectOption, TdOptionProps, SelectValue, TdSelectProps, SelectOptionGr
 import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 export type OptionInstance = InstanceType<typeof Option>;
 
 interface KeysType {
@@ -66,6 +69,12 @@ export default defineComponent({
     'search',
     'visible-change',
   ],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       isHover: false,
@@ -595,9 +604,7 @@ export default defineComponent({
     },
     getLoadingText() {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
-      return useLocale
-        ? this.t(this.global.loadingText)
-        : renderTNodeJSX(this as ComponentPublicInstance, 'loadingText');
+      return useLocale ? this.t(this.global.loadingText) : renderTNodeJSX(this, 'loadingText');
     },
     getPlaceholderText() {
       return this.placeholder || this.t(this.global.placeholder);

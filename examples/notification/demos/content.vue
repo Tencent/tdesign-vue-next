@@ -8,13 +8,9 @@
   </div>
 </template>
 
-<script lang="jsx">
-export default {
-  methods: {
-    content() {
-      return <div>这是一条消息通知</div>;
-    },
-  },
+<script setup lang="jsx">
+const content = () => {
+  return <div>这是一条消息通知</div>;
 };
 </script>
 

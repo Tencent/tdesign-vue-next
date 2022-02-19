@@ -23,15 +23,10 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { IconFont } from 'tdesign-icons-vue-next';
 
-export default {
-  components: { IconFont },
-  methods: {
-    onIconClose() {
-      console.log('icon was clicked.');
-    },
-  },
+const onIconClose = () => {
+  console.log('icon was clicked.');
 };
 </script>

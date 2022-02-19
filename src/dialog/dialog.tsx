@@ -1,24 +1,37 @@
-import { defineComponent, Transition } from 'vue';
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-
+import { useEmitEvent } from '../hooks/event';
 import { prefix } from '../config';
 import TButton from '../button';
-import ActionMixin from './actions';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
-import { ClassName, Styles } from '../common';
-import { emitEvent } from '../utils/event';
-import mixins from '../utils/mixins';
 import { addClass, removeClass } from '../utils/dom';
-import getConfigReceiverMixins, { DialogConfig } from '../config-provider/config-receiver';
+import { DialogConfig } from '../config-provider/config-receiver';
+import { useReceiver } from '../config-provider';
+import { useAction } from './hooks';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 const name = `${prefix}-dialog`;
 const lockClass = `${prefix}-dialog--lock`;
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
+}
+
+let mousePosition: { x: number; y: number } | null;
+const getClickPosition = (e: MouseEvent) => {
+  mousePosition = {
+    x: e.clientX,
+    y: e.clientY,
+  };
+  setTimeout(() => {
+    mousePosition = null;
+  }, 100);
+};
+
+if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
+  document.documentElement.addEventListener('click', getClickPosition, true);
 }
 
 // 注册元素的拖拽事件
@@ -51,7 +64,6 @@ function InitDragEvent(dragBox: HTMLElement) {
   });
 }
 export default defineComponent({
-  ...mixins(ActionMixin, getConfigReceiverMixins<DialogConfig>('dialog')),
   name: 'TDialog',
   components: {
     CloseIcon,
@@ -73,7 +85,7 @@ export default defineComponent({
     },
   },
 
-  props: { ...props },
+  props,
 
   emits: [
     'esc-keydown',
@@ -86,37 +98,43 @@ export default defineComponent({
     'closed',
     'close',
   ],
-
-  data() {
-    return {
-      scrollWidth: 0,
+  setup(props) {
+    const emitEvent = useEmitEvent();
+    const renderContent = useContent();
+    const renderTNodeJSX = useTNodeJSX();
+    const dialogEle = ref<HTMLElement | null>(null);
+    const { global } = useReceiver<DialogConfig>('dialog');
+    const confirmBtnAction = (e: MouseEvent) => {
+      emitEvent<Parameters<TdDialogProps['onConfirm']>>('confirm', { e });
     };
-  },
-
-  computed: {
+    const cancelBtnAction = (e: MouseEvent) => {
+      emitEvent<Parameters<TdDialogProps['onCancel']>>('cancel', { e });
+      emitCloseEvent({
+        trigger: 'cancel',
+        e,
+      });
+    };
+    const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
+    const scrollWidth = ref(0);
     // 是否模态形式的对话框
-    isModal(): boolean {
-      return this.mode === 'modal';
-    },
+    const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
-    isModeless(): boolean {
-      return this.mode === 'modeless';
-    },
-
-    maskClass(): ClassName {
-      return [`${name}__mask`, !this.showOverlay && `${prefix}-is-hidden`];
-    },
-
-    dialogClass(): ClassName {
-      const dialogClass = [`${name}`, `${name}--default`, `${name}--${this.placement}`, `${name}__modal-${this.theme}`];
-      if (['modeless', 'modal'].includes(this.mode)) {
+    const isModeless = computed(() => props.mode === 'modeless');
+    const maskClass = computed(() => [`${name}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
+    const dialogClass = computed(() => {
+      const dialogClass = [
+        `${name}`,
+        `${name}--default`,
+        `${name}--${props.placement}`,
+        `${name}__modal-${props.theme}`,
+      ];
+      if (['modeless', 'modal'].includes(props.mode)) {
         dialogClass.push(`${name}--fixed`);
       }
       return dialogClass;
-    },
-
-    dialogStyle(): Styles {
-      const { top, placement } = this;
+    });
+    const dialogStyle = computed(() => {
+      const { top, placement } = props;
       let topStyle = {};
 
       // 设置了top属性
@@ -125,7 +143,6 @@ export default defineComponent({
         topStyle = {
           top: topValue,
           transform: 'translate(-50%, 0)',
-          transformOrigin: '25% 25%',
           maxHeight: `calc(100% - ${topValue})`,
         };
       } else if (placement === 'top') {
@@ -133,163 +150,173 @@ export default defineComponent({
           maxHeight: 'calc(100% - 20%)',
         };
       }
-      return { width: GetCSSValue(this.width), ...topStyle };
-    },
-  },
-
-  watch: {
-    visible(value) {
-      if (value) {
-        const { scrollWidth } = this;
-        if (scrollWidth > 0) {
-          const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth}px);`;
-          document.body.style.cssText = bodyCssText;
+      return { width: GetCSSValue(props.width), ...topStyle };
+    });
+    watch(
+      () => props.visible,
+      (value) => {
+        if (value) {
+          if (scrollWidth.value > 0) {
+            const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
+            document.body.style.cssText = bodyCssText;
+          }
+          !isModeless.value && addClass(document.body, lockClass);
+          nextTick(() => {
+            if (mousePosition && dialogEle.value) {
+              dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
+                mousePosition.y - dialogEle.value.offsetTop
+              }px`;
+            }
+          });
+        } else {
+          document.body.style.cssText = '';
+          removeClass(document.body, lockClass);
         }
-        addClass(document.body, lockClass);
-      } else {
-        document.body.style.cssText = '';
-        removeClass(document.body, lockClass);
-      }
-      this.addKeyboardEvent(value);
-    },
-  },
-  mounted() {
-    this.scrollWidth = window.innerWidth - document.body.offsetWidth;
-  },
+        addKeyboardEvent(value);
+      },
+    );
 
-  beforeUnmount() {
-    this.addKeyboardEvent(false);
-  },
-
-  methods: {
-    addKeyboardEvent(status: boolean) {
+    const addKeyboardEvent = (status: boolean) => {
       if (status) {
-        document.addEventListener('keydown', this.keyboardEvent);
+        document.addEventListener('keydown', keyboardEvent);
       } else {
-        document.removeEventListener('keydown', this.keyboardEvent);
+        document.removeEventListener('keydown', keyboardEvent);
       }
-    },
-    keyboardEvent(e: KeyboardEvent) {
+    };
+    const keyboardEvent = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
-        emitEvent<Parameters<TdDialogProps['onEscKeydown']>>(this, 'esc-keydown', { e });
+        emitEvent<Parameters<TdDialogProps['onEscKeydown']>>('esc-keydown', { e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
-        if (this.closeOnEscKeydown) {
-          this.emitCloseEvent({
+        if (props.closeOnEscKeydown) {
+          emitCloseEvent({
             trigger: 'esc',
             e,
           });
         }
       }
-    },
-    overlayAction(e: MouseEvent) {
-      emitEvent<Parameters<TdDialogProps['onOverlayClick']>>(this, 'overlay-click', { e });
+    };
+    const overlayAction = (e: MouseEvent) => {
+      emitEvent<Parameters<TdDialogProps['onOverlayClick']>>('overlay-click', { e });
       // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
-      if (this.closeOnOverlayClick) {
-        this.emitCloseEvent({
+      if (props.closeOnOverlayClick) {
+        emitCloseEvent({
           trigger: 'overlay',
           e,
         });
       }
-    },
-    closeBtnAcion(e: MouseEvent) {
-      emitEvent<Parameters<TdDialogProps['onCloseBtnClick']>>(this, 'close-btn-click', { e });
-      this.emitCloseEvent({
+    };
+    const closeBtnAcion = (e: MouseEvent) => {
+      emitEvent<Parameters<TdDialogProps['onCloseBtnClick']>>('close-btn-click', { e });
+      emitCloseEvent({
         trigger: 'close-btn',
         e,
       });
-    },
+    };
 
-    cancelBtnAction(e: MouseEvent) {
-      emitEvent<Parameters<TdDialogProps['onCancel']>>(this, 'cancel', { e });
-      this.emitCloseEvent({
-        trigger: 'cancel',
-        e,
-      });
-    },
-    confirmBtnAction(e: MouseEvent) {
-      emitEvent<Parameters<TdDialogProps['onConfirm']>>(this, 'confirm', { e });
-    },
     // 打开弹窗动画结束时事件
-    afterEnter() {
-      emitEvent<Parameters<TdDialogProps['onOpened']>>(this, 'opened');
-    },
+    const afterEnter = () => {
+      emitEvent<Parameters<TdDialogProps['onOpened']>>('opened');
+    };
     // 关闭弹窗动画结束时事件
-    afterLeave() {
-      emitEvent<Parameters<TdDialogProps['onClosed']>>(this, 'closed');
-    },
+    const afterLeave = () => {
+      emitEvent<Parameters<TdDialogProps['onClosed']>>('closed');
+    };
 
-    emitCloseEvent(context: DialogCloseContext) {
-      emitEvent<Parameters<TdDialogProps['onClose']>>(this, 'close', context);
+    const emitCloseEvent = (context: DialogCloseContext) => {
+      emitEvent<Parameters<TdDialogProps['onClose']>>('close', context);
       // 默认关闭弹窗
-      emitEvent(this, 'update:visible', false);
-    },
+      emitEvent('update:visible', false);
+    };
 
     // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，
     // 暴露出$on, $once, $off, $emit方法给外部管理事件和派发执行事件
     // 所以通过判断_events某个事件下监听函数数组是否超过一个，可以判断出组件是否监听了当前事件
-    hasEventOn(name: string) {
+    const hasEventOn = (name: string) => {
       // _events 因没有被暴露在vue实例接口中，只能把这个规则注释掉
       // eslint-disable-next-line dot-notation
       const eventFuncs = this['_events']?.[name];
       return !!eventFuncs?.length;
-    },
-    getIcon() {
+    };
+    const getIcon = () => {
       const icon = {
         info: <InfoCircleFilledIcon class="t-is-info" />,
         warning: <ErrorCircleFilledIcon class="t-is-warning" />,
         danger: <ErrorCircleFilledIcon class="t-is-error" />,
         success: <CheckCircleFilledIcon class="t-is-success" />,
       };
-      return icon[this.theme];
-    },
-    renderDialog() {
+      return icon[props.theme];
+    };
+    const renderDialog = () => {
       // header 值为 true 显示空白头部
       const defaultHeader = <h5 class="title"></h5>;
       const defaultCloseBtn = <CloseIcon />;
-      const body = renderContent(this, 'default', 'body');
+      const body = renderContent('default', 'body');
       const defaultFooter = (
         <div>
-          {this.getCancelBtn({
-            cancelBtn: this.cancelBtn,
-            globalCancel: this.global.cancel,
+          {getCancelBtn({
+            cancelBtn: props.cancelBtn,
+            globalCancel: global.value.cancel,
             className: `${prefix}-dialog__cancel`,
           })}
-          {this.getConfirmBtn({
-            theme: this.theme,
-            confirmBtn: this.confirmBtn,
-            globalConfirm: this.global.confirm,
-            globalConfirmBtnTheme: this.global.confirmBtnTheme,
+          {getConfirmBtn({
+            theme: props.theme,
+            confirmBtn: props.confirmBtn,
+            globalConfirm: global.value.confirm,
+            globalConfirmBtnTheme: global.value.confirmBtnTheme,
             className: `${prefix}-dialog__confirm`,
           })}
         </div>
       );
-      const bodyClassName = this.theme === 'default' ? `${name}__body` : `${name}__body__icon`;
+      const bodyClassName = props.theme === 'default' ? `${name}__body` : `${name}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div
           key="dialog"
-          class={this.dialogClass}
-          style={this.dialogStyle}
-          v-draggable={this.isModeless && this.draggable}
+          class={dialogClass.value}
+          style={dialogStyle.value}
+          v-draggable={isModeless.value && props.draggable}
+          ref="dialogEle"
         >
           <div class={`${name}__header`}>
-            {this.getIcon()}
-            {renderTNodeJSX(this, 'header', defaultHeader)}
+            {getIcon()}
+            {renderTNodeJSX('header', defaultHeader)}
           </div>
-          <span class={`${name}__close`} onClick={this.closeBtnAcion}>
-            {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
+          <span class={`${name}__close`} onClick={closeBtnAcion}>
+            {renderTNodeJSX('closeBtn', defaultCloseBtn)}
           </span>
           <div class={bodyClassName}>{body}</div>
-          <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>
+          <div class={`${name}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
         </div>
       );
-    },
+    };
+
+    onMounted(() => {
+      scrollWidth.value = window.innerWidth - document.body.offsetWidth;
+    });
+    onBeforeUnmount(() => {
+      addKeyboardEvent(false);
+    });
+
+    return {
+      scrollWidth,
+      isModal,
+      isModeless,
+      maskClass,
+      dialogClass,
+      dialogStyle,
+      dialogEle,
+      afterEnter,
+      afterLeave,
+      hasEventOn,
+      renderDialog,
+      overlayAction,
+    };
   },
   render() {
     const maskView = this.isModal && <div key="mask" class={this.maskClass} onClick={this.overlayAction}></div>;
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
-    const ctxStyle: any = { zIndex: this.zIndex };
+    const ctxStyle = { zIndex: this.zIndex };
     const ctxClass = [`${name}__ctx`, { 't-dialog__ctx--fixed': this.mode === 'modal' }];
     return (
       <transition

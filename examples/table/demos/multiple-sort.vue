@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
@@ -66,33 +66,22 @@ const data = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const sort = ref([
-      {
-        sortBy: 'status',
-        descending: true,
-      },
-      {
-        sortBy: 'survivalTime',
-        descending: false,
-      },
-    ]);
-
-    const sortChange = (val) => {
-      sort.value = val;
-      // Request: 发起远程请求进行排序
-      console.log('发起远程请求进行排序（未模拟请求数据）');
-    };
-
-    return {
-      data,
-      sort,
-      columns,
-      sortChange,
-    };
+const sort = ref([
+  {
+    sortBy: 'status',
+    descending: true,
   },
-});
+  {
+    sortBy: 'survivalTime',
+    descending: false,
+  },
+]);
+
+const sortChange = (val) => {
+  sort.value = val;
+  // Request: 发起远程请求进行排序
+  console.log('发起远程请求进行排序（未模拟请求数据）');
+};
 </script>
 <style lang="less">
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {

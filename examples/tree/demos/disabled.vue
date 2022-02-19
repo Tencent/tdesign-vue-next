@@ -23,8 +23,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const items = [
   {
@@ -67,26 +67,17 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const disabled = ref(true);
-    const disableCheck = ref(false);
-    const disableTarget = ref(true);
-    return {
-      disabled,
-      items,
-      disableCheck,
-      disableTarget,
-      fnDisableCheck(node) {
-        const list = ['1.1', '1.2', '2.1'];
-        if (list.indexOf(node.label) >= 0) {
-          return disableTarget.value;
-        }
-        return false;
-      },
-    };
-  },
-});
+const disabled = ref(true);
+const disableCheck = ref(false);
+const disableTarget = ref(true);
+
+const fnDisableCheck = (node) => {
+  const list = ['1.1', '1.2', '2.1'];
+  if (list.indexOf(node.label) >= 0) {
+    return disableTarget.value;
+  }
+  return false;
+};
 </script>
 <style scoped>
 .demo-tree-base {

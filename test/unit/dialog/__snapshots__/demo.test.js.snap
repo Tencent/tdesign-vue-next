@@ -71,6 +71,7 @@ exports[`Dialog Dialog asyncVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm"
+              disabled=""
               type="button"
             >
               
@@ -1770,7 +1771,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
       />
       <div
         class="t-dialog t-dialog--default t-dialog--top t-dialog__modal-default t-dialog--fixed"
-        style="top: 50px; transform: translate(-50%, 0); transform-origin: 25% 25%; max-height: calc(100% - 50px);"
+        style="top: 50px; transform: translate(-50%, 0); max-height: calc(100% - 50px);"
       >
         <div
           class="t-dialog__header"

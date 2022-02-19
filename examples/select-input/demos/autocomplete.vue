@@ -2,10 +2,13 @@
   <div>
     <t-select-input
       :value="selectValue"
+      :popup-visible="popupVisible"
       placeholder="请输入任意关键词"
       allow-input
+      clearable
       style="width: 300px"
       @input-change="onInputChange"
+      @popup-visible-change="onPopupVisibleChange"
     >
       <template #panel>
         <ul class="tdesign-demo__selet-input-ul">
@@ -29,12 +32,13 @@ export default defineComponent({
   name: 'SelectInputSingle',
   components: { SearchIcon },
   setup() {
-    const visible = ref(false);
+    const popupVisible = ref(false);
     const selectValue = ref();
     const options = ref(OPTIONS);
 
     const onOptionClick = (item) => {
       selectValue.value = item;
+      popupVisible.value = false;
     };
 
     const onInputChange = (keyword) => {
@@ -42,12 +46,17 @@ export default defineComponent({
       options.value = new Array(5).fill(null).map((t, index) => `${keyword} Student ${index}`);
     };
 
+    const onPopupVisibleChange = (val) => {
+      popupVisible.value = val;
+    };
+
     return {
-      visible,
+      popupVisible,
       selectValue,
       options,
       onOptionClick,
       onInputChange,
+      onPopupVisibleChange,
     };
   },
 });

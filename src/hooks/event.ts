@@ -1,27 +1,26 @@
-import { onBeforeUnmount, onMounted } from 'vue';
+import { getCurrentInstance, onBeforeUnmount, onMounted } from 'vue';
 import { getPropsApiByEvent } from '../utils/helper';
 
 export type EmitEventName = { event: string; method: string } | string;
 
 /**
  * 组件对外传递事件
- * @param props 组件props
- * @param emit 事件名(注意使用中划线)
  * @param args 事件参数
  * @returns {emitEvent}
- * @example useEmitEvent<IProps>(props, emit);
+ * @example const emitEvent = useEmitEvent();
  */
-export function useEmitEvent<P extends Record<string, any>>(props: P, emit: (event: string, ...args: any[]) => void) {
+export function useEmitEvent() {
+  const instance = getCurrentInstance();
   return function emitEvent<T extends any[] = any[]>(eventName: string, ...args: T) {
     let emitEventMethodName: string;
     if (typeof eventName === 'string') {
       emitEventMethodName = getPropsApiByEvent(eventName);
     }
 
-    if (typeof props[emitEventMethodName] === 'function') {
-      props[emitEventMethodName](...args);
+    if (typeof instance.props[emitEventMethodName] === 'function') {
+      (instance.props[emitEventMethodName] as Function)(...args);
     } else {
-      emit(eventName, ...args);
+      instance.emit(eventName, ...args);
     }
   };
 }

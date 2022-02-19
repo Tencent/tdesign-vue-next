@@ -23,33 +23,24 @@
     />
   </div>
 </template>
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
-    const visibleCenter = ref(false);
-    const visibleTop = ref(false);
+const visible = ref(false);
+const visibleCenter = ref(false);
+const visibleTop = ref(false);
+const placement = 'top';
+const top = '50px';
 
-    return {
-      visible,
-      visibleCenter,
-      visibleTop,
-      placement: 'top',
-      top: '50px',
-      close1() {
-        visible.value = false;
-      },
-      close2() {
-        visibleCenter.value = false;
-      },
-      close3() {
-        visibleTop.value = false;
-      },
-    };
-  },
-});
+const close1 = () => {
+  visible.value = false;
+};
+const close2 = () => {
+  visibleCenter.value = false;
+};
+const close3 = () => {
+  visibleTop.value = false;
+};
 </script>
 <style scoped>
 .t-button {

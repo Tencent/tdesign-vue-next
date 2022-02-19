@@ -250,7 +250,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-s t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-s"
                 style="display: none;"
               >
                 <!---->
@@ -450,7 +450,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-s t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-s"
                 style="display: none;"
               >
                 <!---->
@@ -6862,7 +6862,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -6961,7 +6961,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7060,7 +7060,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7149,7 +7149,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -7213,7 +7212,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -7236,6 +7234,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <!-- &lt;t-cascader placeholder="see loading text in Cascader" loading style="width: 400px;" /&gt; -->
   <!-- &lt;br&gt;&lt;br&gt; -->
   <div
+    class="t-select__wrap"
     style="width: 400px;"
   >
     <div
@@ -7301,11 +7300,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           see empty data in TreeSelect
+           
         </span>
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7396,6 +7396,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <br />
   <div
+    class="t-select__wrap"
     style="width: 400px;"
   >
     <div
@@ -7461,11 +7462,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           see loading text in TreeSelect
+           
         </span>
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -7540,6 +7542,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <br />
   <div
+    class="t-select__wrap"
     modelvalue=""
     style="width: 400px;"
   >
@@ -7771,11 +7774,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           style="display: none;"
         >
           tree select
+           
         </span>
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -8692,7 +8696,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <!-- 自定义关闭按钮示例 -->
   <span
-    class="t-tag t-tag--primary t-size-m t-tag--dark t-tag--close"
+    class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"
   >
     <!---->
     
@@ -8718,7 +8722,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     </svg>
   </span>
   <span
-    class="t-tag t-tag--success t-size-m t-tag--dark t-tag--close"
+    class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"
   >
     <!---->
     
@@ -8744,7 +8748,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     </svg>
   </span>
   <span
-    class="t-tag t-tag--warning t-size-m t-tag--dark t-tag--close"
+    class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"
   >
     <!---->
     
@@ -8770,7 +8774,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
     </svg>
   </span>
   <span
-    class="t-tag t-tag--danger t-size-m t-tag--dark t-tag--close"
+    class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"
   >
     <!---->
     
@@ -9194,7 +9198,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->

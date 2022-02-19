@@ -5,8 +5,7 @@
     </t-dropdown>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const options = [
@@ -31,14 +30,6 @@ const options = [
     onClick: () => MessagePlugin.success('选项四'),
   },
 ];
-
-export default defineComponent({
-  setup() {
-    return {
-      options,
-    };
-  },
-});
 </script>
 <style scoped>
 .t-button {

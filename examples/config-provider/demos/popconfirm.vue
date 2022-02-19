@@ -25,36 +25,29 @@
   </t-config-provider>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const drawerVisible = ref(false);
-    return {
-      drawerVisible,
-      globalConfig: {
-        popconfirm: {
-          confirmBtnTheme: {
-            default: 'primary',
-            warning: 'warning',
-            danger: 'danger',
-          },
-          confirm: 'OK',
-          cancel: {
-            theme: 'default',
-            variant: 'outline',
-            content: 'Cancel',
-          },
-        },
-        drawer: {
-          confirm: 'confirm',
-          cancel: 'cancel',
-        },
-      },
-    };
+const drawerVisible = ref(false);
+const globalConfig = {
+  popconfirm: {
+    confirmBtnTheme: {
+      default: 'primary',
+      warning: 'warning',
+      danger: 'danger',
+    },
+    confirm: 'OK',
+    cancel: {
+      theme: 'default',
+      variant: 'outline',
+      content: 'Cancel',
+    },
   },
-});
+  drawer: {
+    confirm: 'confirm',
+    cancel: 'cancel',
+  },
+};
 </script>
 
 <style scoped>

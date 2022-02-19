@@ -40,15 +40,10 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
-    return { visible };
-  },
-});
+const visible = ref(false);
 </script>
 <style scoped>
 .popconfirm-demo .tdesign-demo-block {

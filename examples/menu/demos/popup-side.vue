@@ -51,38 +51,27 @@
   </t-menu>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const collapsed = ref(false);
-    const iconUrl = ref('https://www.tencent.com/img/index/menu_logo_hover.png');
+const collapsed = ref(false);
+const iconUrl = ref('https://www.tencent.com/img/index/menu_logo_hover.png');
 
-    const changeCollapsed = () => {
-      collapsed.value = !collapsed.value;
-      iconUrl.value = collapsed.value
-        ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png'
-        : 'https://www.tencent.com/img/index/menu_logo_hover.png';
-    };
+const changeCollapsed = () => {
+  collapsed.value = !collapsed.value;
+  iconUrl.value = collapsed.value
+    ? 'https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/logo%402x.png'
+    : 'https://www.tencent.com/img/index/menu_logo_hover.png';
+};
 
-    const handleExpand = (names) => {
-      console.log('receive handleExpand', names);
-    };
+const handleExpand = (names) => {
+  console.log('receive handleExpand', names);
+};
 
-    const changeHandler = (active) => {
-      console.warn(active);
-    };
+const changeHandler = (active) => {
+  console.warn(active);
+};
 
-    return {
-      collapsed,
-      iconUrl,
-      changeCollapsed,
-      expanded: ['2'],
-      disabled: true,
-      handleExpand,
-      changeHandler,
-    };
-  },
-});
+const expanded = ['2'];
+const disabled = true;
 </script>

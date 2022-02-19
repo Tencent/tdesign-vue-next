@@ -4,15 +4,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref(undefined);
-    return {
-      value,
-    };
-  },
-});
+const value = ref(undefined);
 </script>

@@ -249,7 +249,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -449,7 +449,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -1612,7 +1612,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -1812,7 +1812,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -2695,7 +2695,7 @@ exports[`Calendar :props :mode 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -3222,7 +3222,7 @@ exports[`Calendar :props :range 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -3422,7 +3422,7 @@ exports[`Calendar :props :range 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -4467,7 +4467,7 @@ exports[`Calendar :props :theme 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -4667,7 +4667,7 @@ exports[`Calendar :props :theme 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -5686,7 +5686,7 @@ exports[`Calendar :props :value 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->
@@ -5886,7 +5886,7 @@ exports[`Calendar :props :value 1`] = `
               
               
               <span
-                class="t-tag t-tag--default t-size-m t-tag--dark"
+                class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
               >
                 <!---->

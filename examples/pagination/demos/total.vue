@@ -4,22 +4,14 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const current = ref(12);
-    const pageSize = ref(10);
-    const total = ref(685);
-    return {
-      current,
-      pageSize,
-      total,
-      renderTotalContent() {
-        return <div class="t-pagination__total">{`共 ${total.value} 项数据`}</div>;
-      },
-    };
-  },
-});
+const current = ref(12);
+const pageSize = ref(10);
+const total = ref(685);
+
+const renderTotalContent = () => {
+  return <div class="t-pagination__total">{`共 ${total.value} 项数据`}</div>;
+};
 </script>

@@ -10,6 +10,9 @@ import { SelectOption } from './type';
 import Checkbox from '../checkbox/index';
 import { ClassName } from '../common';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const selectName = `${prefix}-select`;
 
 export default defineComponent({
@@ -23,7 +26,14 @@ export default defineComponent({
       default: undefined,
     },
   },
+
   props: { ...props },
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       isHover: false,

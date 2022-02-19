@@ -39,29 +39,21 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
-    const visible2 = ref(false);
-    const visible3 = ref(false);
-    return {
-      visible,
-      visible2,
-      visible3,
-      renderFooter() {
-        return (
-          <div>
-            <t-button>confrim</t-button>
-            <t-button variant="outline" onClick={() => (visible2.value = false)}>
-              cancel
-            </t-button>
-          </div>
-        );
-      },
-    };
-  },
-});
+const visible = ref(false);
+const visible2 = ref(false);
+const visible3 = ref(false);
+
+const renderFooter = () => {
+  return (
+    <div>
+      <t-button>confrim</t-button>
+      <t-button variant="outline" onClick={() => (visible2.value = false)}>
+        cancel
+      </t-button>
+    </div>
+  );
+};
 </script>

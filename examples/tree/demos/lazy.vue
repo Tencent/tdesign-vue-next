@@ -30,8 +30,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const items = [
   {
@@ -46,46 +46,34 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const checkable = ref(true);
-    const checkStrictly = ref(false);
+const checkable = ref(true);
+const checkStrictly = ref(false);
 
-    const onLoad = (state) => {
-      console.log('on load:', state);
-    };
+const onLoad = (state) => {
+  console.log('on load:', state);
+};
 
-    const load = (node) =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          let nodes = [];
-          if (node.level < 2) {
-            nodes = [
-              {
-                label: `${node.label}.1`,
-                value: `${node.value}.1`,
-                children: true,
-              },
-              {
-                label: `${node.label}.2`,
-                value: `${node.value}.2`,
-                children: true,
-              },
-            ];
-          }
-          resolve(nodes);
-        }, 1000);
-      });
-
-    return {
-      items,
-      checkable,
-      checkStrictly,
-      onLoad,
-      load,
-    };
-  },
-});
+const load = (node) =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      let nodes = [];
+      if (node.level < 2) {
+        nodes = [
+          {
+            label: `${node.label}.1`,
+            value: `${node.value}.1`,
+            children: true,
+          },
+          {
+            label: `${node.label}.2`,
+            value: `${node.value}.2`,
+            children: true,
+          },
+        ];
+      }
+      resolve(nodes);
+    }, 1000);
+  });
 </script>
 <style scoped>
 .tdesign-tree-demo .t-tree {

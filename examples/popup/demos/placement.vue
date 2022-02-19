@@ -56,7 +56,6 @@
     </t-popup>
   </div>
 </template>
-<script></script>
 <style lang="less" scoped>
 .container {
   margin: 0 auto;

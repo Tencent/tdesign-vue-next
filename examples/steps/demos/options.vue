@@ -2,9 +2,7 @@
   <t-steps :current="current" :options="options" />
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const options = [
   {
     title: '步骤一',
@@ -23,12 +21,5 @@ const options = [
     content: '这里是提示文字',
   },
 ];
-export default defineComponent({
-  setup() {
-    return {
-      current: 1,
-      options,
-    };
-  },
-});
+const current = 1;
 </script>

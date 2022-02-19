@@ -11,6 +11,9 @@ import props from './props';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-input`;
 const INPUT_WRAP_CLASS = `${prefix}-input__wrap`;
 const INPUT_TIPS_CLASS = `${prefix}-input__tips`;
@@ -31,6 +34,12 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       isHover: false,
@@ -42,12 +51,15 @@ export default defineComponent({
     showClear(): boolean {
       return this.value && !this.disabled && this.clearable && this.isHover;
     },
+    tPlaceholder(): string {
+      return this.placeholder ?? this.t(this.global.placeholder);
+    },
     inputAttrs(): Record<string, any> {
       return getValidAttrs({
         autofocus: this.autofocus,
         disabled: this.disabled,
         readonly: this.readonly,
-        placeholder: this.placeholder ?? this.t(this.global.placeholder),
+        placeholder: this.tPlaceholder,
         maxlength: this.maxlength,
         name: this.name || undefined,
         type: this.renderType,
@@ -65,20 +77,28 @@ export default defineComponent({
       },
       immediate: true,
     },
-    value: {
-      handler() {
-        if (!this.autoWidth) return;
-        nextTick(() => {
-          this.updateInputWidth();
-        });
-      },
-      immediate: true,
-    },
   },
+
   created() {
     this.composing = false;
+    if (this.autoWidth) {
+      this.addListenders();
+    }
   },
+
   methods: {
+    addListenders() {
+      this.$watch(
+        () => this.value + this.placeholder,
+        () => {
+          if (!this.autoWidth) return;
+          nextTick(() => {
+            this.updateInputWidth();
+          });
+        },
+        { immediate: true },
+      );
+    },
     mouseEvent(v: boolean) {
       this.isHover = v;
     },
@@ -86,9 +106,11 @@ export default defineComponent({
       if (typeof icon === 'function') {
         return icon(h);
       }
+      // 插槽名称为中划线
       if (this.$slots[iconType]) {
         return this.$slots[iconType](null);
       }
+      // 插槽名称为驼峰
       if (this.$slots[camelCase(iconType)]) {
         return this.$slots[camelCase(iconType)](null);
       }
@@ -279,13 +301,10 @@ export default defineComponent({
           ref="inputRef"
           value={this.value}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
-          onKeyup={() => {
-            this.updateInputWidth();
-          }}
         />
         {this.autoWidth && (
           <span ref="inputPreRef" class={`${prefix}-input__input-pre`}>
-            {this.value || this.placeholder}
+            {this.value || this.tPlaceholder}
           </span>
         )}
         {suffixContent}

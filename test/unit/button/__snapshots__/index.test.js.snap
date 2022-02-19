@@ -48,9 +48,7 @@ exports[`Button :props :content 1`] = `
     <span
       class="t-button__text"
     >
-      
-      bar
-      
+      foo
     </span>
   </button>
   <button
@@ -60,9 +58,7 @@ exports[`Button :props :content 1`] = `
     <span
       class="t-button__text"
     >
-      
-      bar
-      
+      foo
     </span>
   </button>
   <button
@@ -113,6 +109,7 @@ exports[`Button :props :icon function 1`] = `
 exports[`Button :props :loading 1`] = `
 <button
   class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
+  disabled=""
   type="button"
 >
   

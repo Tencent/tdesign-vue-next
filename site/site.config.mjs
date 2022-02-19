@@ -357,7 +357,7 @@ export default {
         {
           title: 'Skeleton  骨架屏',
           name: 'skeleton',
-          path: '/vue/components/skeleton',
+          path: '/vue-next/components/skeleton',
           component: () => import('@/examples/skeleton/skeleton.md'),
         },
         {

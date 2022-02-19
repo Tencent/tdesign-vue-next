@@ -10,23 +10,15 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   { value: 'month', label: '日历' },
   { value: 'year', label: '月历' },
 ];
 
-export default defineComponent({
-  setup() {
-    const mode = ref('year');
-    return {
-      mode,
-      options,
-    };
-  },
-});
+const mode = ref('year');
 </script>
 
 <style scoped>

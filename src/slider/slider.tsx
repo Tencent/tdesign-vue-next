@@ -8,6 +8,9 @@ import TSliderMark from './slider-mark';
 import TSliderButton from './slider-button';
 import { SliderValue, TdSliderProps } from './type';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-slider`;
 interface MarkItem {
   point: number;
@@ -29,6 +32,12 @@ export default defineComponent({
     event: 'change',
   },
   props: { ...props },
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       firstValue: 0,
@@ -438,7 +447,7 @@ export default defineComponent({
               vertical={vertical}
               value={this.firstValue}
               ref="button1"
-              disabled={this.disabled}
+              disabled={disabled}
               tooltip-props={this.tooltipProps}
               onInput={(v: number) => {
                 this.firstValue = v;
@@ -449,7 +458,7 @@ export default defineComponent({
                 vertical={vertical}
                 value={this.secondValue}
                 ref="button2"
-                disabled={this.disabled}
+                disabled={disabled}
                 tooltip-props={this.tooltipProps}
                 onInput={(v: number) => {
                   this.secondValue = v;

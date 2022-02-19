@@ -4,24 +4,18 @@
   </t-config-provider>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    return {
-      current: 1,
-      globalConfig: {
-        pagination: {
-          itemsPerPage: '{size} / page',
-          jumpTo: 'jump to',
-          page: '',
-          total: 'Total {total} items',
-        },
-      },
-    };
+const current = ref(1);
+const globalConfig = {
+  pagination: {
+    itemsPerPage: '{size} / page',
+    jumpTo: 'jump to',
+    page: '',
+    total: 'Total {total} items',
   },
-});
+};
 </script>
 
 <style scoped>

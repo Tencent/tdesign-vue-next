@@ -13,8 +13,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, watch, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const columns = [
   {
@@ -113,15 +113,7 @@ times.forEach((item, i) => {
   const k = i % 10;
   testData[i] = { ...initData[k], id: i + 1 };
 });
-export default defineComponent({
-  setup() {
-    const data = ref([...testData]);
-    const sort = ref({});
 
-    return {
-      data,
-      columns,
-    };
-  },
-});
+const data = ref([...testData]);
+const sort = ref({});
 </script>

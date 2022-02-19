@@ -25,16 +25,8 @@
     </t-list>
   </div>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      imageUrl: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    };
-  },
-});
+<script setup>
+const imageUrl = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>
 <style scoped>
 .t-list {

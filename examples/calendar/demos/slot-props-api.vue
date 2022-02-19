@@ -2,66 +2,56 @@
   <t-calendar :head="renderHead" :cell="renderCell" />
 </template>
 
-<script lang="jsx">
+<script lang="jsx" setup>
 import dayjs from 'dayjs';
-import { defineComponent } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const renderHead = (h, params) => {
-      let title = params.filterDate.getFullYear();
-      if (params.mode === 'month') {
-        title += `-${params.filterDate.getMonth() + 1}`;
-      }
-      title += ' 工作安排';
-      return <div>{title}</div>;
-    };
+const renderHead = (h, params) => {
+  let title = params.filterDate.getFullYear();
+  if (params.mode === 'month') {
+    title += `-${params.filterDate.getMonth() + 1}`;
+  }
+  title += ' 工作安排';
+  return <div>{title}</div>;
+};
 
-    const renderCell = (params) => {
-      const dataList = [
-        {
-          value: 'error',
-          label: '错误事件',
-        },
-        {
-          value: 'waring',
-          label: '警告事件',
-        },
-        {
-          value: 'success',
-          label: '正常事件',
-        },
-      ];
-      return (
-        <div class="calendar-slot-props-api-demo">
-          {(params.mode === 'month'
-            ? dayjs(params.formattedDate).date() === 15
-            : dayjs(params.formattedDate).month() === 7) && (
-            <span>
-              <div class="calendar-slot-props-api-demo-slot-warrper">
-                {dataList.map((item) => (
-                  <div class="item">
-                    <span class={item.value}></span>
-                    {item.label}
-                  </div>
-                ))}
+const renderCell = (params) => {
+  const dataList = [
+    {
+      value: 'error',
+      label: '错误事件',
+    },
+    {
+      value: 'waring',
+      label: '警告事件',
+    },
+    {
+      value: 'success',
+      label: '正常事件',
+    },
+  ];
+  return (
+    <div class="calendar-slot-props-api-demo">
+      {(params.mode === 'month'
+        ? dayjs(params.formattedDate).date() === 15
+        : dayjs(params.formattedDate).month() === 7) && (
+        <span>
+          <div class="calendar-slot-props-api-demo-slot-warrper">
+            {dataList.map((item) => (
+              <div class="item">
+                <span class={item.value}></span>
+                {item.label}
               </div>
-              <div class="shadow" />
-            </span>
-          )}
-          <div class="number">
-            {params.mode === 'year' ? dayjs(params.formattedDate).month() : dayjs(params.formattedDate).date()}
+            ))}
           </div>
-        </div>
-      );
-    };
-
-    return {
-      renderHead,
-      renderCell,
-    };
-  },
-});
+          <div class="shadow" />
+        </span>
+      )}
+      <div class="number">
+        {params.mode === 'year' ? dayjs(params.formattedDate).month() : dayjs(params.formattedDate).date()}
+      </div>
+    </div>
+  );
+};
 </script>
 <style lang="less">
 .calendar-slot-props-api-demo {

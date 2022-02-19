@@ -3,8 +3,8 @@
     <t-transfer v-model="targetValue" theme="primary" :data="list" :checked-value="checkedValue" :search="true" />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const list = [];
 for (let i = 0; i < 20; i++) {
@@ -14,15 +14,6 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-export default defineComponent({
-  setup() {
-    const targetValue = ref([]);
-    const checkedValue = ref([]);
-    return {
-      checkedValue,
-      targetValue,
-      list,
-    };
-  },
-});
+const targetValue = ref([]);
+const checkedValue = ref([]);
 </script>

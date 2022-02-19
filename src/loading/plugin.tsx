@@ -44,7 +44,6 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
 
 function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
   // 全屏加载
-  // 全屏加载
   if (props === true) {
     fullScreenLoadingInstance = createLoading({
       fullscreen: true,

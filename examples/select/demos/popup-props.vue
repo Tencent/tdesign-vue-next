@@ -17,8 +17,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -35,24 +35,14 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('1');
-    const popupProps = {
-      overlayStyle: {
-        width: '300px',
-      },
-    };
-
-    const popupProps2 = {
-      overlayStyle: (trigger) => ({ width: `${trigger.offsetWidth}px` }),
-    };
-    return {
-      value,
-      options,
-      popupProps,
-      popupProps2,
-    };
+const value = ref('1');
+const popupProps = {
+  overlayStyle: {
+    width: '300px',
   },
-});
+};
+
+const popupProps2 = {
+  overlayStyle: (trigger) => ({ width: `${trigger.offsetWidth}px` }),
+};
 </script>

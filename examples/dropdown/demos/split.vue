@@ -3,9 +3,7 @@
     <t-button theme="default" variant="outline"> 下拉菜单 </t-button>
   </t-dropdown>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const options = [
   {
     content: '操作一',
@@ -25,14 +23,6 @@ const options = [
     value: 4,
   },
 ];
-
-export default defineComponent({
-  setup() {
-    return {
-      options,
-    };
-  },
-});
 </script>
 <style scoped>
 .t-button {

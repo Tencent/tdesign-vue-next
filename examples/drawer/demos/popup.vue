@@ -16,14 +16,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      visible: false,
-      mode: 'push',
-      placement: 'right',
-    };
-  },
-};
+<script setup>
+import { ref } from 'vue';
+
+const visible = ref(false);
+const mode = ref('push');
+const placement = ref('right');
 </script>

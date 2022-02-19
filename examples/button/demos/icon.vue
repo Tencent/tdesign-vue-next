@@ -34,24 +34,12 @@
     </div>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent } from 'vue';
+<script setup lang="jsx">
 import { AddIcon, CloudUploadIcon, SearchIcon, CloudDownloadIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: {
-    AddIcon,
-    CloudUploadIcon,
-    CloudDownloadIcon,
-  },
-  setup() {
-    return {
-      renderIcon() {
-        return <SearchIcon />;
-      },
-    };
-  },
-});
+const renderIcon = () => {
+  return <SearchIcon />;
+};
 </script>
 
 <style scoped>

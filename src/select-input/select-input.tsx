@@ -8,8 +8,7 @@ import TagInput, { TagInputValue } from '../tag-input';
 import Input, { InputValue } from '../input';
 import props from './props';
 import { TdSelectInputProps, SelectInputKeys, SelectInputChangeContext } from './type';
-// import { renderTNodeJSX } from '../utils/render-tnode';
-import { useTNodeJSX } from '../hooks/tnode';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import { SelectInputCommonProperties } from './interface';
 
 const DEFAULT_KEYS = {
@@ -54,18 +53,8 @@ export default defineComponent({
     const selectInputRef = ref();
     const tagInputRef = ref();
     const inputRef = ref();
-    const {
-      onTagChange,
-      multiple,
-      value,
-      onInputChange,
-      allowInput,
-      popupVisible,
-      popupProps,
-      borderless,
-      onMouseenter,
-      onMouseleave,
-    } = toRefs(props);
+    const { onTagChange, multiple, value, onInputChange, allowInput, popupVisible, popupProps, borderless } =
+      toRefs(props);
     const inputValue = ref();
     const innerPopupVisible = ref(false);
 
@@ -146,8 +135,10 @@ export default defineComponent({
     };
 
     const onInnerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
-      innerPopupVisible.value = visible;
-      props.onPopupVisibleChange?.(visible, context);
+      // 如果点击触发元素（输入框），则永久显示下拉框
+      const newVisible = context.trigger === 'trigger-element-click' ? true : visible;
+      innerPopupVisible.value = newVisible;
+      props.onPopupVisibleChange?.(newVisible, context);
     };
 
     const onInnerClear = (context: { e: MouseEvent }) => {
@@ -179,11 +170,9 @@ export default defineComponent({
     // 浮层显示的受控与非受控
     const visibleProps = { visible: this.popupVisible ?? this.innerPopupVisible };
     // 单选，值的呈现方式
-    const singleValueDisplay = !this.multiple
-      ? useTNodeJSX('valueDisplay', { props: this.$props, slots: this.$slots })
-      : null;
+    const singleValueDisplay = !this.multiple ? renderTNodeJSX(this, 'valueDisplay') : null;
     // 左侧文本
-    const label = useTNodeJSX('label', { props: this.$props, slots: this.$slots });
+    const label = renderTNodeJSX(this, 'label');
     const prefix = [singleValueDisplay, label].filter((v) => v);
     return (
       <Popup

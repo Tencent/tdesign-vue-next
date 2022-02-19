@@ -27,8 +27,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -65,19 +65,9 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value1 = ref([]);
-    const value2 = ref([]);
-    const value3 = ref([]);
-    return {
-      value1,
-      value2,
-      value3,
-      options,
-    };
-  },
-});
+const value1 = ref([]);
+const value2 = ref([]);
+const value3 = ref([]);
 </script>
 <style scoped>
 .t-demo-cascader + .t-demo-cascader {

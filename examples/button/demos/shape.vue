@@ -90,12 +90,6 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import { CalendarIcon } from 'tdesign-icons-vue-next';
-
-export default {
-  components: {
-    CalendarIcon,
-  },
-};
 </script>

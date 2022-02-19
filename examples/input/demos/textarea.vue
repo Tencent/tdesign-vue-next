@@ -4,15 +4,8 @@
     <t-textarea v-model="value" placeholder="请输入内容"></t-textarea>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
-    return {
-      value,
-    };
-  },
-});
+const value = ref('');
 </script>

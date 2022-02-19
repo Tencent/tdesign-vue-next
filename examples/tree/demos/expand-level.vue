@@ -4,9 +4,7 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const items = [
   {
     label: '1',
@@ -47,14 +45,6 @@ const items = [
     ],
   },
 ];
-
-export default defineComponent({
-  setup() {
-    return {
-      items,
-    };
-  },
-});
 </script>
 <style scoped>
 .demo-tree-base {

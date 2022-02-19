@@ -103,7 +103,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -240,7 +240,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -422,7 +422,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="选项一"
         >
@@ -450,7 +450,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%; display: none;"
           title="选项三"
         >
@@ -479,7 +479,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         </span>
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
         >
           <!---->
           
@@ -657,7 +657,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="选项一"
         >
@@ -685,7 +685,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%; display: none;"
           title="选项三"
         >
@@ -912,7 +912,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="选项一"
         >
@@ -940,7 +940,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%; display: none;"
           title="选项三"
         >
@@ -1106,7 +1106,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -1437,7 +1437,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -1774,7 +1774,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -2100,7 +2100,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         >
           <!---->
           
@@ -2124,7 +2124,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         >
           <!---->
           
@@ -2148,7 +2148,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         >
           <!---->
           
@@ -2173,7 +2173,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
         </span>
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -2497,7 +2497,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         >
           <!---->
           
@@ -2518,7 +2518,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         >
           <!---->
           
@@ -2539,7 +2539,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         >
           <!---->
           
@@ -2560,7 +2560,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
         >
           <!---->
           
@@ -2583,7 +2583,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -2699,7 +2699,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -2876,7 +2876,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--disabled"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--disabled t-size-m"
           style="max-width: 100%;"
           title="shanghai"
         >
@@ -2892,7 +2892,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
           <!---->
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--disabled"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--disabled t-size-m"
           style="max-width: 100%;"
           title="beijing"
         >
@@ -2909,7 +2909,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         </span>
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -3020,7 +3020,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -3213,7 +3213,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -3379,7 +3379,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -3589,7 +3589,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -3700,7 +3700,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -3882,7 +3882,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="选项一"
         >
@@ -3911,7 +3911,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
         </span>
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -4099,7 +4099,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -4358,7 +4358,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="架构云"
         >
@@ -4386,7 +4386,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%; display: none;"
           title="区块链"
         >
@@ -4415,7 +4415,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         </span>
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
         >
           <!---->
           
@@ -4673,7 +4673,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="1"
         >
@@ -4701,7 +4701,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="2"
         >
@@ -4729,7 +4729,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="3"
         >
@@ -4757,7 +4757,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="4"
         >
@@ -4785,7 +4785,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="5"
         >
@@ -4813,7 +4813,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="6"
         >
@@ -4842,7 +4842,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         </span>
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -5096,7 +5096,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="区块链"
         >
@@ -5124,7 +5124,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%;"
           title="人工智能"
         >
@@ -5152,7 +5152,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%; display: none;"
           title="计算场景"
         >
@@ -5180,7 +5180,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
           </svg>
         </span>
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis t-tag--close"
+          class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
           style="max-width: 100%; display: none;"
           title="大数据"
         >
@@ -5209,7 +5209,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         </span>
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
         >
           <!---->
           
@@ -5319,7 +5319,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -5468,7 +5468,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -5604,7 +5604,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -5715,7 +5715,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -5826,7 +5826,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -5957,7 +5957,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -6068,7 +6068,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -6194,7 +6194,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -6339,7 +6339,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-s t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-s"
           style="display: none;"
         >
           <!---->
@@ -6450,7 +6450,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -6561,7 +6561,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-l t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-l"
           style="display: none;"
         >
           <!---->
@@ -6690,7 +6690,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -6812,7 +6812,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->
@@ -6909,7 +6909,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         
         
         <span
-          class="t-tag t-tag--default t-size-m t-tag--dark"
+          class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
         >
           <!---->

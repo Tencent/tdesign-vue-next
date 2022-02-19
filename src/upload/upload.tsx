@@ -33,6 +33,9 @@ import {
   SizeLimitObj,
 } from './type';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-upload`;
 
 /**
@@ -93,6 +96,12 @@ export default defineComponent({
   },
 
   props: { ...props },
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
 
   data() {
     return {

@@ -24,6 +24,9 @@ import { firstUpperCase, extractTimeFormat } from '../_common/js/date-picker/uti
 import { DateValue, PickContext } from './interface';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 dayjs.extend(isBetween);
 
 const onOpenDebounce = debounce((vm?: any) => {
@@ -46,6 +49,12 @@ export default defineComponent({
   },
   props,
   emits: ['input', 'open', 'close', 'focus', 'click', 'change', 'pick'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       tempValue: '' as string | number | dayjs.Dayjs | Date,

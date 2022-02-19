@@ -4131,7 +4131,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-s t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-s"
                   style="display: none;"
                 >
                   <!---->

@@ -7,34 +7,24 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
+const visible = ref(false);
 
-    const handleClick = () => {
-      visible.value = true;
-    };
+const handleClick = () => {
+  visible.value = true;
+};
 
-    const onClickConfirm = () => {
-      MessagePlugin.info('数据保存中...', 1000);
-      const timer = setTimeout(() => {
-        clearTimeout(timer);
-        visible.value = false;
-        MessagePlugin.info('数据保存成功!');
-      }, 1000);
-    };
-
-    return {
-      visible,
-      handleClick,
-      onClickConfirm,
-    };
-  },
-});
+const onClickConfirm = () => {
+  MessagePlugin.info('数据保存中...', 1000);
+  const timer = setTimeout(() => {
+    clearTimeout(timer);
+    visible.value = false;
+    MessagePlugin.info('数据保存成功!');
+  }, 1000);
+};
 </script>
 <style scoped>
 .t-button {

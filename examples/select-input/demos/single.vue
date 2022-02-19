@@ -40,7 +40,6 @@ export default defineComponent({
   name: 'SelectInputSingle',
   components: { ChevronDownIcon },
   setup() {
-    const visible = ref(false);
     // const selectValue = ref('tdesign-vue');
     const selectValue = ref({ label: 'tdesign-vue', value: 1 });
     // const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
@@ -58,11 +57,11 @@ export default defineComponent({
     };
 
     const onPopupVisibleChange = (val, context) => {
+      console.log(context);
       popupVisible.value = val;
     };
 
     return {
-      visible,
       selectValue,
       options: OPTIONS,
       popupVisible,

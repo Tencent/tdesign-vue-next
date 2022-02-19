@@ -38,24 +38,14 @@
   </t-menu>
 </template>
 
-<script>
-import { defineComponent, ref, computed } from 'vue';
+<script setup>
+import { ref, computed } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const collapsed = ref(true);
+const collapsed = ref(true);
 
-    const iconName = computed(() => (collapsed.value ? 'chevron-right' : 'chevron-left'));
+const iconName = computed(() => (collapsed.value ? 'chevron-right' : 'chevron-left'));
 
-    const changeCollapsed = () => {
-      collapsed.value = !collapsed.value;
-    };
-
-    return {
-      iconName,
-      collapsed,
-      changeCollapsed,
-    };
-  },
-});
+const changeCollapsed = () => {
+  collapsed.value = !collapsed.value;
+};
 </script>

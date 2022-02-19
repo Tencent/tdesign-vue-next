@@ -31,8 +31,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script lang="jsx" setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -69,43 +69,32 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref(['1.1', '1.2', '1.3']);
+const value = ref(['1.1', '1.2', '1.3']);
 
-    const handleBlur = (e) => {
-      console.log(e);
-    };
+const handleBlur = (e) => {
+  console.log(e);
+};
 
-    const collapsedItems = (h, { value, count }) => {
-      if (!(value instanceof Array) || !count) return;
-      return (
-        <t-popup
-          v-slots={{
-            content: () => (
-              <div>
-                {value.map((item) => (
-                  <p style="padding: 10px;">{item.label}</p>
-                ))}
-              </div>
-            ),
-          }}
-        >
-          <span v-show={count > 0} style="color: #ED7B2F;">
-            +{count}
-          </span>
-        </t-popup>
-      );
-    };
-
-    return {
-      value,
-      options,
-      handleBlur,
-      collapsedItems,
-    };
-  },
-});
+const collapsedItems = (h, { value, count }) => {
+  if (!(value instanceof Array) || !count) return;
+  return (
+    <t-popup
+      v-slots={{
+        content: () => (
+          <div>
+            {value.map((item) => (
+              <p style="padding: 10px;">{item.label}</p>
+            ))}
+          </div>
+        ),
+      }}
+    >
+      <span v-show={count > 0} style="color: #ED7B2F;">
+        +{count}
+      </span>
+    </t-popup>
+  );
+};
 </script>
 <style scoped>
 .t-demo-cascader + .t-demo-cascader {

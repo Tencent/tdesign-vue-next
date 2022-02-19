@@ -15,33 +15,22 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   { value: 'full', label: '全屏风格' },
   { value: 'card', label: '卡片风格' },
 ];
-export default defineComponent({
-  setup() {
-    const theme = ref('card');
-    const myCalendar = ref('');
-    const fillWithZero = ref(true);
-    const toCurrent = () => {
-      if (myCalendar.value) {
-        myCalendar.value.toCurrent();
-      }
-    };
 
-    return {
-      fillWithZero,
-      theme,
-      options,
-      myCalendar,
-      toCurrent,
-    };
-  },
-});
+const theme = ref('card');
+const myCalendar = ref('');
+const fillWithZero = ref(true);
+const toCurrent = () => {
+  if (myCalendar.value) {
+    myCalendar.value.toCurrent();
+  }
+};
 </script>
 
 <style scoped>
