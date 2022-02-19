@@ -15,8 +15,8 @@ docClass: timeline
   * 修复 `FormItem.rules` 优先级没有大于 `Form.rules` 的问题
 * Progress: 修复环状进度条小于 5% 时渲染错误 ([pr #329](https://github.com/Tencent/tdesign-vue-next/pull/329)), ([@uyarn](https://github.com/uyarn))
 * TimePicker: 修复部分鼠标滚动选择出现偏差 ([pr #324](https://github.com/Tencent/tdesign-vue-next/pull/324)), ([@uyarn](https://github.com/uyarn))
-* Input: 修复 `prefixIcon`, `suffixIcon` 对驼峰写法不支持 ([pr #324](https://github.com/Tencent/tdesign-vue-next/pull/324))
-* Cascader 解决value类型为Number时，数据回填异常及clearable失效问题 ([ccf478b](https://github.com/Tencent/tdesign-vue-next/commit/ccf478be940daf95ea64667be96ccd27637f283a))
+* Input: 修复 `prefixIcon`, `suffixIcon` 对驼峰写法不支持 ([pr #318](https://github.com/Tencent/tdesign-vue-next/pull/318))
+* Cascader 解决 `value` 类型为 `Number` 时，数据回填异常及 `clearable` 失效问题 ([ccf478b](https://github.com/Tencent/tdesign-vue-next/commit/ccf478be940daf95ea64667be96ccd27637f283a))
 * Textarea: 修复 `value` 未定义时字数统计展示异常的问题 ([pr #298](https://github.com/Tencent/tdesign-vue-next/pull/298)), ([issue #387](https://github.com/Tencent/tdesign-vue-next/issues/387))
 * Loading: 修复存在 `attach` 时，当 `loading` 设置为 `false`，无法隐藏加载元素 ([pr #315](https://github.com/Tencent/tdesign-vue-next/pull/315))
 * Dialog: 修复展开动画位置 ([pr #312](https://github.com/Tencent/tdesign-vue-next/pull/312))
