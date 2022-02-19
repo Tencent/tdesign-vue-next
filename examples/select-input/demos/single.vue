@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- :popup-props="{ trigger: 'hover' }" -->
     <t-select-input
       :value="selectValue"
       :popup-visible="popupVisible"

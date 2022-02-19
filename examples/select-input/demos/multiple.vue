@@ -15,6 +15,7 @@
       />
     </div>
     <br /><br />
+    <!-- :popup-props="{ trigger: 'hover' }" -->
     <t-select-input
       :value="value"
       :allow-input="allowInput"

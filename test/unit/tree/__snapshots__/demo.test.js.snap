@@ -1486,11 +1486,11 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -1510,11 +1510,11 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -1534,11 +1534,11 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -3907,11 +3907,11 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -7350,11 +7350,11 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
       </div>
@@ -7965,11 +7965,11 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -7989,11 +7989,11 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8013,11 +8013,11 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8496,11 +8496,11 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8520,11 +8520,11 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8544,11 +8544,11 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>

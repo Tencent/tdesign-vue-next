@@ -115,11 +115,11 @@ exports[`Form Form alignVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -157,11 +157,11 @@ exports[`Form Form alignVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -271,11 +271,11 @@ exports[`Form Form baseVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入内容"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -313,11 +313,11 @@ exports[`Form Form baseVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入内容"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -631,11 +631,11 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -673,11 +673,11 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -740,11 +740,11 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -929,11 +929,11 @@ exports[`Form Form layoutVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -970,11 +970,11 @@ exports[`Form Form layoutVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -1054,11 +1054,11 @@ exports[`Form Form loginVue demo works fine 1`] = `
             </span>
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入账户名"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1109,11 +1109,11 @@ exports[`Form Form loginVue demo works fine 1`] = `
             </span>
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入密码"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -1280,11 +1280,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="校验不通过状态"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1322,13 +1322,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="校验警告状态"
               type="text"
             />
             <!---->
             <!---->
+            <!---->
           </div>
           
           <!---->
@@ -1364,13 +1364,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="不带绿色边框的成功状态"
               type="text"
             />
             <!---->
             <!---->
+            <!---->
           </div>
           
           <!---->
@@ -1406,11 +1406,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="带绿色边框的成功状态"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1448,11 +1448,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="隐藏状态图标"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1490,11 +1490,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="校验警告状态"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1532,11 +1532,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="正在校验中，请稍等"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1609,11 +1609,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="自定义右侧图标"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1663,11 +1663,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1796,11 +1796,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1841,11 +1841,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1887,11 +1887,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -1950,11 +1950,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -2332,11 +2332,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -2374,11 +2374,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>

@@ -1,21 +1,12 @@
-import { computed, defineComponent, ref, toRefs, watch } from 'vue';
-import isObject from 'lodash/isObject';
-import pick from 'lodash/pick';
-import isFunction from 'lodash/isFunction';
-import Popup, { TdPopupProps, PopupVisibleChangeContext } from '../popup';
+import { computed, defineComponent, ref, SetupContext, toRefs } from 'vue';
+import Popup from '../popup';
 import { prefix } from '../config';
-import TagInput, { TagInputValue } from '../tag-input';
-import Input, { InputValue } from '../input';
 import props from './props';
-import { TdSelectInputProps, SelectInputKeys, SelectInputChangeContext } from './type';
+import useSingle from './useSingle';
+import useMultiple from './useMultiple';
+import useOverlayStyle from './useOverlayStyle';
+import { TdSelectInputProps } from './type';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { SelectInputCommonProperties } from './interface';
-
-const DEFAULT_KEYS = {
-  label: 'label',
-  key: 'key',
-  children: 'children',
-};
 
 const NAME_CLASS = `${prefix}-select-input`;
 const BASE_CLASS_BORDERLESS = `${prefix}-select-input--borderless`;
@@ -23,40 +14,18 @@ const BASE_CLASS_MULTIPLE = `${prefix}-select-input--multiple`;
 const BASE_CLASS_POPUP_VISIBLE = `${prefix}-select-input--popup-visible`;
 const BASE_CLASS_EMPTY = `${prefix}-select-input--empty`;
 
-// 单位：px
-const MAX_POPUP_WIDTH = 1000;
-
-const COMMON_PROPERTIES = [
-  'status',
-  'tips',
-  'clearable',
-  'disabled',
-  'label',
-  'placeholder',
-  'readonly',
-  'suffix',
-  'suffixIcon',
-  'onPaste',
-  'onBlur',
-  'onFocus',
-  'onEnter',
-  'onMouseenter',
-  'onMouseleave',
-];
-
 export default defineComponent({
   name: 'TSelectInput',
 
   props: { ...props },
 
-  setup(props: TdSelectInputProps) {
+  setup(props: TdSelectInputProps, context: SetupContext) {
     const selectInputRef = ref();
     const tagInputRef = ref();
-    const inputRef = ref();
-    const { onTagChange, multiple, value, onInputChange, allowInput, popupVisible, popupProps, borderless } =
-      toRefs(props);
-    const inputValue = ref();
-    const innerPopupVisible = ref(false);
+    const { multiple, value, popupVisible, popupProps, borderless } = toRefs(props);
+    const { commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context);
+    const { tags, tPlaceholder, renderSelectMultiple } = useMultiple(props, context);
+    const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props, context);
 
     const popupClasses = computed(() => [
       NAME_CLASS,
@@ -68,100 +37,19 @@ export default defineComponent({
       },
     ]);
 
-    const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
-    const tags = computed<TagInputValue>(() => {
-      if (!(props.value instanceof Array)) {
-        return isObject(props.value) ? [props.value[iKeys.value.label]] : [props.value];
-      }
-      return props.value.map((item) => {
-        return isObject(item) ? item[iKeys.value.label] : item;
-      });
-    });
-
-    const commonInputProps = computed<SelectInputCommonProperties>(() => pick(props, COMMON_PROPERTIES));
-    const tOverlayStyle = ref();
-    const tPlaceholder = computed<string>(() => {
-      if (!tags.value || !tags.value.length) return props.placeholder;
-      return '';
-    });
-
-    const isMultipleBorderless = computed(() => multiple.value && borderless.value && tags.value.length);
-
-    const macthWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
-      // 避免因滚动条出现文本省略，预留宽度 8
-      const SCROLLBAR_WIDTH = popupElement.scrollHeight > popupElement.offsetHeight ? 0 : 0;
-      const width =
-        popupElement.offsetWidth + SCROLLBAR_WIDTH >= triggerElement.offsetWidth
-          ? popupElement.offsetWidth
-          : triggerElement.offsetWidth;
-      return {
-        width: `${Math.min(width, MAX_POPUP_WIDTH)}px`,
-      };
-    };
-
-    watch([innerPopupVisible], () => {
-      if (tOverlayStyle.value) return;
-      let result: TdPopupProps['overlayStyle'] = {};
-      const overlayStyle = popupProps.value?.overlayStyle || {};
-      if (isFunction(overlayStyle) || (isObject(overlayStyle) && overlayStyle.width)) {
-        result = overlayStyle;
-      } else if (!borderless.value) {
-        result = macthWidthFunc;
-      }
-      tOverlayStyle.value = result;
-    });
-
-    watch(
-      [tags],
-      () => {
-        inputValue.value = tags.value.join();
-      },
-      { immediate: true },
-    );
-
-    const onTagInputChange = (val: TagInputValue, context: SelectInputChangeContext) => {
-      // 避免触发浮层的显示或隐藏
-      if (context.trigger === 'tag-remove') {
-        context.e?.stopPropagation();
-      }
-      onTagChange.value?.(val, context);
-    };
-
-    const onInnerInputChange = (value: InputValue, context: { e: InputEvent | MouseEvent }) => {
-      if (allowInput.value) {
-        inputValue.value = value;
-        onInputChange.value?.(value, context);
-      }
-    };
-
-    const onInnerPopupVisibleChange = (visible: boolean, context: PopupVisibleChangeContext) => {
-      // 如果点击触发元素（输入框），则永久显示下拉框
-      const newVisible = context.trigger === 'trigger-element-click' ? true : visible;
-      innerPopupVisible.value = newVisible;
-      props.onPopupVisibleChange?.(newVisible, context);
-    };
-
-    const onInnerClear = (context: { e: MouseEvent }) => {
-      context?.e?.stopPropagation();
-      props.onClear?.(context);
-      inputValue.value = '';
-    };
-
     return {
       innerPopupVisible,
-      isMultipleBorderless,
       tags,
-      inputValue,
       commonInputProps,
       tOverlayStyle,
       tPlaceholder,
       selectInputRef,
       tagInputRef,
-      inputRef,
       popupClasses,
+      popupProps,
       onInnerClear,
-      onTagInputChange,
-      onInnerInputChange,
+      renderSelectSingle,
+      renderSelectMultiple,
       onInnerPopupVisibleChange,
     };
   },
@@ -178,7 +66,7 @@ export default defineComponent({
       <Popup
         ref="selectInputRef"
         class={this.popupClasses}
-        trigger={'click'}
+        trigger={this.popupProps?.trigger || 'click'}
         placement="bottom-left"
         content={this.panel}
         v-slots={{ ...this.$slots, content: this.$slots.panel }}
@@ -188,39 +76,16 @@ export default defineComponent({
         {...visibleProps}
         {...this.popupProps}
       >
-        {this.multiple && (
-          <TagInput
-            ref="tagInputRef"
-            {...this.commonInputProps}
-            v-slots={this.$slots}
-            autoWidth={this.borderless}
-            minCollapsedNum={this.minCollapsedNum}
-            collapsedItems={this.collapsedItems}
-            tag={this.tag}
-            valueDisplay={this.valueDisplay}
-            placeholder={this.tPlaceholder}
-            value={this.tags}
-            onChange={this.onTagInputChange}
-            tagProps={this.tagProps}
-            onClear={this.onInnerClear}
-            {...this.tagInputProps}
-          />
-        )}
-        {!this.multiple && (
-          <Input
-            ref="inputRef"
-            {...this.commonInputProps}
-            v-slots={{ ...this.$slots }}
-            autoWidth={this.borderless}
-            placeholder={singleValueDisplay ? '' : this.placeholder}
-            value={singleValueDisplay ? undefined : this.inputValue}
-            label={prefix.length ? () => prefix : undefined}
-            onChange={this.onInnerInputChange}
-            readonly={!this.allowInput}
-            onClear={this.onInnerClear}
-            {...this.inputProps}
-          />
-        )}
+        {this.multiple
+          ? this.renderSelectMultiple({
+              commonInputProps: this.commonInputProps,
+              onInnerClear: this.onInnerClear,
+            })
+          : this.renderSelectSingle({
+              prefix,
+              singleValueDisplay,
+              tPlaceholder: this.tPlaceholder,
+            })}
       </Popup>
     );
   },

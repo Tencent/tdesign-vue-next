@@ -806,12 +806,12 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -1664,12 +1664,12 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
           </span>
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -3303,12 +3303,12 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -4160,12 +4160,12 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -5791,12 +5791,12 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -7411,12 +7411,12 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -9013,12 +9013,12 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="开始时间 至 结束时间"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -10650,12 +10650,12 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -11530,12 +11530,12 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -12373,12 +12373,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -13207,12 +13207,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -14041,12 +14041,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -15641,12 +15641,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -16475,12 +16475,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -17312,12 +17312,12 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -17668,12 +17668,12 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择月份"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -17995,12 +17995,12 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择年份"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"

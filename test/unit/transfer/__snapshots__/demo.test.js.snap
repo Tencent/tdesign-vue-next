@@ -4365,11 +4365,11 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入关键词搜索"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -4982,11 +4982,11 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入关键词搜索"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
