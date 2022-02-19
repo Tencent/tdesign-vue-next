@@ -36,7 +36,7 @@ const OPTIONS = [
   { label: 'tdesign-miniprogram', value: 3 },
   { label: 'tdesign-angular', value: 4 },
   { label: 'tdesign-mobile-vue', value: 5 },
-  { label: 'tdesign-mobile-reacttdesign-mobile-react', value: 6 },
+  { label: 'tdesign-mobile-react', value: 6 },
 ];
 
 export default defineComponent({

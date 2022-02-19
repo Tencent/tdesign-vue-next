@@ -119,6 +119,7 @@ export default defineComponent({
           this.tInputValue = val;
         }}
         onWheel={this.onWheel}
+        autoWidth={this.autoWidth}
         size={this.size}
         readonly={this.readonly}
         disabled={this.disabled}

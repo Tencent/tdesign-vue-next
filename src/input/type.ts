@@ -13,15 +13,15 @@ export interface TdInputProps {
    */
   align?: 'left' | 'center' | 'right';
   /**
-   * 是否开启自动填充功能
-   * @default false
-   */
-  autocomplete?: boolean;
-  /**
    * 自动聚焦
    * @default false
    */
   autofocus?: boolean;
+  /**
+   * 宽度随内容自适应
+   * @default false
+   */
+  autoWidth?: boolean;
   /**
    * 是否可清空
    * @default false

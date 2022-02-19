@@ -4,8 +4,8 @@
       :value="selectValue"
       :popup-visible="popupVisible"
       :suffix-icon="suffixIconRender"
-      borderless
       placeholder="Please Select"
+      borderless
       clearable
       @popup-visible-change="onPopupVisibleChange"
       @clear="onClear"

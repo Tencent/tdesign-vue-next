@@ -10,6 +10,11 @@ import { TNode } from '../common';
 
 export interface TdTagInputProps {
   /**
+   * 宽度随内容自适应
+   * @default false
+   */
+  autoWidth?: boolean;
+  /**
    * 是否可清空
    * @default false
    */

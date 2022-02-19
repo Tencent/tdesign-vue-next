@@ -204,6 +204,7 @@ export default defineComponent({
             ref="tagInputRef"
             {...this.commonInputProps}
             v-slots={this.$slots}
+            autoWidth={this.borderless}
             minCollapsedNum={this.minCollapsedNum}
             collapsedItems={this.collapsedItems}
             tag={this.tag}
@@ -221,6 +222,7 @@ export default defineComponent({
             ref="inputRef"
             {...this.commonInputProps}
             v-slots={{ ...this.$slots }}
+            autoWidth={this.borderless}
             placeholder={singleValueDisplay ? '' : this.placeholder}
             value={singleValueDisplay ? undefined : this.inputValue}
             label={prefix.length ? () => prefix : undefined}

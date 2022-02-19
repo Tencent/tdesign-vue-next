@@ -47,7 +47,6 @@ export default defineComponent({
         autofocus: this.autofocus,
         disabled: this.disabled,
         readonly: this.readonly,
-        autocomplete: this.autocomplete,
         placeholder: this.placeholder ?? this.t(this.global.placeholder),
         maxlength: this.maxlength,
         name: this.name || undefined,
@@ -63,6 +62,15 @@ export default defineComponent({
             (this.$refs.inputRef as HTMLInputElement).focus();
           });
         }
+      },
+      immediate: true,
+    },
+    value: {
+      handler() {
+        if (!this.autoWidth) return;
+        nextTick(() => {
+          this.updateInputWidth();
+        });
       },
       immediate: true,
     },
@@ -189,6 +197,13 @@ export default defineComponent({
       this.mouseEvent(false);
       this.onMouseleave?.({ e });
     },
+
+    updateInputWidth() {
+      const pre = this.$refs.inputPreRef as HTMLSpanElement;
+      if (!pre) return;
+      const width = pre.offsetWidth;
+      (this.$refs.inputRef as HTMLInputElement).style.width = `${width}px`;
+    },
   },
 
   render(): VNodeChild {
@@ -243,6 +258,7 @@ export default defineComponent({
         [`${name}--prefix`]: prefixIcon || labelContent,
         [`${name}--suffix`]: suffixIcon || suffixContent,
         [`${name}--focused`]: this.focused,
+        [`${name}--auto-width`]: this.autoWidth,
       },
     ];
     const inputNode = (
@@ -263,7 +279,15 @@ export default defineComponent({
           ref="inputRef"
           value={this.value}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
+          onKeyup={() => {
+            this.updateInputWidth();
+          }}
         />
+        {this.autoWidth && (
+          <span ref="inputPreRef" class={`${prefix}-input__input-pre`}>
+            {this.value || this.placeholder}
+          </span>
+        )}
         {suffixContent}
         {suffixIcon ? (
           <span class={[`${name}__suffix`, `${name}__suffix-icon`, { [`${name}__clear`]: this.showClear }]}>
