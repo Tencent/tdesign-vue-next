@@ -116,7 +116,7 @@ export interface TdSelectInputProps {
   /**
    * 自定义值呈现的全部内容，参数为所有标签的值
    */
-  valueDisplay?: string | TNode<{ value: SelectInputValue; onClose: () => void }>;
+  valueDisplay?: string | TNode<{ value: SelectInputValue; onClose: (index: number, item?: any) => void }>;
   /**
    * 失去焦点时触发，`context.inputValue` 表示输入框的值；`context.tagInputValue` 表示标签输入框的值
    */
