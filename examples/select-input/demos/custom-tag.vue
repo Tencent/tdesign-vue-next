@@ -71,7 +71,6 @@ const OPTIONS = [
 export default defineComponent({
   name: 'SelectInputCustomTag',
   setup() {
-    const visible = ref(false);
     const selectValue1 = ref({ label: 'tdesign-vue', value: 1 });
     const selectValue2 = ref(['tdesign-vue', 'tdesign-react']);
     const selectValue3 = ref(['tdesign-vue', 'tdesign-react', 'tdesign-mobile-vue']);
@@ -93,7 +92,6 @@ export default defineComponent({
     };
 
     return {
-      visible,
       selectValue1,
       selectValue2,
       selectValue3,
