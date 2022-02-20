@@ -33,11 +33,15 @@
           @change="onCheckedChange"
         />
       </template>
+      <template #suffixIcon>
+        <chevron-down-icon />
+      </template>
     </t-select-input>
   </div>
 </template>
 <script>
 import { computed, defineComponent, ref } from 'vue';
+import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = [
   // 全选
@@ -52,6 +56,7 @@ const OPTIONS = [
 
 export default defineComponent({
   name: 'SelectInputMultiple',
+  components: { ChevronDownIcon },
   setup() {
     const excessTagsDisplayType = ref('break-line');
     const allowInput = ref(true);

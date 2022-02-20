@@ -20,7 +20,7 @@
     <br /><br />
 
     <!-- 多选，第一种方式：使用 tag 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.tag -->
-    <t-select-input :value="selectValue2" placeholder="Please Select" multiple>
+    <t-select-input :value="selectValue2" placeholder="Please Select" multiple @tag-change="onTagChange2">
       <template #tag="{ value }">
         <span>
           <img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img" />
@@ -35,7 +35,7 @@
     <br /><br />
 
     <!-- 多选，第二种方式：使用 valueDisplay 插槽定义全部选中项的内容，也可使用同名渲染函数 props.valueDisplay -->
-    <t-select-input :value="selectValue3" placeholder="Please Select" multiple>
+    <t-select-input :value="selectValue3" placeholder="Please Select" multiple @tag-change="onTagChange3">
       <template #valueDisplay="{ value, onClose }">
         <!-- <span><img src="/favicon.ico" class="tdesign-demo-select-input__img" />{{ value }}</span> -->
         <t-tag
@@ -69,10 +69,12 @@ const OPTIONS = [
 ];
 
 export default defineComponent({
-  name: 'SelectInputSingle',
+  name: 'SelectInputCustomTag',
   setup() {
     const visible = ref(false);
     const selectValue1 = ref({ label: 'tdesign-vue', value: 1 });
+    const selectValue2 = ref(['tdesign-vue', 'tdesign-react']);
+    const selectValue3 = ref(['tdesign-vue', 'tdesign-react', 'tdesign-mobile-vue']);
 
     const onOptionClick = (item) => {
       selectValue1.value = item;
@@ -82,14 +84,24 @@ export default defineComponent({
       selectValue1.value = undefined;
     };
 
+    const onTagChange2 = (val) => {
+      selectValue2.value = val;
+    };
+
+    const onTagChange3 = (val) => {
+      selectValue3.value = val;
+    };
+
     return {
       visible,
       selectValue1,
-      selectValue2: ['tdesign-vue', 'tdesign-react'],
-      selectValue3: ['tdesign-vue', 'tdesign-react', 'tdesign-mobile-vue'],
+      selectValue2,
+      selectValue3,
       options: OPTIONS,
       onOptionClick,
       onClear,
+      onTagChange2,
+      onTagChange3,
     };
   },
 });

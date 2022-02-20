@@ -103,7 +103,10 @@ export default defineComponent({
     );
     // 自定义 Tag 节点
     const displayNode = renderTNode('valueDisplay', {
-      params: { value: this.tagValue },
+      params: {
+        value: this.tagValue,
+        onClose: (index: number, item: any) => this.onClose({ index, item }),
+      },
     });
     // 左侧文本
     const label = renderTNode('label');
