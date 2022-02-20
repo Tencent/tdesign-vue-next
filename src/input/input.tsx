@@ -249,7 +249,7 @@ export default defineComponent({
 
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
-    const label = renderTNodeJSX(this, 'label');
+    const label = renderTNodeJSX(this, 'label', { silent: true });
     const suffix = renderTNodeJSX(this, 'suffix');
 
     const labelContent = label ? <div class={`${name}__prefix`}>{label}</div> : null;

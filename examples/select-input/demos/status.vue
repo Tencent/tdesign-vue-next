@@ -12,7 +12,7 @@
 
     <div>
       <span>只读状态：</span>
-      <t-select-input :value="selectValue" readonly placeholder="Please Select" class="t-demo-normal">
+      <t-select-input :value="selectValue" readonly tips="这是普通状态的文本提示" placeholder="Please Select">
         <template #panel>
           <div class="tdesign-demo__select-empty">暂无数据</div>
         </template>

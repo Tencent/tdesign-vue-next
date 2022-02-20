@@ -8,7 +8,6 @@ import { TdSelectInputProps } from './type';
 export interface RenderSelectSingleInputParams {
   prefixContent: VNode[];
   singleValueDisplay: VNode;
-  tPlaceholder: string;
 }
 
 // single 和 multiple 共有特性

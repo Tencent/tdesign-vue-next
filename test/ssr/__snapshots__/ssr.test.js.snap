@@ -28153,6 +28153,70 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-dis
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vue correctly 1`] = `
+<div>
+  <!-- :popup-props="{ trigger: 'hover' }" -->
+  <!-- 前置内容使用 label 自定义，支持同名插槽 label -->
+  <div class="t-popup__reference t-select-input" style="width:300px;">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content">
+        <!--[-->
+        <ul class="tdesign-demo__selet-input-ul">
+          <!--[-->
+          <li><img src="/favicon.ico"> tdesign-vue</li>
+          <li><img src="/favicon.ico"> tdesign-react</li>
+          <li><img src="/favicon.ico"> tdesign-miniprogram</li>
+          <li><img src="/favicon.ico"> tdesign-angular</li>
+          <li><img src="/favicon.ico"> tdesign-mobile-vue</li>
+          <li><img src="/favicon.ico"> tdesign-mobile-react</li>
+          <!--]-->
+        </ul>
+        <!--]-->
+        <!---->
+      </div>
+    </div>
+    <!--[-->
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->前置内容：
+        <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="tdesign-vue">
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg><!--]--></span>
+    </div>
+    <!--]-->
+  </div><br><br><!-- 后置内容使用 suffix 自定义，支持同名插槽 suffix -->
+  <div class="t-popup__reference t-select-input" style="width:300px;">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content">
+        <!--[-->
+        <ul class="tdesign-demo__selet-input-ul">
+          <!--[-->
+          <li><img src="/favicon.ico"> tdesign-vue</li>
+          <li><img src="/favicon.ico"> tdesign-react</li>
+          <li><img src="/favicon.ico"> tdesign-miniprogram</li>
+          <li><img src="/favicon.ico"> tdesign-angular</li>
+          <li><img src="/favicon.ico"> tdesign-mobile-vue</li>
+          <li><img src="/favicon.ico"> tdesign-mobile-react</li>
+          <!--]-->
+        </ul>
+        <!--]-->
+        <!---->
+      </div>
+    </div>
+    <!--[-->
+    <div class="t-input t-is-readonly t-input--suffix">
+      <!---->
+      <!----><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="tdesign-vue">
+      <!---->
+      <div class="t-input__suffix">单位：元</div><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fillopacity="0.9"></path></svg><!--]--></span>
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/select-input/demos/multiple.vue correctly 1`] = `
 <div class="tdesign-demo__select-input-multiple" style="width:100%;">
   <div><label class="t-checkbox undefined t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否允许输入<!--]--></span></label><label class="t-checkbox undefined t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->允许创建新选项（Enter 创建）<!--]--></span></label></div><br>
@@ -28246,7 +28310,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
     </div>
   </div><br>
   <div><span>只读状态：</span>
-    <div class="t-popup__reference t-select-input t-demo-normal">
+    <div class="t-popup__reference t-select-input">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content">
           <!--[-->
@@ -28256,12 +28320,15 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         </div>
       </div>
       <!--[-->
-      <div class="t-input t-is-readonly">
-        <!---->
-        <!----><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
-        <!---->
-        <!---->
-        <!---->
+      <div class="t-input__wrap">
+        <div class="t-input t-is-readonly">
+          <!---->
+          <!----><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-input__tips t-input__tips--normal">这是普通状态的文本提示</div>
       </div>
       <!--]-->
     </div>

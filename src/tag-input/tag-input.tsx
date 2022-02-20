@@ -4,7 +4,8 @@ import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
-import { useTNodeJSX } from '../hooks/tnode';
+// import { useTNodeJSX } from '../hooks/tnode';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
@@ -19,7 +20,6 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
-    const renderTNode = useTNodeJSX();
     const tInputValue = ref<InputValue>();
     const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);
     const { isHover, addHover, cancelHover } = useHover({
@@ -89,27 +89,25 @@ export default defineComponent({
       onClearClick,
       onClose,
       classes,
-      renderTNode,
       slots: context.slots,
     };
   },
 
   render() {
-    const { renderTNode } = this;
     const suffixIconNode = this.showClearIcon ? (
       <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.onClearClick} />
     ) : (
-      renderTNode('suffixIcon')
+      renderTNodeJSX(this, 'suffixIcon')
     );
     // 自定义 Tag 节点
-    const displayNode = renderTNode('valueDisplay', {
+    const displayNode = renderTNodeJSX(this, 'valueDisplay', {
       params: {
         value: this.tagValue,
         onClose: (index: number, item: any) => this.onClose({ index, item }),
       },
     });
     // 左侧文本
-    const label = renderTNode('label');
+    const label = renderTNodeJSX(this, 'label', { silent: true });
     return (
       <TInput
         ref="tagInputRef"

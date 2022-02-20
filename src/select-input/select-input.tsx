@@ -23,7 +23,7 @@ export default defineComponent({
     const selectInputRef = ref();
     const { multiple, value, popupVisible, popupProps, borderless } = toRefs(props);
     const { commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context);
-    const { tPlaceholder, renderSelectMultiple } = useMultiple(props, context);
+    const { renderSelectMultiple } = useMultiple(props, context);
     const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
 
     const popupClasses = computed(() => [
@@ -40,7 +40,6 @@ export default defineComponent({
       innerPopupVisible,
       commonInputProps,
       tOverlayStyle,
-      tPlaceholder,
       selectInputRef,
       popupClasses,
       popupProps,
@@ -81,7 +80,6 @@ export default defineComponent({
           : this.renderSelectSingle({
               prefixContent,
               singleValueDisplay,
-              tPlaceholder: this.tPlaceholder,
             })}
       </Popup>
     );
