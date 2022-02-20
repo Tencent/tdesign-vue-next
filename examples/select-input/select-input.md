@@ -6,6 +6,7 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 allowInput | Boolean | false | 是否允许输入 | N
+autoWidth | Boolean | false | 宽度随内容自适应 | N
 borderless | Boolean | false | 无边框模式 | N
 clearable | Boolean | false | 是否可清空 | N
 collapsedItems | Slot / Function | - | 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 `collapsedItems` 自定义。`value` 表示所有标签值，`collapsedTags` 表示折叠标签值，`count` 表示总标签数量。TS 类型：`TNode<{ value: SelectInputValue; collapsedTags: SelectInputValue; count: number }>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

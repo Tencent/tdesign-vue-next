@@ -125,3 +125,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.tdesign-demo__pannel-options {
+  width: 100%;
+}
+.tdesign-demo__pannel-options .t-checkbox {
+  display: block;
+  margin: 12px;
+}
+</style>

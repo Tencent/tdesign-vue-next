@@ -19,6 +19,11 @@ export interface TdSelectInputProps {
    */
   allowInput?: boolean;
   /**
+   * 宽度随内容自适应
+   * @default false
+   */
+  autoWidth?: boolean;
+  /**
    * 无边框模式
    * @default false
    */

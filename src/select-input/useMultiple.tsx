@@ -45,7 +45,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         ref="tagInputRef"
         {...p.commonInputProps}
         v-slots={context.slots}
-        autoWidth={props.borderless}
+        autoWidth={props.borderless || props.autoWidth}
         minCollapsedNum={props.minCollapsedNum}
         collapsedItems={props.collapsedItems}
         tag={props.tag}
