@@ -2,7 +2,7 @@
   <div class="tdesign-demo-select-input-status">
     <div>
       <span>禁用状态：</span>
-      <t-select-input :value="selectValue" disabled placeholder="Please Select" class="t-demo-normal">
+      <t-select-input :value="selectValue" disabled tips="这是禁用状态文本提示" placeholder="Please Select">
         <template #panel>
           <div class="tdesign-demo__select-empty">暂无数据</div>
         </template>
@@ -72,10 +72,8 @@ export default defineComponent({
   line-height: 32px;
 }
 
-.tdesign-demo-select-input-status .t-select-input {
+.tdesign-demo-select-input-status .t-select-input__wrap {
   width: 300px;
-}
-.tdesign-demo-select-input-status .t-select-input:not(.t-demo-normal) {
-  vertical-align: -26px;
+  vertical-align: middle;
 }
 </style>

@@ -28289,38 +28289,41 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/single.vue corr
 exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue correctly 1`] = `
 <div class="tdesign-demo-select-input-status">
   <div><span>禁用状态：</span>
-    <div class="t-popup__reference t-select-input t-demo-normal">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content">
-          <!--[-->
-          <div class="tdesign-demo__select-empty">暂无数据</div>
-          <!--]-->
+    <div class="t-select-input__wrap">
+      <div class="t-popup__reference t-select-input">
+        <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+          <div class="t-popup__content">
+            <!--[-->
+            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <!--]-->
+            <!---->
+          </div>
+        </div>
+        <!--[-->
+        <div class="t-input t-is-disabled t-is-readonly">
+          <!---->
+          <!----><input class="t-input__inner" disabled readonly placeholder="Please Select" type="text" value="TDesign">
+          <!---->
+          <!---->
           <!---->
         </div>
+        <!--]-->
       </div>
-      <!--[-->
-      <div class="t-input t-is-disabled t-is-readonly">
-        <!---->
-        <!----><input class="t-input__inner" disabled readonly placeholder="Please Select" type="text" value="TDesign">
-        <!---->
-        <!---->
-        <!---->
-      </div>
-      <!--]-->
+      <div class="t-input__tips t-input__tips--normal">这是禁用状态文本提示</div>
     </div>
   </div><br>
   <div><span>只读状态：</span>
-    <div class="t-popup__reference t-select-input">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content">
-          <!--[-->
-          <div class="tdesign-demo__select-empty">暂无数据</div>
-          <!--]-->
-          <!---->
+    <div class="t-select-input__wrap">
+      <div class="t-popup__reference t-select-input">
+        <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+          <div class="t-popup__content">
+            <!--[-->
+            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <!--]-->
+            <!---->
+          </div>
         </div>
-      </div>
-      <!--[-->
-      <div class="t-input__wrap">
+        <!--[-->
         <div class="t-input t-is-readonly">
           <!---->
           <!----><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
@@ -28328,23 +28331,23 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
           <!---->
           <!---->
         </div>
-        <div class="t-input__tips t-input__tips--normal">这是普通状态的文本提示</div>
+        <!--]-->
       </div>
-      <!--]-->
+      <div class="t-input__tips t-input__tips--normal">这是普通状态的文本提示</div>
     </div>
   </div><br><br>
   <div><span>成功状态：</span>
-    <div class="t-popup__reference t-select-input">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content">
-          <!--[-->
-          <div class="tdesign-demo__select-empty">暂无数据</div>
-          <!--]-->
-          <!---->
+    <div class="t-select-input__wrap">
+      <div class="t-popup__reference t-select-input">
+        <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+          <div class="t-popup__content">
+            <!--[-->
+            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <!--]-->
+            <!---->
+          </div>
         </div>
-      </div>
-      <!--[-->
-      <div class="t-input__wrap">
+        <!--[-->
         <div class="t-input t-is-success t-is-readonly">
           <!---->
           <!----><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
@@ -28352,23 +28355,23 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
           <!---->
           <!---->
         </div>
-        <div class="t-input__tips t-input__tips--success">校验通过文本提示</div>
+        <!--]-->
       </div>
-      <!--]-->
+      <div class="t-input__tips t-input__tips--success">校验通过文本提示</div>
     </div>
   </div><br>
   <div><span>警告状态：</span>
-    <div class="t-popup__reference t-select-input">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content">
-          <!--[-->
-          <div class="tdesign-demo__select-empty">暂无数据</div>
-          <!--]-->
-          <!---->
+    <div class="t-select-input__wrap">
+      <div class="t-popup__reference t-select-input">
+        <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+          <div class="t-popup__content">
+            <!--[-->
+            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <!--]-->
+            <!---->
+          </div>
         </div>
-      </div>
-      <!--[-->
-      <div class="t-input__wrap">
+        <!--[-->
         <div class="t-input t-is-warning t-is-readonly">
           <!---->
           <!----><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
@@ -28376,23 +28379,23 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
           <!---->
           <!---->
         </div>
-        <div class="t-input__tips t-input__tips--warning">校验不通过文本提示</div>
+        <!--]-->
       </div>
-      <!--]-->
+      <div class="t-input__tips t-input__tips--warning">校验不通过文本提示</div>
     </div>
   </div><br>
   <div><span>错误状态：</span>
-    <div class="t-popup__reference t-select-input">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content">
-          <!--[-->
-          <div class="tdesign-demo__select-empty">暂无数据</div>
-          <!--]-->
-          <!---->
+    <div class="t-select-input__wrap">
+      <div class="t-popup__reference t-select-input">
+        <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+          <div class="t-popup__content">
+            <!--[-->
+            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <!--]-->
+            <!---->
+          </div>
         </div>
-      </div>
-      <!--[-->
-      <div class="t-input__wrap">
+        <!--[-->
         <div class="t-input t-is-error t-is-readonly">
           <!---->
           <!----><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
@@ -28400,9 +28403,9 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
           <!---->
           <!---->
         </div>
-        <div class="t-input__tips t-input__tips--error">校验存在严重问题文本提示</div>
+        <!--]-->
       </div>
-      <!--]-->
+      <div class="t-input__tips t-input__tips--error">校验存在严重问题文本提示</div>
     </div>
   </div><br>
 </div>

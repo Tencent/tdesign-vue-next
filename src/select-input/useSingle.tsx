@@ -13,7 +13,6 @@ export interface RenderSelectSingleInputParams {
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
   'status',
-  'tips',
   'clearable',
   'disabled',
   'label',

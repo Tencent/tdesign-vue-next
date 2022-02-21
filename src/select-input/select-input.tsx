@@ -21,6 +21,7 @@ export default defineComponent({
 
   setup(props: TdSelectInputProps, context: SetupContext) {
     const selectInputRef = ref();
+    const selectInputWrapRef = ref();
     const { multiple, value, popupVisible, popupProps, borderless } = toRefs(props);
     const { commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context);
     const { renderSelectMultiple } = useMultiple(props, context);
@@ -37,6 +38,7 @@ export default defineComponent({
     ]);
 
     return {
+      selectInputWrapRef,
       innerPopupVisible,
       commonInputProps,
       tOverlayStyle,
@@ -58,7 +60,8 @@ export default defineComponent({
     // 左侧文本
     const label = renderTNodeJSX(this, 'label');
     const prefixContent = [singleValueDisplay, label].filter((v) => v);
-    return (
+
+    const mainContent = (
       <Popup
         ref="selectInputRef"
         class={this.popupClasses}
@@ -82,6 +85,15 @@ export default defineComponent({
               singleValueDisplay,
             })}
       </Popup>
+    );
+
+    if (!this.tips) return mainContent;
+
+    return (
+      <div ref="selectInputWrapRef" class={`${prefix}-select-input__wrap`}>
+        {mainContent}
+        <div class={`${prefix}-input__tips ${prefix}-input__tips--${this.status || 'normal'}`}>{this.tips}</div>
+      </div>
     );
   },
 });
