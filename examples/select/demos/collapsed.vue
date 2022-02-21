@@ -4,7 +4,7 @@
     <t-select v-model="value" placeholder="请选择" multiple :min-collapsed-num="minCollapsedNum" :options="options" />
     <br /><br />
 
-    <!-- 自定义折叠项内容，collapsedItems 为 function (value, count, size) -->
+    <!-- 自定义折叠项内容，collapsedItems 为渲染函数 (value, count, collapsedSelectedItems) -->
     <t-select
       v-model="value"
       placeholder="请选择"
@@ -15,7 +15,7 @@
     />
     <br /><br />
 
-    <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, size }-->
+    <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, collapsedSelectedItems }-->
     <t-select v-model="value" placeholder="请选择" multiple :min-collapsed-num="minCollapsedNum" :options="options">
       <!-- hover展示折叠部分的已选项 -->
       <template #collapsedItems="{ collapsedSelectedItems, count }">
@@ -31,7 +31,6 @@
     </t-select>
   </div>
 </template>
-
 <script setup lang="jsx">
 import { ref } from 'vue';
 

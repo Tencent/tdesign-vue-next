@@ -41,8 +41,14 @@ export default defineComponent({
   },
   computed: {
     // 键盘上下按键选中hover样式的选项
-    hovering(): boolean {
-      return get(this.tSelect, `hoverOptions[${this.tSelect.hoverIndex}][${this.tSelect.realValue}]`) === this.value;
+    // 键盘上下按键选中hover样式的选项
+    hovering() {
+      return (
+        this.tSelect &&
+        this.tSelect.visible &&
+        this.tSelect.hoverOptions[this.tSelect.hoverIndex] &&
+        this.tSelect.hoverOptions[this.tSelect.hoverIndex][this.tSelect.realValue] === this.value
+      );
     },
     multiLimitDisabled(): boolean {
       if (this.tSelect && this.tSelect.multiple && this.tSelect.max) {

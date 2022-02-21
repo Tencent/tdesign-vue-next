@@ -8,6 +8,7 @@
       filterable
       @blur="handleBlur"
       @focus="handleFocus"
+      @enter="handleEnter"
     />
     <t-select
       v-model="value2"
@@ -18,11 +19,9 @@
       style="width: 400px; display: inline-block"
       @blur="handleBlur"
       @focus="handleFocus"
-      @enter="handleEnter"
     />
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 

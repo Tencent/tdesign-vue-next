@@ -33,6 +33,7 @@ interface KeysType {
 }
 
 const name = `${prefix}-select`;
+const listName = `${name}__list`;
 // trigger元素不超过此宽度时，下拉选项的最大宽度（用户未设置overStyle width时）
 // 用户设置overStyle width时，以设置的为准
 const DEFAULT_MAX_OVERLAY_WIDTH = 500;
@@ -256,13 +257,6 @@ export default defineComponent({
         return this.filterOptions;
       }
       return this.realOptions;
-    },
-    displayOptionsMap(): Map<TdOptionProps, boolean> {
-      const map = new Map();
-      this.displayOptions.forEach((item) => {
-        map.set(item, true);
-      });
-      return map;
     },
     hoverOptions(): Array<TdOptionProps> {
       if (!this.showCreateOption) {
@@ -633,9 +627,11 @@ export default defineComponent({
     },
     renderGroupOptions(options: SelectOptionGroup[]) {
       return (
-        <ul>
+        <ul class={listName}>
           {options.map((groupList: SelectOptionGroup) => {
-            const children = groupList.children.filter((item) => this.displayOptionsMap.get(item));
+            const children = groupList.children.filter((item) =>
+              this.displayOptions.find((child) => child.value === item.value),
+            );
             return (
               <t-option-group label={groupList.group} divider={groupList.divider}>
                 {this.renderOptions(children)}
@@ -648,7 +644,7 @@ export default defineComponent({
     // options 直传时
     renderOptions(options: SelectOption[]) {
       return (
-        <ul>
+        <ul class={listName}>
           {options.map((item: TdOptionProps, index: number) => (
             <t-option
               value={get(item, this.realValue)}
@@ -656,7 +652,7 @@ export default defineComponent({
               content={item.content}
               disabled={item.disabled || this.multiLimitDisabled(get(item, this.realValue))}
               key={index}
-            ></t-option>
+            />
           ))}
         </ul>
       );
@@ -717,7 +713,7 @@ export default defineComponent({
       content: () => (
         <div className={`${prefix}-select__dropdown-inner`}>
           {renderTNodeJSX(this, 'panelTopContent')}
-          <ul v-show={showCreateOption} class={`${name}__create-option`}>
+          <ul v-show={showCreateOption} class={[`${name}__create-option`, listName]}>
             <t-option value={this.searchInput} label={this.searchInput} class={`${name}__create-option--special`} />
           </ul>
           {loading && <div class={tipsClass}>{loadingTextSlot || loadingText}</div>}
@@ -725,7 +721,7 @@ export default defineComponent({
           {!hasOptions && displayOptions.length && !loading ? (
             this.renderDataWithOptions()
           ) : (
-            <ul class={`${prefix}-select__groups`}>{children}</ul>
+            <ul class={[`${prefix}-select__groups`, listName]}>{children}</ul>
           )}
           {renderTNodeJSX(this, 'panelBottomContent')}
         </div>
