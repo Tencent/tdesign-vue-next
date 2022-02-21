@@ -1,3 +1,5 @@
+import orgPkg from '../../../../package.json';
+
 export const htmlContent = `
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
@@ -48,31 +50,37 @@ export const stackblitzRc = `
 `;
 
 export const viteConfigContent = `
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
 
-export default defineConfig({
-  plugins: [vue(), vueJsx()],
-});
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
 `;
 
-export const packageJSON = {
-  name: 'tdesign-vue-next-demo',
-  version: '0.0.0',
-  private: true,
-  scripts: {
-    dev: 'vite',
-    build: 'vite build',
-    serve: 'vite preview',
+export const packageJSONContent = JSON.stringify(
+  {
+    name: 'tdesign-vue-next-demo',
+    version: '0.0.0',
+    private: true,
+    scripts: {
+      dev: 'vite',
+      build: 'vite build',
+      serve: 'vite preview',
+    },
+    dependencies: {
+      vue: orgPkg.devDependencies.vue,
+      'tdesign-vue-next': orgPkg.version,
+      'tdesign-icons-vue-next': orgPkg.dependencies['tdesign-icons-vue-next'],
+    },
+    devDependencies: {
+      vite: orgPkg.devDependencies.vite,
+      '@vue/compiler-sfc': orgPkg.devDependencies['@vue/compiler-sfc'],
+      '@vitejs/plugin-vue': orgPkg.devDependencies['@vitejs/plugin-vue'],
+      '@vitejs/plugin-vue-jsx': orgPkg.devDependencies['@vitejs/plugin-vue-jsx'],
+    },
   },
-  dependencies: {
-    vue: '^3.2.31',
-  },
-  devDependencies: {
-    vite: '^2.8.4',
-    '@vitejs/plugin-vue-jsx': '^1.3.7',
-    '@vitejs/plugin-vue': '^2.2.2',
-    '@vue/compiler-sfc': '^3.2.31',
-  },
-};
+  null,
+  2,
+);
