@@ -21,14 +21,11 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import { orgJsContent, htmlContent, pkgContent, styleContent, viteConfigContent } from './content';
+import { mainJsContent, htmlContent, pkgContent, styleContent, babelContent, vueConfigContent } from './content';
 
-/**
- * 处理 demo 内容，目前是只处理某些外部依赖
- * @param {string}} demoPath demo 路径
- */
+// lang="jsx" 在 webpack 环境中会报错
 function getDemoContent(demoContent) {
-  return demoContent.replace(/@tencent\//g, '').replace(/tdesign-vue-next\/icon\//g, 'tdesign-vue-next/lib/icon/');
+  return demoContent.replace(/lang="jsx"/g, '');
 }
 
 export default defineComponent({
@@ -42,9 +39,7 @@ export default defineComponent({
     const loading = ref(false);
 
     const onRunOnline = () => {
-      const { code, componentName, demoName } = props;
-
-      const mainJsContent = orgJsContent.replace(/componentName/g, componentName).replace(/demoName/g, demoName);
+      const { code } = props;
 
       loading.value = true;
 
@@ -59,7 +54,7 @@ export default defineComponent({
             'package.json': {
               content: pkgContent,
             },
-            'index.html': {
+            'public/index.html': {
               content: htmlContent,
             },
             'src/main.js': {
@@ -71,8 +66,11 @@ export default defineComponent({
             'src/demo.vue': {
               content: getDemoContent(code),
             },
-            'vite.config.js': {
-              content: viteConfigContent,
+            'babel.config.js': {
+              content: babelContent,
+            },
+            'vue.config.js': {
+              content: vueConfigContent,
             },
           },
         }),
