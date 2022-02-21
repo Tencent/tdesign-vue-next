@@ -13,6 +13,10 @@ export interface TdInputProps {
    */
   align?: 'left' | 'center' | 'right';
   /**
+   * 是否开启自动填充功能，HTML5 原生属性
+   */
+  autocomplete?: 'on' | 'off';
+  /**
    * 自动聚焦
    * @default false
    */

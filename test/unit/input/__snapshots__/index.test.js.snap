@@ -42,7 +42,6 @@ exports[`Input $attrs input attrs should pass to input element 1`] = `
 
 exports[`Input :props :autocomplete 1`] = `
 <div
-  autocomplete="true"
   class="t-input"
 >
   <!---->

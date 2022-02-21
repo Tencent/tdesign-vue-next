@@ -16,6 +16,13 @@ export default {
       return ['left', 'center', 'right'].includes(val);
     },
   },
+  /** 是否开启自动填充功能，HTML5 原生属性 */
+  autocomplete: {
+    type: String as PropType<TdInputProps['autocomplete']>,
+    validator(val: TdInputProps['autocomplete']): boolean {
+      return ['on', 'off'].includes(val);
+    },
+  },
   /** 自动聚焦 */
   autofocus: Boolean,
   /** 宽度随内容自适应 */
