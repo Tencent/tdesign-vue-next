@@ -21,37 +21,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import pgk from './package.json';
-import orgPkg from '../../../../package.json';
-pgk.dependencies['tdesign-vue-next'] = orgPkg.version;
-pgk.dependencies['tdesign-icons-vue-next'] = orgPkg.dependencies['tdesign-icons-vue-next'];
-
-const pgkContent = JSON.stringify(pgk, null, 2);
-import orgJsContent from './main.js?raw';
-import htmlContent from './index.html?raw';
-
-const styleContent = `
-/* 竖排展示 demo 行间距 16px */
-.tdesign-demo-block-column {
-  display: flex;
-  flex-direction: column;
-  row-gap: 16px;
-}
-
-/* 竖排展示 demo 行间距 32px */
-.tdesign-demo-block-column-large {
-  display: flex;
-  flex-direction: column;
-  row-gap: 32px;
-}
-
-/* 横排排展示 demo 列间距 16px */
-.tdesign-demo-block-row {
-  display: flex;
-  column-gap: 16px;
-  align-items: center;
-}
-`;
+import { orgJsContent, htmlContent, pkgContent, styleContent, viteConfigContent } from './content';
 
 /**
  * 处理 demo 内容，目前是只处理某些外部依赖
@@ -62,7 +32,7 @@ function getDemoContent(demoContent) {
 }
 
 export default defineComponent({
-  name: 'codesandboxDemo',
+  name: 'CodeSandbox',
   props: {
     code: String,
     demoName: String,
@@ -87,9 +57,9 @@ export default defineComponent({
         body: JSON.stringify({
           files: {
             'package.json': {
-              content: pgkContent,
+              content: pkgContent,
             },
-            'public/index.html': {
+            'index.html': {
               content: htmlContent,
             },
             'src/main.js': {
@@ -100,6 +70,9 @@ export default defineComponent({
             },
             'src/demo.vue': {
               content: getDemoContent(code),
+            },
+            'vite.config.js': {
+              content: viteConfigContent,
             },
           },
         }),

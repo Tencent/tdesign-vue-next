@@ -1,12 +1,11 @@
 <template>
   <div>
-    <t-button @click="info"> 信息 </t-button>
-    <t-button @click="success"> 成功 </t-button>
-    <t-button @click="warning"> 警告 </t-button>
-    <t-button @click="error"> 错误 </t-button>
+    <t-button variant="outline" @click="info">信息</t-button>
+    <t-button variant="outline" @click="success">成功</t-button>
+    <t-button variant="outline" @click="warning">警告</t-button>
+    <t-button variant="outline" @click="error">错误</t-button>
   </div>
 </template>
-
 <script setup>
 import { NotifyPlugin } from 'tdesign-vue-next';
 
@@ -39,7 +38,6 @@ const error = () => {
   });
 };
 </script>
-
 <style scoped>
 .t-button + .t-button {
   margin-left: 10px;

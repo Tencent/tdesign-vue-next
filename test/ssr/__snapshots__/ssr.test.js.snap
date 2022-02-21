@@ -23265,7 +23265,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/base.vue correc
       <div class="t-notification__title__wrap"><span class="t-notification__title">标题名称</span>
         <!---->
       </div>
-      <div class="t-notification__content">这是一条消息通知（展示5秒后消失）</div>
+      <div class="t-notification__content">这是一条消息通知（展示 5 秒后消失）</div>
       <!---->
     </div>
   </div>
@@ -23318,20 +23318,20 @@ exports[`ssr snapshot test renders ./examples/notification/demos/close.vue corre
     <div class="t-notification__main">
       <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(插槽)</span>
         <div class="t-icon-close">
-          <!--[--> x
+          <!--[-->x
           <!--]-->
         </div>
       </div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
-  </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 处理开关事件 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 处理定时关闭事件（3s） <!--]--></span></button>
+  </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->处理开关事件<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->处理定时关闭事件（3s）<!--]--></span></button>
   <!--v-if-->
   <!--v-if-->
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/notification/demos/close-all.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 点击打开多个通知 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button" id="t-demo-msg-close-all"><span class="t-button__text"><!--[--> 点击关闭所有通知 <!--]--></span></button></div>`;
+exports[`ssr snapshot test renders ./examples/notification/demos/close-all.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->点击打开多个通知<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button" id="t-demo-msg-close-all"><span class="t-button__text"><!--[-->点击关闭所有通知<!--]--></span></button></div>`;
 
 exports[`ssr snapshot test renders ./examples/notification/demos/content.vue correctly 1`] = `
 <div>
@@ -23463,7 +23463,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/icon.vue correc
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/notification/demos/offset.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 偏移的信息 <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 偏移的信息 <!--]--></span></button></div>`;
+exports[`ssr snapshot test renders ./examples/notification/demos/offset.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->偏移的信息<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->偏移的信息<!--]--></span></button></div>`;
 
 exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue correctly 1`] = `
 <div>
@@ -23484,11 +23484,23 @@ exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue c
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
+      <div class="t-notification__title__wrap"><span class="t-notification__title">带关闭按钮</span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-message-close" style="">
+          <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
+        </svg></div>
+      <div class="t-notification__content">这是一条消息通知</div>
+      <!---->
+    </div>
+  </div>
+  <div class="t-notification">
+    <div class="t-notification__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled t-is-info" style="">
+        <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
+      </svg></div>
+    <div class="t-notification__main">
       <div class="t-notification__title__wrap"><span class="t-notification__title">消息通知标题</span>
         <!---->
       </div>
       <div class="t-notification__content">使用 function 自定义底部内容</div>
-      <div slot="footer" class="t-notification__detail"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item" type="button"><span class="t-button__text"><!--[-->查看详情<!--]--></span></button></div>
+      <!---->
     </div>
   </div>
   <div class="t-notification">
@@ -23501,7 +23513,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue c
       </div>
       <div class="t-notification__content">1. 使用插槽自定义标题 2. 使用插槽自定义底部内容</div>
       <!--[-->
-      <div class="t-notification__detail"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-notification__detail-item" type="button"><span class="t-button__text"><!--[--> 取消 <!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item" type="button"><span class="t-button__text"><!--[--> 稍后提醒我(10s) <!--]--></span></button></div>
+      <div class="t-notification__detail"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-notification__detail-item" type="button"><span class="t-button__text"><!--[-->取消<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item" type="button"><span class="t-button__text"><!--[--> 稍后提醒我(10s) <!--]--></span></button></div>
       <!--]-->
     </div>
   </div>
@@ -23525,19 +23537,16 @@ exports[`ssr snapshot test renders ./examples/notification/demos/placement.vue c
       <!---->
       <!---->
     </div>
-  </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 左上角 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 右上角 <!--]--></span></button><br><br><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 左下角 <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 右下角 <!--]--></span></button>
+  </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->左上角<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->右上角<!--]--></span></button><br><br><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->左下角<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->右下角<!--]--></span></button>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/notification/demos/plugin.vue correctly 1`] = `
 <div>
-  <!-- this.$notify 和 this.$notification 都支持，两者等价 -->
-  <p>插件调用</p><br>
-  <div>
-    <!-- 隐藏图标 --><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 1000s <!--]--></span></button><!-- 自定义 Icon 示例（Content 也可以使用同样的方式自定义复杂内容） --><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 2000s <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 默认时长 <!--]--></span></button><!-- 0 表示永远不自动消失 --><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 永久显示 <!--]--></span></button>
-  </div><br><br><!-- NotifyPlugin 和 NotificationPlugin 都支持，两者等价 -->
+  <p>插件调用</p><!-- this.$notify 和 this.$notification 都支持，两者等价 --><br>
+  <div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->1000s<!--]--></span></button><!-- 自定义 Icon 示例 --><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->2000s<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->默认时长<!--]--></span></button><!-- 0 表示永远不自动消失 --><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 永久显示 <!--]--></span></button></div><br><br><!-- NotifyPlugin 和 NotificationPlugin 都支持，两者等价 -->
   <p>函数调用</p><br>
-  <div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> info <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> success <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> warning <!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> error <!--]--></span></button></div><br><br>
+  <div class="t-demo-message-theme"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->info<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->success<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->warning<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->error<!--]--></span></button></div><br><br>
 </div>
 `;
 
@@ -23563,14 +23572,17 @@ exports[`ssr snapshot test renders ./examples/notification/demos/size.vue correc
       <div class="t-notification__title__wrap"><span class="t-notification__title">文本内容最多支持三行</span>
         <!---->
       </div>
-      <div class="t-notification__content">这是一条内容为************************************************************************************************************************************************************的消息通知</div>
+      <div class="t-notification__content">这是一条内容为******************************
+        ****************************************************
+        ****************************************************
+        *********************的消息通知</div>
       <!---->
     </div>
   </div>
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/notification/demos/toggle.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 自由控制关闭时机（打开） <!--]--></span></button></div>`;
+exports[`ssr snapshot test renders ./examples/notification/demos/toggle.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->自由控制关闭时机（打开）<!--]--></span></button></div>`;
 
 exports[`ssr snapshot test renders ./examples/notification/demos/type.vue correctly 1`] = `
 <div>
@@ -23625,7 +23637,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/type.vue correc
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/notification/demos/type4Fn.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 信息 <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 成功 <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 警告 <!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 错误 <!--]--></span></button></div>`;
+exports[`ssr snapshot test renders ./examples/notification/demos/type4Fn.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->信息<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->成功<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->警告<!--]--></span></button><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->错误<!--]--></span></button></div>`;
 
 exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctly 1`] = `
 <div>
