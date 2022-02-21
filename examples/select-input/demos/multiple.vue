@@ -21,6 +21,7 @@
       :allow-input="allowInput"
       :placeholder="allowInput ? '请选择或输入' : '请选择'"
       :tag-input-props="{ excessTagsDisplayType }"
+      :popup-props="{ overlayStyle: { maxHeight: '280px', overflow: 'auto' } }"
       clearable
       multiple
       @tag-change="onTagChange"
@@ -62,11 +63,7 @@ export default defineComponent({
     const allowInput = ref(true);
     const creatable = ref(true);
     const options = ref([...OPTIONS]);
-    const value = ref([
-      { label: 'Vue', value: 1 },
-      { label: 'React', value: 2 },
-      { label: 'Miniprogram', value: 3 },
-    ]);
+    const value = ref([]);
 
     const checkboxValue = computed(() => {
       const arr = [];

@@ -69,11 +69,11 @@ export default defineComponent({
         placement="bottom-left"
         content={this.panel}
         v-slots={{ ...this.$slots, content: this.$slots.panel }}
-        overlayStyle={this.tOverlayStyle}
         hideEmptyPopup={true}
         onVisibleChange={this.onInnerPopupVisibleChange}
         {...visibleProps}
         {...this.popupProps}
+        overlayStyle={this.tOverlayStyle}
       >
         {this.multiple
           ? this.renderSelectMultiple({
