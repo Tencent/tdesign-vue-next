@@ -80,5 +80,6 @@ export default defineComponent({
 
 .tdesign-demo__select-input-width .t-select-input {
   width: 380px;
+  vertical-align: middle;
 }
 </style>

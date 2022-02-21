@@ -4,11 +4,7 @@ import pick from 'lodash/pick';
 import Input, { InputValue } from '../input';
 import { SelectInputCommonProperties } from './interface';
 import { TdSelectInputProps } from './type';
-
-export interface RenderSelectSingleInputParams {
-  prefixContent: VNode[];
-  singleValueDisplay: VNode;
-}
+import { useTNodeJSX } from '../hooks/tnode';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -35,6 +31,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const { value } = toRefs(props);
   const inputRef = ref();
   const inputValue = ref<string | number>('');
+  const renderTNode = useTNodeJSX();
 
   const commonInputProps = computed<SelectInputCommonProperties>(() => pick(props, COMMON_PROPERTIES));
 
@@ -60,16 +57,18 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
     { immediate: true },
   );
 
-  const renderSelectSingle = (p: RenderSelectSingleInputParams) => {
+  const renderSelectSingle = () => {
+    const singleValueDisplay = renderTNode('valueDisplay');
+    const prefixContent = [singleValueDisplay, renderTNode('label')];
     return (
       <Input
         ref="inputRef"
         {...commonInputProps.value}
         v-slots={{ ...context.slots }}
         autoWidth={props.borderless || props.autoWidth}
-        placeholder={p.singleValueDisplay ? '' : props.placeholder}
-        value={p.singleValueDisplay ? undefined : inputValue.value}
-        label={p.prefixContent.length ? () => p.prefixContent : undefined}
+        placeholder={singleValueDisplay ? '' : props.placeholder}
+        value={singleValueDisplay ? undefined : inputValue.value}
+        label={prefixContent.length ? () => prefixContent : undefined}
         onChange={onInnerInputChange}
         readonly={!props.allowInput}
         onClear={onInnerClear}

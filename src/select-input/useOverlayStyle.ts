@@ -1,4 +1,4 @@
-import { ref, SetupContext, toRefs, watch } from 'vue';
+import { ref, toRefs, watch } from 'vue';
 import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
 import { TdSelectInputProps } from './type';
@@ -21,7 +21,7 @@ export default function useOverlayStyle(props: TdSelectInputProps) {
         ? popupElement.offsetWidth
         : triggerElement.offsetWidth;
     let otherOverlayStyle: Styles = {};
-    if (typeof popupProps.value.overlayStyle === 'object' && !popupProps.value.overlayStyle.width) {
+    if (popupProps.value && typeof popupProps.value.overlayStyle === 'object' && !popupProps.value.overlayStyle.width) {
       otherOverlayStyle = popupProps.value.overlayStyle;
     }
     return {

@@ -55,11 +55,6 @@ export default defineComponent({
   render() {
     // 浮层显示的受控与非受控
     const visibleProps = { visible: this.popupVisible ?? this.innerPopupVisible };
-    // 单选，值的呈现方式
-    const singleValueDisplay = !this.multiple ? renderTNodeJSX(this, 'valueDisplay') : null;
-    // 左侧文本
-    const label = renderTNodeJSX(this, 'label');
-    const prefixContent = [singleValueDisplay, label].filter((v) => v);
 
     const mainContent = (
       <Popup
@@ -80,10 +75,7 @@ export default defineComponent({
               commonInputProps: this.commonInputProps,
               onInnerClear: this.onInnerClear,
             })
-          : this.renderSelectSingle({
-              prefixContent,
-              singleValueDisplay,
-            })}
+          : this.renderSelectSingle()}
       </Popup>
     );
 
