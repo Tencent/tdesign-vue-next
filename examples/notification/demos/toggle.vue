@@ -1,11 +1,8 @@
 <template>
   <div>
-    <t-button variant="outline" @click="toggle">
-      自由控制关闭时机（{{ notificationFlag ? '关闭' : '打开' }}）
-    </t-button>
+    <t-button variant="outline" @click="toggle">自由控制关闭时机（{{ notification ? '关闭' : '打开' }}）</t-button>
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 import { NotifyPlugin } from 'tdesign-vue-next';
@@ -24,7 +21,6 @@ const toggle = () => {
   }
 };
 </script>
-
 <style scoped>
 .t-button + .t-button {
   margin-left: 16px;
