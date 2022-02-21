@@ -6,12 +6,12 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 align | String | left | 文本内容位置，居左/居中/居右。可选项：left/center/right | N
-autocomplete | String | - | 是否开启自动填充功能，HTML5 原生属性。可选项：on/off | N
+autocomplete | String | - | 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)。可选项：on/off | N
 autofocus | Boolean | false | 自动聚焦 | N
 autoWidth | Boolean | false | 宽度随内容自适应 | N
 clearable | Boolean | false | 是否可清空 | N
 disabled | Boolean | false | 是否禁用输入框 | N
-format | Function | - | 【讨论中】指定输入框展示值的格式。TS 类型：`(value: number | number) => number | string` | N
+format | Function | - | 【开发中】指定输入框展示值的格式。TS 类型：`(value: number | number) => number | string` | N
 label | String / Slot / Function | - | 左侧文本。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 maxcharacter | Number | - | 用户最多可以输入的字符个数，一个中文汉字表示两个字符长度。`maxcharacter` 和 `maxlength` 二选一使用 | N
 maxlength | Number | - | 用户最多可以输入的文本长度。值小于等于 0 的时候，则不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 | N
