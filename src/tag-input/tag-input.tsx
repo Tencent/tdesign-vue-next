@@ -4,7 +4,6 @@ import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
-// import { useTNodeJSX } from '../hooks/tnode';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';

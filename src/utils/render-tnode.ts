@@ -5,7 +5,6 @@ import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
-import log from '../_common/js/log';
 
 export interface JSXRenderContext {
   defaultNode?: VNode | string;
@@ -32,19 +31,14 @@ export function getParams(options?: OptionsType) {
 }
 
 // 同时支持驼峰命名和中划线命名的插槽，示例：value-display 和 valueDisplay
-export function handleSlots(
-  instance: ComponentPublicInstance,
-  params: Record<string, any>,
-  name: string,
-  defaultNode: string | VNode,
-) {
+export function handleSlots(instance: ComponentPublicInstance, params: Record<string, any>, name: string) {
   // 检查是否存在 驼峰命名 的插槽
   let node = instance.$slots[camelCase(name)]?.(params);
   if (node) return node;
   // 检查是否存在 中划线命名 的插槽
   node = instance.$slots[kebabCase(name)]?.(params);
   if (node) return node;
-  return defaultNode;
+  return null;
 }
 
 /**
@@ -77,7 +71,7 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
   // propsNode 为 false 不渲染
   if (propsNode === false) return;
   if (propsNode === true && defaultNode) {
-    return handleSlots(instance, params, name, defaultNode);
+    return handleSlots(instance, params, name) ?? defaultNode;
   }
 
   // 同名 props 和 slot 优先处理 props
@@ -85,7 +79,7 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
   const isPropsEmpty = [undefined, params, ''].includes(propsNode);
   // Props 为空，但插槽存在
   if (isPropsEmpty && (instance.$slots[camelCase(name)] || instance.$slots[kebabCase(name)])) {
-    return handleSlots(instance, params, name, defaultNode);
+    return handleSlots(instance, params, name);
   }
   return propsNode;
 };
