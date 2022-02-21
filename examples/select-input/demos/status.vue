@@ -74,6 +74,6 @@ export default defineComponent({
 
 .tdesign-demo-select-input-status .t-select-input__wrap {
   width: 300px;
-  vertical-align: middle;
+  vertical-align: -26px;
 }
 </style>
