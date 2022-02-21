@@ -88,7 +88,7 @@ export default defineComponent({
                       onClick={(e: MouseEvent) => e.stopPropagation()}
                       key="delete-icon"
                     >
-                      <DeleteIcon nativeOnClick={(e: MouseEvent) => this.remove({ e, file, index })} />
+                      <DeleteIcon onClick={({ e }: { e: MouseEvent }) => this.remove({ e, file, index })} />
                     </span>,
                   ]}
                 </div>
