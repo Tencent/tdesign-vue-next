@@ -14,7 +14,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options"
+          class="tdesign-demo__pannel-options-collapsed"
           @change="onCheckedChange"
         />
       </template>
@@ -37,7 +37,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options"
+          class="tdesign-demo__pannel-options-collapsed"
           @change="onCheckedChange"
         />
       </template>
@@ -69,7 +69,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options"
+          class="tdesign-demo__pannel-options-collapsed"
           @change="onCheckedChange"
         />
       </template>
@@ -156,3 +156,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.tdesign-demo__pannel-options-collapsed {
+  width: 100%;
+}
+.tdesign-demo__pannel-options-collapsed .t-checkbox {
+  display: block;
+  margin: 12px;
+}
+</style>

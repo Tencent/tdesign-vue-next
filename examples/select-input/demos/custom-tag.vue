@@ -9,7 +9,7 @@
         </span>
       </template>
       <template #panel>
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-custom">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
             <img src="/favicon.ico" /> {{ item.label }}
           </li>
@@ -28,7 +28,7 @@
         </span>
       </template>
       <template #panel>
-        <div class="tdesign-demo__select-empty">暂无示意数据</div>
+        <div class="tdesign-demo__select-empty-custom">暂无示意数据</div>
       </template>
     </t-select-input>
 
@@ -50,7 +50,7 @@
         </t-tag>
       </template>
       <template #panel>
-        <div class="tdesign-demo__select-empty">暂无示意数据</div>
+        <div class="tdesign-demo__select-empty-custom">暂无示意数据</div>
       </template>
     </t-select-input>
   </div>
@@ -106,37 +106,28 @@ export default defineComponent({
 </script>
 
 <style>
-.tdesign-demo__selet-input-ul,
-.tdesign-demo__selet-input-ul > li {
+.tdesign-demo__selet-input-ul-custom,
+.tdesign-demo__selet-input-ul-custom > li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.tdesign-demo__selet-input-ul > li {
+.tdesign-demo__selet-input-ul-custom > li {
   line-height: 40px;
   min-width: 200px;
   padding: 0 8px;
 }
 
-.tdesign-demo__selet-input-ul > li:hover {
+.tdesign-demo__selet-input-ul-custom > li:hover {
   background-color: var(--td-bg-color-container-hover);
 }
 
-.tdesign-demo__selet-input-ul > li > img {
+.tdesign-demo__selet-input-ul-custom > li > img {
   max-width: 20px;
   max-height: 20px;
   vertical-align: middle;
   margin-right: 8px;
-}
-
-.tdesign-demo__select-input-block {
-  display: flex;
-  align-items: center;
-}
-
-.tdesign-demo__select-input-block > label {
-  width: 60px;
 }
 
 .tdesign-demo-select-input-custom-tag img.tdesign-demo-select-input__img {
@@ -147,7 +138,7 @@ export default defineComponent({
   margin-right: 4px;
 }
 
-.tdesign-demo__select-empty {
+.tdesign-demo__select-empty-custom {
   text-align: center;
   color: var(--td-text-color-disabled);
   line-height: 32px;

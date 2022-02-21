@@ -13,7 +13,7 @@
       @clear="onClear"
     >
       <template #panel>
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-label-suffix">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
             <img src="/favicon.ico" /> {{ item.label }}
           </li>
@@ -38,7 +38,7 @@
       @clear="onClear"
     >
       <template #panel>
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-label-suffix">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
             <img src="/favicon.ico" /> {{ item.label }}
           </li>
@@ -108,38 +108,27 @@ export default defineComponent({
 </script>
 
 <style>
-/*
-外部样式
-.tdesign-demo__selet-input-ul,
-.tdesign-demo__selet-input-ul > li {
+.tdesign-demo__selet-input-ul-label-suffix,
+.tdesign-demo__selet-input-ul-label-suffix > li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.tdesign-demo__selet-input-ul > li {
+.tdesign-demo__selet-input-ul-label-suffix > li {
   line-height: 40px;
   min-width: 200px;
   padding: 0 8px;
 }
 
-.tdesign-demo__selet-input-ul > li:hover {
+.tdesign-demo__selet-input-ul-label-suffix > li:hover {
   background-color: var(--td-bg-color-container-hover);
 }
 
-.tdesign-demo__selet-input-ul > li > img {
+.tdesign-demo__selet-input-ul-label-suffix > li > img {
   max-width: 20px;
   max-height: 20px;
   vertical-align: middle;
   margin-right: 8px;
 }
-
-.tdesign-demo__select-input-block {
-  display: flex;
-  align-items: center;
-}
-
-.tdesign-demo__select-input-block > label {
-  width: 60px;
-} */
 </style>

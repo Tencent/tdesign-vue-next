@@ -27810,7 +27810,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/autocomplete.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-autocomplete">
           <!--[-->
           <li><img src="/favicon.ico"> Student A</li>
           <li><img src="/favicon.ico"> Student B</li>
@@ -27842,7 +27842,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless.vue 
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-borderless">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -27873,7 +27873,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless-mult
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options">
+        <div class="t-checkbox-group tdesign-demo__pannel-options-multiple-borderless">
           <!--[--><label class="t-checkbox undefined t-is-indeterminate"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->all frameworks<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -27901,7 +27901,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options">
+        <div class="t-checkbox-group tdesign-demo__pannel-options-collapsed">
           <!--[--><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -27926,7 +27926,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options">
+        <div class="t-checkbox-group tdesign-demo__pannel-options-collapsed">
           <!--[--><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -27951,7 +27951,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options">
+        <div class="t-checkbox-group tdesign-demo__pannel-options-collapsed">
           <!--[--><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -27997,7 +27997,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-custom">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -28030,7 +28030,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="tdesign-demo__select-empty">暂无示意数据</div>
+        <div class="tdesign-demo__select-empty-custom">暂无示意数据</div>
         <!--]-->
         <!---->
       </div>
@@ -28060,7 +28060,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="tdesign-demo__select-empty">暂无示意数据</div>
+        <div class="tdesign-demo__select-empty-custom">暂无示意数据</div>
         <!--]-->
         <!---->
       </div>
@@ -28103,7 +28103,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-dis
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options">
+        <div class="t-checkbox-group tdesign-demo__pannel-options-excess">
           <!--[--><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -28129,7 +28129,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-dis
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options">
+        <div class="t-checkbox-group tdesign-demo__pannel-options-excess">
           <!--[--><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -28161,7 +28161,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-label-suffix">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -28191,7 +28191,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-label-suffix">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -28230,7 +28230,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/multiple.vue co
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options">
+        <div class="t-checkbox-group tdesign-demo__pannel-options-multiple">
           <!--[--><label class="t-checkbox undefined t-is-indeterminate"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox undefined t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox undefined"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -28260,7 +28260,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/single.vue corr
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-single">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -28294,7 +28294,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content">
             <!--[-->
-            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <div class="tdesign-demo__select-empty-status">暂无数据</div>
             <!--]-->
             <!---->
           </div>
@@ -28318,7 +28318,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content">
             <!--[-->
-            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <div class="tdesign-demo__select-empty-status">暂无数据</div>
             <!--]-->
             <!---->
           </div>
@@ -28342,7 +28342,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content">
             <!--[-->
-            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <div class="tdesign-demo__select-empty-status">暂无数据</div>
             <!--]-->
             <!---->
           </div>
@@ -28366,7 +28366,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content">
             <!--[-->
-            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <div class="tdesign-demo__select-empty-status">暂无数据</div>
             <!--]-->
             <!---->
           </div>
@@ -28390,7 +28390,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content">
             <!--[-->
-            <div class="tdesign-demo__select-empty">暂无数据</div>
+            <div class="tdesign-demo__select-empty-status">暂无数据</div>
             <!--]-->
             <!---->
           </div>
@@ -28412,13 +28412,13 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
 `;
 
 exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue correctly 1`] = `
-<div class="tdesign-demo-select-input-width">
+<div class="tdesign-demo__select-input-width">
   <div><span>下拉框默认宽度：</span>
     <div class="t-popup__reference t-select-input t-demo-normal">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content">
           <!--[-->
-          <div class="tdesign-demo__select-empty">下拉框宽度和触发元素宽度保持一致（默认）</div>
+          <div class="tdesign-demo__select-empty-width">下拉框宽度和触发元素宽度保持一致（默认）</div>
           <!--]-->
           <!---->
         </div>
@@ -28439,7 +28439,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content">
           <!--[-->
-          <div class="tdesign-demo__select-empty"> 下拉框宽度和触发元素宽度保持一致，但是当下拉框内容宽度超出时，自动撑开下拉框宽度，最大不超过 1000px（默认） </div>
+          <div class="tdesign-demo__select-empty-width"> 下拉框宽度和触发元素宽度保持一致，但是当下拉框内容宽度超出时，自动撑开下拉框宽度，最大不超过 1000px（默认） </div>
           <!--]-->
           <!---->
         </div>
@@ -28460,7 +28460,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content">
           <!--[-->
-          <div class="tdesign-demo__select-empty">宽度随内容宽度自适应</div>
+          <div class="tdesign-demo__select-empty-width">宽度随内容宽度自适应</div>
           <!--]-->
           <!---->
         </div>
@@ -28481,7 +28481,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content">
           <!--[-->
-          <div class="tdesign-demo__select-empty">固定宽度 360px</div>
+          <div class="tdesign-demo__select-empty-width">固定宽度 360px</div>
           <!--]-->
           <!---->
         </div>

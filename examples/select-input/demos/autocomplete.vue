@@ -11,7 +11,7 @@
       @popup-visible-change="onPopupVisibleChange"
     >
       <template #panel>
-        <ul class="tdesign-demo__selet-input-ul">
+        <ul class="tdesign-demo__selet-input-ul-autocomplete">
           <li v-for="item in options" :key="item" @click="() => onOptionClick(item)">
             <img src="/favicon.ico" /> {{ item }}
           </li>
@@ -63,36 +63,27 @@ export default defineComponent({
 </script>
 
 <style>
-.tdesign-demo__selet-input-ul,
-.tdesign-demo__selet-input-ul > li {
+.tdesign-demo__selet-input-ul-autocomplete,
+.tdesign-demo__selet-input-ul-autocomplete > li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.tdesign-demo__selet-input-ul > li {
+.tdesign-demo__selet-input-ul-autocomplete > li {
   line-height: 40px;
   min-width: 200px;
   padding: 0 8px;
 }
 
-.tdesign-demo__selet-input-ul > li:hover {
+.tdesign-demo__selet-input-ul-autocomplete > li:hover {
   background-color: var(--td-bg-color-container-hover);
 }
 
-.tdesign-demo__selet-input-ul > li > img {
+.tdesign-demo__selet-input-ul-autocomplete > li > img {
   max-width: 20px;
   max-height: 20px;
   vertical-align: middle;
   margin-right: 8px;
-}
-
-.tdesign-demo__select-input-block {
-  display: flex;
-  align-items: center;
-}
-
-.tdesign-demo__select-input-block > label {
-  width: 60px;
 }
 </style>

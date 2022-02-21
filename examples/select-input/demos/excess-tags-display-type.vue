@@ -16,7 +16,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options"
+          class="tdesign-demo__pannel-options-excess"
           @change="onCheckedChange"
         />
       </template>
@@ -40,7 +40,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options"
+          class="tdesign-demo__pannel-options-excess"
           @change="onCheckedChange"
         />
       </template>
@@ -120,3 +120,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.tdesign-demo__pannel-options-excess {
+  width: 100%;
+}
+.tdesign-demo__pannel-options-excess .t-checkbox {
+  display: block;
+  margin: 12px;
+}
+</style>

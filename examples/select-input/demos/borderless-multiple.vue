@@ -14,7 +14,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options"
+          class="tdesign-demo__pannel-options-multiple-borderless"
           @change="onCheckedChange"
         />
       </template>
@@ -110,10 +110,10 @@ export default defineComponent({
 </script>
 
 <style>
-.tdesign-demo__pannel-options {
+.tdesign-demo__pannel-options-multiple-borderless {
   width: 100%;
 }
-.tdesign-demo__pannel-options .t-checkbox {
+.tdesign-demo__pannel-options-multiple-borderless .t-checkbox {
   display: block;
   margin: 12px;
 }
