@@ -23,7 +23,7 @@ exports[`Select :props :bordered 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -40,7 +40,7 @@ exports[`Select :props :bordered 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -122,7 +122,7 @@ exports[`Select :props :clearable 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -139,7 +139,7 @@ exports[`Select :props :clearable 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -221,7 +221,7 @@ exports[`Select :props :creatable 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -238,7 +238,7 @@ exports[`Select :props :creatable 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -320,7 +320,7 @@ exports[`Select :props :disabled 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -337,7 +337,7 @@ exports[`Select :props :disabled 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -420,7 +420,7 @@ exports[`Select :props :labelInValue 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -437,7 +437,7 @@ exports[`Select :props :labelInValue 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -519,7 +519,7 @@ exports[`Select :props :loading 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -536,7 +536,7 @@ exports[`Select :props :loading 1`] = `
             </div>
             <!---->
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -628,7 +628,7 @@ exports[`Select :props :multiple 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -663,7 +663,7 @@ exports[`Select :props :multiple 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -745,7 +745,7 @@ exports[`Select :props :placeholder 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -762,7 +762,7 @@ exports[`Select :props :placeholder 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -845,7 +845,7 @@ exports[`Select :props :remote 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -862,7 +862,7 @@ exports[`Select :props :remote 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -944,7 +944,7 @@ exports[`Select :props :reserveKeyword 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -961,7 +961,7 @@ exports[`Select :props :reserveKeyword 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -1043,7 +1043,7 @@ exports[`Select :props :size 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -1060,7 +1060,7 @@ exports[`Select :props :size 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               <!---->
             </ul>
@@ -1143,7 +1143,7 @@ exports[`Select Option :props :disabled 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -1160,7 +1160,7 @@ exports[`Select Option :props :disabled 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               
               <li
@@ -1250,7 +1250,7 @@ exports[`Select Option :props :label 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -1267,7 +1267,7 @@ exports[`Select Option :props :label 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               
               <li
@@ -1357,7 +1357,7 @@ exports[`Select Option :props :value 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -1374,7 +1374,7 @@ exports[`Select Option :props :value 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               
               <li
@@ -1464,7 +1464,7 @@ exports[`Select OptionGroup :props :value 1`] = `
           >
             <!---->
             <ul
-              class="t-select__create-option"
+              class="t-select__create-option t-select__list"
               style="display: none;"
             >
               <li
@@ -1481,11 +1481,11 @@ exports[`Select OptionGroup :props :value 1`] = `
               暂无数据
             </li>
             <ul
-              class="t-select__groups"
+              class="t-select__groups t-select__list"
             >
               
               <li
-                class="t-select-option-group t-size-m"
+                class="t-select-option-group t-size-m t-select-option-group__divider"
               >
                 <div
                   class="t-select-option-group__header"
@@ -1504,7 +1504,7 @@ exports[`Select OptionGroup :props :value 1`] = `
                 </ul>
               </li>
               <li
-                class="t-select-option-group t-size-m"
+                class="t-select-option-group t-size-m t-select-option-group__divider"
               >
                 <div
                   class="t-select-option-group__header"

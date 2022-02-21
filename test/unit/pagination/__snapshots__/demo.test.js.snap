@@ -33,7 +33,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -50,7 +50,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -261,7 +261,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -278,7 +278,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -466,7 +466,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -483,7 +483,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -701,7 +701,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -718,7 +718,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -930,7 +930,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -947,7 +947,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -1181,7 +1181,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1198,7 +1198,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -1410,7 +1410,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1427,7 +1427,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -1551,7 +1551,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1563,7 +1563,9 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <!---->
-                <ul>
+                <ul
+                  class="t-select__list"
+                >
                   
                   <li
                     class="t-select-option t-is-selected t-size-s"
@@ -1796,7 +1798,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1813,7 +1815,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -1937,7 +1939,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1949,7 +1951,9 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <!---->
-                <ul>
+                <ul
+                  class="t-select__list"
+                >
                   
                   <li
                     class="t-select-option t-is-selected t-size-m"
@@ -2182,7 +2186,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -2199,7 +2203,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   

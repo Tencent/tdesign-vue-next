@@ -2197,7 +2197,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                     >
                       <!---->
                       <ul
-                        class="t-select__create-option"
+                        class="t-select__create-option t-select__list"
                         style="display: none;"
                       >
                         <li
@@ -2214,7 +2214,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                         暂无数据
                       </li>
                       <ul
-                        class="t-select__groups"
+                        class="t-select__groups t-select__list"
                       >
                         
                         

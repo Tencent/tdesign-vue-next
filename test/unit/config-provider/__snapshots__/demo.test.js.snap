@@ -42,7 +42,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                   >
                     <!---->
                     <ul
-                      class="t-select__create-option"
+                      class="t-select__create-option t-select__list"
                       style="display: none;"
                     >
                       <li
@@ -59,7 +59,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       暂无数据
                     </li>
                     <ul
-                      class="t-select__groups"
+                      class="t-select__groups t-select__list"
                     >
                       
                       
@@ -314,7 +314,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                   >
                     <!---->
                     <ul
-                      class="t-select__create-option"
+                      class="t-select__create-option t-select__list"
                       style="display: none;"
                     >
                       <li
@@ -331,7 +331,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       暂无数据
                     </li>
                     <ul
-                      class="t-select__groups"
+                      class="t-select__groups t-select__list"
                     >
                       
                       
@@ -6807,7 +6807,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6819,7 +6819,9 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -6919,7 +6921,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6936,7 +6938,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                 Empty Data
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 <!---->
               </ul>
@@ -7018,7 +7020,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -7035,7 +7037,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </div>
               <!---->
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 <!---->
               </ul>
@@ -9134,7 +9136,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -9151,7 +9153,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 
                 

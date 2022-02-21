@@ -28,7 +28,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -40,7 +40,9 @@ exports[`Select Select baseVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -159,7 +161,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -176,7 +178,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 
                 
@@ -301,7 +303,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -331,7 +333,9 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -512,7 +516,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 自定义折叠项内容，collapsedItems 为 function (value, count, size) -->
+  <!-- 自定义折叠项内容，collapsedItems 为渲染函数 (value, count, collapsedSelectedItems) -->
   <div
     class="t-select__wrap"
     modelvalue="1,3"
@@ -536,7 +540,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -566,7 +570,9 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -767,7 +773,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, size }-->
+  <!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, collapsedSelectedItems }-->
   <div
     class="t-select__wrap"
     modelvalue="1,3"
@@ -791,7 +797,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -821,7 +827,9 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -1056,7 +1064,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -1068,7 +1076,9 @@ exports[`Select Select creatableVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -1184,7 +1194,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -1196,7 +1206,9 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -1495,7 +1507,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -1512,7 +1524,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 
                 
@@ -1835,7 +1847,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -1865,7 +1877,9 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -2231,7 +2245,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -2261,7 +2275,9 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -2644,7 +2660,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -2656,7 +2672,9 @@ exports[`Select Select disabledVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -2755,7 +2773,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -2785,7 +2803,9 @@ exports[`Select Select disabledVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -2970,7 +2990,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -2982,7 +3002,9 @@ exports[`Select Select filterableVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -3091,7 +3113,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -3121,7 +3143,9 @@ exports[`Select Select filterableVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -3291,7 +3315,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -3303,10 +3327,12 @@ exports[`Select Select groupVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
-                  class="t-select-option-group t-size-m"
+                  class="t-select-option-group t-size-m t-select-option-group__divider"
                 >
                   <div
                     class="t-select-option-group__header"
@@ -3315,15 +3341,29 @@ exports[`Select Select groupVue demo works fine 1`] = `
                   </div>
                   <ul>
                     
-                    <ul>
+                    <ul
+                      class="t-select__list"
+                    >
                       
+                      <li
+                        class="t-select-option t-size-m"
+                        title="选项一"
+                      >
+                        选项一
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="选项二"
+                      >
+                        选项二
+                      </li>
                       
                     </ul>
                     
                   </ul>
                 </li>
                 <li
-                  class="t-select-option-group t-size-m"
+                  class="t-select-option-group t-size-m t-select-option-group__divider"
                 >
                   <div
                     class="t-select-option-group__header"
@@ -3332,15 +3372,35 @@ exports[`Select Select groupVue demo works fine 1`] = `
                   </div>
                   <ul>
                     
-                    <ul>
+                    <ul
+                      class="t-select__list"
+                    >
                       
+                      <li
+                        class="t-select-option t-size-m"
+                        title="选项三"
+                      >
+                        选项三
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="选项四"
+                      >
+                        选项四
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="选项五"
+                      >
+                        选项五
+                      </li>
                       
                     </ul>
                     
                   </ul>
                 </li>
                 <li
-                  class="t-select-option-group t-size-m"
+                  class="t-select-option-group t-size-m t-select-option-group__divider"
                 >
                   <div
                     class="t-select-option-group__header"
@@ -3349,8 +3409,28 @@ exports[`Select Select groupVue demo works fine 1`] = `
                   </div>
                   <ul>
                     
-                    <ul>
+                    <ul
+                      class="t-select__list"
+                    >
                       
+                      <li
+                        class="t-select-option t-size-m"
+                        title="选项六"
+                      >
+                        选项六
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="选项七"
+                      >
+                        选项七
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="选项八"
+                      >
+                        选项八
+                      </li>
                       
                     </ul>
                     
@@ -3370,12 +3450,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
         class="t-select t-size-m"
       >
         <!---->
-        <span
-          class="t-select__placeholder"
-        >
-           
-          请选择
-        </span>
+        <!---->
         
         
         <span
@@ -3389,7 +3464,22 @@ exports[`Select Select groupVue demo works fine 1`] = `
           <!---->
         </span>
         <!---->
-        <!---->
+        <div
+          class="t-input t-is-readonly t-select__input"
+          modelvalue=""
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="false"
+            class="t-input__inner"
+            placeholder="请选择"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+        </div>
         <svg
           class="t-fake-arrow t-select__right-icon"
           fill="none"
@@ -3435,7 +3525,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -3452,12 +3542,12 @@ exports[`Select Select groupVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 
                 
                 <li
-                  class="t-select-option-group t-size-m"
+                  class="t-select-option-group t-size-m t-select-option-group__divider"
                 >
                   <div
                     class="t-select-option-group__header"
@@ -3488,7 +3578,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                   </ul>
                 </li>
                 <li
-                  class="t-select-option-group t-size-m"
+                  class="t-select-option-group t-size-m t-select-option-group__divider"
                 >
                   <div
                     class="t-select-option-group__header"
@@ -3527,7 +3617,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                   </ul>
                 </li>
                 <li
-                  class="t-select-option-group t-size-m"
+                  class="t-select-option-group t-size-m t-select-option-group__divider"
                 >
                   <div
                     class="t-select-option-group__header"
@@ -3580,12 +3670,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
         class="t-select t-size-m"
       >
         <!---->
-        <span
-          class="t-select__placeholder"
-        >
-           
-          请选择
-        </span>
+        <!---->
         
         
         <span
@@ -3599,7 +3684,22 @@ exports[`Select Select groupVue demo works fine 1`] = `
           <!---->
         </span>
         <!---->
-        <!---->
+        <div
+          class="t-input t-is-readonly t-select__input"
+          modelvalue=""
+        >
+          <!---->
+          <!---->
+          <input
+            autocomplete="false"
+            class="t-input__inner"
+            placeholder="请选择"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+        </div>
         <svg
           class="t-fake-arrow t-select__right-icon"
           fill="none"
@@ -3650,7 +3750,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -3662,7 +3762,9 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -3761,7 +3863,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -3791,7 +3893,9 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -3951,7 +4055,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
   <div
     class="t-select__wrap"
     modelvalue=""
-    style="width: 400px;"
+    style="width: 200px;"
   >
     <div
       class="t-popup__reference t-select__popup-reference"
@@ -3972,7 +4076,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -4002,7 +4106,9 @@ exports[`Select Select maxVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -4162,7 +4268,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -4192,7 +4298,9 @@ exports[`Select Select multipleVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -4387,7 +4495,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         </span>
         <span
           class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
-          style="max-width: 100%; display: none;"
+          style="max-width: 100%;"
           title="区块链"
         >
           <!---->
@@ -4416,10 +4524,11 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
+          style="display: none;"
         >
           <!---->
           
-          +1
+          +2
           
           <!---->
         </span>
@@ -4448,7 +4557,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 自定义选中项内容，valueDisplay 为 function -->
+  <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
   <div
     class="t-select__wrap"
     modelvalue="1,2,3,4,5,6"
@@ -4472,7 +4581,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -4507,7 +4616,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 
                 
@@ -4876,7 +4985,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
   </div>
   <br />
   <br />
-  <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
+  <!-- 超出 2 个的选中项折叠，如果想要自定义折叠项，参考下文「自定义折叠的选中项」 -->
   <div
     class="t-select__wrap"
     modelvalue="3,5,6,2"
@@ -4900,7 +5009,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -4930,7 +5039,9 @@ exports[`Select Select multipleVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -5269,7 +5380,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -5281,7 +5392,9 @@ exports[`Select Select noborderVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -5401,7 +5514,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
               </div>
               
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -5413,7 +5526,9 @@ exports[`Select Select panelVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -5524,7 +5639,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -5541,7 +5656,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 
                 
@@ -5665,7 +5780,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -5677,7 +5792,9 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -5776,7 +5893,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -5788,7 +5905,9 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
@@ -5892,7 +6011,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -5904,7 +6023,9 @@ exports[`Select Select prefixVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -6018,7 +6139,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6030,7 +6151,9 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -6087,7 +6210,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
           <input
             autocomplete="false"
             class="t-input__inner"
-            placeholder="-请选择-"
+            placeholder="请选择"
             readonly=""
             type="text"
           />
@@ -6139,7 +6262,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6174,7 +6297,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 <!---->
               </ul>
@@ -6213,7 +6336,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
           <input
             autocomplete="false"
             class="t-input__inner"
-            placeholder="-请输入搜索-"
+            placeholder="请输入搜索"
             readonly=""
             type="text"
           />
@@ -6270,7 +6393,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6287,7 +6410,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 
                 
@@ -6334,7 +6457,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
            
-          -请选择-
+          请选择
         </span>
         
         
@@ -6395,7 +6518,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6407,7 +6530,9 @@ exports[`Select Select sizeVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -6445,7 +6570,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
            
-          -请选择-
+          请选择
         </span>
         
         
@@ -6506,7 +6631,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6518,7 +6643,9 @@ exports[`Select Select sizeVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-l"
@@ -6556,7 +6683,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
            
-          -请选择-
+          请选择
         </span>
         
         
@@ -6623,7 +6750,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6635,7 +6762,9 @@ exports[`Select Select statusVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -6745,7 +6874,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6757,7 +6886,9 @@ exports[`Select Select statusVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -6867,7 +6998,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6884,7 +7015,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
               </div>
               <!---->
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 <!---->
               </ul>
