@@ -492,7 +492,11 @@ export default defineComponent({
 
     getDefaultTrigger() {
       if (this.theme === 'file-input' || this.showUploadList) {
-        return <t-button variant="outline">选择文件</t-button>;
+        return (
+          <t-button variant="outline" disabled={this.files.length >= this.max}>
+            选择文件
+          </t-button>
+        );
       }
       const iconSlot = { icon: () => <UploadIcon slot="icon" /> };
       return (
