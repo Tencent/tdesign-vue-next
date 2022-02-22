@@ -6,7 +6,6 @@ import { mount } from '@vue/test-utils';
 import addonVue from '@/examples/input/demos/addon.vue';
 import baseVue from '@/examples/input/demos/base.vue';
 import clearableVue from '@/examples/input/demos/clearable.vue';
-import disabledVue from '@/examples/input/demos/disabled.vue';
 import focusVue from '@/examples/input/demos/focus.vue';
 import groupVue from '@/examples/input/demos/group.vue';
 import passwordVue from '@/examples/input/demos/password.vue';
@@ -18,7 +17,6 @@ const mapper = {
   addonVue,
   baseVue,
   clearableVue,
-  disabledVue,
   focusVue,
   groupVue,
   passwordVue,

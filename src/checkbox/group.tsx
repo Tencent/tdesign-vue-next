@@ -8,6 +8,8 @@ import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue, TdCheckboxGroup
 
 const name = `${prefix}-checkbox-group`;
 
+type CheckedChangeType = Parameters<TdCheckboxGroupProps['onChange']>;
+
 export default defineComponent({
   name: 'TCheckboxGroup',
   components: {
@@ -112,8 +114,8 @@ export default defineComponent({
       }
       return option.label;
     },
-    emitChange(val: CheckboxGroupValue, e?: Event) {
-      emitEvent<Parameters<TdCheckboxGroupProps['onChange']>>(this, 'change', val, { e });
+    emitChange(val: CheckboxGroupValue, context: CheckedChangeType[1]) {
+      emitEvent<CheckedChangeType>(this, 'change', val, context);
     },
     handleCheckboxChange(data: { checked: boolean; e: Event; option: TdCheckboxProps }) {
       const currentValue = data.option.value;
@@ -125,7 +127,11 @@ export default defineComponent({
           const i = val.indexOf(currentValue);
           val.splice(i, 1);
         }
-        this.emitChange(val, data.e);
+        this.emitChange(val, {
+          e: data.e,
+          current: data.option.value,
+          type: data.checked ? 'check' : 'uncheck',
+        });
       } else {
         console.warn(`TDesign CheckboxGroup Warn: \`value\` must be an array, instead of ${typeof this.value}`);
       }
@@ -142,7 +148,11 @@ export default defineComponent({
     },
     onCheckAllChange(checked: boolean, context: { e: Event; source?: 't-checkbox' }) {
       const value: CheckboxGroupValue = checked ? this.getAllCheckboxValue() : [];
-      this.emitChange(value, context.e);
+      this.emitChange(value, {
+        e: context.e,
+        type: checked ? 'check' : 'uncheck',
+        current: undefined,
+      });
     },
   },
 

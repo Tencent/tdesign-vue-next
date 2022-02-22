@@ -1,5 +1,8 @@
 <template>
   <div class="tdesign-demo-block-column" style="max-width: 500px">
+    <t-input disabled default-value="禁用状态" />
+    <t-input readonly default-value="只读状态" />
+    <br />
     <t-input default-value="成功状态" />
     <t-input status="success" default-value="成功状态" />
     <t-input status="warning" default-value="警告状态" />

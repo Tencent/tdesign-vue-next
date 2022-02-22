@@ -30,13 +30,13 @@ change | `(checked: boolean, context: { e: Event })` | 值变化时触发
 disabled | Boolean | false | 是否禁用组件 | N
 max | Number | undefined | 支持最多选中的数量 | N
 name | String | - | 统一设置内部复选框 HTML 属性 | N
-options | Array | [] | 以配置形式设置子元素。示例1：`['北京', '上海']` ，示例2: `[{ label: '全选', checkAll: true }, { label: '上海', value: 'shanghai' }]`。checkAll 值为 true 表示当前选项为「全选选项」。TS 类型：`Array<CheckboxOption>`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
-value | Array | [] | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`CheckboxGroupValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
-defaultValue | Array | [] | 选中值。非受控属性。TS 类型：`CheckboxGroupValue`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
-onChange | Function |  | TS 类型：`(value: CheckboxGroupValue, context: { e: Event }) => void`<br/>值变化时触发 | N
+options | Array | [] | 以配置形式设置子元素。示例1：`['北京', '上海']` ，示例2: `[{ label: '全选', checkAll: true }, { label: '上海', value: 'shanghai' }]`。checkAll 值为 true 表示当前选项为「全选选项」。TS 类型：`Array<CheckboxOption>` `type CheckboxOption = string | number | CheckboxOptionObj` `interface CheckboxOptionObj { label?: string | TNode; value?: string | number; disabled?: boolean; name?: string; checkAll?: true }`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts)。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
+value | Array | [] | 选中值。支持语法糖 `v-model` 或 `v-model:value`。TS 类型：`CheckboxGroupValue` `type CheckboxGroupValue = Array<string | number>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
+defaultValue | Array | [] | 选中值。非受控属性。TS 类型：`CheckboxGroupValue` `type CheckboxGroupValue = Array<string | number>`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts) | N
+onChange | Function |  | TS 类型：`(value: CheckboxGroupValue, context: CheckboxGroupChangeContext) => void`<br/>值变化时触发。`context.current` 表示当前变化的数据项，如果是全选则为空；`context.type` 表示引起选中数据变化的是选中或是取消选中。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts)。<br/>`interface CheckboxGroupChangeContext { e: Event; current: CheckboxOption | TdCheckboxProps; type: 'check' | 'uncheck' }`<br/> | N
 
 ### CheckboxGroup Events
 
 名称 | 参数 | 描述
 -- | -- | --
-change | `(value: CheckboxGroupValue, context: { e: Event })` | 值变化时触发
+change | `(value: CheckboxGroupValue, context: CheckboxGroupChangeContext)` | 值变化时触发。`context.current` 表示当前变化的数据项，如果是全选则为空；`context.type` 表示引起选中数据变化的是选中或是取消选中。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/checkbox/type.ts)。<br/>`interface CheckboxGroupChangeContext { e: Event; current: CheckboxOption | TdCheckboxProps; type: 'check' | 'uncheck' }`<br/>
