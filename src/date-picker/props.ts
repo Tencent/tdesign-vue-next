@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdDatePickerProps } from './type';
@@ -11,7 +10,7 @@ import { PropType } from 'vue';
 export default {
   /** 是否允许输入日期 */
   allowInput: Boolean,
-  /** 是否显示清楚按钮 */
+  /** 是否显示清除按钮 */
   clearable: Boolean,
   /** 是否禁用组件 */
   disabled: Boolean,
@@ -28,10 +27,10 @@ export default {
       return [1, 2, 3, 4, 5, 6, 7].includes(val);
     },
   },
-  /** 用于格式化日期，[详细文档](https://day.js.org/docs/en/display/format) */
+  /** 用于格式化日期，全局配置默认为：'YYYY-MM-DD'，[详细文档](https://day.js.org/docs/en/display/format) */
   format: {
     type: String,
-    default: 'YYYY-MM-DD',
+    default: undefined,
   },
   /** 透传给输入框（Input）组件的参数 */
   inputProps: {
@@ -48,6 +47,7 @@ export default {
   /** 占位符 */
   placeholder: {
     type: [String, Array] as PropType<TdDatePickerProps['placeholder']>,
+    default: undefined,
   },
   /** 透传给 popup 组件的参数 */
   popupProps: {
@@ -75,6 +75,8 @@ export default {
   suffixIcon: {
     type: Function as PropType<TdDatePickerProps['suffixIcon']>,
   },
+  /** 透传 TimePicker 组件属性 */
+  timePickerProps: Boolean,
   /** 选中值 */
   value: {
     type: [String, Array, Date] as PropType<TdDatePickerProps['value']>,

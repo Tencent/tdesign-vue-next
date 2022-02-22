@@ -16,15 +16,22 @@ export default {
       return ['left', 'center', 'right'].includes(val);
     },
   },
-  /** 是否开启自动填充功能 */
-  autocomplete: Boolean,
+  /** 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) */
+  autocomplete: {
+    type: String as PropType<TdInputProps['autocomplete']>,
+    validator(val: TdInputProps['autocomplete']): boolean {
+      return ['on', 'off'].includes(val);
+    },
+  },
   /** 自动聚焦 */
   autofocus: Boolean,
+  /** 宽度随内容自适应 */
+  autoWidth: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用输入框 */
   disabled: Boolean,
-  /** 【讨论中】指定输入框展示值的格式 */
+  /** 【开发中】指定输入框展示值的格式 */
   format: {
     type: Function as PropType<TdInputProps['format']>,
   },

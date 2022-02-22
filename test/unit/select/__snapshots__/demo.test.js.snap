@@ -309,7 +309,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -338,7 +338,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -362,7 +362,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -386,7 +386,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -544,7 +544,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -573,7 +573,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -597,7 +597,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -621,7 +621,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -799,7 +799,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -828,7 +828,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -852,7 +852,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -876,7 +876,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -1123,12 +1123,12 @@ exports[`Select Select creatableVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="支持自定义创建"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <!---->
         </div>
@@ -1843,7 +1843,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -1872,7 +1872,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -1896,7 +1896,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -1920,7 +1920,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -1944,7 +1944,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项四"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -1968,7 +1968,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项五"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -1992,7 +1992,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项六"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2016,7 +2016,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项七"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2040,7 +2040,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项八"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2064,7 +2064,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项九"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2239,7 +2239,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2268,7 +2268,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2292,7 +2292,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2316,7 +2316,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2340,7 +2340,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项四"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -2364,7 +2364,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项五"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -2388,7 +2388,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项六"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -2412,7 +2412,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项七"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -2436,7 +2436,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项八"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2460,7 +2460,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                   title="选项九"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2763,7 +2763,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2792,7 +2792,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2816,7 +2816,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -2840,7 +2840,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -3037,12 +3037,12 @@ exports[`Select Select filterableVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="-请选择-"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <!---->
         </div>
@@ -3099,7 +3099,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -3128,7 +3128,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -3152,7 +3152,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -3176,7 +3176,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -3230,12 +3230,12 @@ exports[`Select Select filterableVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="-请选择-"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <!---->
         </div>
@@ -3769,7 +3769,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -3798,7 +3798,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -3822,7 +3822,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -3846,7 +3846,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -3980,7 +3980,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4009,7 +4009,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
                   title="选项一"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4033,7 +4033,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
                   title="选项二"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4057,7 +4057,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
                   title="选项三"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4170,7 +4170,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4199,7 +4199,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="架构云"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4223,7 +4223,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="大数据"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4247,7 +4247,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="区块链"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4271,7 +4271,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="物联网"
                 >
                   <label
-                    class="t-checkbox undefined t-is-disabled"
+                    class="t-checkbox t-is-disabled"
                     modelvalue="false"
                   >
                     <input
@@ -4296,7 +4296,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="人工智能"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4320,7 +4320,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="计算场景"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4480,7 +4480,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4516,7 +4516,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="云服务器"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4540,7 +4540,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="云数据库"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4564,7 +4564,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="域名注册"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4588,7 +4588,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="网站备案"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4612,7 +4612,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="对象存储"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4636,7 +4636,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="低代码平台"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4908,7 +4908,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4937,7 +4937,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="架构云"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -4961,7 +4961,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="大数据"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -4985,7 +4985,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="区块链"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -5009,7 +5009,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="物联网"
                 >
                   <label
-                    class="t-checkbox undefined t-is-disabled"
+                    class="t-checkbox t-is-disabled"
                     modelvalue="false"
                   >
                     <input
@@ -5034,7 +5034,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="人工智能"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -5058,7 +5058,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                   title="计算场景"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     modelvalue="false"
                   >
                     <input
@@ -6085,12 +6085,12 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="-请选择-"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <!---->
         </div>
@@ -6147,7 +6147,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                   title=""
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -6211,12 +6211,12 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="-请输入搜索-"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <!---->
         </div>

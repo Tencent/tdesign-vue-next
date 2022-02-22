@@ -5,7 +5,7 @@
       <input type="hidden" name="project[files][src/index.css]" :value="styleContent" />
       <input type="hidden" name="project[files][src/main.js]" :value="mainJsContent" />
       <input type="hidden" name="project[files][index.html]" :value="htmlContent" />
-      <input type="hidden" name="project[files][package.json]" :value="packageJSON" />
+      <input type="hidden" name="project[files][package.json]" :value="packageJSONContent" />
       <input type="hidden" name="project[files][vite.config.js]" :value="viteConfigContent" />
       <input type="hidden" name="project[files][.stackblitzrc]" :value="stackblitzRc" />
       <input type="hidden" name="project[template]" value="node" />
@@ -24,13 +24,14 @@
 
 <script>
 import { defineComponent, ref } from 'vue';
-import pkg from '@/package.json';
-import { htmlContent, mainJsContent, styleContent, packageJSON, stackblitzRc, viteConfigContent } from './content';
-
-packageJSON.dependencies['tdesign-vue-next'] = pkg.version;
-packageJSON.dependencies['tdesign-icons-vue-next'] = pkg.dependencies['tdesign-icons-vue-next'];
-
-const packageJSONContent = JSON.stringify(packageJSON, null, 2);
+import {
+  htmlContent,
+  mainJsContent,
+  styleContent,
+  packageJSONContent,
+  stackblitzRc,
+  viteConfigContent,
+} from './content';
 
 export default defineComponent({
   name: 'Stackblitz',
@@ -47,7 +48,7 @@ export default defineComponent({
       styleContent,
       stackblitzRc,
       viteConfigContent,
-      packageJSON: packageJSONContent,
+      packageJSONContent,
     };
 
     const formRef = ref(null);

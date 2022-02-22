@@ -250,7 +250,7 @@ export default defineComponent({
       if (!this.$refs) return;
       const refOverlayElm = this.$refs.overlay as HTMLElement;
       if (typeof overlayStyle === 'function' && referenceElm && refOverlayElm) {
-        const userOverlayStyle = overlayStyle(referenceElm);
+        const userOverlayStyle = overlayStyle(referenceElm, refOverlayElm);
         this.setOverlayStyle(userOverlayStyle);
       } else if (typeof overlayStyle === 'object' && refOverlayElm) {
         this.setOverlayStyle(overlayStyle);

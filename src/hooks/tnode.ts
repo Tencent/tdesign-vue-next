@@ -1,8 +1,21 @@
-import { h, getCurrentInstance, VNode } from 'vue';
+import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
+import camelCase from 'lodash/camelCase';
+import kebabCase from 'lodash/kebabCase';
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext } from '../utils/render-tnode';
 import log from '../_common/js/log';
+
+// 兼容处理插槽名称，同时支持驼峰命名和中划线命名，示例：value-display 和 valueDisplay
+function handleSlots(instance: ComponentInternalInstance, name: string, params: Record<string, any>) {
+  // 检查是否存在 驼峰命名 的插槽
+  let node = instance.slots[camelCase(name)]?.(params);
+  if (node) return node;
+  // 检查是否存在 中划线命名 的插槽
+  node = instance.slots[kebabCase(name)]?.(params);
+  if (node) return node;
+  return null;
+}
 
 /**
  * 通过 JSX 的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
@@ -16,7 +29,6 @@ import log from '../_common/js/log';
  * @example renderTNodeJSX('closeBtn', <close-icon />)。 当属性值为 true 时则渲染 <close-icon />
  * @example renderTNodeJSX('closeBtn', { defaultNode: <close-icon />, params })。 params 为渲染节点时所需的参数
  */
-
 export const useTNodeJSX = () => {
   const instance = getCurrentInstance();
   return function (name: string, options?: OptionsType) {
@@ -37,13 +49,15 @@ export const useTNodeJSX = () => {
     // propsNode 为 false 不渲染
     if (propsNode === false) return;
     if (propsNode === true) {
-      return instance.slots[name]?.(params) || defaultNode;
+      return handleSlots(instance, name, params) ?? defaultNode;
     }
 
     // 同名 props 和 slot 优先处理 props
     if (isFunction(propsNode)) return propsNode(h, params);
     const isPropsEmpty = [undefined, params, ''].includes(propsNode);
-    if (isPropsEmpty && instance.slots[name]) return instance.slots[name](params);
+    if (isPropsEmpty && (instance.slots[camelCase(name)] || instance.slots[kebabCase(name)])) {
+      return handleSlots(instance, name, params);
+    }
     return propsNode;
   };
 };

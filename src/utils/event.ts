@@ -17,7 +17,6 @@ export function emitEvent<T extends any[]>(vm: ComponentPublicInstance, eventNam
   if (typeof eventName === 'string') {
     emitEventMethodName = getPropsApiByEvent(eventName);
   }
-
   if (typeof vm.$props[emitEventMethodName] === 'function') {
     vm.$props[emitEventMethodName](...args);
   } else {
