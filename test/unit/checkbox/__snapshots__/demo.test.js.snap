@@ -3,7 +3,7 @@
 exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
 <div>
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox"
     modelvalue="false"
   >
     <input
@@ -22,7 +22,7 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox"
     modelvalue="false"
   >
     <input
@@ -41,7 +41,7 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-checked"
+    class="t-checkbox t-is-checked"
     modelvalue="false"
   >
     <input
@@ -60,7 +60,7 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-disabled"
+    class="t-checkbox t-is-disabled"
     modelvalue="false"
   >
     <input
@@ -80,7 +80,7 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-checked t-is-disabled"
+    class="t-checkbox t-is-checked t-is-disabled"
     modelvalue="false"
   >
     <input
@@ -106,7 +106,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
 <div>
   <!-- 单个 Checkbox 受控模式 -->
   <label
-    class="t-checkbox undefined t-is-checked"
+    class="t-checkbox t-is-checked"
     modelvalue="true"
   >
     <input
@@ -125,7 +125,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-checked"
+    class="t-checkbox t-is-checked"
     modelvalue="false"
   >
     <input
@@ -144,7 +144,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox"
     modelvalue="false"
   >
     <input
@@ -172,7 +172,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
   >
     
     <label
-      class="t-checkbox undefined t-is-indeterminate"
+      class="t-checkbox t-is-indeterminate"
     >
       <input
         class="t-checkbox__former"
@@ -191,7 +191,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -211,7 +211,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
     >
       <input
         class="t-checkbox__former"
@@ -231,7 +231,7 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
     >
       <input
         class="t-checkbox__former"
@@ -264,7 +264,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   </div>
   <div>
     <label
-      class="t-checkbox undefined t-is-indeterminate"
+      class="t-checkbox t-is-indeterminate"
       modelvalue="false"
     >
       <input
@@ -289,7 +289,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   >
     
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -311,7 +311,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
     >
       <input
         class="t-checkbox__former"
@@ -331,7 +331,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
     >
       <input
         class="t-checkbox__former"
@@ -362,7 +362,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   >
     
     <label
-      class="t-checkbox undefined t-is-indeterminate"
+      class="t-checkbox t-is-indeterminate"
       modelvalue="false"
     >
       <input
@@ -380,7 +380,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
       modelvalue="false"
     >
       <input
@@ -401,7 +401,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
       modelvalue="false"
     >
       <input
@@ -420,7 +420,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
       modelvalue="false"
     >
       <input
@@ -450,7 +450,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   >
     
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -469,7 +469,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -489,7 +489,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -511,7 +511,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -542,7 +542,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   >
     
     <label
-      class="t-checkbox undefined t-is-indeterminate"
+      class="t-checkbox t-is-indeterminate"
     >
       <input
         class="t-checkbox__former"
@@ -561,7 +561,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
     >
       <input
         class="t-checkbox__former"
@@ -581,7 +581,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
     >
       <input
         class="t-checkbox__former"
@@ -603,7 +603,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
     >
       <input
         class="t-checkbox__former"
@@ -646,7 +646,7 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
     >
       
       <label
-        class="t-checkbox undefined"
+        class="t-checkbox"
       >
         <input
           class="t-checkbox__former"
@@ -666,7 +666,7 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
         </span>
       </label>
       <label
-        class="t-checkbox undefined t-is-checked"
+        class="t-checkbox t-is-checked"
       >
         <input
           class="t-checkbox__former"
@@ -686,7 +686,7 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
         </span>
       </label>
       <label
-        class="t-checkbox undefined"
+        class="t-checkbox"
       >
         <input
           class="t-checkbox__former"

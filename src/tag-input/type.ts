@@ -126,6 +126,10 @@ export interface TdTagInputProps {
    */
   onFocus?: (value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
   /**
+   * 输入框值发生变化时触发
+   */
+  onInputChange?: (value: InputValue, context?: { e?: InputEvent | MouseEvent }) => void;
+  /**
    * 进入输入框时触发
    */
   onMouseenter?: (context: { e: MouseEvent }) => void;

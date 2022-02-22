@@ -726,7 +726,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -775,7 +775,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -824,7 +824,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -861,7 +861,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -898,7 +898,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -947,7 +947,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -984,7 +984,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1021,7 +1021,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1070,7 +1070,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1119,7 +1119,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1156,7 +1156,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1193,7 +1193,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1242,7 +1242,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1279,7 +1279,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1316,7 +1316,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1365,7 +1365,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1402,7 +1402,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1439,7 +1439,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1577,7 +1577,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1626,7 +1626,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1675,7 +1675,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1712,7 +1712,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1749,7 +1749,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1798,7 +1798,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1847,7 +1847,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1896,7 +1896,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active t-tree__label t-tree__label--strictly t-is-active"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1933,7 +1933,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1970,7 +1970,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2126,7 +2126,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2176,7 +2176,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2214,7 +2214,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2252,7 +2252,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2302,7 +2302,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2340,7 +2340,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2378,7 +2378,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2428,7 +2428,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2466,7 +2466,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2504,7 +2504,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2614,7 +2614,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2663,7 +2663,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2701,7 +2701,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2738,7 +2738,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2787,7 +2787,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2825,7 +2825,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2862,7 +2862,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2911,7 +2911,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2948,7 +2948,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2986,7 +2986,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4404,7 +4404,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4447,7 +4447,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4490,7 +4490,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4545,7 +4545,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4588,7 +4588,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4631,7 +4631,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4813,7 +4813,7 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4862,7 +4862,7 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -7382,7 +7382,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -7474,7 +7474,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -7748,7 +7748,7 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           />
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -7842,7 +7842,7 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           />
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8056,7 +8056,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8105,7 +8105,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8154,7 +8154,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8191,7 +8191,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8228,7 +8228,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8277,7 +8277,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8326,7 +8326,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8375,7 +8375,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active t-tree__label t-tree__label--strictly t-is-active"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8412,7 +8412,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8449,7 +8449,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8587,7 +8587,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8636,7 +8636,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8685,7 +8685,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8722,7 +8722,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8759,7 +8759,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8808,7 +8808,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8857,7 +8857,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8906,7 +8906,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active t-tree__label t-tree__label--strictly t-is-active"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8943,7 +8943,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8980,7 +8980,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
