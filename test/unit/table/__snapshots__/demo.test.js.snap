@@ -383,7 +383,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
     style="margin: 16px;"
   >
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
       modelvalue="true"
     >
       <input
@@ -402,7 +402,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
       modelvalue="true"
     >
       <input
@@ -421,7 +421,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
       modelvalue="false"
     >
       <input
@@ -1169,7 +1169,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
       style="margin: 16px;"
     >
       <label
-        class="t-checkbox undefined"
+        class="t-checkbox"
         modelvalue="false"
       >
         <input
@@ -3644,7 +3644,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                   >
                                     
                                     <label
-                                      class="t-checkbox undefined"
+                                      class="t-checkbox"
                                     >
                                       <input
                                         class="t-checkbox__former"
@@ -3663,7 +3663,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       </span>
                                     </label>
                                     <label
-                                      class="t-checkbox undefined"
+                                      class="t-checkbox"
                                     >
                                       <input
                                         class="t-checkbox__former"
@@ -3683,7 +3683,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       </span>
                                     </label>
                                     <label
-                                      class="t-checkbox undefined"
+                                      class="t-checkbox"
                                     >
                                       <input
                                         class="t-checkbox__former"
@@ -10350,7 +10350,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-indeterminate"
+                    class="t-checkbox t-is-indeterminate"
                     modelvalue="false"
                   >
                     <input
@@ -10428,7 +10428,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="0"
@@ -10513,7 +10513,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked t-is-disabled"
+                    class="t-checkbox t-is-checked t-is-disabled"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="1"
@@ -10599,7 +10599,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="2"
@@ -10684,7 +10684,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-disabled"
+                    class="t-checkbox t-is-disabled"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="3"
@@ -12168,7 +12168,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -12266,7 +12266,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="0"
@@ -12383,7 +12383,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-disabled"
+                    class="t-checkbox t-is-disabled"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="1"
@@ -12501,7 +12501,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="2"
@@ -12618,7 +12618,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-disabled"
+                    class="t-checkbox t-is-disabled"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="3"
@@ -12736,7 +12736,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="4"
