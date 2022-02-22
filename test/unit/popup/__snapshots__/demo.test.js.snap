@@ -1146,11 +1146,11 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="获得焦点时触发"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>

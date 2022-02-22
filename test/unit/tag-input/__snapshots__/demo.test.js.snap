@@ -58,11 +58,11 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -124,11 +124,11 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -190,11 +190,11 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -248,14 +248,88 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
     <!---->
     <!---->
+    <!---->
   </div>
+  <!-- 方式一：使用渲染函数自定义折叠项 -->
+  <div
+    class="t-input t-input--prefix t-tag-input"
+  >
+    <!---->
+    <div
+      class="t-input__prefix"
+    >
+      
+      <span
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+      >
+        <!---->
+        
+        Vue
+        
+        <svg
+          class="t-icon t-icon-close t-tag__icon-close"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </span>
+      <span
+        class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+      >
+        <!---->
+        
+        React
+        
+        <svg
+          class="t-icon t-icon-close t-tag__icon-close"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+            fill="currentColor"
+            fillOpacity="0.9"
+          />
+        </svg>
+      </span>
+      <span
+        class="t-tag t-tag--default t-tag--dark t-size-m"
+      >
+        <!---->
+        
+        更多(
+        3
+        )
+        
+        <!---->
+      </span>
+      
+    </div>
+    <input
+      class="t-input__inner"
+      placeholder=""
+      type="text"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <!-- 方式二：使用插槽自定义折叠项 -->
   <div
     class="t-input t-input--prefix t-tag-input"
   >
@@ -385,11 +459,11 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -481,11 +555,11 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -591,11 +665,11 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -617,11 +691,11 @@ exports[`TagInput TagInput maxVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder="最多只能输入 3 个标签"
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -677,12 +751,12 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
         
       </div>
       <input
-        autocomplete="false"
         class="t-input__inner"
         disabled=""
         placeholder=""
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -734,12 +808,12 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
           
         </div>
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=""
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <!---->
       </div>
@@ -833,11 +907,11 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
           
         </div>
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=""
           type="text"
         />
+        <!---->
         <!---->
         <!---->
       </div>
@@ -931,11 +1005,11 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
           
         </div>
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=""
           type="text"
         />
+        <!---->
         <!---->
         <!---->
       </div>
@@ -1029,11 +1103,11 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
           
         </div>
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=""
           type="text"
         />
+        <!---->
         <!---->
         <!---->
       </div>
@@ -1126,11 +1200,11 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -1208,11 +1282,11 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -1290,11 +1364,11 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -1372,11 +1446,11 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
       
     </div>
     <input
-      autocomplete="false"
       class="t-input__inner"
       placeholder=""
       type="text"
     />
+    <!---->
     <!---->
     <!---->
   </div>

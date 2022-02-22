@@ -291,12 +291,12 @@ exports[`DatePicker :mode 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder="请选择年份"
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -927,12 +927,12 @@ exports[`DatePicker :range 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder="请选择月份"
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -1278,12 +1278,12 @@ exports[`DatePicker :value 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder="请选择月份"
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"

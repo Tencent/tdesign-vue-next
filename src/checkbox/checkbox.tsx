@@ -31,10 +31,8 @@ export default defineComponent({
 
   computed: {
     labelClasses(): ClassName {
-      const { class: className } = this.$attrs;
       return [
         `${name}`,
-        `${className}`,
         {
           [CLASSNAMES.STATUS.checked]: this.checked$,
           [CLASSNAMES.STATUS.disabled]: this.disabled$,

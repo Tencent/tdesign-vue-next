@@ -636,7 +636,7 @@ exports[`Select :props :multiple 1`] = `
                 title=""
               >
                 <label
-                  class="t-checkbox undefined"
+                  class="t-checkbox"
                   modelvalue="false"
                 >
                   <input

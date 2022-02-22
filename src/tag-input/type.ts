@@ -10,6 +10,11 @@ import { TNode } from '../common';
 
 export interface TdTagInputProps {
   /**
+   * 宽度随内容自适应
+   * @default false
+   */
+  autoWidth?: boolean;
+  /**
    * 是否可清空
    * @default false
    */
@@ -99,13 +104,13 @@ export interface TdTagInputProps {
   /**
    * 自定义值呈现的全部内容，参数为所有标签的值
    */
-  valueDisplay?: string | TNode<{ value: TagInputValue }>;
+  valueDisplay?: string | TNode<{ value: TagInputValue; onClose: (index: number, item?: any) => void }>;
   /**
    * 失去焦点时触发
    */
   onBlur?: (value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
   /**
-   * 值变化时触发，参数 `trigger` 表示数据变化的触发来源
+   * 值变化时触发，参数 `context.trigger` 表示数据变化的触发来源；`context.index` 指当前变化项的下标；`context.item` 指当前变化项；`context.e` 表示事件参数
    */
   onChange?: (value: TagInputValue, context: TagInputChangeContext) => void;
   /**
@@ -120,6 +125,10 @@ export interface TdTagInputProps {
    * 聚焦时触发
    */
   onFocus?: (value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
+  /**
+   * 输入框值发生变化时触发
+   */
+  onInputChange?: (value: InputValue, context?: { e?: InputEvent | MouseEvent }) => void;
   /**
    * 进入输入框时触发
    */
@@ -144,7 +153,7 @@ export interface TagInputChangeContext {
   trigger: TagInputTriggerSource;
   index?: number;
   item?: string | number;
-  e: MouseEvent | KeyboardEvent;
+  e?: MouseEvent | KeyboardEvent;
 }
 
 export type TagInputTriggerSource = 'enter' | 'tag-remove' | 'backspace' | 'clear';
@@ -153,7 +162,7 @@ export interface TagInputRemoveContext {
   value: TagInputValue;
   index: number;
   item: string | number;
-  e: MouseEvent | KeyboardEvent;
+  e?: MouseEvent | KeyboardEvent;
   trigger: TagInputRemoveTrigger;
 }
 

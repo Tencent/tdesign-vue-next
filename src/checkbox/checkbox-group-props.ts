@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdCheckboxGroupProps } from '../checkbox/type';
@@ -36,6 +35,6 @@ export default {
     type: Array as PropType<TdCheckboxGroupProps['defaultValue']>,
     default: (): TdCheckboxGroupProps['defaultValue'] => [],
   },
-  /** 值变化时触发 */
+  /** 值变化时触发。`context.current` 表示当前变化的数据项，如果是全选则为空；`context.type` 表示引起选中数据变化的是选中或是取消选中 */
   onChange: Function as PropType<TdCheckboxGroupProps['onChange']>,
 };
