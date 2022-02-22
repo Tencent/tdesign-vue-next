@@ -112,8 +112,9 @@ export default defineComponent({
         ref="tagInputRef"
         {...this.inputProps}
         value={this.tInputValue}
-        onChange={(val: InputValue) => {
+        onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
           this.tInputValue = val;
+          this.onInputChange?.(val, context);
         }}
         onWheel={this.onWheel}
         autoWidth={this.autoWidth}

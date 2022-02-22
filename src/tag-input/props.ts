@@ -114,6 +114,8 @@ export default {
   onEnter: Function as PropType<TdTagInputProps['onEnter']>,
   /** 聚焦时触发 */
   onFocus: Function as PropType<TdTagInputProps['onFocus']>,
+  /** 输入框值发生变化时触发 */
+  onInputChange: Function as PropType<TdTagInputProps['onInputChange']>,
   /** 进入输入框时触发 */
   onMouseenter: Function as PropType<TdTagInputProps['onMouseenter']>,
   /** 离开输入框时触发 */

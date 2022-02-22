@@ -15,6 +15,7 @@
       />
     </div>
     <br /><br />
+
     <!-- :popup-props="{ trigger: 'hover' }" -->
     <t-select-input
       :value="value"
@@ -25,14 +26,17 @@
       clearable
       multiple
       @tag-change="onTagChange"
+      @input-change="onInputChange"
     >
       <template #panel>
         <t-checkbox-group
+          v-if="displayOptions.length"
           :value="checkboxValue"
-          :options="options"
+          :options="displayOptions"
           class="tdesign-demo__pannel-options-multiple"
           @change="onCheckedChange"
         />
+        <div v-else class="tdesign-demo__select-empty-multiple">暂无数据</div>
       </template>
       <template #suffixIcon>
         <chevron-down-icon />
@@ -62,8 +66,15 @@ export default defineComponent({
     const excessTagsDisplayType = ref('break-line');
     const allowInput = ref(true);
     const creatable = ref(true);
+    // 全量数据
     const options = ref([...OPTIONS]);
-    const value = ref([]);
+    // 仅用作展示的数据（过滤功能需要使用）
+    const displayOptions = ref([...OPTIONS]);
+    const value = ref([
+      { label: 'Vue', value: 1 },
+      { label: 'React', value: 2 },
+      { label: 'Miniprogram', value: 3 },
+    ]);
 
     const checkboxValue = computed(() => {
       const arr = [];
@@ -105,25 +116,41 @@ export default defineComponent({
       if (creatable.value && trigger === 'enter') {
         const current = { label: item, value: item };
         value.value.push(current);
-        options.value = options.value.concat(current);
+        const newOptions = options.value.concat(current);
+        options.value = newOptions;
+        displayOptions.value = newOptions;
       }
+    };
+
+    // 过滤功能
+    const onInputChange = (val) => {
+      const newOptions = options.value.filter((t) => t.label.indexOf(val) !== -1);
+      displayOptions.value = newOptions;
     };
 
     return {
       value,
       checkboxValue,
       options,
+      displayOptions,
       allowInput,
       creatable,
       excessTagsDisplayType,
       onCheckedChange,
       onTagChange,
+      onInputChange,
     };
   },
 });
 </script>
 
 <style>
+.tdesign-demo__select-empty-multiple {
+  text-align: center;
+  color: var(--td-text-color-disabled);
+  line-height: 32px;
+}
+
 .tdesign-demo__pannel-options-multiple {
   width: 100%;
 }
