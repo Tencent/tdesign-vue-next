@@ -3,7 +3,7 @@
     <t-select
       v-model="value"
       filterable
-      placeholder="-请选择-"
+      placeholder="请选择"
       :on-search="remoteMethod"
       :loading="loading"
       :options="options"
@@ -13,16 +13,15 @@
       v-model="value2"
       multiple
       filterable
-      placeholder="-请输入搜索-"
+      placeholder="请输入搜索"
       :options="options2"
       :loading="loading2"
       reserve-keyword
       style="width: 400px; display: inline-block"
-      :on-search="remoteMethod2"
+      @search="remoteMethod2"
     />
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 

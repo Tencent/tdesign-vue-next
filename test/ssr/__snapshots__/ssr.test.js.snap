@@ -1316,12 +1316,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -1441,12 +1441,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -1624,12 +1624,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="全屏风格">全屏风格</li>
@@ -1680,12 +1680,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -1805,12 +1805,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -1990,12 +1990,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="全屏风格">全屏风格</li>
@@ -2039,12 +2039,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -2164,12 +2164,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -2563,12 +2563,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -2688,12 +2688,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -3130,12 +3130,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -3255,12 +3255,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -3539,12 +3539,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-s">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-s" title="2010 年">
@@ -3664,12 +3664,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-s">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-s" title="1 月">
@@ -3854,12 +3854,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -3979,12 +3979,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -4176,12 +4176,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -4301,12 +4301,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -4506,12 +4506,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -4631,12 +4631,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -4815,12 +4815,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="周一">周一</li>
@@ -4869,12 +4869,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -4994,12 +4994,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="1 月">
@@ -5195,12 +5195,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -5320,12 +5320,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -5503,12 +5503,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="日历">日历</li>
@@ -5552,12 +5552,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="2010 年">
@@ -5734,12 +5734,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2018 年">
@@ -5819,12 +5819,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -6007,12 +6007,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="2010 年">
@@ -6132,12 +6132,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -6499,12 +6499,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1988 年">
@@ -6624,12 +6624,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-m">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-m" title="1 月">
@@ -6826,12 +6826,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                     <!--[-->
                     <div class="t-select__dropdown-inner">
                       <!---->
-                      <ul class="t-select__create-option" style="display:none;">
+                      <ul class="t-select__create-option t-select__list" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups">
+                      <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="2010 年">
@@ -6951,12 +6951,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                     <!--[-->
                     <div class="t-select__dropdown-inner">
                       <!---->
-                      <ul class="t-select__create-option" style="display:none;">
+                      <ul class="t-select__create-option t-select__list" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups">
+                      <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="1 月">
@@ -7160,12 +7160,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                     <!--[-->
                     <div class="t-select__dropdown-inner">
                       <!---->
-                      <ul class="t-select__create-option" style="display:none;">
+                      <ul class="t-select__create-option t-select__list" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups">
+                      <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="2010 年">
@@ -7285,12 +7285,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                     <!--[-->
                     <div class="t-select__dropdown-inner">
                       <!---->
-                      <ul class="t-select__create-option" style="display:none;">
+                      <ul class="t-select__create-option t-select__list" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups">
+                      <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="1 月">
@@ -7473,12 +7473,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                     <!--[-->
                     <div class="t-select__dropdown-inner">
                       <!---->
-                      <ul class="t-select__create-option" style="display:none;">
+                      <ul class="t-select__create-option t-select__list" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups">
+                      <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="2010 年">
@@ -7598,12 +7598,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                     <!--[-->
                     <div class="t-select__dropdown-inner">
                       <!---->
-                      <ul class="t-select__create-option" style="display:none;">
+                      <ul class="t-select__create-option t-select__list" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups">
+                      <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-size-m" title="1 月">
@@ -8592,12 +8592,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-s">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-s" title="2010">
@@ -8717,12 +8717,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                 <!--[-->
                 <div class="t-select__dropdown-inner">
                   <!---->
-                  <ul class="t-select__create-option" style="display:none;">
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
                     <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                   </ul>
                   <!---->
                   <li class="t-select__empty t-size-s">暂无数据</li>
-                  <ul class="t-select__groups">
+                  <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
                     <li class="t-select-option t-size-s" title="January">
@@ -10142,12 +10142,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="Shanghai">Shanghai</li>
               <li class="t-select-option t-size-m" title="Beijing">Beijing</li>
@@ -10182,12 +10182,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">Empty Data</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!---->
             </ul>
             <!---->
@@ -10218,12 +10218,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <div class="t-select__loading-tips t-size-m">loading...</div>
             <!---->
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!---->
             </ul>
             <!---->
@@ -10733,12 +10733,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-m" title="5 / page">5 / page</li>
@@ -16997,12 +16997,12 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="计算机学院">
@@ -17206,12 +17206,12 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-is-disabled t-is-selected t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <!---->
-                    <ul>
+                    <ul class="t-select__list">
                       <!--[-->
                       <li class="t-select-option t-is-disabled t-size-m" title="学院 A">学院 A</li>
                       <li class="t-select-option t-is-disabled t-size-m" title="学院 B">学院 B</li>
@@ -18315,12 +18315,12 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="计算机学院">
@@ -18535,12 +18535,12 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="计算机学院">
@@ -23650,12 +23650,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-m" title="5 条/页">5 条/页</li>
@@ -23718,12 +23718,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="5 条/页">5 条/页</li>
@@ -23788,12 +23788,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="5 条/页">5 条/页</li>
@@ -23864,12 +23864,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-s">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-s" title="5 条/页">5 条/页</li>
@@ -23936,12 +23936,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-m" title="5 条/页">5 条/页</li>
@@ -24011,12 +24011,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="每页 10 条">每页 10 条</li>
@@ -24083,12 +24083,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-m" title="5 条/页">5 条/页</li>
@@ -24129,12 +24129,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul class="t-select__list">
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-m" title="1/20">1/20</li>
                 <li class="t-select-option t-size-m" title="2/20">2/20</li>
@@ -24198,12 +24198,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-s">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-s" title="5 条/页">5 条/页</li>
@@ -24244,12 +24244,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-s t-select__create-option--special" title></li>
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul class="t-select__list">
                 <!--[-->
                 <li class="t-select-option t-is-selected t-size-s" title="1/20">1/20</li>
                 <li class="t-select-option t-size-s" title="2/20">2/20</li>
@@ -24313,12 +24313,12 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
             <!--[-->
             <div class="t-select__dropdown-inner">
               <!---->
-              <ul class="t-select__create-option" style="display:none;">
+              <ul class="t-select__create-option t-select__list" style="display:none;">
                 <li class="t-select-option t-size-m t-select__create-option--special" title></li>
               </ul>
               <!---->
               <li class="t-select__empty t-size-m">暂无数据</li>
-              <ul class="t-select__groups">
+              <ul class="t-select__groups t-select__list">
                 <!--[-->
                 <!--[-->
                 <li class="t-select-option t-size-m" title="5 条/页">5 条/页</li>
@@ -25869,12 +25869,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="架构云">架构云</li>
               <li class="t-select-option t-size-m" title="大数据">大数据</li>
@@ -25912,12 +25912,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-m" title="云服务器">云服务器</li>
@@ -25963,12 +25963,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="选项一"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -26000,7 +26000,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
       </div>
       <!--]-->
     </div>
-  </div><br><br><!-- 自定义折叠项内容，collapsedItems 为 function (value, count, size) -->
+  </div><br><br><!-- 自定义折叠项内容，collapsedItems 为渲染函数 (value, count, collapsedSelectedItems) -->
   <div class="t-select__wrap">
     <div class="t-popup__reference t-select__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
@@ -26008,12 +26008,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="选项一"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -26057,7 +26057,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
       </div>
       <!--]-->
     </div>
-  </div><br><br><!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, size }-->
+  </div><br><br><!-- 自定义折叠项内容，collapsedItems 为 插槽(slot) { value, count, collapsedSelectedItems }-->
   <div class="t-select__wrap">
     <div class="t-popup__reference t-select__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
@@ -26065,12 +26065,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="选项一"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -26131,12 +26131,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一">选项一</li>
               <li class="t-select-option t-size-m" title="选项二">选项二</li>
@@ -26184,12 +26184,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="用户一">
                 <div class="tdesign-demo__user-option"><img src="https://tdesign.gtimg.com/site/avatar.jpg">
@@ -26293,12 +26293,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-m" title="用户一">
@@ -26428,12 +26428,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="选项一"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-is-selected t-size-m" title="选项二"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -26475,12 +26475,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -26529,12 +26529,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一">选项一</li>
               <li class="t-select-option t-size-m" title="选项二">选项二</li>
@@ -26569,12 +26569,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -26617,12 +26617,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一">选项一</li>
               <li class="t-select-option t-size-m" title="选项二">选项二</li>
@@ -26664,12 +26664,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -26717,41 +26717,49 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
-              <li class="t-select-option-group t-size-m">
+              <li class="t-select-option-group t-size-m t-select-option-group__divider">
                 <div class="t-select-option-group__header">分组一</div>
                 <ul>
                   <!--[-->
-                  <ul>
+                  <ul class="t-select__list">
                     <!--[-->
+                    <li class="t-select-option t-size-m" title="选项一">选项一</li>
+                    <li class="t-select-option t-size-m" title="选项二">选项二</li>
                     <!--]-->
                   </ul>
                   <!--]-->
                 </ul>
               </li>
-              <li class="t-select-option-group t-size-m">
+              <li class="t-select-option-group t-size-m t-select-option-group__divider">
                 <div class="t-select-option-group__header">分组二</div>
                 <ul>
                   <!--[-->
-                  <ul>
+                  <ul class="t-select__list">
                     <!--[-->
+                    <li class="t-select-option t-size-m" title="选项三">选项三</li>
+                    <li class="t-select-option t-size-m" title="选项四">选项四</li>
+                    <li class="t-select-option t-size-m" title="选项五">选项五</li>
                     <!--]-->
                   </ul>
                   <!--]-->
                 </ul>
               </li>
-              <li class="t-select-option-group t-size-m">
+              <li class="t-select-option-group t-size-m t-select-option-group__divider">
                 <div class="t-select-option-group__header">分组三</div>
                 <ul>
                   <!--[-->
-                  <ul>
+                  <ul class="t-select__list">
                     <!--[-->
+                    <li class="t-select-option t-size-m" title="选项六">选项六</li>
+                    <li class="t-select-option t-size-m" title="选项七">选项七</li>
+                    <li class="t-select-option t-size-m" title="选项八">选项八</li>
                     <!--]-->
                   </ul>
                   <!--]-->
@@ -26767,11 +26775,18 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
       </div>
       <!--[-->
       <div class="t-select t-size-m">
-        <!----><span class="t-select__placeholder"> 请选择</span>
+        <!---->
+        <!---->
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <div class="t-input t-is-readonly t-select__input" modelvalue>
+          <!---->
+          <!----><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+          <!---->
+          <!---->
+          <!---->
+        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26787,15 +26802,15 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!--[-->
               <!--[-->
-              <li class="t-select-option-group t-size-m">
+              <li class="t-select-option-group t-size-m t-select-option-group__divider">
                 <div class="t-select-option-group__header">分组一</div>
                 <ul>
                   <!--[-->
@@ -26812,7 +26827,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
                   <!--]-->
                 </ul>
               </li>
-              <li class="t-select-option-group t-size-m">
+              <li class="t-select-option-group t-size-m t-select-option-group__divider">
                 <div class="t-select-option-group__header">分组二</div>
                 <ul>
                   <!--[-->
@@ -26833,7 +26848,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
                   <!--]-->
                 </ul>
               </li>
-              <li class="t-select-option-group t-size-m">
+              <li class="t-select-option-group t-size-m t-select-option-group__divider">
                 <div class="t-select-option-group__header">分组三</div>
                 <ul>
                   <!--[-->
@@ -26865,11 +26880,18 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
       </div>
       <!--[-->
       <div class="t-select t-size-m">
-        <!----><span class="t-select__placeholder"> 请选择</span>
+        <!---->
+        <!---->
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <div class="t-input t-is-readonly t-select__input" modelvalue>
+          <!---->
+          <!----><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
+          <!---->
+          <!---->
+          <!---->
+        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26890,12 +26912,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="选项一">选项一</li>
               <li class="t-select-option t-size-m" title="选项二">选项二</li>
@@ -26930,12 +26952,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="选项一"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -26971,19 +26993,19 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
 
 exports[`ssr snapshot test renders ./examples/select/demos/max.vue correctly 1`] = `
 <div>
-  <div class="t-select__wrap" style="width:400px;">
+  <div class="t-select__wrap" style="width:200px;">
     <div class="t-popup__reference t-select__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-select__dropdown narrow-scrollbar">
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项一<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="选项二"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->选项二<!--]--></span></label></li>
@@ -27024,12 +27046,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="架构云"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->架构云<!--]--></span></label></li>
               <li class="t-select-option t-size-m" title="大数据"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->大数据<!--]--></span></label></li>
@@ -27053,10 +27075,10 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         <!---->
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m" style="max-width:100%px;max-width:100%;" title="架构云"><!----><span style="max-width:100%px;" class="t-tag--text"><!--[-->架构云<!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
           <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
-        </svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m" style="max-width:100%px;max-width:100%;display:none;" title="区块链"><!----><span style="max-width:100%px;" class="t-tag--text"><!--[-->区块链<!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+        </svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m" style="max-width:100%px;max-width:100%;" title="区块链"><!----><span style="max-width:100%px;" class="t-tag--text"><!--[-->区块链<!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
           <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
         </svg></span>
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+1<!--]--><!----></span>
+        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+2<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -27066,7 +27088,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
       </div>
       <!--]-->
     </div>
-  </div><br><br><!-- 自定义选中项内容，valueDisplay 为 function -->
+  </div><br><br><!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
   <div class="t-select__wrap">
     <div class="t-popup__reference t-select__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
@@ -27074,12 +27096,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="云服务器"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->云服务器<!--]--></span></label></li>
@@ -27124,7 +27146,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
       </div>
       <!--]-->
     </div>
-  </div><br><br><!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
+  </div><br><br><!-- 超出 2 个的选中项折叠，如果想要自定义折叠项，参考下文「自定义折叠的选中项」 -->
   <div class="t-select__wrap">
     <div class="t-popup__reference t-select__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
@@ -27132,12 +27154,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="架构云"><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->架构云<!--]--></span></label></li>
               <li class="t-select-option t-is-selected t-size-m" title="大数据"><label class="t-checkbox t-is-checked" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->大数据<!--]--></span></label></li>
@@ -27191,12 +27213,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="已选择的选项">已选择的选项</li>
               <li class="t-select-option t-size-m" title="短的选项二">短的选项二</li>
@@ -27244,12 +27266,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
               </div>
             </div>
             <!--]-->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="架构云">架构云</li>
               <li class="t-select-option t-size-m" title="大数据">大数据</li>
@@ -27286,12 +27308,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-m" title="云服务器">云服务器</li>
@@ -27335,12 +27357,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="已选择的选项">已选择的选项</li>
               <li class="t-select-option t-size-m" title="短的选项二">短的选项二</li>
@@ -27375,12 +27397,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-is-selected t-size-m" title="已选择的选项">已选择的选项</li>
               <li class="t-select-option t-size-m" title="短的选项二">短的选项二</li>
@@ -27420,12 +27442,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/prefix.vue correctly 
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一">选项一</li>
               <li class="t-select-option t-size-m" title="选项二">选项二</li>
@@ -27464,12 +27486,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一">选项一</li>
               <li class="t-select-option t-size-m" title="选项二">选项二</li>
@@ -27491,7 +27513,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <!---->
         <div class="t-input t-is-readonly t-select__input" modelvalue>
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder="-请选择-" type="text" value>
+          <!----><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
           <!---->
           <!---->
           <!---->
@@ -27511,12 +27533,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-size-m t-select__create-option--special" title><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--><!--]--></span></label></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-m">暂无数据</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!---->
             </ul>
             <!---->
@@ -27534,7 +27556,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <!---->
         <div class="t-input t-is-readonly t-select__input" modelvalue>
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder="-请输入搜索-" type="text" value>
+          <!----><input class="t-input__inner" readonly placeholder="请输入搜索" type="text" value>
           <!---->
           <!---->
           <!---->
@@ -27559,12 +27581,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-s t-select__create-option--special" title></li>
             </ul>
             <!---->
             <li class="t-select__empty t-size-s">暂无数据</li>
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!--[-->
               <!--[-->
               <li class="t-select-option t-size-s" title="选项一">
@@ -27590,7 +27612,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       </div>
       <!--[-->
       <div class="t-select t-size-s">
-        <!----><span class="t-select__placeholder"> -请选择-</span>
+        <!----><span class="t-select__placeholder"> 请选择</span>
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
@@ -27610,12 +27632,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="选项一">选项一</li>
               <li class="t-select-option t-size-m" title="选项二">选项二</li>
@@ -27630,7 +27652,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       </div>
       <!--[-->
       <div class="t-select t-size-m">
-        <!----><span class="t-select__placeholder"> -请选择-</span>
+        <!----><span class="t-select__placeholder"> 请选择</span>
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
@@ -27650,12 +27672,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-l t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-l" title="选项一">选项一</li>
               <li class="t-select-option t-size-l" title="选项二">选项二</li>
@@ -27670,7 +27692,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       </div>
       <!--[-->
       <div class="t-select t-size-l">
-        <!----><span class="t-select__placeholder"> -请选择-</span>
+        <!----><span class="t-select__placeholder"> 请选择</span>
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-l" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
@@ -27695,12 +27717,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="架构云">架构云</li>
               <li class="t-select-option t-size-m" title="大数据">大数据</li>
@@ -27737,12 +27759,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <!---->
             <!---->
-            <ul>
+            <ul class="t-select__list">
               <!--[-->
               <li class="t-select-option t-size-m" title="架构云">架构云</li>
               <li class="t-select-option t-size-m" title="大数据">大数据</li>
@@ -27779,12 +27801,12 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
           <!--[-->
           <div class="t-select__dropdown-inner">
             <!---->
-            <ul class="t-select__create-option" style="display:none;">
+            <ul class="t-select__create-option t-select__list" style="display:none;">
               <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
             </ul>
             <div class="t-select__loading-tips t-size-m">加载中</div>
             <!---->
-            <ul class="t-select__groups">
+            <ul class="t-select__groups t-select__list">
               <!---->
             </ul>
             <!---->
@@ -38978,12 +39000,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                     <!--[-->
                     <div class="t-select__dropdown-inner">
                       <!---->
-                      <ul class="t-select__create-option" style="display:none;">
+                      <ul class="t-select__create-option t-select__list" style="display:none;">
                         <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                       </ul>
                       <!---->
                       <li class="t-select__empty t-size-m">暂无数据</li>
-                      <ul class="t-select__groups">
+                      <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
                         <li class="t-select-option t-is-selected t-size-m" title="5 条/页">5 条/页</li>
@@ -39094,12 +39116,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-m t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
-                    <ul class="t-select__groups">
+                    <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
                       <li class="t-select-option t-size-m" title="5 条/页">5 条/页</li>
@@ -45466,12 +45488,12 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
                   <!--[-->
                   <div class="t-select__dropdown-inner">
                     <!---->
-                    <ul class="t-select__create-option" style="display:none;">
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
                       <li class="t-select-option t-size-s t-select__create-option--special" title></li>
                     </ul>
                     <!---->
                     <!---->
-                    <ul>
+                    <ul class="t-select__list">
                       <!--[-->
                       <li class="t-select-option t-is-selected t-size-s" title="1/2">1/2</li>
                       <li class="t-select-option t-size-s" title="2/2">2/2</li>

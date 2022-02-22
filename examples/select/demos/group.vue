@@ -1,10 +1,10 @@
 <template>
   <div class="tdesign-demo-select-base">
     <!-- 方式一：直接传 options 数据，比插槽的方式更简单 -->
-    <t-select v-model="value1" :options="options" placeholder="请选择" />
+    <t-select v-model="value1" :options="options" placeholder="请选择" filterable />
 
     <!-- 方式二：使用插槽节点 -->
-    <t-select v-model="value2" placeholder="请选择">
+    <t-select v-model="value2" placeholder="请选择" filterable>
       <t-option-group
         v-for="(list, index) in options"
         :key="index"
@@ -18,7 +18,6 @@
     </t-select>
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 

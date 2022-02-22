@@ -5,14 +5,14 @@
       v-model="value1"
       :options="options"
       :value-display="valueDisplay"
-      placeholder="请选择古代名人"
+      placeholder="请选择"
       multiple
       clearable
     />
     <br /><br />
 
     <!-- 自定义选中项内容，valueDisplay 为 插槽(slot) -->
-    <t-select v-model="value2" :options="options" placeholder="请选择古代名人" multiple clearable>
+    <t-select v-model="value2" :options="options" placeholder="请选择" multiple clearable>
       <template #valueDisplay="{ value, onClose }">
         <t-tag v-for="(item, index) in value" :key="index" :closable="true" :on-close="() => onClose(index)">
           {{ item.label }}({{ item.value[0].toUpperCase() }})
@@ -21,7 +21,6 @@
     </t-select>
   </div>
 </template>
-
 <script setup lang="jsx">
 import { ref } from 'vue';
 

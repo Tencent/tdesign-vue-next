@@ -4087,7 +4087,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                     >
                       <!---->
                       <ul
-                        class="t-select__create-option"
+                        class="t-select__create-option t-select__list"
                         style="display: none;"
                       >
                         <li
@@ -4099,7 +4099,9 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                       </ul>
                       <!---->
                       <!---->
-                      <ul>
+                      <ul
+                        class="t-select__list"
+                      >
                         
                         <li
                           class="t-select-option t-is-selected t-size-s"
