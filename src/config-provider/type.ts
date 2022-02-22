@@ -458,6 +458,25 @@ export interface TreeSelectConfig {
   loadingText?: string;
 }
 
+export interface UploadConfigDragger {
+  draggingText: string;
+  clickAndDragText: string;
+}
+
+export interface triggerUploadText {
+  image: string;
+  normal: string;
+  fileInput: string;
+  reupload: string;
+}
+
+export interface UploadConfigProgress {
+  uploadText: string;
+  waitingText: string;
+  failText: string;
+  successText: string;
+}
+
 export interface UploadConfig {
   /**
    * “取消上传” 描述文本
@@ -469,6 +488,21 @@ export interface UploadConfig {
    * @default '文件大小不能超过 {sizeLimit}'
    */
   sizeLimitMessage?: string;
+  /**
+   * 拖拽相关
+   *
+   */
+  dragger?: UploadConfigDragger;
+  /**
+   * 上传功能触发文案
+   *
+   */
+  triggerUploadText?: triggerUploadText;
+  /**
+   * 上传进度相关
+   *
+   */
+  progress?: UploadConfigProgress;
 }
 
 export interface FormConfig {
