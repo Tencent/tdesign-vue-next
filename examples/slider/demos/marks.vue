@@ -7,6 +7,10 @@
     <div class="block">
       <t-slider v-model="value2" range :show-tooltip="true" :marks="marks2" />
     </div>
+
+    <div class="block">
+      <t-slider v-model="value3" :show-tooltip="true" :marks="[10, 20, 40, 80]" />
+    </div>
   </div>
 </template>
 <script setup lang="jsx">
@@ -14,6 +18,7 @@ import { ref } from 'vue';
 
 const value1 = ref(12);
 const value2 = ref([30, 70]);
+const value3 = ref(10);
 
 const marks1 = {
   0: '0°C',
