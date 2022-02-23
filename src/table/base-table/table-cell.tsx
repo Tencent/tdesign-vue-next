@@ -56,7 +56,6 @@ export default defineComponent({
           }
         });
         const indexInFixedColumns = fixedColumns.findIndex((el: ComponentPublicInstance) => el === this);
-        // console.log(indexInFixedColumns);
         fixedColumns.forEach((el: any, cur: number) => {
           if ((fixed === 'right' && cur > indexInFixedColumns) || (fixed === 'left' && cur < indexInFixedColumns)) {
             const width = parseInt(el.cellData?.col.width, 10);
