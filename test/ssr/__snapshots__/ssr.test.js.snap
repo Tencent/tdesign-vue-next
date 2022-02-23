@@ -23250,9 +23250,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/base.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">标题名称</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">标题名称</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23262,9 +23260,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/base.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">标题名称</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">标题名称</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知（展示 5 秒后消失）</div>
       <!---->
     </div>
@@ -23280,9 +23276,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/close.vue corre
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(false)</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(false)</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23292,9 +23286,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/close.vue corre
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(文字)</span>
-        <div class="t-icon-close"> 关闭 </div>
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(文字)</span><span class="t-message__close">关闭</span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23304,9 +23296,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/close.vue corre
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(函数)</span>
-        <div class="t-icon-close"> <span>close</span> </div>
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(函数)</span><span class="t-message__close"><span>close</span></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23316,12 +23306,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/close.vue corre
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(插槽)</span>
-        <div class="t-icon-close">
-          <!--[-->x
-          <!--]-->
-        </div>
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义关闭按钮(插槽)</span><span class="t-message__close"><!--[-->x<!--]--></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23340,9 +23325,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/content.vue cor
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义内容(字符串)</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义内容(字符串)</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23352,9 +23335,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/content.vue cor
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义内容(函数)</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义内容(函数)</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">
         <div>这是一条消息通知</div>
       </div>
@@ -23366,9 +23347,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/content.vue cor
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义内容(插槽)</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义内容(插槽)</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">
         <!--[--><span>这是一条消息通知</span>
         <!--]-->
@@ -23386,9 +23365,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/footer.vue corr
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义底部详情(函数)</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义底部详情(函数)</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <div slot="footer" class="t-notification__detail"><span class="t-notification__detail-item t-is-active">查看详情</span></div>
     </div>
@@ -23398,9 +23375,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/footer.vue corr
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义底部详情(插槽)</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">自定义底部详情(插槽)</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!--[-->
       <div class="t-notification__detail"><span class="t-notification__detail-item">重启</span><span class="t-notification__detail-item t-is-active">查看详情</span></div>
@@ -23417,9 +23392,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/icon.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">普通通知</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">普通通知</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条普通的消息通知</div>
       <!---->
     </div>
@@ -23429,9 +23402,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/icon.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">危险通知</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">危险通知</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条危险的消息通知</div>
       <!---->
     </div>
@@ -23441,9 +23412,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/icon.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">告警通知</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">告警通知</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条告警的消息通知</div>
       <!---->
     </div>
@@ -23453,9 +23422,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/icon.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">成功通知</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">成功通知</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条成功的消息通知</div>
       <!---->
     </div>
@@ -23472,9 +23439,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue c
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">超出的文本省略号显示</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">超出的文本省略号显示</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">文案不限长度，但在实际使用时建议文案显示内容不易过多，建议最大展示行数数量以三行为宜，最后一行折行末尾处超出文本建议会变为省略号显示。</div>
       <div slot="footer" class="t-notification__detail"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item" type="button"><span class="t-button__text"><!--[-->查看详情<!--]--></span></button></div>
     </div>
@@ -23484,9 +23449,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue c
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">带关闭按钮</span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-message-close" style="">
-          <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path>
-        </svg></div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">带关闭按钮</span><span class="t-message__close"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillopacity="0.9"></path></svg></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23496,11 +23459,9 @@ exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue c
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">消息通知标题</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">消息通知标题</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">使用 function 自定义底部内容</div>
-      <!---->
+      <div slot="footer" class="t-notification__detail"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item" type="button"><span class="t-button__text"><!--[-->查看详情<!--]--></span></button></div>
     </div>
   </div>
   <div class="t-notification">
@@ -23508,9 +23469,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue c
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title"><!----></span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title"><!--[--><div>消息通知标题 <small>消息通知副标题</small></div><!--]--></span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">1. 使用插槽自定义标题 2. 使用插槽自定义底部内容</div>
       <!--[-->
       <div class="t-notification__detail"><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-notification__detail-item" type="button"><span class="t-button__text"><!--[-->取消<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item" type="button"><span class="t-button__text"><!--[--> 稍后提醒我(10s) <!--]--></span></button></div>
@@ -23557,9 +23516,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/size.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">宽度固定400px</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">宽度固定400px</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23569,9 +23526,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/size.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">文本内容最多支持三行</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">文本内容最多支持三行</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条内容为******************************
         ****************************************************
         ****************************************************
@@ -23591,9 +23546,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/type.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">信息</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">信息</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23603,9 +23556,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/type.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">成功</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">成功</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23615,9 +23566,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/type.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">警告</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">警告</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -23627,9 +23576,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/type.vue correc
         <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fillopacity="0.9"></path>
       </svg></div>
     <div class="t-notification__main">
-      <div class="t-notification__title__wrap"><span class="t-notification__title">错误</span>
-        <!---->
-      </div>
+      <div class="t-notification__title__wrap"><span class="t-notification__title">错误</span><span class="t-message__close"><!----></span></div>
       <div class="t-notification__content">这是一条消息通知</div>
       <!---->
     </div>
@@ -48672,7 +48619,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-input.vue corr
           </div>
         </div>
         <!--[-->
-        <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->选择文件<!--]--></span></button>
+        <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->选择文件<!--]--></span></button>
           <!---->
         </div>
         <!--]-->
