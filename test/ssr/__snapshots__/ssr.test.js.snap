@@ -29570,6 +29570,47 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
       <!---->
     </div>
   </div>
+  <div class="block">
+    <div class="t-slider__container" modelvalue="10" show-tooltip="true">
+      <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
+        <div class="t-slider__rail" style="">
+          <div class="t-slider__track" style="width:0%;left:0%;"></div>
+          <div class="t-slider__button-wrapper" style="left:0%;" tabindex="0" show-tooltip="true">
+            <div class="t-popup__reference" popper-class>
+              <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                <div class="t-popup__content t-popup__content--arrow">0<div class="t-popup__arrow"></div>
+                </div>
+              </div>
+              <!--[-->
+              <div class="t-slider__button"></div>
+              <!--]-->
+            </div>
+          </div>
+          <!---->
+          <!---->
+          <div>
+            <div>
+              <!--[-->
+              <div class="t-slider__stop t-slider__mark-stop" style="left:10%;"></div>
+              <div class="t-slider__stop t-slider__mark-stop" style="left:20%;"></div>
+              <div class="t-slider__stop t-slider__mark-stop" style="left:40%;"></div>
+              <div class="t-slider__stop t-slider__mark-stop" style="left:80%;"></div>
+              <!--]-->
+            </div>
+            <div class="t-slider__mark">
+              <!--[-->
+              <div class="t-slider__mark-text" style="left:10%;">10</div>
+              <div class="t-slider__mark-text" style="left:20%;">20</div>
+              <div class="t-slider__mark-text" style="left:40%;">40</div>
+              <div class="t-slider__mark-text" style="left:80%;">80</div>
+              <!--]-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
 </div>
 `;
 
