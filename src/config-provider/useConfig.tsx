@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { computed, inject, Ref } from 'vue';
 import defaultConfig from './zh_CN_config';
 
@@ -44,7 +43,7 @@ export default function useConfig<T>(componentName: string) {
   const classPrefix = 't';
   return {
     t,
-    ...global.value,
+    global,
     classPrefix,
   };
 }
