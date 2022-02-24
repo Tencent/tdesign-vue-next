@@ -27791,7 +27791,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/autocomplete.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul-autocomplete">
+        <ul class="tdesign-demo__select-input-ul-autocomplete">
           <!--[-->
           <li><img src="/favicon.ico"> Student A</li>
           <li><img src="/favicon.ico"> Student B</li>
@@ -27828,7 +27828,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless.vue 
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul-borderless">
+        <ul class="tdesign-demo__select-input-ul-borderless">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -27988,7 +27988,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul-custom">
+        <ul class="tdesign-demo__select-input-ul-custom">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -28153,7 +28153,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul-label-suffix">
+        <ul class="tdesign-demo__select-input-ul-label-suffix">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -28184,7 +28184,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul-label-suffix">
+        <ul class="tdesign-demo__select-input-ul-label-suffix">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>
@@ -28258,7 +28258,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/single.vue corr
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__selet-input-ul-single">
+        <ul class="tdesign-demo__select-input-ul-single">
           <!--[-->
           <li><img src="/favicon.ico"> tdesign-vue</li>
           <li><img src="/favicon.ico"> tdesign-react</li>

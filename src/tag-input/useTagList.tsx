@@ -67,15 +67,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
     oldInputValue.value = value;
   };
 
-  const renderLabel = ({
-    slots,
-    displayNode,
-    label,
-  }: {
-    slots: SetupContext['slots'];
-    displayNode: any;
-    label: any;
-  }) => {
+  const renderLabel = ({ displayNode, label }: { displayNode: any; label: any }) => {
     const newList = minCollapsedNum.value ? tagValue.value.slice(0, minCollapsedNum.value) : tagValue.value;
     const list = displayNode
       ? [displayNode]

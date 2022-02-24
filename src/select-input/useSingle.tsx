@@ -1,4 +1,4 @@
-import { SetupContext, ref, VNode, watch, computed, toRefs } from 'vue';
+import { SetupContext, ref, watch, computed, toRefs } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
 import Input, { InputValue } from '../input';

@@ -4,19 +4,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  name: 'TTagInputBaseDemo',
-  setup() {
-    const tags = ref(['Vue', 'React']);
-
-    const onChange = (val) => {
-      tags.value = val;
-    };
-
-    return { tags, onChange };
-  },
-});
+const tags = ref(['Vue', 'React']);
 </script>

@@ -57,20 +57,9 @@
     <br />
   </div>
 </template>
-
-<script>
-import { defineComponent, ref } from 'vue';
-
-export default defineComponent({
-  name: 'SelectInputSingle',
-  setup() {
-    return {
-      selectValue: 'TDesign',
-    };
-  },
-});
+<script setup>
+const selectValue = 'TDesign';
 </script>
-
 <style>
 .tdesign-demo__select-empty-width {
   text-align: center;

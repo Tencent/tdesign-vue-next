@@ -1,4 +1,4 @@
-import { ref, toRefs } from 'vue';
+import { ref } from 'vue';
 
 export interface UseHoverParams {
   readonly: boolean;

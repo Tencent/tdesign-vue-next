@@ -1,14 +1,21 @@
 import { defineComponent, ref, computed, toRefs, nextTick } from 'vue';
+
+// components
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
+
+// utils
 import { TdTagInputProps } from './type';
 import props from './props';
+import { prefix } from '../config';
 import { renderTNodeJSX } from '../utils/render-tnode';
+
+// hooks
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
 
+// constants class
 const NAME_CLASS = `${prefix}-tag-input`;
 const CLEAR_CLASS = `${prefix}-tag-input__suffix-clear`;
 const BREAK_LINE_CLASS = `${prefix}-tag-input--break-line`;
@@ -88,7 +95,6 @@ export default defineComponent({
       onClearClick,
       onClose,
       classes,
-      slots: context.slots,
     };
   },
 
@@ -121,7 +127,7 @@ export default defineComponent({
         size={this.size}
         readonly={this.readonly}
         disabled={this.disabled}
-        label={() => this.renderLabel({ slots: this.slots, displayNode, label })}
+        label={() => this.renderLabel({ displayNode, label })}
         class={this.classes}
         tips={this.tips}
         status={this.status}
