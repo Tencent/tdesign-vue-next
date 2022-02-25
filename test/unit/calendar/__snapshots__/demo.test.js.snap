@@ -9341,7 +9341,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
         <path
           d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
