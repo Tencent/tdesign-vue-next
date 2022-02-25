@@ -4,8 +4,7 @@ spline: explain
 toc: false
 docClass: timeline
 ---
-
-## [0.9.0](https://github.com/Tencent/tdesign-vue-next/compare/0.8.1...0.9.0) `2022-02-25`
+## 0.9.0 `2022-02-25`
 
 ### BREAKING CHANGES
 
@@ -19,13 +18,13 @@ docClass: timeline
 
 
 * Slider: ([@pengYYYYY](https://github.com/pengYYYYY))
-  * 修复游标定位问题，[pr #248](https://github.com/Tencent/tdesign-common/pull/248)
+  * 修复游标定位问题，([pr #248](https://github.com/Tencent/tdesign-common/pull/248))
   * 修复游标定位样式。([pr #355](https://github.com/Tencent/tdesign-vue-next/pull/355))
 * Input: 去除 `autocomplete` 默认值，保持浏览器默认值 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
 * Upload: 修复文件数大于等于 `max` 时，上传按钮依然可以点击 ([pr #351](https://github.com/Tencent/tdesign-vue-next/issues/349)), ([issue #349](https://github.com/Tencent/tdesign-vue-next/issues/349)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Notification: 修复 `offset` 参数无效 ([pr #351](https://github.com/Tencent/tdesign-vue-next/pull/349)), ([issue #299](https://github.com/Tencent/tdesign-vue-next/issues/299)), ([issue #325](https://github.com/Tencent/tdesign-vue-next/issues/325)), ([issue #316](https://github.com/Tencent/tdesign-vue-next/issues/316)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Table: 修复固定表头错位 ([pr #352](https://github.com/Tencent/tdesign-vue-next/pull/352)), ([issue #342](https://github.com/Tencent/tdesign-vue-next/issues/342)), ([@pengYYYYY](https://github.com/pengYYYYY))
-* Button: 修复 `primary outline` 模式下边框展示异常的问题，[pr #238](https://github.com/Tencent/tdesign-common/pull/238)，[@pengYYYYY](https://github.com/pengYYYYY)
+* Button: 修复 `primary outline` 模式下边框展示异常的问题 ([pr #238](https://github.com/Tencent/tdesign-common/pull/238)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
 
 
