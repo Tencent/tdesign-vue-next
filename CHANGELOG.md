@@ -7,6 +7,7 @@ docClass: timeline
 
 ## 0.9.1 `2022-02-25`
 
+### Bug Fixes
 
 * 修复构建产物 `TS` 声明文件路径错误
 
