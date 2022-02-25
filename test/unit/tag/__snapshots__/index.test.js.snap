@@ -27,7 +27,7 @@ exports[`Tag or CheckTag :Tag:props :closable 1`] = `
     <path
       d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
       fill="currentColor"
-      fillOpacity="0.9"
+      fill-opacity="0.9"
     />
   </svg>
 </span>
@@ -369,7 +369,7 @@ exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `
     <path
       d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
       fill="currentColor"
-      fillOpacity="0.9"
+      fill-opacity="0.9"
     />
   </svg>
 </span>

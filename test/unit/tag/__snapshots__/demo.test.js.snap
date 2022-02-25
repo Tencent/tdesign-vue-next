@@ -176,7 +176,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -197,7 +197,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -218,7 +218,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -239,7 +239,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -264,7 +264,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -285,7 +285,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -306,7 +306,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -327,7 +327,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -352,7 +352,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -373,7 +373,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -394,7 +394,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -415,7 +415,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -447,7 +447,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -480,7 +480,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -501,7 +501,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -525,7 +525,7 @@ exports[`Tag Tag deleteVue demo works fine 1`] = `
         <path
           d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
        添加标签 
