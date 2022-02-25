@@ -53,7 +53,6 @@ export default defineComponent({
 
   render() {
     // 浮层显示的受控与非受控
-    const visibleProps = { visible: this.popupVisible ?? this.innerPopupVisible };
 
     const mainContent = (
       <Popup
@@ -61,11 +60,11 @@ export default defineComponent({
         class={this.popupClasses}
         trigger={this.popupProps?.trigger || 'click'}
         placement="bottom-left"
+        visible={this.popupVisible ?? this.innerPopupVisible}
         content={this.panel}
         v-slots={{ ...this.$slots, content: this.$slots.panel }}
         hideEmptyPopup={true}
         onVisibleChange={this.onInnerPopupVisibleChange}
-        {...visibleProps}
         {...this.popupProps}
         overlayStyle={this.tOverlayStyle}
       >

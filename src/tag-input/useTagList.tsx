@@ -75,7 +75,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
           const tagContent = renderTNode('tag', { params: { value: item } });
           return (
             <Tag
-              key={item}
+              key={index}
               size={size.value}
               disabled={disabled.value}
               onClose={(context: { e: MouseEvent }) => onClose({ e: context.e, item, index })}

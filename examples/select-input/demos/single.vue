@@ -36,9 +36,7 @@ const options = [
   { label: 'tdesign-mobile-react', value: 6 },
 ];
 
-// const selectValue = ref('tdesign-vue');
 const selectValue = ref({ label: 'tdesign-vue', value: 1 });
-// const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
 
 const popupVisible = ref(false);
 
