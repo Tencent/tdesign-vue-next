@@ -7,7 +7,6 @@
     <t-select v-model="value3" :options="options" loading placeholder="请选择云解决方案" />
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 
@@ -23,7 +22,6 @@ const value1 = ref('');
 const value2 = ref('');
 const value3 = ref('');
 </script>
-
 <style scoped>
 .tdesign-demo-select-base {
   width: 680px;

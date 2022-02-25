@@ -1455,7 +1455,8 @@ exports[`Upload Upload singleInputVue demo works fine 1`] = `
           class="t-upload__trigger"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+            disabled=""
             type="button"
           >
             <span

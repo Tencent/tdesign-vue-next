@@ -184,7 +184,6 @@ export default defineComponent({
     document.body.appendChild(scrollDiv);
     this.scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
-    const { maxHeight } = this;
     this.checkMaxHeight();
   },
   unmounted() {

@@ -49,7 +49,7 @@ export const useTNodeJSX = () => {
     // propsNode 为 false 不渲染
     if (propsNode === false) return;
     if (propsNode === true) {
-      return handleSlots(instance, name, params) ?? defaultNode;
+      return handleSlots(instance, name, params) || defaultNode;
     }
 
     // 同名 props 和 slot 优先处理 props
