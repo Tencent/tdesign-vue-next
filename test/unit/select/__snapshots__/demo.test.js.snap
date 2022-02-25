@@ -449,7 +449,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -477,7 +477,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -686,7 +686,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -714,7 +714,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -943,7 +943,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -971,7 +971,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -2133,7 +2133,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -2157,7 +2157,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -2181,7 +2181,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -2529,7 +2529,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -2550,7 +2550,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -2571,7 +2571,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -2592,7 +2592,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4009,7 +4009,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4489,7 +4489,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4517,7 +4517,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4805,7 +4805,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4833,7 +4833,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4861,7 +4861,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4889,7 +4889,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4917,7 +4917,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4945,7 +4945,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -5230,7 +5230,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -5258,7 +5258,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -5286,7 +5286,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -5314,7 +5314,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>

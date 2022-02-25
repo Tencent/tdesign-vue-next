@@ -11,16 +11,17 @@ exports[`InputNumber :props :defaultValue, default value 6 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -42,16 +43,17 @@ exports[`InputNumber :props :defaultValue, default value 6 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -72,16 +74,17 @@ exports[`InputNumber :props :disabled, function can not be call 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -104,16 +107,17 @@ exports[`InputNumber :props :disabled, function can not be call 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -134,16 +138,17 @@ exports[`InputNumber :props :format, with 6% 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -165,16 +170,17 @@ exports[`InputNumber :props :format, with 6% 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -195,16 +201,17 @@ exports[`InputNumber :props :max, value 6 < max 10 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -226,16 +233,17 @@ exports[`InputNumber :props :max, value 6 < max 10 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -256,16 +264,17 @@ exports[`InputNumber :props :max, value 16 > max 10 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -287,16 +296,17 @@ exports[`InputNumber :props :max, value 16 > max 10 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -317,16 +327,17 @@ exports[`InputNumber :props :min, value -1 < min 1 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -348,16 +359,17 @@ exports[`InputNumber :props :min, value -1 < min 1 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -378,16 +390,17 @@ exports[`InputNumber :props :min, value 6 > min 1 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -409,16 +422,17 @@ exports[`InputNumber :props :min, value 6 > min 1 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -439,16 +453,17 @@ exports[`InputNumber :props :mode, without class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -470,16 +485,17 @@ exports[`InputNumber :props :mode, without class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -500,16 +516,17 @@ exports[`InputNumber :props :mode:column, with class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-chevron-down t-size-m"
+      class="t-icon t-icon-chevron-down"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -531,16 +548,17 @@ exports[`InputNumber :props :mode:column, with class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-chevron-up t-size-m"
+      class="t-icon t-icon-chevron-up"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M12.46 9.54l-.92.92L8 6.92l-3.54 3.54-.92-.92L8 5.08l4.46 4.46z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -561,16 +579,17 @@ exports[`InputNumber :props :mode:row, without class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -592,16 +611,17 @@ exports[`InputNumber :props :mode:row, without class t-is-controls-right 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -631,7 +651,7 @@ exports[`InputNumber :props :size:large, with class t-size-l 1`] = `
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -662,7 +682,7 @@ exports[`InputNumber :props :size:large, with class t-size-l 1`] = `
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -683,16 +703,17 @@ exports[`InputNumber :props :size:medium, with class t-size-m 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -714,16 +735,17 @@ exports[`InputNumber :props :size:medium, with class t-size-m 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -753,7 +775,7 @@ exports[`InputNumber :props :size:small, with class t-size-s 1`] = `
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -784,7 +806,7 @@ exports[`InputNumber :props :size:small, with class t-size-s 1`] = `
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -805,16 +827,17 @@ exports[`InputNumber :props :step, 2 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -836,16 +859,17 @@ exports[`InputNumber :props :step, 2 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -866,16 +890,17 @@ exports[`InputNumber :props :value, 6 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -897,16 +922,17 @@ exports[`InputNumber :props :value, 6 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -927,16 +953,17 @@ exports[`InputNumber :props class, with class t-input-number 1`] = `
     
     
     <svg
-      class="t-icon t-icon-remove t-size-m"
+      class="t-icon t-icon-remove"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M3.5 7.35h9v1.3h-9v-1.3z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     
@@ -958,16 +985,17 @@ exports[`InputNumber :props class, with class t-input-number 1`] = `
     
     
     <svg
-      class="t-icon t-icon-add t-size-m"
+      class="t-icon t-icon-add"
       fill="none"
       height="1em"
+      style="font-size: medium;"
       viewBox="0 0 16 16"
       width="1em"
     >
       <path
         d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
     

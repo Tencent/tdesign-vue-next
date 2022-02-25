@@ -62,7 +62,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
                         <path
                           d="M6 5v6l4.5-3L6 5z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -149,7 +149,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
                         <path
                           d="M6 5v6l4.5-3L6 5z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -281,18 +281,18 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="display: none;"
+          style="font-size: medium; display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
           <path
             d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
         <div
@@ -391,7 +391,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
                         <path
                           d="M6 5v6l4.5-3L6 5z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -428,7 +428,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
                         <path
                           d="M6 5v6l4.5-3L6 5z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -510,18 +510,18 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="display: none;"
+          style="font-size: medium; display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
           <path
             d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
         <div
@@ -620,7 +620,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
                         <path
                           d="M6 5v6l4.5-3L6 5z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -707,7 +707,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
                         <path
                           d="M6 5v6l4.5-3L6 5z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -849,18 +849,18 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="display: none;"
+          style="font-size: medium; display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
           <path
             d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
         <div
