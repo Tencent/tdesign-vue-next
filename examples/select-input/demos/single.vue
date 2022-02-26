@@ -7,8 +7,10 @@
       style="width: 300px"
       placeholder="Please Select"
       clearable
+      allow-input
       @popup-visible-change="onPopupVisibleChange"
       @clear="onClear"
+      @input-change="onInputChange"
     >
       <template #panel>
         <ul class="tdesign-demo__selet-input-ul-single">
@@ -62,10 +64,16 @@ export default defineComponent({
       popupVisible.value = val;
     };
 
+    const onInputChange = (val, context) => {
+      // 过滤功能
+      console.log(val, context);
+    };
+
     return {
       selectValue,
       options: OPTIONS,
       popupVisible,
+      onInputChange,
       onOptionClick,
       onClear,
       onPopupVisibleChange,

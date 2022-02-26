@@ -1348,7 +1348,7 @@ exports[`List List operationVue demo works fine 1`] = `
                   <path
                     d="M10.88 1.74l3.25 3.24.7-.7-3.24-3.25-.7.7zM2.35 13.86l3.62-.72 7.3-7.3-3.25-3.24-7.3 7.3L2 13.5a.3.3 0 00.35.35zm7.67-9.85l1.83 1.83-6.38 6.38-2.28.46.45-2.29 6.38-6.38z"
                     fill="currentColor"
-                    fillOpacity="0.9"
+                    fill-opacity="0.9"
                   />
                 </svg>
                 
@@ -1372,12 +1372,12 @@ exports[`List List operationVue demo works fine 1`] = `
                   <path
                     d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
                     fill="currentColor"
-                    fillOpacity="0.9"
+                    fill-opacity="0.9"
                   />
                   <path
                     d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
                     fill="currentColor"
-                    fillOpacity="0.9"
+                    fill-opacity="0.9"
                   />
                 </svg>
                 
@@ -1444,7 +1444,7 @@ exports[`List List operationVue demo works fine 1`] = `
                   <path
                     d="M10.88 1.74l3.25 3.24.7-.7-3.24-3.25-.7.7zM2.35 13.86l3.62-.72 7.3-7.3-3.25-3.24-7.3 7.3L2 13.5a.3.3 0 00.35.35zm7.67-9.85l1.83 1.83-6.38 6.38-2.28.46.45-2.29 6.38-6.38z"
                     fill="currentColor"
-                    fillOpacity="0.9"
+                    fill-opacity="0.9"
                   />
                 </svg>
                 
@@ -1468,12 +1468,12 @@ exports[`List List operationVue demo works fine 1`] = `
                   <path
                     d="M12.26 5.81L8.5 9.58V.5h-1v9.08L3.74 5.8l-.71.71 4.62 4.62c.2.2.5.2.7 0l4.62-4.62-.7-.7z"
                     fill="currentColor"
-                    fillOpacity="0.9"
+                    fill-opacity="0.9"
                   />
                   <path
                     d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z"
                     fill="currentColor"
-                    fillOpacity="0.9"
+                    fill-opacity="0.9"
                   />
                 </svg>
                 

@@ -8,6 +8,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
+import useDefault from '../hooks/useDefault';
 
 const NAME_CLASS = `${prefix}-tag-input`;
 const CLEAR_CLASS = `${prefix}-tag-input__suffix-clear`;
@@ -19,7 +20,14 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
-    const tInputValue = ref<InputValue>();
+    const { inputValue } = toRefs(props);
+    const [tInputValue, setTInputValue] = useDefault(
+      inputValue,
+      props.defaultInputValue,
+      props.onInputChange,
+      context.emit,
+      'inputValue',
+    );
     const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);
     const { isHover, addHover, cancelHover } = useHover({
       readonly: props.readonly,
@@ -44,7 +52,7 @@ export default defineComponent({
     });
 
     const tagInputPlaceholder = computed(() => {
-      return isHover.value || !tagValue.value?.length ? placeholder.value : '';
+      return !tagValue.value?.length ? placeholder.value : '';
     });
 
     const showClearIcon = computed(() => {
@@ -52,7 +60,7 @@ export default defineComponent({
     });
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
-      tInputValue.value = '';
+      setTInputValue('', { e: context.e, trigger: 'enter' });
       onInnerEnter(value, context);
       nextTick(() => {
         scrollToRight();
@@ -65,7 +73,7 @@ export default defineComponent({
 
     const onClearClick = (context: { e: MouseEvent }) => {
       clearAll(context);
-      tInputValue.value = '';
+      setTInputValue('', { e: context.e, trigger: 'clear' });
     };
 
     return {
@@ -75,6 +83,7 @@ export default defineComponent({
       tagInputPlaceholder,
       showClearIcon,
       tagInputRef,
+      setTInputValue,
       addHover,
       cancelHover,
       onInputEnter,
@@ -113,8 +122,7 @@ export default defineComponent({
         {...this.inputProps}
         value={this.tInputValue}
         onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
-          this.tInputValue = val;
-          this.onInputChange?.(val, context);
+          this.setTInputValue(val, { ...context, trigger: 'input' });
         }}
         onWheel={this.onWheel}
         autoWidth={this.autoWidth}

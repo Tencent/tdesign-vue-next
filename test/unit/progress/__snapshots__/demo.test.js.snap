@@ -196,7 +196,7 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
               <path
                 d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </div>
@@ -259,7 +259,7 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
               <path
                 d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </div>
@@ -322,7 +322,7 @@ exports[`Progress Progress circleVue demo works fine 1`] = `
               <path
                 d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </div>
@@ -914,7 +914,7 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
             <path
               d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -955,7 +955,7 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
             <path
               d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -996,7 +996,7 @@ exports[`Progress Progress lineVue demo works fine 1`] = `
             <path
               d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -1373,7 +1373,7 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
               <path
                 d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </div>
@@ -1431,7 +1431,7 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
               <path
                 d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </div>
@@ -1489,7 +1489,7 @@ exports[`Progress Progress sizeVue demo works fine 1`] = `
               <path
                 d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </div>
@@ -1657,7 +1657,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
             <path
               d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -1709,7 +1709,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
             <path
               d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -1774,7 +1774,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
             <path
               d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -1826,7 +1826,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -1891,7 +1891,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
             <path
               d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -1949,7 +1949,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
             <path
               d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>
@@ -1979,7 +1979,7 @@ exports[`Progress Progress statusVue demo works fine 1`] = `
             <path
               d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </div>

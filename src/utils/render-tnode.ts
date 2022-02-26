@@ -1,4 +1,4 @@
-import { h, ComponentPublicInstance, ComponentInternalInstance, VNode, isVNode } from 'vue';
+import { h, ComponentPublicInstance, VNode, isVNode } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';

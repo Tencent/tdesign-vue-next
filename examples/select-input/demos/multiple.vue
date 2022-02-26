@@ -18,6 +18,7 @@
 
     <!-- :popup-props="{ trigger: 'hover' }" -->
     <t-select-input
+      v-model:inputValue="inputValue"
       :value="value"
       :allow-input="allowInput"
       :placeholder="allowInput ? '请选择或输入' : '请选择'"
@@ -30,9 +31,9 @@
     >
       <template #panel>
         <t-checkbox-group
-          v-if="displayOptions.length"
+          v-if="options.length"
           :value="checkboxValue"
-          :options="displayOptions"
+          :options="options"
           class="tdesign-demo__pannel-options-multiple"
           @change="onCheckedChange"
         />
@@ -66,10 +67,9 @@ export default defineComponent({
     const excessTagsDisplayType = ref('break-line');
     const allowInput = ref(true);
     const creatable = ref(true);
+    const inputValue = ref('');
     // 全量数据
     const options = ref([...OPTIONS]);
-    // 仅用作展示的数据（过滤功能需要使用）
-    const displayOptions = ref([...OPTIONS]);
     const value = ref([
       { label: 'Vue', value: 1 },
       { label: 'React', value: 2 },
@@ -118,21 +118,20 @@ export default defineComponent({
         value.value.push(current);
         const newOptions = options.value.concat(current);
         options.value = newOptions;
-        displayOptions.value = newOptions;
+        inputValue.value = '';
       }
     };
 
-    // 过滤功能
-    const onInputChange = (val) => {
-      const newOptions = options.value.filter((t) => t.label.indexOf(val) !== -1);
-      displayOptions.value = newOptions;
+    const onInputChange = (val, context) => {
+      // 过滤功能
+      console.log(val, context);
     };
 
     return {
       value,
+      inputValue,
       checkboxValue,
       options,
-      displayOptions,
       allowInput,
       creatable,
       excessTagsDisplayType,
