@@ -6,7 +6,6 @@ import useSingle from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayStyle from './useOverlayStyle';
 import { TdSelectInputProps } from './type';
-import { renderTNodeJSX } from '../utils/render-tnode';
 
 const NAME_CLASS = `${prefix}-select-input`;
 const BASE_CLASS_BORDERLESS = `${prefix}-select-input--borderless`;

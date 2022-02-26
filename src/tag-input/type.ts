@@ -29,7 +29,7 @@ export interface TdTagInputProps {
    */
   disabled?: boolean;
   /**
-   * 【开发中】拖拽调整标签顺序
+   * 拖拽调整标签顺序
    * @default false
    */
   dragSort?: boolean;
@@ -42,6 +42,14 @@ export interface TdTagInputProps {
    * 透传 Input 输入框组件全部属性
    */
   inputProps?: InputProps;
+  /**
+   * 输入框的值
+   */
+  inputValue?: InputValue;
+  /**
+   * 输入框的值，非受控属性
+   */
+  defaultInputValue?: InputValue;
   /**
    * 左侧文本
    */
@@ -102,6 +110,10 @@ export interface TdTagInputProps {
    */
   defaultValue?: TagInputValue;
   /**
+   * 值
+   */
+  modelValue?: TagInputValue;
+  /**
    * 自定义值呈现的全部内容，参数为所有标签的值
    */
   valueDisplay?: string | TNode<{ value: TagInputValue; onClose: (index: number, item?: any) => void }>;
@@ -118,6 +130,15 @@ export interface TdTagInputProps {
    */
   onClear?: (context: { e: MouseEvent }) => void;
   /**
+   * 【开发中】拖拽排序时触发
+   */
+  onDragSort?: (context: {
+    currentIndex: number;
+    current: string | number;
+    targetIndex: number;
+    target: string | number;
+  }) => void;
+  /**
    * 按键按下 Enter 时触发
    */
   onEnter?: (value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue }) => void;
@@ -126,9 +147,9 @@ export interface TdTagInputProps {
    */
   onFocus?: (value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) => void;
   /**
-   * 输入框值发生变化时触发
+   * 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、回车键触发等
    */
-  onInputChange?: (value: InputValue, context?: { e?: InputEvent | MouseEvent }) => void;
+  onInputChange?: (value: InputValue, context?: InputValueChangeContext) => void;
   /**
    * 进入输入框时触发
    */
@@ -157,6 +178,11 @@ export interface TagInputChangeContext {
 }
 
 export type TagInputTriggerSource = 'enter' | 'tag-remove' | 'backspace' | 'clear';
+
+export interface InputValueChangeContext {
+  e?: InputEvent | MouseEvent | KeyboardEvent;
+  trigger: 'input' | 'clear' | 'enter';
+}
 
 export interface TagInputRemoveContext {
   value: TagInputValue;

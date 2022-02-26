@@ -233,13 +233,13 @@ export default {
           path: '/vue-next/components/select',
           component: () => import('@/examples/select/select.md'),
         },
-        // {
-        //   title: 'SelectInput 筛选器输入框',
-        //   name: 'select-input',
-        //   docType: 'form',
-        //   path: '/vue-next/components/select-input',
-        //   component: () => import('@/examples/select-input/select-input.md'),
-        // },
+        {
+          title: 'SelectInput 筛选器输入框',
+          name: 'select-input',
+          docType: 'form',
+          path: '/vue-next/components/select-input',
+          component: () => import('@/examples/select-input/select-input.md'),
+        },
         {
           title: 'Slider 滑块',
           name: 'slider',
