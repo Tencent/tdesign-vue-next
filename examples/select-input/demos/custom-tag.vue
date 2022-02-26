@@ -5,7 +5,7 @@
       <template #valueDisplay>
         <span>
           <img src="/favicon.ico" class="tdesign-demo-select-input__img" />
-          {{ selectValue1.label }}
+          {{ selectValue1?.label }}
         </span>
       </template>
       <template #panel>
