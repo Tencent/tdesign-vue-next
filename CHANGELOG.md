@@ -5,6 +5,14 @@ toc: false
 docClass: timeline
 ---
 
+## 0.9.2 `2022-02-26`
+
+
+### Bug Fixes
+
+* SelectInput: 修复 `src/select-input/interface.d.ts` 文件 `tsc` 编译忽略问题。
+
+
 ## 0.9.1 `2022-02-25`
 
 ### Bug Fixes
