@@ -162,8 +162,9 @@ export default defineComponent({
     };
 
     const onJumperChange = (val: string) => {
-      const currentIndex = Number(val);
+      const currentIndex = Math.trunc(+val);
       if (isNaN(currentIndex)) return;
+      jumpIndex.value = currentIndex;
       toPage(currentIndex);
     };
 
