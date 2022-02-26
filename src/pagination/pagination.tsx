@@ -294,8 +294,9 @@ export default defineComponent({
     },
     // 自定义页码时，相当于 current 发生变化
     onJumperChange(val: String) {
-      const currentIndex = Number(val);
+      const currentIndex = Math.trunc(+val);
       if (isNaN(currentIndex)) return;
+      this.jumpIndex = currentIndex;
       this.toPage(currentIndex);
     },
     renderPagination() {
