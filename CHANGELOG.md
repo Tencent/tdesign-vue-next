@@ -4,18 +4,21 @@ spline: explain
 toc: false
 docClass: timeline
 ---
-## 0.9.0 `2022-02-25`
 
-### BREAKING CHANGES
-
-
-
-* Input: `input` 元素 `ref` 名称由 `refInputElem` 更为 `inputRef` ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
-
-
+## 0.9.1 `2022-02-25`
 
 ### Bug Fixes
 
+* 修复构建产物 `TS` 声明文件路径错误
+
+## 0.9.0 `2022-02-25`
+
+
+### BREAKING CHANGES
+
+* Input: `input` 元素 `ref` 名称由 `refInputElem` 更为 `inputRef` ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
+
+### Bug Fixes
 
 * Slider: ([@pengYYYYY](https://github.com/pengYYYYY))
   * 修复游标定位问题，([pr #248](https://github.com/Tencent/tdesign-common/pull/248))
@@ -26,8 +29,6 @@ docClass: timeline
 * Table: 修复固定表头错位 ([pr #352](https://github.com/Tencent/tdesign-vue-next/pull/352)), ([issue #342](https://github.com/Tencent/tdesign-vue-next/issues/342)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Button: 修复 `primary outline` 模式下边框展示异常的问题 ([pr #238](https://github.com/Tencent/tdesign-common/pull/238)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
-
-
 ### Features
 
 * TagInput: ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
@@ -37,7 +38,6 @@ docClass: timeline
 * Checkbox: `change` 事件新增参数，`context.current` 表示当前变化的数据项；`context.type` 表示引起选中数据变化的是选中或是取消选中 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
 * 通用方法 `renderTNodeJSX` 同时支持驼峰命名的插槽，和中划线命名的插槽 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
 * 使用 `compositionAPi` 重构国际化 `mixin` ([pr #356](https://github.com/Tencent/tdesign-vue-next/pull/356)), ([@yc910920](https://github.com/yc910920))
-
 
 ## 0.8.1 `2022-02-18`
 
