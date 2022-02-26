@@ -15,6 +15,7 @@ const { prefix } = config;
 
 const stop = (e: MouseEvent) => e.stopPropagation();
 const name = `${prefix}-popup`;
+
 const placementMap = {
   top: 'top',
   'top-left': 'top-start',
@@ -219,18 +220,7 @@ export default defineComponent({
         this.popper.destroy();
       }
 
-      let placement = placementMap[currentPlacement] as Placement;
-      if (this.expandAnimation) {
-        // 如果有展开收起动画 需要在beforeEnter阶段设置max-height为0 这导致popperjs无法知道overflow了 所以需要在这里手动判断设置placment
-        popperElm.style.display = '';
-        this.presetMaxHeight = parseInt(getComputedStyle(this.getContentElm(popperElm)).maxHeight, 10) || Infinity;
-        const referenceElmBottom = innerHeight - this.referenceElm.getBoundingClientRect().bottom;
-        const referenceElmTop = this.referenceElm.getBoundingClientRect().top;
-        if (referenceElmBottom < popperElm.scrollHeight && referenceElmTop >= popperElm.scrollHeight) {
-          placement = /left/.test(currentPlacement) ? 'top-start' : 'top-end';
-        }
-        popperElm.style.display = 'none';
-      }
+      const placement = placementMap[currentPlacement] as Placement;
 
       this.popper = createPopper(this.referenceElm, popperElm, {
         placement,
@@ -260,7 +250,7 @@ export default defineComponent({
       if (!this.$refs) return;
       const refOverlayElm = this.$refs.overlay as HTMLElement;
       if (typeof overlayStyle === 'function' && referenceElm && refOverlayElm) {
-        const userOverlayStyle = overlayStyle(referenceElm);
+        const userOverlayStyle = overlayStyle(referenceElm, refOverlayElm);
         this.setOverlayStyle(userOverlayStyle);
       } else if (typeof overlayStyle === 'object' && refOverlayElm) {
         this.setOverlayStyle(overlayStyle);
@@ -275,7 +265,6 @@ export default defineComponent({
     },
 
     destroyPopper(el: HTMLElement) {
-      this.resetExpandStyles(el);
       if (this.popper) {
         this.popper.destroy();
         this.popper = null;
@@ -327,67 +316,14 @@ export default defineComponent({
         emitEvent(this, 'visible-change', val, context);
       });
     },
-    // 以下代码用于处理展开-收起动画相关,
-    // 需要使用popup的组件设置非对外暴露的expandAnimation开启 对不需要展开收起动画的其他组件无影响
-    getContentElm(el: HTMLElement): HTMLElement {
-      if (this.expandAnimation) {
-        const content = el.querySelector(`.${name}__content`) as HTMLElement;
-        return content;
-      }
-      return null;
-    },
-    // 动画结束后 清除展开收起动画相关属性 避免造成不必要的影响
-    resetExpandStyles(el: HTMLElement) {
-      const content = this.getContentElm(el);
-      if (content) {
-        content.style.overflow = '';
-        if (this.presetMaxHeight !== Infinity) {
-          content.style.maxHeight = '';
-        }
-      }
-    },
-    // 设置展开动画初始条件
-    beforeEnter(el: HTMLElement) {
-      const content = this.getContentElm(el);
-      if (content) {
-        content.style.overflow = 'hidden';
-        content.style.maxHeight = '0';
-      }
-    },
-    // 设置max-height,触发展开动画
-    enter(el: HTMLElement) {
-      const content = this.getContentElm(el);
-      if (content) {
-        // 对比scrollHeight和组件自身设置的maxHeight 选择小的做展开动画
-        const scrollHeight = Math.min(content.scrollHeight, this.presetMaxHeight);
-        content.style.maxHeight = `${scrollHeight}px`;
-      }
-    },
-    // 设置max-height为0,触发收起动画
-    leave(el: HTMLElement) {
-      const content = this.getContentElm(el);
-      if (content) content.style.maxHeight = '0';
-    },
-    // 设置收起动画初始条件
-    beforeLeave(el: HTMLElement) {
-      const content = this.getContentElm(el);
-      if (content) {
-        content.style.overflow = 'hidden';
-      }
-    },
   },
 
   render() {
     return (
       <div class={`${name}__reference`}>
         <transition
-          name={`${name}--animation`}
+          name={this.expandAnimation ? `${name}--animation-expand` : `${name}--animation`}
           appear
-          onBeforeEnter={this.beforeEnter}
-          onEnter={this.enter}
-          onAfterEnter={this.resetExpandStyles}
-          onBeforeLeave={this.beforeLeave}
-          onLeave={this.leave}
           onAfterLeave={this.destroyPopper}
         >
           <div

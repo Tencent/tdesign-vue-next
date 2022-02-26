@@ -46,6 +46,12 @@ const routes = [
     redirect: '/vue-next/overview',
   },
   {
+    name: 'demosComponent',
+    path: '/vue-next/demos/:componentName/',
+    component: () => import('./components/demo-page.vue'),
+  },
+  {
+    name: 'demos',
     path: '/vue-next/demos/:componentName/:demoName',
     component: () => import('./components/demo-page.vue'),
   },

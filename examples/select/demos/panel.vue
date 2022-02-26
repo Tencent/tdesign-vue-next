@@ -28,9 +28,8 @@
     </t-select>
   </div>
 </template>
-
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const OPTIONS = [
   { label: '架构云', value: '1' },
@@ -40,48 +39,34 @@ const OPTIONS = [
   { label: '人工智能', value: '5' },
 ];
 
-export default defineComponent({
-  setup() {
-    const options1 = ref(OPTIONS);
-    const options2 = ref([
-      { label: '云服务器', value: '1' },
-      { label: '云数据库', value: '2' },
-      { label: '域名注册', value: '3' },
-    ]);
-    const search = ref('');
-    const value1 = ref('');
-    const value2 = ref('');
-    const editOrCreate = ref('create');
-    const newOption = ref('');
+const options1 = ref(OPTIONS);
+const options2 = ref([
+  { label: '云服务器', value: '1' },
+  { label: '云数据库', value: '2' },
+  { label: '域名注册', value: '3' },
+]);
+const search = ref('');
+const value1 = ref('');
+const value2 = ref('');
+const editOrCreate = ref('create');
+const newOption = ref('');
 
-    return {
-      search,
-      value1,
-      value2,
-      editOrCreate,
-      newOption,
-      options1,
-      options2,
-      onSearch() {
-        options1.value = OPTIONS.filter((item) => item.label.indexOf(search.value) !== -1);
-      },
-      onAdd() {
-        editOrCreate.value = 'edit';
-      },
-      onAddConfirm() {
-        const id = Math.round(Math.random() * 100);
-        options2.value.push({ label: newOption.value, value: id });
-        newOption.value = '';
-        editOrCreate.value = 'create';
-      },
-      onAddCancel() {
-        editOrCreate.value = 'create';
-      },
-    };
-  },
-});
+const onSearch = () => {
+  options1.value = OPTIONS.filter((item) => item.label.indexOf(search.value) !== -1);
+};
+const onAdd = () => {
+  editOrCreate.value = 'edit';
+};
+const onAddConfirm = () => {
+  const id = Math.round(Math.random() * 100);
+  options2.value.push({ label: newOption.value, value: id });
+  newOption.value = '';
+  editOrCreate.value = 'create';
+};
+const onAddCancel = () => {
+  editOrCreate.value = 'create';
+};
 </script>
-
 <style scoped>
 .tdesign-demo-select-base {
   width: 450px;

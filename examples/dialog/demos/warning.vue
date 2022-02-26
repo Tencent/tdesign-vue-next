@@ -60,53 +60,40 @@
     </t-dialog>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible1 = ref(false);
-    const visible2 = ref(false);
-    const visible3 = ref(false);
-    const visible4 = ref(false);
-    const visible5 = ref(false);
+const visible1 = ref(false);
+const visible2 = ref(false);
+const visible3 = ref(false);
+const visible4 = ref(false);
+const visible5 = ref(false);
 
-    const onClickConfirm = (context) => {
-      const { e } = context;
-      // todo something else here
-      visible1.value = false;
-      visible2.value = false;
-      visible3.value = false;
-      visible4.value = false;
-      visible5.value = false;
-      e.stopPropagation();
-    };
+const onClickConfirm = (context) => {
+  const { e } = context;
+  visible1.value = false;
+  visible2.value = false;
+  visible3.value = false;
+  visible4.value = false;
+  visible5.value = false;
+  e.stopPropagation();
+};
 
-    return {
-      visible1,
-      visible2,
-      visible3,
-      visible4,
-      visible5,
-      onClickConfirm,
-      close1() {
-        visible1.value = false;
-      },
-      close2() {
-        visible2.value = false;
-      },
-      close3() {
-        visible3.value = false;
-      },
-      close4() {
-        visible4.value = false;
-      },
-      close5() {
-        visible5.value = false;
-      },
-    };
-  },
-});
+const close1 = () => {
+  visible1.value = false;
+};
+const close2 = () => {
+  visible2.value = false;
+};
+const close3 = () => {
+  visible3.value = false;
+};
+const close4 = () => {
+  visible4.value = false;
+};
+const close5 = () => {
+  visible5.value = false;
+};
 </script>
 <style scoped>
 .t-button {

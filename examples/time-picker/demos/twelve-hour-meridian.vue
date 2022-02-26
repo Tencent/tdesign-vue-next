@@ -4,17 +4,10 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('PM 10:20:30');
-    return {
-      value,
-    };
-  },
-});
+const value = ref('PM 10:20:30');
 </script>
 <style lang="less" scoped>
 .tdesign-demo-block {

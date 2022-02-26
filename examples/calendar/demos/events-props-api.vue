@@ -28,53 +28,33 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-const options = [
-  { value: true, label: '禁用' },
-  { value: false, label: '不禁用' },
-];
-export default defineComponent({
-  setup() {
-    const preventCellContextmenu = ref(false);
-    const histories = ref([]);
-    const value = null;
+const preventCellContextmenu = ref(false);
+const histories = ref([]);
+const value = null;
 
-    const appendHistories = (content, options) => {
-      histories.value.unshift(content);
-      console.info(options);
-    };
+const appendHistories = (content, options) => {
+  histories.value.unshift(content);
+  console.info(options);
+};
 
-    const cellClick = (options) => {
-      appendHistories(`鼠标左键单击单元格 ${options.cell.formattedDate}`, options);
-    };
+const cellClick = (options) => {
+  appendHistories(`鼠标左键单击单元格 ${options.cell.formattedDate}`, options);
+};
 
-    const cellDoubleClick = (options) => {
-      appendHistories(`鼠标双击单元格 ${options.cell.formattedDate}`, options);
-    };
+const cellDoubleClick = (options) => {
+  appendHistories(`鼠标双击单元格 ${options.cell.formattedDate}`, options);
+};
 
-    const cellRightClick = (options) => {
-      appendHistories(`鼠标右键点击元格 ${options.cell.formattedDate}`, options);
-    };
+const cellRightClick = (options) => {
+  appendHistories(`鼠标右键点击元格 ${options.cell.formattedDate}`, options);
+};
 
-    const controllerChange = (data) => {
-      appendHistories('控件值变化', data);
-    };
-
-    return {
-      preventCellContextmenu,
-      histories,
-      value,
-      options,
-      cellClick,
-      cellDoubleClick,
-      cellRightClick,
-      controllerChange,
-      appendHistories,
-    };
-  },
-});
+const controllerChange = (data) => {
+  appendHistories('控件值变化', data);
+};
 </script>
 
 <style scoped>

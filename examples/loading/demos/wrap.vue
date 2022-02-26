@@ -9,20 +9,15 @@
     </t-loading>
     <br />
     <div>
-      <t-button size="small" @click="loading = true"> 加载中 </t-button>
-      <t-button size="small" @click="loading = false"> 加载完成 </t-button>
+      <t-button size="small" @click="loading = true">加载中</t-button>
+      <t-button size="small" @click="loading = false">加载完成</t-button>
     </div>
   </div>
 </template>
+<script setup>
+import { ref } from 'vue';
 
-<script>
-export default {
-  data() {
-    return {
-      loading: true,
-    };
-  },
-};
+const loading = ref(true);
 </script>
 <style scoped>
 .loading-wrap-demo {

@@ -1,14 +1,14 @@
 <template>
   <div class="tdesign-tree-base">
     <t-addon prepend="filter:">
-      <t-input v-model="filterText" @input="onInput" />
+      <t-input v-model="filterText" @change="onInput" />
     </t-addon>
     <t-tree :data="items" expand-on-click-node :default-expanded="expanded" :filter="filterByText" hover line />
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const items = [
   {
@@ -101,29 +101,17 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const filterText = ref('');
-    const filterByText = ref(null);
-    const expanded = ref(['1.1.1']);
+const filterText = ref('');
+const filterByText = ref(null);
+const expanded = ref(['1.1.1']);
 
-    const onInput = (state) => {
-      console.info('onInput:', state);
-      filterByText.value = (node) => {
-        const rs = node.data.label.indexOf(filterText.value) >= 0;
-        return rs;
-      };
-    };
-
-    return {
-      items,
-      filterText,
-      filterByText,
-      expanded,
-      onInput,
-    };
-  },
-});
+const onInput = (state) => {
+  console.info('onInput:', state);
+  filterByText.value = (node) => {
+    const rs = node.data.label.indexOf(filterText.value) >= 0;
+    return rs;
+  };
+};
 </script>
 <style scoped>
 .demo-tree-base {

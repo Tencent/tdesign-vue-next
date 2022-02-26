@@ -10,40 +10,26 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
+const cellClick = (options) => {
+  console.log(`鼠标左键单击单元格 ${options.cell.formattedDate}`);
+};
 
-export default defineComponent({
-  setup() {
-    const cellClick = (options) => {
-      console.log(`鼠标左键单击单元格 ${options.cell.formattedDate}`);
-    };
+const cellDoubleClick = (options) => {
+  console.log(`鼠标双击单元格 ${options.cell.formattedDate}`);
+};
 
-    const cellDoubleClick = (options) => {
-      console.log(`鼠标双击单元格 ${options.cell.formattedDate}`);
-    };
+const cellRightClick = (options) => {
+  console.log(`鼠标右键点击元格 ${options.cell.formattedDate}`);
+};
 
-    const cellRightClick = (options) => {
-      console.log(`鼠标右键点击元格 ${options.cell.formattedDate}`);
-    };
+const monthChange = (options) => {
+  console.log(`月份切换 ${options.year}-${options.month}`);
+};
 
-    const monthChange = (options) => {
-      console.log(`月份切换 ${options.year}-${options.month}`);
-    };
-
-    const controllerChange = (data) => {
-      console.log('控件值变化', data);
-    };
-
-    return {
-      cellClick,
-      cellDoubleClick,
-      cellRightClick,
-      monthChange,
-      controllerChange,
-    };
-  },
-});
+const controllerChange = (data) => {
+  console.log('控件值变化', data);
+};
 </script>
 
 <style scoped>

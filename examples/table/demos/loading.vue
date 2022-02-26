@@ -12,9 +12,7 @@
     <t-table :data="[]" :columns="columns" :row-key="rowKey" :size="size" :loading="renderLoading" height="150" />
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent } from 'vue';
-
+<script setup lang="jsx">
 const data = [];
 const columns = [
   {
@@ -73,17 +71,7 @@ const columns = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const renderLoading = () => <div class="t-table--loading-message">这里使用渲染函数定义加载状态</div>;
-
-    return {
-      data,
-      columns,
-      rowKey: 'property',
-      size: 'small',
-      renderLoading,
-    };
-  },
-});
+const renderLoading = () => <div class="t-table--loading-message">这里使用渲染函数定义加载状态</div>;
+const rowKey = 'property';
+const size = 'small';
 </script>

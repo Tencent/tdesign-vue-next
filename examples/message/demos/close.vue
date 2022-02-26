@@ -21,36 +21,26 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const isShowMsg = ref(true);
-    const closableMsg = ref(true);
-    const closableMsg1 = ref(true);
-    const closableMsg2 = ref(true);
+const isShowMsg = ref(true);
+const closableMsg = ref(true);
+const closableMsg1 = ref(true);
+const closableMsg2 = ref(true);
 
-    return {
-      isShowMsg,
-      closableMsg,
-      closableMsg1,
-      closableMsg2,
-      closeBtn() {
-        return (
-          <div
-            class="t-message-close"
-            onClick={() => {
-              closableMsg1.value = false;
-            }}
-          >
-            <b>x</b>
-          </div>
-        );
-      },
-    };
-  },
-});
+const closeBtn = () => {
+  return (
+    <div
+      class="t-message-close"
+      onClick={() => {
+        closableMsg1.value = false;
+      }}
+    >
+      <b>x</b>
+    </div>
+  );
+};
 </script>
 <style lang="less" scoped>
 .t-demo-message {

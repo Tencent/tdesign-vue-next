@@ -4,18 +4,11 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref(3.2);
-    return {
-      value,
-      onChange(ev) {
-        console.info(ev);
-      },
-    };
-  },
-});
+const value = ref(3.2);
+const onChange = (ev) => {
+  console.info(ev);
+};
 </script>

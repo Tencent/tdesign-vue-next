@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import siteConfig from '../../site.config.js';
+import siteConfig from '../../site.config';
 import packageJson from '@/package.json';
 
 const { docs: routerList } = JSON.parse(JSON.stringify(siteConfig).replace(/component:.+/g, ''));
@@ -24,7 +24,7 @@ export default defineComponent({
     return {
       loaded: false,
       version: packageJson.version,
-      options: [{ value: currentVersion, label: packageJson.version }],
+      options: [],
     };
   },
 
@@ -56,7 +56,6 @@ export default defineComponent({
           const options = [];
           const versions = filterVersions(Object.keys(res.versions).filter((v) => !v.includes('alpha')));
           versions.forEach((v) => {
-            if (v === packageJson.version) return false;
             const nums = v.split('.');
             if (nums[0] === '0' && nums[1] < 6) return false;
             options.unshift({ label: v, value: v.replace(/\./g, '_') });

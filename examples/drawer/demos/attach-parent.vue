@@ -33,22 +33,12 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
-    const placement = ref('right');
-    const mode = ref('overlay');
-
-    return {
-      visible,
-      placement,
-      mode,
-    };
-  },
-});
+const visible = ref(false);
+const placement = ref('right');
+const mode = ref('overlay');
 </script>
 <style scoped>
 .t-container {

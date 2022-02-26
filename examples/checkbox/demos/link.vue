@@ -11,17 +11,10 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const checked = ref(['选项二']);
-    return {
-      checked,
-    };
-  },
-});
+const checked = ref(['选项二']);
 </script>
 
 <style scoped>

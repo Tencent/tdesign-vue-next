@@ -13,18 +13,27 @@ export default {
     type: String as PropType<TdInputProps['align']>,
     default: 'left' as TdInputProps['align'],
     validator(val: TdInputProps['align']): boolean {
+      if (!val) return true;
       return ['left', 'center', 'right'].includes(val);
     },
   },
-  /** 是否开启自动填充功能 */
-  autocomplete: Boolean,
+  /** 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) */
+  autocomplete: {
+    type: String as PropType<TdInputProps['autocomplete']>,
+    validator(val: TdInputProps['autocomplete']): boolean {
+      if (!val) return true;
+      return ['on', 'off'].includes(val);
+    },
+  },
   /** 自动聚焦 */
   autofocus: Boolean,
+  /** 宽度随内容自适应 */
+  autoWidth: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
   /** 是否禁用输入框 */
   disabled: Boolean,
-  /** 【讨论中】指定输入框展示值的格式 */
+  /** 【开发中】指定输入框展示值的格式 */
   format: {
     type: Function as PropType<TdInputProps['format']>,
   },
@@ -36,7 +45,7 @@ export default {
   maxcharacter: {
     type: Number,
   },
-  /** 用户最多可以输入的文本长度。值小于等于 0 的时候，则不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 */
+  /** 用户最多可以输入的文本长度，一个中文等于一个计数长度。值小于等于 0 的时候，则表示不限制输入长度。`maxcharacter` 和 `maxlength` 二选一使用 */
   maxlength: {
     type: Number,
   },
@@ -56,11 +65,14 @@ export default {
   },
   /** 输入框是否只读 */
   readonly: Boolean,
+  /** 输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示 */
+  showClearIconOnEmpty: Boolean,
   /** 输入框尺寸 */
   size: {
     type: String as PropType<TdInputProps['size']>,
     default: 'medium' as TdInputProps['size'],
     validator(val: TdInputProps['size']): boolean {
+      if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -68,6 +80,7 @@ export default {
   status: {
     type: String as PropType<TdInputProps['status']>,
     validator(val: TdInputProps['status']): boolean {
+      if (!val) return true;
       return ['success', 'warning', 'error'].includes(val);
     },
   },
@@ -88,6 +101,7 @@ export default {
     type: String as PropType<TdInputProps['type']>,
     default: 'text' as TdInputProps['type'],
     validator(val: TdInputProps['type']): boolean {
+      if (!val) return true;
       return ['text', 'number', 'url', 'tel', 'password', 'search', 'submit', 'hidden'].includes(val);
     },
   },

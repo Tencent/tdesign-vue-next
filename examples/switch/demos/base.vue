@@ -5,19 +5,12 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const checked = ref(true);
+const checked = ref(true);
 
-    return {
-      checked,
-      onChange(val) {
-        console.log(val);
-      },
-    };
-  },
-});
+const onChange = (val) => {
+  console.log(val);
+};
 </script>

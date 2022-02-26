@@ -5,9 +5,7 @@
     </template>
   </t-table>
 </template>
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const data = [];
 for (let i = 0; i < 20; i++) {
   data.push({
@@ -71,17 +69,7 @@ const columns = [
     fixed: 'right',
   },
 ];
-export default defineComponent({
-  setup() {
-    const rehandleClickOp = ({ text, row }) => {
-      console.log(text, row);
-    };
-
-    return {
-      data,
-      columns,
-      rehandleClickOp,
-    };
-  },
-});
+const rehandleClickOp = ({ text, row }) => {
+  console.log(text, row);
+};
 </script>

@@ -19,16 +19,8 @@
   </t-list>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      scrollHandler(e) {
-        console.log(e);
-      },
-    };
-  },
-});
+<script setup>
+const scrollHandler = (e) => {
+  console.log(e);
+};
 </script>

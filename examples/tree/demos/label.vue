@@ -11,9 +11,7 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
+<script setup>
 const items = [
   {
     label: '1',
@@ -39,20 +37,13 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    return {
-      items,
-      label(h, node) {
-        return h('strong', {
-          innerHTML: `value: ${node.value}, label: ${node.label}`,
-        });
-      },
-    };
-  },
-});
+const label = (h, node) => {
+  return h('strong', {
+    innerHTML: `value: ${node.value}, label: ${node.label}`,
+  });
+};
 </script>
-<style>
+<style scoped>
 .tdesign-tree-demo .t-tree {
   margin-bottom: 20px;
 }

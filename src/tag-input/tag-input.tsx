@@ -4,10 +4,11 @@ import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
 import { TdTagInputProps } from './type';
 import props from './props';
-import { useTNodeJSX } from '../hooks/tnode';
+import { renderTNodeJSX } from '../utils/render-tnode';
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
+import useDefault from '../hooks/useDefault';
 
 const NAME_CLASS = `${prefix}-tag-input`;
 const CLEAR_CLASS = `${prefix}-tag-input__suffix-clear`;
@@ -19,12 +20,27 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
-    const tInputValue = ref<InputValue>();
+    const { inputValue } = toRefs(props);
+    const [tInputValue, setTInputValue] = useDefault(
+      inputValue,
+      props.defaultInputValue,
+      props.onInputChange,
+      context.emit,
+      'inputValue',
+    );
     const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);
-    const { isHover, addHover, cancelHover } = useHover(props);
+    const { isHover, addHover, cancelHover } = useHover({
+      readonly: props.readonly,
+      disabled: props.disabled,
+      onMouseenter: props.onMouseenter,
+      onMouseleave: props.onMouseleave,
+    });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel } = useTagList(props, context);
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(
+      props,
+      context,
+    );
 
     const classes = computed(() => {
       return [
@@ -36,7 +52,7 @@ export default defineComponent({
     });
 
     const tagInputPlaceholder = computed(() => {
-      return isHover.value || !tagValue.value?.length ? placeholder.value : '';
+      return !tagValue.value?.length ? placeholder.value : '';
     });
 
     const showClearIcon = computed(() => {
@@ -44,11 +60,20 @@ export default defineComponent({
     });
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
-      tInputValue.value = '';
+      setTInputValue('', { e: context.e, trigger: 'enter' });
       onInnerEnter(value, context);
       nextTick(() => {
         scrollToRight();
       });
+    };
+
+    const onClick = () => {
+      tagInputRef.value.focus();
+    };
+
+    const onClearClick = (context: { e: MouseEvent }) => {
+      clearAll(context);
+      setTInputValue('', { e: context.e, trigger: 'clear' });
     };
 
     return {
@@ -58,16 +83,19 @@ export default defineComponent({
       tagInputPlaceholder,
       showClearIcon,
       tagInputRef,
+      setTInputValue,
       addHover,
       cancelHover,
       onInputEnter,
       onInnerEnter,
       onInputBackspaceKeyUp,
-      clearAll,
       renderLabel,
       onWheel,
       scrollToRightOnEnter,
       scrollToLeftOnLeave,
+      onClick,
+      onClearClick,
+      onClose,
       classes,
       slots: context.slots,
     };
@@ -75,26 +103,29 @@ export default defineComponent({
 
   render() {
     const suffixIconNode = this.showClearIcon ? (
-      <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.clearAll} />
+      <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.onClearClick} />
     ) : (
-      useTNodeJSX('suffixIcon', { slots: this.slots })
+      renderTNodeJSX(this, 'suffixIcon')
     );
     // 自定义 Tag 节点
-    const displayNode = useTNodeJSX('valueDisplay', {
-      slots: this.slots,
-      params: { value: this.tagValue },
+    const displayNode = renderTNodeJSX(this, 'valueDisplay', {
+      params: {
+        value: this.tagValue,
+        onClose: (index: number, item: any) => this.onClose({ index, item }),
+      },
     });
     // 左侧文本
-    const label = useTNodeJSX('label', { slots: this.slots });
+    const label = renderTNodeJSX(this, 'label', { silent: true });
     return (
       <TInput
         ref="tagInputRef"
         {...this.inputProps}
         value={this.tInputValue}
-        onChange={(val: InputValue) => {
-          this.tInputValue = val;
+        onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
+          this.setTInputValue(val, { ...context, trigger: 'input' });
         }}
-        onMousewheel={this.onWheel}
+        onWheel={this.onWheel}
+        autoWidth={this.autoWidth}
         size={this.size}
         readonly={this.readonly}
         disabled={this.disabled}
@@ -122,6 +153,7 @@ export default defineComponent({
         onBlur={(inputValue: InputValue, context: { e: MouseEvent }) => {
           this.onBlur?.(this.tagValue, { e: context.e, inputValue });
         }}
+        onClick={this.onClick}
       />
     );
   },

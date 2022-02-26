@@ -1,12 +1,14 @@
-import { defineComponent, VNode, ComponentPublicInstance } from 'vue';
+import { defineComponent, VNode, ComponentPublicInstance, provide, toRefs } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import { prefix } from '../config';
 import { FormValidateResult, TdFormProps, FormValidateParams } from './type';
 import props from './props';
-import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES } from './const';
+import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES, FORM_CONTROL_COMPONENTS } from './const';
 import FormItem from './form-item';
 import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
 import { emitEvent } from '../utils/event';
+
+import { FormDisabledProvider } from './hooks';
 
 export type FormItemInstance = InstanceType<typeof FormItem>;
 
@@ -16,7 +18,6 @@ const name = `${prefix}-form`;
 
 export default defineComponent({
   name: 'TForm',
-
   provide(): { form: ComponentPublicInstance } {
     return {
       form: this,
@@ -26,6 +27,13 @@ export default defineComponent({
   props: { ...props },
 
   emits: ['validate', 'submit', 'reset', 'form-item-destroyed'],
+
+  setup(props) {
+    const { disabled } = toRefs(props);
+    provide<FormDisabledProvider>('formDisabled', {
+      disabled,
+    });
+  },
 
   data() {
     return {
@@ -41,6 +49,13 @@ export default defineComponent({
           [`${name}-inline`]: this.layout === 'inline',
         },
       ];
+    },
+    controlledComponents(): string[] {
+      let fields = FORM_CONTROL_COMPONENTS;
+      if (this.formControlledComponents?.length) {
+        fields = fields.concat(this.formControlledComponents);
+      }
+      return fields;
     },
   },
 
@@ -105,6 +120,7 @@ export default defineComponent({
         e && e.preventDefault();
         e && e.stopPropagation();
       }
+
       this.children.filter((child: any) => this.isFunction(child.resetField)).map((child: any) => child.resetField());
       emitEvent(this, 'reset', { e });
     },

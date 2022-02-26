@@ -1,5 +1,7 @@
-import { defineComponent, nextTick } from 'vue';
+import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
+import { useReceiver } from '../config-provider/useReceiver';
+import { useEmitEvent } from '../hooks/event';
 import { addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
 import { prefix } from '../config';
@@ -8,11 +10,8 @@ import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
-import ActionMixin from '../dialog/actions';
-import { emitEvent } from '../utils/event';
-
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { DrawerConfig } from '../config-provider/config-receiver';
+import { DrawerConfig } from '../config-provider/config-receiver';
+import { useAction } from '../dialog/hooks';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
@@ -20,7 +19,6 @@ const name = `${prefix}-drawer`;
 const lockClass = `${prefix}-drawer--lock`;
 
 export default defineComponent({
-  ...mixins(ActionMixin, getConfigReceiverMixins<DrawerConfig>('drawer')),
   name: 'TDrawer',
 
   components: {
@@ -32,7 +30,7 @@ export default defineComponent({
     TransferDom,
   },
 
-  props: { ...props },
+  props,
 
   emits: [
     'open',
@@ -47,103 +45,93 @@ export default defineComponent({
     'cancel',
   ],
 
-  computed: {
-    drawerClasses(): ClassName {
+  setup(props) {
+    const { global } = useReceiver<DrawerConfig>('drawer');
+    const emitEvent = useEmitEvent();
+    const confirmBtnAction = (e: MouseEvent) => {
+      emitEvent('confirm', e);
+    };
+    const cancelBtnAction = (e: MouseEvent) => {
+      emitEvent('cancel', e);
+      closeDrawer({ trigger: 'cancel', e });
+    };
+    const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
+    const drawerEle = ref<HTMLElement | null>(null);
+    const drawerClasses = computed<ClassName>(() => {
       return [
         't-drawer',
-        `t-drawer--${this.placement}`,
+        `t-drawer--${props.placement}`,
         {
-          't-drawer--open': this.visible,
-          't-drawer--attach': this.showInAttachedElement,
-          't-drawer--without-mask': !this.showOverlay,
+          't-drawer--open': props.visible,
+          't-drawer--attach': props.showInAttachedElement,
+          't-drawer--without-mask': !props.showOverlay,
         },
       ];
-    },
-    sizeValue(): string {
-      const defaultSize = isNaN(Number(this.size)) ? this.size : `${this.size}px`;
+    });
+
+    const sizeValue = computed(() => {
+      const defaultSize = isNaN(Number(props.size)) ? props.size : `${props.size}px`;
       return (
         {
           small: '300px',
           medium: '500px',
           large: '760px',
-        }[this.size] || defaultSize
+        }[props.size] || defaultSize
       );
-    },
-    wrapperStyles(): Styles {
+    });
+    const wrapperStyles = computed(() => {
       return {
         // 用于抵消动画效果：transform: translateX(100%); 等
-        transform: this.visible ? 'translateX(0)' : undefined,
-        width: ['left', 'right'].includes(this.placement) ? this.sizeValue : '',
-        height: ['top', 'bottom'].includes(this.placement) ? this.sizeValue : '',
+        transform: props.visible ? 'translateX(0)' : undefined,
+        width: ['left', 'right'].includes(props.placement) ? sizeValue.value : '',
+        height: ['top', 'bottom'].includes(props.placement) ? sizeValue.value : '',
       };
-    },
-    wrapperClasses(): ClassName {
-      return ['t-drawer__content-wrapper', `t-drawer__content-wrapper--${this.placement}`];
-    },
-    parentNode(): HTMLElement {
-      return this.$el && (this.$el.parentNode as HTMLElement);
-    },
-    modeAndPlacement(): string {
-      return [this.mode, this.placement].join();
-    },
-    footerStyle(): Styles {
+    });
+
+    const wrapperClasses = computed<ClassName>(() => {
+      return ['t-drawer__content-wrapper', `t-drawer__content-wrapper--${props.placement}`];
+    });
+
+    const parentNode = computed<HTMLElement>(() => {
+      return drawerEle.value && (drawerEle.value.parentNode as HTMLElement);
+    });
+
+    const modeAndPlacement = computed<string>(() => {
+      return [props.mode, props.placement].join();
+    });
+
+    const footerStyle = computed<Styles>(() => {
       return {
         display: 'flex',
-        justifyContent: this.placement === 'right' ? 'flex-start' : 'flex-end',
+        justifyContent: props.placement === 'right' ? 'flex-start' : 'flex-end',
       };
-    },
-  },
-
-  watch: {
-    modeAndPlacement: {
-      handler() {
-        this.handlePushMode();
-      },
-      immediate: true,
-    },
-    visible: {
-      handler(value) {
-        if (value && !this.showInAttachedElement) {
-          this.preventScrollThrough && addClass(document.body, lockClass);
-        } else {
-          this.preventScrollThrough && removeClass(document.body, lockClass);
-        }
-      },
-      immediate: true,
-    },
-  },
-
-  updated() {
-    this.updatePushMode();
-  },
-
-  methods: {
-    handlePushMode() {
-      if (this.mode !== 'push') return;
+    });
+    const handlePushMode = () => {
+      if (props.mode !== 'push') return;
       nextTick(() => {
-        if (!this.parentNode) return;
-        this.parentNode.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
+        if (!parentNode.value) return;
+        parentNode.value.style.cssText = 'transition: margin 300ms cubic-bezier(0.7, 0.3, 0.1, 1) 0s;';
       });
-    },
+    };
     // push 动画效果处理
-    updatePushMode() {
-      if (!this.parentNode) return;
-      if (this.mode !== 'push' || !this.parentNode) return;
+    const updatePushMode = () => {
+      if (!parentNode.value) return;
+      if (props.mode !== 'push' || !parentNode.value) return;
       const marginStr = {
-        left: `margin: 0 0 0 ${this.sizeValue}`,
-        right: `margin: 0 0 0 -${this.sizeValue}`,
-        top: `margin: ${this.sizeValue} 0 0 0`,
-        bottom: `margin: -${this.sizeValue} 0 0 0`,
-      }[this.placement];
-      if (this.visible) {
-        this.parentNode.style.cssText += marginStr;
+        left: `margin: 0 0 0 ${sizeValue.value}`,
+        right: `margin: 0 0 0 -${sizeValue.value}`,
+        top: `margin: ${sizeValue.value} 0 0 0`,
+        bottom: `margin: -${sizeValue.value} 0 0 0`,
+      }[props.placement];
+      if (props.visible) {
+        parentNode.value.style.cssText += marginStr;
       } else {
-        this.parentNode.style.cssText = this.parentNode.style.cssText.replace(/margin:.+;/, '');
+        parentNode.value.style.cssText = parentNode.value.style.cssText.replace(/margin:.+;/, '');
       }
-    },
-    getDefaultBtn(btnType: FooterButtonType, btnApi: FooterButton) {
+    };
+    const getDefaultBtn = (btnType: FooterButtonType, btnApi: FooterButton) => {
       const isCancel = btnType === 'cancel';
-      const clickAction = isCancel ? this.cancelBtnAction : this.confirmBtnAction;
+      const clickAction = isCancel ? cancelBtnAction : confirmBtnAction;
       const theme = isCancel ? 'default' : 'primary';
       const isApiObject = typeof btnApi === 'object';
       return (
@@ -151,66 +139,101 @@ export default defineComponent({
           {btnApi && typeof btnApi === 'object' ? btnApi.content : btnApi}
         </t-button>
       );
-    },
-    isUseDefault(btnApi: FooterButton) {
+    };
+    const isUseDefault = (btnApi: FooterButton) => {
       const baseTypes = ['string', 'object'];
       return Boolean(btnApi && baseTypes.includes(typeof btnApi));
-    },
+    };
     // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
-    getDefaultFooter() {
+    const getDefaultFooter = () => {
       // this.getConfirmBtn is a function of ActionMixin
-      const confirmBtn = this.getConfirmBtn({
-        confirmBtn: this.confirmBtn,
-        globalConfirm: this.global.confirm,
+      const confirmBtn = getConfirmBtn({
+        confirmBtn: props.confirmBtn,
+        globalConfirm: global.value.confirm,
         className: `${prefix}-drawer__confirm`,
       });
       // this.getCancelBtn is a function of ActionMixin
-      const cancelBtn = this.getCancelBtn({
-        cancelBtn: this.cancelBtn,
-        globalCancel: this.global.cancel,
+      const cancelBtn = getCancelBtn({
+        cancelBtn: props.cancelBtn,
+        globalCancel: global.value.cancel,
         className: `${prefix}-drawer__cancel`,
       });
       return (
-        <div style={this.footerStyle}>
-          {this.placement === 'right' ? confirmBtn : null}
+        <div style={footerStyle.value}>
+          {props.placement === 'right' ? confirmBtn : null}
           {cancelBtn}
-          {this.placement !== 'right' ? confirmBtn : null}
+          {props.placement !== 'right' ? confirmBtn : null}
         </div>
       );
-    },
-    handleCloseBtnClick(e: MouseEvent) {
-      emitEvent(this, 'close-btn', e);
-      this.closeDrawer({ trigger: 'close-btn', e });
-    },
-    handleWrapperClick(e: MouseEvent) {
-      emitEvent(this, 'overlay', e);
-      if (this.closeOnOverlayClick) {
-        this.closeDrawer({ trigger: 'overlay', e });
+    };
+    watch(
+      modeAndPlacement,
+      () => {
+        handlePushMode();
+      },
+      { immediate: true },
+    );
+    watch(
+      () => props.visible,
+      (value: boolean) => {
+        if (value && !props.showInAttachedElement) {
+          props.preventScrollThrough && addClass(document.body, lockClass);
+        } else {
+          props.preventScrollThrough && removeClass(document.body, lockClass);
+        }
+      },
+      { immediate: true },
+    );
+    const handleCloseBtnClick = (e: MouseEvent) => {
+      emitEvent('close-btn', e);
+      closeDrawer({ trigger: 'close-btn', e });
+    };
+    const handleWrapperClick = (e: MouseEvent) => {
+      emitEvent('overlay', e);
+      if (props.closeOnOverlayClick) {
+        closeDrawer({ trigger: 'overlay', e });
       }
-    },
-    onKeyDown(e: KeyboardEvent) {
-      if (this.closeOnEscKeydown && e.key === 'Escape') {
-        emitEvent(this, 'esc-keydown', e);
-        this.closeDrawer({ trigger: 'esc', e });
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
+      if (props.closeOnEscKeydown && e.key === 'Escape') {
+        emitEvent('esc-keydown', e);
+        closeDrawer({ trigger: 'esc', e });
       }
-    },
-    confirmBtnAction(e: MouseEvent) {
-      emitEvent(this, 'confirm', e);
-    },
-    cancelBtnAction(e: MouseEvent) {
-      emitEvent(this, 'cancel', e);
-      this.closeDrawer({ trigger: 'cancel', e });
-    },
-    closeDrawer(params: DrawerCloseContext) {
-      emitEvent(this, 'close', params);
-      this.$emit('update:visible', false);
-    },
+    };
+    const closeDrawer = (params: DrawerCloseContext) => {
+      emitEvent('close', params);
+      emitEvent('update:visible', false);
+    };
+
+    onUpdated(() => {
+      updatePushMode();
+    });
+
+    return {
+      drawerEle,
+      drawerClasses,
+      wrapperStyles,
+      modeAndPlacement,
+      wrapperClasses,
+      handlePushMode,
+      updatePushMode,
+      getDefaultBtn,
+      isUseDefault,
+      getDefaultFooter,
+      handleCloseBtnClick,
+      handleWrapperClick,
+      onKeyDown,
+      confirmBtnAction,
+      cancelBtnAction,
+      closeDrawer,
+    };
   },
 
   render() {
     if (this.destroyOnClose && !this.visible) return;
     const defaultCloseBtn = <close-icon class="t-submenu-icon"></close-icon>;
-    const body = renderContent(this, 'default', 'body');
+    const body = renderContent(this, 'body', 'default');
     const defaultFooter = this.getDefaultFooter();
     return (
       <div
@@ -219,6 +242,7 @@ export default defineComponent({
         onKeydown={this.onKeyDown}
         v-transfer-dom={this.attach}
         {...this.$attrs}
+        ref="drawerEle"
       >
         {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wrapperClasses} style={this.wrapperStyles}>

@@ -7,17 +7,11 @@
     </t-notification>
   </div>
 </template>
-
-<script lang="jsx">
-export default {
-  methods: {
-    content() {
-      return <div>这是一条消息通知</div>;
-    },
-  },
+<script lang="jsx" setup>
+const content = () => {
+  return <div>这是一条消息通知</div>;
 };
 </script>
-
 <style scoped>
 .t-notification + .t-notification {
   margin-top: 20px;

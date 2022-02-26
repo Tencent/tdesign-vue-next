@@ -8,7 +8,7 @@ export default defineComponent({
   name,
   props: {
     mark: {
-      type: [Object, Array, String] as PropType<TdSliderProps['marks']>,
+      type: [Object, Array, String, Number] as PropType<TdSliderProps['marks']>,
     },
     point: {
       type: Number,

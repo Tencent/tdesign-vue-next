@@ -34,23 +34,13 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const menu1Value = ref('item2');
-    const menu2Value = ref('item1');
+const menu1Value = ref('item2');
+const menu2Value = ref('item1');
 
-    const changeHandler = (active) => {
-      console.log('change', active);
-    };
-
-    return {
-      menu1Value,
-      menu2Value,
-      changeHandler,
-    };
-  },
-});
+const changeHandler = (active) => {
+  console.log('change', active);
+};
 </script>

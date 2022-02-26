@@ -26,8 +26,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const items = [
   {
@@ -54,30 +54,17 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const activable = ref(true);
-    const activeMultiple = ref(false);
-    const expandOnClickNode = ref(false);
+const activable = ref(true);
+const activeMultiple = ref(false);
+const expandOnClickNode = ref(false);
 
-    const onClick = (context) => {
-      console.info('onClick', context);
-    };
+const onClick = (context) => {
+  console.info('onClick', context);
+};
 
-    const onActive = (value, context) => {
-      console.info('onActive', value, context);
-    };
-
-    return {
-      activable,
-      activeMultiple,
-      expandOnClickNode,
-      items,
-      onClick,
-      onActive,
-    };
-  },
-});
+const onActive = (value, context) => {
+  console.info('onActive', value, context);
+};
 </script>
 <style scoped>
 .tdesign-tree-base .t-button {

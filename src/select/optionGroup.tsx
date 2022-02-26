@@ -15,17 +15,31 @@ export default defineComponent({
     },
   },
   props: { ...props },
+  data() {
+    return {
+      visible: true,
+    };
+  },
   computed: {
     classes(): ClassName {
       return [
         name,
         {
           [CLASSNAMES.SIZE[this.tSelect.size]]: this.tSelect && this.tSelect.size,
+          [`${name}__divider`]: this.divider,
         },
       ];
     },
   },
-  render(): VNode {
+  methods: {
+    childrenChange() {
+      this.visible =
+        this.$children &&
+        Array.isArray(this.$children) &&
+        this.$children.some((option) => (option as any).show === true);
+    },
+  },
+  render() {
     const children = renderTNodeJSX(this, 'default');
     return (
       <li class={this.classes}>

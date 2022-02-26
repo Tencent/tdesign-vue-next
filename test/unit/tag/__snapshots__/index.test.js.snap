@@ -3,7 +3,7 @@
 exports[`Tag or CheckTag :Tag:props :checked 1`] = `
 <span
   checked="true"
-  class="t-tag t-tag--default t-size-m t-tag--dark"
+  class="t-tag t-tag--default t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -13,7 +13,7 @@ exports[`Tag or CheckTag :Tag:props :checked 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :closable 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+  class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
 >
   <!---->
   <!---->
@@ -27,7 +27,7 @@ exports[`Tag or CheckTag :Tag:props :closable 1`] = `
     <path
       d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
       fill="currentColor"
-      fillOpacity="0.9"
+      fill-opacity="0.9"
     />
   </svg>
 </span>
@@ -35,7 +35,7 @@ exports[`Tag or CheckTag :Tag:props :closable 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :disabled 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark t-tag--disabled"
+  class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
 >
   <!---->
   <!---->
@@ -45,7 +45,7 @@ exports[`Tag or CheckTag :Tag:props :disabled 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :maxWidth 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark t-tag--ellipsis"
+  class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-size-m"
   style="max-width: 100px;"
 >
   <!---->
@@ -61,7 +61,7 @@ exports[`Tag or CheckTag :Tag:props :maxWidth 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :shape:mark 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark t-tag--mark"
+  class="t-tag t-tag--default t-tag--dark t-size-m t-tag--mark"
 >
   <!---->
   <!---->
@@ -71,7 +71,7 @@ exports[`Tag or CheckTag :Tag:props :shape:mark 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :shape:round 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark t-tag--round"
+  class="t-tag t-tag--default t-tag--dark t-size-m t-tag--round"
 >
   <!---->
   <!---->
@@ -81,7 +81,7 @@ exports[`Tag or CheckTag :Tag:props :shape:round 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :shape:square 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark"
+  class="t-tag t-tag--default t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -91,7 +91,7 @@ exports[`Tag or CheckTag :Tag:props :shape:square 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :size:large 1`] = `
 <span
-  class="t-tag t-tag--default t-size-l t-tag--dark"
+  class="t-tag t-tag--default t-tag--dark t-size-l"
 >
   <!---->
   <!---->
@@ -105,7 +105,7 @@ exports[`Tag or CheckTag :Tag:props :size:small 1`] = `<!---->`;
 
 exports[`Tag or CheckTag :Tag:props :theme: 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark"
+  class="t-tag t-tag--default t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -115,7 +115,7 @@ exports[`Tag or CheckTag :Tag:props :theme: 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :theme:danger 1`] = `
 <span
-  class="t-tag t-tag--danger t-size-m t-tag--dark"
+  class="t-tag t-tag--danger t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -125,7 +125,7 @@ exports[`Tag or CheckTag :Tag:props :theme:danger 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :theme:default 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark"
+  class="t-tag t-tag--default t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -135,7 +135,7 @@ exports[`Tag or CheckTag :Tag:props :theme:default 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :theme:info 1`] = `
 <span
-  class="t-tag t-tag--info t-size-m t-tag--dark"
+  class="t-tag t-tag--info t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -145,7 +145,7 @@ exports[`Tag or CheckTag :Tag:props :theme:info 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :theme:primary 1`] = `
 <span
-  class="t-tag t-tag--primary t-size-m t-tag--dark"
+  class="t-tag t-tag--primary t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -155,7 +155,7 @@ exports[`Tag or CheckTag :Tag:props :theme:primary 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :theme:success 1`] = `
 <span
-  class="t-tag t-tag--success t-size-m t-tag--dark"
+  class="t-tag t-tag--success t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -165,7 +165,7 @@ exports[`Tag or CheckTag :Tag:props :theme:success 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :theme:warning 1`] = `
 <span
-  class="t-tag t-tag--warning t-size-m t-tag--dark"
+  class="t-tag t-tag--warning t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -175,7 +175,7 @@ exports[`Tag or CheckTag :Tag:props :theme:warning 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:dark;theme:danger 1`] = `
 <span
-  class="t-tag t-tag--danger t-size-m t-tag--dark"
+  class="t-tag t-tag--danger t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -185,7 +185,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:danger 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:dark;theme:default 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark"
+  class="t-tag t-tag--default t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -195,7 +195,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:default 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:dark;theme:info 1`] = `
 <span
-  class="t-tag t-tag--info t-size-m t-tag--dark"
+  class="t-tag t-tag--info t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -205,7 +205,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:info 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:dark;theme:primary 1`] = `
 <span
-  class="t-tag t-tag--primary t-size-m t-tag--dark"
+  class="t-tag t-tag--primary t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -215,7 +215,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:primary 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:dark;theme:success 1`] = `
 <span
-  class="t-tag t-tag--success t-size-m t-tag--dark"
+  class="t-tag t-tag--success t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -225,7 +225,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:success 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:dark;theme:warning 1`] = `
 <span
-  class="t-tag t-tag--warning t-size-m t-tag--dark"
+  class="t-tag t-tag--warning t-tag--dark t-size-m"
 >
   <!---->
   <!---->
@@ -235,7 +235,7 @@ exports[`Tag or CheckTag :Tag:props :variant:dark;theme:warning 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:light;theme:danger 1`] = `
 <span
-  class="t-tag t-tag--danger t-size-m t-tag--light"
+  class="t-tag t-tag--danger t-tag--light t-size-m"
 >
   <!---->
   <!---->
@@ -245,7 +245,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:danger 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:light;theme:default 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--light"
+  class="t-tag t-tag--default t-tag--light t-size-m"
 >
   <!---->
   <!---->
@@ -255,7 +255,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:default 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:light;theme:info 1`] = `
 <span
-  class="t-tag t-tag--info t-size-m t-tag--light"
+  class="t-tag t-tag--info t-tag--light t-size-m"
 >
   <!---->
   <!---->
@@ -265,7 +265,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:info 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:light;theme:primary 1`] = `
 <span
-  class="t-tag t-tag--primary t-size-m t-tag--light"
+  class="t-tag t-tag--primary t-tag--light t-size-m"
 >
   <!---->
   <!---->
@@ -275,7 +275,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:primary 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:light;theme:success 1`] = `
 <span
-  class="t-tag t-tag--success t-size-m t-tag--light"
+  class="t-tag t-tag--success t-tag--light t-size-m"
 >
   <!---->
   <!---->
@@ -285,7 +285,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:success 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:light;theme:warning 1`] = `
 <span
-  class="t-tag t-tag--warning t-size-m t-tag--light"
+  class="t-tag t-tag--warning t-tag--light t-size-m"
 >
   <!---->
   <!---->
@@ -295,7 +295,7 @@ exports[`Tag or CheckTag :Tag:props :variant:light;theme:warning 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:plain;theme:danger 1`] = `
 <span
-  class="t-tag t-tag--danger t-size-m t-tag--plain"
+  class="t-tag t-tag--danger t-tag--plain t-size-m"
 >
   <!---->
   <!---->
@@ -305,7 +305,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:danger 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:plain;theme:default 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--plain"
+  class="t-tag t-tag--default t-tag--plain t-size-m"
 >
   <!---->
   <!---->
@@ -315,7 +315,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:default 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:plain;theme:info 1`] = `
 <span
-  class="t-tag t-tag--info t-size-m t-tag--plain"
+  class="t-tag t-tag--info t-tag--plain t-size-m"
 >
   <!---->
   <!---->
@@ -325,7 +325,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:info 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:plain;theme:primary 1`] = `
 <span
-  class="t-tag t-tag--primary t-size-m t-tag--plain"
+  class="t-tag t-tag--primary t-tag--plain t-size-m"
 >
   <!---->
   <!---->
@@ -335,7 +335,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:primary 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:plain;theme:success 1`] = `
 <span
-  class="t-tag t-tag--success t-size-m t-tag--plain"
+  class="t-tag t-tag--success t-tag--plain t-size-m"
 >
   <!---->
   <!---->
@@ -345,7 +345,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:success 1`] = `
 
 exports[`Tag or CheckTag :Tag:props :variant:plain;theme:warning 1`] = `
 <span
-  class="t-tag t-tag--warning t-size-m t-tag--plain"
+  class="t-tag t-tag--warning t-tag--plain t-size-m"
 >
   <!---->
   <!---->
@@ -355,7 +355,7 @@ exports[`Tag or CheckTag :Tag:props :variant:plain;theme:warning 1`] = `
 
 exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark t-tag--close"
+  class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
 >
   <!---->
   <!---->
@@ -369,7 +369,7 @@ exports[`Tag or CheckTag @event: Tag Event passthrough: close 1`] = `
     <path
       d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
       fill="currentColor"
-      fillOpacity="0.9"
+      fill-opacity="0.9"
     />
   </svg>
 </span>
@@ -393,7 +393,7 @@ exports[`Tag or CheckTag CheckTag:props :disabled 1`] = `
 
 exports[`Tag or CheckTag Tag:slot <icon> 1`] = `
 <span
-  class="t-tag t-tag--default t-size-m t-tag--dark"
+  class="t-tag t-tag--default t-tag--dark t-size-m"
 >
   <!---->
   <!---->

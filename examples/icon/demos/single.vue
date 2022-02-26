@@ -23,15 +23,10 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { LoadingIcon, CloseIcon, CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
 
-export default {
-  components: { LoadingIcon, CloseIcon, CheckCircleFilledIcon },
-  methods: {
-    onIconClose() {
-      console.log('icon was clicked.');
-    },
-  },
+const onIconClose = () => {
+  console.log('icon was clicked.');
 };
 </script>

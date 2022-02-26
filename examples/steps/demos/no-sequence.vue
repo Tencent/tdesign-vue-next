@@ -7,14 +7,6 @@
   </t-steps>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      current: 1,
-    };
-  },
-});
+<script setup>
+const current = 1;
 </script>

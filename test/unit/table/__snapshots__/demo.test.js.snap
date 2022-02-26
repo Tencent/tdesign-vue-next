@@ -383,7 +383,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
     style="margin: 16px;"
   >
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
       modelvalue="true"
     >
       <input
@@ -402,7 +402,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined t-is-checked"
+      class="t-checkbox t-is-checked"
       modelvalue="true"
     >
       <input
@@ -421,7 +421,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
       </span>
     </label>
     <label
-      class="t-checkbox undefined"
+      class="t-checkbox"
       modelvalue="false"
     >
       <input
@@ -895,7 +895,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
                     <path
                       d="M12.13 3.86a2.02 2.02 0 00-2.85 0l-7.2 7.21-.71-.7 7.2-7.21a3.02 3.02 0 114.27 4.26L7 13.26a1.88 1.88 0 01-2.66-2.66L10 4.93l.71.7-5.67 5.68a.88.88 0 101.25 1.25l5.84-5.84c.79-.8.78-2.08-.01-2.86z"
                       fill="currentColor"
-                      fillOpacity="0.9"
+                      fill-opacity="0.9"
                     />
                   </svg>
                   <a
@@ -956,7 +956,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
                     <path
                       d="M12.13 3.86a2.02 2.02 0 00-2.85 0l-7.2 7.21-.71-.7 7.2-7.21a3.02 3.02 0 114.27 4.26L7 13.26a1.88 1.88 0 01-2.66-2.66L10 4.93l.71.7-5.67 5.68a.88.88 0 101.25 1.25l5.84-5.84c.79-.8.78-2.08-.01-2.86z"
                       fill="currentColor"
-                      fillOpacity="0.9"
+                      fill-opacity="0.9"
                     />
                   </svg>
                   <a
@@ -1059,7 +1059,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
                     <path
                       d="M11.25 1.75a3 3 0 100 6 3 3 0 000-6zm-2 3a2 2 0 114 0 2 2 0 01-4 0zM2 3a1 1 0 011-1h3.5a1 1 0 011 1v3.5a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm1 0v3.5h3.5V3H3zM2 9.5a1 1 0 011-1h3.5a1 1 0 011 1V13a1 1 0 01-1 1H3a1 1 0 01-1-1V9.5zm1 0V13h3.5V9.5H3zM8.5 9.5a1 1 0 011-1H13a1 1 0 011 1V13a1 1 0 01-1 1H9.5a1 1 0 01-1-1V9.5zm1 3.5H13V9.5H9.5V13z"
                       fill="currentColor"
-                      fillOpacity="0.9"
+                      fill-opacity="0.9"
                     />
                   </svg>
                    类型 
@@ -1169,7 +1169,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
       style="margin: 16px;"
     >
       <label
-        class="t-checkbox undefined"
+        class="t-checkbox"
         modelvalue="false"
       >
         <input
@@ -1304,7 +1304,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                               <path
                                 d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                                 fill="currentColor"
-                                fillOpacity="0.9"
+                                fill-opacity="0.9"
                               />
                             </svg>
                             <svg
@@ -1318,7 +1318,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                               <path
                                 d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                                 fill="currentColor"
-                                fillOpacity="0.9"
+                                fill-opacity="0.9"
                               />
                             </svg>
                             
@@ -1380,7 +1380,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                               <path
                                 d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                                 fill="currentColor"
-                                fillOpacity="0.9"
+                                fill-opacity="0.9"
                               />
                             </svg>
                             <svg
@@ -1394,7 +1394,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                               <path
                                 d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                                 fill="currentColor"
-                                fillOpacity="0.9"
+                                fill-opacity="0.9"
                               />
                             </svg>
                             
@@ -2310,7 +2310,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
     允许点击行之后展开/收起: 
     <div
       class="t-switch t-size-m t-is-checked"
-      disabled="false"
       modelvalue="true"
     >
       <span
@@ -2477,12 +2476,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -2567,12 +2566,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -2705,12 +2704,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -2795,12 +2794,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -3010,12 +3009,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -3100,12 +3099,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -3240,12 +3239,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -3330,12 +3329,12 @@ exports[`Table Table expandableVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -3597,7 +3596,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                           <path
                             d="M2 3a1 1 0 011-1h10a1 1 0 011 1v1.79l-4.25 2.5V14h-3.5V7.29L2 4.79V3zm11 0H3v1.21l4.25 2.5V13h1.5V6.71L13 4.21V3z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -3645,7 +3644,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                   >
                                     
                                     <label
-                                      class="t-checkbox undefined"
+                                      class="t-checkbox"
                                     >
                                       <input
                                         class="t-checkbox__former"
@@ -3664,7 +3663,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       </span>
                                     </label>
                                     <label
-                                      class="t-checkbox undefined"
+                                      class="t-checkbox"
                                     >
                                       <input
                                         class="t-checkbox__former"
@@ -3684,7 +3683,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       </span>
                                     </label>
                                     <label
-                                      class="t-checkbox undefined"
+                                      class="t-checkbox"
                                     >
                                       <input
                                         class="t-checkbox__former"
@@ -3727,7 +3726,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                           <path
                             d="M2 3a1 1 0 011-1h10a1 1 0 011 1v1.79l-4.25 2.5V14h-3.5V7.29L2 4.79V3zm11 0H3v1.21l4.25 2.5V13h1.5V6.71L13 4.21V3z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -3775,11 +3774,11 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                     <!---->
                                     <!---->
                                     <input
-                                      autocomplete="false"
                                       class="t-input__inner"
                                       placeholder="输入关键词过滤"
                                       type="text"
                                     />
+                                    <!---->
                                     <!---->
                                     <!---->
                                   </div>
@@ -3805,7 +3804,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                           <path
                             d="M2 3a1 1 0 011-1h10a1 1 0 011 1v1.79l-4.25 2.5V14h-3.5V7.29L2 4.79V3zm11 0H3v1.21l4.25 2.5V13h1.5V6.71L13 4.21V3z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -3911,7 +3910,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                         <path
                                                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                                                           fill="currentColor"
-                                                          fillOpacity="0.9"
+                                                          fill-opacity="0.9"
                                                         />
                                                       </svg>
                                                       
@@ -3935,7 +3934,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                         <path
                                                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                                                           fill="currentColor"
-                                                          fillOpacity="0.9"
+                                                          fill-opacity="0.9"
                                                         />
                                                       </svg>
                                                       
@@ -3959,7 +3958,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                         <path
                                                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                                                           fill="currentColor"
-                                                          fillOpacity="0.9"
+                                                          fill-opacity="0.9"
                                                         />
                                                       </svg>
                                                       
@@ -4166,12 +4165,12 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                           <!---->
                                           <!---->
                                           <input
-                                            autocomplete="false"
                                             class="t-input__inner"
                                             placeholder="请选择月份"
                                             readonly=""
                                             type="text"
                                           />
+                                          <!---->
                                           <!---->
                                           <span
                                             class="t-input__suffix t-input__suffix-icon"
@@ -4186,7 +4185,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                               <path
                                                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                                                 fill="currentColor"
-                                                fillOpacity="0.9"
+                                                fill-opacity="0.9"
                                               />
                                             </svg>
                                           </span>
@@ -4217,7 +4216,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                           <path
                             d="M2 3a1 1 0 011-1h10a1 1 0 011 1v1.79l-4.25 2.5V14h-3.5V7.29L2 4.79V3zm11 0H3v1.21l4.25 2.5V13h1.5V6.71L13 4.21V3z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -9077,7 +9076,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                               <path
                                 d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                                 fill="currentColor"
-                                fillOpacity="0.9"
+                                fill-opacity="0.9"
                               />
                             </svg>
                             <svg
@@ -9091,7 +9090,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                               <path
                                 d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                                 fill="currentColor"
-                                fillOpacity="0.9"
+                                fill-opacity="0.9"
                               />
                             </svg>
                             
@@ -9153,7 +9152,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                               <path
                                 d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                                 fill="currentColor"
-                                fillOpacity="0.9"
+                                fill-opacity="0.9"
                               />
                             </svg>
                             <svg
@@ -9167,7 +9166,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                               <path
                                 d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                                 fill="currentColor"
-                                fillOpacity="0.9"
+                                fill-opacity="0.9"
                               />
                             </svg>
                             
@@ -9513,7 +9512,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                     >
                       <!---->
                       <ul
-                        class="t-select__create-option"
+                        class="t-select__create-option t-select__list"
                         style="display: none;"
                       >
                         <li
@@ -9530,7 +9529,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                         暂无数据
                       </li>
                       <ul
-                        class="t-select__groups"
+                        class="t-select__groups t-select__list"
                       >
                         
                         
@@ -9577,7 +9576,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -9628,7 +9627,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
               <path
                 d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </div>
@@ -9661,7 +9660,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
               <path
                 d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </div>
@@ -10087,7 +10086,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                       >
                         <!---->
                         <ul
-                          class="t-select__create-option"
+                          class="t-select__create-option t-select__list"
                           style="display: none;"
                         >
                           <li
@@ -10104,7 +10103,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                           暂无数据
                         </li>
                         <ul
-                          class="t-select__groups"
+                          class="t-select__groups t-select__list"
                         >
                           
                           
@@ -10151,7 +10150,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   
                   
                   <span
-                    class="t-tag t-tag--default t-size-m t-tag--dark"
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
                   >
                     <!---->
@@ -10202,7 +10201,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                 <path
                   d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </div>
@@ -10250,7 +10249,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   <path
                     d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
                     fill="currentColor"
-                    fillOpacity="0.9"
+                    fill-opacity="0.9"
                   />
                 </svg>
               </li>
@@ -10274,7 +10273,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                 <path
                   d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </div>
@@ -10351,7 +10350,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-indeterminate"
+                    class="t-checkbox t-is-indeterminate"
                     modelvalue="false"
                   >
                     <input
@@ -10429,7 +10428,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="0"
@@ -10514,7 +10513,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked t-is-disabled"
+                    class="t-checkbox t-is-checked t-is-disabled"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="1"
@@ -10600,7 +10599,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-checked"
+                    class="t-checkbox t-is-checked"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="2"
@@ -10685,7 +10684,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-disabled"
+                    class="t-checkbox t-is-disabled"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="3"
@@ -11709,7 +11708,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                             <path
                               d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           <svg
@@ -11723,7 +11722,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                             <path
                               d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -11785,7 +11784,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                             <path
                               d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           <svg
@@ -11799,7 +11798,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                             <path
                               d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -12169,7 +12168,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     modelvalue="false"
                   >
                     <input
@@ -12250,12 +12249,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -12267,7 +12266,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="0"
@@ -12305,12 +12304,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     JQTest0
@@ -12367,12 +12366,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -12384,7 +12383,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-disabled"
+                    class="t-checkbox t-is-disabled"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="1"
@@ -12423,12 +12422,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     JQTest1
@@ -12485,12 +12484,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -12502,7 +12501,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="2"
@@ -12540,12 +12539,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     JQTest2
@@ -12602,12 +12601,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -12619,7 +12618,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined t-is-disabled"
+                    class="t-checkbox t-is-disabled"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="3"
@@ -12658,12 +12657,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     JQTest3
@@ -12720,12 +12719,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                         <path
                           d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                         <path
                           d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -12737,7 +12736,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                   style="overflow: hidden;"
                 >
                   <label
-                    class="t-checkbox undefined"
+                    class="t-checkbox"
                     colkey="row-select"
                     modelvalue="false"
                     rowindex="4"
@@ -12775,12 +12774,12 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     JQTest4
@@ -12935,12 +12934,12 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     我是 0 号
@@ -13033,7 +13032,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                   <path
                                     d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
                                     fill="currentColor"
-                                    fillOpacity="0.9"
+                                    fill-opacity="0.9"
                                   />
                                 </svg>
                                 <div
@@ -13117,12 +13116,12 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     我是 1 号
@@ -13215,7 +13214,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                   <path
                                     d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
                                     fill="currentColor"
-                                    fillOpacity="0.9"
+                                    fill-opacity="0.9"
                                   />
                                 </svg>
                                 <div
@@ -13299,12 +13298,12 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     我是 2 号
@@ -13397,7 +13396,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                   <path
                                     d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
                                     fill="currentColor"
-                                    fillOpacity="0.9"
+                                    fill-opacity="0.9"
                                   />
                                 </svg>
                                 <div
@@ -13481,12 +13480,12 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     我是 3 号
@@ -13579,7 +13578,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                   <path
                                     d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
                                     fill="currentColor"
-                                    fillOpacity="0.9"
+                                    fill-opacity="0.9"
                                   />
                                 </svg>
                                 <div
@@ -13663,12 +13662,12 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       <path
                         d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                       <path
                         d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
                         fill="currentColor"
-                        fillOpacity="0.9"
+                        fill-opacity="0.9"
                       />
                     </svg>
                     我是 4 号
@@ -13761,7 +13760,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                   <path
                                     d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
                                     fill="currentColor"
-                                    fillOpacity="0.9"
+                                    fill-opacity="0.9"
                                   />
                                 </svg>
                                 <div

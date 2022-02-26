@@ -14,22 +14,15 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
+const visible = ref(false);
 
-    return {
-      visible,
-      handleClick() {
-        visible.value = true;
-      },
-      handleClose() {
-        visible.value = false;
-      },
-    };
-  },
-});
+const handleClick = () => {
+  visible.value = true;
+};
+const handleClose = () => {
+  visible.value = false;
+};
 </script>

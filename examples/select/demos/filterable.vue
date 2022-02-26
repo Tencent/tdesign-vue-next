@@ -8,6 +8,7 @@
       filterable
       @blur="handleBlur"
       @focus="handleFocus"
+      @enter="handleEnter"
     />
     <t-select
       v-model="value2"
@@ -18,13 +19,11 @@
       style="width: 400px; display: inline-block"
       @blur="handleBlur"
       @focus="handleFocus"
-      @enter="handleEnter"
     />
   </div>
 </template>
-
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   { label: '选项一', value: '1' },
@@ -32,36 +31,22 @@ const options = [
   { label: '选项三', value: '3' },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('');
-    const value2 = ref([]);
+const value = ref('');
+const value2 = ref([]);
 
-    const filterMethod = (search, option) => {
-      return option.label.indexOf(search) !== -1;
-    };
+const filterMethod = (search, option) => {
+  return option.label.indexOf(search) !== -1;
+};
 
-    const handleBlur = ({ value, e }) => {
-      console.log('handleBlur: ', value, e);
-    };
+const handleBlur = ({ value, e }) => {
+  console.log('handleBlur: ', value, e);
+};
 
-    const handleFocus = ({ value, e }) => {
-      console.log('handleFocus: ', value, e);
-    };
+const handleFocus = ({ value, e }) => {
+  console.log('handleFocus: ', value, e);
+};
 
-    const handleEnter = ({ value, e, inputValue }) => {
-      console.log('handleEnter: ', value, e, inputValue);
-    };
-
-    return {
-      value,
-      value2,
-      options,
-      filterMethod,
-      handleBlur,
-      handleFocus,
-      handleEnter,
-    };
-  },
-});
+const handleEnter = ({ value, e, inputValue }) => {
+  console.log('handleEnter: ', value, e, inputValue);
+};
 </script>

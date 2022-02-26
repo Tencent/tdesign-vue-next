@@ -32,7 +32,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -73,7 +72,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -114,7 +112,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -165,7 +162,7 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -252,7 +249,7 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -356,7 +353,7 @@ exports[`Tree Tree baseVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -393,7 +390,7 @@ exports[`Tree Tree baseVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -430,7 +427,7 @@ exports[`Tree Tree baseVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -467,7 +464,7 @@ exports[`Tree Tree baseVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -524,7 +521,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -568,7 +564,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -726,12 +721,12 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -775,12 +770,12 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -824,12 +819,12 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -866,7 +861,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -903,7 +898,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -947,12 +942,12 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -989,7 +984,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1026,7 +1021,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1070,12 +1065,12 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1119,12 +1114,12 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1161,7 +1156,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1198,7 +1193,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1242,12 +1237,12 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1284,7 +1279,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1321,7 +1316,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1365,12 +1360,12 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1407,7 +1402,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1444,7 +1439,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1491,11 +1486,11 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -1515,11 +1510,11 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -1539,11 +1534,11 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -1577,12 +1572,12 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1626,12 +1621,12 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1675,12 +1670,12 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1717,7 +1712,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1754,7 +1749,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1798,12 +1793,12 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1847,12 +1842,12 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1896,12 +1891,12 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active t-tree__label t-tree__label--strictly t-is-active"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1938,7 +1933,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -1975,7 +1970,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2036,7 +2031,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -2077,7 +2071,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -2128,12 +2121,12 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2178,12 +2171,12 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2221,7 +2214,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2259,7 +2252,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2304,12 +2297,12 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2347,7 +2340,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2385,7 +2378,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2430,12 +2423,12 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2473,7 +2466,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2511,7 +2504,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2566,7 +2559,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -2617,12 +2609,12 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2666,12 +2658,12 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2709,7 +2701,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2746,7 +2738,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2790,12 +2782,12 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2833,7 +2825,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2870,7 +2862,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2914,12 +2906,12 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2956,7 +2948,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-disabled t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -2994,7 +2986,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -3127,7 +3119,6 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -3168,7 +3159,6 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -3219,7 +3209,7 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3256,7 +3246,7 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3343,7 +3333,7 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3430,7 +3420,7 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3534,7 +3524,7 @@ exports[`Tree Tree expandLevelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3571,7 +3561,7 @@ exports[`Tree Tree expandLevelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3608,7 +3598,7 @@ exports[`Tree Tree expandLevelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3645,7 +3635,7 @@ exports[`Tree Tree expandLevelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3749,7 +3739,6 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -3790,7 +3779,6 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -3841,7 +3829,7 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3878,7 +3866,7 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3919,11 +3907,11 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -3957,7 +3945,7 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -3994,7 +3982,7 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4212,7 +4200,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4305,7 +4293,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -4411,12 +4399,12 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4459,7 +4447,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4502,7 +4490,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4552,12 +4540,12 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4600,7 +4588,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4643,7 +4631,7 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4730,7 +4718,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -4771,7 +4758,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -4822,12 +4808,12 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4871,12 +4857,12 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -4937,7 +4923,6 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m t-is-checked"
-            disabled="false"
             modelvalue="true"
           >
             <span
@@ -4981,7 +4966,6 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m t-is-checked"
-            disabled="false"
             modelvalue="true"
           >
             <span
@@ -5034,7 +5018,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5129,7 +5113,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5170,7 +5154,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5211,7 +5195,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5252,7 +5236,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5405,7 +5389,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5545,7 +5529,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5683,7 +5667,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5731,7 +5715,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5782,7 +5766,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5836,7 +5820,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -6089,7 +6073,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -6289,7 +6273,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -6441,7 +6425,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -6494,7 +6478,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -6550,7 +6534,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -6609,7 +6593,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -6884,7 +6868,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
               <path
                 d="M6 5v6l4.5-3L6 5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -7286,7 +7270,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              disabled="false"
               modelvalue="false"
             >
               <span
@@ -7327,7 +7310,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              disabled="false"
               modelvalue="true"
             >
               <span
@@ -7368,11 +7350,11 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder="请输入"
           type="text"
         />
+        <!---->
         <!---->
         <!---->
       </div>
@@ -7400,7 +7382,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -7492,7 +7474,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -7766,7 +7748,7 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           />
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -7860,7 +7842,7 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           />
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -7983,11 +7965,11 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8007,11 +7989,11 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8031,11 +8013,11 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8069,12 +8051,12 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8118,12 +8100,12 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8167,12 +8149,12 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8209,7 +8191,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8246,7 +8228,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8290,12 +8272,12 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8339,12 +8321,12 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8388,12 +8370,12 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active t-tree__label t-tree__label--strictly t-is-active"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8430,7 +8412,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8467,7 +8449,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8514,11 +8496,11 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8538,11 +8520,11 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8562,11 +8544,11 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -8600,12 +8582,12 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8649,12 +8631,12 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-indeterminate t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8698,12 +8680,12 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8740,7 +8722,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8777,7 +8759,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-checked t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8821,12 +8803,12 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8870,12 +8852,12 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8919,12 +8901,12 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
             <path
               d="M6 5v6l4.5-3L6 5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active t-tree__label t-tree__label--strictly t-is-active"
+          class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8961,7 +8943,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >
@@ -8998,7 +8980,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           
         </span>
         <label
-          class="t-checkbox t-tree__label t-tree__label--strictly t-tree__label t-tree__label--strictly"
+          class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
         >

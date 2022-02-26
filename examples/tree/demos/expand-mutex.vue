@@ -21,8 +21,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const items = [
   {
@@ -81,28 +81,16 @@ const items = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const mutex = ref(true);
-    const expandOnClickNode = ref(true);
+const mutex = ref(true);
+const expandOnClickNode = ref(true);
 
-    const onClick = (context) => {
-      console.info('onClick', context);
-    };
+const onClick = (context) => {
+  console.info('onClick', context);
+};
 
-    const handleExpand = (value, context) => {
-      console.info('onExpand', value, context);
-    };
-
-    return {
-      mutex,
-      expandOnClickNode,
-      items,
-      onClick,
-      handleExpand,
-    };
-  },
-});
+const handleExpand = (value, context) => {
+  console.info('onExpand', value, context);
+};
 </script>
 <style scoped>
 .tdesign-tree-base .t-button {

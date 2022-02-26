@@ -14,17 +14,12 @@
     </t-anchor>
   </div>
 </template>
-<script>
-import { defineComponent, computed, getCurrentInstance } from 'vue';
+<script setup>
+import { computed, getCurrentInstance } from 'vue';
 import get from 'lodash/get';
 
-export default defineComponent({
-  setup() {
-    const { ctx } = getCurrentInstance();
-    const path = computed(() => get(ctx, '$route.path', ''));
-    return { path };
-  },
-});
+const { ctx } = getCurrentInstance();
+const path = computed(() => get(ctx, '$route.path', ''));
 </script>
 <style lang="less" scoped>
 .anchor-demo {
@@ -44,19 +39,4 @@ export default defineComponent({
     margin-top: -5px;
   }
 }
-</style>
-
-<style>
-/* 全局修改 */
-/* .t-anchor .cursor-wrapper .cursor {
-  width: 10px;
-  height: 10px;
-  background-color: #0052D9;
-  position: absolute;
-  border-radius: 50%;
-  left: 50%;
-  margin-left: -5px;
-  top: 50%;
-  margin-top: -5px;
-} */
 </style>

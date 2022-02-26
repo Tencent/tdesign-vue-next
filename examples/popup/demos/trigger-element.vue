@@ -30,21 +30,13 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      renderTriggerElement1() {
-        return <t-button variant="outline">渲染函数定义触发元素1</t-button>;
-      },
-      renderTriggerElement2() {
-        return <t-button variant="outline">渲染函数定义触发元素2</t-button>;
-      },
-    };
-  },
-});
+<script setup lang="jsx">
+const renderTriggerElement1 = () => {
+  return <t-button variant="outline">渲染函数定义触发元素1</t-button>;
+};
+const renderTriggerElement2 = () => {
+  return <t-button variant="outline">渲染函数定义触发元素2</t-button>;
+};
 </script>
 <style scoped>
 .t-popup-demo-base-item {

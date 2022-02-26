@@ -14,18 +14,10 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {
-      renderDiscountIcon() {
-        return <t-icon name="discount" />;
-      },
-    };
-  },
-});
+<script setup lang="jsx">
+const renderDiscountIcon = () => {
+  return <t-icon name="discount" />;
+};
 </script>
 
 <style lang="less"></style>

@@ -25,8 +25,8 @@
   </div>
 </template>
 
-<script lang="jsx">
-import { defineComponent, ref, computed } from 'vue';
+<script setup lang="jsx">
+import { ref, computed } from 'vue';
 
 const options1 = [
   { value: '选项一', label: (h) => <div>选项一</div> },
@@ -41,39 +41,25 @@ const options2 = [
   { value: '选项三', label: '选项三' },
 ];
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(['选项一']);
-    const value2 = ref(['选项一']);
-    const value3 = ref(['选项一', '选项二', '选项三']);
+const value1 = ref(['选项一']);
+const value2 = ref(['选项一']);
+const value3 = ref(['选项一', '选项二', '选项三']);
 
-    const checkAll = computed(() => options1.length === value1.value.length);
+const checkAll = computed(() => options1.length === value1.value.length);
 
-    const indeterminate = computed(() => !!(options1.length > value1.value.length && value1.value.length));
+const indeterminate = computed(() => !!(options1.length > value1.value.length && value1.value.length));
 
-    const handleSelectAll = (checked) => {
-      value1.value = checked ? ['选项一', '选项二', '选项三'] : [];
-    };
+const handleSelectAll = (checked) => {
+  value1.value = checked ? ['选项一', '选项二', '选项三'] : [];
+};
 
-    return {
-      indeterminate,
-      checkAll,
-      value1,
-      value2,
-      value3,
-      options1,
-      options2,
-      handleSelectAll,
-      onChange1(val) {
-        console.log(value1.value, val);
-      },
-      onChange2(val) {
-        console.log(value2.value, val);
-      },
-      onChange3(val) {
-        console.log(value3.value, val);
-      },
-    };
-  },
-});
+const onChange1 = (val) => {
+  console.log(value1.value, val);
+};
+const onChange2 = (val) => {
+  console.log(value2.value, val);
+};
+const onChange3 = (val) => {
+  console.log(value3.value, val);
+};
 </script>

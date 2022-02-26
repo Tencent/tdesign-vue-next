@@ -42,42 +42,33 @@
     />
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible1 = ref(false);
-    const visible2 = ref(false);
-    const visible3 = ref(false);
+const visible1 = ref(false);
+const visible2 = ref(false);
+const visible3 = ref(false);
 
-    return {
-      visible1,
-      visible2,
-      visible3,
-      getConfirmBtn() {
-        return (
-          <t-button theme="primary" disabled>
-            我知道了
-          </t-button>
-        );
-      },
-      close1() {
-        visible1.value = false;
-      },
-      close2() {
-        visible2.value = false;
-      },
-      close3() {
-        visible3.value = false;
-      },
-      onConfirm() {
-        visible1.value = false;
-        alert('跳转支付~');
-      },
-    };
-  },
-});
+const getConfirmBtn = () => {
+  return (
+    <t-button theme="primary" disabled>
+      我知道了
+    </t-button>
+  );
+};
+const close1 = () => {
+  visible1.value = false;
+};
+const close2 = () => {
+  visible2.value = false;
+};
+const close3 = () => {
+  visible3.value = false;
+};
+const onConfirm = () => {
+  visible1.value = false;
+  alert('跳转支付~');
+};
 </script>
 <style scoped>
 .t-button {

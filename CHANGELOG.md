@@ -5,6 +5,71 @@ toc: false
 docClass: timeline
 ---
 
+## 0.9.1 `2022-02-25`
+
+### Bug Fixes
+
+* 修复构建产物 `TS` 声明文件路径错误
+
+## 0.9.0 `2022-02-25`
+
+
+### BREAKING CHANGES
+
+* Input: `input` 元素 `ref` 名称由 `refInputElem` 更为 `inputRef` ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
+
+### Bug Fixes
+
+* Slider: ([@pengYYYYY](https://github.com/pengYYYYY))
+  * 修复游标定位问题，([pr #248](https://github.com/Tencent/tdesign-common/pull/248))
+  * 修复游标定位样式。([pr #355](https://github.com/Tencent/tdesign-vue-next/pull/355))
+* Input: 去除 `autocomplete` 默认值，保持浏览器默认值 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
+* Upload: 修复文件数大于等于 `max` 时，上传按钮依然可以点击 ([pr #351](https://github.com/Tencent/tdesign-vue-next/issues/349)), ([issue #349](https://github.com/Tencent/tdesign-vue-next/issues/349)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Notification: 修复 `offset` 参数无效 ([pr #351](https://github.com/Tencent/tdesign-vue-next/pull/349)), ([issue #299](https://github.com/Tencent/tdesign-vue-next/issues/299)), ([issue #325](https://github.com/Tencent/tdesign-vue-next/issues/325)), ([issue #316](https://github.com/Tencent/tdesign-vue-next/issues/316)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Table: 修复固定表头错位 ([pr #352](https://github.com/Tencent/tdesign-vue-next/pull/352)), ([issue #342](https://github.com/Tencent/tdesign-vue-next/issues/342)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Button: 修复 `primary outline` 模式下边框展示异常的问题 ([pr #238](https://github.com/Tencent/tdesign-common/pull/238)), ([@pengYYYYY](https://github.com/pengYYYYY))
+
+### Features
+
+* TagInput: ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
+  * `valueDisplay` 新增参数 `onClose`
+  * 新增特性 `autoWidth`, 宽度自适应
+* Input: 新增特性 `autoWidth`, 宽度自适应 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
+* Checkbox: `change` 事件新增参数，`context.current` 表示当前变化的数据项；`context.type` 表示引起选中数据变化的是选中或是取消选中 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
+* 通用方法 `renderTNodeJSX` 同时支持驼峰命名的插槽，和中划线命名的插槽 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
+* 使用 `compositionAPi` 重构国际化 `mixin` ([pr #356](https://github.com/Tencent/tdesign-vue-next/pull/356)), ([@yc910920](https://github.com/yc910920))
+
+## 0.8.1 `2022-02-18`
+
+
+### Bug Fixes
+
+* Form: ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
+  * 修复 `FormItem.statusIcon` 优先级没有大于 `Form.statusIcon` 的问题
+  * 修复 `FormItem.rules` 优先级没有大于 `Form.rules` 的问题
+* Progress: 修复环状进度条小于 5% 时渲染错误 ([pr #329](https://github.com/Tencent/tdesign-vue-next/pull/329)), ([@uyarn](https://github.com/uyarn))
+* TimePicker: 修复部分鼠标滚动选择出现偏差 ([pr #324](https://github.com/Tencent/tdesign-vue-next/pull/324)), ([@uyarn](https://github.com/uyarn))
+* Input: 修复 `prefixIcon`, `suffixIcon` 对驼峰写法不支持 ([pr #318](https://github.com/Tencent/tdesign-vue-next/pull/318))
+* Cascader 解决 `value` 类型为 `Number` 时，数据回填异常及 `clearable` 失效问题 ([ccf478b](https://github.com/Tencent/tdesign-vue-next/commit/ccf478be940daf95ea64667be96ccd27637f283a))
+* Textarea: 修复 `value` 未定义时字数统计展示异常的问题 ([pr #298](https://github.com/Tencent/tdesign-vue-next/pull/298)), ([issue #387](https://github.com/Tencent/tdesign-vue-next/issues/387))
+* Loading: 修复存在 `attach` 时，当 `loading` 设置为 `false`，无法隐藏加载元素 ([pr #315](https://github.com/Tencent/tdesign-vue-next/pull/315))
+* Dialog: 修复展开动画位置 ([pr #312](https://github.com/Tencent/tdesign-vue-next/pull/312))
+
+
+### Features
+
+* Form: ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
+  * 支持对象和数组嵌套的复杂数据校验，同时可以判断是数组的第几项校验不通过，
+  * 支持统一配置校验信息，无需每个字段的每个规则都单独配置 `message`
+  * 支持表单 `disabled`
+* Popup: ([pr #313](https://github.com/Tencent/tdesign-vue/pull/313)), ([@uyarn](https://github.com/uyarn))
+  * 支持嵌套使用
+  * 去除额外 `reference` 包裹元素
+  * 弹窗展开动画优化
+  * `overlayStyle` 类型为 Function 时，增加 `popupElement` 作为第二个参数，表示浮层元素 DOM 节点
+  * 新增 `onScroll` 属性，响应下拉选项滚动事件
+* TreeSelect: 增加 `t-select-warper` `class` ([pr #277](https://github.com/Tencent/tdesign-vue-next/pull/277))
+
 ## 0.8.0 `2022-01-28`
 
 ### BREAKING CHANGES

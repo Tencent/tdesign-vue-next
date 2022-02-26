@@ -29,6 +29,7 @@ export * from './select';
 export * from './slider';
 export * from './switch';
 export * from './tag-input';
+export * from './select-input';
 export * from './textarea';
 export * from './transfer';
 export * from './time-picker';

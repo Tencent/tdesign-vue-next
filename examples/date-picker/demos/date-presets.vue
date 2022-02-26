@@ -4,19 +4,11 @@
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
+<script setup>
 import dayjs from 'dayjs';
 
-export default defineComponent({
-  setup() {
-    const presets = {
-      // '今天', // Today
-      今天: dayjs(),
-    };
-    return {
-      presets,
-    };
-  },
-});
+const presets = {
+  // '今天', // Today
+  今天: dayjs(),
+};
 </script>

@@ -9,6 +9,9 @@ import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { ClassName } from '../common';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-textarea`;
 const TEXTAREA_WRAP_CLASS = `${prefix}-textarea__wrap`;
 const TEXTAREA_TIPS_CLASS = `${prefix}-textarea__tips`;
@@ -29,6 +32,12 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   data() {
     return {
       focused: false,

@@ -10,21 +10,12 @@
     <div style="margin-top: 20px">点击计数器：{{ count }}</div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const count = ref(0);
+const count = ref(0);
 
-    const onClickItem = () => {
-      count.value += 1;
-    };
-
-    return {
-      count,
-      onClickItem,
-    };
-  },
-});
+const onClickItem = () => {
+  count.value += 1;
+};
 </script>

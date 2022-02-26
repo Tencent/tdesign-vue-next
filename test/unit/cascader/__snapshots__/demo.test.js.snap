@@ -44,7 +44,6 @@ exports[`Cascader Cascader baseVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -108,7 +107,6 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -167,7 +165,6 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -231,7 +228,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -290,7 +286,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -349,7 +344,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -536,7 +530,6 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -600,7 +593,6 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -659,7 +651,6 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -723,7 +714,6 @@ exports[`Cascader Cascader keysVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -787,7 +777,6 @@ exports[`Cascader Cascader loadVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -851,7 +840,6 @@ exports[`Cascader Cascader maxVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -915,7 +903,6 @@ exports[`Cascader Cascader multipleVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -979,7 +966,6 @@ exports[`Cascader Cascader showAllLevelsVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1044,7 +1030,6 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1104,7 +1089,6 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1164,7 +1148,6 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1228,7 +1211,6 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1287,7 +1269,6 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1351,7 +1332,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1410,7 +1390,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1469,7 +1448,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1533,7 +1511,6 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1592,7 +1569,6 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
       </span>
       <svg
         class="t-fake-arrow t-cascader__icon"
-        disabled="false"
         fill="none"
         height="16"
         viewBox="0 0 16 16"

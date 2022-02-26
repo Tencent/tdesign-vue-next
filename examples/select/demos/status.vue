@@ -7,9 +7,8 @@
     <t-select v-model="value3" :options="options" loading placeholder="请选择云解决方案" />
   </div>
 </template>
-
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   { label: '架构云', value: '1' },
@@ -19,21 +18,10 @@ const options = [
   { label: '人工智能', value: '5' },
 ];
 
-export default defineComponent({
-  setup() {
-    const value1 = ref('');
-    const value2 = ref('');
-    const value3 = ref('');
-    return {
-      value1,
-      value2,
-      value3,
-      options,
-    };
-  },
-});
+const value1 = ref('');
+const value2 = ref('');
+const value3 = ref('');
 </script>
-
 <style scoped>
 .tdesign-demo-select-base {
   width: 680px;

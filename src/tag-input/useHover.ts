@@ -1,20 +1,26 @@
 import { ref, toRefs } from 'vue';
-import { TdTagInputProps } from './type';
 
-export default function useHover(props: TdTagInputProps) {
-  const { disabled, readonly, onMouseenter, onMouseleave } = toRefs(props);
+export interface UseHoverParams {
+  readonly: boolean;
+  disabled: boolean;
+  onMouseenter: (context: { e: MouseEvent }) => void;
+  onMouseleave: (context: { e: MouseEvent }) => void;
+}
+
+export default function useHover(props: UseHoverParams) {
+  const { disabled, readonly, onMouseenter, onMouseleave } = props;
   const isHover = ref<boolean>(false);
 
-  const addHover = (context: Parameters<TdTagInputProps['onMouseenter']>[0]) => {
-    if (readonly.value || disabled.value) return;
+  const addHover = (context: { e: MouseEvent }) => {
+    if (readonly || disabled) return;
     isHover.value = true;
-    onMouseenter.value?.(context);
+    onMouseenter?.(context);
   };
 
-  const cancelHover = (context: Parameters<TdTagInputProps['onMouseleave']>[0]) => {
-    if (readonly.value || disabled.value) return;
+  const cancelHover = (context: { e: MouseEvent }) => {
+    if (readonly || disabled) return;
     isHover.value = false;
-    onMouseleave.value?.(context);
+    onMouseleave?.(context);
   };
 
   return { isHover, addHover, cancelHover };

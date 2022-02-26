@@ -1,7 +1,7 @@
 <template>
   <div class="tdesign-demo-select-base">
     <!-- 方式一：使用 options 输出下拉选项。优先级高于 t-option-->
-    <t-select v-model="value1" :options="options1" placeholder="请选择云解决方案" clearable />
+    <t-select v-model="value1" :options="options1" placeholder="请选择云解决方案" />
 
     <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
     <t-select v-model="value2" placeholder="请选择云产品">
@@ -9,9 +9,8 @@
     </t-select>
   </div>
 </template>
-
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 const options1 = [
   { label: '架构云', value: '1' },
@@ -36,21 +35,9 @@ const options2 = [
   { label: '低代码平台', value: '6' },
 ];
 
-export default defineComponent({
-  setup() {
-    const value1 = ref('');
-    const value2 = ref('');
-
-    return {
-      value1,
-      value2,
-      options1,
-      options2,
-    };
-  },
-});
+const value1 = ref('');
+const value2 = ref('');
 </script>
-
 <style scoped>
 .tdesign-demo-select-base {
   width: 450px;

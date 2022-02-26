@@ -10,22 +10,12 @@
     </t-avatar>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent, computed } from 'vue';
+<script setup lang="jsx">
+import { computed } from 'vue';
 import { UserIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: {
-    UserIcon,
-  },
-  setup() {
-    const icon = computed(() => () => <UserIcon />);
-    return {
-      icon,
-      image: 'https://tdesign.gtimg.com/site/avatar.jpg',
-    };
-  },
-});
+const icon = computed(() => () => <UserIcon />);
+const image = 'https://tdesign.gtimg.com/site/avatar.jpg';
 </script>
 <style lang="less" scoped>
 .demo-avatar {

@@ -86,8 +86,7 @@
   </t-config-provider>
 </template>
 
-<script lang="jsx">
-import { defineComponent } from 'vue';
+<script setup lang="jsx">
 import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
 
 const transferList = [];
@@ -99,13 +98,58 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-const SELECET_OPTIONS = [
+const globalConfig = {
+  form: {
+    requiredMark: false,
+  },
+  transfer: {
+    title: '{checked} / {total}',
+    empty: 'Empty Data',
+    placeholder: 'type keyword to search',
+  },
+  tree: {
+    empty: 'Tree Empty Data',
+    folderIcon: (h) => h && <ChevronRightIcon size="18px" />,
+  },
+  select: {
+    empty: 'Empty Data',
+    loadingText: 'loading...',
+    clearIcon: (h) => h && <CloseIcon />,
+  },
+  treeSelect: {
+    empty: 'Empty Data',
+    loadingText: 'loading...',
+  },
+  timePicker: {
+    now: 'Now',
+    confirm: 'Confirm',
+    anteMeridiem: 'AM',
+    postMeridiem: 'PM',
+    placeholder: 'select time',
+  },
+  tag: {
+    closeIcon: () => <CloseCircleIcon />,
+  },
+  cascader: {
+    empty: 'empty data',
+    loadingText: 'loading...',
+    placeholder: 'select cascader data',
+  },
+  steps: {
+    errorIcon: (h) => h && <ErrorIcon />,
+  },
+};
+
+const transferChecked = [];
+const transferTargetValue = [];
+const options1 = [
   { label: 'Shanghai', value: 'shanghai' },
   { label: 'Beijing', value: 'beijing' },
   { label: 'Shenzhen', value: 'shenzhen' },
 ];
+const treeValue = '';
 
-const TREE_OPTIONS = [
+const treeOptions = [
   {
     label: '1',
     value: '1',
@@ -124,7 +168,7 @@ const TREE_OPTIONS = [
   },
 ];
 
-const TREE_DATA = [
+const treeData = [
   {
     value: '1',
     label: 'Department A',
@@ -136,68 +180,13 @@ const TREE_DATA = [
   { value: '2', label: 'Department B', children: [{ label: '2.1' }, { label: '2.2' }] },
 ];
 
-export default defineComponent({
-  setup() {
-    return {
-      // 全局特性配置
-      globalConfig: {
-        form: {
-          requiredMark: false,
-        },
-        transfer: {
-          title: '{checked} / {total}',
-          empty: 'Empty Data',
-          placeholder: 'type keyword to search',
-        },
-        tree: {
-          empty: 'Tree Empty Data',
-          folderIcon: (h) => h && <ChevronRightIcon size="18px" />,
-        },
-        select: {
-          empty: 'Empty Data',
-          loadingText: 'loading...',
-          clearIcon: (h) => h && <CloseIcon />,
-        },
-        treeSelect: {
-          empty: 'Empty Data',
-          loadingText: 'loading...',
-        },
-        timePicker: {
-          now: 'Now',
-          confirm: 'Confirm',
-          anteMeridiem: 'AM',
-          postMeridiem: 'PM',
-          placeholder: 'select time',
-        },
-        tag: {
-          closeIcon: () => <CloseCircleIcon />,
-        },
-        cascader: {
-          empty: 'empty data',
-          loadingText: 'loading...',
-          placeholder: 'select cascader data',
-        },
-        steps: {
-          errorIcon: (h) => h && <ErrorIcon />,
-        },
-      },
-      transferList,
-      transferChecked: [],
-      transferTargetValue: [],
-      options1: SELECET_OPTIONS.concat(),
-      treeValue: '',
-      treeOptions: TREE_OPTIONS,
-      treeData: TREE_DATA,
-      formData: {
-        username: '',
-        password: '',
-      },
-      rules: {
-        username: [{ required: true, message: '此项必填', type: 'error' }],
-      },
-    };
-  },
-});
+const formData = {
+  username: '',
+  password: '',
+};
+const rules = {
+  username: [{ required: true, message: '此项必填', type: 'error' }],
+};
 </script>
 <style scoped>
 .tdesign-demo-item--locale-provider-base {

@@ -4,8 +4,11 @@ import CLASSNAMES from '../utils/classnames';
 import TLoading from '../loading';
 import { SwitchValue } from './type';
 import props from './props';
-import { ClassName, TNodeReturnValue } from '../common';
+import { TNodeReturnValue } from '../common';
 import { emitEvent } from '../utils/event';
+
+// hooks
+import { useFormDisabled } from '../form/hooks';
 
 const name = `${prefix}-switch`;
 
@@ -13,8 +16,14 @@ export default defineComponent({
   name: 'TSwitch',
   props: { ...props },
   emits: ['change'],
+  setup() {
+    const disabled = useFormDisabled();
+    return {
+      disabled,
+    };
+  },
   computed: {
-    classes(): ClassName {
+    classes() {
       return [
         `${name}`,
         CLASSNAMES.SIZE[this.size],
@@ -25,7 +34,7 @@ export default defineComponent({
         },
       ];
     },
-    nodeClasses(): ClassName {
+    nodeClasses() {
       return [
         `${name}__handle`,
         {
@@ -34,7 +43,7 @@ export default defineComponent({
         },
       ];
     },
-    contentClasses(): ClassName {
+    contentClasses() {
       return [
         `${name}__content`,
         CLASSNAMES.SIZE[this.size],
@@ -43,13 +52,13 @@ export default defineComponent({
         },
       ];
     },
-    activeValue(): SwitchValue {
+    activeValue() {
       if (this.customValue && this.customValue.length > 0) {
         return this.customValue[0];
       }
       return true;
     },
-    inactiveValue(): SwitchValue {
+    inactiveValue() {
       if (this.customValue && this.customValue.length > 1) {
         return this.customValue[1];
       }

@@ -1,80 +1,35 @@
-import { computed, ref, SetupContext, watchEffect, WritableComputedRef } from 'vue';
-import camelCase from 'lodash/camelCase';
+import { ref, Ref, SetupContext } from 'vue';
 
-function getDefaultName(key: string): string {
-  const str = camelCase(key);
-  return `default${str[0].toLocaleUpperCase() + str.slice(1)}`;
-}
+export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
 
-// eventName is keybase, change -> onChange; visible-change -> onVisibleChange
-function getEventPropsName(eventName: string): string {
-  const str = camelCase(eventName);
-  return `on${str[0].toLocaleUpperCase()}${str.slice(1)}`;
-}
+export default function useDefault<T, P extends any[]>(
+  value: Ref<T>,
+  defaultValue: T,
+  onChange: ChangeHandler<T, P>,
+  // emit 和 eventName 用于支持 v-model:xxx 语法糖
+  emit?: SetupContext['emit'],
+  propsName?: string,
+): [Ref<T>, ChangeHandler<T, P>] {
+  const internalValue = ref();
+  internalValue.value = defaultValue;
 
-/**
- * 受控和非受控逻辑处理，包含 value / modelValue / events
- * @param props 属性
- * @param emit 触发方法，context.emit
- * @param key 受控属性名称
- * @param eventName 事件名称
- * @example const [value, setValue] = useDefault();
- * @returns [value, setValue]
- */
-export default function useDefault<V, T>(props: T, emit: SetupContext['emit'], key: string, eventName: string) {
-  const modelValue = 'modelValue';
-  const defaultName = getDefaultName(String(key));
-
-  const isUsedModelValue = props[modelValue] !== undefined;
-  const isUsedKey = props[key] !== undefined;
-
-  const innerValue = ref<V>();
-
-  if (isUsedKey) {
-    innerValue.value = props[key];
-  } else if (isUsedModelValue) {
-    innerValue.value = props[modelValue];
-  } else {
-    innerValue.value = props[defaultName];
+  // 受控模式
+  if (typeof value.value !== 'undefined') {
+    return [
+      value,
+      (newValue, ...args) => {
+        onChange?.(newValue, ...args);
+        emit?.(`update:${propsName}`, newValue, ...args);
+      },
+    ];
   }
 
-  watchEffect(() => {
-    if (isUsedModelValue) {
-      innerValue.value = props[modelValue];
-    }
-    if (isUsedKey) {
-      innerValue.value = props[key];
-    }
-  });
-
-  function emitEvents<T extends Array<any>>(value: V, ...arg: T) {
-    const updateKeys = [`update:${key}`];
-    if (isUsedModelValue) {
-      updateKeys.push(`update:modelValue`);
-    }
-    // Props Event exists in Vue3. `props.onChange()` is equal `contex.emit('change')`
-    updateKeys.forEach((updateKey) => {
-      emit(updateKey, value, ...arg);
-    });
-    const propsEventName = getEventPropsName(eventName);
-    props[propsEventName]?.(value, ...arg);
-  }
-
-  function setInnerValue<M extends Array<any>>(value: V, ...arg: M) {
-    if (!isUsedKey && !isUsedModelValue) {
-      innerValue.value = value;
-    }
-    emitEvents<M>(value, ...arg);
-  }
-
-  const innerValueRef = computed({
-    get() {
-      return innerValue.value;
+  // 非受控模式
+  return [
+    internalValue,
+    (newValue, ...args) => {
+      internalValue.value = newValue;
+      onChange?.(newValue, ...args);
     },
-    set(value: V) {
-      setInnerValue(value);
-    },
-  });
-
-  return [innerValueRef, setInnerValue] as [WritableComputedRef<V>, typeof setInnerValue];
+  ];
 }

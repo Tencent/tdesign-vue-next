@@ -2,7 +2,7 @@
 
 exports[`Checkbox :props :checked 1`] = `
 <label
-  class="t-checkbox undefined t-is-checked"
+  class="t-checkbox t-is-checked"
   modelvalue="false"
 >
   <input
@@ -22,7 +22,7 @@ exports[`Checkbox :props :checked 1`] = `
 
 exports[`Checkbox :props :defaultChecked 1`] = `
 <label
-  class="t-checkbox undefined t-is-checked"
+  class="t-checkbox t-is-checked"
   modelvalue="false"
 >
   <input
@@ -42,7 +42,7 @@ exports[`Checkbox :props :defaultChecked 1`] = `
 
 exports[`Checkbox :props :disabled 1`] = `
 <label
-  class="t-checkbox undefined t-is-disabled"
+  class="t-checkbox t-is-disabled"
   modelvalue="false"
 >
   <input
@@ -63,7 +63,7 @@ exports[`Checkbox :props :disabled 1`] = `
 
 exports[`Checkbox :props :indeterminate 1`] = `
 <label
-  class="t-checkbox undefined t-is-indeterminate"
+  class="t-checkbox t-is-indeterminate"
   modelvalue="false"
 >
   <input
@@ -83,7 +83,7 @@ exports[`Checkbox :props :indeterminate 1`] = `
 
 exports[`Checkbox :props :name 1`] = `
 <label
-  class="t-checkbox undefined"
+  class="t-checkbox"
   modelvalue="false"
 >
   <input
@@ -110,7 +110,7 @@ exports[`Checkbox CheckboxGroup :props :checked 1`] = `
 >
   
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox"
     modelvalue="false"
   >
     <input
@@ -131,7 +131,7 @@ exports[`Checkbox CheckboxGroup :props :checked 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-disabled"
+    class="t-checkbox t-is-disabled"
     modelvalue="false"
   >
     <input
@@ -164,7 +164,7 @@ exports[`Checkbox CheckboxGroup :props :defaultChecked 1`] = `
 >
   
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox"
     modelvalue="false"
   >
     <input
@@ -185,7 +185,7 @@ exports[`Checkbox CheckboxGroup :props :defaultChecked 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-disabled"
+    class="t-checkbox t-is-disabled"
     modelvalue="false"
   >
     <input
@@ -217,7 +217,7 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
 >
   
   <label
-    class="t-checkbox undefined t-is-disabled"
+    class="t-checkbox t-is-disabled"
     modelvalue="false"
   >
     <input
@@ -239,7 +239,7 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-disabled"
+    class="t-checkbox t-is-disabled"
     modelvalue="false"
   >
     <input
@@ -261,7 +261,7 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox"
     modelvalue="false"
   >
     <input
@@ -292,7 +292,7 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
 >
   
   <label
-    class="t-checkbox undefined t-is-disabled"
+    class="t-checkbox t-is-disabled"
   >
     <input
       class="t-checkbox__former"
@@ -313,7 +313,7 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-checked"
+    class="t-checkbox t-is-checked"
   >
     <input
       class="t-checkbox__former"
@@ -333,7 +333,7 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-checked"
+    class="t-checkbox t-is-checked"
   >
     <input
       class="t-checkbox__former"
@@ -363,7 +363,7 @@ exports[`Checkbox CheckboxGroup :props :name 1`] = `
 >
   
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox"
     modelvalue="false"
   >
     <input
@@ -384,7 +384,7 @@ exports[`Checkbox CheckboxGroup :props :name 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined t-is-disabled"
+    class="t-checkbox t-is-disabled"
     modelvalue="false"
   >
     <input
@@ -416,7 +416,7 @@ exports[`Checkbox CheckboxGroup :props :options 1`] = `
 >
   
   <label
-    class="t-checkbox undefined t-is-disabled"
+    class="t-checkbox t-is-disabled"
   >
     <input
       class="t-checkbox__former"
@@ -437,7 +437,7 @@ exports[`Checkbox CheckboxGroup :props :options 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox undefined"
+    class="t-checkbox"
   >
     <input
       class="t-checkbox__former"

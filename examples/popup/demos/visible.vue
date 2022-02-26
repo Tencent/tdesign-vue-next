@@ -8,18 +8,12 @@
     </t-popup>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visible = ref(false);
-    return {
-      visible,
-      onToggle() {
-        visible.value = !visible.value;
-      },
-    };
-  },
-});
+const visible = ref(false);
+
+const onToggle = () => {
+  visible.value = !visible.value;
+};
 </script>

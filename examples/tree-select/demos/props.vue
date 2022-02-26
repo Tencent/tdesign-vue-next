@@ -10,8 +10,8 @@
     />
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const options = [
   {
@@ -44,28 +44,21 @@ const options = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const value = ref('shenzhen');
+const value = ref('shenzhen');
 
-    return {
-      value,
-      options,
-      popupProps: {
-        overlayStyle: {
-          width: '500px',
-        },
-      },
-      treeProps: {
-        keys: {
-          label: 'name',
-          value: 'pinyin',
-          children: 'children',
-        },
-      },
-    };
+const popupProps = {
+  overlayStyle: {
+    width: '500px',
   },
-});
+};
+
+const treeProps = {
+  keys: {
+    label: 'name',
+    value: 'pinyin',
+    children: 'children',
+  },
+};
 </script>
 <style scoped>
 .tdesign-tree-select-base {

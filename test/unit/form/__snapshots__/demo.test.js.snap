@@ -27,7 +27,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
         >
           
           
-           左对齐 
+          左对齐
           
           
         </span>
@@ -49,7 +49,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
         >
           
           
-           右对齐 
+          右对齐
           
           
         </span>
@@ -71,7 +71,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
         >
           
           
-           顶部对齐 
+          顶部对齐
           
           
         </span>
@@ -97,7 +97,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
         <label
           for=""
         >
-          名字
+          姓名
         </label>
       </div>
       <div
@@ -115,11 +115,11 @@ exports[`Form Form alignVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -157,11 +157,11 @@ exports[`Form Form alignVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -176,12 +176,12 @@ exports[`Form Form alignVue demo works fine 1`] = `
                 <path
                   d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
                 <path
                   d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -222,7 +222,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               登录 
+              登录
               
             </span>
           </button>
@@ -271,11 +271,11 @@ exports[`Form Form baseVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入内容"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -313,11 +313,11 @@ exports[`Form Form baseVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入内容"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -350,7 +350,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m"
-            disabled="false"
             modelvalue="false"
           >
             <span
@@ -473,7 +472,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
           >
             
             <label
-              class="t-checkbox undefined"
+              class="t-checkbox"
             >
               <input
                 class="t-checkbox__former"
@@ -493,7 +492,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox undefined"
+              class="t-checkbox"
             >
               <input
                 class="t-checkbox__former"
@@ -513,7 +512,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox undefined"
+              class="t-checkbox"
             >
               <input
                 class="t-checkbox__former"
@@ -542,6 +541,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
     </div>
     <div
       class="t-form__item t-form-item__"
+      style="padding-top: 8px;"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -570,7 +570,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               提交 
+              提交
               
             </span>
           </button>
@@ -582,7 +582,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               重置 
+              重置
               
             </span>
           </button>
@@ -631,11 +631,11 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -646,7 +646,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-help t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -673,11 +673,11 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -692,12 +692,12 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
                 <path
                   d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
                 <path
                   d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -705,11 +705,15 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-form__help"
+        >
+          同一个校验方法可输出不同的错误信息和类型，依次输入：1234 观察变化
+        </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__rePassword"
+      class="t-form__item t-form-item__rePassword t-form__item-with-help t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -736,11 +740,11 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -755,12 +759,12 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
                 <path
                   d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
                 <path
                   d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -768,7 +772,11 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-form__help"
+        >
+          自定义异步校验方法
+        </div>
       </div>
     </div>
     <div
@@ -802,7 +810,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               提交 
+              提交
               
             </span>
           </button>
@@ -814,7 +822,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               重置 
+              重置
               
             </span>
           </button>
@@ -856,7 +864,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
         >
           
           
-           纵向布局 
+          纵向布局
           
           
         </span>
@@ -878,7 +886,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
         >
           
           
-           行内布局 
+          行内布局
           
           
         </span>
@@ -921,11 +929,11 @@ exports[`Form Form layoutVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -962,11 +970,11 @@ exports[`Form Form layoutVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -981,12 +989,12 @@ exports[`Form Form layoutVue demo works fine 1`] = `
                 <path
                   d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
                 <path
                   d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -1039,18 +1047,18 @@ exports[`Form Form loginVue demo works fine 1`] = `
                 <path
                   d="M2.5 11h5v2H3v1h10v-1H8.5v-2h5a1 1 0 001-1V3a1 1 0 00-1-1h-11a1 1 0 00-1 1v7a1 1 0 001 1zm0-8h11v7h-11V3z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
               
             </span>
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入账户名"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1089,23 +1097,23 @@ exports[`Form Form loginVue demo works fine 1`] = `
                 <path
                   d="M6 10v1h4v-1H6z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
                 <path
                   d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
               
             </span>
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入密码"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -1120,12 +1128,12 @@ exports[`Form Form loginVue demo works fine 1`] = `
                 <path
                   d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
                 <path
                   d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -1138,6 +1146,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
     </div>
     <div
       class="t-form__item t-form-item__"
+      style="padding-top: 8px;"
     >
       <!---->
       <div
@@ -1155,7 +1164,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               登录 
+              登录
               
             </span>
           </button>
@@ -1171,19 +1180,80 @@ exports[`Form Form loginVue demo works fine 1`] = `
 `;
 
 exports[`Form Form validatorStatusVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-form-status"
+>
   <!--
-      1. statusIcon 值为 true，显示默认图标。默认图标有 成功、失败、警告 等，不同的状态图标不同
-      2. statusIcon 值为 false，不显示图标
-      3. statusIcon 值类型为 function，可以自定义右侧状态图标
-      4. statusIcon 为 slot(插槽)，可自定义右侧状态图标
-    -->
+    1. statusIcon 值为 true，显示默认图标。默认图标有 成功、失败、警告 等，不同的状态图标不同
+    2. statusIcon 值为 false，不显示图标
+    3. statusIcon 值类型为 function，可以自定义右侧状态图标
+    4. statusIcon 为 slot(插槽)，可自定义右侧状态图标
+  -->
+  <div>
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+      modelvalue="true"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="true"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          显示校验图标
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="false"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          隐藏校验图标
+          
+          
+        </span>
+      </label>
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+      
+    </div>
+  </div>
+  <br />
+  <br />
   <form
     class="t-form"
   >
     
     <div
-      class="t-form__item t-form-item__fail t-form__item-with-help t-form__item-with-extra"
+      class="t-form__item t-form-item__fail"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1210,22 +1280,18 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="校验不通过状态"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
           
           <!---->
         </div>
-        <div
-          class="t-form__help"
-        >
-          这是校验通过后的提示信息
-        </div>
+        <!---->
       </div>
     </div>
     <div
@@ -1256,11 +1322,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="校验警告状态"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1298,11 +1364,53 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="不带绿色边框的成功状态"
               type="text"
             />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__success"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 80px;"
+      >
+        <label
+          for=""
+        >
+          成功
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 80px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="带绿色边框的成功状态"
+              type="text"
+            />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1340,18 +1448,16 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
-              placeholder="隐藏状态icon"
+              placeholder="隐藏状态图标"
               type="text"
             />
             <!---->
             <!---->
+            <!---->
           </div>
           
-          <span
-            class="t-form__status t-form__status-without-icon"
-          />
+          <!---->
         </div>
         <!---->
       </div>
@@ -1384,11 +1490,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
-              placeholder="请输入"
+              placeholder="校验警告状态"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1426,11 +1532,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="正在校验中，请稍等"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1474,6 +1580,61 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
         <!---->
       </div>
     </div>
+    <!-- 自定义图标：可以使用渲染函数 statusIcon，也可以使用插槽 statusIcon -->
+    <div
+      class="t-form__item t-form-item__help"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 80px;"
+      >
+        <label
+          for=""
+        >
+          帮助
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 80px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="自定义右侧图标"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!-- &lt;t-icon slot="statusIcon" name='help-circle' size="24px" style="color: #0006"/&gt; -->
+          
+          <span
+            class="t-form__status"
+          >
+            <svg
+              class="t-icon t-icon-help-circle"
+              style="font-size: 16px; color: rgba(0, 0, 0, 0.4);"
+            >
+              <use
+                href="#t-icon-help-circle"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
+      </div>
+    </div>
     
     <div
       class="t-form__item t-form-item__add0"
@@ -1502,11 +1663,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1543,65 +1704,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
     </div>
     
     <div
-      class="t-form__item t-form-item__help t-form__item-with-help t-form__item-with-extra"
-    >
-      <div
-        class="t-form__label t-form__label--right"
-        style="width: 80px;"
-      >
-        <label
-          for=""
-        >
-          帮助
-        </label>
-      </div>
-      <div
-        class="t-form__controls"
-        style="margin-left: 80px;"
-      >
-        <div
-          class="t-form__controls-content"
-        >
-          
-          <div
-            class="t-input"
-            modelvalue=""
-          >
-            <!---->
-            <!---->
-            <input
-              autocomplete="false"
-              class="t-input__inner"
-              placeholder="请输入"
-              type="text"
-            />
-            <!---->
-            <!---->
-          </div>
-          
-          <span
-            class="t-form__status"
-          >
-            
-            <svg
-              class="t-icon t-icon-help-circle"
-              style="font-size: 16px;"
-            >
-              <use
-                href="#t-icon-help-circle"
-              />
-            </svg>
-            
-          </span>
-        </div>
-        <div
-          class="t-form__help"
-        >
-          自定义帮助icon
-        </div>
-      </div>
-    </div>
-    <div
       class="t-form__item t-form-item__"
       style="padding-top: 8px;"
     >
@@ -1632,7 +1734,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               提交 
+              提交
               
             </span>
           </button>
@@ -1644,14 +1746,12 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               重置 
+              重置
               
             </span>
           </button>
           
-          <span
-            class="t-form__status t-form__status-without-icon"
-          />
+          <!---->
         </div>
         <!---->
       </div>
@@ -1663,6 +1763,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
 
 exports[`Form Form validatorVue demo works fine 1`] = `
 <div>
+  <!--  scrollToFirstError="smooth" -->
   <form
     class="t-form"
   >
@@ -1695,11 +1796,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1709,12 +1810,57 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         <div
           class="t-form__help"
         >
-          这里请填写用户名
+          这是用户名字段帮助说明
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password t-form__item-with-help t-form__item-with-extra"
+      class="t-form__item t-form-item__description t-form__item-with-help t-form__item-with-extra"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          个人简介
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          
+          <!---->
+        </div>
+        <div
+          class="t-form__help"
+        >
+          一句话介绍自己
+        </div>
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__password"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1735,28 +1881,45 @@ exports[`Form Form validatorVue demo works fine 1`] = `
         >
           
           <div
-            class="t-input"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
-              type="text"
+              type="password"
             />
             <!---->
             <!---->
+            <span
+              class="t-input__suffix t-input__suffix-icon"
+            >
+              <svg
+                class="t-icon t-icon-browse-off t-input__suffix-clear"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+                <path
+                  d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
           </div>
           
           <!---->
         </div>
-        <div
-          class="t-form__help"
-        >
-          这里请填写密码
-        </div>
+        <!---->
       </div>
     </div>
     <div
@@ -1787,11 +1950,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -1844,7 +2007,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                 class="t-radio__label"
               >
                 
-                 男 
+                男
                 
               </span>
             </label>
@@ -1865,7 +2028,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                 class="t-radio__label"
               >
                 
-                 女 
+                女
                 
               </span>
             </label>
@@ -1904,7 +2067,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           >
             
             <label
-              class="t-checkbox undefined"
+              class="t-checkbox"
             >
               <input
                 class="t-checkbox__former"
@@ -1924,7 +2087,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox undefined"
+              class="t-checkbox"
             >
               <input
                 class="t-checkbox__former"
@@ -1944,7 +2107,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox undefined"
+              class="t-checkbox"
             >
               <input
                 class="t-checkbox__former"
@@ -1964,7 +2127,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox undefined"
+              class="t-checkbox"
             >
               <input
                 class="t-checkbox__former"
@@ -2034,7 +2197,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                     >
                       <!---->
                       <ul
-                        class="t-select__create-option"
+                        class="t-select__create-option t-select__list"
                         style="display: none;"
                       >
                         <li
@@ -2051,7 +2214,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                         暂无数据
                       </li>
                       <ul
-                        class="t-select__groups"
+                        class="t-select__groups t-select__list"
                       >
                         
                         
@@ -2103,7 +2266,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                 
                 
                 <span
-                  class="t-tag t-tag--default t-size-m t-tag--dark"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -2145,7 +2308,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
       class="t-form__item t-form-item__date"
     >
       <div
-        class="t-form__label t-form__label--right"
+        class="t-form__label t-form__label--required t-form__label--right"
         style="width: 100px;"
       >
         <label
@@ -2169,11 +2332,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -2211,11 +2374,11 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请输入"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -2227,6 +2390,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
     </div>
     <div
       class="t-form__item t-form-item__"
+      style="padding-top: 8px;"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -2255,7 +2419,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               提交 
+              提交
               
             </span>
           </button>
@@ -2268,7 +2432,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               重置 
+              重置
               
             </span>
           </button>
@@ -2280,7 +2444,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               class="t-button__text"
             >
               
-               清除校验结果 
+              清空校验结果
               
             </span>
           </button>

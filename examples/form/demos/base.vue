@@ -19,15 +19,15 @@
       <t-form-item label="课程" name="course">
         <t-checkbox-group v-model="formData.course" :options="courseOptions"></t-checkbox-group>
       </t-form-item>
-      <t-form-item>
-        <t-button theme="primary" type="submit" style="margin-right: 10px"> 提交 </t-button>
-        <t-button theme="default" variant="base" type="reset"> 重置 </t-button>
+      <t-form-item style="padding-top: 8px">
+        <t-button theme="primary" type="submit" style="margin-right: 10px">提交</t-button>
+        <t-button theme="default" variant="base" type="reset">重置</t-button>
       </t-form-item>
     </t-form>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 const INITIAL_DATA = {
@@ -44,29 +44,18 @@ const courseOptions = [
   { label: '英语', value: '3' },
 ];
 
-export default defineComponent({
-  setup() {
-    const formData = ref({ ...INITIAL_DATA });
+const formData = ref({ ...INITIAL_DATA });
 
-    const onReset = () => {
-      MessagePlugin.success('重置成功');
-    };
+const onReset = () => {
+  MessagePlugin.success('重置成功');
+};
 
-    const onSubmit = ({ validateResult, firstError }) => {
-      if (validateResult === true) {
-        MessagePlugin.success('提交成功');
-      } else {
-        console.log('Validate Errors: ', firstError, validateResult);
-        MessagePlugin.warning(firstError);
-      }
-    };
-
-    return {
-      formData,
-      courseOptions,
-      onReset,
-      onSubmit,
-    };
-  },
-});
+const onSubmit = ({ validateResult, firstError }) => {
+  if (validateResult === true) {
+    MessagePlugin.success('提交成功');
+  } else {
+    console.log('Validate Errors: ', firstError, validateResult);
+    MessagePlugin.warning(firstError);
+  }
+};
 </script>

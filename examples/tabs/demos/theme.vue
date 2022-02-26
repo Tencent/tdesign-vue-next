@@ -28,17 +28,9 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value1 = ref('first');
-    const value2 = ref('first');
-    return {
-      value1,
-      value2,
-    };
-  },
-});
+const value1 = ref('first');
+const value2 = ref('first');
 </script>

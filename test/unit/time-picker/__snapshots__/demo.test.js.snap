@@ -824,12 +824,12 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -845,12 +845,12 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -1713,12 +1713,12 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -1734,12 +1734,12 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -2612,12 +2612,12 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -2633,12 +2633,12 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -3504,12 +3504,12 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -3525,12 +3525,12 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -4400,13 +4400,13 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           disabled=""
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -4422,12 +4422,12 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -5254,12 +5254,12 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -5275,12 +5275,12 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -6162,12 +6162,12 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -6183,12 +6183,12 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -7054,12 +7054,12 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -7075,12 +7075,12 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -7620,12 +7620,12 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -7641,12 +7641,12 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -8493,12 +8493,12 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -8514,12 +8514,12 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -9392,12 +9392,12 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -9413,12 +9413,12 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -10281,12 +10281,12 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -10302,12 +10302,12 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -11918,12 +11918,12 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <!---->
       </div>
@@ -12462,12 +12462,12 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -12483,12 +12483,12 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -12985,12 +12985,12 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -13006,12 +13006,12 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -13838,12 +13838,12 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -13859,12 +13859,12 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -14700,12 +14700,12 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -14721,12 +14721,12 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           

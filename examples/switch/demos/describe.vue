@@ -32,38 +32,25 @@
     </div>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
 import { CloseIcon, CheckIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: { CloseIcon, CheckIcon },
-  setup() {
-    const checked = ref(true);
-    const renderChecked = ref(true);
-    const renderChecked2 = ref(true);
-    const slotChecked = ref(true);
-    return {
-      checked,
-      renderChecked,
-      renderChecked2,
-      slotChecked,
-      onChange(val) {
-        console.log(val);
-      },
-      renderActiveContent() {
-        return <CheckIcon />;
-      },
-      renderInactiveContent() {
-        return <CloseIcon />;
-      },
-      renderContent(h, data) {
-        return data.value ? <CheckIcon /> : <CloseIcon />;
-      },
-    };
-  },
-});
+const checked = ref(true);
+const renderChecked = ref(true);
+const renderChecked2 = ref(true);
+const slotChecked = ref(true);
+
+const renderActiveContent = () => {
+  return <CheckIcon />;
+};
+const renderInactiveContent = () => {
+  return <CloseIcon />;
+};
+const renderContent = (h, data) => {
+  return data.value ? <CheckIcon /> : <CloseIcon />;
+};
 </script>
 
 <style scoped>

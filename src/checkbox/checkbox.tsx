@@ -7,6 +7,9 @@ import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 import { TdCheckboxProps } from './type';
 
+// hooks
+import { useFormDisabled } from '../form/hooks';
+
 const name = `${prefix}-checkbox`;
 
 export default defineComponent({
@@ -14,15 +17,22 @@ export default defineComponent({
   inject: {
     checkboxGroup: { default: undefined },
   },
+
   inheritAttrs: false,
   props: { ...checkboxProps },
   emits: ['change', 'checked-change'],
+
+  setup() {
+    const formDisabled = useFormDisabled();
+    return {
+      formDisabled,
+    };
+  },
+
   computed: {
     labelClasses(): ClassName {
-      const { class: className } = this.$attrs;
       return [
         `${name}`,
-        `${className}`,
         {
           [CLASSNAMES.STATUS.checked]: this.checked$,
           [CLASSNAMES.STATUS.disabled]: this.disabled$,
@@ -31,6 +41,7 @@ export default defineComponent({
       ];
     },
     disabled$(): boolean {
+      if (this.formDisabled) return this.formDisabled;
       if (!this.checkAll && !this.checked$ && this.checkboxGroup?.maxExceeded) {
         return true;
       }

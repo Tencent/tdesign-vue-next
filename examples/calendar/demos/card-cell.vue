@@ -20,47 +20,37 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const themeOptions = [
   { value: 'full', label: '全屏风格' },
   { value: 'card', label: '卡片风格' },
 ];
 
-export default defineComponent({
-  setup() {
-    const theme = ref('card');
+const theme = ref('card');
 
-    const getDateStr = (cellData) => {
-      const y = cellData.date.getFullYear();
-      const m = cellData.date.getMonth() + 1;
-      const d = cellData.date.getDate();
-      if (cellData.theme === 'full') {
-        return `${y}-${m}-${d}`;
-      }
-      if (cellData.mode === 'month') {
-        return `${d}`;
-      }
-      return `${y}-${m}`;
-    };
+const getDateStr = (cellData) => {
+  const y = cellData.date.getFullYear();
+  const m = cellData.date.getMonth() + 1;
+  const d = cellData.date.getDate();
+  if (cellData.theme === 'full') {
+    return `${y}-${m}-${d}`;
+  }
+  if (cellData.mode === 'month') {
+    return `${d}`;
+  }
+  return `${y}-${m}`;
+};
 
-    const getCellAppendCls = (cellData) => ({
-      belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
-      actived: cellData.isCurrent,
-    });
-
-    return {
-      theme,
-      themeOptions,
-      getDateStr,
-      getCellAppendCls,
-      handleClick() {
-        console.log('handleClick');
-      },
-    };
-  },
+const getCellAppendCls = (cellData) => ({
+  belongCurrent: cellData.mode === 'year' || cellData.belongTo === 0,
+  actived: cellData.isCurrent,
 });
+
+const handleClick = () => {
+  console.log('handleClick');
+};
 </script>
 
 <style scoped>

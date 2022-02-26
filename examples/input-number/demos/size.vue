@@ -8,19 +8,10 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(3);
-    const value2 = ref(3);
-    const value3 = ref(3);
-    return {
-      value1,
-      value2,
-      value3,
-    };
-  },
-});
+const value1 = ref(3);
+const value2 = ref(3);
+const value3 = ref(3);
 </script>

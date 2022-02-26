@@ -14,8 +14,8 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
 const columns = [
   { colKey: 'instance', title: '集群名称', width: 150 },
@@ -66,42 +66,31 @@ const initData = [
   },
 ];
 
-export default defineComponent({
-  setup() {
-    const sort = ref({
-      sortBy: 'status',
-      descending: true,
-    });
-
-    const data = ref([...initData]);
-
-    const request = (sort) => {
-      // 模拟异步请求，进行数据排序
-      const timer = setTimeout(() => {
-        if (sort) {
-          data.value = data.value
-            .concat()
-            .sort((a, b) => (sort.descending ? b[sort.sortBy] - a[sort.sortBy] : a[sort.sortBy] - b[sort.sortBy]));
-        } else {
-          data.value = data.value.concat();
-        }
-        clearTimeout(timer);
-      }, 100);
-    };
-
-    const sortChange = (val) => {
-      sort.value = val;
-      request(val);
-    };
-
-    return {
-      data,
-      columns,
-      sort,
-      sortChange,
-    };
-  },
+const sort = ref({
+  sortBy: 'status',
+  descending: true,
 });
+
+const data = ref([...initData]);
+
+const request = (sort) => {
+  // 模拟异步请求，进行数据排序
+  const timer = setTimeout(() => {
+    if (sort) {
+      data.value = data.value
+        .concat()
+        .sort((a, b) => (sort.descending ? b[sort.sortBy] - a[sort.sortBy] : a[sort.sortBy] - b[sort.sortBy]));
+    } else {
+      data.value = data.value.concat();
+    }
+    clearTimeout(timer);
+  }, 100);
+};
+
+const sortChange = (val) => {
+  sort.value = val;
+  request(val);
+};
 </script>
 <style lang="less">
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {

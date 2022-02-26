@@ -7,49 +7,38 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref, computed, onMounted } from 'vue';
+<script setup>
+import { ref, computed, onMounted } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const status1 = ref('loading');
-    const status2 = ref('loading');
+const status1 = ref('loading');
+const status2 = ref('loading');
 
-    const isDisabled = computed(() => {
-      return status1.value === 'loading' && status2.value === 'loading';
-    });
+const isDisabled = computed(() => {
+  return status1.value === 'loading' && status2.value === 'loading';
+});
 
-    const fn1 = () => {
-      setTimeout(() => {
-        status1.value = 'success';
-      }, 10000);
-    };
+const fn1 = () => {
+  setTimeout(() => {
+    status1.value = 'success';
+  }, 10000);
+};
 
-    const fn2 = () => {
-      setTimeout(() => {
-        status2.value = 'warning';
-      }, 10000);
-    };
+const fn2 = () => {
+  setTimeout(() => {
+    status2.value = 'warning';
+  }, 10000);
+};
 
-    const reset = () => {
-      status1.value = 'loading';
-      status2.value = 'loading';
-      fn1();
-      fn2();
-    };
+const reset = () => {
+  status1.value = 'loading';
+  status2.value = 'loading';
+  fn1();
+  fn2();
+};
 
-    onMounted(() => {
-      fn1();
-      fn2();
-    });
-
-    return {
-      isDisabled,
-      status1,
-      status2,
-      reset,
-    };
-  },
+onMounted(() => {
+  fn1();
+  fn2();
 });
 </script>
 

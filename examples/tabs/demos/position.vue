@@ -22,25 +22,15 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value = ref('first');
-    const placement = ref('top');
+const value = ref('first');
+const placement = ref('top');
 
-    const handlerChange = (newValue) => {
-      value.value = newValue;
-    };
-
-    return {
-      handlerChange,
-      placement,
-      value,
-    };
-  },
-});
+const handlerChange = (newValue) => {
+  value.value = newValue;
+};
 </script>
 
 <style lang="less">

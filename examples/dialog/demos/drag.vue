@@ -45,22 +45,12 @@
     </t-dialog>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const visibleModal = ref(false);
-    const visibleModelessDrag = ref(false);
-    const visibleModeless = ref(false);
-
-    return {
-      visibleModal,
-      visibleModelessDrag,
-      visibleModeless,
-    };
-  },
-});
+const visibleModal = ref(false);
+const visibleModelessDrag = ref(false);
+const visibleModeless = ref(false);
 </script>
 <style scoped>
 .t-button {

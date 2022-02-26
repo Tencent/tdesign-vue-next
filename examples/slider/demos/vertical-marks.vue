@@ -25,40 +25,32 @@
     </div>
   </div>
 </template>
-<script lang="jsx">
-import { defineComponent, ref } from 'vue';
+<script setup lang="jsx">
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const value1 = ref(12);
-    const value2 = ref([30, 70]);
+const value1 = ref(12);
+const value2 = ref([30, 70]);
 
-    return {
-      value1,
-      value2,
-      layout: 'vertical',
-      marks1: {
-        0: '0°C',
-        20: '20°C',
-        40: '40°C',
-        60: '60°C',
-        80: <span style="color: #0052d9">80°C</span>,
-        100: <span style="color: #0052d9">100°C</span>,
-      },
-      marks2: {
-        0: '0°C',
-        20: '20°C',
-        40: '40°C',
-        60: '60°C',
-        80: <span style="color: #0052d9">80°C</span>,
-        100: <span style="color: #0052d9">100°C</span>,
-      },
-      change(value) {
-        console.log('change value', value);
-      },
-    };
-  },
-});
+const layout = 'vertical';
+const marks1 = {
+  0: '0°C',
+  20: '20°C',
+  40: '40°C',
+  60: '60°C',
+  80: <span style="color: #0052d9">80°C</span>,
+  100: <span style="color: #0052d9">100°C</span>,
+};
+const marks2 = {
+  0: '0°C',
+  20: '20°C',
+  40: '40°C',
+  60: '60°C',
+  80: <span style="color: #0052d9">80°C</span>,
+  100: <span style="color: #0052d9">100°C</span>,
+};
+const change = (value) => {
+  console.log('change value', value);
+};
 </script>
 <style>
 .vertical-marks-block {
