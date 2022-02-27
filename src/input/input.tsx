@@ -49,7 +49,7 @@ export default defineComponent({
   },
   computed: {
     showClear(): boolean {
-      return this.value && !this.disabled && this.clearable && this.isHover;
+      return (this.value && !this.disabled && this.clearable && this.isHover) || this.showClearIconOnEmpty;
     },
     tPlaceholder(): string {
       return this.placeholder ?? this.t(this.global.placeholder);
