@@ -10,14 +10,14 @@ docClass: timeline
 
 ### Bug Fixes
 
-* SelectInput: 修复 `src/select-input/interface.d.ts` 文件 `tsc` 编译忽略问题。
+* SelectInput: 修复 `src/select-input/interface.d.ts` 文件被 `tsc` 编译忽略导致的组件 `import interface` 错误
 
 
 ## 0.9.1 `2022-02-25`
 
 ### Bug Fixes
 
-* 修复构建产物 `TS` 声明文件路径错误
+* 修复构建产物 `typescript` 声明文件路径错误
 
 ## 0.9.0 `2022-02-25`
 
@@ -29,12 +29,12 @@ docClass: timeline
 ### Bug Fixes
 
 * Slider: ([@pengYYYYY](https://github.com/pengYYYYY))
-  * 修复游标定位问题，([pr #248](https://github.com/Tencent/tdesign-common/pull/248))
-  * 修复游标定位样式。([pr #355](https://github.com/Tencent/tdesign-vue-next/pull/355))
+  * 修复游标定位错乱 ([pr #248](https://github.com/Tencent/tdesign-common/pull/248))
+  * 修复 `marks` 属性不支持 `array` 数据结构([pr #355](https://github.com/Tencent/tdesign-vue-next/pull/355))
 * Input: 去除 `autocomplete` 默认值，保持浏览器默认值 ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/330)), ([@chaishi](https://github.com/chaishi))
 * Upload: 修复文件数大于等于 `max` 时，上传按钮依然可以点击 ([pr #351](https://github.com/Tencent/tdesign-vue-next/issues/349)), ([issue #349](https://github.com/Tencent/tdesign-vue-next/issues/349)), ([@pengYYYYY](https://github.com/pengYYYYY))
-* Notification: 修复 `offset` 参数无效 ([pr #351](https://github.com/Tencent/tdesign-vue-next/pull/349)), ([issue #299](https://github.com/Tencent/tdesign-vue-next/issues/299)), ([issue #325](https://github.com/Tencent/tdesign-vue-next/issues/325)), ([issue #316](https://github.com/Tencent/tdesign-vue-next/issues/316)), ([@pengYYYYY](https://github.com/pengYYYYY))
-* Table: 修复固定表头错位 ([pr #352](https://github.com/Tencent/tdesign-vue-next/pull/352)), ([issue #342](https://github.com/Tencent/tdesign-vue-next/issues/342)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Notification: 修复 `offset` 参数无效 ([pr #351](https://github.com/Tencent/tdesign-vue-next/pull/349)), ([issue #342](https://github.com/Tencent/tdesign-vue-next/issues/342)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Table: 修复固定表头错位 ([pr #352](https://github.com/Tencent/tdesign-vue-next/pull/352)), ([issue #299](https://github.com/Tencent/tdesign-vue-next/issues/299)), ([issue #325](https://github.com/Tencent/tdesign-vue-next/issues/325)), ([issue #316](https://github.com/Tencent/tdesign-vue-next/issues/316)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Button: 修复 `primary outline` 模式下边框展示异常的问题 ([pr #238](https://github.com/Tencent/tdesign-common/pull/238)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
 ### Features
