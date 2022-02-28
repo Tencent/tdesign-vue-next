@@ -36,7 +36,7 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -70,7 +70,7 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -104,7 +104,7 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -307,7 +307,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
           <path
             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </span>
@@ -343,7 +343,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
           <path
             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </span>
@@ -379,7 +379,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
           <path
             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </span>
@@ -413,7 +413,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
           <path
             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </span>
@@ -447,7 +447,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
           <path
             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </span>
@@ -503,7 +503,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -544,7 +544,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -585,7 +585,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -628,7 +628,7 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -662,7 +662,7 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -698,7 +698,7 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -743,7 +743,7 @@ exports[`Breadcrumb Breadcrumb toVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>
@@ -777,7 +777,7 @@ exports[`Breadcrumb Breadcrumb toVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </span>

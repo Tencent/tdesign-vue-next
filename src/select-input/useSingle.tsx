@@ -24,11 +24,16 @@ const COMMON_PROPERTIES = [
 
 const DEFAULT_KEYS = {
   label: 'label',
-  key: 'key',
+  value: 'value',
 };
 
+function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputProps['keys']) {
+  const iKeys = keys || DEFAULT_KEYS;
+  return isObject(value) ? value[iKeys.label] : value;
+}
+
 export default function useSingle(props: TdSelectInputProps, context: SetupContext) {
-  const { value } = toRefs(props);
+  const { value, keys } = toRefs(props);
   const inputRef = ref();
   const inputValue = ref<string | number>('');
   const renderTNode = useTNodeJSX();
@@ -44,15 +49,14 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const onInnerInputChange = (value: InputValue, context: { e: InputEvent | MouseEvent }) => {
     if (props.allowInput) {
       inputValue.value = value;
-      props.onInputChange?.(value, context);
+      props.onInputChange?.(value, { ...context, trigger: 'input' });
     }
   };
 
   watch(
     [value],
     () => {
-      const iKeys = { ...DEFAULT_KEYS, ...props.keys };
-      inputValue.value = isObject(value.value) ? value.value[iKeys.label] : value.value;
+      inputValue.value = getInputValue(value.value, keys.value);
     },
     { immediate: true },
   );
@@ -69,11 +73,13 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         placeholder={singleValueDisplay ? '' : props.placeholder}
         value={singleValueDisplay ? undefined : inputValue.value}
         label={prefixContent.length ? () => prefixContent : undefined}
+        showClearIconOnEmpty
         onChange={onInnerInputChange}
         readonly={!props.allowInput}
         onClear={onInnerClear}
         onBlur={(val, context) => {
           props.onBlur?.(value, { ...context, inputValue: val });
+          inputValue.value = getInputValue(value.value, keys.value);
         }}
         onFocus={(val, context) => {
           props.onFocus?.(value, { ...context, inputValue: val });

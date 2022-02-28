@@ -7,8 +7,10 @@
       style="width: 300px"
       placeholder="Please Select"
       clearable
+      allow-input
       @popup-visible-change="onPopupVisibleChange"
       @clear="onClear"
+      @input-change="onInputChange"
     >
       <template #panel>
         <ul class="tdesign-demo__select-input-ul-single">
@@ -36,23 +38,25 @@ const options = [
   { label: 'tdesign-mobile-react', value: 6 },
 ];
 
+// const selectValue = ref('tdesign-vue');
 const selectValue = ref({ label: 'tdesign-vue', value: 1 });
-
+// const selectValue = ref([{ label: 'tdesign-vue', value: 1 }]);
 const popupVisible = ref(false);
-
 const onOptionClick = (item) => {
   selectValue.value = item;
   // 选中后立即关闭浮层
   popupVisible.value = false;
 };
-
 const onClear = () => {
   selectValue.value = undefined;
 };
-
 const onPopupVisibleChange = (val, context) => {
   console.log(context);
   popupVisible.value = val;
+};
+const onInputChange = (val, context) => {
+  // 过滤功能
+  console.log(val, context);
 };
 </script>
 <style>

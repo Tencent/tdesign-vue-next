@@ -109,15 +109,9 @@ export default function mdToVue(options) {
 
           Prismjs.highlightAll();
     
-          tdDocContent.initAnchorHighlight();
-    
           this.$emit('loaded', () => {
             tdDocContent.pageStatus = 'show';
           });
-        },
-
-        beforeDestroy() {
-          this.$refs.tdDocContent.resetAnchorHighlight();
         },
       });
     </script>
