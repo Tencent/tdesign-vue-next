@@ -29,13 +29,13 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
   };
   hackOptions.content = options.content ? options.content : '';
 
-  const a = getAttach(hackOptions.attach);
+  const attachEl = getAttach(hackOptions.attach);
 
-  if (!instanceMap.get(a)) {
-    instanceMap.set(a, {});
+  if (!instanceMap.get(attachEl)) {
+    instanceMap.set(attachEl, {});
   }
-  let p = instanceMap.get(a)[hackOptions.placement];
-  if (!p) {
+  let tmpInstance = instanceMap.get(attachEl)[hackOptions.placement];
+  if (!tmpInstance) {
     const wrapper = document.createElement('div');
 
     const instance = createApp(NotificationList, {
@@ -43,16 +43,16 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
     }).mount(wrapper);
 
     instance.add(hackOptions);
-    instanceMap.get(a)[hackOptions.placement] = instance;
-    p = instance;
-    a.appendChild(instance.$el);
+    instanceMap.get(attachEl)[hackOptions.placement] = instance;
+    tmpInstance = instance;
+    attachEl.appendChild(instance.$el);
   } else {
-    p.add(hackOptions);
+    tmpInstance.add(hackOptions);
   }
 
   return new Promise((resolve) => {
     nextTick(() => {
-      const lastChild = p.getLastChild();
+      const lastChild = tmpInstance.$children;
       resolve(lastChild);
     });
   });

@@ -18,7 +18,7 @@ exports[`Notification Notification baseVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -33,7 +33,11 @@ exports[`Notification Notification baseVue demo works fine 1`] = `
         >
           标题名称
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -59,7 +63,7 @@ exports[`Notification Notification baseVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -74,7 +78,11 @@ exports[`Notification Notification baseVue demo works fine 1`] = `
         >
           标题名称
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -136,7 +144,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -151,7 +159,11 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
         >
           自定义关闭按钮(false)
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -177,7 +189,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -192,13 +204,11 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
         >
           自定义关闭按钮(文字)
         </span>
-        <div
-          class="t-icon-close"
+        <span
+          class="t-message__close"
         >
-           
           关闭
-           
-        </div>
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -224,7 +234,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -239,15 +249,13 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
         >
           自定义关闭按钮(函数)
         </span>
-        <div
-          class="t-icon-close"
+        <span
+          class="t-message__close"
         >
-           
           <span>
             close
           </span>
-           
-        </div>
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -273,7 +281,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -288,15 +296,13 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
         >
           自定义关闭按钮(插槽)
         </span>
-        <div
-          class="t-icon-close"
+        <span
+          class="t-message__close"
         >
-           
           
           x
           
-           
-        </div>
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -353,7 +359,7 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -368,7 +374,11 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
         >
           自定义内容(字符串)
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -394,7 +404,7 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -409,7 +419,11 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
         >
           自定义内容(函数)
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -437,7 +451,7 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -452,7 +466,11 @@ exports[`Notification Notification contentVue demo works fine 1`] = `
         >
           自定义内容(插槽)
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -487,7 +505,7 @@ exports[`Notification Notification footerVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -502,7 +520,11 @@ exports[`Notification Notification footerVue demo works fine 1`] = `
         >
           自定义底部详情(函数)
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -537,7 +559,7 @@ exports[`Notification Notification footerVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -552,7 +574,11 @@ exports[`Notification Notification footerVue demo works fine 1`] = `
         >
           自定义底部详情(插槽)
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -598,7 +624,7 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -613,7 +639,11 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
         >
           普通通知
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -639,7 +669,7 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -654,7 +684,11 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
         >
           危险通知
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -680,7 +714,7 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -695,7 +729,11 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
         >
           告警通知
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -721,7 +759,7 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -736,7 +774,11 @@ exports[`Notification Notification iconVue demo works fine 1`] = `
         >
           成功通知
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -796,7 +838,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -811,7 +853,11 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         >
           超出的文本省略号显示
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -853,7 +899,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -868,19 +914,23 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         >
           带关闭按钮
         </span>
-        <svg
-          class="t-icon t-icon-close t-message-close"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <span
+          class="t-message__close"
         >
-          <path
-            d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-            fill="currentColor"
-            fillOpacity="0.9"
-          />
-        </svg>
+          <svg
+            class="t-icon t-icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -906,7 +956,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -921,14 +971,34 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         >
           消息通知标题
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
       >
         使用 function 自定义底部内容
       </div>
-      <!---->
+      <div
+        class="t-notification__detail"
+        slot="footer"
+      >
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            查看详情
+            
+          </span>
+        </button>
+      </div>
     </div>
   </div>
   <div
@@ -947,7 +1017,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -960,9 +1030,20 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         <span
           class="t-notification__title"
         >
+          
+          <div>
+            消息通知标题 
+            <small>
+              消息通知副标题
+            </small>
+          </div>
+          
+        </span>
+        <span
+          class="t-message__close"
+        >
           <!---->
         </span>
-        <!---->
       </div>
       <div
         class="t-notification__content"
@@ -1016,11 +1097,11 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入横向偏移量"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -1031,11 +1112,11 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
       <!---->
       <!---->
       <input
-        autocomplete="false"
         class="t-input__inner"
         placeholder="请输入纵向偏移量"
         type="text"
       />
+      <!---->
       <!---->
       <!---->
     </div>
@@ -1234,7 +1315,7 @@ exports[`Notification Notification sizeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1249,7 +1330,11 @@ exports[`Notification Notification sizeVue demo works fine 1`] = `
         >
           宽度固定400px
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -1275,7 +1360,7 @@ exports[`Notification Notification sizeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1290,7 +1375,11 @@ exports[`Notification Notification sizeVue demo works fine 1`] = `
         >
           文本内容最多支持三行
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -1394,7 +1483,7 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1409,7 +1498,11 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
         >
           信息
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -1435,7 +1528,7 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1450,7 +1543,11 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
         >
           成功
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -1476,7 +1573,7 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1491,7 +1588,11 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
         >
           警告
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"
@@ -1517,7 +1618,7 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
         <path
           d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1532,7 +1633,11 @@ exports[`Notification Notification typeVue demo works fine 1`] = `
         >
           错误
         </span>
-        <!---->
+        <span
+          class="t-message__close"
+        >
+          <!---->
+        </span>
       </div>
       <div
         class="t-notification__content"

@@ -3,11 +3,14 @@ import isEmpty from 'lodash/isEmpty';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
-import log from '../_common/js/log';
+import camelCase from 'lodash/camelCase';
+import kebabCase from 'lodash/kebabCase';
 
 export interface JSXRenderContext {
   defaultNode?: VNode | string;
   params?: Record<string, any>;
+  // 是否不打印 LOG
+  silent?: boolean;
 }
 
 export type OptionsType = VNode | JSXRenderContext | string;
@@ -27,6 +30,17 @@ export function getParams(options?: OptionsType) {
   return isObject(options) && 'params' in options ? options.params : null;
 }
 
+// 同时支持驼峰命名和中划线命名的插槽，示例：value-display 和 valueDisplay
+export function handleSlots(instance: ComponentPublicInstance, params: Record<string, any>, name: string) {
+  // 检查是否存在 驼峰命名 的插槽
+  let node = instance.$slots[camelCase(name)]?.(params);
+  if (node) return node;
+  // 检查是否存在 中划线命名 的插槽
+  node = instance.$slots[kebabCase(name)]?.(params);
+  if (node) return node;
+  return null;
+}
+
 /**
  * 通过JSX的方式渲染 TNode，props 和 插槽同时处理，也能处理默认值为 true 则渲染默认节点的情况
  * @param vm 组件实例
@@ -36,7 +50,6 @@ export function getParams(options?: OptionsType) {
  * @example renderTNodeJSX(this, 'closeBtn', <close-icon />)。 当属性值为 true 时则渲染 <close-icon />
  * @example renderTNodeJSX(this, 'closeBtn', { defaultNode: <close-icon />, params })。 params 为渲染节点时所需的参数
  */
-
 export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, options?: OptionsType) => {
   // assemble params && defaultNode
   const params = getParams(options);
@@ -48,21 +61,26 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
     propsNode = instance[name];
   }
 
+  // 是否静默日志
+  const isSilent = Boolean(isObject(options) && 'silent' in options && options.silent);
   // 同名插槽和属性同时存在，则提醒用户只需要选择一种方式即可
-  if (instance.$slots[name] && propsNode && propsNode !== true) {
+  if (instance.$slots[name] && propsNode && propsNode !== true && !isSilent) {
     console.warn(`Both $slots.${name} and $props.${name} exist, $props.${name} is preferred`);
   }
 
   // propsNode 为 false 不渲染
   if (propsNode === false) return;
   if (propsNode === true && defaultNode) {
-    return instance.$slots[name]?.(params) ? instance.$slots[name]?.(params) : defaultNode;
+    return handleSlots(instance, params, name) || defaultNode;
   }
 
   // 同名 props 和 slot 优先处理 props
   if (isFunction(propsNode)) return propsNode(h, params);
   const isPropsEmpty = [undefined, params, ''].includes(propsNode);
-  if (isPropsEmpty && instance.$slots[name]) return instance.$slots[name](params);
+  // Props 为空，但插槽存在
+  if (isPropsEmpty && (instance.$slots[camelCase(name)] || instance.$slots[kebabCase(name)])) {
+    return handleSlots(instance, params, name);
+  }
   return propsNode;
 };
 

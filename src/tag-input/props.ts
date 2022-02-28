@@ -8,6 +8,8 @@ import { TdTagInputProps } from './type';
 import { PropType } from 'vue';
 
 export default {
+  /** 宽度随内容自适应 */
+  autoWidth: Boolean,
   /** 是否可清空 */
   clearable: Boolean,
   /** 标签过多的情况下，折叠项内容，默认为 `+N`。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。`value` 表示标签值，`collapsedTags` 表示折叠标签值，`count` 表示总标签数量 */
@@ -16,19 +18,29 @@ export default {
   },
   /** 是否禁用标签输入框 */
   disabled: Boolean,
-  /** 【开发中】拖拽调整标签顺序 */
+  /** 拖拽调整标签顺序 */
   dragSort: Boolean,
   /** 标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示 */
   excessTagsDisplayType: {
     type: String as PropType<TdTagInputProps['excessTagsDisplayType']>,
     default: 'scroll' as TdTagInputProps['excessTagsDisplayType'],
     validator(val: TdTagInputProps['excessTagsDisplayType']): boolean {
+      if (!val) return true;
       return ['scroll', 'break-line'].includes(val);
     },
   },
   /** 透传 Input 输入框组件全部属性 */
   inputProps: {
     type: Object as PropType<TdTagInputProps['inputProps']>,
+  },
+  /** 输入框的值 */
+  inputValue: {
+    type: [String, Number] as PropType<TdTagInputProps['inputValue']>,
+    default: undefined,
+  },
+  /** 输入框的值，非受控属性 */
+  defaultInputValue: {
+    type: [String, Number] as PropType<TdTagInputProps['defaultInputValue']>,
   },
   /** 左侧文本 */
   label: {
@@ -55,6 +67,7 @@ export default {
     type: String as PropType<TdTagInputProps['size']>,
     default: 'medium' as TdTagInputProps['size'],
     validator(val: TdTagInputProps['size']): boolean {
+      if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -62,6 +75,7 @@ export default {
   status: {
     type: String as PropType<TdTagInputProps['status']>,
     validator(val: TdTagInputProps['status']): boolean {
+      if (!val) return true;
       return ['success', 'warning', 'error'].includes(val);
     },
   },
@@ -88,13 +102,25 @@ export default {
   /** 值 */
   value: {
     type: Array as PropType<TdTagInputProps['value']>,
+    default: undefined,
   },
   modelValue: {
     type: Array as PropType<TdTagInputProps['value']>,
+    default: undefined,
   },
   /** 值，非受控属性 */
   defaultValue: {
     type: Array as PropType<TdTagInputProps['defaultValue']>,
+  },
+  // @ts-ignore
+  value: {
+    type: Array as PropType<TdTagInputProps['value']>,
+    default: undefined,
+  },
+  // @ts-ignore
+  modelValue: {
+    type: Array as PropType<TdTagInputProps['value']>,
+    default: undefined,
   },
   /** 自定义值呈现的全部内容，参数为所有标签的值 */
   valueDisplay: {
@@ -102,14 +128,18 @@ export default {
   },
   /** 失去焦点时触发 */
   onBlur: Function as PropType<TdTagInputProps['onBlur']>,
-  /** 值变化时触发，参数 `trigger` 表示数据变化的触发来源 */
+  /** 值变化时触发，参数 `context.trigger` 表示数据变化的触发来源；`context.index` 指当前变化项的下标；`context.item` 指当前变化项；`context.e` 表示事件参数 */
   onChange: Function as PropType<TdTagInputProps['onChange']>,
   /** 清空按钮点击时触发 */
   onClear: Function as PropType<TdTagInputProps['onClear']>,
+  /** 【开发中】拖拽排序时触发 */
+  onDragSort: Function as PropType<TdTagInputProps['onDragSort']>,
   /** 按键按下 Enter 时触发 */
   onEnter: Function as PropType<TdTagInputProps['onEnter']>,
   /** 聚焦时触发 */
   onFocus: Function as PropType<TdTagInputProps['onFocus']>,
+  /** 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、回车键触发等 */
+  onInputChange: Function as PropType<TdTagInputProps['onInputChange']>,
   /** 进入输入框时触发 */
   onMouseenter: Function as PropType<TdTagInputProps['onMouseenter']>,
   /** 离开输入框时触发 */

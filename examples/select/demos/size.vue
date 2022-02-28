@@ -4,7 +4,7 @@
       v-model="value1"
       size="small"
       :popup-props="popupProps"
-      placeholder="-请选择-"
+      placeholder="请选择"
       style="width: 200px; display: inline-block; margin-right: 20px"
       clearable
     >
@@ -14,21 +14,20 @@
     </t-select>
     <t-select
       v-model="value"
-      placeholder="-请选择-"
+      placeholder="请选择"
       :options="options"
       size="medium"
       style="width: 200px; display: inline-block; margin-right: 20px"
     />
     <t-select
       v-model="value2"
-      placeholder="-请选择-"
+      placeholder="请选择"
       :options="options"
       size="large"
       style="width: 200px; display: inline-block"
     />
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
 
@@ -47,10 +46,3 @@ const popupProps = {
   },
 };
 </script>
-<style scoped>
-.demo-select-base {
-  width: 200px;
-  display: inline-block;
-  margin: 0 20px;
-}
-</style>

@@ -33,7 +33,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -50,7 +50,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -148,7 +148,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -196,7 +196,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
           <path
             d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </li>
@@ -220,7 +220,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -261,7 +261,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -278,7 +278,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -376,7 +376,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -424,7 +424,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -466,7 +466,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -483,7 +483,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -581,7 +581,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -639,7 +639,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -701,7 +701,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -718,7 +718,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -816,7 +816,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -864,7 +864,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
           <path
             d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </li>
@@ -888,7 +888,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -930,7 +930,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -947,7 +947,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -1045,7 +1045,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1070,7 +1070,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
           <path
             d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </li>
@@ -1114,7 +1114,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
           <path
             d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </li>
@@ -1138,7 +1138,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1181,7 +1181,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1198,7 +1198,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -1296,7 +1296,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1344,7 +1344,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
           <path
             d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </li>
@@ -1368,7 +1368,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1410,7 +1410,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1427,7 +1427,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -1525,7 +1525,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1551,7 +1551,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1563,7 +1563,9 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <!---->
-                <ul>
+                <ul
+                  class="t-select__list"
+                >
                   
                   <li
                     class="t-select-option t-is-selected t-size-s"
@@ -1754,7 +1756,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1796,7 +1798,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1813,7 +1815,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -1911,7 +1913,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -1937,7 +1939,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -1949,7 +1951,9 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                 </ul>
                 <!---->
                 <!---->
-                <ul>
+                <ul
+                  class="t-select__list"
+                >
                   
                   <li
                     class="t-select-option t-is-selected t-size-m"
@@ -2140,7 +2144,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -2182,7 +2186,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
               >
                 <!---->
                 <ul
-                  class="t-select__create-option"
+                  class="t-select__create-option t-select__list"
                   style="display: none;"
                 >
                   <li
@@ -2199,7 +2203,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                   暂无数据
                 </li>
                 <ul
-                  class="t-select__groups"
+                  class="t-select__groups t-select__list"
                 >
                   
                   
@@ -2297,7 +2301,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
         <path
           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>
@@ -2322,7 +2326,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
           <path
             d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </li>
@@ -2366,7 +2370,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
           <path
             d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </li>
@@ -2390,7 +2394,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
         <path
           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
     </div>

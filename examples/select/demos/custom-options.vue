@@ -20,16 +20,13 @@
           <img src="https://tdesign.gtimg.com/site/avatar.jpg" />
           <div class="tdesign-demo__user-option-info">
             <div>{{ item.label }}</div>
-            <div class="tdesign-demo__user-option-desc">
-              {{ item.description }}
-            </div>
+            <div class="tdesign-demo__user-option-desc">{{ item.description }}</div>
           </div>
         </div>
       </t-option>
     </t-select>
   </div>
 </template>
-
 <script setup lang="jsx">
 import { ref, computed } from 'vue';
 
@@ -64,7 +61,6 @@ const optionsData = computed(() =>
   })),
 );
 </script>
-
 <style>
 .tdesign-demo__user-option {
   display: flex;

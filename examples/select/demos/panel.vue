@@ -28,7 +28,6 @@
     </t-select>
   </div>
 </template>
-
 <script setup lang="jsx">
 import { ref } from 'vue';
 
@@ -68,7 +67,6 @@ const onAddCancel = () => {
   editOrCreate.value = 'create';
 };
 </script>
-
 <style scoped>
 .tdesign-demo-select-base {
   width: 450px;

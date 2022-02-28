@@ -1,10 +1,10 @@
 import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
+import camelCase from 'lodash/camelCase';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 import getConfigReceiverMixins, { InputConfig } from '../config-provider/config-receiver';
 import mixins from '../utils/mixins';
-
 import CLASSNAMES from '../utils/classnames';
 import { prefix } from '../config';
 import props from './props';
@@ -33,7 +33,7 @@ export default defineComponent({
   name: 'TInput',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur'],
+  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
   setup() {
     const disabled = useFormDisabled();
     return {
@@ -49,15 +49,17 @@ export default defineComponent({
   },
   computed: {
     showClear(): boolean {
-      return this.value && !this.disabled && this.clearable && this.isHover;
+      return (this.value && !this.disabled && this.clearable && this.isHover) || this.showClearIconOnEmpty;
+    },
+    tPlaceholder(): string {
+      return this.placeholder ?? this.t(this.global.placeholder);
     },
     inputAttrs(): Record<string, any> {
       return getValidAttrs({
         autofocus: this.autofocus,
         disabled: this.disabled,
         readonly: this.readonly,
-        autocomplete: this.autocomplete,
-        placeholder: this.placeholder ?? this.t(this.global.placeholder),
+        placeholder: this.tPlaceholder,
         maxlength: this.maxlength,
         name: this.name || undefined,
         type: this.renderType,
@@ -69,34 +71,53 @@ export default defineComponent({
       handler(val) {
         if (val === true) {
           this.$nextTick(() => {
-            (this.$refs.refInputElem as HTMLInputElement).focus();
+            (this.$refs.inputRef as HTMLInputElement).focus();
           });
         }
       },
       immediate: true,
     },
   },
+
   created() {
     this.composing = false;
+    if (this.autoWidth) {
+      this.addListenders();
+    }
   },
+
   methods: {
+    addListenders() {
+      this.$watch(
+        () => this.value + this.placeholder,
+        () => {
+          if (!this.autoWidth) return;
+          nextTick(() => {
+            this.updateInputWidth();
+          });
+        },
+        { immediate: true },
+      );
+    },
     mouseEvent(v: boolean) {
       this.isHover = v;
     },
-    renderIcon(
-      icon: string | Function | undefined,
-      iconType: 'prefix-icon' | 'suffix-icon' | 'prefixIcon' | 'suffixIcon',
-    ) {
+    renderIcon(icon: string | Function | undefined, iconType: 'prefix-icon' | 'suffix-icon') {
       if (typeof icon === 'function') {
         return icon(h);
       }
+      // 插槽名称为中划线
       if (this.$slots[iconType]) {
         return this.$slots[iconType](null);
+      }
+      // 插槽名称为驼峰
+      if (this.$slots[camelCase(iconType)]) {
+        return this.$slots[camelCase(iconType)](null);
       }
       return null;
     },
     setInputValue(v: InputValue = ''): void {
-      const input = this.$refs.refInputElem as HTMLInputElement;
+      const input = this.$refs.inputRef as HTMLInputElement;
       const sV = String(v);
       if (!input) {
         return;
@@ -106,11 +127,11 @@ export default defineComponent({
       }
     },
     focus(): void {
-      const input = this.$refs.refInputElem as HTMLInputElement;
+      const input = this.$refs.inputRef as HTMLInputElement;
       input?.focus();
     },
     blur(): void {
-      const input = this.$refs.refInputElem as HTMLInputElement;
+      const input = this.$refs.inputRef as HTMLInputElement;
       input?.blur();
     },
     handleInput(e: InputEvent): void {
@@ -144,7 +165,7 @@ export default defineComponent({
       this.onPaste?.({ e, pasteValue: clipData?.getData('text/plain') });
     },
     onHandleMousewheel(e: WheelEvent) {
-      this.onMousewheel?.({ e });
+      this.onWheel?.({ e });
     },
     emitPassword() {
       const { renderType } = this;
@@ -173,6 +194,10 @@ export default defineComponent({
     onHandleonCompositionstart(e: CompositionEvent) {
       emitEvent(this, 'compositionstart', this.value, { e });
     },
+    onRootClick(e: MouseEvent) {
+      (this.$refs.inputRef as HTMLInputElement)?.focus();
+      this.$emit('click', e);
+    },
     inputValueChangeHandle(e: InputEvent | CompositionEvent) {
       const { target } = e;
       let val = (target as HTMLInputElement).value;
@@ -194,6 +219,13 @@ export default defineComponent({
       this.mouseEvent(false);
       this.onMouseleave?.({ e });
     },
+
+    updateInputWidth() {
+      const pre = this.$refs.inputPreRef as HTMLSpanElement;
+      if (!pre) return;
+      const width = pre.offsetWidth;
+      (this.$refs.inputRef as HTMLInputElement).style.width = `${width}px`;
+    },
   },
 
   render(): VNodeChild {
@@ -213,12 +245,11 @@ export default defineComponent({
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
 
-    const prefixIcon =
-      this.renderIcon(this.prefixIcon, 'prefixIcon') || this.renderIcon(this.prefixIcon, 'prefix-icon');
+    const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
 
-    let suffixIcon = this.renderIcon(this.suffixIcon, 'suffixIcon') || this.renderIcon(this.prefixIcon, 'suffix-icon');
+    let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
 
-    const label = renderTNodeJSX(this, 'label');
+    const label = renderTNodeJSX(this, 'label', { silent: true });
     const suffix = renderTNodeJSX(this, 'suffix');
 
     const labelContent = label ? <div class={`${name}__prefix`}>{label}</div> : null;
@@ -249,14 +280,16 @@ export default defineComponent({
         [`${name}--prefix`]: prefixIcon || labelContent,
         [`${name}--suffix`]: suffixIcon || suffixContent,
         [`${name}--focused`]: this.focused,
+        [`${name}--auto-width`]: this.autoWidth,
       },
     ];
     const inputNode = (
       <div
         class={classes}
+        onClick={this.onRootClick}
         onMouseenter={this.onInputMouseenter}
         onMouseleave={this.onInputMouseleave}
-        onwheel={this.onHandleMousewheel}
+        onWheel={this.onHandleMousewheel}
         {...{ ...wrapperAttrs }}
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
@@ -265,10 +298,15 @@ export default defineComponent({
           class={`${name}__inner`}
           {...{ ...this.inputAttrs }}
           {...inputEvents}
-          ref="refInputElem"
+          ref="inputRef"
           value={this.value}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
         />
+        {this.autoWidth && (
+          <span ref="inputPreRef" class={`${prefix}-input__input-pre`}>
+            {this.value || this.tPlaceholder}
+          </span>
+        )}
         {suffixContent}
         {suffixIcon ? (
           <span class={[`${name}__suffix`, `${name}__suffix-icon`, { [`${name}__clear`]: this.showClear }]}>

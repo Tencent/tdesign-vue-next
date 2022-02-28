@@ -42,7 +42,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                   >
                     <!---->
                     <ul
-                      class="t-select__create-option"
+                      class="t-select__create-option t-select__list"
                       style="display: none;"
                     >
                       <li
@@ -59,7 +59,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       暂无数据
                     </li>
                     <ul
-                      class="t-select__groups"
+                      class="t-select__groups t-select__list"
                     >
                       
                       
@@ -314,7 +314,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                   >
                     <!---->
                     <ul
-                      class="t-select__create-option"
+                      class="t-select__create-option t-select__list"
                       style="display: none;"
                     >
                       <li
@@ -331,7 +331,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       暂无数据
                     </li>
                     <ul
-                      class="t-select__groups"
+                      class="t-select__groups t-select__list"
                     >
                       
                       
@@ -1326,7 +1326,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -1350,7 +1350,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -1374,7 +1374,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -2051,12 +2051,12 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="select date"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -2071,7 +2071,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -2160,7 +2160,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -2184,7 +2184,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -2208,7 +2208,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -2922,7 +2922,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -2946,7 +2946,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -2970,7 +2970,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -3648,12 +3648,12 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="select date"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -3668,7 +3668,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -3743,7 +3743,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -3767,7 +3767,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -3791,7 +3791,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -3998,12 +3998,12 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="select month"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -4018,7 +4018,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -4096,7 +4096,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4120,7 +4120,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4144,7 +4144,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4377,7 +4377,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4401,7 +4401,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4425,7 +4425,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4633,12 +4633,12 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="select month"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -4653,7 +4653,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -4725,7 +4725,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -4749,7 +4749,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -4773,7 +4773,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -4954,12 +4954,12 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="select year"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -4974,7 +4974,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5049,7 +5049,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5073,7 +5073,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5097,7 +5097,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5301,7 +5301,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5325,7 +5325,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5349,7 +5349,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5531,12 +5531,12 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="select year"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -5551,7 +5551,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5599,7 +5599,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -5662,7 +5662,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           confirm
@@ -5680,7 +5680,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -5743,7 +5743,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           confirm
@@ -5761,7 +5761,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -5824,7 +5824,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           confirm
@@ -5842,7 +5842,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -5905,7 +5905,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           confirm
@@ -5923,7 +5923,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             <path
               d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -6003,11 +6003,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="There is no required mark on the left of this input in Form"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -6046,11 +6046,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="There is required mark on the left of this input in Form"
               type="password"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -6065,12 +6065,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                 <path
                   d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
                 <path
                   d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -6097,7 +6097,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       >
         <div>
           <label
-            class="t-checkbox undefined"
+            class="t-checkbox"
             modelvalue="false"
           >
             <input
@@ -6135,11 +6135,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="type keyword to search"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -6154,7 +6154,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             
             
             <label
-              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
+              class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6179,7 +6179,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6203,7 +6203,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6227,7 +6227,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6251,7 +6251,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
+              class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6276,7 +6276,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6300,7 +6300,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6324,7 +6324,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6348,7 +6348,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
+              class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6373,7 +6373,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6397,7 +6397,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6421,7 +6421,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6445,7 +6445,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
+              class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6470,7 +6470,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6494,7 +6494,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6518,7 +6518,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6542,7 +6542,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-is-disabled t-transfer__list-item"
+              class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6567,7 +6567,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6591,7 +6591,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6615,7 +6615,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </span>
             </label>
             <label
-              class="t-checkbox t-transfer__list-item t-transfer__list-item"
+              class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
             >
@@ -6669,7 +6669,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           <path
             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
         <span
@@ -6697,7 +6697,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           <path
             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
         <span
@@ -6718,7 +6718,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       >
         <div>
           <label
-            class="t-checkbox undefined t-is-disabled"
+            class="t-checkbox t-is-disabled"
             modelvalue="false"
           >
             <input
@@ -6757,11 +6757,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="type keyword to search"
               type="text"
             />
+            <!---->
             <!---->
             <!---->
           </div>
@@ -6807,7 +6807,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6819,7 +6819,9 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </ul>
               <!---->
               <!---->
-              <ul>
+              <ul
+                class="t-select__list"
+              >
                 
                 <li
                   class="t-select-option t-size-m"
@@ -6919,7 +6921,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -6936,7 +6938,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                 Empty Data
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 <!---->
               </ul>
@@ -7018,7 +7020,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -7035,7 +7037,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </div>
               <!---->
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 <!---->
               </ul>
@@ -7323,11 +7325,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="see empty data in TreeSelect"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
         </div>
@@ -7348,18 +7350,18 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="display: none;"
+          style="font-size: medium; display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
           <path
             d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
         <div
@@ -7485,28 +7487,28 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="see loading text in TreeSelect"
             type="text"
           />
           <!---->
           <!---->
+          <!---->
         </div>
         <!---->
         <svg
-          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="display: none;"
+          style="font-size: medium; display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
           <path
             d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
         <div
@@ -7601,7 +7603,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -7689,7 +7691,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -7796,11 +7798,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="tree select"
             type="text"
           />
+          <!---->
           <!---->
           <!---->
         </div>
@@ -7821,18 +7823,18 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           />
         </svg>
         <svg
-          class="t-icon t-icon-close-circle-filled t-size-m t-select__right-icon t-select__right-icon-clear"
+          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
           fill="none"
           height="1em"
           name="close"
-          style="display: none;"
+          style="font-size: medium; display: none;"
           viewBox="0 0 16 16"
           width="1em"
         >
           <path
             d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
         <div
@@ -8645,12 +8647,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         <!---->
         <!---->
         <input
-          autocomplete="false"
           class="t-input__inner"
           placeholder=" "
           readonly=""
           type="text"
         />
+        <!---->
         <!---->
         <span
           class="t-input__suffix t-input__suffix-icon"
@@ -8666,12 +8668,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             <path
               d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
             <path
               d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
           
@@ -8712,12 +8714,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       <path
         d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
       <path
         d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
   </span>
@@ -8738,12 +8740,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       <path
         d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
       <path
         d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
   </span>
@@ -8764,12 +8766,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       <path
         d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
       <path
         d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
   </span>
@@ -8790,12 +8792,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       <path
         d="M4.98 10.31L7.3 8 5 5.69l.7-.7L8 7.28 10.31 5l.7.7L8.72 8l2.3 2.31-.7.7L8 8.72 5.69 11l-.7-.7z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
       <path
         d="M8 1a7 7 0 110 14A7 7 0 018 1zm0 1a6 6 0 100 12A6 6 0 008 2z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
   </span>
@@ -8848,7 +8850,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             <path
               d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -8886,7 +8888,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             <path
               d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -8935,7 +8937,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               <path
                 d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -8983,7 +8985,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               <path
                 d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -9031,7 +9033,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               <path
                 d="M8.5 2h-1v9h1V2zm.1 10.8H7.4V14h1.2v-1.2z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -9134,7 +9136,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
             >
               <!---->
               <ul
-                class="t-select__create-option"
+                class="t-select__create-option t-select__list"
                 style="display: none;"
               >
                 <li
@@ -9151,7 +9153,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
                 暂无数据
               </li>
               <ul
-                class="t-select__groups"
+                class="t-select__groups t-select__list"
               >
                 
                 
@@ -9249,7 +9251,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
       <path
         d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
   </div>
@@ -9297,7 +9299,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
       <path
         d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
         fill="currentColor"
-        fillOpacity="0.9"
+        fill-opacity="0.9"
       />
     </svg>
   </div>
@@ -9361,7 +9363,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 <path
                   d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
               <div
@@ -9450,7 +9452,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 <path
                   d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
               <div
@@ -9539,7 +9541,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 <path
                   d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
               <div
@@ -9637,7 +9639,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
           <path
             d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
             fill="currentColor"
-            fillOpacity="0.9"
+            fill-opacity="0.9"
           />
         </svg>
       </div>
@@ -9779,7 +9781,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                             <path
                               d="M11 6H5l3 4.5L11 6z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           <svg
@@ -9793,7 +9795,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                             <path
                               d="M11 6H5l3 4.5L11 6z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -9949,7 +9951,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                             <path
                               d="M11 6H5l3 4.5L11 6z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           <svg
@@ -9963,7 +9965,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                             <path
                               d="M11 6H5l3 4.5L11 6z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -10021,7 +10023,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -10073,7 +10075,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>
@@ -10125,7 +10127,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                     </span>

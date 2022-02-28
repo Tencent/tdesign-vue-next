@@ -81,7 +81,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -105,7 +105,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -129,7 +129,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -806,12 +806,12 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -826,7 +826,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -918,7 +918,7 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -942,7 +942,7 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -966,7 +966,7 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -1653,23 +1653,23 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
               <path
                 d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
               <path
                 d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -1685,12 +1685,12 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
               <path
                 d="M6 10v1h4v-1H6z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
               <path
                 d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
             
@@ -1788,7 +1788,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                             <path
                               d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -1812,7 +1812,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                             <path
                               d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -1836,7 +1836,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                             <path
                               d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -2550,7 +2550,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                             <path
                               d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -2574,7 +2574,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                             <path
                               d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -2598,7 +2598,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                             <path
                               d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -3303,12 +3303,12 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -3323,7 +3323,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                 <path
                   d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -3413,7 +3413,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -3437,7 +3437,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -3461,7 +3461,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4160,12 +4160,12 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -4180,7 +4180,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                 <path
                   d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -4276,7 +4276,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4300,7 +4300,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -4324,7 +4324,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5038,7 +5038,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5062,7 +5062,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5086,7 +5086,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5791,12 +5791,12 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -5811,7 +5811,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -5906,7 +5906,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5930,7 +5930,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -5954,7 +5954,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -6668,7 +6668,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -6692,7 +6692,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -6716,7 +6716,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -7411,12 +7411,12 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -7431,7 +7431,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -7525,7 +7525,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -7549,7 +7549,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -7573,7 +7573,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -8287,7 +8287,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -8311,7 +8311,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -8335,7 +8335,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -9013,12 +9013,12 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="开始时间 至 结束时间"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -9033,7 +9033,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -9124,7 +9124,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -9148,7 +9148,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -9172,7 +9172,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -9886,7 +9886,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -9910,7 +9910,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -9934,7 +9934,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -10650,12 +10650,12 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -10670,12 +10670,12 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
               <path
                 d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
               <path
                 d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -10767,7 +10767,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -10791,7 +10791,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -10815,7 +10815,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -11530,12 +11530,12 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -11550,12 +11550,12 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
               <path
                 d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
               <path
                 d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -11648,7 +11648,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -11672,7 +11672,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -11696,7 +11696,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -12373,12 +12373,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -12393,7 +12393,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                 <path
                   d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -12482,7 +12482,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -12506,7 +12506,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -12530,7 +12530,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -13207,12 +13207,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -13227,7 +13227,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                 <path
                   d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -13316,7 +13316,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -13340,7 +13340,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -13364,7 +13364,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -14041,12 +14041,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -14061,7 +14061,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                 <path
                   d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -14153,7 +14153,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                             <path
                               d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -14177,7 +14177,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                             <path
                               d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -14201,7 +14201,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                             <path
                               d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -14915,7 +14915,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                             <path
                               d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -14939,7 +14939,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                             <path
                               d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -14963,7 +14963,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                             <path
                               d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                               fill="currentColor"
-                              fillOpacity="0.9"
+                              fill-opacity="0.9"
                             />
                           </svg>
                           
@@ -15641,12 +15641,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -15661,7 +15661,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                 <path
                   d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -15750,7 +15750,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -15774,7 +15774,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -15798,7 +15798,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                           <path
                             d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                             fill="currentColor"
-                            fillOpacity="0.9"
+                            fill-opacity="0.9"
                           />
                         </svg>
                         
@@ -16475,12 +16475,12 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             <!---->
             <!---->
             <input
-              autocomplete="false"
               class="t-input__inner"
               placeholder="请选择日期"
               readonly=""
               type="text"
             />
+            <!---->
             <!---->
             <span
               class="t-input__suffix t-input__suffix-icon"
@@ -16495,7 +16495,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                 <path
                   d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                   fill="currentColor"
-                  fillOpacity="0.9"
+                  fill-opacity="0.9"
                 />
               </svg>
             </span>
@@ -16587,7 +16587,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -16611,7 +16611,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -16635,7 +16635,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -17312,12 +17312,12 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择日期"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -17332,7 +17332,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -17413,7 +17413,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -17437,7 +17437,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -17461,7 +17461,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -17668,12 +17668,12 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择月份"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -17688,7 +17688,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>
@@ -17766,7 +17766,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
                         <path
                           d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -17790,7 +17790,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
                         <path
                           d="M8 11.5a3.5 3.5 0 110-7 3.5 3.5 0 010 7zM8 13A5 5 0 108 3a5 5 0 000 10z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -17814,7 +17814,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
                         <path
                           d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                           fill="currentColor"
-                          fillOpacity="0.9"
+                          fill-opacity="0.9"
                         />
                       </svg>
                       
@@ -17995,12 +17995,12 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
           <!---->
           <!---->
           <input
-            autocomplete="false"
             class="t-input__inner"
             placeholder="请选择年份"
             readonly=""
             type="text"
           />
+          <!---->
           <!---->
           <span
             class="t-input__suffix t-input__suffix-icon"
@@ -18015,7 +18015,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
               <path
                 d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z"
                 fill="currentColor"
-                fillOpacity="0.9"
+                fill-opacity="0.9"
               />
             </svg>
           </span>

@@ -147,7 +147,7 @@ export default defineComponent({
         withBorder,
       };
 
-      return <table-cell cellData={cellData} colspan={colspan} rowspan={rowspan} />;
+      return <table-cell ref={`${index}`} cellData={cellData} colspan={colspan} rowspan={rowspan} />;
     },
   },
   render() {

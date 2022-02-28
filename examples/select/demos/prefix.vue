@@ -2,14 +2,14 @@
   <div>
     <t-select v-model="value" style="width: 200px" :options="options" clearable placeholder="-请选择-">
       <template #prefixIcon>
-        <t-icon name="browse" />
+        <icon name="browse" />
       </template>
     </t-select>
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
+import { Icon } from 'tdesign-icons-vue-next';
 
 const options = [
   { label: '选项一', value: '1' },

@@ -356,7 +356,7 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
                     <path
                       d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                       fill="currentColor"
-                      fillOpacity="0.9"
+                      fill-opacity="0.9"
                     />
                   </svg>
                 </div>
@@ -571,7 +571,7 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
             <path
               d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
@@ -1225,7 +1225,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
                     <path
                       d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                       fill="currentColor"
-                      fillOpacity="0.9"
+                      fill-opacity="0.9"
                     />
                   </svg>
                 </div>
@@ -1257,7 +1257,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
                     <path
                       d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                       fill="currentColor"
-                      fillOpacity="0.9"
+                      fill-opacity="0.9"
                     />
                   </svg>
                 </div>
@@ -1289,7 +1289,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
                     <path
                       d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                       fill="currentColor"
-                      fillOpacity="0.9"
+                      fill-opacity="0.9"
                     />
                   </svg>
                 </div>
@@ -1321,7 +1321,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
                     <path
                       d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
                       fill="currentColor"
-                      fillOpacity="0.9"
+                      fill-opacity="0.9"
                     />
                   </svg>
                 </div>
@@ -1360,7 +1360,7 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
             <path
               d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
               fill="currentColor"
-              fillOpacity="0.9"
+              fill-opacity="0.9"
             />
           </svg>
         </span>
