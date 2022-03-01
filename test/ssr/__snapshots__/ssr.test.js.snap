@@ -13198,7 +13198,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       <!--]-->
     </div>
   </div><br><br>
-  <div class="t-date-picker t-size-m" theme="primary" style="width:350px;">
+  <div class="t-date-picker t-size-m" style="width:350px;">
     <div class="t-popup__reference t-date-picker__popup-reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-date-picker">
