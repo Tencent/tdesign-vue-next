@@ -366,6 +366,8 @@ export default defineComponent({
         const selectedDates: any[] = [];
         this.selectedDates = selectedDates;
         this.formattedValue = '';
+        this.start = new Date();
+        this.end = new Date();
         this.submitInput(selectedDates, triggerChange);
       }
     },
