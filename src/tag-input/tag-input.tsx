@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, toRefs, nextTick } from 'vue';
+import { defineComponent, computed, toRefs, nextTick } from 'vue';
 
 // components
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
@@ -62,9 +62,15 @@ export default defineComponent({
       return !tagValue.value?.length ? placeholder.value : '';
     });
 
-    const showClearIcon = computed(() => {
-      return Boolean(!readonly.value && !disabled.value && clearable.value && isHover.value && tagValue.value?.length);
-    });
+    const showClearIcon = computed(() =>
+      Boolean(
+        !readonly.value &&
+          !disabled.value &&
+          clearable.value &&
+          isHover.value &&
+          (tagValue.value?.length || tInputValue.value),
+      ),
+    );
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
       setTInputValue('', { e: context.e, trigger: 'enter' });
@@ -81,6 +87,7 @@ export default defineComponent({
     const onClearClick = (context: { e: MouseEvent }) => {
       clearAll(context);
       setTInputValue('', { e: context.e, trigger: 'clear' });
+      props.onClear?.(context);
     };
 
     return {

@@ -62,6 +62,9 @@ export default {
   /** 透传 Popup 浮层组件全部属性 */
   popupProps: {
     type: Object as PropType<TdSelectInputProps['popupProps']>,
+    default: () => {
+      return Object.create(null);
+    },
   },
   /** 是否显示下拉框，受控属性 */
   popupVisible: {

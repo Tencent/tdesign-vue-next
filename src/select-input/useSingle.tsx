@@ -68,7 +68,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       <Input
         ref="inputRef"
         {...commonInputProps.value}
-        v-slots={{ ...context.slots }}
+        v-slots={context.slots}
         autoWidth={props.borderless || props.autoWidth}
         placeholder={singleValueDisplay ? '' : props.placeholder}
         value={singleValueDisplay ? undefined : inputValue.value}

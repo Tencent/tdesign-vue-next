@@ -1,11 +1,16 @@
 import { computed, defineComponent, ref, SetupContext, toRefs } from 'vue';
+// components
 import Popup from '../popup';
+
+// utils
 import { prefix } from '../config';
 import props from './props';
+import { TdSelectInputProps } from './type';
+
+// hooks
 import useSingle from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayStyle from './useOverlayStyle';
-import { TdSelectInputProps } from './type';
 
 const NAME_CLASS = `${prefix}-select-input`;
 const BASE_CLASS_BORDERLESS = `${prefix}-select-input--borderless`;
@@ -21,7 +26,7 @@ export default defineComponent({
   setup(props: TdSelectInputProps, context: SetupContext) {
     const selectInputRef = ref();
     const selectInputWrapRef = ref();
-    const { multiple, value, popupVisible, popupProps, borderless } = toRefs(props);
+    const { multiple, value, popupVisible, borderless } = toRefs(props);
     const { commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context);
     const { renderSelectMultiple } = useMultiple(props, context);
     const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
@@ -43,7 +48,6 @@ export default defineComponent({
       tOverlayStyle,
       selectInputRef,
       popupClasses,
-      popupProps,
       onInnerClear,
       renderSelectSingle,
       renderSelectMultiple,

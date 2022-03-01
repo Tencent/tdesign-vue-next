@@ -1,8 +1,9 @@
 import { SetupContext, computed, ref, toRefs } from 'vue';
 import isObject from 'lodash/isObject';
 import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
-import TagInput, { TagInputValue } from '../tag-input';
+import TagInput, { TagInputValue, InputValueChangeContext } from '../tag-input';
 import { SelectInputCommonProperties } from './interface';
+import { InputValue } from '../input';
 import useDefault from '../hooks/useDefault';
 
 export interface RenderSelectMultipleParams {
@@ -31,14 +32,10 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
     if (!(props.value instanceof Array)) {
       return isObject(props.value) ? [props.value[iKeys.value.label]] : [props.value];
     }
-    return props.value.map((item) => {
-      return isObject(item) ? item[iKeys.value.label] : item;
-    });
+    return props.value.map((item) => (isObject(item) ? item[iKeys.value.label] : item));
   });
 
-  const tPlaceholder = computed<string>(() => {
-    return !tags.value || !tags.value.length ? props.placeholder : '';
-  });
+  const tPlaceholder = computed<string>(() => (!tags.value || !tags.value.length ? props.placeholder : ''));
 
   const onTagInputChange = (val: TagInputValue, context: SelectInputChangeContext) => {
     // 避免触发浮层的显示或隐藏
@@ -65,7 +62,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         value={tags.value}
         inputValue={tInputValue.value || ''}
         onChange={onTagInputChange}
-        onInputChange={(val, context) => {
+        onInputChange={(val: InputValue, context: InputValueChangeContext) => {
           // 筛选器统一特性：筛选器按下回车时不清空输入框
           if (context?.trigger === 'enter') return;
           setTInputValue(val, { trigger: context.trigger, e: context.e });

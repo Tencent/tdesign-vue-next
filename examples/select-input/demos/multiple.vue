@@ -18,7 +18,7 @@
 
     <!-- :popup-props="{ trigger: 'hover' }" -->
     <t-select-input
-      v-model:inputValue="inputValue"
+      v-model:input-value="inputValue"
       :value="value"
       :allow-input="allowInput"
       :placeholder="allowInput ? '请选择或输入' : '请选择'"
@@ -82,6 +82,7 @@ const checkboxValue = computed(() => {
 });
 // 直接 checkboxgroup 组件渲染输出下拉选项
 const onCheckedChange = (val, { current, type }) => {
+  console.log(current);
   // current 不存在，则表示操作全选
   if (!current) {
     value.value = type === 'check' ? options.value.slice(1) : [];
@@ -115,7 +116,6 @@ const onTagChange = (currentTags, context) => {
   }
 };
 const onInputChange = (val, context) => {
-  // 过滤功能
   console.log(val, context);
 };
 </script>

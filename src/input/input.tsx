@@ -52,7 +52,7 @@ export default defineComponent({
       return (this.value && !this.disabled && this.clearable && this.isHover) || this.showClearIconOnEmpty;
     },
     tPlaceholder(): string {
-      return this.placeholder ?? this.t(this.global.placeholder);
+      return this.placeholder || this.t(this.global.placeholder);
     },
     inputAttrs(): Record<string, any> {
       return getValidAttrs({
