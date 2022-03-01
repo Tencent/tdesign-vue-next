@@ -6,6 +6,7 @@
     <t-date-picker
       mode="date"
       range
+      clearable
       format="YYYY-MM-DD HH:mm:ss"
       enable-time-picker
       style="width: 350px"
