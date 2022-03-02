@@ -62,7 +62,7 @@ export default defineComponent({
       <Popup
         ref="selectInputRef"
         class={this.popupClasses}
-        trigger={this.popupProps?.trigger || 'click'}
+        trigger={(this.popupProps as TdSelectInputProps['popupProps'])?.trigger || 'click'}
         placement="bottom-left"
         visible={this.popupVisible ?? this.innerPopupVisible}
         content={this.panel}
