@@ -17,7 +17,7 @@ export default defineComponent({
   props,
   setup(props) {
     const disabled = useFormDisabled();
-    const btnRef = ref<HTMLElement>(null);
+    const btnRef = ref<HTMLElement>();
 
     useRipple(btnRef);
 
