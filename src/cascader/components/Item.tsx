@@ -1,10 +1,10 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../../config';
 
 // utils
 import CLASSNAMES from '../../utils/classnames';
-import ripple from '../../utils/ripple';
+import useRipple from '../../hooks/useRipple';
 
 // common logic
 import { getFullPathLabel } from '../utils/helper';
@@ -24,9 +24,6 @@ const ComponentClassName = `${prefix}-cascader__item`;
 
 export default defineComponent({
   name,
-
-  directives: { ripple },
-
   props: {
     node: {
       type: Object as PropType<CascaderItemPropsType['node']>,
@@ -40,7 +37,11 @@ export default defineComponent({
   },
 
   emits: ['change', 'click', 'mouseenter'],
-
+  setup() {
+    const liRef = ref<HTMLElement>(null);
+    useRipple(liRef);
+    return { liRef };
+  },
   computed: {
     itemClass(): ClassName {
       return getCascaderItemClass(prefix, this.node, CLASSNAMES, this.cascaderContext);
@@ -141,7 +142,7 @@ export default defineComponent({
     }
 
     return (
-      <li v-ripple class={itemClass} onClick={handleClick} onMouseenter={handleMouseenter}>
+      <li ref="liRef" class={itemClass} onClick={handleClick} onMouseenter={handleMouseenter}>
         {cascaderContext.multiple
           ? RenderCheckBox(node, cascaderContext, handleChange)
           : RenderLabelContent(node, cascaderContext)}

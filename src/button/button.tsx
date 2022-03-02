@@ -1,10 +1,10 @@
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, onMounted, ref } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TLoading from '../loading';
 import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import ripple from '../utils/ripple';
+import useRipple from '../hooks/useRipple';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -13,11 +13,14 @@ const name = `${prefix}-button`;
 
 export default defineComponent({
   name: 'TButton',
-  directives: { ripple },
   inheritAttrs: false,
   props,
   setup(props) {
     const disabled = useFormDisabled();
+    const btnRef = ref<HTMLElement>(null);
+
+    useRipple(btnRef);
+
     const isDisabled = computed(() => props.disabled || props.loading || disabled.value);
     const mergeTheme = computed(() => {
       const { theme, variant } = props;
@@ -43,6 +46,7 @@ export default defineComponent({
       disabled: isDisabled,
       mergeTheme,
       buttonClass,
+      btnRef,
     };
   },
   render() {
@@ -57,7 +61,7 @@ export default defineComponent({
 
     return (
       <button
-        v-ripple
+        ref="btnRef"
         class={[...this.buttonClass, { [`${name}--icon-only`]: iconOnly }]}
         type={this.type}
         disabled={this.disabled}
