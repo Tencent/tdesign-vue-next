@@ -1,4 +1,4 @@
-import { defineComponent, VNode, PropType } from 'vue';
+import { defineComponent, VNode, PropType, ref, onMounted } from 'vue';
 import { prefix } from '../../config';
 import {
   EmptyType,
@@ -11,8 +11,8 @@ import {
 } from '../interface';
 import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
-import { findTopNode, getLeefCount, getDataValues } from '../utils';
-import ripple from '../../utils/ripple';
+import Button from '../../button';
+import { getLeefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
 import { renderTNodeJSXDefault } from '../../utils/render-tnode';
 
@@ -23,9 +23,7 @@ export default defineComponent({
     TCheckbox,
     TCheckboxGroup,
     Pagination,
-  },
-  directives: {
-    ripple,
+    Button,
   },
   props: {
     checkboxProps: {
@@ -190,12 +188,12 @@ export default defineComponent({
             <TCheckbox
               disabled={this.disabled || item.disabled}
               value={item.value}
+              needRipple={true}
               class={[
                 `${prefix}-transfer__list-item`,
                 this.checkedValue.includes(item.value) ? `${prefix}-is-checked` : '',
               ]}
               key={item.key}
-              v-ripple
               {...{ props: this.checkboxProps }}
             >
               {renderTNodeJSXDefault(this, 'transferItem', {

@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { renderContent } from '../utils/render-tnode';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
@@ -9,6 +9,7 @@ import { TdCheckboxProps } from './type';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import useRipple from '../hooks/useRipple';
 
 const name = `${prefix}-checkbox`;
 
@@ -19,13 +20,18 @@ export default defineComponent({
   },
 
   inheritAttrs: false,
-  props: { ...checkboxProps },
+  props: { ...checkboxProps, needRipple: Boolean },
   emits: ['change', 'checked-change'],
 
-  setup() {
+  setup(props) {
     const formDisabled = useFormDisabled();
+    const label = ref();
+    if (props.needRipple) {
+      useRipple(label);
+    }
     return {
       formDisabled,
+      label,
     };
   },
 
@@ -74,7 +80,7 @@ export default defineComponent({
 
   render() {
     return (
-      <label class={this.labelClasses} {...this.$attrs}>
+      <label class={this.labelClasses} {...this.$attrs} ref="label">
         <input
           type="checkbox"
           class={`${name}__former`}

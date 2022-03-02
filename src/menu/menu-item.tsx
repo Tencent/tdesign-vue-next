@@ -1,15 +1,13 @@
-import { defineComponent, computed, inject, onMounted, ref, getCurrentInstance } from 'vue';
+import { defineComponent, computed, inject, onMounted, ref } from 'vue';
 import { prefix } from '../config';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
-import ripple from '../utils/ripple';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
 import useRipple from '../hooks/useRipple';
 
 export default defineComponent({
   name: 'TMenuItem',
-  directives: { ripple },
   props: { ...props },
   emits: ['click'],
   setup(props, ctx) {
