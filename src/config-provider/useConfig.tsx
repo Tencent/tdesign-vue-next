@@ -17,7 +17,7 @@ export const merge = (defaultGlobalConfig: GlobalConfig, injectConfig: GlobalCon
  * @returns {t, global}
  * useConfig('pagination')
  */
-export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
+export function useConfig<T extends keyof GlobalConfig>(componentName: T) {
   const mergedGlobalConfig = computed(() => {
     const globalConfig = inject<GlobalConfig>('globalConfig', Object.create(null));
     const mergedGlobalConfig = merge(cloneDeep(defaultGlobalConfig), globalConfig);
