@@ -28,7 +28,7 @@ export default defineComponent({
   props: TreeItemProps,
   emits: ['click', 'change'],
   setup() {
-    const label = ref();
+    const label = ref<HTMLElement>();
     useRipple(label);
 
     return { label };

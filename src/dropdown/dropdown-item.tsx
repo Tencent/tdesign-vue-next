@@ -35,7 +35,7 @@ export default defineComponent({
   },
   emits: ['click', 'item-hover', 'hover'],
   setup() {
-    const itemRef = ref<HTMLElement>(null);
+    const itemRef = ref<HTMLElement>();
     useRipple(itemRef);
     return { itemRef };
   },

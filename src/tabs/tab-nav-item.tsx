@@ -32,7 +32,7 @@ export default defineComponent({
 
   emits: ['click', 'remove'],
   setup() {
-    const itemRef = ref<HTMLElement>(null);
+    const itemRef = ref<HTMLElement>();
     useRipple(itemRef);
     return {
       itemRef,

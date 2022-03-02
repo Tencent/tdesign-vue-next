@@ -38,7 +38,7 @@ export default defineComponent({
 
   emits: ['change', 'click', 'mouseenter'],
   setup() {
-    const liRef = ref<HTMLElement>(null);
+    const liRef = ref<HTMLElement>();
     useRipple(liRef);
     return { liRef };
   },
