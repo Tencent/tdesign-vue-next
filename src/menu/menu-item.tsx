@@ -1,10 +1,11 @@
-import { defineComponent, computed, inject, onMounted, getCurrentInstance } from 'vue';
+import { defineComponent, computed, inject, onMounted, ref, getCurrentInstance } from 'vue';
 import { prefix } from '../config';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
 import ripple from '../utils/ripple';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
+import useRipple from '../hooks/useRipple';
 
 export default defineComponent({
   name: 'TMenuItem',
@@ -13,6 +14,8 @@ export default defineComponent({
   emits: ['click'],
   setup(props, ctx) {
     const menu = inject<TdMenuInterface>('TdMenu');
+    const itemRef = ref<HTMLElement>();
+    useRipple(itemRef);
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', null);
     const active = computed(() => menu.activeValue.value === props.value);
     const classes = computed(() => [
@@ -34,6 +37,7 @@ export default defineComponent({
       menu,
       active,
       classes,
+      itemRef,
     };
   },
   methods: {
@@ -62,7 +66,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <li v-ripple class={this.classes} onClick={this.handleClick}>
+      <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
         {renderTNodeJSX(this, 'icon')}
         <span class={[`${prefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
       </li>

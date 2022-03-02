@@ -1,13 +1,13 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import TDivider from '../divider';
 import { prefix } from '../config';
 import { STATUS_CLASSNAMES } from '../utils/classnames';
-import ripple from '../utils/ripple';
 import itemProps from './dropdown-item-props';
 import { renderContent } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
 import { emitEvent } from '../utils/event';
+import useRipple from '../hooks/useRipple';
 
 const name = `${prefix}-dropdown__item`;
 
@@ -17,7 +17,6 @@ export default defineComponent({
     ChevronRightIcon,
     TDivider,
   },
-  directives: { ripple },
   inject: {
     dropdown: {
       default: undefined,
@@ -35,6 +34,11 @@ export default defineComponent({
     },
   },
   emits: ['click', 'item-hover', 'hover'],
+  setup() {
+    const itemRef = ref<HTMLElement>(null);
+    useRipple(itemRef);
+    return { itemRef };
+  },
   methods: {
     renderSuffix(): TNodeReturnValue {
       return this.hasChildren ? <chevron-right-icon class={`${name}__item-icon`} /> : null;
@@ -68,7 +72,7 @@ export default defineComponent({
 
     return (
       <div>
-        <div v-ripple class={classes} onClick={this.handleItemClick} onMouseover={this.handleMouseover}>
+        <div ref="itemRef" class={classes} onClick={this.handleItemClick} onMouseover={this.handleMouseover}>
           <div class={`${name}-content`}>
             <span class={`${name}-text`}>{renderContent(this, 'content', 'default')}</span>
           </div>
