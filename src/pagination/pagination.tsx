@@ -9,7 +9,7 @@ import {
 } from 'tdesign-icons-vue-next';
 import config from '../config';
 import { TdPaginationProps } from '../pagination/type';
-import { useReceiver, PaginationConfig } from '../config-provider';
+import { useConfig } from '../config-provider';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import TInputNumber from '../input-number';
 import { Option, Select } from '../select';
@@ -27,7 +27,7 @@ export default defineComponent({
   props,
   emits: ['change', 'update:current', 'update:pageSize', 'page-size-change', 'current-change'],
   setup(props) {
-    const { t, global } = useReceiver<PaginationConfig>('pagination');
+    const { t, global } = useConfig('pagination');
     const emitEvent = useEmitEvent();
 
     const { pageCount, ...paginationClasses } = usePaginationClasses(props, name);

@@ -7,8 +7,7 @@ import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
-import { DialogConfig } from '../config-provider/config-receiver';
-import { useReceiver } from '../config-provider';
+import { useConfig } from '../config-provider';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 
@@ -103,7 +102,7 @@ export default defineComponent({
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
-    const { global } = useReceiver<DialogConfig>('dialog');
+    const { global } = useConfig('dialog');
     const confirmBtnAction = (e: MouseEvent) => {
       emitEvent<Parameters<TdDialogProps['onConfirm']>>('confirm', { e });
     };
