@@ -4,7 +4,6 @@
     <t-select-input
       :value="selectValue"
       :popup-visible="popupVisible"
-      style="width: 300px"
       placeholder="Please Select"
       clearable
       auto-width

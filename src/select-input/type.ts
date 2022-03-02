@@ -62,6 +62,11 @@ export interface TdSelectInputProps {
    */
   label?: string | TNode;
   /**
+   * 是否处于加载状态
+   * @default false
+   */
+  loading?: boolean;
+  /**
    * 最小折叠数量，用于标签数量过多的情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠
    * @default 0
    */

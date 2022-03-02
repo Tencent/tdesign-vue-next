@@ -3,8 +3,8 @@
     <!-- 单选，使用 valueDisplay 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.valueDisplay -->
     <t-select-input :value="selectValue1" placeholder="Please Select" clearable @clear="onClear">
       <template #valueDisplay>
-        <span>
-          <img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img" />
+        <span class="displaySpan">
+          <ControlPlatformIcon class="tdesign-demo-select-input__img" />
           {{ selectValue1.label }}
         </span>
       </template>
@@ -22,8 +22,8 @@
     <!-- 多选，第一种方式：使用 tag 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.tag -->
     <t-select-input :value="selectValue2" placeholder="Please Select" multiple @tag-change="onTagChange2">
       <template #tag="{ value }">
-        <span>
-          <img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img" />
+        <span class="displaySpan">
+          <ControlPlatformIcon />
           {{ value }}
         </span>
       </template>
@@ -37,7 +37,7 @@
     <!-- 多选，第二种方式：使用 valueDisplay 插槽定义全部选中项的内容，也可使用同名渲染函数 props.valueDisplay -->
     <t-select-input :value="selectValue3" placeholder="Please Select" multiple @tag-change="onTagChange3">
       <template #valueDisplay="{ value, onClose }">
-        <!-- <span><img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img" />{{ value }}</span> -->
+        <!-- <span><LayersIcon />{{ value }}</span> -->
         <t-tag
           v-for="(item, index) in value"
           :key="item"
@@ -45,8 +45,10 @@
           style="margin-right: 4px"
           @close="() => onClose(index)"
         >
-          <img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img" />
-          <span>{{ item }}</span>
+          <span class="displaySpan">
+            <ControlPlatformIcon />
+            <span>{{ item }}</span>
+          </span>
         </t-tag>
       </template>
       <template #panel>
@@ -57,6 +59,7 @@
 </template>
 <script setup>
 import { ref } from 'vue';
+import { ControlPlatformIcon } from 'tdesign-icons-vue-next';
 
 const options = [
   { label: 'tdesign-vue', value: 1 },
@@ -110,11 +113,8 @@ const onTagChange3 = (val) => {
   background-color: var(--td-bg-color-container-hover);
 }
 
-.tdesign-demo-select-input-custom-tag img.tdesign-demo-select-input__img {
-  max-width: 18px;
-  max-height: 18px;
-  margin: 0;
-  vertical-align: -4px;
+.tdesign-demo-select-input-custom-tag .tdesign-demo-select-input__img {
+  font-size: 16px;
   margin-right: 4px;
 }
 
@@ -122,5 +122,9 @@ const onTagChange3 = (val) => {
   text-align: center;
   color: var(--td-text-color-disabled);
   line-height: 32px;
+}
+.displaySpan {
+  display: flex;
+  align-items: center;
 }
 </style>

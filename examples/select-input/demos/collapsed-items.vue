@@ -159,8 +159,8 @@ const renderCollapsedItems = (_, { collapsedTags }) => {
   word-wrap: normal;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 4px;
-  margin-right: 0;
+  margin: 0;
+  margin-bottom: 4px;
 }
 
 .tdesign-demo__panel-options-collapsed-items .t-checkbox:hover {

@@ -27847,7 +27847,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/autocomplete.vu
 exports[`ssr snapshot test renders ./examples/select-input/demos/autowidth.vue correctly 1`] = `
 <div>
   <!-- :popup-props="{ trigger: 'hover' }" -->
-  <div class="t-popup__reference t-select-input" style="width:300px;">
+  <div class="t-popup__reference t-select-input">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
@@ -28098,7 +28098,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
       <!---->
       <div class="t-input__prefix">
         <!--[-->
-        <!--[--><span><img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img"> tdesign-vue</span>
+        <!--[--><span class="displaySpan"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-control-platform tdesign-demo-select-input__img" style=""><path fill="currentColor" d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z" fill-rule="evenodd" clip-rule="evenodd"></path></svg> tdesign-vue</span>
         <!--]-->
         <!---->
         <!--]-->
@@ -28122,15 +28122,15 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
     <div class="t-input t-is-readonly t-input--prefix t-tag-input">
       <!---->
       <div class="t-input__prefix">
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[--><!--[--><span><img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img"> tdesign-vue</span>
+        <!--[--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[--><!--[--><span class="displaySpan"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-control-platform" style=""><path fill="currentColor" d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z" fill-rule="evenodd" clip-rule="evenodd"></path></svg> tdesign-vue</span>
         <!--]-->
         <!--]-->
-        <!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[--><!--[--><span><img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img"> tdesign-react</span>
+        <!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[--><!--[--><span class="displaySpan"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-control-platform" style=""><path fill="currentColor" d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z" fill-rule="evenodd" clip-rule="evenodd"></path></svg> tdesign-react</span>
         <!--]-->
         <!--]-->
         <!----></span>
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" readonly placeholder type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28152,21 +28152,21 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
       <div class="t-input__prefix">
         <!--[-->
         <!--[-->
-        <!-- <span><img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img" />{{ value }}</span> -->
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img"><span>tdesign-vue</span>
+        <!-- <span><LayersIcon />{{ value }}</span> -->
+        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><span class="displaySpan"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-control-platform" style=""><path fill="currentColor" d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span>tdesign-vue</span></span>
         <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
           <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
-        </svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img"><span>tdesign-react</span>
+        </svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><span class="displaySpan"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-control-platform" style=""><path fill="currentColor" d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span>tdesign-react</span></span>
         <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
           <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
-        </svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><img src="https://tdesign.gtimg.com/site/avatar.jpg" class="tdesign-demo-select-input__img"><span>tdesign-mobile-vue</span>
+        </svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right:4px;"><!----><!--[--><span class="displaySpan"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-control-platform" style=""><path fill="currentColor" d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z" fill-rule="evenodd" clip-rule="evenodd"></path></svg><span>tdesign-mobile-vue</span></span>
         <!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
           <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
         </svg></span>
         <!--]-->
         <!--]-->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" readonly placeholder type="text" value>
       <!---->
       <!---->
       <!---->
@@ -41239,7 +41239,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
         <div class="t-input__prefix">
           <!--[--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->Vue<!--]--><!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->React<!--]--><!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><!----></span>
           <!--]-->
-        </div><input class="t-input__inner" readonly placeholder="请输入" type="text">
+        </div><input class="t-input__inner" readonly placeholder type="text">
         <!---->
         <!---->
         <!---->
