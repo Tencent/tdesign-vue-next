@@ -48,7 +48,7 @@
   </div>
 </template>
 <script setup>
-import { computed, defineComponent, ref } from 'vue';
+import { computed, ref } from 'vue';
 
 const OPTIONS = [
   // 全选

@@ -77,7 +77,7 @@
   </div>
 </template>
 <script setup lang="jsx">
-import { computed, defineComponent, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { Tag } from 'tdesign-vue-next';
 
 const OPTIONS = [

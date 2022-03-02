@@ -18,7 +18,7 @@
 
     <!-- :popup-props="{ trigger: 'hover' }" -->
     <t-select-input
-      v-model:input-value="inputValue"
+      v-model:inputValue="inputValue"
       :value="value"
       :allow-input="allowInput"
       :placeholder="allowInput ? '请选择或输入' : '请选择'"

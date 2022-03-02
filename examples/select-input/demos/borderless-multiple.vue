@@ -39,7 +39,6 @@ const OPTIONS = [
   { label: 'tdesign-mobile-react', value: 6 },
 ];
 
-const creatable = ref(true);
 const options = ref([...OPTIONS]);
 const value = ref([
   { label: 'Vue', value: 1 },
@@ -84,7 +83,7 @@ const onTagChange = (currentTags, context) => {
     value.value.splice(index, 1);
   }
   // 如果允许创建新条目
-  if (creatable.value && trigger === 'enter') {
+  if (trigger === 'enter') {
     const current = { label: item, value: item };
     value.value.push(current);
     options.value = options.value.concat(current);
