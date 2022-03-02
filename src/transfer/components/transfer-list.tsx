@@ -11,7 +11,6 @@ import {
 } from '../interface';
 import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
-import Button from '../../button';
 import { getLeefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
 import { renderTNodeJSXDefault } from '../../utils/render-tnode';
@@ -23,7 +22,6 @@ export default defineComponent({
     TCheckbox,
     TCheckboxGroup,
     Pagination,
-    Button,
   },
   props: {
     checkboxProps: {
