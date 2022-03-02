@@ -5931,7 +5931,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -5969,7 +5969,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6019,7 +6019,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6069,7 +6069,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6107,7 +6107,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6145,7 +6145,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6195,7 +6195,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6233,7 +6233,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6271,7 +6271,7 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  neddripple="true"
+                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
