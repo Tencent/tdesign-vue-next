@@ -1,43 +1,23 @@
 <template>
-  <div class="tdesign-demo__select-input-multiple" style="width: 100%">
-    <div>
-      <t-checkbox v-model="allowInput">是否允许输入</t-checkbox>
-      <t-checkbox v-model="creatable">允许创建新选项（Enter 创建）</t-checkbox>
-    </div>
-    <br />
-    <div>
-      <t-radio-group
-        v-model="excessTagsDisplayType"
-        :options="[
-          { label: '选中项过多横向滚动', value: 'scroll' },
-          { label: '选中项过多换行显示', value: 'break-line' },
-        ]"
-      />
-    </div>
-    <br /><br />
-
-    <!-- :popup-props="{ trigger: 'hover' }" -->
+  <div class="tdesign-demo__select-input-borderless-multiple" style="width: 100%">
     <t-select-input
-      v-model:inputValue="inputValue"
       :value="value"
-      :allow-input="allowInput"
-      :placeholder="allowInput ? '请选择或输入' : '请选择'"
-      :tag-input-props="{ excessTagsDisplayType }"
-      :popup-props="{ overlayStyle: { maxHeight: '280px', overflow: 'auto' } }"
+      :min-collapsed-num="1"
+      auto-width
+      allow-input
+      placeholder="select frameworks"
       clearable
       multiple
+      style="width: 250px"
       @tag-change="onTagChange"
-      @input-change="onInputChange"
     >
       <template #panel>
         <t-checkbox-group
-          v-if="options.length"
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__panel-options-multiple"
+          class="tdesign-demo__panel-options-borderless-multiple"
           @change="onCheckedChange"
         />
-        <div v-else class="tdesign-demo__select-empty-multiple">暂无数据</div>
       </template>
       <template #suffixIcon>
         <chevron-down-icon />
@@ -51,7 +31,7 @@ import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = [
   // 全选
-  { label: 'Check All', checkAll: true },
+  { label: 'all frameworks', checkAll: true },
   { label: 'tdesign-vue', value: 1 },
   { label: 'tdesign-react', value: 2 },
   { label: 'tdesign-miniprogram', value: 3 },
@@ -60,17 +40,13 @@ const OPTIONS = [
   { label: 'tdesign-mobile-react', value: 6 },
 ];
 
-const excessTagsDisplayType = ref('break-line');
-const allowInput = ref(true);
-const creatable = ref(true);
-const inputValue = ref('');
-// 全量数据
 const options = ref([...OPTIONS]);
 const value = ref([
   { label: 'Vue', value: 1 },
   { label: 'React', value: 2 },
   { label: 'Miniprogram', value: 3 },
 ]);
+
 const checkboxValue = computed(() => {
   const arr = [];
   const list = value.value;
@@ -80,9 +56,9 @@ const checkboxValue = computed(() => {
   }
   return arr;
 });
+
 // 直接 checkboxgroup 组件渲染输出下拉选项
 const onCheckedChange = (val, { current, type }) => {
-  console.log(current);
   // current 不存在，则表示操作全选
   if (!current) {
     value.value = type === 'check' ? options.value.slice(1) : [];
@@ -96,6 +72,7 @@ const onCheckedChange = (val, { current, type }) => {
     value.value = value.value.filter((v) => v.value !== current);
   }
 };
+
 // 可以根据触发来源，自由定制标签变化时的筛选器行为
 const onTagChange = (currentTags, context) => {
   console.log(currentTags, context);
@@ -107,24 +84,19 @@ const onTagChange = (currentTags, context) => {
     value.value.splice(index, 1);
   }
   // 如果允许创建新条目
-  if (creatable.value && trigger === 'enter') {
+  if (trigger === 'enter') {
     const current = { label: item, value: item };
     value.value.push(current);
-    const newOptions = options.value.concat(current);
-    options.value = newOptions;
-    inputValue.value = '';
+    options.value = options.value.concat(current);
   }
-};
-const onInputChange = (val, context) => {
-  console.log(val, context);
 };
 </script>
 <style lang="less">
-.tdesign-demo__panel-options-multiple {
+.tdesign-demo__panel-options-borderless-multiple {
   width: 100%;
   padding: 4px 0;
 }
-.tdesign-demo__panel-options-multiple .t-checkbox {
+.tdesign-demo__panel-options-borderless-multiple .t-checkbox {
   display: flex;
   border-radius: 3px;
   height: 40px;
@@ -141,7 +113,7 @@ const onInputChange = (val, context) => {
   margin-right: 0;
 }
 
-.tdesign-demo__panel-options-multiple .t-checkbox:hover {
+.tdesign-demo__panel-options-borderless-multiple .t-checkbox:hover {
   background-color: var(--td-bg-color-container-hover);
 }
 </style>

@@ -19952,8 +19952,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/max-length-count.vue c
 
 exports[`ssr snapshot test renders ./examples/input/demos/password.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
-  <div class="t-input t-input--suffix">
-    <!---->
+  <div class="t-input t-input--prefix t-input--suffix"><span class="t-input__prefix t-input__prefix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fill-opacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fill-opacity="0.9"></path></svg><!--]--></span>
     <!----><input class="t-input__inner" placeholder="请输入" type="password" value="520 TDesign">
     <!---->
     <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fill-opacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fill-opacity="0.9"></path></svg></span>
@@ -27814,14 +27813,14 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/autocomplete.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__select-input-ul-autocomplete">
+        <ul class="tdesign-demo__select-input-ul-single">
           <!--[-->
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> Student A</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> Student B</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> Student C</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> Student D</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> Student E</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> Student F</li>
+          <li>Student A</li>
+          <li>Student B</li>
+          <li>Student C</li>
+          <li>Student D</li>
+          <li>Student E</li>
+          <li>Student F</li>
           <!--]-->
         </ul>
         <!--]-->
@@ -27845,20 +27844,21 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/autocomplete.vu
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/select-input/demos/borderless.vue correctly 1`] = `
+exports[`ssr snapshot test renders ./examples/select-input/demos/autowidth.vue correctly 1`] = `
 <div>
-  <div class="t-popup__reference t-select-input t-select-input--borderless">
+  <!-- :popup-props="{ trigger: 'hover' }" -->
+  <div class="t-popup__reference t-select-input" style="width:300px;">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__select-input-ul-borderless">
+        <ul class="tdesign-demo__select-input-ul-single">
           <!--[-->
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-react</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-miniprogram</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-angular</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-react</li>
+          <li>tdesign-vue</li>
+          <li>tdesign-react</li>
+          <li>tdesign-miniprogram</li>
+          <li>tdesign-angular</li>
+          <li>tdesign-mobile-vue</li>
+          <li>tdesign-mobile-react</li>
           <!--]-->
         </ul>
         <!--]-->
@@ -27866,28 +27866,28 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless.vue 
       </div>
     </div>
     <!--[-->
-    <div class="t-input t-is-readonly t-input--prefix t-input--suffix t-input--auto-width">
+    <div class="t-input t-input--prefix t-input--suffix t-input--auto-width">
       <!---->
       <div class="t-input__prefix">
         <!--[-->
         <!---->
         <!---->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="tdesign-vue"><span class="t-input__input-pre">tdesign-vue</span>
-      <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
+      </div><input class="t-input__inner" placeholder="Please Select" type="text" value="tdesign-vue"><span class="t-input__input-pre">tdesign-vue</span>
+      <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg><!--]--></span>
     </div>
     <!--]-->
   </div>
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/select-input/demos/borderless-multiple.vue correctly 1`] = `
-<div class="tdesign-demo__select-input-multiple" style="width:100%;">
-  <div class="t-popup__reference t-select-input t-select-input--borderless t-select-input--multiple">
+exports[`ssr snapshot test renders ./examples/select-input/demos/autowidth-multiple.vue correctly 1`] = `
+<div class="tdesign-demo__select-input-borderless-multiple" style="width:100%;">
+  <div class="t-popup__reference t-select-input t-select-input--multiple" style="width:250px;">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options-multiple-borderless">
+        <div class="t-checkbox-group tdesign-demo__panel-options-borderless-multiple">
           <!--[--><label class="t-checkbox t-is-indeterminate"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->all frameworks<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -27901,7 +27901,73 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless-mult
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+2<!--]--><!----></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder type="text" value><span class="t-input__input-pre"></span>
+      </div><input class="t-input__inner" placeholder="请输入" type="text" value><span class="t-input__input-pre">请输入</span>
+      <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg><!--]--></span>
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/select-input/demos/borderless.vue correctly 1`] = `
+<div>
+  <div class="t-popup__reference t-select-input t-select-input--borderless" style="width:200px;">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content">
+        <!--[-->
+        <ul class="tdesign-demo__select-input-ul-single">
+          <!--[-->
+          <li>tdesign-vue</li>
+          <li>tdesign-react</li>
+          <li>tdesign-miniprogram</li>
+          <li>tdesign-angular</li>
+          <li>tdesign-mobile-vue</li>
+          <li>tdesign-mobile-react</li>
+          <!--]-->
+        </ul>
+        <!--]-->
+        <!---->
+      </div>
+    </div>
+    <!--[-->
+    <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[-->
+        <!---->
+        <!---->
+        <!--]-->
+      </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="tdesign-vue">
+      <!---->
+      <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/select-input/demos/borderless-multiple.vue correctly 1`] = `
+<div class="tdesign-demo__select-input-borderless-multiple" style="width:100%;">
+  <div class="t-popup__reference t-select-input t-select-input--borderless t-select-input--multiple" style="width:250px;">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content">
+        <!--[-->
+        <div class="t-checkbox-group tdesign-demo__panel-options-borderless-multiple">
+          <!--[--><label class="t-checkbox t-is-indeterminate"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->all frameworks<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
+          <!--]-->
+        </div>
+        <!--]-->
+        <!---->
+      </div>
+    </div>
+    <!--[-->
+    <div class="t-input t-input--prefix t-input--suffix t-tag-input">
+      <!---->
+      <div class="t-input__prefix">
+        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+2<!--]--><!----></span>
+        <!--]-->
+      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
+      <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg><!--]--></span>
     </div>
     <!--]-->
@@ -27910,12 +27976,12 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless-mult
 `;
 
 exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items.vue correctly 1`] = `
-<div class="tdesign-demo__select-input-multiple" style="width:100%;"><br>
+<div class="tdesign-demo__select-input-collapsed-items" style="width:100%;"><br>
   <div class="t-popup__reference t-select-input t-select-input--multiple">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options-collapsed">
+        <div class="t-checkbox-group tdesign-demo__panel-options-collapsed-items">
           <!--[--><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -27929,7 +27995,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+5<!--]--><!----></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder type="text" value>
+      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
       <!---->
       <!---->
       <!---->
@@ -27940,7 +28006,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options-collapsed">
+        <div class="t-checkbox-group tdesign-demo__panel-options-collapsed-items">
           <!--[--><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -27954,7 +28020,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->更多(4)<!--]--><!----></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder type="text" value>
+      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
       <!---->
       <!---->
       <!---->
@@ -27965,7 +28031,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options-collapsed">
+        <div class="t-checkbox-group tdesign-demo__panel-options-collapsed-items">
           <!--[--><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -27994,7 +28060,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
         </div>
         <!--]-->
         <!--]-->
-      </div><input class="t-input__inner" placeholder type="text" value>
+      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28011,14 +28077,14 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__select-input-ul-custom">
+        <ul class="tdesign-demo__select-input-ul-single">
           <!--[-->
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-react</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-miniprogram</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-angular</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-react</li>
+          <li>tdesign-vue</li>
+          <li>tdesign-react</li>
+          <li>tdesign-miniprogram</li>
+          <li>tdesign-angular</li>
+          <li>tdesign-mobile-vue</li>
+          <li>tdesign-mobile-react</li>
           <!--]-->
         </ul>
         <!--]-->
@@ -28062,7 +28128,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
         <!--]-->
         <!----></span>
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
+      </div><input class="t-input__inner" readonly placeholder="请输入" type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28098,7 +28164,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
         <!--]-->
         <!--]-->
         <!--]-->
-      </div><input class="t-input__inner" readonly placeholder type="text" value>
+      </div><input class="t-input__inner" readonly placeholder="请输入" type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28109,14 +28175,14 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
 `;
 
 exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-display-type.vue correctly 1`] = `
-<div class="tdesign-demo__select-input-multiple" style="width:100%;">
+<div class="tdesign-demo__select-input-excess-tags-display-type" style="width:100%;">
   <!-- excessTagsDisplayType: 'scroll'，超出时，滚动显示 -->
   <p>第一种呈现方式：超出时滚动显示</p><br>
   <div class="t-popup__reference t-select-input t-select-input--multiple">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options-excess">
+        <div class="t-checkbox-group tdesign-demo__panel-options-excess-tags-display-type">
           <!--[--><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -28130,7 +28196,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-dis
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-angular<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-mobile-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-mobile-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder type="text" value>
+      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28142,7 +28208,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-dis
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options-excess">
+        <div class="t-checkbox-group tdesign-demo__panel-options-excess-tags-display-type">
           <!--[--><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -28156,7 +28222,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-dis
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-angular<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-mobile-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-mobile-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder type="text" value>
+      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28174,14 +28240,14 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__select-input-ul-label-suffix">
+        <ul class="tdesign-demo__select-input-ul-single">
           <!--[-->
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-react</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-miniprogram</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-angular</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-react</li>
+          <li>tdesign-vue</li>
+          <li>tdesign-react</li>
+          <li>tdesign-miniprogram</li>
+          <li>tdesign-angular</li>
+          <li>tdesign-mobile-vue</li>
+          <li>tdesign-mobile-react</li>
           <!--]-->
         </ul>
         <!--]-->
@@ -28205,14 +28271,14 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vu
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <ul class="tdesign-demo__select-input-ul-label-suffix">
+        <ul class="tdesign-demo__select-input-ul-single">
           <!--[-->
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-react</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-miniprogram</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-angular</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-react</li>
+          <li>tdesign-vue</li>
+          <li>tdesign-react</li>
+          <li>tdesign-miniprogram</li>
+          <li>tdesign-angular</li>
+          <li>tdesign-mobile-vue</li>
+          <li>tdesign-mobile-react</li>
           <!--]-->
         </ul>
         <!--]-->
@@ -28249,7 +28315,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/multiple.vue co
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content">
         <!--[-->
-        <div class="t-checkbox-group tdesign-demo__pannel-options-multiple">
+        <div class="t-checkbox-group tdesign-demo__panel-options-multiple">
           <!--[--><label class="t-checkbox t-is-indeterminate"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->Check All<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-vue<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-react<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-miniprogram<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="4"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-angular<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="5"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-vue<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="6"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->tdesign-mobile-react<!--]--></span></label>
           <!--]-->
         </div>
@@ -28263,7 +28329,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/multiple.vue co
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder type="text" value>
+      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg><!--]--></span>
     </div>
@@ -28281,12 +28347,12 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/single.vue corr
         <!--[-->
         <ul class="tdesign-demo__select-input-ul-single">
           <!--[-->
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-react</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-miniprogram</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-angular</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-vue</li>
-          <li><img src="https://tdesign.gtimg.com/site/avatar.jpg"> tdesign-mobile-react</li>
+          <li>tdesign-vue</li>
+          <li>tdesign-react</li>
+          <li>tdesign-miniprogram</li>
+          <li>tdesign-angular</li>
+          <li>tdesign-mobile-vue</li>
+          <li>tdesign-mobile-react</li>
           <!--]-->
         </ul>
         <!--]-->
@@ -40931,7 +40997,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/auto-width.vue cor
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text"><span class="t-input__input-pre"></span>
+    </div><input class="t-input__inner" placeholder="请输入" type="text"><span class="t-input__input-pre">请输入</span>
     <!---->
     <!---->
   </div>
@@ -40945,7 +41011,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -40956,7 +41022,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly
       <!--[-->
       <div class="t-tag-input__prefix">Controlled: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -40967,7 +41033,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly
       <!--[-->
       <div class="t-tag-input__prefix">UnControlled: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -40982,7 +41048,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue corr
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+4<!--]--><!----></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -40992,7 +41058,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue corr
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->更多(3)<!--]--><!----></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41017,7 +41083,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue corr
       </div>
       <!--]-->
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41041,7 +41107,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue cor
         <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
       </svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+1<!--]--><!----></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41064,7 +41130,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue cor
       <!--]-->
       <!--]-->
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41081,7 +41147,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/excess.vue correct
       <!--[-->
       <div class="t-tag-input__prefix">Scroll: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41092,7 +41158,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/excess.vue correct
       <!--[-->
       <div class="t-tag-input__prefix">BreakLine: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41122,7 +41188,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/size.vue correctly
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-s" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-s" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41132,7 +41198,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/size.vue correctly
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41142,7 +41208,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/size.vue correctly
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-l" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-l" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41158,7 +41224,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m" style=""><!----><!--[-->Vue<!--]--><!----></span><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m" style=""><!----><!--[-->React<!--]--><!----></span><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><!----></span>
         <!--]-->
-      </div><input class="t-input__inner" disabled placeholder type="text">
+      </div><input class="t-input__inner" disabled placeholder="请输入" type="text">
       <!---->
       <!---->
       <!---->
@@ -41171,7 +41237,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
         <div class="t-input__prefix">
           <!--[--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->Vue<!--]--><!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->React<!--]--><!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><!----></span>
           <!--]-->
-        </div><input class="t-input__inner" readonly placeholder type="text">
+        </div><input class="t-input__inner" readonly placeholder="请输入" type="text">
         <!---->
         <!---->
         <!---->
@@ -41186,7 +41252,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
         <div class="t-input__prefix">
           <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
           <!--]-->
-        </div><input class="t-input__inner" placeholder type="text">
+        </div><input class="t-input__inner" placeholder="请输入" type="text">
         <!---->
         <!---->
         <!---->
@@ -41201,7 +41267,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
         <div class="t-input__prefix">
           <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
           <!--]-->
-        </div><input class="t-input__inner" placeholder type="text">
+        </div><input class="t-input__inner" placeholder="请输入" type="text">
         <!---->
         <!---->
         <!---->
@@ -41216,7 +41282,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
         <div class="t-input__prefix">
           <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
           <!--]-->
-        </div><input class="t-input__inner" placeholder type="text">
+        </div><input class="t-input__inner" placeholder="请输入" type="text">
         <!---->
         <!---->
         <!---->
@@ -41234,7 +41300,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41244,7 +41310,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41254,7 +41320,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->
@@ -41264,7 +41330,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder type="text">
+    </div><input class="t-input__inner" placeholder="请输入" type="text">
     <!---->
     <!---->
     <!---->

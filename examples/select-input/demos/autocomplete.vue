@@ -11,9 +11,9 @@
       @popup-visible-change="onPopupVisibleChange"
     >
       <template #panel>
-        <ul class="tdesign-demo__select-input-ul-autocomplete">
+        <ul class="tdesign-demo__select-input-ul-single">
           <li v-for="item in options" :key="item" @click="() => onOptionClick(item)">
-            <img src="https://tdesign.gtimg.com/site/avatar.jpg" /> {{ item }}
+            {{ item }}
           </li>
         </ul>
       </template>
@@ -45,31 +45,26 @@ const onPopupVisibleChange = (val) => {
   popupVisible.value = val;
 };
 </script>
-<style>
-.tdesign-demo__select-input-ul-autocomplete,
-.tdesign-demo__select-input-ul-autocomplete > li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+<style lang="less" scoped>
+.tdesign-demo__select-input-ul-single {
+  padding: 4px 0;
+}
+.tdesign-demo__select-input-ul-single > li {
+  display: block;
+  border-radius: 3px;
+  height: 40px;
+  line-height: 22px;
   cursor: pointer;
   padding: 9px 8px;
-  border-radius: 3px;
+  color: var(--td-text-color-primary);
+  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.tdesign-demo__select-input-ul-autocomplete > li {
-  line-height: 40px;
-  min-width: 200px;
-  padding: 0 8px;
-}
-
-.tdesign-demo__select-input-ul-autocomplete > li:hover {
+.tdesign-demo__select-input-ul-single > li:hover {
   background-color: var(--td-bg-color-container-hover);
-}
-
-.tdesign-demo__select-input-ul-autocomplete > li > img {
-  max-width: 20px;
-  max-height: 20px;
-  vertical-align: middle;
-  margin-right: 8px;
 }
 </style>

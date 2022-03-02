@@ -59,7 +59,7 @@ export default defineComponent({
     });
 
     const tagInputPlaceholder = computed(() => {
-      return !tagValue.value?.length ? placeholder.value : '';
+      return !tagValue.value?.length ? placeholder.value : undefined;
     });
 
     const showClearIcon = computed(() =>

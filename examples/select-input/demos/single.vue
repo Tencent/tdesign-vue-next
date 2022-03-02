@@ -15,7 +15,7 @@
       <template #panel>
         <ul class="tdesign-demo__select-input-ul-single">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
-            <img src="https://tdesign.gtimg.com/site/avatar.jpg" /> {{ item.label }}
+            {{ item.label }}
           </li>
         </ul>
       </template>
@@ -59,7 +59,7 @@ const onInputChange = (val, context) => {
   console.log(val, context);
 };
 </script>
-<style>
+<style lang="less" scoped>
 .tdesign-demo__select-input-ul-single {
   padding: 4px 0;
 }
@@ -78,20 +78,7 @@ const onInputChange = (val, context) => {
   text-overflow: ellipsis;
 }
 
-.tdesign-demo__select-input-ul-single > li {
-  line-height: 40px;
-  min-width: 200px;
-  padding: 0 8px;
-}
-
 .tdesign-demo__select-input-ul-single > li:hover {
   background-color: var(--td-bg-color-container-hover);
-}
-
-.tdesign-demo__select-input-ul-single > li > img {
-  max-width: 20px;
-  max-height: 20px;
-  vertical-align: middle;
-  margin-right: 8px;
 }
 </style>

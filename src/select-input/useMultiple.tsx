@@ -35,7 +35,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
     return props.value.map((item) => (isObject(item) ? item[iKeys.value.label] : item));
   });
 
-  const tPlaceholder = computed<string>(() => (!tags.value || !tags.value.length ? props.placeholder : ''));
+  const tPlaceholder = computed<string>(() => (!tags.value || !tags.value.length ? props.placeholder : undefined));
 
   const onTagInputChange = (val: TagInputValue, context: SelectInputChangeContext) => {
     // 避免触发浮层的显示或隐藏
@@ -53,7 +53,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         v-slots={context.slots}
         label={props.label}
         readonly={!props.allowInput}
-        autoWidth={props.borderless || props.autoWidth}
+        autoWidth={props.autoWidth}
         minCollapsedNum={props.minCollapsedNum}
         collapsedItems={props.collapsedItems}
         tag={props.tag}

@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo__select-input-multiple" style="width: 100%">
+  <div class="tdesign-demo__select-input-collapsed-items" style="width: 100%">
     <br />
     <t-select-input
       :value="value"
@@ -14,7 +14,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options-collapsed"
+          class="tdesign-demo__panel-options-collapsed-items"
           @change="onCheckedChange"
         />
       </template>
@@ -37,7 +37,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options-collapsed"
+          class="tdesign-demo__panel-options-collapsed-items"
           @change="onCheckedChange"
         />
       </template>
@@ -69,7 +69,7 @@
         <t-checkbox-group
           :value="checkboxValue"
           :options="options"
-          class="tdesign-demo__pannel-options-collapsed"
+          class="tdesign-demo__panel-options-collapsed-items"
           @change="onCheckedChange"
         />
       </template>
@@ -141,12 +141,29 @@ const renderCollapsedItems = (_, { collapsedTags }) => {
   return <Tag>更多({collapsedTags.length})</Tag>;
 };
 </script>
-<style>
-.tdesign-demo__pannel-options-collapsed {
+<style lang="less">
+.tdesign-demo__panel-options-collapsed-items {
   width: 100%;
+  padding: 4px 0;
 }
-.tdesign-demo__pannel-options-collapsed .t-checkbox {
-  display: block;
-  margin: 12px;
+.tdesign-demo__panel-options-collapsed-items .t-checkbox {
+  display: flex;
+  border-radius: 3px;
+  height: 40px;
+  line-height: 22px;
+  cursor: pointer;
+  padding: 9px 8px;
+  color: var(--td-text-color-primary);
+  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 4px;
+  margin-right: 0;
+}
+
+.tdesign-demo__panel-options-collapsed-items .t-checkbox:hover {
+  background-color: var(--td-bg-color-container-hover);
 }
 </style>
