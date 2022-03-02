@@ -27,6 +27,7 @@ exports[`Tooltip Tooltip arrowVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -71,6 +72,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -108,6 +110,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -145,6 +148,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -182,6 +186,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -219,6 +224,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -256,6 +262,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -293,6 +300,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -330,6 +338,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -367,6 +376,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -404,6 +414,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -441,6 +452,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -478,6 +490,7 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -506,6 +519,7 @@ exports[`Tooltip Tooltip durationVue demo works fine 1`] = `
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default t-is-disabled"
       disabled=""
+      style="position: relative;"
       type="button"
     >
       <span
@@ -569,6 +583,7 @@ exports[`Tooltip Tooltip noArrowVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -613,6 +628,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -650,6 +666,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -687,6 +704,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-success"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -724,6 +742,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -761,6 +780,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -798,6 +818,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -842,6 +863,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -918,6 +940,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -955,6 +978,7 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span

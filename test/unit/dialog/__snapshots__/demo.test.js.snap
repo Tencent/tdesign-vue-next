@@ -4,6 +4,7 @@ exports[`Dialog Dialog asyncVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -61,6 +62,7 @@ exports[`Dialog Dialog asyncVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -72,6 +74,7 @@ exports[`Dialog Dialog asyncVue demo works fine 1`] = `
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading t-dialog__confirm"
               disabled=""
+              style="position: relative;"
               type="button"
             >
               
@@ -121,6 +124,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
   <!-- attach挂载 -->
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -133,6 +137,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -210,6 +215,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -220,6 +226,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -299,6 +306,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
         <div>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -309,6 +317,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -329,6 +338,7 @@ exports[`Dialog Dialog baseVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -386,6 +396,7 @@ exports[`Dialog Dialog baseVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -396,6 +407,7 @@ exports[`Dialog Dialog baseVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -421,6 +433,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
   <br />
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -433,6 +446,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -445,6 +459,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -502,6 +517,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -512,6 +528,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -573,6 +590,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -583,6 +601,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -644,6 +663,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -655,6 +675,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
               disabled=""
+              style="position: relative;"
               type="button"
             >
               <span
@@ -678,6 +699,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -690,6 +712,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -702,6 +725,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -770,6 +794,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -780,6 +805,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -846,6 +872,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -856,6 +883,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -922,6 +950,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -932,6 +961,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1008,6 +1038,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1018,6 +1049,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1090,6 +1122,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1100,6 +1133,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1172,6 +1206,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1182,6 +1217,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1254,6 +1290,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1264,6 +1301,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1281,6 +1319,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   <br />
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1293,6 +1332,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1305,6 +1345,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1317,6 +1358,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1334,6 +1376,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1346,6 +1389,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1413,6 +1457,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1423,6 +1468,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1489,6 +1535,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1499,6 +1546,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1520,6 +1568,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1532,6 +1581,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1544,6 +1594,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1556,6 +1607,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1568,6 +1620,7 @@ exports[`Dialog Dialog pluginVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1585,6 +1638,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1597,6 +1651,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1609,6 +1664,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1666,6 +1722,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1676,6 +1733,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1736,6 +1794,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1746,6 +1805,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1807,6 +1867,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1817,6 +1878,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1838,6 +1900,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1907,6 +1970,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1917,6 +1981,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1933,6 +1998,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </transition-stub>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -2002,6 +2068,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -2012,6 +2079,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -2028,6 +2096,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </transition-stub>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -2098,6 +2167,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
             <!---->
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -2114,6 +2184,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </transition-stub>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -2184,6 +2255,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
             <!---->
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -2200,6 +2272,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </transition-stub>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -2261,6 +2334,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -2271,6 +2345,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span

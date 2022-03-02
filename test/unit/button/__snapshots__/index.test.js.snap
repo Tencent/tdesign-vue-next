@@ -3,6 +3,7 @@
 exports[`Button :props :block 1`] = `
 <button
   class="t-button t-size-m t-button--variant-base t-button--theme-primary t-size-full-width"
+  style="position: relative;"
   type="button"
 >
   <span
@@ -19,6 +20,7 @@ exports[`Button :props :content 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -31,6 +33,7 @@ exports[`Button :props :content 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -43,6 +46,7 @@ exports[`Button :props :content 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -53,6 +57,7 @@ exports[`Button :props :content 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -63,6 +68,7 @@ exports[`Button :props :content 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -80,6 +86,7 @@ exports[`Button :props :disabled 1`] = `
 <button
   class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
   disabled=""
+  style="position: relative;"
   type="button"
 >
   <span
@@ -95,6 +102,7 @@ exports[`Button :props :disabled 1`] = `
 exports[`Button :props :icon function 1`] = `
 <button
   class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only"
+  style="position: relative;"
   type="button"
 >
   
@@ -110,6 +118,7 @@ exports[`Button :props :loading 1`] = `
 <button
   class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-is-loading"
   disabled=""
+  style="position: relative;"
   type="button"
 >
   
@@ -152,6 +161,7 @@ exports[`Button :props :loading 1`] = `
 exports[`Button :props :shape 1`] = `
 <button
   class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--shape-round"
+  style="position: relative;"
   type="button"
 >
   <span
@@ -167,6 +177,7 @@ exports[`Button :props :shape 1`] = `
 exports[`Button :props :size 1`] = `
 <button
   class="t-button t-size-l t-button--variant-base t-button--theme-primary"
+  style="position: relative;"
   type="button"
 >
   <span
@@ -182,6 +193,7 @@ exports[`Button :props :size 1`] = `
 exports[`Button :props :variant 1`] = `
 <button
   class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+  style="position: relative;"
   type="button"
 >
   <span
@@ -197,6 +209,7 @@ exports[`Button :props :variant 1`] = `
 exports[`Button <slot> <icon> 1`] = `
 <button
   class="t-button t-size-m t-button--variant-base t-button--theme-primary t-button--icon-only"
+  style="position: relative;"
   type="button"
 >
   

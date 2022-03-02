@@ -587,6 +587,7 @@ exports[`Comment Comment replyFormVue demo works fine 1`] = `
           </div>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary form-submit"
+            style="position: relative;"
             type="button"
           >
             <span

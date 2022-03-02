@@ -100,6 +100,7 @@ exports[`Notification Notification closeAllVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -113,6 +114,7 @@ exports[`Notification Notification closeAllVue demo works fine 1`] = `
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     id="t-demo-msg-close-all"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -314,6 +316,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -326,6 +329,7 @@ exports[`Notification Notification closeVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -795,6 +799,7 @@ exports[`Notification Notification offsetVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -807,6 +812,7 @@ exports[`Notification Notification offsetVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -870,6 +876,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -988,6 +995,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -1056,6 +1064,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-text t-button--theme-default t-notification__detail-item"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -1068,6 +1077,7 @@ exports[`Notification Notification operationVue demo works fine 1`] = `
         </button>
         <button
           class="t-button t-size-m t-button--variant-text t-button--theme-primary t-notification__detail-item"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -1123,6 +1133,7 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1135,6 +1146,7 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1149,6 +1161,7 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
   <br />
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1161,6 +1174,7 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1184,6 +1198,7 @@ exports[`Notification Notification pluginVue demo works fine 1`] = `
   <div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -1197,6 +1212,7 @@ exports[`Notification Notification pluginVue demo works fine 1`] = `
     <!-- 自定义 Icon 示例 -->
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -1209,6 +1225,7 @@ exports[`Notification Notification pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -1222,6 +1239,7 @@ exports[`Notification Notification pluginVue demo works fine 1`] = `
     <!-- 0 表示永远不自动消失 -->
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -1245,6 +1263,7 @@ exports[`Notification Notification pluginVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -1257,6 +1276,7 @@ exports[`Notification Notification pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -1269,6 +1289,7 @@ exports[`Notification Notification pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -1281,6 +1302,7 @@ exports[`Notification Notification pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -1399,6 +1421,7 @@ exports[`Notification Notification toggleVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1416,6 +1439,7 @@ exports[`Notification Notification type4FnVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1428,6 +1452,7 @@ exports[`Notification Notification type4FnVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1440,6 +1465,7 @@ exports[`Notification Notification type4FnVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1452,6 +1478,7 @@ exports[`Notification Notification type4FnVue demo works fine 1`] = `
   </button>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
