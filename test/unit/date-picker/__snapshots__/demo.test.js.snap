@@ -38,6 +38,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -50,6 +51,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -66,6 +68,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上个月"
                       type="button"
                     >
@@ -90,6 +93,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="当前"
                       type="button"
                     >
@@ -114,6 +118,7 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下个月"
                       type="button"
                     >
@@ -875,6 +880,7 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -887,6 +893,7 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -903,6 +910,7 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上个月"
                       type="button"
                     >
@@ -927,6 +935,7 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="当前"
                       type="button"
                     >
@@ -951,6 +960,7 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下个月"
                       type="button"
                     >
@@ -1745,6 +1755,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                         <!---->
                         <button
                           class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                          style="position: relative;"
                           type="button"
                         >
                           <span
@@ -1757,6 +1768,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                          style="position: relative;"
                           type="button"
                         >
                           <span
@@ -1773,6 +1785,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                       >
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                          style="position: relative;"
                           title="上个月"
                           type="button"
                         >
@@ -1797,6 +1810,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                          style="position: relative;"
                           title="当前"
                           type="button"
                         >
@@ -1821,6 +1835,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                          style="position: relative;"
                           title="下个月"
                           type="button"
                         >
@@ -2507,6 +2522,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                         <!---->
                         <button
                           class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                          style="position: relative;"
                           type="button"
                         >
                           <span
@@ -2519,6 +2535,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                          style="position: relative;"
                           type="button"
                         >
                           <span
@@ -2535,6 +2552,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                       >
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                          style="position: relative;"
                           title="上个月"
                           type="button"
                         >
@@ -2559,6 +2577,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                          style="position: relative;"
                           title="当前"
                           type="button"
                         >
@@ -2583,6 +2602,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                          style="position: relative;"
                           title="下个月"
                           type="button"
                         >
@@ -3370,6 +3390,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -3382,6 +3403,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -3398,6 +3420,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -3422,6 +3445,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -3446,6 +3470,7 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -4233,6 +4258,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -4245,6 +4271,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -4261,6 +4288,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -4285,6 +4313,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -4309,6 +4338,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -4995,6 +5025,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -5007,6 +5038,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -5023,6 +5055,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -5047,6 +5080,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -5071,6 +5105,7 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -5863,6 +5898,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -5875,6 +5911,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -5891,6 +5928,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -5915,6 +5953,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -5939,6 +5978,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -6625,6 +6665,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -6637,6 +6678,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -6653,6 +6695,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -6677,6 +6720,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -6701,6 +6745,7 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -7482,6 +7527,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -7494,6 +7540,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -7510,6 +7557,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -7534,6 +7582,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -7558,6 +7607,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -8244,6 +8294,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -8256,6 +8307,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -8272,6 +8324,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -8296,6 +8349,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -8320,6 +8374,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -9080,6 +9135,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -9092,6 +9148,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -9108,6 +9165,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -9132,6 +9190,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -9156,6 +9215,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -9842,6 +9902,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -9854,6 +9915,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -9870,6 +9932,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -9894,6 +9957,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -9918,6 +9982,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -10608,6 +10673,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -10620,6 +10686,7 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -10723,6 +10790,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -10735,6 +10803,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -10751,6 +10820,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上个月"
                       type="button"
                     >
@@ -10775,6 +10845,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="当前"
                       type="button"
                     >
@@ -10799,6 +10870,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下个月"
                       type="button"
                     >
@@ -11488,6 +11560,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -11500,6 +11573,7 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -11604,6 +11678,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -11616,6 +11691,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -11632,6 +11708,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -11656,6 +11733,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -11680,6 +11758,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -12438,6 +12517,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -12450,6 +12530,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -12466,6 +12547,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -12490,6 +12572,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -12514,6 +12597,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -13272,6 +13356,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -13284,6 +13369,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -13300,6 +13386,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -13324,6 +13411,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -13348,6 +13436,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -14109,6 +14198,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                         <!---->
                         <button
                           class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                          style="position: relative;"
                           type="button"
                         >
                           <span
@@ -14121,6 +14211,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                          style="position: relative;"
                           type="button"
                         >
                           <span
@@ -14137,6 +14228,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       >
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                          style="position: relative;"
                           title="上个月"
                           type="button"
                         >
@@ -14161,6 +14253,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                          style="position: relative;"
                           title="当前"
                           type="button"
                         >
@@ -14185,6 +14278,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                          style="position: relative;"
                           title="下个月"
                           type="button"
                         >
@@ -14871,6 +14965,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                         <!---->
                         <button
                           class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                          style="position: relative;"
                           type="button"
                         >
                           <span
@@ -14883,6 +14978,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                          style="position: relative;"
                           type="button"
                         >
                           <span
@@ -14899,6 +14995,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       >
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                          style="position: relative;"
                           title="上个月"
                           type="button"
                         >
@@ -14923,6 +15020,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                          style="position: relative;"
                           title="当前"
                           type="button"
                         >
@@ -14947,6 +15045,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                         </button>
                         <button
                           class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                          style="position: relative;"
                           title="下个月"
                           type="button"
                         >
@@ -15706,6 +15805,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -15718,6 +15818,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -15734,6 +15835,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -15758,6 +15860,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="当前"
                         type="button"
                       >
@@ -15782,6 +15885,7 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -16543,6 +16647,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -16555,6 +16660,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -16571,6 +16677,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上个月"
                       type="button"
                     >
@@ -16595,6 +16702,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="当前"
                       type="button"
                     >
@@ -16619,6 +16727,7 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下个月"
                       type="button"
                     >
@@ -17380,6 +17489,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -17397,6 +17507,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上一年"
                       type="button"
                     >
@@ -17421,6 +17532,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="当前"
                       type="button"
                     >
@@ -17445,6 +17557,7 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下一年"
                       type="button"
                     >
@@ -17750,6 +17863,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上个十年"
                       type="button"
                     >
@@ -17774,6 +17888,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="当前"
                       type="button"
                     >
@@ -17798,6 +17913,7 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下个十年"
                       type="button"
                     >

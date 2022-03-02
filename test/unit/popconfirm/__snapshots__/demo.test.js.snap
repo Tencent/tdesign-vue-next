@@ -55,6 +55,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -65,6 +66,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -86,6 +88,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -149,6 +152,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -159,6 +163,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -180,6 +185,7 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -252,6 +258,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
               >
                 <button
                   class="t-button t-size-s t-button--variant-base t-button--theme-default"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -262,6 +269,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
                 </button>
                 <button
                   class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -283,6 +291,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        style="position: relative;"
         type="button"
       >
         <span
@@ -342,6 +351,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
               >
                 <button
                   class="t-button t-size-s t-button--variant-outline t-button--theme-default"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -352,6 +362,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
                 </button>
                 <button
                   class="t-button t-size-s t-button--variant-base t-button--theme-warning t-popconfirm__confirm"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -373,6 +384,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        style="position: relative;"
         type="button"
       >
         <span
@@ -433,7 +445,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
                 
                 <button
                   class="t-button t-size-s t-button--variant-text t-button--theme-default"
-                  style="margin-right: 12px;"
+                  style="margin-right: 12px; position: relative;"
                   type="button"
                 >
                   <span
@@ -448,6 +460,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
                 
                 <button
                   class="t-button t-size-s t-button--variant-base t-button--theme-primary"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -472,6 +485,7 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        style="position: relative;"
         type="button"
       >
         <span
@@ -555,6 +569,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -565,6 +580,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -586,6 +602,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -659,6 +676,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -669,6 +687,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -690,6 +709,7 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -763,6 +783,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -773,6 +794,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -794,6 +816,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -856,6 +879,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -866,6 +890,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -887,6 +912,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -949,6 +975,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -959,6 +986,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -980,6 +1008,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -1045,6 +1074,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -1055,6 +1085,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -1076,6 +1107,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -1143,6 +1175,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                 >
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -1153,6 +1186,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
                   </button>
                   <button
                     class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -1174,6 +1208,7 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -1245,6 +1280,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
               >
                 <button
                   class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -1255,6 +1291,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
                 </button>
                 <button
                   class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -1276,6 +1313,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        style="position: relative;"
         type="button"
       >
         <span
@@ -1334,6 +1372,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
               >
                 <button
                   class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -1344,6 +1383,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
                 </button>
                 <button
                   class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -1365,6 +1405,7 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        style="position: relative;"
         type="button"
       >
         <span

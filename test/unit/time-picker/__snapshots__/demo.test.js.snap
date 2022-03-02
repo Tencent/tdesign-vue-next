@@ -785,6 +785,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -797,6 +798,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -1674,6 +1676,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -1686,6 +1689,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -2573,6 +2577,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -2585,6 +2590,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -3465,6 +3471,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -3477,6 +3484,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -4361,6 +4369,7 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -4373,6 +4382,7 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -5215,6 +5225,7 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -5227,6 +5238,7 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -6123,6 +6135,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -6135,6 +6148,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -7015,6 +7029,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -7027,6 +7042,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -7581,6 +7597,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -7593,6 +7610,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -8454,6 +8472,7 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -8466,6 +8485,7 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9353,6 +9373,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9365,6 +9386,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -10242,6 +10264,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -10254,6 +10277,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -11890,6 +11914,7 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -12423,6 +12448,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -12435,6 +12461,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -12946,6 +12973,7 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -12958,6 +12986,7 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -13799,6 +13828,7 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -13811,6 +13841,7 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -14661,6 +14692,7 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -14673,6 +14705,7 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span

@@ -33,6 +33,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -46,36 +47,42 @@ exports[`Select Select baseVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="架构云"
                 >
                   架构云
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="大数据"
                 >
                   大数据
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="区块链"
                 >
                   区块链
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
+                  style="position: relative;"
                   title="物联网"
                 >
                   物联网
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="人工智能"
                 >
                   人工智能
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="计算场景"
                 >
                   <span>
@@ -166,6 +173,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -184,36 +192,42 @@ exports[`Select Select baseVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="云服务器"
                 >
                   云服务器
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="云数据库"
                 >
                   云数据库
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="域名注册"
                 >
                   域名注册
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="网站备案"
                 >
                   网站备案
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="对象存储"
                 >
                   对象存储
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="低代码平台"
                 >
                   低代码平台
@@ -308,6 +322,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -339,6 +354,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -363,6 +379,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -387,6 +404,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -545,6 +563,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -576,6 +595,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -600,6 +620,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -624,6 +645,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -802,6 +824,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -833,6 +856,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -857,6 +881,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -881,6 +906,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -1069,6 +1095,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -1082,18 +1109,21 @@ exports[`Select Select creatableVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   选项一
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   选项三
@@ -1199,6 +1229,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -1212,6 +1243,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户一"
                 >
                   <div
@@ -1236,6 +1268,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户二"
                 >
                   <div
@@ -1260,6 +1293,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户三"
                 >
                   <div
@@ -1284,6 +1318,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户四"
                 >
                   <div
@@ -1308,6 +1343,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户五"
                 >
                   <div
@@ -1332,6 +1368,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户六"
                 >
                   <div
@@ -1356,6 +1393,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户七"
                 >
                   <div
@@ -1380,6 +1418,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户八"
                 >
                   <div
@@ -1404,6 +1443,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户九"
                 >
                   <div
@@ -1512,6 +1552,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -1530,6 +1571,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户一"
                 >
                   
@@ -1556,6 +1598,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户二"
                 >
                   
@@ -1582,6 +1625,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户三"
                 >
                   
@@ -1608,6 +1652,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户四"
                 >
                   
@@ -1634,6 +1679,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户五"
                 >
                   
@@ -1660,6 +1706,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户六"
                 >
                   
@@ -1686,6 +1733,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户七"
                 >
                   
@@ -1712,6 +1760,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户八"
                 >
                   
@@ -1738,6 +1787,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="用户九"
                 >
                   
@@ -1852,6 +1902,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -1883,6 +1934,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -1907,6 +1959,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -1931,6 +1984,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -1955,6 +2009,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项四"
                 >
                   <label
@@ -1979,6 +2034,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项五"
                 >
                   <label
@@ -2003,6 +2059,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项六"
                 >
                   <label
@@ -2027,6 +2084,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项七"
                 >
                   <label
@@ -2051,6 +2109,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项八"
                 >
                   <label
@@ -2075,6 +2134,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项九"
                 >
                   <label
@@ -2250,6 +2310,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -2281,6 +2342,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -2305,6 +2367,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -2329,6 +2392,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -2353,6 +2417,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项四"
                 >
                   <label
@@ -2377,6 +2442,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项五"
                 >
                   <label
@@ -2401,6 +2467,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项六"
                 >
                   <label
@@ -2425,6 +2492,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项七"
                 >
                   <label
@@ -2449,6 +2517,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项八"
                 >
                   <label
@@ -2473,6 +2542,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项九"
                 >
                   <label
@@ -2665,6 +2735,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -2678,18 +2749,21 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   选项一
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   选项三
@@ -2778,6 +2852,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -2809,6 +2884,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -2833,6 +2909,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -2857,6 +2934,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -2995,6 +3073,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -3008,18 +3087,21 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   选项一
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   选项三
@@ -3118,6 +3200,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -3149,6 +3232,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -3173,6 +3257,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -3197,6 +3282,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -3320,6 +3406,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -3347,12 +3434,14 @@ exports[`Select Select groupVue demo works fine 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
+                        style="position: relative;"
                         title="选项一"
                       >
                         选项一
                       </li>
                       <li
                         class="t-select-option t-size-m"
+                        style="position: relative;"
                         title="选项二"
                       >
                         选项二
@@ -3378,18 +3467,21 @@ exports[`Select Select groupVue demo works fine 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
+                        style="position: relative;"
                         title="选项三"
                       >
                         选项三
                       </li>
                       <li
                         class="t-select-option t-size-m"
+                        style="position: relative;"
                         title="选项四"
                       >
                         选项四
                       </li>
                       <li
                         class="t-select-option t-size-m"
+                        style="position: relative;"
                         title="选项五"
                       >
                         选项五
@@ -3415,18 +3507,21 @@ exports[`Select Select groupVue demo works fine 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
+                        style="position: relative;"
                         title="选项六"
                       >
                         选项六
                       </li>
                       <li
                         class="t-select-option t-size-m"
+                        style="position: relative;"
                         title="选项七"
                       >
                         选项七
                       </li>
                       <li
                         class="t-select-option t-size-m"
+                        style="position: relative;"
                         title="选项八"
                       >
                         选项八
@@ -3530,6 +3625,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -3559,6 +3655,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                     
                     <li
                       class="t-select-option t-size-m"
+                      style="position: relative;"
                       title="选项一"
                     >
                       
@@ -3567,6 +3664,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-select-option t-size-m"
+                      style="position: relative;"
                       title="选项二"
                     >
                       
@@ -3590,6 +3688,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                     
                     <li
                       class="t-select-option t-size-m"
+                      style="position: relative;"
                       title="选项三"
                     >
                       
@@ -3598,6 +3697,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-select-option t-size-m"
+                      style="position: relative;"
                       title="选项四"
                     >
                       
@@ -3606,6 +3706,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-select-option t-size-m"
+                      style="position: relative;"
                       title="选项五"
                     >
                       
@@ -3629,6 +3730,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                     
                     <li
                       class="t-select-option t-size-m"
+                      style="position: relative;"
                       title="选项六"
                     >
                       
@@ -3637,6 +3739,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-select-option t-size-m"
+                      style="position: relative;"
                       title="选项七"
                     >
                       
@@ -3645,6 +3748,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-select-option t-size-m"
+                      style="position: relative;"
                       title="选项八"
                     >
                       
@@ -3755,6 +3859,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -3768,18 +3873,21 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   选项一
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   选项三
@@ -3868,6 +3976,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -3899,6 +4008,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -3923,6 +4033,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -3947,6 +4058,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -4081,6 +4193,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -4112,6 +4225,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   <label
@@ -4136,6 +4250,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   <label
@@ -4160,6 +4275,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   <label
@@ -4273,6 +4389,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -4304,6 +4421,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="架构云"
                 >
                   <label
@@ -4328,6 +4446,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="大数据"
                 >
                   <label
@@ -4352,6 +4471,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="区块链"
                 >
                   <label
@@ -4376,6 +4496,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
+                  style="position: relative;"
                   title="物联网"
                 >
                   <label
@@ -4401,6 +4522,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="人工智能"
                 >
                   <label
@@ -4425,6 +4547,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="计算场景"
                 >
                   <label
@@ -4586,6 +4709,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -4622,6 +4746,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="云服务器"
                 >
                   <label
@@ -4646,6 +4771,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="云数据库"
                 >
                   <label
@@ -4670,6 +4796,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="域名注册"
                 >
                   <label
@@ -4694,6 +4821,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="网站备案"
                 >
                   <label
@@ -4718,6 +4846,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="对象存储"
                 >
                   <label
@@ -4742,6 +4871,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="低代码平台"
                 >
                   <label
@@ -5014,6 +5144,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -5045,6 +5176,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="架构云"
                 >
                   <label
@@ -5069,6 +5201,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="大数据"
                 >
                   <label
@@ -5093,6 +5226,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="区块链"
                 >
                   <label
@@ -5117,6 +5251,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
+                  style="position: relative;"
                   title="物联网"
                 >
                   <label
@@ -5142,6 +5277,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="人工智能"
                 >
                   <label
@@ -5166,6 +5302,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="计算场景"
                 >
                   <label
@@ -5385,6 +5522,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -5398,18 +5536,21 @@ exports[`Select Select noborderVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="已选择的选项"
                 >
                   已选择的选项
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="短的选项二"
                 >
                   短的选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="很长很长很长的选项三"
                 >
                   很长很长很长的选项三
@@ -5519,6 +5660,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -5532,30 +5674,35 @@ exports[`Select Select panelVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="架构云"
                 >
                   架构云
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="大数据"
                 >
                   大数据
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="区块链"
                 >
                   区块链
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
+                  style="position: relative;"
                   title="物联网"
                 >
                   物联网
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="人工智能"
                 >
                   人工智能
@@ -5644,6 +5791,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -5662,18 +5810,21 @@ exports[`Select Select panelVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="云服务器"
                 >
                   云服务器
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="云数据库"
                 >
                   云数据库
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="域名注册"
                 >
                   域名注册
@@ -5687,6 +5838,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
               >
                 <button
                   class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                  style="position: relative;"
                   type="button"
                 >
                   <span
@@ -5785,6 +5937,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -5798,18 +5951,21 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="已选择的选项"
                 >
                   已选择的选项
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="短的选项二"
                 >
                   短的选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="很长很长很很长很长很长的选项三"
                 >
                   很长很长很很长很长很长的选项三
@@ -5898,6 +6054,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -5911,18 +6068,21 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="已选择的选项"
                 >
                   已选择的选项
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="短的选项二"
                 >
                   短的选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="很长很长很很长很长很长的选项三"
                 >
                   很长很长很很长很长很长的选项三
@@ -6016,6 +6176,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -6029,18 +6190,21 @@ exports[`Select Select prefixVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   选项一
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   选项三
@@ -6144,6 +6308,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -6157,18 +6322,21 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   选项一
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   选项三
@@ -6267,6 +6435,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   <label
@@ -6398,6 +6567,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-s t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -6416,6 +6586,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-s"
+                  style="position: relative;"
                   title="选项一"
                 >
                   
@@ -6424,6 +6595,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-s"
+                  style="position: relative;"
                   title="选项二"
                 >
                   
@@ -6432,6 +6604,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-select-option t-size-s"
+                  style="position: relative;"
                   title="选项三"
                 >
                   
@@ -6523,6 +6696,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -6536,18 +6710,21 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项一"
                 >
                   选项一
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项二"
                 >
                   选项二
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="选项三"
                 >
                   选项三
@@ -6636,6 +6813,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-l t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -6649,18 +6827,21 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-l"
+                  style="position: relative;"
                   title="选项一"
                 >
                   选项一
                 </li>
                 <li
                   class="t-select-option t-size-l"
+                  style="position: relative;"
                   title="选项二"
                 >
                   选项二
                 </li>
                 <li
                   class="t-select-option t-size-l"
+                  style="position: relative;"
                   title="选项三"
                 >
                   选项三
@@ -6755,6 +6936,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -6768,30 +6950,35 @@ exports[`Select Select statusVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="架构云"
                 >
                   架构云
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="大数据"
                 >
                   大数据
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="区块链"
                 >
                   区块链
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
+                  style="position: relative;"
                   title="物联网"
                 >
                   物联网
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="人工智能"
                 >
                   人工智能
@@ -6879,6 +7066,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -6892,30 +7080,35 @@ exports[`Select Select statusVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="架构云"
                 >
                   架构云
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="大数据"
                 >
                   大数据
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="区块链"
                 >
                   区块链
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
+                  style="position: relative;"
                   title="物联网"
                 >
                   物联网
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="人工智能"
                 >
                   人工智能
@@ -7003,6 +7196,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   

@@ -47,6 +47,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                     >
                       <li
                         class="t-select-option t-size-s t-select__create-option--special"
+                        style="position: relative;"
                         title=""
                       >
                         
@@ -65,6 +66,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2010"
                       >
                         
@@ -73,6 +75,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2011"
                       >
                         
@@ -81,6 +84,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2012"
                       >
                         
@@ -89,6 +93,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2013"
                       >
                         
@@ -97,6 +102,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2014"
                       >
                         
@@ -105,6 +111,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2015"
                       >
                         
@@ -113,6 +120,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2016"
                       >
                         
@@ -121,6 +129,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2017"
                       >
                         
@@ -129,6 +138,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2018"
                       >
                         
@@ -137,6 +147,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2019"
                       >
                         
@@ -145,6 +156,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-s"
+                        style="position: relative;"
                         title="2020"
                       >
                         
@@ -153,6 +165,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2021"
                       >
                         
@@ -161,6 +174,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2022"
                       >
                         
@@ -169,6 +183,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2023"
                       >
                         
@@ -177,6 +192,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2024"
                       >
                         
@@ -185,6 +201,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2025"
                       >
                         
@@ -193,6 +210,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2026"
                       >
                         
@@ -201,6 +219,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2027"
                       >
                         
@@ -209,6 +228,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2028"
                       >
                         
@@ -217,6 +237,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2029"
                       >
                         
@@ -225,6 +246,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="2030"
                       >
                         
@@ -319,6 +341,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                     >
                       <li
                         class="t-select-option t-size-s t-select__create-option--special"
+                        style="position: relative;"
                         title=""
                       >
                         
@@ -337,6 +360,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="January"
                       >
                         
@@ -345,6 +369,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="February"
                       >
                         
@@ -353,6 +378,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="March"
                       >
                         
@@ -361,6 +387,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="April"
                       >
                         
@@ -369,6 +396,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="May"
                       >
                         
@@ -377,6 +405,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="June"
                       >
                         
@@ -385,6 +414,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="July"
                       >
                         
@@ -393,6 +423,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="August"
                       >
                         
@@ -401,6 +432,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="September"
                       >
                         
@@ -409,6 +441,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="October"
                       >
                         
@@ -417,6 +450,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-s"
+                        style="position: relative;"
                         title="November"
                       >
                         
@@ -425,6 +459,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-s"
+                        style="position: relative;"
                         title="December"
                       >
                         
@@ -567,6 +602,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
       >
         <button
           class="t-button t-size-s t-button--variant-base t-button--theme-warning"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -1283,6 +1319,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -1295,6 +1332,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -1311,6 +1349,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上个月"
                       type="button"
                     >
@@ -1335,6 +1374,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="Now"
                       type="button"
                     >
@@ -1359,6 +1399,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下个月"
                       type="button"
                     >
@@ -2117,6 +2158,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -2129,6 +2171,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -2145,6 +2188,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -2169,6 +2213,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="Now"
                         type="button"
                       >
@@ -2193,6 +2238,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -2879,6 +2925,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -2891,6 +2938,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -2907,6 +2955,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个月"
                         type="button"
                       >
@@ -2931,6 +2980,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="Now"
                         type="button"
                       >
@@ -2955,6 +3005,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个月"
                         type="button"
                       >
@@ -3711,6 +3762,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -3728,6 +3780,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上一年"
                       type="button"
                     >
@@ -3752,6 +3805,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="Now"
                       type="button"
                     >
@@ -3776,6 +3830,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下一年"
                       type="button"
                     >
@@ -4064,6 +4119,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -4081,6 +4137,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上一年"
                         type="button"
                       >
@@ -4105,6 +4162,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="Now"
                         type="button"
                       >
@@ -4129,6 +4187,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下一年"
                         type="button"
                       >
@@ -4345,6 +4404,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       <!---->
                       <button
                         class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -4362,6 +4422,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上一年"
                         type="button"
                       >
@@ -4386,6 +4447,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="Now"
                         type="button"
                       >
@@ -4410,6 +4472,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下一年"
                         type="button"
                       >
@@ -4710,6 +4773,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="上个十年"
                       type="button"
                     >
@@ -4734,6 +4798,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                      style="position: relative;"
                       title="Now"
                       type="button"
                     >
@@ -4758,6 +4823,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                      style="position: relative;"
                       title="下个十年"
                       type="button"
                     >
@@ -5034,6 +5100,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个十年"
                         type="button"
                       >
@@ -5058,6 +5125,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="Now"
                         type="button"
                       >
@@ -5082,6 +5150,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个十年"
                         type="button"
                       >
@@ -5286,6 +5355,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                     >
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="上个十年"
                         type="button"
                       >
@@ -5310,6 +5380,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                        style="position: relative;"
                         title="Now"
                         type="button"
                       >
@@ -5334,6 +5405,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
                       </button>
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                        style="position: relative;"
                         title="下个十年"
                         type="button"
                       >
@@ -5614,6 +5686,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5624,6 +5697,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5695,6 +5769,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5705,6 +5780,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5776,6 +5852,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5786,6 +5863,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-warning t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5857,6 +5935,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5867,6 +5946,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-danger t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5938,6 +6018,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
           <div>
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-dialog__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -5948,6 +6029,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-success t-dialog__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -6157,6 +6239,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6182,6 +6265,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6206,6 +6290,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6230,6 +6315,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6254,6 +6340,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6279,6 +6366,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6303,6 +6391,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6327,6 +6416,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6351,6 +6441,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6376,6 +6467,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6400,6 +6492,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6424,6 +6517,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6448,6 +6542,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6473,6 +6568,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6497,6 +6593,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6521,6 +6618,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6545,6 +6643,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6570,6 +6669,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6594,6 +6694,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6618,6 +6719,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
+              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -6656,6 +6758,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
+        style="position: relative;"
         type="button"
       >
         
@@ -6684,6 +6787,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
+        style="position: relative;"
         type="button"
       >
         
@@ -6812,6 +6916,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -6825,18 +6930,21 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="Shanghai"
                 >
                   Shanghai
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="Beijing"
                 >
                   Beijing
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="Shenzhen"
                 >
                   Shenzhen
@@ -6926,6 +7034,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -7025,6 +7134,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -7609,6 +7719,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
+                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -7634,6 +7745,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
+                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -7659,6 +7771,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
+                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -7697,6 +7810,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
+                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -7722,6 +7836,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
+                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -7747,6 +7862,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
+                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -8608,6 +8724,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -8620,6 +8737,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9141,6 +9259,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
               >
                 <li
                   class="t-select-option t-size-m t-select__create-option--special"
+                  style="position: relative;"
                   title=""
                 >
                   
@@ -9159,24 +9278,28 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
                 
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="5 / page"
                 >
                   5 / page
                 </li>
                 <li
                   class="t-select-option t-is-selected t-size-m"
+                  style="position: relative;"
                   title="10 / page"
                 >
                   10 / page
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="20 / page"
                 >
                   20 / page
                 </li>
                 <li
                   class="t-select-option t-size-m"
+                  style="position: relative;"
                   title="50 / page"
                 >
                   50 / page
@@ -9377,6 +9500,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9387,6 +9511,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9408,6 +9533,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -9466,6 +9592,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9476,6 +9603,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-warning t-popconfirm__confirm"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9497,6 +9625,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-warning"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -9555,6 +9684,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
             >
               <button
                 class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9565,6 +9695,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-base t-button--theme-danger t-popconfirm__confirm"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -9586,6 +9717,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-danger"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -9601,6 +9733,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -9660,6 +9793,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
         >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -9670,6 +9804,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+            style="position: relative;"
             type="button"
           >
             <span

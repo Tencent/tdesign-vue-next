@@ -26,6 +26,7 @@ exports[`List List baseVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-text t-button--theme-default"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -38,6 +39,7 @@ exports[`List List baseVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-text t-button--theme-default"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -50,6 +52,7 @@ exports[`List List baseVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-text t-button--theme-default"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -79,6 +82,7 @@ exports[`List List baseVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-text t-button--theme-default"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -91,6 +95,7 @@ exports[`List List baseVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-text t-button--theme-default"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -103,6 +108,7 @@ exports[`List List baseVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-text t-button--theme-default"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -1147,6 +1153,7 @@ exports[`List List operationVue demo works fine 1`] = `
             <span>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -1159,6 +1166,7 @@ exports[`List List operationVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -1171,6 +1179,7 @@ exports[`List List operationVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -1228,6 +1237,7 @@ exports[`List List operationVue demo works fine 1`] = `
             <span>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -1240,6 +1250,7 @@ exports[`List List operationVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -1252,6 +1263,7 @@ exports[`List List operationVue demo works fine 1`] = `
               </button>
               <button
                 class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                style="position: relative;"
                 type="button"
               >
                 <span
@@ -1332,6 +1344,7 @@ exports[`List List operationVue demo works fine 1`] = `
             
             <button
               class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1356,6 +1369,7 @@ exports[`List List operationVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1428,6 +1442,7 @@ exports[`List List operationVue demo works fine 1`] = `
             
             <button
               class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -1452,6 +1467,7 @@ exports[`List List operationVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+              style="position: relative;"
               type="button"
             >
               <span
