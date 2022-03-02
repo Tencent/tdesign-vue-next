@@ -5,6 +5,7 @@
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
+animation | Object | { include: ['ripple','expand','fade'], exclude: [] } | 动画效果控制，`ripple`指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。TS 类型：`Record<'include'|'exclude', Array<AnimationType>> ` `type AnimationType = 'ripple' | 'expand' | 'fade'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 calendar | Object | - | 日历组件全局配置。TS 类型：`CalendarConfig` | N
 cascader | Object | - | 级联选择器全局配置。TS 类型：`CascaderConfig` | N
 datePicker | Object | - | 日期选择器全局配置。TS 类型：`DatePickerConfig` | N
