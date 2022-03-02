@@ -4,14 +4,12 @@ import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
 import FakeArrow from '../common-components/fake-arrow';
-import Ripple from '../utils/ripple';
+import useRipple from '../hooks/useRipple';
 import { ClassName } from '../common';
 
 export default defineComponent({
   name: 'TSubmenu',
-  directives: {
-    ripple: Ripple,
-  },
+
   props,
   setup(props, ctx) {
     const menu = inject<TdMenuInterface>('TdMenu');
@@ -29,6 +27,10 @@ export default defineComponent({
       return expandValues ? expandValues.value.includes(props.value) : false;
     });
     const isNested = ref(false); // 是否嵌套
+
+    const submenuRef = ref<HTMLElement>();
+    useRipple(submenuRef, rippleColor);
+
     const classes = computed(() => [
       `${prefix}-submenu`,
       {
@@ -122,7 +124,7 @@ export default defineComponent({
       arrowClass,
       popupClass,
       submenuClass,
-      rippleColor,
+      submenuRef,
       handleMouseEnter,
       handleMouseLeave,
       handleSubmenuItemClick,
@@ -131,7 +133,7 @@ export default defineComponent({
   methods: {
     renderHeadSubmenu() {
       const normalSubmenu = [
-        <div v-ripple={this.rippleColor} class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
+        <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
           {renderTNodeJSX(this, 'title')}
         </div>,
         <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent(this, 'default', 'content')}</ul>,
@@ -170,7 +172,7 @@ export default defineComponent({
       const needRotate = this.mode === 'popup' && this.isNested;
 
       const normalSubmenu = [
-        <div v-ripple={this.rippleColor} class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
+        <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
           {icon}
           <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title')}</span>
           {hasContent && (
