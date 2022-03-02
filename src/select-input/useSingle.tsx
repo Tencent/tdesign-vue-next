@@ -64,18 +64,21 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const renderSelectSingle = () => {
     const singleValueDisplay = renderTNode('valueDisplay');
     const prefixContent = [singleValueDisplay, renderTNode('label')];
+    const inputProps = {
+      ...commonInputProps.value,
+      ...props.inputProps,
+      value: singleValueDisplay ? undefined : inputValue.value,
+      label: prefixContent.length ? () => prefixContent : undefined,
+      autoWidth: props.autoWidth,
+      readonly: !props.allowInput,
+      placeholder: singleValueDisplay ? '' : props.placeholder,
+    };
     return (
       <Input
         ref="inputRef"
-        {...commonInputProps.value}
+        {...inputProps}
         v-slots={context.slots}
-        autoWidth={props.autoWidth}
-        placeholder={singleValueDisplay ? '' : props.placeholder}
-        value={singleValueDisplay ? undefined : inputValue.value}
-        label={prefixContent.length ? () => prefixContent : undefined}
-        showClearIconOnEmpty
         onChange={onInnerInputChange}
-        readonly={!props.allowInput}
         onClear={onInnerClear}
         onBlur={(val, context) => {
           props.onBlur?.(value, { ...context, inputValue: val });
@@ -84,7 +87,6 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         onFocus={(val, context) => {
           props.onFocus?.(value, { ...context, inputValue: val });
         }}
-        {...props.inputProps}
       />
     );
   };

@@ -46,28 +46,32 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
   };
 
   const renderSelectMultiple = (p: RenderSelectMultipleParams) => {
+    const tagInputProps = {
+      ...p.commonInputProps,
+      ...props.tagInputProps,
+      tagProps: props.tagProps,
+      readonly: !props.allowInput,
+      label: props.label,
+      autoWidth: props.borderless || props.autoWidth,
+      placeholder: tPlaceholder.value,
+      minCollapsedNum: props.minCollapsedNum,
+      collapsedItems: props.collapsedItems,
+      tag: props.tag,
+      valueDisplay: props.valueDisplay,
+      inputValue: tInputValue.value || '',
+    };
+
     return (
       <TagInput
         ref="tagInputRef"
-        {...p.commonInputProps}
+        {...tagInputProps}
         v-slots={context.slots}
-        label={props.label}
-        readonly={!props.allowInput}
-        autoWidth={props.autoWidth}
-        minCollapsedNum={props.minCollapsedNum}
-        collapsedItems={props.collapsedItems}
-        tag={props.tag}
-        valueDisplay={props.valueDisplay}
-        placeholder={tPlaceholder.value}
-        value={tags.value}
-        inputValue={tInputValue.value || ''}
-        onChange={onTagInputChange}
         onInputChange={(val: InputValue, context: InputValueChangeContext) => {
           // 筛选器统一特性：筛选器按下回车时不清空输入框
           if (context?.trigger === 'enter') return;
           setTInputValue(val, { trigger: context.trigger, e: context.e });
         }}
-        tagProps={props.tagProps}
+        onChange={onTagInputChange}
         onClear={p.onInnerClear}
         onBlur={(val, context) => {
           // 筛选器统一特性：失去焦点时，清空输入内容
@@ -77,7 +81,6 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         onFocus={(val, context) => {
           props.onFocus?.(props.value, { ...context, tagInputValue: val });
         }}
-        {...props.tagInputProps}
       />
     );
   };

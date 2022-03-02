@@ -8,7 +8,6 @@
       placeholder="select frameworks"
       clearable
       multiple
-      style="width: 250px"
       @tag-change="onTagChange"
     >
       <template #panel>

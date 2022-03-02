@@ -135,9 +135,6 @@ export default defineComponent({
         ref="tagInputRef"
         {...this.inputProps}
         value={this.tInputValue}
-        onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
-          this.setTInputValue(val, { ...context, trigger: 'input' });
-        }}
         onWheel={this.onWheel}
         autoWidth={this.autoWidth}
         size={this.size}
@@ -150,6 +147,9 @@ export default defineComponent({
         placeholder={this.tagInputPlaceholder}
         suffix={this.suffix}
         suffixIcon={() => suffixIconNode}
+        onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
+          this.setTInputValue(val, { ...context, trigger: 'input' });
+        }}
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}
