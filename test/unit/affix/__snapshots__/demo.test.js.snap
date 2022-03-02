@@ -8,6 +8,7 @@ exports[`Affix Affix baseVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -37,6 +38,7 @@ exports[`Affix Affix containerVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          style="position: relative;"
           type="button"
         >
           <span

@@ -40,6 +40,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
           >
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -50,6 +51,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
             </button>
             <button
               class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+              style="position: relative;"
               type="button"
             >
               <span
@@ -224,6 +226,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
     <br />
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -289,6 +292,7 @@ exports[`Drawer Drawer baseVue demo works fine 1`] = `
         >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -299,6 +303,7 @@ exports[`Drawer Drawer baseVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -314,6 +319,7 @@ exports[`Drawer Drawer baseVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -357,6 +363,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -369,6 +376,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
         </button>
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          style="position: relative;"
           type="button"
         >
           <span
@@ -415,6 +423,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
         <div>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -427,6 +436,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -476,6 +486,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled t-drawer__confirm"
             disabled=""
+            style="position: relative;"
             type="button"
           >
             <span
@@ -486,6 +497,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -501,6 +513,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -514,6 +527,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
       
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -527,6 +541,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
       
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -546,6 +561,7 @@ exports[`Drawer Drawer destroyVue demo works fine 1`] = `
   <!---->
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -592,6 +608,7 @@ exports[`Drawer Drawer noMaskVue demo works fine 1`] = `
         >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -602,6 +619,7 @@ exports[`Drawer Drawer noMaskVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -617,6 +635,7 @@ exports[`Drawer Drawer noMaskVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -725,6 +744,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
         >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -735,6 +755,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -750,6 +771,7 @@ exports[`Drawer Drawer operationVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -799,6 +821,7 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
         >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -809,6 +832,7 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -923,6 +947,7 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default btn-top-margin"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -999,6 +1024,7 @@ exports[`Drawer Drawer popupVue demo works fine 1`] = `
   <br />
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -1047,6 +1073,7 @@ exports[`Drawer Drawer sizeVue demo works fine 1`] = `
         >
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-drawer__confirm"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -1057,6 +1084,7 @@ exports[`Drawer Drawer sizeVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default t-drawer__cancel"
+            style="position: relative;"
             type="button"
           >
             <span
@@ -1215,6 +1243,7 @@ exports[`Drawer Drawer sizeVue demo works fine 1`] = `
   </div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default btn-top-margin"
+    style="position: relative;"
     type="button"
   >
     <span

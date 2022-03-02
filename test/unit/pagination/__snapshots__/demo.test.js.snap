@@ -38,6 +38,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-m t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -56,24 +57,28 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-is-selected t-size-m"
+                    style="position: relative;"
                     title="5 条/页"
                   >
                     5 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="10 条/页"
                   >
                     10 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="20 条/页"
                   >
                     20 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="50 条/页"
                   >
                     50 条/页
@@ -266,6 +271,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-m t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -284,24 +290,28 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="5 条/页"
                   >
                     5 条/页
                   </li>
                   <li
                     class="t-select-option t-is-selected t-size-m"
+                    style="position: relative;"
                     title="10 条/页"
                   >
                     10 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="20 条/页"
                   >
                     20 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="50 条/页"
                   >
                     50 条/页
@@ -471,6 +481,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-m t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -489,24 +500,28 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="5 条/页"
                   >
                     5 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="10 条/页"
                   >
                     10 条/页
                   </li>
                   <li
                     class="t-select-option t-is-selected t-size-m"
+                    style="position: relative;"
                     title="20 条/页"
                   >
                     20 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="50 条/页"
                   >
                     50 条/页
@@ -706,6 +721,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-s t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -724,24 +740,28 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-is-selected t-size-s"
+                    style="position: relative;"
                     title="5 条/页"
                   >
                     5 条/页
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="10 条/页"
                   >
                     10 条/页
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="20 条/页"
                   >
                     20 条/页
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="50 条/页"
                   >
                     50 条/页
@@ -935,6 +955,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-m t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -953,24 +974,28 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-is-selected t-size-m"
+                    style="position: relative;"
                     title="5 条/页"
                   >
                     5 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="10 条/页"
                   >
                     10 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="20 条/页"
                   >
                     20 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="50 条/页"
                   >
                     50 条/页
@@ -1186,6 +1211,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-m t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -1204,24 +1230,28 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="每页 10 条"
                   >
                     每页 10 条
                   </li>
                   <li
                     class="t-select-option t-is-selected t-size-m"
+                    style="position: relative;"
                     title="每页 30 条"
                   >
                     每页 30 条
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="每页 50 条"
                   >
                     每页 50 条
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="每页 100 条"
                   >
                     每页 100 条
@@ -1415,6 +1445,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-s t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -1433,24 +1464,28 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-is-selected t-size-s"
+                    style="position: relative;"
                     title="5 条/页"
                   >
                     5 条/页
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="10 条/页"
                   >
                     10 条/页
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="20 条/页"
                   >
                     20 条/页
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="50 条/页"
                   >
                     50 条/页
@@ -1556,6 +1591,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-s t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -1569,120 +1605,140 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-is-selected t-size-s"
+                    style="position: relative;"
                     title="1/20"
                   >
                     1/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="2/20"
                   >
                     2/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="3/20"
                   >
                     3/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="4/20"
                   >
                     4/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="5/20"
                   >
                     5/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="6/20"
                   >
                     6/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="7/20"
                   >
                     7/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="8/20"
                   >
                     8/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="9/20"
                   >
                     9/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="10/20"
                   >
                     10/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="11/20"
                   >
                     11/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="12/20"
                   >
                     12/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="13/20"
                   >
                     13/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="14/20"
                   >
                     14/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="15/20"
                   >
                     15/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="16/20"
                   >
                     16/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="17/20"
                   >
                     17/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="18/20"
                   >
                     18/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="19/20"
                   >
                     19/20
                   </li>
                   <li
                     class="t-select-option t-size-s"
+                    style="position: relative;"
                     title="20/20"
                   >
                     20/20
@@ -1803,6 +1859,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-m t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -1821,24 +1878,28 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-is-selected t-size-m"
+                    style="position: relative;"
                     title="5 条/页"
                   >
                     5 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="10 条/页"
                   >
                     10 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="20 条/页"
                   >
                     20 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="50 条/页"
                   >
                     50 条/页
@@ -1944,6 +2005,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-m t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -1957,120 +2019,140 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-is-selected t-size-m"
+                    style="position: relative;"
                     title="1/20"
                   >
                     1/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="2/20"
                   >
                     2/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="3/20"
                   >
                     3/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="4/20"
                   >
                     4/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="5/20"
                   >
                     5/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="6/20"
                   >
                     6/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="7/20"
                   >
                     7/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="8/20"
                   >
                     8/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="9/20"
                   >
                     9/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="10/20"
                   >
                     10/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="11/20"
                   >
                     11/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="12/20"
                   >
                     12/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="13/20"
                   >
                     13/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="14/20"
                   >
                     14/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="15/20"
                   >
                     15/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="16/20"
                   >
                     16/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="17/20"
                   >
                     17/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="18/20"
                   >
                     18/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="19/20"
                   >
                     19/20
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="20/20"
                   >
                     20/20
@@ -2191,6 +2273,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                 >
                   <li
                     class="t-select-option t-size-m t-select__create-option--special"
+                    style="position: relative;"
                     title=""
                   >
                     
@@ -2209,24 +2292,28 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                   
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="5 条/页"
                   >
                     5 条/页
                   </li>
                   <li
                     class="t-select-option t-is-selected t-size-m"
+                    style="position: relative;"
                     title="10 条/页"
                   >
                     10 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="20 条/页"
                   >
                     20 条/页
                   </li>
                   <li
                     class="t-select-option t-size-m"
+                    style="position: relative;"
                     title="50 条/页"
                   >
                     50 条/页

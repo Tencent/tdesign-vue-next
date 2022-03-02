@@ -3417,6 +3417,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -3878,6 +3879,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                     <!---->
                                                     <button
                                                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
+                                                      style="position: relative;"
                                                       type="button"
                                                     >
                                                       <span
@@ -3895,6 +3897,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                   >
                                                     <button
                                                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                                                      style="position: relative;"
                                                       title="上一年"
                                                       type="button"
                                                     >
@@ -3919,6 +3922,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                     </button>
                                                     <button
                                                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
+                                                      style="position: relative;"
                                                       title="当前"
                                                       type="button"
                                                     >
@@ -3943,6 +3947,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                                     </button>
                                                     <button
                                                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
+                                                      style="position: relative;"
                                                       title="下一年"
                                                       type="button"
                                                     >
@@ -9517,6 +9522,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                       >
                         <li
                           class="t-select-option t-size-m t-select__create-option--special"
+                          style="position: relative;"
                           title=""
                         >
                           
@@ -9535,24 +9541,28 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                         
                         <li
                           class="t-select-option t-size-m"
+                          style="position: relative;"
                           title="5 条/页"
                         >
                           5 条/页
                         </li>
                         <li
                           class="t-select-option t-is-selected t-size-m"
+                          style="position: relative;"
                           title="10 条/页"
                         >
                           10 条/页
                         </li>
                         <li
                           class="t-select-option t-size-m"
+                          style="position: relative;"
                           title="20 条/页"
                         >
                           20 条/页
                         </li>
                         <li
                           class="t-select-option t-size-m"
+                          style="position: relative;"
                           title="50 条/页"
                         >
                           50 条/页
@@ -10091,6 +10101,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                         >
                           <li
                             class="t-select-option t-size-m t-select__create-option--special"
+                            style="position: relative;"
                             title=""
                           >
                             
@@ -10109,24 +10120,28 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                           
                           <li
                             class="t-select-option t-is-selected t-size-m"
+                            style="position: relative;"
                             title="5 条/页"
                           >
                             5 条/页
                           </li>
                           <li
                             class="t-select-option t-size-m"
+                            style="position: relative;"
                             title="10 条/页"
                           >
                             10 条/页
                           </li>
                           <li
                             class="t-select-option t-size-m"
+                            style="position: relative;"
                             title="20 条/页"
                           >
                             20 条/页
                           </li>
                           <li
                             class="t-select-option t-size-m"
+                            style="position: relative;"
                             title="50 条/页"
                           >
                             50 条/页
@@ -12967,6 +12982,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -12979,6 +12995,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -12991,6 +13008,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13046,6 +13064,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                               >
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13056,6 +13075,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                 </button>
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13077,6 +13097,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -13149,6 +13170,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13161,6 +13183,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13173,6 +13196,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13228,6 +13252,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                               >
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13238,6 +13263,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                 </button>
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13259,6 +13285,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -13331,6 +13358,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13343,6 +13371,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13355,6 +13384,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13410,6 +13440,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                               >
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13420,6 +13451,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                 </button>
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13441,6 +13473,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -13513,6 +13546,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13525,6 +13559,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13537,6 +13572,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13592,6 +13628,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                               >
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13602,6 +13639,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                 </button>
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13623,6 +13661,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -13695,6 +13734,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13707,6 +13747,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13719,6 +13760,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -13774,6 +13816,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                               >
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13784,6 +13827,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                                 </button>
                                 <button
                                   class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                                  style="position: relative;"
                                   type="button"
                                 >
                                   <span
@@ -13805,6 +13849,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                       
                       <button
                         class="t-button t-size-m t-button--variant-text t-button--theme-default"
+                        style="position: relative;"
                         type="button"
                       >
                         <span
@@ -13839,6 +13884,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
   <div>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -13852,6 +13898,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
        
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span

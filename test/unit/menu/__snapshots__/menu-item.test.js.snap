@@ -15,6 +15,7 @@ exports[`MenuItem props :disabled 1`] = `
       
       <li
         class="t-menu__item t-is-active t-is-disabled t-menu__item--plain"
+        style="position: relative;"
       >
         <!---->
         <span
@@ -46,6 +47,7 @@ exports[`MenuItem props :name 1`] = `
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
         name="1-1"
+        style="position: relative;"
       >
         <!---->
         <span
@@ -77,6 +79,7 @@ exports[`MenuItem props :route 1`] = `
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
         route="/user/list"
+        style="position: relative;"
       >
         <!---->
         <span
@@ -107,6 +110,7 @@ exports[`MenuItem slot <default> 1`] = `
       
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
+        style="position: relative;"
       >
         <!---->
         <span
@@ -137,6 +141,7 @@ exports[`MenuItem slot <icon> 1`] = `
       
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
+        style="position: relative;"
       >
         <!---->
         <span

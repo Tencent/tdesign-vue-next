@@ -136,6 +136,7 @@ exports[`Message Message closeAllVue demo works fine 1`] = `
 <div>
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -149,6 +150,7 @@ exports[`Message Message closeAllVue demo works fine 1`] = `
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     id="t-demo-msg-close-all"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -413,6 +415,7 @@ exports[`Message Message loadingVue demo works fine 1`] = `
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
     disabled=""
+    style="position: relative;"
     type="button"
   >
     <span
@@ -434,6 +437,7 @@ exports[`Message Message offsetVue demo works fine 1`] = `
   <br />
   <button
     class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+    style="position: relative;"
     type="button"
   >
     <span
@@ -488,6 +492,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-center"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -500,6 +505,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-top"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -512,6 +518,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-left"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -524,6 +531,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-right"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -536,6 +544,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-bottom"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -548,6 +557,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-top-left"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -560,6 +570,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-top-right"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -572,6 +583,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-bottom-left"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -584,6 +596,7 @@ exports[`Message Message placementVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default placement-bottom-right"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -609,6 +622,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -621,6 +635,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-success"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -633,6 +648,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -645,6 +661,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -657,6 +674,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -670,6 +688,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     <!-- 0 表示永远不自动消失 -->
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -682,6 +701,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -704,6 +724,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -716,6 +737,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-success"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -728,6 +750,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-warning"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -740,6 +763,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-danger"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -752,6 +776,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -764,6 +789,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-primary"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -776,6 +802,7 @@ exports[`Message Message pluginVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      style="position: relative;"
       type="button"
     >
       <span
@@ -798,6 +825,7 @@ exports[`Message Message toggleVue demo works fine 1`] = `
 >
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    style="position: relative;"
     type="button"
   >
     <span

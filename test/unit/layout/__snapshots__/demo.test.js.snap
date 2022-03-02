@@ -38,6 +38,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-is-active"
+              style="position: relative;"
             >
               
               <svg
@@ -58,6 +59,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item"
+              style="position: relative;"
             >
               
               <svg
@@ -78,6 +80,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item"
+              style="position: relative;"
             >
               
               <svg
@@ -98,6 +101,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item"
+              style="position: relative;"
             >
               
               <svg
@@ -118,6 +122,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item"
+              style="position: relative;"
             >
               
               <svg
@@ -138,6 +143,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item"
+              style="position: relative;"
             >
               
               <svg
@@ -158,6 +164,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item"
+              style="position: relative;"
             >
               
               <svg
@@ -178,6 +185,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item"
+              style="position: relative;"
             >
               
               <svg
@@ -198,6 +206,7 @@ exports[`Layout Layout asideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item"
+              style="position: relative;"
             >
               
               <svg
@@ -449,6 +458,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-is-active t-menu__item--plain"
+              style="position: relative;"
             >
               <!---->
               <span
@@ -461,6 +471,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
+              style="position: relative;"
             >
               <!---->
               <span
@@ -473,6 +484,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
+              style="position: relative;"
             >
               <!---->
               <span
@@ -485,6 +497,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-is-disabled t-menu__item--plain"
+              style="position: relative;"
             >
               <!---->
               <span
@@ -564,6 +577,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               
               <li
                 class="t-menu__item t-is-active"
+                style="position: relative;"
               >
                 
                 <svg
@@ -584,6 +598,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item"
+                style="position: relative;"
               >
                 
                 <svg
@@ -604,6 +619,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item"
+                style="position: relative;"
               >
                 
                 <svg
@@ -624,6 +640,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item"
+                style="position: relative;"
               >
                 
                 <svg
@@ -644,6 +661,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item"
+                style="position: relative;"
               >
                 
                 <svg
@@ -664,6 +682,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item"
+                style="position: relative;"
               >
                 
                 <svg
@@ -684,6 +703,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item"
+                style="position: relative;"
               >
                 
                 <svg
@@ -704,6 +724,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item"
+                style="position: relative;"
               >
                 
                 <svg
@@ -724,6 +745,7 @@ exports[`Layout Layout combineVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item"
+                style="position: relative;"
               >
                 
                 <svg
@@ -815,6 +837,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-is-active t-menu__item--plain"
+              style="position: relative;"
             >
               <!---->
               <span
@@ -827,6 +850,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
+              style="position: relative;"
             >
               <!---->
               <span
@@ -839,6 +863,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
+              style="position: relative;"
             >
               <!---->
               <span
@@ -851,6 +876,7 @@ exports[`Layout Layout topVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-is-disabled t-menu__item--plain"
+              style="position: relative;"
             >
               <!---->
               <span
