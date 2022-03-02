@@ -49,7 +49,7 @@ export default defineComponent({
   },
   computed: {
     showClear(): boolean {
-      return (this.value && !this.disabled && this.clearable && this.isHover) || this.showClearIconOnEmpty;
+      return this.value && !this.disabled && this.clearable && this.isHover;
     },
     tPlaceholder(): string {
       return this.placeholder ?? this.t(this.global.placeholder);
@@ -74,6 +74,12 @@ export default defineComponent({
             (this.$refs.inputRef as HTMLInputElement).focus();
           });
         }
+      },
+      immediate: true,
+    },
+    value: {
+      handler(val) {
+        this.inputValue = val;
       },
       immediate: true,
     },
@@ -179,13 +185,20 @@ export default defineComponent({
       this.emitFocus(e);
     },
     emitFocus(e: FocusEvent) {
+      this.inputValue = this.value;
       if (this.disabled) return;
       this.focused = true;
       emitEvent(this, 'focus', this.value, { e });
     },
-    emitBlur(e: FocusEvent) {
+    formatAndEmitBlur(e: FocusEvent) {
+      if (this.format) {
+        this.inputValue = this.format(this.value);
+      }
       this.focused = false;
       emitEvent(this, 'blur', this.value, { e });
+    },
+    compositionendHandler(e: InputEvent) {
+      this.inputValueChangeHandle(e);
     },
     onHandleCompositionend(e: CompositionEvent) {
       this.inputValueChangeHandle(e);
@@ -231,7 +244,7 @@ export default defineComponent({
   render(): VNodeChild {
     const inputEvents = getValidAttrs({
       onFocus: (e: FocusEvent) => this.emitFocus(e),
-      onBlur: this.emitBlur,
+      onBlur: this.formatAndEmitBlur,
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
@@ -299,7 +312,7 @@ export default defineComponent({
           {...{ ...this.inputAttrs }}
           {...inputEvents}
           ref="inputRef"
-          value={this.value}
+          value={this.inputValue}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
         />
         {this.autoWidth && (

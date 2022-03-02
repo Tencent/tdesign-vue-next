@@ -51,6 +51,9 @@ const onPopupVisibleChange = (val) => {
   list-style: none;
   padding: 0;
   margin: 0;
+  cursor: pointer;
+  padding: 9px 8px;
+  border-radius: 3px;
 }
 
 .tdesign-demo__select-input-ul-autocomplete > li {

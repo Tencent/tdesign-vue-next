@@ -60,11 +60,22 @@ const onInputChange = (val, context) => {
 };
 </script>
 <style>
-.tdesign-demo__select-input-ul-single,
+.tdesign-demo__select-input-ul-single {
+  padding: 4px 0;
+}
 .tdesign-demo__select-input-ul-single > li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  display: block;
+  border-radius: 3px;
+  height: 40px;
+  line-height: 22px;
+  cursor: pointer;
+  padding: 9px 8px;
+  color: var(--td-text-color-primary);
+  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tdesign-demo__select-input-ul-single > li {
