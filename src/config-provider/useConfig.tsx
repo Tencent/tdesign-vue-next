@@ -1,24 +1,35 @@
-import { computed, inject, Ref } from 'vue';
-import defaultConfig from './zh_CN_config';
+import { computed, inject } from 'vue';
+import cloneDeep from 'lodash/cloneDeep';
+import _mergeWith from 'lodash/mergeWith';
+import { defaultGlobalConfig, GlobalConfig } from './context';
 
-export * from './type';
+// deal with https://github.com/lodash/lodash/issues/1313
+export const merge = (defaultGlobalConfig: GlobalConfig, injectConfig: GlobalConfig) =>
+  _mergeWith(defaultGlobalConfig, injectConfig, (objValue, srcValue) => {
+    if (Array.isArray(objValue)) {
+      return srcValue;
+    }
+  });
 
 /**
- * receive component global config
+ * component global config
  * @param componentName
  * @returns {t, global}
+ * useConfig('pagination')
  */
-export default function useConfig<T>(componentName: string) {
+export function useConfig<T extends keyof GlobalConfig>(componentName: T) {
+  const mergedGlobalConfig = computed(() => {
+    const globalConfig = inject<GlobalConfig>('globalConfig', Object.create(null));
+    const mergedGlobalConfig = merge(cloneDeep(defaultGlobalConfig), globalConfig);
+    return mergedGlobalConfig;
+  });
+
   const global = computed(() => {
-    const globalConfig = inject('globalConfig', {});
-    const defaultConfigData = defaultConfig[componentName];
-    if (globalConfig && globalConfig[componentName]) {
-      return {
-        ...defaultConfigData,
-        ...globalConfig[componentName],
-      };
-    }
-    return defaultConfigData;
+    return mergedGlobalConfig.value[componentName];
+  });
+
+  const classPrefix = computed(() => {
+    return mergedGlobalConfig.value.classPrefix;
   });
 
   // 处理正则表达式
@@ -40,7 +51,6 @@ export default function useConfig<T>(componentName: string) {
     return '';
   };
 
-  const classPrefix = 't';
   return {
     t,
     global,

@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 import defaultConfig from './zh_CN_config';
 import { GlobalConfigProvider } from './type';
 import { prefix } from '../config';
