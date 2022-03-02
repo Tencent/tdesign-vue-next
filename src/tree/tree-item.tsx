@@ -206,7 +206,7 @@ export default defineComponent({
             name={node.value}
             onChange={() => this.handleChange()}
             ignore="expand,active"
-            neddRipple={true}
+            needRipple={true}
             {...itemCheckProps}
           >
             {labelNode}
