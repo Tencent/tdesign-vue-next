@@ -25,7 +25,7 @@ export default defineComponent({
 
   setup(props) {
     const formDisabled = useFormDisabled();
-    const label = ref();
+    const label = ref<HTMLElement>();
     if (props.needRipple) {
       useRipple(label);
     }
