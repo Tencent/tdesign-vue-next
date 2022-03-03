@@ -1,22 +1,18 @@
 import { defineComponent, computed, toRefs, nextTick } from 'vue';
 
-// components
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TInput, { InputValue } from '../input';
 
-// utils
 import { TdTagInputProps } from './type';
 import props from './props';
 import { prefix } from '../config';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
-// hooks
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
-import useDefault from '../hooks/useDefault';
+import useDefault from '../hooks/useDefaultValue';
 
-// constants class
 const NAME_CLASS = `${prefix}-tag-input`;
 const CLEAR_CLASS = `${prefix}-tag-input__suffix-clear`;
 const BREAK_LINE_CLASS = `${prefix}-tag-input--break-line`;

@@ -160,7 +160,7 @@ export default defineComponent({
     let children = null;
     if (this.options?.length) {
       children = this.optionList?.map((option, index) => (
-        <Checkbox key={index} {...option} checked={this.checkedMap[option.value]}>
+        <Checkbox key={`${option.value}${index}`} {...option} checked={this.checkedMap[option.value]}>
           {this.renderLabel(option)}
         </Checkbox>
       ));

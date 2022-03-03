@@ -1,17 +1,14 @@
 import { SetupContext, computed, ref, toRefs } from 'vue';
 
-// utils && types
 import isObject from 'lodash/isObject';
 import { TdSelectInputProps, SelectInputChangeContext, SelectInputKeys } from './type';
 import { SelectInputCommonProperties } from './interface';
 
-// components
 import { InputValue } from '../input';
 import TagInput, { TagInputValue, InputValueChangeContext } from '../tag-input';
 import Loading from '../loading';
 
-// hooks
-import useDefault from '../hooks/useDefault';
+import useDefault from '../hooks/useDefaultValue';
 
 export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;
@@ -64,6 +61,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       minCollapsedNum: props.minCollapsedNum,
       collapsedItems: props.collapsedItems,
       tag: props.tag,
+      value: tags.value,
       valueDisplay: props.valueDisplay,
       inputValue: tInputValue.value || '',
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,

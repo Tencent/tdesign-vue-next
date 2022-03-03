@@ -1,13 +1,10 @@
 import { computed, defineComponent, ref, SetupContext, toRefs } from 'vue';
-// components
 import Popup from '../popup';
 
-// utils
 import { prefix } from '../config';
 import props from './props';
 import { TdSelectInputProps } from './type';
 
-// hooks
 import useSingle from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayStyle from './useOverlayStyle';
@@ -57,6 +54,7 @@ export default defineComponent({
 
   render() {
     // 浮层显示的受控与非受控
+    const visibleProps = { visible: this.popupVisible ?? this.innerPopupVisible };
 
     const mainContent = (
       <Popup
@@ -64,7 +62,7 @@ export default defineComponent({
         class={this.popupClasses}
         trigger={(this.popupProps as TdSelectInputProps['popupProps'])?.trigger || 'click'}
         placement="bottom-left"
-        visible={this.popupVisible ?? this.innerPopupVisible}
+        {...visibleProps}
         content={this.panel}
         v-slots={{ ...this.$slots, content: this.$slots.panel }}
         hideEmptyPopup={true}

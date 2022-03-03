@@ -11,7 +11,7 @@
       @popup-visible-change="onPopupVisibleChange"
     >
       <template #panel>
-        <ul class="tdesign-demo__select-input-ul-single">
+        <ul class="tdesign-demo__select-input-ul-autocomplete">
           <li v-for="item in options" :key="item" @click="() => onOptionClick(item)">
             {{ item }}
           </li>
@@ -46,10 +46,10 @@ const onPopupVisibleChange = (val) => {
 };
 </script>
 <style lang="less" scoped>
-.tdesign-demo__select-input-ul-single {
+.tdesign-demo__select-input-ul-autocomplete {
   padding: 4px 0;
 }
-.tdesign-demo__select-input-ul-single > li {
+.tdesign-demo__select-input-ul-autocomplete > li {
   display: block;
   border-radius: 3px;
   height: 40px;
@@ -64,7 +64,7 @@ const onPopupVisibleChange = (val) => {
   text-overflow: ellipsis;
 }
 
-.tdesign-demo__select-input-ul-single > li:hover {
+.tdesign-demo__select-input-ul-autocomplete > li:hover {
   background-color: var(--td-bg-color-container-hover);
 }
 </style>

@@ -11,7 +11,7 @@
       @clear="onClear"
     >
       <template #panel>
-        <ul class="tdesign-demo__select-input-ul-single">
+        <ul class="tdesign-demo__select-input-ul-borderless">
           <li v-for="item in options" :key="item.value" @click="() => onOptionClick(item)">
             {{ item.label }}
           </li>
@@ -51,10 +51,10 @@ const onPopupVisibleChange = (val, context) => {
 };
 </script>
 <style lang="less" scoped>
-.tdesign-demo__select-input-ul-single {
+.tdesign-demo__select-input-ul-borderless {
   padding: 4px 0;
 }
-.tdesign-demo__select-input-ul-single > li {
+.tdesign-demo__select-input-ul-borderless > li {
   display: block;
   border-radius: 3px;
   height: 40px;
@@ -69,7 +69,7 @@ const onPopupVisibleChange = (val, context) => {
   text-overflow: ellipsis;
 }
 
-.tdesign-demo__select-input-ul-single > li:hover {
+.tdesign-demo__select-input-ul-borderless > li:hover {
   background-color: var(--td-bg-color-container-hover);
 }
 </style>

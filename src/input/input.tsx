@@ -1,6 +1,7 @@
 import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import camelCase from 'lodash/camelCase';
+import kebabCase from 'lodash/kebabCase';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 import getConfigReceiverMixins, { InputConfig } from '../config-provider/config-receiver';
@@ -49,7 +50,7 @@ export default defineComponent({
   },
   computed: {
     showClear(): boolean {
-      return this.value && !this.disabled && this.clearable && this.isHover;
+      return (this.value && !this.disabled && this.clearable && this.isHover) || this.showClearIconOnEmpty;
     },
     tPlaceholder(): string {
       return this.placeholder ?? this.t(this.global.placeholder);
@@ -113,8 +114,8 @@ export default defineComponent({
         return icon(h);
       }
       // 插槽名称为中划线
-      if (this.$slots[iconType]) {
-        return this.$slots[iconType](null);
+      if (this.$slots[kebabCase(iconType)]) {
+        return this.$slots[kebabCase(iconType)](null);
       }
       // 插槽名称为驼峰
       if (this.$slots[camelCase(iconType)]) {
