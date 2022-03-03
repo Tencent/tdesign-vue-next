@@ -68,7 +68,6 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -94,7 +93,6 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -120,7 +118,6 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -158,7 +155,6 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -184,7 +180,6 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -210,7 +205,6 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -403,7 +397,6 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -441,7 +434,6 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -634,7 +626,6 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -660,7 +651,6 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -686,7 +676,6 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -724,7 +713,6 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -750,7 +738,6 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"
@@ -776,7 +763,6 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
                     </span>
                     <span
                       class="t-tree__label t-tree__label--strictly"
-                      style="position: relative;"
                     >
                       <span
                         style="position: relative;"

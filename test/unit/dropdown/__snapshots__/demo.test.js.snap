@@ -33,7 +33,6 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -54,7 +53,6 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -75,7 +73,6 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -96,7 +93,6 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -127,7 +123,6 @@ exports[`Dropdown Dropdown baseVue demo works fine 1`] = `
     >
       <button
         class="t-button t-size-m t-button--variant-text t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -187,7 +182,6 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -208,7 +202,6 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -229,7 +222,6 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -250,7 +242,6 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -278,7 +269,6 @@ exports[`Dropdown Dropdown buttonVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -326,7 +316,6 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -347,7 +336,6 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -380,7 +368,6 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -401,7 +388,6 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -429,7 +415,6 @@ exports[`Dropdown Dropdown customVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -479,7 +464,6 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -500,7 +484,6 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -521,7 +504,6 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item t-is-disabled"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -542,7 +524,6 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item t-is-disabled"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -570,7 +551,6 @@ exports[`Dropdown Dropdown disabledVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -635,7 +615,6 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -656,7 +635,6 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -677,7 +655,6 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -698,7 +675,6 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -726,7 +702,6 @@ exports[`Dropdown Dropdown eventVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -774,7 +749,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -795,7 +769,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -816,7 +789,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -837,7 +809,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -858,7 +829,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -879,7 +849,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -900,7 +869,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -921,7 +889,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -942,7 +909,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -963,7 +929,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -984,7 +949,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1005,7 +969,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1026,7 +989,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1047,7 +1009,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1068,7 +1029,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1089,7 +1049,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1110,7 +1069,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1131,7 +1089,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1152,7 +1109,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1173,7 +1129,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1201,7 +1156,6 @@ exports[`Dropdown Dropdown longVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -1251,7 +1205,6 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1284,7 +1237,6 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1317,7 +1269,6 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1350,7 +1301,6 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
               >
                 <div
                   class="t-dropdown__item t-dropdown--suffix"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1390,7 +1340,6 @@ exports[`Dropdown Dropdown multipleVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -1451,7 +1400,6 @@ exports[`Dropdown Dropdown slotVue demo works fine 1`] = `
               <div>
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1471,7 +1419,6 @@ exports[`Dropdown Dropdown slotVue demo works fine 1`] = `
               <div>
                 <div
                   class="t-dropdown__item"
-                  style="position: relative;"
                 >
                   <div
                     class="t-dropdown__item-content"
@@ -1500,7 +1447,6 @@ exports[`Dropdown Dropdown slotVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -1547,7 +1493,6 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
             >
               <div
                 class="t-dropdown__item"
-                style="position: relative;"
               >
                 <div
                   class="t-dropdown__item-content"
@@ -1568,7 +1513,6 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
             >
               <div
                 class="t-dropdown__item"
-                style="position: relative;"
               >
                 <div
                   class="t-dropdown__item-content"
@@ -1589,7 +1533,6 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
             >
               <div
                 class="t-dropdown__item"
-                style="position: relative;"
               >
                 <div
                   class="t-dropdown__item-content"
@@ -1614,7 +1557,6 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
             >
               <div
                 class="t-dropdown__item"
-                style="position: relative;"
               >
                 <div
                   class="t-dropdown__item-content"
@@ -1642,7 +1584,6 @@ exports[`Dropdown Dropdown splitVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-    style="position: relative;"
     type="button"
   >
     <span

@@ -107,7 +107,6 @@ exports[`Tabs Tabs banVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -121,7 +120,6 @@ exports[`Tabs Tabs banVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-disabled"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -135,7 +133,6 @@ exports[`Tabs Tabs banVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -225,7 +222,6 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -239,7 +235,6 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -253,7 +248,6 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -337,7 +331,6 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -351,7 +344,6 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -365,7 +357,6 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -507,7 +498,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -521,7 +511,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -535,7 +524,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -549,7 +537,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -563,7 +550,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -577,7 +563,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -591,7 +576,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -605,7 +589,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -619,7 +602,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -633,7 +615,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -647,7 +628,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -661,7 +641,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -675,7 +654,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -689,7 +667,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -703,7 +680,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -717,7 +693,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -731,7 +706,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -745,7 +719,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -759,7 +732,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -773,7 +745,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -893,7 +864,6 @@ exports[`Tabs Tabs customVue demo works fine 1`] = `
               
               <div
                 class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"
-                style="position: relative;"
               >
                 <span
                   class="t-tabs__nav-item-text-wrapper"
@@ -916,7 +886,6 @@ exports[`Tabs Tabs customVue demo works fine 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-tabs__nav--card t-size-m"
-                style="position: relative;"
               >
                 <span
                   class="t-tabs__nav-item-text-wrapper"
@@ -1075,7 +1044,6 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -1098,7 +1066,6 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -1121,7 +1088,6 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -1239,7 +1205,6 @@ exports[`Tabs Tabs operationVue demo works fine 1`] = `
               
               <div
                 class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"
-                style="position: relative;"
               >
                 <span
                   class="t-tabs__nav-item-text-wrapper"
@@ -1250,7 +1215,6 @@ exports[`Tabs Tabs operationVue demo works fine 1`] = `
               </div>
               <div
                 class="t-tabs__nav-item t-tabs__nav--card t-size-m"
-                style="position: relative;"
               >
                 <span
                   class="t-tabs__nav-item-text-wrapper"
@@ -1453,7 +1417,6 @@ exports[`Tabs Tabs positionVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper t-is-active"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -1467,7 +1430,6 @@ exports[`Tabs Tabs positionVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -1481,7 +1443,6 @@ exports[`Tabs Tabs positionVue demo works fine 1`] = `
               >
                 <div
                   class="t-tabs__nav-item-wrapper"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -1573,7 +1534,6 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper t-is-active"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1587,7 +1547,6 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1601,7 +1560,6 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1683,7 +1641,6 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper t-is-active"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1697,7 +1654,6 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1711,7 +1667,6 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1805,7 +1760,6 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper t-is-active"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1819,7 +1773,6 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1833,7 +1786,6 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-tabs__nav-item-wrapper"
-                    style="position: relative;"
                   >
                     <span
                       class="t-tabs__nav-item-text-wrapper"
@@ -1911,7 +1863,6 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
                 
                 <div
                   class="t-tabs__nav-item t-tabs__nav--card t-is-active t-size-m"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -1922,7 +1873,6 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-tabs__nav--card t-size-m"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"
@@ -1933,7 +1883,6 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
                 </div>
                 <div
                   class="t-tabs__nav-item t-tabs__nav--card t-size-m"
-                  style="position: relative;"
                 >
                   <span
                     class="t-tabs__nav-item-text-wrapper"

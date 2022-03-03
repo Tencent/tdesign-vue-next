@@ -30,7 +30,6 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         <span
@@ -74,7 +73,6 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -115,7 +113,6 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -160,7 +157,6 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -200,7 +196,6 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -241,7 +236,6 @@ exports[`Popup Popup destroyVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -282,7 +276,6 @@ exports[`Popup Popup disabledVue demo works fine 1`] = `
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
       disabled=""
-      style="position: relative;"
       type="button"
     >
       <span
@@ -326,7 +319,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -363,7 +355,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -400,7 +391,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -437,7 +427,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -474,7 +463,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -511,7 +499,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -548,7 +535,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -585,7 +571,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -622,7 +607,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -659,7 +643,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -697,7 +680,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -735,7 +717,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -778,7 +759,6 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -817,7 +797,6 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -856,7 +835,6 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -895,7 +873,6 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
       
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        style="position: relative;"
         type="button"
       >
         <span
@@ -941,7 +918,6 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -980,7 +956,6 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -1021,7 +996,6 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
         </transition-stub>
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -1058,7 +1032,6 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
         </transition-stub>
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -1101,7 +1074,6 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -1136,7 +1108,6 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -1207,7 +1178,6 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -1250,7 +1220,6 @@ exports[`Popup Popup visibleVue demo works fine 1`] = `
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      style="position: relative;"
       type="button"
     >
       <span

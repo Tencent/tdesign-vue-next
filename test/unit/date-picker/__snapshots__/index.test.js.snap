@@ -47,7 +47,6 @@ exports[`DatePicker :mode 1`] = `
                 >
                   <button
                     class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
-                    style="position: relative;"
                     title="上个十年"
                     type="button"
                   >
@@ -72,7 +71,6 @@ exports[`DatePicker :mode 1`] = `
                   </button>
                   <button
                     class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
-                    style="position: relative;"
                     title="当前"
                     type="button"
                   >
@@ -97,7 +95,6 @@ exports[`DatePicker :mode 1`] = `
                   </button>
                   <button
                     class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
-                    style="position: relative;"
                     title="下个十年"
                     type="button"
                   >
@@ -361,7 +358,6 @@ exports[`DatePicker :range 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
-                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -379,7 +375,6 @@ exports[`DatePicker :range 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
-                      style="position: relative;"
                       title="上一年"
                       type="button"
                     >
@@ -404,7 +399,6 @@ exports[`DatePicker :range 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
-                      style="position: relative;"
                       title="当前"
                       type="button"
                     >
@@ -429,7 +423,6 @@ exports[`DatePicker :range 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
-                      style="position: relative;"
                       title="下一年"
                       type="button"
                     >
@@ -646,7 +639,6 @@ exports[`DatePicker :range 1`] = `
                     <!---->
                     <button
                       class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
-                      style="position: relative;"
                       type="button"
                     >
                       <span
@@ -664,7 +656,6 @@ exports[`DatePicker :range 1`] = `
                   >
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
-                      style="position: relative;"
                       title="上一年"
                       type="button"
                     >
@@ -689,7 +680,6 @@ exports[`DatePicker :range 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
-                      style="position: relative;"
                       title="当前"
                       type="button"
                     >
@@ -714,7 +704,6 @@ exports[`DatePicker :range 1`] = `
                     </button>
                     <button
                       class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
-                      style="position: relative;"
                       title="下一年"
                       type="button"
                     >
@@ -1002,7 +991,6 @@ exports[`DatePicker :value 1`] = `
                   <!---->
                   <button
                     class="t-button t-size-s t-button--variant-text t-button--theme-default t-date-picker__header-btn"
-                    style="position: relative;"
                     type="button"
                   >
                     <span
@@ -1020,7 +1008,6 @@ exports[`DatePicker :value 1`] = `
                 >
                   <button
                     class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
-                    style="position: relative;"
                     title="上一年"
                     type="button"
                   >
@@ -1045,7 +1032,6 @@ exports[`DatePicker :value 1`] = `
                   </button>
                   <button
                     class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn t-date-picker__header-controller__btn--now"
-                    style="position: relative;"
                     title="当前"
                     type="button"
                   >
@@ -1070,7 +1056,6 @@ exports[`DatePicker :value 1`] = `
                   </button>
                   <button
                     class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--icon-only t-date-picker__header-controller__btn"
-                    style="position: relative;"
                     title="下一年"
                     type="button"
                   >
