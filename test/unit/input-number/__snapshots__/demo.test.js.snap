@@ -8,7 +8,6 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -41,7 +40,6 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       
@@ -75,7 +73,6 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -108,7 +105,6 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       
@@ -143,7 +139,6 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
-      style="position: relative;"
       type="button"
     >
       
@@ -177,7 +172,6 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
-      style="position: relative;"
       type="button"
     >
       
@@ -211,7 +205,6 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -245,7 +238,6 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       
@@ -280,7 +272,6 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -313,7 +304,6 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       
@@ -348,7 +338,6 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -381,7 +370,6 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       
@@ -436,7 +424,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -468,7 +455,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       
@@ -498,7 +484,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -531,7 +516,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       
@@ -561,7 +545,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -593,7 +576,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       
@@ -627,7 +609,6 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
-      style="position: relative;"
       type="button"
     >
       
@@ -660,7 +641,6 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
-      style="position: relative;"
       type="button"
     >
       

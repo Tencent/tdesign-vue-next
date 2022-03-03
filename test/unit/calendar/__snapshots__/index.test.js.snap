@@ -46,7 +46,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -65,7 +64,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2010 年"
                       >
                         
@@ -74,7 +72,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2011 年"
                       >
                         
@@ -83,7 +80,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2012 年"
                       >
                         
@@ -92,7 +88,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2013 年"
                       >
                         
@@ -101,7 +96,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2014 年"
                       >
                         
@@ -110,7 +104,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2015 年"
                       >
                         
@@ -119,7 +112,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2016 年"
                       >
                         
@@ -128,7 +120,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2017 年"
                       >
                         
@@ -137,7 +128,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2018 年"
                       >
                         
@@ -146,7 +136,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2019 年"
                       >
                         
@@ -155,7 +144,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="2020 年"
                       >
                         
@@ -164,7 +152,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2021 年"
                       >
                         
@@ -173,7 +160,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2022 年"
                       >
                         
@@ -182,7 +168,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2023 年"
                       >
                         
@@ -191,7 +176,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2024 年"
                       >
                         
@@ -200,7 +184,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2025 年"
                       >
                         
@@ -209,7 +192,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2026 年"
                       >
                         
@@ -218,7 +200,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2027 年"
                       >
                         
@@ -227,7 +208,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2028 年"
                       >
                         
@@ -236,7 +216,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2029 年"
                       >
                         
@@ -245,7 +224,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2030 年"
                       >
                         
@@ -340,7 +318,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -359,7 +336,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1 月"
                       >
                         
@@ -368,7 +344,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2 月"
                       >
                         
@@ -377,7 +352,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="3 月"
                       >
                         
@@ -386,7 +360,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="4 月"
                       >
                         
@@ -395,7 +368,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="5 月"
                       >
                         
@@ -404,7 +376,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="6 月"
                       >
                         
@@ -413,7 +384,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="7 月"
                       >
                         
@@ -422,7 +392,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="8 月"
                       >
                         
@@ -431,7 +400,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="9 月"
                       >
                         
@@ -440,7 +408,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="10 月"
                       >
                         
@@ -449,7 +416,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="11 月"
                       >
                         
@@ -458,7 +424,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="12 月"
                       >
                         
@@ -601,7 +566,6 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -1445,7 +1409,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -1464,7 +1427,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2010 年"
                       >
                         
@@ -1473,7 +1435,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2011 年"
                       >
                         
@@ -1482,7 +1443,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2012 年"
                       >
                         
@@ -1491,7 +1451,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2013 年"
                       >
                         
@@ -1500,7 +1459,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2014 年"
                       >
                         
@@ -1509,7 +1467,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2015 年"
                       >
                         
@@ -1518,7 +1475,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2016 年"
                       >
                         
@@ -1527,7 +1483,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2017 年"
                       >
                         
@@ -1536,7 +1491,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2018 年"
                       >
                         
@@ -1545,7 +1499,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2019 年"
                       >
                         
@@ -1554,7 +1507,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="2020 年"
                       >
                         
@@ -1563,7 +1515,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2021 年"
                       >
                         
@@ -1572,7 +1523,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2022 年"
                       >
                         
@@ -1581,7 +1531,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2023 年"
                       >
                         
@@ -1590,7 +1539,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2024 年"
                       >
                         
@@ -1599,7 +1547,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2025 年"
                       >
                         
@@ -1608,7 +1555,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2026 年"
                       >
                         
@@ -1617,7 +1563,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2027 年"
                       >
                         
@@ -1626,7 +1571,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2028 年"
                       >
                         
@@ -1635,7 +1579,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2029 年"
                       >
                         
@@ -1644,7 +1587,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2030 年"
                       >
                         
@@ -1739,7 +1681,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -1758,7 +1699,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1 月"
                       >
                         
@@ -1767,7 +1707,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2 月"
                       >
                         
@@ -1776,7 +1715,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="3 月"
                       >
                         
@@ -1785,7 +1723,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="4 月"
                       >
                         
@@ -1794,7 +1731,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="5 月"
                       >
                         
@@ -1803,7 +1739,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="6 月"
                       >
                         
@@ -1812,7 +1747,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="7 月"
                       >
                         
@@ -1821,7 +1755,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="8 月"
                       >
                         
@@ -1830,7 +1763,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="9 月"
                       >
                         
@@ -1839,7 +1771,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="10 月"
                       >
                         
@@ -1848,7 +1779,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="11 月"
                       >
                         
@@ -1857,7 +1787,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="12 月"
                       >
                         
@@ -2000,7 +1929,6 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -2564,7 +2492,6 @@ exports[`Calendar :props :mode 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -2583,7 +2510,6 @@ exports[`Calendar :props :mode 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2010 年"
                       >
                         
@@ -2592,7 +2518,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2011 年"
                       >
                         
@@ -2601,7 +2526,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2012 年"
                       >
                         
@@ -2610,7 +2534,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2013 年"
                       >
                         
@@ -2619,7 +2542,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2014 年"
                       >
                         
@@ -2628,7 +2550,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2015 年"
                       >
                         
@@ -2637,7 +2558,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2016 年"
                       >
                         
@@ -2646,7 +2566,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2017 年"
                       >
                         
@@ -2655,7 +2574,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2018 年"
                       >
                         
@@ -2664,7 +2582,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2019 年"
                       >
                         
@@ -2673,7 +2590,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="2020 年"
                       >
                         
@@ -2682,7 +2598,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2021 年"
                       >
                         
@@ -2691,7 +2606,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2022 年"
                       >
                         
@@ -2700,7 +2614,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2023 年"
                       >
                         
@@ -2709,7 +2622,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2024 年"
                       >
                         
@@ -2718,7 +2630,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2025 年"
                       >
                         
@@ -2727,7 +2638,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2026 年"
                       >
                         
@@ -2736,7 +2646,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2027 年"
                       >
                         
@@ -2745,7 +2654,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2028 年"
                       >
                         
@@ -2754,7 +2662,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2029 年"
                       >
                         
@@ -2763,7 +2670,6 @@ exports[`Calendar :props :mode 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2030 年"
                       >
                         
@@ -2907,7 +2813,6 @@ exports[`Calendar :props :mode 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -3194,7 +3099,6 @@ exports[`Calendar :props :range 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -3213,7 +3117,6 @@ exports[`Calendar :props :range 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2018 年"
                       >
                         
@@ -3222,7 +3125,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2019 年"
                       >
                         
@@ -3231,7 +3133,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="2020 年"
                       >
                         
@@ -3240,7 +3141,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2021 年"
                       >
                         
@@ -3249,7 +3149,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2022 年"
                       >
                         
@@ -3258,7 +3157,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2023 年"
                       >
                         
@@ -3267,7 +3165,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2024 年"
                       >
                         
@@ -3276,7 +3173,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2025 年"
                       >
                         
@@ -3285,7 +3181,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2026 年"
                       >
                         
@@ -3294,7 +3189,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2027 年"
                       >
                         
@@ -3303,7 +3197,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-disabled t-size-m"
-                        style="position: relative;"
                         title="2028 年"
                       >
                         
@@ -3398,7 +3291,6 @@ exports[`Calendar :props :range 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -3417,7 +3309,6 @@ exports[`Calendar :props :range 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1 月"
                       >
                         
@@ -3426,7 +3317,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2 月"
                       >
                         
@@ -3435,7 +3325,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="3 月"
                       >
                         
@@ -3444,7 +3333,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="4 月"
                       >
                         
@@ -3453,7 +3341,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="5 月"
                       >
                         
@@ -3462,7 +3349,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="6 月"
                       >
                         
@@ -3471,7 +3357,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="7 月"
                       >
                         
@@ -3480,7 +3365,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="8 月"
                       >
                         
@@ -3489,7 +3373,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="9 月"
                       >
                         
@@ -3498,7 +3381,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="10 月"
                       >
                         
@@ -3507,7 +3389,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="11 月"
                       >
                         
@@ -3516,7 +3397,6 @@ exports[`Calendar :props :range 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="12 月"
                       >
                         
@@ -3659,7 +3539,6 @@ exports[`Calendar :props :range 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -4385,7 +4264,6 @@ exports[`Calendar :props :theme 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -4404,7 +4282,6 @@ exports[`Calendar :props :theme 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2010 年"
                       >
                         
@@ -4413,7 +4290,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2011 年"
                       >
                         
@@ -4422,7 +4298,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2012 年"
                       >
                         
@@ -4431,7 +4306,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2013 年"
                       >
                         
@@ -4440,7 +4314,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2014 年"
                       >
                         
@@ -4449,7 +4322,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2015 年"
                       >
                         
@@ -4458,7 +4330,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2016 年"
                       >
                         
@@ -4467,7 +4338,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2017 年"
                       >
                         
@@ -4476,7 +4346,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2018 年"
                       >
                         
@@ -4485,7 +4354,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2019 年"
                       >
                         
@@ -4494,7 +4362,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="2020 年"
                       >
                         
@@ -4503,7 +4370,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2021 年"
                       >
                         
@@ -4512,7 +4378,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2022 年"
                       >
                         
@@ -4521,7 +4386,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2023 年"
                       >
                         
@@ -4530,7 +4394,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2024 年"
                       >
                         
@@ -4539,7 +4402,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2025 年"
                       >
                         
@@ -4548,7 +4410,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2026 年"
                       >
                         
@@ -4557,7 +4418,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2027 年"
                       >
                         
@@ -4566,7 +4426,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2028 年"
                       >
                         
@@ -4575,7 +4434,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2029 年"
                       >
                         
@@ -4584,7 +4442,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2030 年"
                       >
                         
@@ -4679,7 +4536,6 @@ exports[`Calendar :props :theme 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -4698,7 +4554,6 @@ exports[`Calendar :props :theme 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1 月"
                       >
                         
@@ -4707,7 +4562,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2 月"
                       >
                         
@@ -4716,7 +4570,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="3 月"
                       >
                         
@@ -4725,7 +4578,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="4 月"
                       >
                         
@@ -4734,7 +4586,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="5 月"
                       >
                         
@@ -4743,7 +4594,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="6 月"
                       >
                         
@@ -4752,7 +4602,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="7 月"
                       >
                         
@@ -4761,7 +4610,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="8 月"
                       >
                         
@@ -4770,7 +4618,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="9 月"
                       >
                         
@@ -4779,7 +4626,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="10 月"
                       >
                         
@@ -4788,7 +4634,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="11 月"
                       >
                         
@@ -4797,7 +4642,6 @@ exports[`Calendar :props :theme 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="12 月"
                       >
                         
@@ -5639,7 +5483,6 @@ exports[`Calendar :props :value 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -5658,7 +5501,6 @@ exports[`Calendar :props :value 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1988 年"
                       >
                         
@@ -5667,7 +5509,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1989 年"
                       >
                         
@@ -5676,7 +5517,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1990 年"
                       >
                         
@@ -5685,7 +5525,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1991 年"
                       >
                         
@@ -5694,7 +5533,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1992 年"
                       >
                         
@@ -5703,7 +5541,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1993 年"
                       >
                         
@@ -5712,7 +5549,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1994 年"
                       >
                         
@@ -5721,7 +5557,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1995 年"
                       >
                         
@@ -5730,7 +5565,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1996 年"
                       >
                         
@@ -5739,7 +5573,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1997 年"
                       >
                         
@@ -5748,7 +5581,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="1998 年"
                       >
                         
@@ -5757,7 +5589,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1999 年"
                       >
                         
@@ -5766,7 +5597,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2000 年"
                       >
                         
@@ -5775,7 +5605,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2001 年"
                       >
                         
@@ -5784,7 +5613,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2002 年"
                       >
                         
@@ -5793,7 +5621,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2003 年"
                       >
                         
@@ -5802,7 +5629,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2004 年"
                       >
                         
@@ -5811,7 +5637,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2005 年"
                       >
                         
@@ -5820,7 +5645,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2006 年"
                       >
                         
@@ -5829,7 +5653,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2007 年"
                       >
                         
@@ -5838,7 +5661,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2008 年"
                       >
                         
@@ -5933,7 +5755,6 @@ exports[`Calendar :props :value 1`] = `
                     >
                       <li
                         class="t-select-option t-size-m t-select__create-option--special"
-                        style="position: relative;"
                         title=""
                       >
                         
@@ -5952,7 +5773,6 @@ exports[`Calendar :props :value 1`] = `
                       
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="1 月"
                       >
                         
@@ -5961,7 +5781,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="2 月"
                       >
                         
@@ -5970,7 +5789,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="3 月"
                       >
                         
@@ -5979,7 +5797,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="4 月"
                       >
                         
@@ -5988,7 +5805,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="5 月"
                       >
                         
@@ -5997,7 +5813,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="6 月"
                       >
                         
@@ -6006,7 +5821,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="7 月"
                       >
                         
@@ -6015,7 +5829,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="8 月"
                       >
                         
@@ -6024,7 +5837,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="9 月"
                       >
                         
@@ -6033,7 +5845,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="10 月"
                       >
                         
@@ -6042,7 +5853,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
-                        style="position: relative;"
                         title="11 月"
                       >
                         
@@ -6051,7 +5861,6 @@ exports[`Calendar :props :value 1`] = `
                       </li>
                       <li
                         class="t-select-option t-size-m"
-                        style="position: relative;"
                         title="12 月"
                       >
                         
@@ -6194,7 +6003,6 @@ exports[`Calendar :props :value 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          style="position: relative;"
           type="button"
         >
           <span
