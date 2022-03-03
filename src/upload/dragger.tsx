@@ -1,202 +1,210 @@
-import { defineComponent, PropType, VNode } from 'vue';
-import { CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
-import { UploadFile } from './type';
-import TLoading from '../loading';
-import TButton from '../button';
-import { returnFileSize, getCurrentDate, abridgeName, UPLOAD_NAME } from './util';
-import { ClassName } from '../common';
+import { defineComponent, PropType, computed, ref } from 'vue';
 
-const name = `${prefix}-upload-dragger`;
+// components
+import { CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import TButton from '../button';
+
+import { UploadFile } from './type';
+import props from './props';
+import TLoading from '../loading';
+import { returnFileSize, getCurrentDate, abridgeName } from './util';
+import { renderTNodeJSX } from '../utils/render-tnode';
+
+// hooks
+import { useConfig } from '../config-provider';
+
+const TUploadDraggerProps = {
+  file: {
+    type: Object as PropType<UploadFile>,
+    default: () => {
+      return null as UploadFile;
+    },
+  },
+  loadingFile: {
+    type: Object as PropType<UploadFile>,
+    default: () => {
+      return null as UploadFile;
+    },
+  },
+  autoUpload: props.autoUpload,
+  theme: props.theme,
+  onCancel: Function as PropType<(e: MouseEvent) => void>,
+  onClick: Function as PropType<(e: MouseEvent) => void>,
+  onRemove: Function as PropType<(e: MouseEvent) => void>,
+  onUpload: Function as PropType<(file: UploadFile, e: MouseEvent) => void>,
+  onChange: Function as PropType<(files: FileList) => void>,
+  onDragleave: Function as PropType<(e: DragEvent) => void>,
+  onDragenter: Function as PropType<(e: DragEvent) => void>,
+};
 
 export default defineComponent({
-  name,
+  name: 'TUploadDragger',
 
-  components: {
-    TButton,
-    TLoading,
-    CheckCircleFilledIcon,
-    ErrorCircleFilledIcon,
-  },
+  props: TUploadDraggerProps,
 
-  props: {
-    file: {
-      type: Object as PropType<UploadFile>,
-    },
-    loadingFile: {
-      type: Object as PropType<UploadFile>,
-    },
-    display: {
-      type: String as PropType<'file' | 'file-input' | 'image' | 'custom'>,
-      validator(val: string) {
-        return ['file', 'file-input', 'image', 'custom'].includes(val);
-      },
-    },
-    cancel: Function as PropType<(e: MouseEvent) => void>,
-    trigger: Function as PropType<(e: MouseEvent) => void>,
-    remove: Function as PropType<(e: MouseEvent) => void>,
-    upload: Function as PropType<(file: UploadFile, e: MouseEvent) => void>,
-    autoUpload: Boolean,
-  },
-  emits: ['change', 'dragleave', 'dragenter'],
+  setup(props) {
+    const target = ref(null);
+    const dragActive = ref(false);
+    const { classPrefix: prefix, global } = useConfig('upload');
 
-  data() {
-    return {
-      target: null,
-      dragActive: false,
-    };
-  },
-  computed: {
-    isImage(): boolean {
-      return this.display === 'image';
-    },
-    imageUrl(): string {
-      return (this.loadingFile && this.loadingFile.url) || (this.file && this.file.url);
-    },
-    percent(): number {
-      return this.loadingFile && this.loadingFile.percent;
-    },
-    inputName(): string {
-      return (this.loadingFile && this.loadingFile.name) || (this.file && this.file.name);
-    },
-    classes(): ClassName {
-      return [
-        `${UPLOAD_NAME}__dragger`,
-        { [`${UPLOAD_NAME}__dragger-center`]: !this.loadingFile && !this.file },
-        { [`${UPLOAD_NAME}__dragger-error`]: this.loadingFile && this.loadingFile.status === 'fail' },
-      ];
-    },
-    size(): number {
-      return (this.loadingFile && this.loadingFile.size) || (this.file && this.file.size);
-    },
-    // 上传失败或者上传成功会显示
-    showResultOperate(): boolean {
-      return Boolean(!this.loadingFile && this.file?.name) || ['success', 'fail'].includes(this.loadingFile?.status);
-    },
-  },
+    const UPLOAD_NAME = computed(() => {
+      return `${prefix.value}-upload`;
+    });
 
-  methods: {
-    handleDrop(event: DragEvent) {
-      event.preventDefault();
-      this.$emit('change', event.dataTransfer.files);
-      this.$emit('dragleave', event);
-      this.dragActive = false;
-    },
+    const imageUrl = computed(() => {
+      return (props.loadingFile && props.loadingFile.url) || (props.file && props.file.url);
+    });
 
-    handleDragenter(event: DragEvent) {
-      this.target = event.target;
-      event.preventDefault();
-      this.$emit('dragenter', event);
-      this.dragActive = true;
-    },
+    const inputName = computed(() => {
+      return (props.loadingFile && props.loadingFile.name) || (props.file && props.file.name) || '';
+    });
 
-    handleDragleave(event: DragEvent) {
-      if (this.target !== event.target) return;
-      event.preventDefault();
-      this.$emit('dragleave', event);
-      this.dragActive = false;
-    },
+    const classes = computed(() => [
+      `${UPLOAD_NAME.value}__dragger`,
+      { [`${UPLOAD_NAME.value}__dragger-center`]: !props.loadingFile && !props.file },
+      { [`${UPLOAD_NAME.value}__dragger-error`]: props.loadingFile && props.loadingFile.status === 'fail' },
+    ]);
 
-    handleDragover(event: DragEvent) {
-      event.preventDefault();
-    },
+    const size = computed(() => (props.loadingFile && props.loadingFile.size) || (props.file && props.file.size));
 
-    renderDefaultDragElement(): VNode {
-      const unActiveElement = (
-        <div>
-          <span class={`${prefix}-upload--highlight`}>点击上传</span>
-          <span>&nbsp;&nbsp;/&nbsp;&nbsp;拖拽到此区域</span>
-        </div>
+    const showResultOperate = computed(
+      () => Boolean(!props.loadingFile && props.file?.name) || ['success', 'fail'].includes(props.loadingFile?.status),
+    );
+
+    const renderImage = () => {
+      return (
+        <div class={`${UPLOAD_NAME.value}__dragger-img-wrap`}>{imageUrl.value && <img src={imageUrl.value} />}</div>
       );
-      const activeElement = <div>释放鼠标</div>;
-      return this.dragActive ? activeElement : unActiveElement;
-    },
+    };
 
-    renderImage() {
-      return <div class={`${UPLOAD_NAME}__dragger-img-wrap`}>{this.imageUrl && <img src={this.imageUrl}></img>}</div>;
-    },
-
-    renderUploading() {
-      if (this.loadingFile.status === 'fail') {
+    const renderUploading = () => {
+      if (props.loadingFile.status === 'fail') {
         return <ErrorCircleFilledIcon />;
       }
-      if (this.loadingFile.status === 'progress') {
+      if (props.loadingFile.status === 'progress') {
         return (
-          <div class={`${UPLOAD_NAME}__single-progress`}>
+          <div class={`${UPLOAD_NAME.value}__single-progress`}>
             <TLoading />
-            <span class={`${UPLOAD_NAME}__single-percent`}>{Math.min(this.loadingFile.percent, 99)}%</span>
+            <span class={`${UPLOAD_NAME.value}__single-percent`}>{Math.min(props.loadingFile.percent, 99)}%</span>
           </div>
         );
       }
-    },
+    };
 
-    reupload(e: MouseEvent) {
-      this.remove(e);
-      this.trigger(e);
-    },
-
-    renderProgress() {
-      return (
-        <div class={`${UPLOAD_NAME}__dragger-progress`}>
-          {this.isImage && this.renderImage()}
-          <div class={`${UPLOAD_NAME}__dragger-progress-info`}>
-            <div class={`${UPLOAD_NAME}__dragger-text`}>
-              <span class={`${UPLOAD_NAME}__single-name`}>{abridgeName(this.inputName)}</span>
-              {this.loadingFile && this.renderUploading()}
-              {!this.loadingFile && !!this.file && <CheckCircleFilledIcon />}
-            </div>
-            <small class={`${prefix}-size-s`}>文件大小：{returnFileSize(this.size)}</small>
-            <small class={`${prefix}-size-s`}>上传日期：{getCurrentDate()}</small>
-            <div class={`${UPLOAD_NAME}__dragger-btns`}>
-              {['progress', 'waiting'].includes(this.loadingFile?.status) && (
-                <TButton
-                  theme="primary"
-                  variant="text"
-                  class={`${UPLOAD_NAME}__dragger-progress-cancel`}
-                  onClick={this.cancel}
-                >
-                  取消上传
-                </TButton>
-              )}
-              {!this.autoUpload && this.loadingFile?.status === 'waiting' && (
-                <TButton
-                  theme="primary"
-                  variant="text"
-                  onClick={(e: MouseEvent) => this.upload({ ...this.loadingFile }, e)}
-                >
-                  开始上传
-                </TButton>
-              )}
-            </div>
-            {this.showResultOperate && (
-              <div class={`${UPLOAD_NAME}__dragger-btns`}>
-                <t-button
-                  theme="primary"
-                  variant="text"
-                  class={`${UPLOAD_NAME}__dragger-progress-cancel`}
-                  onClick={this.reupload}
-                >
-                  重新上传
-                </t-button>
-                <t-button theme="primary" variant="text" onClick={this.remove}>
-                  删除
-                </t-button>
-              </div>
+    const renderProgress = () => (
+      <div class={`${UPLOAD_NAME.value}__dragger-progress`}>
+        {props.theme === 'image' && renderImage()}
+        <div class={`${UPLOAD_NAME.value}__dragger-progress-info`}>
+          <div class={`${UPLOAD_NAME.value}__dragger-text`}>
+            <span class={`${UPLOAD_NAME.value}__single-name`}>{abridgeName(inputName.value)}</span>
+            {props.loadingFile && renderUploading()}
+            {!props.loadingFile && !!props.file && <CheckCircleFilledIcon />}
+          </div>
+          <small class={`${prefix.value}-size-s`}>
+            {global.value.file.fileSizeText}：{returnFileSize(size.value)}
+          </small>
+          <small class={`${prefix.value}-size-s`}>
+            {global.value.file.fileOperationDateText}：{getCurrentDate()}
+          </small>
+          <div class={`${UPLOAD_NAME.value}__dragger-btns`}>
+            {['progress', 'waiting'].includes(props.loadingFile?.status) && (
+              <TButton
+                theme="primary"
+                variant="text"
+                class={`${UPLOAD_NAME.value}__dragger-progress-cancel`}
+                onClick={props.onCancel}
+              >
+                {global.value.cancelUploadText}
+              </TButton>
+            )}
+            {!props.autoUpload && props.loadingFile?.status === 'waiting' && (
+              <TButton
+                variant="text"
+                theme="primary"
+                onClick={(e: MouseEvent) => props.onUpload({ ...props.loadingFile }, e)}
+              >
+                {global.value.triggerUploadText.normal}
+              </TButton>
             )}
           </div>
+          {showResultOperate.value && (
+            <div class={`${UPLOAD_NAME.value}__dragger-btns`}>
+              <TButton
+                theme="primary"
+                variant="text"
+                class={`${UPLOAD_NAME.value}__dragger-progress-cancel`}
+                onClick={(e: MouseEvent) => {
+                  props.onRemove(e);
+                  props.onClick(e);
+                }}
+              >
+                {global.value.triggerUploadText.reupload}
+              </TButton>
+              <TButton theme="danger" variant="text" onClick={props.onRemove}>
+                {global.value.triggerUploadText.delete}
+              </TButton>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+
+    const renderDefaultDragElement = () => {
+      const unActiveElement = (
+        <div>
+          <span class={`${prefix.value}-upload--highlight`}>{global.value.triggerUploadText.normal}</span>
+          <span>&nbsp;&nbsp;/&nbsp;&nbsp;{global.value.dragger.draggingText}</span>
         </div>
       );
-    },
+      const activeElement = <div>{global.value.dragger.dragDropText}</div>;
+      return dragActive.value ? activeElement : unActiveElement;
+    };
+
+    const handleDrop = (event: DragEvent) => {
+      event.preventDefault();
+      props.onChange?.(event.dataTransfer.files);
+      props.onDragleave?.(event);
+      dragActive.value = false;
+    };
+
+    const handleDragenter = (event: DragEvent) => {
+      target.value = event.target;
+      event.preventDefault();
+      props.onDragenter?.(event);
+      dragActive.value = true;
+    };
+
+    const handleDragleave = (event: DragEvent) => {
+      if (target.value !== event.target) return;
+      event.preventDefault();
+      props.onDragleave?.(event);
+      dragActive.value = false;
+    };
+
+    const handleDragover = (event: DragEvent) => {
+      event.preventDefault();
+    };
+
+    return {
+      UPLOAD_NAME,
+      classes,
+      renderProgress,
+      renderDefaultDragElement,
+      handleDrop,
+      handleDragenter,
+      handleDragleave,
+      handleDragover,
+    };
   },
 
-  render(): VNode {
+  render() {
     let content = null;
-    if ((this.loadingFile || this.file) && this.display !== 'custom') {
+    if ((this.loadingFile || this.file) && this.theme !== 'custom') {
       content = this.renderProgress();
     } else {
       content = (
-        <div class={`${UPLOAD_NAME}__trigger`} onClick={this.trigger}>
-          {(this.$slots.default && this.$slots.default(null)) || this.renderDefaultDragElement()}
+        <div class={`${this.UPLOAD_NAME}__trigger`} onClick={this.onClick}>
+          {renderTNodeJSX(this, 'default') || this.renderDefaultDragElement()}
         </div>
       );
     }

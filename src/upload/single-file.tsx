@@ -1,137 +1,141 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, computed } from 'vue';
+
+// components
 import { CloseCircleFilledIcon, ErrorCircleFilledIcon, CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
 
-import { prefix } from '../config';
-import { UploadFile } from './type';
-import { ClassName } from '../common';
-import { abridgeName, UPLOAD_NAME } from './util';
+// utils
 import props from './props';
+import { UploadFile } from './type';
+import { abridgeName } from './util';
+import { renderTNodeJSX } from '../utils/render-tnode';
+
+// hooks
+import { useConfig } from '../config-provider';
+
+// props
+const SingleFileProps = {
+  file: {
+    type: Object as PropType<UploadFile>,
+    default: () => {
+      return null as UploadFile;
+    },
+  },
+  loadingFile: {
+    type: Object as PropType<UploadFile>,
+    default: () => {
+      return null as UploadFile;
+    },
+  },
+  showUploadProgress: props.showUploadProgress,
+  theme: props.theme,
+  placeholder: props.placeholder,
+  onRemove: Function as PropType<(e: MouseEvent) => void>,
+};
 
 export default defineComponent({
   name: 'TUploadSingleFile',
 
-  components: {
-    CloseCircleFilledIcon,
-    TLoading,
-    ErrorCircleFilledIcon,
-    CheckCircleFilledIcon,
-  },
+  props: SingleFileProps,
 
-  props: {
-    showUploadProgress: props.showUploadProgress,
-    file: Object as PropType<UploadFile>,
-    loadingFile: Object as PropType<UploadFile>,
-    remove: Function as PropType<(e: MouseEvent) => void>,
-    placeholder: String,
-    display: {
-      type: String as PropType<'file' | 'file-input'>,
-      validator(val: string) {
-        return ['file', 'file-input'].includes(val);
-      },
-    },
-  },
+  setup(props) {
+    const { classPrefix: prefix } = useConfig('upload');
+    const UPLOAD_NAME = computed(() => {
+      return `${prefix.value}-upload`;
+    });
 
-  computed: {
-    percent(): number {
-      return this.loadingFile && (this.loadingFile as UploadFile).percent;
-    },
-    showPreview(): boolean {
-      return Boolean(this.file && (this.file as UploadFile).name);
-    },
-    showTextPreview(): boolean {
-      return this.display === 'file';
-    },
-    showInput(): boolean {
-      return this.display === 'file-input';
-    },
-    showProgress(): boolean {
-      return !!(this.loadingFile && (this.loadingFile as UploadFile).status === 'progress');
-    },
-    showDelete(): boolean {
-      return this.file && (this.file as UploadFile).name && !this.loadingFile;
-    },
-    inputName(): string {
-      const fileName = this.file && (this.file as UploadFile).name;
-      const loadingName = this.loadingFile && (this.loadingFile as UploadFile).name;
-      return this.showProgress ? loadingName : fileName;
-    },
-    inputText(): string {
-      return this.inputName || this.placeholder;
-    },
-    inputTextClass(): ClassName {
-      return [`${prefix}-input__inner`, { [`${UPLOAD_NAME}__placeholder`]: !this.inputName }];
-    },
-    classes(): ClassName {
-      return [`${UPLOAD_NAME}__single`, `${UPLOAD_NAME}__single-${this.display}`];
-    },
-  },
+    const showProgress = computed(() => {
+      return !!(props.loadingFile && props.loadingFile.status === 'progress');
+    });
 
-  methods: {
-    renderProgress() {
-      if ((this.loadingFile as UploadFile).status === 'fail') {
+    const inputName = computed(() => {
+      const fileName = props.file && props.file.name;
+      const loadingName = props.loadingFile && props.loadingFile.name;
+      return showProgress.value ? loadingName : fileName;
+    });
+
+    const inputText = computed(() => {
+      return inputName.value || props.placeholder;
+    });
+
+    const inputTextClass = computed(() => {
+      return [`${prefix.value}-input__inner`, { [`${UPLOAD_NAME.value}__placeholder`]: !inputName.value }];
+    });
+
+    const classes = computed(() => {
+      return [`${UPLOAD_NAME.value}__single`, `${UPLOAD_NAME.value}__single-${props.theme}`];
+    });
+
+    const renderProgress = () => {
+      if (props.loadingFile.status === 'fail') {
         return <ErrorCircleFilledIcon />;
       }
 
-      if (this.showUploadProgress) {
+      if (props.showUploadProgress) {
         return (
-          <div class={`${UPLOAD_NAME}__single-progress`}>
+          <div class={`${UPLOAD_NAME.value}__single-progress`}>
             <TLoading />
-            <span class={`${UPLOAD_NAME}__single-percent`}>
-              {Math.min((this.loadingFile as UploadFile).percent, 99)}%
-            </span>
+            <span class={`${UPLOAD_NAME.value}__single-percent`}>{Math.min(props.loadingFile.percent, 99)}%</span>
           </div>
         );
       }
-    },
-
-    renderResult() {
-      if (!!this.loadingFile && (this.loadingFile as UploadFile).status === 'fail') {
-        return <ErrorCircleFilledIcon />;
-      }
-      if (this.file && (this.file as UploadFile).name && !this.loadingFile) {
-        return <CheckCircleFilledIcon />;
-      }
-      return '';
-    },
+    };
 
     // 文本型预览
-    renderFilePreviewAsText() {
-      if (!this.inputName) return;
+    const renderFilePreviewAsText = () => {
+      if (!inputName.value || props.theme !== 'file') return;
       return (
-        <div class={`${UPLOAD_NAME}__single-display-text ${UPLOAD_NAME}__display-text--margin`}>
-          <span class={`${UPLOAD_NAME}__single-name`}>{this.inputName}</span>
-          {this.showProgress ? (
-            this.renderProgress()
+        <div class={`${UPLOAD_NAME.value}__single-display-text ${UPLOAD_NAME.value}__display-text--margin`}>
+          <span class={`${UPLOAD_NAME.value}__single-name`}>{inputName.value}</span>
+          {showProgress.value ? (
+            renderProgress()
           ) : (
             <CloseCircleFilledIcon
-              class={`${UPLOAD_NAME}__icon-delete`}
-              onClick={({ e }: { e: MouseEvent }) => this.remove(e)}
+              class={`${UPLOAD_NAME.value}__icon-delete`}
+              onClick={({ e }: { e: MouseEvent }) => props.onRemove(e)}
             />
           )}
         </div>
       );
-    },
+    };
+
     // 输入框型预览
-    renderFilePreviewAsInput() {
+    const renderFilePreviewAsInput = () => {
+      if (props.theme !== 'file-input') return;
+      const renderResult = () => {
+        if (!!props.loadingFile && props.loadingFile.status === 'fail') {
+          return <ErrorCircleFilledIcon />;
+        }
+        if (props.file && props.file.name && !props.loadingFile) {
+          return <CheckCircleFilledIcon />;
+        }
+        return '';
+      };
+
       return (
-        <div class={`${UPLOAD_NAME}__single-input-preview ${prefix}-input`}>
-          <div class={this.inputTextClass}>
-            {<span class={`${UPLOAD_NAME}__single-input-text`}>{abridgeName(this.inputText, 4, 6)}</span>}
-            {this.showProgress && this.renderProgress()}
-            {this.renderResult()}
+        <div class={`${UPLOAD_NAME.value}__single-input-preview ${prefix.value}-input`}>
+          <div class={inputTextClass.value}>
+            {<span class={`${UPLOAD_NAME.value}__single-input-text`}>{abridgeName(inputText.value, 4, 6)}</span>}
+            {showProgress.value && renderProgress()}
+            {renderResult()}
           </div>
         </div>
       );
-    },
+    };
+
+    return {
+      classes,
+      renderFilePreviewAsInput,
+      renderFilePreviewAsText,
+    };
   },
 
   render() {
     return (
       <div class={this.classes}>
-        {this.showInput && this.renderFilePreviewAsInput()}
-        {this.$slots.default && this.$slots.default(null)}
-        {this.showTextPreview && this.renderFilePreviewAsText()}
+        {this.renderFilePreviewAsInput()}
+        {renderTNodeJSX(this, 'default')}
+        {this.renderFilePreviewAsText()}
       </div>
     );
   },
