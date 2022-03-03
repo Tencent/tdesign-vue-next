@@ -75,6 +75,8 @@ const MessageFunction = (props: MessageOptions): Promise<MessageInstance> => {
     instance.add(options);
     instanceMap.get(attachDom)[placement] = instance;
     attachDom.appendChild(wrapper);
+    // 处理 https://github.com/Tencent/tdesign-vue-next/issues/394
+    (document.activeElement as HTMLElement).blur();
   } else {
     p.add(options);
   }
