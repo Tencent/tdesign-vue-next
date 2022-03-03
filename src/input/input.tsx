@@ -304,7 +304,7 @@ export default defineComponent({
         onMouseenter={this.onInputMouseenter}
         onMouseleave={this.onInputMouseleave}
         onWheel={this.onHandleMousewheel}
-        {...{ ...wrapperAttrs }}
+        {...wrapperAttrs}
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
         {labelContent}
