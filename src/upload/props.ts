@@ -44,6 +44,10 @@ export default {
   files: {
     type: Array as PropType<TdUploadProps['files']>,
   },
+  modelValue: {
+    type: Array as PropType<TdUploadProps['files']>,
+    default: undefined,
+  },
   /** 已上传文件列表，非受控属性 */
   defaultFiles: {
     type: Array as PropType<TdUploadProps['defaultFiles']>,

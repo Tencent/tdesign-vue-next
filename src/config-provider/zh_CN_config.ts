@@ -122,6 +122,31 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
   upload: {
     sizeLimitMessage: '文件大小不能超过 {sizeLimit}',
     cancelUploadText: '取消上传',
+    file: {
+      fileNameText: '文件名',
+      fileOperationDateText: '上传日期',
+      fileOperationText: '操作',
+      fileSizeText: '文件尺寸',
+      fileStatusText: '状态',
+    },
+    progress: {
+      failText: '上传失败',
+      successText: '上传成功',
+      uploadingText: '上传中',
+      waitingText: '待上传',
+    },
+    dragger: {
+      clickAndDragText: '点击上方“选择文件”或将文件拖到此区域',
+      dragDropText: '释放鼠标',
+      draggingText: '拖拽到此区域',
+    },
+    triggerUploadText: {
+      image: '点击上传图片',
+      normal: '点击上传',
+      fileInput: '选择文件',
+      reupload: '重新上传',
+      delete: '删除',
+    },
   },
   tag: {
     closeIcon: undefined,
