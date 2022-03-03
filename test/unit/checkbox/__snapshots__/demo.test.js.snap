@@ -376,7 +376,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       <span
         class="t-checkbox__label"
       >
-        <!---->
+        全选
       </span>
     </label>
     <label
@@ -416,7 +416,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       <span
         class="t-checkbox__label"
       >
-        <!---->
+        选项二
       </span>
     </label>
     <label
@@ -435,7 +435,7 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
       <span
         class="t-checkbox__label"
       >
-        <!---->
+        选项三
       </span>
     </label>
     
