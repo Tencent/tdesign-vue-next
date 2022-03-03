@@ -45,7 +45,7 @@ export default defineComponent({
         window.open(this.href, this.target);
       } else if (this.to) {
         const router = this.router || this.$router;
-        const methods: string = props.replace ? 'replace' : 'push';
+        const methods: string = this.replace ? 'replace' : 'push';
         router[methods](this.to).catch((err: Error) => {
           // vue-router 3.1.0+ push/replace cause NavigationDuplicated error
           // https://github.com/vuejs/vue-router/issues/2872

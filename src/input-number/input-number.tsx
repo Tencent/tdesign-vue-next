@@ -243,8 +243,9 @@ export default defineComponent({
       return parseFloat(s);
     },
     handleChange(value: number, ctx: { type: ChangeSource; e: ChangeContextEvent }) {
-      this.updateValue(value);
-      emitEvent(this, 'change', value, { type: ctx.type, e: ctx.e });
+      const v = Number(value.toFixed(this.digitsNum));
+      this.updateValue(v);
+      emitEvent(this, 'change', v, { type: ctx.type, e: ctx.e });
     },
     async handleBlur(e: FocusEvent) {
       await this.handleEndInput(e);
