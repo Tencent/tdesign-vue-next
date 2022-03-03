@@ -216,7 +216,6 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="submit"
           >
             <span
@@ -564,7 +563,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-            style="margin-right: 10px; position: relative;"
+            style="margin-right: 10px;"
             type="submit"
           >
             <span
@@ -577,7 +576,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            style="position: relative;"
             type="reset"
           >
             <span
@@ -805,7 +803,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-            style="margin-right: 10px; position: relative;"
+            style="margin-right: 10px;"
             type="submit"
           >
             <span
@@ -818,7 +816,6 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            style="position: relative;"
             type="reset"
           >
             <span
@@ -1161,7 +1158,6 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary t-size-full-width"
-            style="position: relative;"
             type="submit"
           >
             <span
@@ -1682,7 +1678,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             
             <button
               class="t-button t-size-m t-button--variant-dashed t-button--theme-default"
-              style="position: relative;"
               type="button"
             >
               <span
@@ -1732,7 +1727,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-            style="margin-right: 10px; position: relative;"
+            style="margin-right: 10px;"
             type="submit"
           >
             <span
@@ -1745,7 +1740,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            style="position: relative;"
             type="reset"
           >
             <span
@@ -2208,7 +2202,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                       >
                         <li
                           class="t-select-option t-size-m t-select__create-option--special"
-                          style="position: relative;"
                           title=""
                         >
                           
@@ -2227,7 +2220,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                         
                         <li
                           class="t-select-option t-size-m"
-                          style="position: relative;"
                           title="计算机学院"
                         >
                           
@@ -2236,7 +2228,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="position: relative;"
                           title="软件学院"
                         >
                           
@@ -2245,7 +2236,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="position: relative;"
                           title="物联网学院"
                         >
                           
@@ -2422,7 +2412,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-            style="margin-right: 10px; position: relative;"
+            style="margin-right: 10px;"
             type="submit"
           >
             <span
@@ -2435,7 +2425,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            style="margin-right: 10px; position: relative;"
+            style="margin-right: 10px;"
             type="reset"
           >
             <span
@@ -2448,7 +2438,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-m t-button--variant-base t-button--theme-default"
-            style="position: relative;"
             type="button"
           >
             <span

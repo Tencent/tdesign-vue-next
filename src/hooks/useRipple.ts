@@ -129,25 +129,11 @@ export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<s
     el.value.addEventListener('pointerleave', handleClearRipple, false);
   };
 
-  // 重置一些属性 为动画做准备 reset the node which uses the ripple animation
-  const initRippleElement = () => {
-    const dom = el.value;
-
-    if (!dom) return;
-
-    const initPosition = dom.style?.position || getComputedStyle(dom).position;
-    if (['', 'static'].includes(initPosition)) {
-      dom.style.position = 'relative';
-    }
-  };
-
   onMounted(() => {
     const dom = el.value;
     if (!dom) return;
 
     rippleContainer.value = document.createElement('div');
-
-    initRippleElement();
 
     dom.addEventListener('pointerdown', handleAddRipple, false);
   });

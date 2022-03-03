@@ -713,7 +713,6 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span

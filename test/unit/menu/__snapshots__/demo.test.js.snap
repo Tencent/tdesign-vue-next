@@ -24,7 +24,6 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
       
       <li
         class="t-menu__item"
-        style="position: relative;"
       >
         
         <svg
@@ -96,7 +95,6 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-is-active t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -109,7 +107,6 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -122,7 +119,6 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -140,7 +136,6 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item"
-        style="position: relative;"
       >
         
         <svg
@@ -161,7 +156,6 @@ exports[`Menu Menu closableSideVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-disabled"
-        style="position: relative;"
       >
         
         <svg
@@ -213,7 +207,6 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -226,7 +219,6 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -239,7 +231,6 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -252,7 +243,6 @@ exports[`Menu Menu customHeaderVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-disabled t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -306,7 +296,6 @@ exports[`Menu Menu customSideVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -319,7 +308,6 @@ exports[`Menu Menu customSideVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -332,7 +320,6 @@ exports[`Menu Menu customSideVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -345,7 +332,6 @@ exports[`Menu Menu customSideVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-disabled t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -394,7 +380,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           
           <div
             class="t-menu__item t-is-opened"
-            style="position: relative;"
           >
             
             <span>
@@ -408,7 +393,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-is-active t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -421,7 +405,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -434,7 +417,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -455,7 +437,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           
           <div
             class="t-menu__item"
-            style="position: relative;"
           >
             
             <span>
@@ -469,7 +450,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -482,7 +462,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -495,7 +474,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -593,7 +571,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           
           <div
             class="t-menu__item t-is-opened"
-            style="position: relative;"
           >
             
             <span>
@@ -607,7 +584,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-is-active t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -620,7 +596,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -633,7 +608,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -654,7 +628,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           
           <div
             class="t-menu__item"
-            style="position: relative;"
           >
             
             <span>
@@ -668,7 +641,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -681,7 +653,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -694,7 +665,6 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -802,7 +772,6 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
         
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -834,7 +803,6 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
         
         <li
           class="t-menu__item t-is-active t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -847,7 +815,6 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -871,7 +838,6 @@ exports[`Menu Menu groupSideVue demo works fine 1`] = `
         
         <li
           class="t-menu__item t-is-disabled t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -928,7 +894,6 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -941,7 +906,6 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -954,7 +918,6 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -967,7 +930,6 @@ exports[`Menu Menu headMenuDarkVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-disabled t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1049,7 +1011,6 @@ exports[`Menu Menu headMenuEmptyVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1062,7 +1023,6 @@ exports[`Menu Menu headMenuEmptyVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1075,7 +1035,6 @@ exports[`Menu Menu headMenuEmptyVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1088,7 +1047,6 @@ exports[`Menu Menu headMenuEmptyVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-disabled t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1132,7 +1090,6 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1145,7 +1102,6 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1158,7 +1114,6 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1171,7 +1126,6 @@ exports[`Menu Menu headMenuModeTileVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-disabled t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1265,7 +1219,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1279,7 +1232,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
             
             <div
               class="t-menu__item"
-              style="position: relative;"
             >
               <!---->
             </div>
@@ -1290,7 +1242,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1303,7 +1254,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1316,7 +1266,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1337,7 +1286,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1351,7 +1299,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
             
             <div
               class="t-menu__item"
-              style="position: relative;"
             >
               <!---->
             </div>
@@ -1362,7 +1309,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               
               <li
                 class="t-menu__item t-is-active t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1375,7 +1321,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1388,7 +1333,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1409,7 +1353,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1423,7 +1366,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
             
             <div
               class="t-menu__item"
-              style="position: relative;"
             >
               <!---->
             </div>
@@ -1434,7 +1376,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1447,7 +1388,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1460,7 +1400,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1482,7 +1421,6 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-is-disabled t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -1573,7 +1511,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           
           <div
             class="t-menu__item t-is-opened"
-            style="position: relative;"
           >
             
             <svg
@@ -1621,7 +1558,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               
               <div
                 class="t-menu__item"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1653,7 +1589,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
                 
                 <li
                   class="t-menu__item t-menu__item--plain t-submenu__item"
-                  style="position: relative;"
                 >
                   <!---->
                   <span
@@ -1666,7 +1601,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-menu__item t-menu__item--plain t-submenu__item"
-                  style="position: relative;"
                 >
                   <!---->
                   <span
@@ -1679,7 +1613,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-menu__item t-menu__item--plain t-submenu__item"
-                  style="position: relative;"
                 >
                   <!---->
                   <span
@@ -1700,7 +1633,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
               
               <div
                 class="t-menu__item"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -1732,7 +1664,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
                 
                 <li
                   class="t-menu__item t-menu__item--plain t-submenu__item"
-                  style="position: relative;"
                 >
                   <!---->
                   <span
@@ -1745,7 +1676,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-menu__item t-menu__item--plain t-submenu__item"
-                  style="position: relative;"
                 >
                   <!---->
                   <span
@@ -1758,7 +1688,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
                 </li>
                 <li
                   class="t-menu__item t-menu__item--plain t-submenu__item"
-                  style="position: relative;"
                 >
                   <!---->
                   <span
@@ -1775,7 +1704,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-is-active t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -1788,7 +1716,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -1801,7 +1728,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -1818,7 +1744,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -1843,7 +1768,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           
           <div
             class="t-menu__item"
-            style="position: relative;"
           >
             
             <svg
@@ -1887,7 +1811,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -1900,7 +1823,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -1913,7 +1835,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -1930,7 +1851,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -1981,7 +1901,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
         
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -2002,7 +1921,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -2023,7 +1941,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -2048,7 +1965,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           
           <div
             class="t-menu__item t-is-opened"
-            style="position: relative;"
           >
             
             <svg
@@ -2092,7 +2008,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-is-active t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2105,7 +2020,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2118,7 +2032,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2135,7 +2048,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -2160,7 +2072,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           
           <div
             class="t-menu__item t-is-disabled"
-            style="position: relative;"
           >
             
             <svg
@@ -2200,7 +2111,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2213,7 +2123,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2226,7 +2135,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2243,7 +2151,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -2268,7 +2175,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
           
           <div
             class="t-menu__item"
-            style="position: relative;"
           >
             
             <svg
@@ -2312,7 +2218,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2325,7 +2230,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2338,7 +2242,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
             </li>
             <li
               class="t-menu__item t-menu__item--plain t-submenu__item"
-              style="position: relative;"
             >
               <!---->
               <span
@@ -2355,7 +2258,6 @@ exports[`Menu Menu multiSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -2491,7 +2393,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
                     
                     <li
                       class="t-menu__item t-menu__item--plain"
-                      style="position: relative;"
                     >
                       <!---->
                       <span
@@ -2504,7 +2405,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-menu__item t-menu__item--plain"
-                      style="position: relative;"
                     >
                       <!---->
                       <span
@@ -2517,7 +2417,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-menu__item t-menu__item--plain"
-                      style="position: relative;"
                     >
                       <!---->
                       <span
@@ -2535,7 +2434,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2548,7 +2446,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2561,7 +2458,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2607,7 +2503,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
                     
                     <li
                       class="t-menu__item t-menu__item--plain"
-                      style="position: relative;"
                     >
                       <!---->
                       <span
@@ -2620,7 +2515,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-menu__item t-menu__item--plain"
-                      style="position: relative;"
                     >
                       <!---->
                       <span
@@ -2633,7 +2527,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
                     </li>
                     <li
                       class="t-menu__item t-menu__item--plain"
-                      style="position: relative;"
                     >
                       <!---->
                       <span
@@ -2689,7 +2582,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               
               <li
                 class="t-menu__item t-is-active t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2702,7 +2594,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2715,7 +2606,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2847,7 +2737,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2860,7 +2749,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2873,7 +2761,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2928,7 +2815,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               
               <li
                 class="t-menu__item t-is-active t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2941,7 +2827,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -2954,7 +2839,6 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
               </li>
               <li
                 class="t-menu__item t-menu__item--plain"
-                style="position: relative;"
               >
                 <!---->
                 <span
@@ -3053,7 +2937,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
       
       <li
         class="t-menu__item"
-        style="position: relative;"
       >
         
         <svg
@@ -3078,7 +2961,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
         
         <div
           class="t-menu__item t-is-opened"
-          style="position: relative;"
         >
           
           <svg
@@ -3122,7 +3004,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
           
           <li
             class="t-menu__item t-is-active t-menu__item--plain t-submenu__item"
-            style="position: relative;"
           >
             <!---->
             <span
@@ -3135,7 +3016,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
           </li>
           <li
             class="t-menu__item t-menu__item--plain t-submenu__item"
-            style="position: relative;"
           >
             <!---->
             <span
@@ -3148,7 +3028,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
           </li>
           <li
             class="t-menu__item t-menu__item--plain t-submenu__item"
-            style="position: relative;"
           >
             <!---->
             <span
@@ -3169,7 +3048,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
         
         <div
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3213,7 +3091,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
           
           <li
             class="t-menu__item t-menu__item--plain t-submenu__item"
-            style="position: relative;"
           >
             <!---->
             <span
@@ -3226,7 +3103,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
           </li>
           <li
             class="t-menu__item t-menu__item--plain t-submenu__item"
-            style="position: relative;"
           >
             <!---->
             <span
@@ -3239,7 +3115,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
           </li>
           <li
             class="t-menu__item t-menu__item--plain t-submenu__item"
-            style="position: relative;"
           >
             <!---->
             <span
@@ -3256,7 +3131,6 @@ exports[`Menu Menu popupSideVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-disabled"
-        style="position: relative;"
       >
         
         <svg
@@ -3321,7 +3195,6 @@ exports[`Menu Menu sideMenuWidthVue demo works fine 1`] = `
       
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -3334,7 +3207,6 @@ exports[`Menu Menu sideMenuWidthVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-is-active t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -3347,7 +3219,6 @@ exports[`Menu Menu sideMenuWidthVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -3360,7 +3231,6 @@ exports[`Menu Menu sideMenuWidthVue demo works fine 1`] = `
       </li>
       <li
         class="t-menu__item t-menu__item--plain"
-        style="position: relative;"
       >
         <!---->
         <span
@@ -3408,7 +3278,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         
         <li
           class="t-menu__item t-is-active t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3421,7 +3290,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3434,7 +3302,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3447,7 +3314,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-is-disabled t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3460,7 +3326,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3473,7 +3338,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3486,7 +3350,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3499,7 +3362,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3512,7 +3374,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -3554,7 +3415,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         
         <li
           class="t-menu__item t-is-active"
-          style="position: relative;"
         >
           
           <svg
@@ -3575,7 +3435,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3596,7 +3455,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3617,7 +3475,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3638,7 +3495,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3659,7 +3515,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3680,7 +3535,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3701,7 +3555,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3722,7 +3575,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3772,7 +3624,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         
         <li
           class="t-menu__item t-is-active"
-          style="position: relative;"
         >
           
           <svg
@@ -3793,7 +3644,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3814,7 +3664,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3835,7 +3684,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3856,7 +3704,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3877,7 +3724,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3898,7 +3744,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3919,7 +3764,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3940,7 +3784,6 @@ exports[`Menu Menu singleSideVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item"
-          style="position: relative;"
         >
           
           <svg
@@ -3993,7 +3836,6 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
         
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -4006,7 +3848,6 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-is-active t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -4019,7 +3860,6 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-is-disabled t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -4111,7 +3951,6 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
         
         <li
           class="t-menu__item t-is-active t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -4124,7 +3963,6 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span
@@ -4137,7 +3975,6 @@ exports[`Menu Menu singleVue demo works fine 1`] = `
         </li>
         <li
           class="t-menu__item t-is-disabled t-menu__item--plain"
-          style="position: relative;"
         >
           <!---->
           <span

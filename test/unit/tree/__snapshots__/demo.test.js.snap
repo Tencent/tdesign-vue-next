@@ -168,7 +168,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -194,7 +193,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -220,7 +218,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -258,7 +255,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -284,7 +280,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -310,7 +305,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -365,7 +359,6 @@ exports[`Tree Tree baseVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -403,7 +396,6 @@ exports[`Tree Tree baseVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -441,7 +433,6 @@ exports[`Tree Tree baseVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -479,7 +470,6 @@ exports[`Tree Tree baseVue demo works fine 1`] = `
         </span>
         <span
           class="t-tree__label t-tree__label--strictly"
-          style="position: relative;"
         >
           <span
             style="position: relative;"
@@ -739,7 +729,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -789,7 +778,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -839,7 +827,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -877,7 +864,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -915,7 +901,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -965,7 +950,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1003,7 +987,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1041,7 +1024,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1091,7 +1073,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1141,7 +1122,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1179,7 +1159,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1217,7 +1196,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1267,7 +1245,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1305,7 +1282,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1343,7 +1319,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1393,7 +1368,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1431,7 +1405,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1469,7 +1442,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1608,7 +1580,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1658,7 +1629,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1708,7 +1678,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1746,7 +1715,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1784,7 +1752,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1834,7 +1801,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1884,7 +1850,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1934,7 +1899,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -1972,7 +1936,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2010,7 +1973,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2167,7 +2129,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2218,7 +2179,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2257,7 +2217,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2296,7 +2255,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2347,7 +2305,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2386,7 +2343,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2425,7 +2381,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2476,7 +2431,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2515,7 +2469,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2554,7 +2507,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2665,7 +2617,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2715,7 +2666,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2754,7 +2704,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2792,7 +2741,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2842,7 +2790,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2881,7 +2828,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2919,7 +2865,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -2969,7 +2914,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -3007,7 +2951,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -3046,7 +2989,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -4465,7 +4407,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -4509,7 +4450,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -4553,7 +4493,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -4609,7 +4548,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -4653,7 +4591,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -4697,7 +4634,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -4880,7 +4816,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -4930,7 +4865,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -7451,7 +7385,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -7476,7 +7409,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7489,7 +7421,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-outline t-button--theme-default"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7502,7 +7433,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-outline t-button--theme-default"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7515,7 +7445,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-danger"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7548,7 +7477,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -7573,7 +7501,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7586,7 +7513,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-outline t-button--theme-default"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7599,7 +7525,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-outline t-button--theme-default"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7612,7 +7537,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-danger"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7641,7 +7565,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7654,7 +7577,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7667,7 +7589,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7680,7 +7601,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7693,7 +7613,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7706,7 +7625,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7719,7 +7637,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7732,7 +7649,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7745,7 +7661,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7758,7 +7673,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7771,7 +7685,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7784,7 +7697,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -7839,7 +7751,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -7864,7 +7775,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7877,7 +7787,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7890,7 +7799,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7903,7 +7811,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-danger"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7938,7 +7845,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -7963,7 +7869,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7976,7 +7881,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -7989,7 +7893,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -8002,7 +7905,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
           </button>
           <button
             class="t-button t-size-s t-button--variant-base t-button--theme-danger"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -8031,7 +7933,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -8158,7 +8059,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8208,7 +8108,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8258,7 +8157,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8296,7 +8194,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8334,7 +8231,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8384,7 +8280,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8434,7 +8329,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8484,7 +8378,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8522,7 +8415,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8560,7 +8452,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8699,7 +8590,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8749,7 +8639,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8799,7 +8688,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8837,7 +8725,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8875,7 +8762,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8925,7 +8811,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -8975,7 +8860,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -9025,7 +8909,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -9063,7 +8946,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"
@@ -9101,7 +8983,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
           modelvalue="false"
-          style="position: relative;"
         >
           <input
             class="t-checkbox__former"

@@ -55,7 +55,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -81,7 +80,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -106,7 +104,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -131,7 +128,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -156,7 +152,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -182,7 +177,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -207,7 +201,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -232,7 +225,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -257,7 +249,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -283,7 +274,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -308,7 +298,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -333,7 +322,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -358,7 +346,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -384,7 +371,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -409,7 +395,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -434,7 +419,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -459,7 +443,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -485,7 +468,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -510,7 +492,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -535,7 +516,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -573,7 +553,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        style="position: relative;"
         type="button"
       >
         
@@ -602,7 +581,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -740,7 +718,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -766,7 +743,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -791,7 +767,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -816,7 +791,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -841,7 +815,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -867,7 +840,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -892,7 +864,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -917,7 +888,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -942,7 +912,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -968,7 +937,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -993,7 +961,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1018,7 +985,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1043,7 +1009,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1069,7 +1034,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1094,7 +1058,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1119,7 +1082,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1144,7 +1106,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1170,7 +1131,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1195,7 +1155,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-is-checked t-transfer__list-item t-is-checked"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1220,7 +1179,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1258,7 +1216,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
     >
       <button
         class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-        style="position: relative;"
         type="button"
       >
         
@@ -1287,7 +1244,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -1427,7 +1383,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1456,7 +1411,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1485,7 +1439,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1514,7 +1467,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1543,7 +1495,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1572,7 +1523,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1601,7 +1551,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1630,7 +1579,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1659,7 +1607,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1688,7 +1635,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1717,7 +1663,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1746,7 +1691,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1775,7 +1719,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1804,7 +1747,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1833,7 +1775,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1862,7 +1803,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1891,7 +1831,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1920,7 +1859,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1949,7 +1887,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -1978,7 +1915,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2021,7 +1957,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -2050,7 +1985,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -2192,7 +2126,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2217,7 +2150,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2242,7 +2174,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2267,7 +2198,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2292,7 +2222,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2317,7 +2246,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2342,7 +2270,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2367,7 +2294,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2392,7 +2318,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2417,7 +2342,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2442,7 +2366,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2467,7 +2390,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2492,7 +2414,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2517,7 +2438,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2542,7 +2462,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2567,7 +2486,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2592,7 +2510,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2617,7 +2534,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2642,7 +2558,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2667,7 +2582,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2710,7 +2624,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         <span
@@ -2726,7 +2639,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         <span
@@ -2859,7 +2771,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2884,7 +2795,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2909,7 +2819,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2934,7 +2843,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2959,7 +2867,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -2984,7 +2891,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3009,7 +2915,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3034,7 +2939,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3059,7 +2963,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3084,7 +2987,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3123,7 +3025,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -3152,7 +3053,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -3229,7 +3129,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3255,7 +3154,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3281,7 +3179,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3307,7 +3204,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3333,7 +3229,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3359,7 +3254,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3385,7 +3279,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3411,7 +3304,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3437,7 +3329,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3463,7 +3354,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
               class="t-checkbox t-is-disabled t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3570,7 +3460,6 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -3599,7 +3488,6 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -3744,7 +3632,6 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -3773,7 +3660,6 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -3911,7 +3797,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3936,7 +3821,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3961,7 +3845,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -3986,7 +3869,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4011,7 +3893,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4036,7 +3917,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4061,7 +3941,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4086,7 +3965,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4111,7 +3989,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4136,7 +4013,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4216,7 +4092,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                       >
                         <li
                           class="t-select-option t-size-s t-select__create-option--special"
-                          style="position: relative;"
                           title=""
                         >
                           
@@ -4230,14 +4105,12 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                         
                         <li
                           class="t-select-option t-is-selected t-size-s"
-                          style="position: relative;"
                           title="1/2"
                         >
                           1/2
                         </li>
                         <li
                           class="t-select-option t-size-s"
-                          style="position: relative;"
                           title="2/2"
                         >
                           2/2
@@ -4330,7 +4203,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -4359,7 +4231,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -4518,7 +4389,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4543,7 +4413,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4568,7 +4437,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4593,7 +4461,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4618,7 +4485,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4643,7 +4509,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4668,7 +4533,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4693,7 +4557,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4718,7 +4581,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4743,7 +4605,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4768,7 +4629,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4793,7 +4653,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4818,7 +4677,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4843,7 +4701,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4868,7 +4725,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4893,7 +4749,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4918,7 +4773,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4943,7 +4797,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4968,7 +4821,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -4993,7 +4845,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5032,7 +4883,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -5061,7 +4911,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -5218,7 +5067,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5243,7 +5091,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5268,7 +5115,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5293,7 +5139,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5318,7 +5163,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5343,7 +5187,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5368,7 +5211,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5393,7 +5235,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5418,7 +5259,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5443,7 +5283,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5482,7 +5321,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -5511,7 +5349,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -5587,7 +5424,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5612,7 +5448,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5637,7 +5472,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5662,7 +5496,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5687,7 +5520,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5712,7 +5544,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5737,7 +5568,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5762,7 +5592,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5787,7 +5616,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5812,7 +5640,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
               class="t-checkbox t-transfer__list-item"
               modelvalue="false"
               props="[object Object]"
-              style="position: relative;"
             >
               <input
                 class="t-checkbox__former"
@@ -5931,7 +5758,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -5969,7 +5795,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6019,7 +5844,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6069,7 +5893,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6107,7 +5930,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6145,7 +5967,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6195,7 +6016,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6233,7 +6053,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6271,7 +6090,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
                   class="t-checkbox t-tree__label t-tree__label--strictly"
                   ignore="expand,active"
                   modelvalue="false"
-                  style="position: relative;"
                 >
                   <input
                     class="t-checkbox__former"
@@ -6311,7 +6129,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         
@@ -6340,7 +6157,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
-        style="position: relative;"
         type="button"
       >
         

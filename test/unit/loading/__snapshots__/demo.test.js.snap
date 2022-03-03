@@ -125,7 +125,6 @@ exports[`Loading Loading delayVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -138,7 +137,6 @@ exports[`Loading Loading delayVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -289,7 +287,6 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -302,7 +299,6 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -315,7 +311,6 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -338,7 +333,6 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
   >
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary t-loading__btn"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -351,7 +345,6 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -364,7 +357,6 @@ exports[`Loading Loading serviceVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -640,7 +632,6 @@ exports[`Loading Loading wrapVue demo works fine 1`] = `
   <div>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span
@@ -653,7 +644,6 @@ exports[`Loading Loading wrapVue demo works fine 1`] = `
     </button>
     <button
       class="t-button t-size-s t-button--variant-base t-button--theme-primary"
-      style="position: relative;"
       type="button"
     >
       <span

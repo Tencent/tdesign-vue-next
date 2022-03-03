@@ -30,7 +30,6 @@ exports[`Upload Upload baseVue demo works fine 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          style="position: relative;"
           type="button"
         >
           
@@ -90,7 +89,6 @@ exports[`Upload Upload customDragVue demo works fine 1`] = `
 >
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-    style="position: relative;"
     type="button"
   >
     
@@ -146,7 +144,6 @@ exports[`Upload Upload customDragVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -380,7 +377,6 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -436,7 +432,6 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-default"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -450,7 +445,6 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
           disabled=""
-          style="position: relative;"
           type="button"
         >
           <span
@@ -980,7 +974,6 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-            style="position: relative;"
             type="button"
           >
             <span
@@ -1015,7 +1008,6 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-default"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -1029,7 +1021,6 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled"
           disabled=""
-          style="position: relative;"
           type="button"
         >
           <span
@@ -1138,7 +1129,6 @@ exports[`Upload Upload listTypeVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only"
-            style="position: relative;"
             type="button"
           >
             
@@ -1263,7 +1253,6 @@ exports[`Upload Upload requestMethodVue demo works fine 1`] = `
       >
         <button
           class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          style="position: relative;"
           type="button"
         >
           
@@ -1337,7 +1326,6 @@ exports[`Upload Upload singleCustomVue demo works fine 1`] = `
         
         <button
           class="t-button t-size-m t-button--variant-base t-button--theme-primary"
-          style="position: relative;"
           type="button"
         >
           <span
@@ -1469,7 +1457,6 @@ exports[`Upload Upload singleInputVue demo works fine 1`] = `
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
             disabled=""
-            style="position: relative;"
             type="button"
           >
             <span
@@ -1525,7 +1512,6 @@ exports[`Upload Upload tableVue demo works fine 1`] = `
           
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--icon-only"
-            style="position: relative;"
             type="button"
           >
             
