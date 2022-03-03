@@ -46,6 +46,8 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
     instanceMap.get(attachEl)[hackOptions.placement] = instance;
     tmpInstance = instance;
     attachEl.appendChild(instance.$el);
+    // 处理 https://github.com/Tencent/tdesign-vue-next/issues/394
+    (document.activeElement as HTMLElement).blur();
   } else {
     tmpInstance.add(hackOptions);
   }
