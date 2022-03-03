@@ -25,13 +25,13 @@ export default defineComponent({
 
   setup(props) {
     const formDisabled = useFormDisabled();
-    const label = ref<HTMLElement>();
+    const labelRef = ref<HTMLElement>();
     if (props.needRipple) {
-      useRipple(label);
+      useRipple(labelRef);
     }
     return {
       formDisabled,
-      label,
+      labelRef,
     };
   },
 
@@ -80,7 +80,7 @@ export default defineComponent({
 
   render() {
     return (
-      <label class={this.labelClasses} {...this.$attrs} ref="label">
+      <label class={this.labelClasses} {...this.$attrs} ref="labelRef">
         <input
           type="checkbox"
           class={`${name}__former`}
