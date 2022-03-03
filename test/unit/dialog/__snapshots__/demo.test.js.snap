@@ -2245,11 +2245,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
           </div>
           
         </div>
-        <span
-          class="t-dialog__close"
-        >
-          <!---->
-        </span>
+        <!---->
         <div
           class="t-dialog__body"
         >

@@ -280,9 +280,11 @@ export default defineComponent({
             {getIcon()}
             {renderTNodeJSX('header', defaultHeader)}
           </div>
-          <span class={`${name}__close`} onClick={closeBtnAcion}>
-            {renderTNodeJSX('closeBtn', defaultCloseBtn)}
-          </span>
+          {props.closeBtn ? (
+            <span class={`${name}__close`} onClick={closeBtnAcion}>
+              {renderTNodeJSX('closeBtn', defaultCloseBtn)}
+            </span>
+          ) : null}
           <div class={bodyClassName}>{body}</div>
           <div class={`${name}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
         </div>
