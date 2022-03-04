@@ -1,6 +1,7 @@
 import { h, getCurrentInstance, ComponentInternalInstance, VNode } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
+import isObject from 'lodash/isObject';
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
 import { getDefaultNode, getParams, OptionsType, JSXRenderContext } from '../utils/render-tnode';
@@ -42,14 +43,16 @@ export const useTNodeJSX = () => {
       propsNode = instance.props[name];
     }
 
+    // 是否静默日志
+    const isSilent = Boolean(isObject(options) && 'silent' in options && options.silent);
     // 同名插槽和属性同时存在，则提醒用户只需要选择一种方式即可
-    if (instance.slots[name] && propsNode && propsNode !== true) {
+    if (instance.slots[name] && propsNode && propsNode !== true && !isSilent) {
       log.warn('', `Both slots.${name} and props.${name} exist, props.${name} is preferred`);
     }
     // propsNode 为 false 不渲染
     if (propsNode === false) return;
     if (propsNode === true) {
-      return handleSlots(instance, name, params) ?? defaultNode;
+      return handleSlots(instance, name, params) || defaultNode;
     }
 
     // 同名 props 和 slot 优先处理 props

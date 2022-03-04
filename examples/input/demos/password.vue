@@ -14,9 +14,3 @@ import { LockOnIcon } from 'tdesign-icons-vue-next';
 
 const renderPrefixIcon = () => <LockOnIcon />;
 </script>
-
-<style scoped>
-.t-input + .t-input {
-  margin-top: 16px;
-}
-</style>

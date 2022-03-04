@@ -720,12 +720,12 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
         <path
           d="M4 1.92C4 1.34 4.52 1 5 1h4.37a1 1 0 01.71.3L13.71 5a1 1 0 01.29.7v6.38c0 .58-.52.92-1 .92H5c-.48 0-1-.34-1-.92V1.92zM5 2v10h8V6.01H9V2H5zm5 .65V5h2.32L10 2.65z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
         <path
           d="M2 5v9.01a1 1 0 001 1h8v-1H3V5H2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
       
@@ -770,12 +770,12 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
         <path
           d="M4 1.92C4 1.34 4.52 1 5 1h4.37a1 1 0 01.71.3L13.71 5a1 1 0 01.29.7v6.38c0 .58-.52.92-1 .92H5c-.48 0-1-.34-1-.92V1.92zM5 2v10h8V6.01H9V2H5zm5 .65V5h2.32L10 2.65z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
         <path
           d="M2 5v9.01a1 1 0 001 1h8v-1H3V5H2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
       
@@ -820,12 +820,12 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
         <path
           d="M4 1.92C4 1.34 4.52 1 5 1h4.37a1 1 0 01.71.3L13.71 5a1 1 0 01.29.7v6.38c0 .58-.52.92-1 .92H5c-.48 0-1-.34-1-.92V1.92zM5 2v10h8V6.01H9V2H5zm5 .65V5h2.32L10 2.65z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
         <path
           d="M2 5v9.01a1 1 0 001 1h8v-1H3V5H2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
       
@@ -870,12 +870,12 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
         <path
           d="M4 1.92C4 1.34 4.52 1 5 1h4.37a1 1 0 01.71.3L13.71 5a1 1 0 01.29.7v6.38c0 .58-.52.92-1 .92H5c-.48 0-1-.34-1-.92V1.92zM5 2v10h8V6.01H9V2H5zm5 .65V5h2.32L10 2.65z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
         <path
           d="M2 5v9.01a1 1 0 001 1h8v-1H3V5H2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
       
@@ -920,12 +920,12 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
         <path
           d="M4 1.92C4 1.34 4.52 1 5 1h4.37a1 1 0 01.71.3L13.71 5a1 1 0 01.29.7v6.38c0 .58-.52.92-1 .92H5c-.48 0-1-.34-1-.92V1.92zM5 2v10h8V6.01H9V2H5zm5 .65V5h2.32L10 2.65z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
         <path
           d="M2 5v9.01a1 1 0 001 1h8v-1H3V5H2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
       
@@ -970,12 +970,12 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
         <path
           d="M4 1.92C4 1.34 4.52 1 5 1h4.37a1 1 0 01.71.3L13.71 5a1 1 0 01.29.7v6.38c0 .58-.52.92-1 .92H5c-.48 0-1-.34-1-.92V1.92zM5 2v10h8V6.01H9V2H5zm5 .65V5h2.32L10 2.65z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
         <path
           d="M2 5v9.01a1 1 0 001 1h8v-1H3V5H2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
       
@@ -1020,12 +1020,12 @@ exports[`Anchor Anchor targetVue demo works fine 1`] = `
         <path
           d="M4 1.92C4 1.34 4.52 1 5 1h4.37a1 1 0 01.71.3L13.71 5a1 1 0 01.29.7v6.38c0 .58-.52.92-1 .92H5c-.48 0-1-.34-1-.92V1.92zM5 2v10h8V6.01H9V2H5zm5 .65V5h2.32L10 2.65z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
         <path
           d="M2 5v9.01a1 1 0 001 1h8v-1H3V5H2z"
           fill="currentColor"
-          fillOpacity="0.9"
+          fill-opacity="0.9"
         />
       </svg>
       

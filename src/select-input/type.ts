@@ -6,10 +6,9 @@
 
 import { InputProps, InputValue } from '../input';
 import { PopupProps } from '../popup';
-import { TagInputProps, TagInputValue } from '../tag-input';
+import { TagInputProps, TagInputValue, TagInputChangeContext } from '../tag-input';
 import { TagProps } from '../tag';
 import { PopupVisibleChangeContext } from '../popup';
-import { TagInputChangeContext } from '../tag-input';
 import { TNode } from '../common';
 
 export interface TdSelectInputProps {
@@ -47,6 +46,14 @@ export interface TdSelectInputProps {
    */
   inputProps?: InputProps;
   /**
+   * 输入框的值
+   */
+  inputValue?: InputValue;
+  /**
+   * 输入框的值，非受控属性
+   */
+  defaultInputValue?: InputValue;
+  /**
    * 定义字段别名，示例：`{ label: 'text', value: 'id', children: 'list' }`
    */
   keys?: SelectInputKeys;
@@ -54,6 +61,11 @@ export interface TdSelectInputProps {
    * 左侧文本
    */
   label?: string | TNode;
+  /**
+   * 是否处于加载状态
+   * @default false
+   */
+  loading?: boolean;
   /**
    * 最小折叠数量，用于标签数量过多的情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠
    * @default 0
@@ -139,9 +151,9 @@ export interface TdSelectInputProps {
    */
   onFocus?: (value: SelectInputValue, context: SelectInputFocusContext) => void;
   /**
-   * 输入框值发生变化时触发
+   * 输入框值发生变化时触发，`context.trigger` 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、失去焦点等
    */
-  onInputChange?: (value: InputValue, context?: { e?: InputEvent | MouseEvent }) => void;
+  onInputChange?: (value: InputValue, context?: SelectInputValueChangeContext) => void;
   /**
    * 进入输入框时触发
    */
@@ -176,6 +188,11 @@ export interface SelectInputFocusContext {
   inputValue: InputValue;
   tagInputValue?: TagInputValue;
   e: FocusEvent;
+}
+
+export interface SelectInputValueChangeContext {
+  e?: InputEvent | MouseEvent | FocusEvent | KeyboardEvent;
+  trigger: 'input' | 'clear' | 'blur';
 }
 
 export type SelectInputChangeContext = TagInputChangeContext;

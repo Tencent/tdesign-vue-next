@@ -13,6 +13,8 @@ const createDialog: DialogMethod = (props: DialogOptions) => {
       const dialogOptions = ref<Record<string, any>>(options);
       onMounted(() => {
         visible.value = true;
+        // 处理 https://github.com/Tencent/tdesign-vue-next/issues/394
+        (document.activeElement as HTMLElement).blur();
       });
       return {
         dialogOptions,

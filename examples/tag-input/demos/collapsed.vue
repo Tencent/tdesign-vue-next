@@ -9,7 +9,7 @@
     <t-tag-input v-model="tags" :min-collapsed-num="3">
       <template #collapsedItems="{ collapsedTags }">
         <t-popup>
-          <t-tag>More({{ collapsedTags?.length }})</t-tag>
+          <t-tag>More({{ collapsedTags.length }})</t-tag>
           <template #content>
             <t-tag v-for="item in collapsedTags" :key="item" style="margin-right: 4px">
               {{ item }}

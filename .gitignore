@@ -8,6 +8,7 @@ lib/
 dist/
 
 _site
+_static_site
 package
 tmp*
 temp*

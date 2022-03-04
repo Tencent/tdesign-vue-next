@@ -1,4 +1,4 @@
-import { h, ComponentPublicInstance, ComponentInternalInstance, VNode, isVNode } from 'vue';
+import { h, ComponentPublicInstance, VNode, isVNode } from 'vue';
 import isEmpty from 'lodash/isEmpty';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
@@ -71,7 +71,7 @@ export const renderTNodeJSX = (instance: ComponentPublicInstance, name: string, 
   // propsNode 为 false 不渲染
   if (propsNode === false) return;
   if (propsNode === true && defaultNode) {
-    return handleSlots(instance, params, name) ?? defaultNode;
+    return handleSlots(instance, params, name) || defaultNode;
   }
 
   // 同名 props 和 slot 优先处理 props

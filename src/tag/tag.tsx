@@ -1,7 +1,7 @@
 import { computed, defineComponent, h, VNode } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import { useEmitEvent } from '../hooks/event';
-import { useReceiver, TagConfig } from '../config-provider';
+import { useConfig } from '../config-provider';
 import CLASSNAMES from '../utils/classnames';
 import config from '../config';
 import props from './props';
@@ -17,7 +17,7 @@ export default defineComponent({
   emits: ['close', 'click'],
   setup(props) {
     const emitEvent = useEmitEvent();
-    const { global: tagGlobalConfig } = useReceiver<TagConfig>('tag');
+    const { global: tagGlobalConfig } = useConfig('tag');
     const tagClass = computed<ClassName>(() => {
       return [
         `${name}`,

@@ -1,10 +1,9 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, VNode, ref, onMounted } from 'vue';
 import get from 'lodash/get';
 import { renderContent } from '../utils/render-tnode';
 import { scrollSelectedIntoView } from '../utils/dom';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
-import ripple from '../utils/ripple';
 import props from './option-props';
 import { SelectOption } from './type';
 import Checkbox from '../checkbox/index';
@@ -12,6 +11,7 @@ import { ClassName } from '../common';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import useRipple from '../hooks/useRipple';
 
 const selectName = `${prefix}-select`;
 
@@ -20,7 +20,6 @@ export default defineComponent({
   components: {
     TCheckbox: Checkbox,
   },
-  directives: { ripple },
   inject: {
     tSelect: {
       default: undefined,
@@ -30,8 +29,14 @@ export default defineComponent({
   props: { ...props },
   setup() {
     const disabled = useFormDisabled();
+
+    const liRef = ref<HTMLElement>();
+
+    useRipple(liRef);
+
     return {
       disabled,
+      liRef,
     };
   },
   data() {
@@ -155,6 +160,7 @@ export default defineComponent({
     const optionChild = children || labelText;
     return (
       <li
+        ref="liRef"
         v-show={show}
         class={classes}
         title={labelText}
@@ -164,7 +170,6 @@ export default defineComponent({
           e.preventDefault();
           this.select(e);
         }}
-        v-ripple
       >
         {this.tSelect && this.tSelect.multiple ? (
           <t-checkbox checked={selected} disabled={disabled || multiLimitDisabled}>
