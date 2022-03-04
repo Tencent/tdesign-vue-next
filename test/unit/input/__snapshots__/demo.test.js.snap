@@ -557,6 +557,37 @@ exports[`Input Input statusVue demo works fine 1`] = `
   style="max-width: 500px;"
 >
   <div
+    class="t-input t-is-disabled"
+  >
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      disabled=""
+      placeholder="请输入"
+      type="text"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="t-input t-is-readonly"
+  >
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      placeholder="请输入"
+      readonly=""
+      type="text"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <br />
+  <div
     class="t-input"
   >
     <!---->

@@ -19982,6 +19982,20 @@ exports[`ssr snapshot test renders ./examples/input/demos/size.vue correctly 1`]
 
 exports[`ssr snapshot test renders ./examples/input/demos/status.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
+  <div class="t-input t-is-disabled">
+    <!---->
+    <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value="禁用状态">
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <div class="t-input t-is-readonly">
+    <!---->
+    <!----><input class="t-input__inner" readonly placeholder="请输入" type="text" value="只读状态">
+    <!---->
+    <!---->
+    <!---->
+  </div><br>
   <div class="t-input">
     <!---->
     <!----><input class="t-input__inner" placeholder="请输入" type="text" value="成功状态">
