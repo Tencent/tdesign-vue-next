@@ -22,7 +22,6 @@ const options = ref([
 ]);
 
 const createOptions = (val) => {
-  console.log(val);
   options.value.push({
     label: `选项${val}`,
     value: val,
