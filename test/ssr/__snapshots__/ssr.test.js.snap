@@ -7904,7 +7904,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
       </div>
     </div>
     <!--[-->
-    <div class="t-cascader t-is-disabled t-size-m t-demo-cascader t-demo-cascader" modelvalue="1.1"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled>
+    <div class="t-cascader t-size-m t-is-disabled t-demo-cascader t-demo-cascader" modelvalue="1.1"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled>
         <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
       </svg></div>
     <!--]-->
@@ -7921,7 +7921,7 @@ exports[`ssr snapshot test renders ./examples/cascader/demos/disabled.vue correc
       </div>
     </div>
     <!--[-->
-    <div class="t-cascader t-is-disabled t-size-m t-cascader--multiple t-demo-cascader t-demo-cascader"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled>
+    <div class="t-cascader t-size-m t-is-disabled t-cascader--multiple t-demo-cascader t-demo-cascader"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled>
         <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
       </svg></div>
     <!--]-->
@@ -17345,7 +17345,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
               </div>
             </div>
             <!--[-->
-            <div class="t-cascader t-is-disabled t-size-m"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled>
+            <div class="t-cascader t-size-m t-is-disabled"><span class="t-cascader__placeholder">请选择</span><svg class="t-fake-arrow t-cascader__icon t-is-disabled" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" disabled>
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg></div>
             <!--]-->

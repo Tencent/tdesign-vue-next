@@ -21,12 +21,12 @@ const options = ref([
   { label: '选项三', value: '3' },
 ]);
 
-const createOptions = () => {
-  console.log(value.value);
+const createOptions = (val) => {
+  console.log(val);
   options.value.push({
-    label: `选项${value.value}`,
-    value: value.value,
+    label: `选项${val}`,
+    value: val,
   });
-  console.log('create option:', value.value);
+  console.log('create option:', val);
 };
 </script>
