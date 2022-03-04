@@ -36,7 +36,7 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
     return props.value.map((item) => (isObject(item) ? item[iKeys.value.label] : item));
   });
 
-  const tPlaceholder = computed<string>(() => (!tags.value || !tags.value.length ? props.placeholder : undefined));
+  const tPlaceholder = computed<string>(() => (!tags.value || !tags.value.length ? props.placeholder : ''));
 
   const onTagInputChange = (val: TagInputValue, context: SelectInputChangeContext) => {
     // 避免触发浮层的显示或隐藏

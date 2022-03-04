@@ -59,7 +59,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -125,7 +125,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -191,7 +191,7 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -249,7 +249,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -322,7 +322,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -460,7 +460,7 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -556,7 +556,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -666,7 +666,7 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -753,7 +753,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       <input
         class="t-input__inner"
         disabled=""
-        placeholder="请输入"
+        placeholder=""
         type="text"
       />
       <!---->
@@ -908,7 +908,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
         </div>
         <input
           class="t-input__inner"
-          placeholder="请输入"
+          placeholder=""
           type="text"
         />
         <!---->
@@ -1006,7 +1006,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
         </div>
         <input
           class="t-input__inner"
-          placeholder="请输入"
+          placeholder=""
           type="text"
         />
         <!---->
@@ -1104,7 +1104,7 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
         </div>
         <input
           class="t-input__inner"
-          placeholder="请输入"
+          placeholder=""
           type="text"
         />
         <!---->
@@ -1201,7 +1201,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -1283,7 +1283,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -1365,7 +1365,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->
@@ -1447,7 +1447,7 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     </div>
     <input
       class="t-input__inner"
-      placeholder="请输入"
+      placeholder=""
       type="text"
     />
     <!---->

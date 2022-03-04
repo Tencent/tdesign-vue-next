@@ -27969,7 +27969,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless-mult
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+2<!--]--><!----></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" placeholder type="text" value>
       <!---->
       <!---->
       <!---->
@@ -27999,7 +27999,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+5<!--]--><!----></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" placeholder type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28024,7 +28024,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->更多(4)<!--]--><!----></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" placeholder type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28064,7 +28064,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/collapsed-items
         </div>
         <!--]-->
         <!--]-->
-      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" placeholder type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28199,7 +28199,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-dis
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-angular<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-mobile-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-mobile-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" placeholder type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28225,7 +28225,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/excess-tags-dis
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-angular<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-mobile-vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->tdesign-mobile-react<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" placeholder type="text" value>
       <!---->
       <!---->
       <!---->
@@ -28332,7 +28332,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/multiple.vue co
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
         <!--]-->
-      </div><input class="t-input__inner" placeholder="请输入" type="text" value>
+      </div><input class="t-input__inner" placeholder type="text" value>
       <!---->
       <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg><!--]--></span>
     </div>
@@ -41005,7 +41005,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41016,7 +41016,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly
       <!--[-->
       <div class="t-tag-input__prefix">Controlled: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41027,7 +41027,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/base.vue correctly
       <!--[-->
       <div class="t-tag-input__prefix">UnControlled: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41042,7 +41042,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue corr
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+4<!--]--><!----></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41052,7 +41052,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue corr
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->更多(3)<!--]--><!----></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41077,7 +41077,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/collapsed.vue corr
       </div>
       <!--]-->
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41101,7 +41101,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue cor
         <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
       </svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+1<!--]--><!----></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41124,7 +41124,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/custom-tag.vue cor
       <!--]-->
       <!--]-->
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41141,7 +41141,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/excess.vue correct
       <!--[-->
       <div class="t-tag-input__prefix">Scroll: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41152,7 +41152,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/excess.vue correct
       <!--[-->
       <div class="t-tag-input__prefix">BreakLine: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41182,7 +41182,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/size.vue correctly
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-s" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-s" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41192,7 +41192,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/size.vue correctly
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41202,7 +41202,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/size.vue correctly
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-l" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-l" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41218,7 +41218,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
       <div class="t-input__prefix">
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m" style=""><!----><!--[-->Vue<!--]--><!----></span><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m" style=""><!----><!--[-->React<!--]--><!----></span><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><!----></span>
         <!--]-->
-      </div><input class="t-input__inner" disabled placeholder="请输入" type="text">
+      </div><input class="t-input__inner" disabled placeholder type="text">
       <!---->
       <!---->
       <!---->
@@ -41246,7 +41246,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
         <div class="t-input__prefix">
           <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
           <!--]-->
-        </div><input class="t-input__inner" placeholder="请输入" type="text">
+        </div><input class="t-input__inner" placeholder type="text">
         <!---->
         <!---->
         <!---->
@@ -41261,7 +41261,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
         <div class="t-input__prefix">
           <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
           <!--]-->
-        </div><input class="t-input__inner" placeholder="请输入" type="text">
+        </div><input class="t-input__inner" placeholder type="text">
         <!---->
         <!---->
         <!---->
@@ -41276,7 +41276,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/status.vue correct
         <div class="t-input__prefix">
           <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
           <!--]-->
-        </div><input class="t-input__inner" placeholder="请输入" type="text">
+        </div><input class="t-input__inner" placeholder type="text">
         <!---->
         <!---->
         <!---->
@@ -41294,7 +41294,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41304,7 +41304,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41314,7 +41314,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->
@@ -41324,7 +41324,7 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
     <div class="t-input__prefix">
       <!--[--><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Miniprogram<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
       <!--]-->
-    </div><input class="t-input__inner" placeholder="请输入" type="text">
+    </div><input class="t-input__inner" placeholder type="text">
     <!---->
     <!---->
     <!---->

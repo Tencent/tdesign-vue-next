@@ -54,10 +54,7 @@ export default defineComponent({
       ];
     });
 
-    const tagInputPlaceholder = computed(() => {
-      if (props.readonly || (props.autoWidth && !isHover.value)) return '';
-      return !tagValue.value?.length ? placeholder.value : undefined;
-    });
+    const tagInputPlaceholder = computed(() => (!tagValue.value?.length ? placeholder.value : ''));
 
     const showClearIcon = computed(() =>
       Boolean(
