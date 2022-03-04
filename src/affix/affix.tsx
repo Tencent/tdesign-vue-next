@@ -33,7 +33,8 @@ export default defineComponent({
       // 需要减掉当前节点的高度，对比的高度应该从 border-top 比对开始
       containerHeight.value = _containerHeight - (instance.ctx.$el?.clientHeight || 0);
       // 被包裹的子节点宽高
-      const { clientWidth, clientHeight } = instance.ctx.$el?.querySelector(`.${name}`) || instance.ctx.$el;
+      const { clientWidth, clientHeight } =
+        (instance.ctx && instance.ctx.$el?.querySelector(`.${name}`)) || instance.ctx.$el;
       oldWidthHeight.value = { width: `${clientWidth}px`, height: `${clientHeight}px` };
       handleScroll();
     };
@@ -48,10 +49,10 @@ export default defineComponent({
           }
           const calcTop = top - containerTop; // 节点顶部到 container 顶部的距离
           const calcBottom = containerTop + containerHeight.value - props.offsetBottom; // 计算 bottom 相对应的 top 值
-          if (props.offsetTop !== undefined && calcTop <= props.offsetTop) {
+          if (props.offsetTop !== 0 && calcTop <= props.offsetTop) {
             // top 的触发
             fixedTop.value = containerTop + props.offsetTop;
-          } else if (props.offsetBottom !== undefined && top >= calcBottom) {
+          } else if (props.offsetBottom !== 0 && top >= calcBottom) {
             // bottom 的触发
             fixedTop.value = calcBottom;
           } else {
@@ -79,13 +80,14 @@ export default defineComponent({
       },
     );
 
-    onMounted(async () => {
-      await nextTick();
-      scrollContainer.value = getScrollContainer(props.container);
-      calcInitValue();
-      on(scrollContainer.value, 'scroll', handleScroll);
-      on(window, 'resize', calcInitValue);
-      if (!(scrollContainer.value instanceof Window)) on(window, 'scroll', handleScroll);
+    onMounted(() => {
+      nextTick(() => {
+        scrollContainer.value = getScrollContainer(props.container);
+        calcInitValue();
+        on(scrollContainer.value, 'scroll', handleScroll);
+        on(window, 'resize', calcInitValue);
+        if (!(scrollContainer.value instanceof Window)) on(window, 'scroll', handleScroll);
+      });
     });
 
     onBeforeUnmount(() => {
