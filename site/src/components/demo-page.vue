@@ -2,7 +2,7 @@
   <component :is="demo" v-if="demo"></component>
   <ul v-else class="empty-demo">
     <li v-for="demoName in demoList[componentName]" :key="demoName">
-      <router-link :to="{ path: `/vue/demos/${componentName}/${demoName}` }">
+      <router-link :to="{ path: `/vue-next/demos/${componentName}/${demoName}` }">
         <t-button theme="default" variant="text">{{ demoName }}</t-button>
       </router-link>
     </li>

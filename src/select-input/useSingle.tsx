@@ -1,9 +1,10 @@
-import { SetupContext, ref, VNode, watch, computed, toRefs } from 'vue';
+import { SetupContext, ref, watch, computed, toRefs } from 'vue';
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
-import Input, { InputValue } from '../input';
 import { SelectInputCommonProperties } from './interface';
 import { TdSelectInputProps } from './type';
+import Input, { InputValue } from '../input';
+import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
 
 // single 和 multiple 共有特性
@@ -64,18 +65,23 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const renderSelectSingle = () => {
     const singleValueDisplay = renderTNode('valueDisplay');
     const prefixContent = [singleValueDisplay, renderTNode('label')];
+    const inputProps = {
+      ...commonInputProps.value,
+      ...props.inputProps,
+      value: singleValueDisplay ? undefined : inputValue.value,
+      label: prefixContent.length ? () => prefixContent : undefined,
+      autoWidth: props.autoWidth,
+      showClearIconOnEmpty: !props.autoWidth,
+      readonly: !props.allowInput,
+      placeholder: singleValueDisplay ? '' : props.placeholder,
+      suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
+    };
     return (
       <Input
         ref="inputRef"
-        {...commonInputProps.value}
-        v-slots={{ ...context.slots }}
-        autoWidth={props.borderless || props.autoWidth}
-        placeholder={singleValueDisplay ? '' : props.placeholder}
-        value={singleValueDisplay ? undefined : inputValue.value}
-        label={prefixContent.length ? () => prefixContent : undefined}
-        showClearIconOnEmpty
+        {...inputProps}
+        v-slots={context.slots}
         onChange={onInnerInputChange}
-        readonly={!props.allowInput}
         onClear={onInnerClear}
         onBlur={(val, context) => {
           props.onBlur?.(value, { ...context, inputValue: val });
@@ -84,7 +90,6 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         onFocus={(val, context) => {
           props.onFocus?.(value, { ...context, inputValue: val });
         }}
-        {...props.inputProps}
       />
     );
   };

@@ -159,8 +159,8 @@ export default defineComponent({
   render(): VNode {
     let children = null;
     if (this.options?.length) {
-      children = this.optionList?.map((option) => (
-        <Checkbox key={option.value} {...option} checked={this.checkedMap[option.value]}>
+      children = this.optionList?.map((option, index) => (
+        <Checkbox key={`${option.value}${index}`} {...option} checked={this.checkedMap[option.value]}>
           {this.renderLabel(option)}
         </Checkbox>
       ));

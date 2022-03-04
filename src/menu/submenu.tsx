@@ -174,7 +174,7 @@ export default defineComponent({
       const normalSubmenu = [
         <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
           {icon}
-          <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title')}</span>
+          <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
           {hasContent && (
             <FakeArrow
               overlayClassName={this.arrowClass}
@@ -190,7 +190,7 @@ export default defineComponent({
       const popupSubmenu = [
         <div class={this.submenuClass}>
           {icon}
-          <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title')}</span>
+          <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
           <FakeArrow
             overlayClassName={this.arrowClass}
             overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
