@@ -65,8 +65,8 @@ export default defineComponent({
       switch (props.format) {
         case 'HEX':
           return color.value.hex;
-        // case 'HEX8':
-        //   return color.value.hex8;
+        case 'CMYK':
+          return color.value.cmyk;
         case 'RGB':
         case 'RGBA':
           return props.enableAlpha ? color.value.rgba : color.value.rgb;
