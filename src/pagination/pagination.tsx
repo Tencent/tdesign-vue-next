@@ -1,5 +1,5 @@
 import { defineComponent, computed, ref, watch, h } from 'vue';
-import { isNaN } from 'lodash';
+import isNaN from 'lodash/isNaN';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
