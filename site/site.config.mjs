@@ -199,6 +199,13 @@ export default {
           component: () => import('@/examples/date-picker/date-picker.md'),
         },
         {
+          title: 'ColorPicker 颜色选择器',
+          name: 'color-picker',
+          docType: 'form',
+          path: '/vue-next/components/color-picker',
+          component: () => import('@/examples/color-picker/color-picker.md'),
+        },
+        {
           title: 'Form 表单',
           name: 'form',
           docType: 'form',
