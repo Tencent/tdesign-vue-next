@@ -31,7 +31,7 @@ docClass: timeline
 
 ### Features
 
-* SelectInput:  新增 `SelectInput` 筛选器组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/SelectInput)使用,  ([pr #330](https://github.com/Tencent/tdesign-vue-next/issues/330)), ([@chaishi](https://github.com/chaishi))
+* SelectInput:  新增 `SelectInput` 筛选器组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/select-input)使用,  ([pr #330](https://github.com/Tencent/tdesign-vue-next/issues/330)), ([@chaishi](https://github.com/chaishi))
 * Input: 增加 `format` 属性  ([pr #387](https://github.com/Tencent/tdesign-vue-next/issues/387))
 * 全局配置: 支持关闭斜八度波纹动画  ([pr #389](https://github.com/Tencent/tdesign-vue-next/issues/389)), ([issue 204](https://github.com/Tencent/tdesign-vue-next/issues/204)), ([@uyarn](https://github.com/uyarn))
 
