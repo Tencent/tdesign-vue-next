@@ -172,6 +172,11 @@ export default function (props: (string | PropOption)[]): any {
       methods: {
         updateData(this: any, propName: string, v: any, ...args: any[]): any {
           propOptionMap[propName].events.forEach((event) => {
+            const eventName = `on${event.charAt(0).toUpperCase()}${event.substr(1)}`;
+            if (typeof this[eventName] === 'function') {
+              this[eventName](v, ...args);
+              return true;
+            }
             this.$emit(event, v, ...args);
           });
           const { props } = this.$.vnode;

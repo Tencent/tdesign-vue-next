@@ -30,10 +30,14 @@ export default defineComponent({
       } else {
         _containerHeight = scrollContainer.value.clientHeight;
       }
+      if (!instance.ctx || instance.ctx.$el) {
+        handleScroll();
+        return;
+      }
       // 需要减掉当前节点的高度，对比的高度应该从 border-top 比对开始
       containerHeight.value = _containerHeight - (instance.ctx.$el?.clientHeight || 0);
       // 被包裹的子节点宽高
-      const { clientWidth, clientHeight } = instance.ctx.$el.querySelector(`.${name}`) || instance.ctx.$el;
+      const { clientWidth, clientHeight } = instance.ctx.$el?.querySelector(`.${name}`) || instance.ctx.$el;
       oldWidthHeight.value = { width: `${clientWidth}px`, height: `${clientHeight}px` };
       handleScroll();
     };

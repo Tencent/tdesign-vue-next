@@ -11,9 +11,9 @@
       @popup-visible-change="onPopupVisibleChange"
     >
       <template #panel>
-        <ul class="tdesign-demo__selet-input-ul-autocomplete">
+        <ul class="tdesign-demo__select-input-ul-autocomplete">
           <li v-for="item in options" :key="item" @click="() => onOptionClick(item)">
-            <img src="/favicon.ico" /> {{ item }}
+            {{ item }}
           </li>
         </ul>
       </template>
@@ -21,69 +21,50 @@
     </t-select-input>
   </div>
 </template>
-
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
 
 const OPTIONS = ['Student A', 'Student B', 'Student C', 'Student D', 'Student E', 'Student F'];
 
-export default defineComponent({
-  name: 'SelectInputSingle',
-  components: { SearchIcon },
-  setup() {
-    const popupVisible = ref(false);
-    const selectValue = ref();
-    const options = ref(OPTIONS);
+const popupVisible = ref(false);
+const selectValue = ref();
+const options = ref(OPTIONS);
 
-    const onOptionClick = (item) => {
-      selectValue.value = item;
-      popupVisible.value = false;
-    };
+const onOptionClick = (item) => {
+  selectValue.value = item;
+  popupVisible.value = false;
+};
 
-    const onInputChange = (keyword) => {
-      selectValue.value = keyword;
-      options.value = new Array(5).fill(null).map((t, index) => `${keyword} Student ${index}`);
-    };
+const onInputChange = (keyword) => {
+  selectValue.value = keyword;
+  options.value = new Array(5).fill(null).map((t, index) => `${keyword} Student ${index}`);
+};
 
-    const onPopupVisibleChange = (val) => {
-      popupVisible.value = val;
-    };
-
-    return {
-      popupVisible,
-      selectValue,
-      options,
-      onOptionClick,
-      onInputChange,
-      onPopupVisibleChange,
-    };
-  },
-});
+const onPopupVisibleChange = (val) => {
+  popupVisible.value = val;
+};
 </script>
-
-<style>
-.tdesign-demo__selet-input-ul-autocomplete,
-.tdesign-demo__selet-input-ul-autocomplete > li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+<style lang="less" scoped>
+.tdesign-demo__select-input-ul-autocomplete {
+  padding: 4px 0;
+}
+.tdesign-demo__select-input-ul-autocomplete > li {
+  display: block;
+  border-radius: 3px;
+  height: 40px;
+  line-height: 22px;
+  cursor: pointer;
+  padding: 9px 8px;
+  color: var(--td-text-color-primary);
+  transition: background-color 0.2s cubic-bezier(0.38, 0, 0.24, 1);
+  white-space: nowrap;
+  word-wrap: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.tdesign-demo__selet-input-ul-autocomplete > li {
-  line-height: 40px;
-  min-width: 200px;
-  padding: 0 8px;
-}
-
-.tdesign-demo__selet-input-ul-autocomplete > li:hover {
+.tdesign-demo__select-input-ul-autocomplete > li:hover {
   background-color: var(--td-bg-color-container-hover);
-}
-
-.tdesign-demo__selet-input-ul-autocomplete > li > img {
-  max-width: 20px;
-  max-height: 20px;
-  vertical-align: middle;
-  margin-right: 8px;
 }
 </style>

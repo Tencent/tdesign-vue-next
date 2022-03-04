@@ -1,4 +1,4 @@
-import { VNode, h, defineComponent } from 'vue';
+import { VNode, h, defineComponent, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CaretRightSmallIcon } from 'tdesign-icons-vue-next';
 import mixins from '../utils/mixins';
@@ -11,7 +11,7 @@ import { getTNode } from './util';
 import { TypeEventState } from './interface';
 import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
 import { ClassName } from '../common';
-import ripple from '../utils/ripple';
+import useRipple from '../hooks/useRipple';
 
 export const TreeItemProps = {
   node: {
@@ -25,9 +25,14 @@ export const TreeItemProps = {
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TreeConfig>('tree')),
   name: TREE_NODE_NAME,
-  directives: { ripple },
   props: TreeItemProps,
   emits: ['click', 'change'],
+  setup() {
+    const label = ref<HTMLElement>();
+    useRipple(label);
+
+    return { label };
+  },
   created() {
     if (this.node) {
       this.data = this.node.data;
@@ -194,7 +199,6 @@ export default defineComponent({
 
         labelNode = (
           <TCheckBox
-            v-ripple
             class={labelClasses}
             checked={node.checked}
             indeterminate={node.indeterminate}
@@ -202,6 +206,7 @@ export default defineComponent({
             name={node.value}
             onChange={() => this.handleChange()}
             ignore="expand,active"
+            needRipple={true}
             {...itemCheckProps}
           >
             {labelNode}
@@ -210,7 +215,7 @@ export default defineComponent({
       } else {
         const inner = <span style="position: relative">{labelNode}</span>;
         labelNode = node.isActivable() ? ( // 使用key是为了避免元素复用，从而顺利移除ripple指令
-          <span key="1" v-ripple class={labelClasses}>
+          <span key="1" ref="label" class={labelClasses}>
             {inner}
           </span>
         ) : (

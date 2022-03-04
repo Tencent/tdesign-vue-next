@@ -29,7 +29,6 @@ export default {
   /** 输入框的值 */
   inputValue: {
     type: [String, Number] as PropType<TdSelectInputProps['inputValue']>,
-    default: undefined,
   },
   /** 输入框的值，非受控属性 */
   defaultInputValue: {
@@ -43,6 +42,8 @@ export default {
   label: {
     type: [String, Function] as PropType<TdSelectInputProps['label']>,
   },
+  /** 是否处于加载状态 */
+  loading: Boolean,
   /** 最小折叠数量，用于标签数量过多的情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠 */
   minCollapsedNum: {
     type: Number,

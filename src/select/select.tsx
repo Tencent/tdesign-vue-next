@@ -344,6 +344,7 @@ export default defineComponent({
       this.visible = val;
       if (!val) {
         this.searchInput = '';
+        this.showCreateOption = false;
       }
       val && this.monitorWidth();
       val && this.canFilter && this.doFocus();
@@ -504,9 +505,11 @@ export default defineComponent({
           }
           break;
         case 'Enter':
-          if (this.hoverIndex === -1) return;
-          if (this.showCreateOption && this.hoverIndex === 0) {
+          if (this.showCreateOption) {
             this.createOption(this.searchInput);
+            this.$nextTick(() => {
+              this.searchInput = '';
+            });
           }
           this.hoverOptions[this.hoverIndex] &&
             this.onOptionClick(this.hoverOptions[this.hoverIndex][this.realValue], e);

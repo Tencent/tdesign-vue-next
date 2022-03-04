@@ -397,7 +397,7 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-cascader t-is-disabled t-size-m t-demo-cascader t-demo-cascader"
+      class="t-cascader t-size-m t-is-disabled t-demo-cascader t-demo-cascader"
       modelvalue="1.1"
     >
       <span
@@ -456,7 +456,7 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-cascader t-is-disabled t-size-m t-cascader--multiple t-demo-cascader t-demo-cascader"
+      class="t-cascader t-size-m t-is-disabled t-cascader--multiple t-demo-cascader t-demo-cascader"
       modelvalue="1.1"
     >
       <span
