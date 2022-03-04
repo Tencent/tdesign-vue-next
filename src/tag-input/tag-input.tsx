@@ -55,7 +55,7 @@ export default defineComponent({
     });
 
     const tagInputPlaceholder = computed(() => {
-      if (props.readonly) return '';
+      if (props.readonly || (props.autoWidth && !isHover.value)) return '';
       return !tagValue.value?.length ? placeholder.value : undefined;
     });
 

@@ -1,6 +1,5 @@
 import { computed, defineComponent, ref, SetupContext, toRefs } from 'vue';
 import Popup from '../popup';
-
 import { prefix } from '../config';
 import props from './props';
 import { TdSelectInputProps } from './type';

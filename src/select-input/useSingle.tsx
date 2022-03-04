@@ -1,15 +1,10 @@
 import { SetupContext, ref, watch, computed, toRefs } from 'vue';
-// utils
 import isObject from 'lodash/isObject';
 import pick from 'lodash/pick';
 import { SelectInputCommonProperties } from './interface';
 import { TdSelectInputProps } from './type';
-
-// components
 import Input, { InputValue } from '../input';
 import Loading from '../loading';
-
-// hooks
 import { useTNodeJSX } from '../hooks/tnode';
 
 // single 和 multiple 共有特性
@@ -76,6 +71,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       value: singleValueDisplay ? undefined : inputValue.value,
       label: prefixContent.length ? () => prefixContent : undefined,
       autoWidth: props.autoWidth,
+      showClearIconOnEmpty: !props.autoWidth,
       readonly: !props.allowInput,
       placeholder: singleValueDisplay ? '' : props.placeholder,
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
