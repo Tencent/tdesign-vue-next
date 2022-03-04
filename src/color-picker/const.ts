@@ -101,11 +101,6 @@ export const DEFAULT_SYSTEM_SWATCH_COLORS = [
   '#056334',
   '#044F2A',
   '#033017',
-  // '#FFFFFF',
-  // '#F5F5F5',
-  // '#F3F3F3',
-  // '#EEEEEE',
-  // '#DCDCDC',
 ];
 
 // saturation-panel default rect
