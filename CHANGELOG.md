@@ -11,12 +11,12 @@ docClass: timeline
 ### Bug Fixes
 
 * DatePicker: ([pr #389](https://github.com/Tencent/tdesign-vue-next/pull/376)), ([@xiaosansiji](https://github.com/xiaosansiji))
-  * 修复 `onPick` 事件配置无效的问题
-  * 修复无法清除面板中已选值的问题，请问下，date-pick 点击清空按钮没有清空上一次的选中，如果把value=‘’ 也没有清空上一次的选中，是特性，还是bug？ tdesign-vue#448
-  * 修复点击年份或月份后，日期弹窗意外消失的问题，[datepicker] 点击年份或月份后，弹窗会消失 tdesign-vue#443
+  * 修复 `onPick` 事件配置无效
+  * 修复无法清除面板中已选值
+  * 修复点击年份或月份后，日期弹窗意外消失
 * TagInput: ([pr #387](https://github.com/Tencent/tdesign-vue-next/pull/387))
-  * 修复在有输入的值且无tag的情况下，不展示清除按钮。且点击后onClear方法未触发。
-  * 修复在auto-width模式下的交互问题
+  * 修复在有输入的值且无 `tag` 的情况下，不展示清除按钮。且点击后 `onClear` 方法未触发。
+  * 修复在 `auto-width` 模式下的交互问题
 * Dialog:
   * 修复 `dialog plugin` 聚焦 `button` 通过键盘频繁触发 ([pr #395](https://github.com/Tencent/tdesign-vue-next/pull/395)), ([issue #394](https://github.com/Tencent/tdesign-vue-next/issues/394))
   * 修复 `closeBtn` 为 `false` 的时候依然可以点击关闭区域关闭弹窗 ([pr #392](https://github.com/Tencent/tdesign-vue-next/pull/392)), ([issue #373](https://github.com/Tencent/tdesign-vue-next/issues/373))
@@ -32,7 +32,7 @@ docClass: timeline
 ### Features
 
 * SelectInput:  新增 `Skeleton` 骨架屏组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/skeleton)使用,  ([pr #330](https://github.com/Tencent/tdesign-vue-next/issues/330)), ([@chaishi](https://github.com/chaishi))
-* Input: 增加 format 属性  ([pr #387](https://github.com/Tencent/tdesign-vue-next/issues/387))
+* Input: 增加 `format` 属性  ([pr #387](https://github.com/Tencent/tdesign-vue-next/issues/387))
 * 全局配置: 支持关闭斜八度波纹动画  ([pr #389](https://github.com/Tencent/tdesign-vue-next/issues/389)), ([issue 204](https://github.com/Tencent/tdesign-vue-next/issues/204)), ([@uyarn](https://github.com/uyarn))
 
 ## 0.9.2 `2022-02-26`
