@@ -19,6 +19,7 @@ export default defineComponent({
     const scrollContainer = ref<ScrollContainerElement>();
     const containerHeight = ref(0);
     const ticking = ref(false);
+    const contentStyle = ref({});
 
     const calcInitValue = () => {
       let _containerHeight = 0; // 获取当前可视的高度
@@ -74,10 +75,20 @@ export default defineComponent({
       },
     );
 
+    const getContentStyle = () => {
+      const { clientWidth, clientHeight } = affixRef.value;
+
+      contentStyle.value = {
+        width: `${clientWidth}px`,
+        height: `${clientHeight}px`,
+      };
+    };
+
     onMounted(async () => {
       await nextTick();
       scrollContainer.value = getScrollContainer(props.container);
       calcInitValue();
+      getContentStyle();
       on(scrollContainer.value, 'scroll', handleScroll);
       on(window, 'resize', calcInitValue);
       if (!(scrollContainer.value instanceof Window)) on(window, 'scroll', handleScroll);
@@ -94,20 +105,20 @@ export default defineComponent({
       affixRef,
       fixedTop,
       scrollContainer,
+      contentStyle,
     };
   },
   render() {
-    const { fixedTop, zIndex } = this;
+    const { fixedTop, zIndex, contentStyle } = this;
 
-    const attrs = fixedTop !== false ? this.$attrs : {};
     return (
-      <div {...attrs} ref="affixRef">
+      <div style={fixedTop !== false ? contentStyle : {}} ref="affixRef">
         {fixedTop !== false ? (
           <div class={name} style={{ zIndex, top: `${fixedTop}px` }}>
             {renderTNodeJSX(this, 'default')}
           </div>
         ) : (
-          <div ref="affixRef">{renderTNodeJSX(this, 'default')}</div>
+          renderTNodeJSX(this, 'default')
         )}
       </div>
     );
