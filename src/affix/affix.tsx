@@ -1,4 +1,4 @@
-import { ref, watch, nextTick, getCurrentInstance, onMounted, onBeforeUnmount, defineComponent } from 'vue';
+import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import { on, off, getScrollContainer } from '../utils/dom';
@@ -12,16 +12,14 @@ export default defineComponent({
   name: 'TAffix',
   props,
   emits: ['fixedChange'],
-  setup(props, { emit }) {
-    const instance = getCurrentInstance() as any;
+  setup(props, context) {
+    const { emit } = context;
+    const affixRef = ref(null);
     const fixedTop = ref<false | number>(false);
-    const oldWidthHeight = ref({
-      width: '0px',
-      height: '0px',
-    });
     const scrollContainer = ref<ScrollContainerElement>();
     const containerHeight = ref(0);
     const ticking = ref(false);
+    const contentStyle = ref({});
 
     const calcInitValue = () => {
       let _containerHeight = 0; // 获取当前可视的高度
@@ -30,21 +28,16 @@ export default defineComponent({
       } else {
         _containerHeight = scrollContainer.value.clientHeight;
       }
-      if (!instance.ctx || !instance.ctx.$el) {
-        return;
-      }
+
       // 需要减掉当前节点的高度，对比的高度应该从 border-top 比对开始
-      containerHeight.value = _containerHeight - (instance.ctx.$el?.clientHeight || 0);
-      // 被包裹的子节点宽高
-      const { clientWidth, clientHeight } = instance.ctx.$el?.querySelector(`.${name}`) || {};
-      oldWidthHeight.value = { width: `${clientWidth}px`, height: `${clientHeight}px` };
+      containerHeight.value = _containerHeight - (affixRef.value.clientHeight || 0);
       handleScroll();
     };
 
     const handleScroll = () => {
       if (!ticking.value) {
         window.requestAnimationFrame(() => {
-          const { top } = instance.ctx.$el.getBoundingClientRect(); // top = 节点到页面顶部的距离，包含 scroll 中的高度
+          const { top } = affixRef.value.getBoundingClientRect(); // top = 节点到页面顶部的距离，包含 scroll 中的高度
           let containerTop = 0; // containerTop = 容器到页面顶部的距离
           if (scrollContainer.value instanceof HTMLElement) {
             containerTop = scrollContainer.value.getBoundingClientRect().top;
@@ -82,10 +75,20 @@ export default defineComponent({
       },
     );
 
+    const getContentStyle = () => {
+      const { clientWidth, clientHeight } = affixRef.value;
+
+      contentStyle.value = {
+        width: `${clientWidth}px`,
+        height: `${clientHeight}px`,
+      };
+    };
+
     onMounted(async () => {
       await nextTick();
       scrollContainer.value = getScrollContainer(props.container);
       calcInitValue();
+      getContentStyle();
       on(scrollContainer.value, 'scroll', handleScroll);
       on(window, 'resize', calcInitValue);
       if (!(scrollContainer.value instanceof Window)) on(window, 'scroll', handleScroll);
@@ -99,25 +102,25 @@ export default defineComponent({
     });
 
     return {
+      affixRef,
       fixedTop,
-      oldWidthHeight,
       scrollContainer,
+      contentStyle,
     };
   },
   render() {
-    const { oldWidthHeight, fixedTop, zIndex } = this;
+    const { fixedTop, zIndex, contentStyle } = this;
 
-    if (fixedTop !== false) {
-      return (
-        <div {...this.$attrs}>
-          <div style={oldWidthHeight}></div>
-          <div class={name} style={{ zIndex, top: `${fixedTop}px`, width: oldWidthHeight.width }}>
+    return (
+      <div style={fixedTop !== false ? contentStyle : {}} ref="affixRef">
+        {fixedTop !== false ? (
+          <div class={name} style={{ zIndex, top: `${fixedTop}px` }}>
             {renderTNodeJSX(this, 'default')}
           </div>
-        </div>
-      );
-    }
-
-    return <div>{renderTNodeJSX(this, 'default')}</div>;
+        ) : (
+          renderTNodeJSX(this, 'default')
+        )}
+      </div>
+    );
   },
 });

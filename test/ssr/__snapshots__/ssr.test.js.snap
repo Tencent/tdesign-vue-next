@@ -2,7 +2,7 @@
 
 exports[`ssr snapshot test renders ./examples/affix/demos/base.vue correctly 1`] = `
 <div class="affix-base">
-  <div>
+  <div style="">
     <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->固钉<!--]--></span></button>
     <!--]-->
   </div>
@@ -13,7 +13,7 @@ exports[`ssr snapshot test renders ./examples/affix/demos/container.vue correctl
 <div class="affix-container">
   <div class="affix-container-demo1">
     <div class="background">
-      <div>
+      <div style="">
         <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->FixedTop top:0<!--]--></span></button>
         <!--]-->
       </div>
@@ -333,7 +333,7 @@ exports[`ssr snapshot test renders ./examples/alert/demos/title.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/anchor/demos/base.vue correctly 1`] = `
 <div id="#default" class="anchor-demo" style="display:flex;">
   <div style="flex:1;"></div>
-  <div>
+  <div style="">
     <!--[-->
     <div class="t-anchor t-size-m">
       <div class="t-anchor__line">
