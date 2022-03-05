@@ -30,13 +30,13 @@ export default defineComponent({
       } else {
         _containerHeight = scrollContainer.value.clientHeight;
       }
-      if (!instance.ctx || !instance.ctx.$el) {
+      if (!instance.ctx.$el) {
         return;
       }
       // 需要减掉当前节点的高度，对比的高度应该从 border-top 比对开始
-      containerHeight.value = _containerHeight - (instance.ctx.$el?.clientHeight || 0);
+      containerHeight.value = _containerHeight - (instance.ctx.$el.clientHeight || 0);
       // 被包裹的子节点宽高
-      const { clientWidth, clientHeight } = instance.ctx.$el?.querySelector(`.${name}`) || {};
+      const { clientWidth, clientHeight } = instance.ctx.$el.querySelector(`.${name}`);
       oldWidthHeight.value = { width: `${clientWidth}px`, height: `${clientHeight}px` };
       handleScroll();
     };
@@ -44,6 +44,9 @@ export default defineComponent({
     const handleScroll = () => {
       if (!ticking.value) {
         window.requestAnimationFrame(() => {
+          if (!instance.ctx.$el) {
+            return;
+          }
           const { top } = instance.ctx.$el.getBoundingClientRect(); // top = 节点到页面顶部的距离，包含 scroll 中的高度
           let containerTop = 0; // containerTop = 容器到页面顶部的距离
           if (scrollContainer.value instanceof HTMLElement) {
