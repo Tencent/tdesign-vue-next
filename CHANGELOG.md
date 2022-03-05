@@ -5,6 +5,13 @@ toc: false
 docClass: timeline
 ---
 
+## 0.9.4 `2022-03-04`
+
+### Bug Fixes
+
+* 修复在 `typescript` 严格模式下打包出错  ([issue #384](https://github.com/Tencent/tdesign-vue-next/issues/384))
+
+
 ## 0.9.3 `2022-03-04`
 
 

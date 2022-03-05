@@ -4,11 +4,9 @@ import { prefix } from '../config';
 import Checkbox from './checkbox';
 import checkboxGroupProps from './checkbox-group-props';
 import { emitEvent } from '../utils/event';
-import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue, TdCheckboxGroupProps } from './type';
+import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue, CheckboxGroupChangeContext } from './type';
 
 const name = `${prefix}-checkbox-group`;
-
-type CheckedChangeType = Parameters<TdCheckboxGroupProps['onChange']>;
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -114,8 +112,8 @@ export default defineComponent({
       }
       return option.label;
     },
-    emitChange(val: CheckboxGroupValue, context: CheckedChangeType[1]) {
-      emitEvent<CheckedChangeType>(this, 'change', val, context);
+    emitChange(val: CheckboxGroupValue, context: CheckboxGroupChangeContext) {
+      emitEvent(this, 'change', val, context);
     },
     handleCheckboxChange(data: { checked: boolean; e: Event; option: TdCheckboxProps }) {
       const currentValue = data.option.value;

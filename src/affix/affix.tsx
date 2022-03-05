@@ -30,7 +30,7 @@ export default defineComponent({
       } else {
         _containerHeight = scrollContainer.value.clientHeight;
       }
-      if (!instance.ctx || instance.ctx.$el) {
+      if (!instance.ctx || !instance.ctx.$el) {
         handleScroll();
         return;
       }
