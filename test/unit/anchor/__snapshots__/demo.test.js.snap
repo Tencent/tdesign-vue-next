@@ -10,92 +10,90 @@ exports[`Anchor Anchor baseVue demo works fine 1`] = `
     style="flex: 1;"
   />
   <div>
-    <div>
-      
+    
+    <div
+      class="t-anchor t-size-m"
+    >
       <div
-        class="t-anchor t-size-m"
+        class="t-anchor__line"
       >
         <div
-          class="t-anchor__line"
+          class="t-anchor__line-cursor-wrapper"
         >
           <div
-            class="t-anchor__line-cursor-wrapper"
-          >
-            <div
-              class="t-anchor__line-cursor"
-            />
-          </div>
+            class="t-anchor__line-cursor"
+          />
         </div>
-        
-        <div
-          class="t-anchor__item"
+      </div>
+      
+      <div
+        class="t-anchor__item"
+      >
+        <a
+          class="t-anchor__item-link"
+          href="#基础锚点"
+          target="_self"
+          title="基础锚点"
         >
-          <a
-            class="t-anchor__item-link"
-            href="#基础锚点"
-            target="_self"
-            title="基础锚点"
-          >
-            基础锚点
-          </a>
-          <!---->
-        </div>
-        <div
-          class="t-anchor__item"
+          基础锚点
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor__item"
+      >
+        <a
+          class="t-anchor__item-link"
+          href="#多级锚点"
+          target="_self"
+          title="多级锚点"
         >
-          <a
-            class="t-anchor__item-link"
-            href="#多级锚点"
-            target="_self"
-            title="多级锚点"
-          >
-            多级锚点
-          </a>
-          <!---->
-        </div>
-        <div
-          class="t-anchor__item"
+          多级锚点
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor__item"
+      >
+        <a
+          class="t-anchor__item-link"
+          href="#指定容器锚点"
+          target="_self"
+          title="指定容器锚点"
         >
-          <a
-            class="t-anchor__item-link"
-            href="#指定容器锚点"
-            target="_self"
-            title="指定容器锚点"
-          >
-            指定容器锚点
-          </a>
-          <!---->
-        </div>
-        <div
-          class="t-anchor__item"
+          指定容器锚点
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor__item"
+      >
+        <a
+          class="t-anchor__item-link"
+          href="#特定交互锚点"
+          target="_self"
+          title="特定交互锚点"
         >
-          <a
-            class="t-anchor__item-link"
-            href="#特定交互锚点"
-            target="_self"
-            title="特定交互锚点"
-          >
-            特定交互锚点
-          </a>
-          <!---->
-        </div>
-        <div
-          class="t-anchor__item"
+          特定交互锚点
+        </a>
+        <!---->
+      </div>
+      <div
+        class="t-anchor__item"
+      >
+        <a
+          class="t-anchor__item-link"
+          href="#不同尺寸的锚点"
+          target="_self"
+          title="不同尺寸的锚点"
         >
-          <a
-            class="t-anchor__item-link"
-            href="#不同尺寸的锚点"
-            target="_self"
-            title="不同尺寸的锚点"
-          >
-            不同尺寸的锚点
-          </a>
-          <!---->
-        </div>
-        
+          不同尺寸的锚点
+        </a>
+        <!---->
       </div>
       
     </div>
+    
   </div>
 </div>
 `;

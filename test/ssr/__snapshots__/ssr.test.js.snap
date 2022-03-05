@@ -2,11 +2,9 @@
 
 exports[`ssr snapshot test renders ./examples/affix/demos/base.vue correctly 1`] = `
 <div class="affix-base">
-  <div>
-    <div>
-      <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->固钉<!--]--></span></button>
-      <!--]-->
-    </div>
+  <div style="">
+    <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->固钉<!--]--></span></button>
+    <!--]-->
   </div>
 </div>
 `;
@@ -15,11 +13,9 @@ exports[`ssr snapshot test renders ./examples/affix/demos/container.vue correctl
 <div class="affix-container">
   <div class="affix-container-demo1">
     <div class="background">
-      <div>
-        <div>
-          <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->FixedTop top:0<!--]--></span></button>
-          <!--]-->
-        </div>
+      <div style="">
+        <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->FixedTop top:0<!--]--></span></button>
+        <!--]-->
       </div>
     </div>
   </div>
@@ -337,35 +333,33 @@ exports[`ssr snapshot test renders ./examples/alert/demos/title.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/anchor/demos/base.vue correctly 1`] = `
 <div id="#default" class="anchor-demo" style="display:flex;">
   <div style="flex:1;"></div>
-  <div>
-    <div>
+  <div style="">
+    <!--[-->
+    <div class="t-anchor t-size-m">
+      <div class="t-anchor__line">
+        <div class="t-anchor__line-cursor-wrapper" style="">
+          <div class="t-anchor__line-cursor"></div>
+        </div>
+      </div>
       <!--[-->
-      <div class="t-anchor t-size-m">
-        <div class="t-anchor__line">
-          <div class="t-anchor__line-cursor-wrapper" style="">
-            <div class="t-anchor__line-cursor"></div>
-          </div>
-        </div>
-        <!--[-->
-        <div class="t-anchor__item"><a href="#基础锚点" title="基础锚点" class="t-anchor__item-link" target="_self">基础锚点</a>
-          <!---->
-        </div>
-        <div class="t-anchor__item"><a href="#多级锚点" title="多级锚点" class="t-anchor__item-link" target="_self">多级锚点</a>
-          <!---->
-        </div>
-        <div class="t-anchor__item"><a href="#指定容器锚点" title="指定容器锚点" class="t-anchor__item-link" target="_self">指定容器锚点</a>
-          <!---->
-        </div>
-        <div class="t-anchor__item"><a href="#特定交互锚点" title="特定交互锚点" class="t-anchor__item-link" target="_self">特定交互锚点</a>
-          <!---->
-        </div>
-        <div class="t-anchor__item"><a href="#不同尺寸的锚点" title="不同尺寸的锚点" class="t-anchor__item-link" target="_self">不同尺寸的锚点</a>
-          <!---->
-        </div>
-        <!--]-->
+      <div class="t-anchor__item"><a href="#基础锚点" title="基础锚点" class="t-anchor__item-link" target="_self">基础锚点</a>
+        <!---->
+      </div>
+      <div class="t-anchor__item"><a href="#多级锚点" title="多级锚点" class="t-anchor__item-link" target="_self">多级锚点</a>
+        <!---->
+      </div>
+      <div class="t-anchor__item"><a href="#指定容器锚点" title="指定容器锚点" class="t-anchor__item-link" target="_self">指定容器锚点</a>
+        <!---->
+      </div>
+      <div class="t-anchor__item"><a href="#特定交互锚点" title="特定交互锚点" class="t-anchor__item-link" target="_self">特定交互锚点</a>
+        <!---->
+      </div>
+      <div class="t-anchor__item"><a href="#不同尺寸的锚点" title="不同尺寸的锚点" class="t-anchor__item-link" target="_self">不同尺寸的锚点</a>
+        <!---->
       </div>
       <!--]-->
     </div>
+    <!--]-->
   </div>
 </div>
 `;
