@@ -1,6 +1,7 @@
 import { defineComponent, h, VNodeChild, nextTick } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import camelCase from 'lodash/camelCase';
+import kebabCase from 'lodash/kebabCase';
 import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 import getConfigReceiverMixins, { InputConfig } from '../config-provider/config-receiver';
@@ -77,6 +78,12 @@ export default defineComponent({
       },
       immediate: true,
     },
+    value: {
+      handler(val) {
+        this.inputValue = val;
+      },
+      immediate: true,
+    },
   },
 
   created() {
@@ -107,8 +114,8 @@ export default defineComponent({
         return icon(h);
       }
       // 插槽名称为中划线
-      if (this.$slots[iconType]) {
-        return this.$slots[iconType](null);
+      if (this.$slots[kebabCase(iconType)]) {
+        return this.$slots[kebabCase(iconType)](null);
       }
       // 插槽名称为驼峰
       if (this.$slots[camelCase(iconType)]) {
@@ -179,13 +186,20 @@ export default defineComponent({
       this.emitFocus(e);
     },
     emitFocus(e: FocusEvent) {
+      this.inputValue = this.value;
       if (this.disabled) return;
       this.focused = true;
       emitEvent(this, 'focus', this.value, { e });
     },
-    emitBlur(e: FocusEvent) {
+    formatAndEmitBlur(e: FocusEvent) {
+      if (this.format) {
+        this.inputValue = this.format(this.value);
+      }
       this.focused = false;
       emitEvent(this, 'blur', this.value, { e });
+    },
+    compositionendHandler(e: InputEvent) {
+      this.inputValueChangeHandle(e);
     },
     onHandleCompositionend(e: CompositionEvent) {
       this.inputValueChangeHandle(e);
@@ -231,7 +245,7 @@ export default defineComponent({
   render(): VNodeChild {
     const inputEvents = getValidAttrs({
       onFocus: (e: FocusEvent) => this.emitFocus(e),
-      onBlur: this.emitBlur,
+      onBlur: this.formatAndEmitBlur,
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
       onKeypresss: this.handleKeypress,
@@ -240,7 +254,6 @@ export default defineComponent({
       onCompositionstart: this.onHandleonCompositionstart,
       // input的change事件是失去焦点或者keydown的时候执行。这与api定义的change不符，所以不做任何变化。
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      onChange: () => {},
     });
 
     const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
@@ -290,7 +303,7 @@ export default defineComponent({
         onMouseenter={this.onInputMouseenter}
         onMouseleave={this.onInputMouseleave}
         onWheel={this.onHandleMousewheel}
-        {...{ ...wrapperAttrs }}
+        {...wrapperAttrs}
       >
         {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
         {labelContent}
@@ -299,7 +312,7 @@ export default defineComponent({
           {...{ ...this.inputAttrs }}
           {...inputEvents}
           ref="inputRef"
-          value={this.value}
+          value={this.inputValue}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
         />
         {this.autoWidth && (

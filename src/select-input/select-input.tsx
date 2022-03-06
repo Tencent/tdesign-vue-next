@@ -2,10 +2,11 @@ import { computed, defineComponent, ref, SetupContext, toRefs } from 'vue';
 import Popup from '../popup';
 import { prefix } from '../config';
 import props from './props';
+import { TdSelectInputProps } from './type';
+
 import useSingle from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayStyle from './useOverlayStyle';
-import { TdSelectInputProps } from './type';
 
 const NAME_CLASS = `${prefix}-select-input`;
 const BASE_CLASS_BORDERLESS = `${prefix}-select-input--borderless`;
@@ -21,7 +22,7 @@ export default defineComponent({
   setup(props: TdSelectInputProps, context: SetupContext) {
     const selectInputRef = ref();
     const selectInputWrapRef = ref();
-    const { multiple, value, popupVisible, popupProps, borderless } = toRefs(props);
+    const { multiple, value, popupVisible, borderless } = toRefs(props);
     const { commonInputProps, onInnerClear, renderSelectSingle } = useSingle(props, context);
     const { renderSelectMultiple } = useMultiple(props, context);
     const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
@@ -43,7 +44,6 @@ export default defineComponent({
       tOverlayStyle,
       selectInputRef,
       popupClasses,
-      popupProps,
       onInnerClear,
       renderSelectSingle,
       renderSelectMultiple,
@@ -59,13 +59,13 @@ export default defineComponent({
       <Popup
         ref="selectInputRef"
         class={this.popupClasses}
-        trigger={this.popupProps?.trigger || 'click'}
+        trigger={(this.popupProps as TdSelectInputProps['popupProps'])?.trigger || 'click'}
         placement="bottom-left"
+        {...visibleProps}
         content={this.panel}
         v-slots={{ ...this.$slots, content: this.$slots.panel }}
         hideEmptyPopup={true}
         onVisibleChange={this.onInnerPopupVisibleChange}
-        {...visibleProps}
         {...this.popupProps}
         overlayStyle={this.tOverlayStyle}
       >

@@ -1,14 +1,17 @@
-import { defineComponent, ref, computed, toRefs, nextTick } from 'vue';
+import { defineComponent, computed, toRefs, nextTick } from 'vue';
+
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import TInput, { InputValue } from '../input';
+
 import { TdTagInputProps } from './type';
 import props from './props';
+import { prefix } from '../config';
 import { renderTNodeJSX } from '../utils/render-tnode';
+
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
-import useDefault from '../hooks/useDefault';
+import useDefault from '../hooks/useDefaultValue';
 
 const NAME_CLASS = `${prefix}-tag-input`;
 const CLEAR_CLASS = `${prefix}-tag-input__suffix-clear`;
@@ -51,13 +54,17 @@ export default defineComponent({
       ];
     });
 
-    const tagInputPlaceholder = computed(() => {
-      return !tagValue.value?.length ? placeholder.value : '';
-    });
+    const tagInputPlaceholder = computed(() => (!tagValue.value?.length ? placeholder.value : ''));
 
-    const showClearIcon = computed(() => {
-      return Boolean(!readonly.value && !disabled.value && clearable.value && isHover.value && tagValue.value?.length);
-    });
+    const showClearIcon = computed(() =>
+      Boolean(
+        !readonly.value &&
+          !disabled.value &&
+          clearable.value &&
+          isHover.value &&
+          (tagValue.value?.length || tInputValue.value),
+      ),
+    );
 
     const onInputEnter = (value: InputValue, context: { e: KeyboardEvent }) => {
       setTInputValue('', { e: context.e, trigger: 'enter' });
@@ -74,6 +81,7 @@ export default defineComponent({
     const onClearClick = (context: { e: MouseEvent }) => {
       clearAll(context);
       setTInputValue('', { e: context.e, trigger: 'clear' });
+      props.onClear?.(context);
     };
 
     return {
@@ -97,7 +105,6 @@ export default defineComponent({
       onClearClick,
       onClose,
       classes,
-      slots: context.slots,
     };
   },
 
@@ -121,21 +128,21 @@ export default defineComponent({
         ref="tagInputRef"
         {...this.inputProps}
         value={this.tInputValue}
-        onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
-          this.setTInputValue(val, { ...context, trigger: 'input' });
-        }}
         onWheel={this.onWheel}
         autoWidth={this.autoWidth}
         size={this.size}
         readonly={this.readonly}
         disabled={this.disabled}
-        label={() => this.renderLabel({ slots: this.slots, displayNode, label })}
+        label={() => this.renderLabel({ displayNode, label })}
         class={this.classes}
         tips={this.tips}
         status={this.status}
         placeholder={this.tagInputPlaceholder}
         suffix={this.suffix}
         suffixIcon={() => suffixIconNode}
+        onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
+          this.setTInputValue(val, { ...context, trigger: 'input' });
+        }}
         onPaste={this.onPaste}
         onEnter={this.onInputEnter}
         onKeyup={this.onInputBackspaceKeyUp}

@@ -112,16 +112,6 @@ export default {
   defaultValue: {
     type: Array as PropType<TdTagInputProps['defaultValue']>,
   },
-  // @ts-ignore
-  value: {
-    type: Array as PropType<TdTagInputProps['value']>,
-    default: undefined,
-  },
-  // @ts-ignore
-  modelValue: {
-    type: Array as PropType<TdTagInputProps['value']>,
-    default: undefined,
-  },
   /** 自定义值呈现的全部内容，参数为所有标签的值 */
   valueDisplay: {
     type: [String, Function] as PropType<TdTagInputProps['valueDisplay']>,

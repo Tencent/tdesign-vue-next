@@ -5,8 +5,44 @@ toc: false
 docClass: timeline
 ---
 
-## 0.9.2 `2022-02-26`
+## 0.9.4 `2022-03-04`
 
+### Bug Fixes
+
+* 修复在 `typescript` 严格模式下打包出错  ([issue #384](https://github.com/Tencent/tdesign-vue-next/issues/384))
+
+
+## 0.9.3 `2022-03-04`
+
+
+### Bug Fixes
+
+* DatePicker: ([pr #389](https://github.com/Tencent/tdesign-vue-next/pull/376)), ([@xiaosansiji](https://github.com/xiaosansiji))
+  * 修复 `onPick` 事件配置无效
+  * 修复无法清除面板中已选值
+  * 修复点击年份或月份后，日期弹窗意外消失
+* TagInput: ([pr #387](https://github.com/Tencent/tdesign-vue-next/pull/387))
+  * 修复在有输入的值且无 `tag` 的情况下，不展示清除按钮。且点击后 `onClear` 方法未触发。
+  * 修复在 `auto-width` 模式下的交互问题
+* Dialog:
+  * 修复 `dialog plugin` 聚焦 `button` 通过键盘频繁触发 ([pr #395](https://github.com/Tencent/tdesign-vue-next/pull/395)), ([issue #394](https://github.com/Tencent/tdesign-vue-next/issues/394))
+  * 修复 `closeBtn` 为 `false` 的时候依然可以点击关闭区域关闭弹窗 ([pr #392](https://github.com/Tencent/tdesign-vue-next/pull/392)), ([issue #373](https://github.com/Tencent/tdesign-vue-next/issues/373))
+* Table: 修复按需引用时，直接引用 `Table` 报错： ([pr #388](https://github.com/Tencent/tdesign-vue-next/pull/388)), ([issue #374](https://github.com/Tencent/tdesign-vue-next/issues/374))
+* Select: 修复自定义创建 `option` 交互异常 ([pr #397](https://github.com/Tencent/tdesign-vue-next/pull/397)), ([issue #364](https://github.com/Tencent/tdesign-vue-next/issues/364))
+* Form: 修复表单 `submit` 事件中的 `firstError` 不正确 ([pr #397](https://github.com/Tencent/tdesign-vue-next/pull/382)), ([issue #382](https://github.com/Tencent/tdesign-vue-next/issues/382))
+* Cascader: 优化类名判断相关代码导致的性能问题 ([pr #397](https://github.com/Tencent/tdesign-vue-next/pull/382))
+* Input: 修复 `onChange` 和 `on-change`事件 未生效 ([pr #395](https://github.com/Tencent/tdesign-vue-next/pull/395)), ([issue #393](https://github.com/Tencent/tdesign-vue-next/issues/393))
+* InputNumber: 修复在增加小数点位数的状态下，v-model绑定的value与展示的值不同 ([pr #392](https://github.com/Tencent/tdesign-vue-next/pull/392)), ([issue #390](https://github.com/Tencent/tdesign-vue-next/issues/390))
+* Breadcrumb: 修复 `disabled` 无效 ([pr #391](https://github.com/Tencent/tdesign-vue-next/pull/391)), ([issue #373](https://github.com/Tencent/tdesign-vue-next/issues/373))
+* Checkbox：修复 `value` 重复时，导致渲染 `key` 相同的报错 ([pr #387](https://github.com/Tencent/tdesign-vue-next/pull/387)),
+
+### Features
+
+* SelectInput:  新增 `SelectInput` 筛选器组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/select-input)使用,  ([pr #330](https://github.com/Tencent/tdesign-vue-next/issues/330)), ([@chaishi](https://github.com/chaishi))
+* Input: 增加 `format` 属性  ([pr #387](https://github.com/Tencent/tdesign-vue-next/issues/387))
+* 全局配置: 支持关闭斜八度波纹动画  ([pr #389](https://github.com/Tencent/tdesign-vue-next/issues/389)), ([issue 204](https://github.com/Tencent/tdesign-vue-next/issues/204)), ([@uyarn](https://github.com/uyarn))
+
+## 0.9.2 `2022-02-26`
 
 ### Bug Fixes
 

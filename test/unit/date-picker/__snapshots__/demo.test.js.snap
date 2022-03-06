@@ -9047,7 +9047,6 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
   <div
     class="t-date-picker t-size-m"
     style="width: 350px;"
-    theme="primary"
   >
     <div
       class="t-popup__reference t-date-picker__popup-reference"

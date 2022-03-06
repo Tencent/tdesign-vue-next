@@ -48,10 +48,10 @@ export function getCascaderInnerClasses(prefix: string, CLASSNAMES: any, cascade
   const { disabled, visible, size, multiple } = cascaderContext;
   return [
     `${prefix}-cascader`,
+    CLASSNAMES.SIZE[size],
     {
       [CLASSNAMES.STATUS.disabled]: disabled,
       [CLASSNAMES.STATUS.active]: visible,
-      [CLASSNAMES.SIZE[size]]: size,
       [`${prefix}-cascader--multiple`]: multiple,
     },
   ];

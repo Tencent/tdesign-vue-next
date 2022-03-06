@@ -1,11 +1,12 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import { prefix } from '../config';
 import { TdTabsProps } from './type';
 import { emitEvent } from '../utils/event';
-import ripple from '../utils/ripple';
 import tabProps from './props';
 import tabPanelProps from './tab-panel-props';
+
+import useRipple from '../hooks/useRipple';
 
 export default defineComponent({
   name: 'TTabNavItem',
@@ -13,7 +14,6 @@ export default defineComponent({
     CloseIcon,
   },
 
-  directives: { ripple },
   props: {
     index: Number,
     active: {
@@ -31,6 +31,13 @@ export default defineComponent({
   },
 
   emits: ['click', 'remove'],
+  setup() {
+    const itemRef = ref<HTMLElement>();
+    useRipple(itemRef);
+    return {
+      itemRef,
+    };
+  },
   computed: {
     navItemClass(): {} {
       return {
@@ -56,7 +63,7 @@ export default defineComponent({
     },
     renderCardItem() {
       return (
-        <div class={this.navItemClass} onClick={this.onClickNav} v-ripple>
+        <div class={this.navItemClass} onClick={this.onClickNav} ref="itemRef">
           <span class={`${prefix}-tabs__nav-item-text-wrapper`}>{this.label}</span>
           {this.removable && !this.disabled ? <CloseIcon class="remove-btn" onClick={this.removeBtnClick} /> : null}
         </div>
@@ -73,7 +80,7 @@ export default defineComponent({
                 [`${prefix}-is-active`]: this.active,
               },
             ]}
-            v-ripple
+            ref="itemRef"
           >
             <span class={`${prefix}-tabs__nav-item-text-wrapper`}>{this.label}</span>
           </div>

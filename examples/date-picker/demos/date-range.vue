@@ -4,12 +4,19 @@
     <br />
     <br />
     <t-date-picker
-      theme="primary"
       mode="date"
       range
+      clearable
       format="YYYY-MM-DD HH:mm:ss"
       enable-time-picker
       style="width: 350px"
+      @pick="onPick"
+      @change="onChange"
     />
   </div>
 </template>
+
+<script setup>
+const onPick = (value, context) => console.log('onPick:', value, context);
+const onChange = (value) => console.log('onChange:', value);
+</script>

@@ -504,6 +504,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
 exports[`Input Input sizeVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
+  style="max-width: 500px;"
 >
   <div
     class="t-input t-size-l"
