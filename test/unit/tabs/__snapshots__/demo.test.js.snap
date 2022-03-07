@@ -153,6 +153,7 @@ exports[`Tabs Tabs banVue demo works fine 1`] = `
       
       <div
         class="t-tab-panel"
+        style="display: none;"
       >
         
         <p
@@ -268,6 +269,7 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
       
       <div
         class="t-tab-panel"
+        style="display: none;"
       >
         
         <p
@@ -374,6 +376,7 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
     
     <div
       class="t-tab-panel"
+      style="display: none;"
     >
       <p
         style="padding: 25px;"
@@ -765,6 +768,7 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
       
       <div
         class="t-tab-panel"
+        style="display: none;"
       >
         
         <p
@@ -918,6 +922,7 @@ exports[`Tabs Tabs customVue demo works fine 1`] = `
       
       <div
         class="t-tab-panel"
+        style="display: none;"
       >
         
         <p
@@ -1117,6 +1122,7 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
       
       <div
         class="t-tab-panel"
+        style="display: none;"
       >
         
         <p
@@ -1247,6 +1253,7 @@ exports[`Tabs Tabs operationVue demo works fine 1`] = `
       
       <div
         class="t-tab-panel"
+        style="display: none;"
       >
         
         <p
@@ -1463,6 +1470,7 @@ exports[`Tabs Tabs positionVue demo works fine 1`] = `
       
       <div
         class="t-tab-panel"
+        style="display: none;"
       >
         
         <p
@@ -1580,6 +1588,7 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
         
         <div
           class="t-tab-panel"
+          style="display: none;"
         >
           
           <p
@@ -1687,6 +1696,7 @@ exports[`Tabs Tabs sizeVue demo works fine 1`] = `
         
         <div
           class="t-tab-panel"
+          style="display: none;"
         >
           
           <p
@@ -1806,6 +1816,7 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
         
         <div
           class="t-tab-panel"
+          style="display: none;"
         >
           
           <p
@@ -1903,6 +1914,7 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
         
         <div
           class="t-tab-panel"
+          style="display: none;"
         >
           
           <p
