@@ -1,0 +1,521 @@
+<!DOCTYPE html><html lang="en" class="nprogress-busy"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divider 分割线 | TDesign</title>
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <link rel="mask-icon" href="/favicon.svg" color="#FFFFFF">
+    <!--[if IE]>
+    <style>
+      #app {
+        display: none;
+      }
+    </style>
+    <![endif]-->
+    <script type="module" crossorigin="" src="/assets/index.efe99fe6.js"></script>
+    <link rel="modulepreload" href="/assets/vendor.2b256725.js">
+    <link rel="stylesheet" href="/assets/vendor.0c511dbe.css">
+    <link rel="stylesheet" href="/assets/index.9b4a60ba.css">
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="modulepreload" as="script" crossorigin="" href="/assets/divider.1d3c85e5.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/prism-bash.4ba767c0.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/text.b5c1c5cf.js"><script async="" id="horizon-tracker" type="text/javascript" src="https://horizon-assets.qq.com/analytics.js" data-account="tdesign"></script></head>
+  <body>
+    <!--[if IE]>
+      <h1 style="position: absolute; width: 100%; text-align:center; top: 45%">
+        建议使用 <a href="https://www.google.cn/chrome/">Chrome</a><
+      /h1>
+    <![endif]-->
+    <td-horizon data-account="tdesign"></td-horizon>
+    <td-aegis aegis-id="rDISNMyXgKnpdSRvul"></td-aegis>
+    <div id="app" data-v-app=""><td-doc-layout direction="row"><td-header slot="header" platform="web" framework="vue-next"><td-doc-search slot="search">
+        <style>.TDesign-doc-search {
+  position: relative;
+  width: 200px;
+  height: 32px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+}
+.TDesign-doc-search__icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  color: var(--text-secondary);
+}
+.TDesign-doc-search__inner {
+  width: 100%;
+  height: 100%;
+  padding: 4px 36px 4px 8px;
+  box-sizing: border-box;
+  color: var(--text-secondary);
+  border-radius: var(--border-radius);
+  line-height: 22px;
+  font-size: 14px;
+  border: 1px solid var(--component-border);
+  transition: all 0.2s linear;
+  outline: none;
+  background: transparent;
+}
+.TDesign-doc-search__inner::placeholder {
+  line-height: 22px;
+}
+.TDesign-doc-search__inner:hover {
+  border-color: var(--brand-main);
+}
+.TDesign-doc-search__inner:focus {
+  border-color: var(--brand-main);
+  box-shadow: 0 0 0 2px var(--brand-main-focus);
+}
+</style>
+        <style>/* https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css */
+/* Main dropdown wrapper */
+.algolia-autocomplete {
+  width: 100%;
+  height: 100%;
+}
+.algolia-autocomplete .ds-dropdown-menu {
+  width: 480px;
+  top: -6px;
+  border-radius: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  text-align: left;
+  height: auto;
+  position: relative;
+  border: 0;
+  z-index: 999;
+  max-width: 600px;
+  min-width: 500px;
+  box-shadow: var(--popup-box-shadow);
+  backdrop-filter: blur(10px);
+  background-color: var(--bg-color-container-transparent);
+}
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
+  position: relative;
+  z-index: 1000;
+  border-bottom: 1px solid var(--component-stroke);
+  padding: 8px;
+}
+.algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
+  position: relative;
+  border-radius: 6px;
+  overflow: auto;
+  border: 1px solid var(--component-border);
+}
+.algolia-autocomplete .ds-dropdown-menu * {
+  box-sizing: border-box;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion {
+  display: block;
+  position: relative;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+/* Main category (eg. Getting Started) */
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+  display: none;
+}
+/* Category (eg. Downloads) */
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+  float: left;
+  width: 30%;
+  text-align: right;
+  position: relative;
+  padding: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  word-wrap: break-word;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content {
+  display: block;
+  float: right;
+  width: 70%;
+  position: relative;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content .algolia-docsearch-suggestion--subcategory-inline {
+  display: none;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: var(--component-border);
+  left: -1px;
+}
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion.suggestion-layout-simple,
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
+  background: var(--bg-color-container-hover);
+  transition: all 0.2s linear;
+}
+/* Title (eg. Bootstrap CDN) */
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--title + .algolia-docsearch-suggestion--text {
+  margin-top: 4px;
+}
+/* Description description (eg. Bootstrap currently works...) */
+.algolia-autocomplete .algolia-docsearch-suggestion--text {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-secondary);
+}
+/* Highlighted text */
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: var(--brand-main);
+  background-color: var(--brand-main-light);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-main);
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results {
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 14px;
+}
+.algolia-autocomplete .algolia-docsearch-footer {
+  width: 134px;
+  height: 26px;
+  z-index: 2000;
+  margin: 4px 8px;
+  float: right;
+  font-size: 0;
+  line-height: 0;
+}
+.algolia-autocomplete .algolia-docsearch-footer--logo {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='168' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M78.988.938h16.594a2.968 2.968 0 0 1 2.966 2.966V20.5a2.967 2.967 0 0 1-2.966 2.964H78.988a2.967 2.967 0 0 1-2.966-2.964V3.897A2.961 2.961 0 0 1 78.988.938zm41.937 17.866c-4.386.02-4.386-3.54-4.386-4.106l-.007-13.336 2.675-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-10.846-2.18c.821 0 1.43-.047 1.855-.129v-2.719a6.334 6.334 0 0 0-1.574-.199 5.7 5.7 0 0 0-.897.069 2.699 2.699 0 0 0-.814.24c-.24.116-.439.28-.582.491-.15.212-.219.335-.219.656 0 .628.219.991.616 1.23s.938.362 1.615.362zm-.233-9.7c.883 0 1.629.109 2.231.328.602.218 1.088.525 1.444.915.363.396.609.922.76 1.483.157.56.232 1.175.232 1.85v6.874a32.5 32.5 0 0 1-1.868.314c-.834.123-1.772.185-2.813.185-.69 0-1.327-.069-1.895-.198a4.001 4.001 0 0 1-1.471-.636 3.085 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.803 0-.656.13-1.073.384-1.525a3.24 3.24 0 0 1 1.047-1.106c.445-.287.95-.492 1.532-.615a8.8 8.8 0 0 1 1.82-.185 8.404 8.404 0 0 1 1.972.24v-.438c0-.307-.035-.6-.11-.874a1.88 1.88 0 0 0-.384-.73 1.784 1.784 0 0 0-.724-.493 3.164 3.164 0 0 0-1.143-.205c-.616 0-1.177.075-1.69.164a7.735 7.735 0 0 0-1.26.307l-.321-2.192c.335-.117.834-.233 1.478-.349a10.98 10.98 0 0 1 2.073-.178zm52.842 9.626c.822 0 1.43-.048 1.854-.13V13.7a6.347 6.347 0 0 0-1.574-.199c-.294 0-.595.021-.896.069a2.7 2.7 0 0 0-.814.24 1.46 1.46 0 0 0-.582.491c-.15.212-.218.335-.218.656 0 .628.218.991.615 1.23.404.245.938.362 1.615.362zm-.226-9.694c.883 0 1.629.108 2.231.327.602.219 1.088.526 1.444.915.355.39.609.923.759 1.483a6.8 6.8 0 0 1 .233 1.852v6.873c-.41.088-1.034.19-1.868.314-.834.123-1.772.184-2.813.184-.69 0-1.327-.068-1.895-.198a4.001 4.001 0 0 1-1.471-.635 3.085 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.804 0-.656.13-1.073.384-1.524.26-.45.608-.82 1.047-1.107.445-.286.95-.491 1.532-.614a8.803 8.803 0 0 1 2.751-.13c.329.034.671.096 1.04.185v-.437a3.3 3.3 0 0 0-.109-.875 1.873 1.873 0 0 0-.384-.731 1.784 1.784 0 0 0-.724-.492 3.165 3.165 0 0 0-1.143-.205c-.616 0-1.177.075-1.69.164a7.75 7.75 0 0 0-1.26.307l-.321-2.193c.335-.116.834-.232 1.478-.348a11.633 11.633 0 0 1 2.073-.177zm-8.034-1.271a1.626 1.626 0 0 1-1.628-1.62c0-.895.725-1.62 1.628-1.62.904 0 1.63.725 1.63 1.62 0 .895-.733 1.62-1.63 1.62zm1.348 13.22h-2.689V7.27l2.69-.423v11.956zm-4.714 0c-4.386.02-4.386-3.54-4.386-4.107l-.008-13.336 2.676-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-8.698-5.903c0-1.156-.253-2.119-.746-2.788-.493-.677-1.183-1.01-2.067-1.01-.882 0-1.574.333-2.065 1.01-.493.676-.733 1.632-.733 2.788 0 1.168.246 1.953.74 2.63.492.683 1.183 1.018 2.066 1.018.882 0 1.574-.342 2.067-1.019.492-.683.738-1.46.738-2.63zm2.737-.007c0 .902-.13 1.584-.397 2.33a5.52 5.52 0 0 1-1.128 1.906 4.986 4.986 0 0 1-1.752 1.223c-.685.286-1.739.45-2.265.45-.528-.006-1.574-.157-2.252-.45a5.096 5.096 0 0 1-1.744-1.223c-.487-.527-.863-1.162-1.137-1.906a6.345 6.345 0 0 1-.41-2.33c0-.902.123-1.77.397-2.508a5.554 5.554 0 0 1 1.15-1.892 5.133 5.133 0 0 1 1.75-1.216c.679-.287 1.425-.423 2.232-.423.808 0 1.553.142 2.237.423a4.88 4.88 0 0 1 1.753 1.216 5.644 5.644 0 0 1 1.135 1.892c.287.738.431 1.606.431 2.508zm-20.138 0c0 1.12.246 2.363.738 2.882.493.52 1.13.78 1.91.78.424 0 .828-.062 1.204-.178.377-.116.677-.253.917-.417V9.33a10.476 10.476 0 0 0-1.766-.226c-.971-.028-1.71.37-2.23 1.004-.513.636-.773 1.75-.773 2.788zm7.438 5.274c0 1.824-.466 3.156-1.404 4.004-.936.846-2.367 1.27-4.296 1.27-.705 0-2.17-.137-3.34-.396l.431-2.118c.98.205 2.272.26 2.95.26 1.074 0 1.84-.219 2.299-.656.459-.437.684-1.086.684-1.948v-.437a8.07 8.07 0 0 1-1.047.397c-.43.13-.93.198-1.492.198-.739 0-1.41-.116-2.018-.349a4.206 4.206 0 0 1-1.567-1.025c-.431-.45-.774-1.017-1.013-1.694-.24-.677-.363-1.885-.363-2.773 0-.834.13-1.88.384-2.577.26-.696.629-1.298 1.129-1.796.493-.498 1.095-.881 1.8-1.162a6.605 6.605 0 0 1 2.428-.457c.87 0 1.67.109 2.45.24.78.129 1.444.265 1.985.415V18.17z' fill='%235468FF'/%3E%3Cpath d='M6.972 6.677v1.627c-.712-.446-1.52-.67-2.425-.67-.585 0-1.045.13-1.38.391a1.24 1.24 0 0 0-.502 1.03c0 .425.164.765.494 1.02.33.256.835.532 1.516.83.447.192.795.356 1.045.495.25.138.537.332.862.582.324.25.563.548.718.894.154.345.23.741.23 1.188 0 .947-.334 1.691-1.004 2.234-.67.542-1.537.814-2.601.814-1.18 0-2.16-.229-2.936-.686v-1.708c.84.628 1.814.942 2.92.942.585 0 1.048-.136 1.388-.407.34-.271.51-.646.51-1.125 0-.287-.1-.55-.302-.79-.203-.24-.42-.42-.655-.542-.234-.123-.585-.29-1.053-.503a61.27 61.27 0 0 1-.582-.271 13.67 13.67 0 0 1-.55-.287 4.275 4.275 0 0 1-.567-.351 6.92 6.92 0 0 1-.455-.4c-.18-.17-.31-.34-.39-.51-.08-.17-.155-.37-.224-.598a2.553 2.553 0 0 1-.104-.742c0-.915.333-1.638.998-2.17.664-.532 1.523-.798 2.576-.798.968 0 1.793.17 2.473.51zm7.468 5.696v-.287c-.022-.607-.187-1.088-.495-1.444-.309-.357-.75-.535-1.324-.535-.532 0-.99.194-1.373.583-.382.388-.622.949-.717 1.683h3.909zm1.005 2.792v1.404c-.596.34-1.383.51-2.362.51-1.255 0-2.255-.377-3-1.132-.744-.755-1.116-1.744-1.116-2.968 0-1.297.34-2.316 1.021-3.055.68-.74 1.548-1.11 2.6-1.11 1.033 0 1.852.323 2.458.966.606.644.91 1.572.91 2.784 0 .33-.033.676-.096 1.038h-5.314c.107.702.405 1.239.894 1.611.49.372 1.106.558 1.85.558.862 0 1.58-.202 2.155-.606zm6.605-1.77h-1.212c-.596 0-1.045.116-1.349.35-.303.234-.454.532-.454.894 0 .372.117.664.35.877.235.213.575.32 1.022.32.51 0 .912-.142 1.204-.424.293-.281.44-.651.44-1.108v-.91zm-4.068-2.554V9.325c.627-.361 1.457-.542 2.489-.542 2.116 0 3.175 1.026 3.175 3.08V17h-1.548v-.957c-.415.68-1.143 1.02-2.186 1.02-.766 0-1.38-.22-1.843-.661-.462-.442-.694-1.003-.694-1.684 0-.776.293-1.38.878-1.81.585-.431 1.404-.647 2.457-.647h1.34V11.8c0-.554-.133-.971-.399-1.253-.266-.282-.707-.423-1.324-.423a4.07 4.07 0 0 0-2.345.718zm9.333-1.93v1.42c.394-1 1.101-1.5 2.123-1.5.148 0 .313.016.494.048v1.531a1.885 1.885 0 0 0-.75-.143c-.542 0-.989.24-1.34.718-.351.479-.527 1.048-.527 1.707V17h-1.563V8.91h1.563zm5.01 4.084c.022.82.272 1.492.75 2.019.479.526 1.15.79 2.01.79.639 0 1.235-.176 1.788-.527v1.404c-.521.319-1.186.479-1.995.479-1.265 0-2.276-.4-3.031-1.197-.755-.798-1.133-1.792-1.133-2.984 0-1.16.38-2.151 1.14-2.975.761-.825 1.79-1.237 3.088-1.237.702 0 1.346.149 1.93.447v1.436a3.242 3.242 0 0 0-1.77-.495c-.84 0-1.513.266-2.019.798-.505.532-.758 1.213-.758 2.042zM40.24 5.72v4.579c.458-1 1.293-1.5 2.505-1.5.787 0 1.42.245 1.899.734.479.49.718 1.17.718 2.042V17h-1.564v-5.106c0-.553-.14-.98-.422-1.284-.282-.303-.652-.455-1.11-.455-.531 0-1.002.202-1.411.606-.41.405-.615 1.022-.615 1.851V17h-1.563V5.72h1.563zm14.966 10.02c.596 0 1.096-.253 1.5-.758.404-.506.606-1.157.606-1.955 0-.915-.202-1.62-.606-2.114-.404-.495-.92-.742-1.548-.742-.553 0-1.05.224-1.491.67-.442.447-.662 1.133-.662 2.058 0 .958.212 1.67.638 2.138.425.469.946.703 1.563.703zM53.004 5.72v4.42c.574-.894 1.388-1.341 2.44-1.341 1.022 0 1.857.383 2.506 1.149.649.766.973 1.781.973 3.047 0 1.138-.309 2.109-.925 2.912-.617.803-1.463 1.205-2.537 1.205-1.075 0-1.894-.447-2.457-1.34V17h-1.58V5.72h1.58zm9.908 11.104l-3.223-7.913h1.739l1.005 2.632 1.26 3.415c.096-.32.48-1.458 1.15-3.415l.909-2.632h1.66l-2.92 7.866c-.777 2.074-1.963 3.11-3.559 3.11a2.92 2.92 0 0 1-.734-.079v-1.34c.17.042.351.064.543.064 1.032 0 1.755-.57 2.17-1.708z' fill='%235D6494'/%3E%3Cpath d='M89.632 5.967v-.772a.978.978 0 0 0-.978-.977h-2.28a.978.978 0 0 0-.978.977v.793c0 .088.082.15.171.13a7.127 7.127 0 0 1 1.984-.28c.65 0 1.295.088 1.917.259.082.02.164-.04.164-.13m-6.248 1.01l-.39-.389a.977.977 0 0 0-1.382 0l-.465.465a.973.973 0 0 0 0 1.38l.383.383c.062.061.15.047.205-.014.226-.307.472-.601.746-.874.281-.28.568-.526.883-.751.068-.042.075-.137.02-.2m4.16 2.453v3.341c0 .096.104.165.192.117l2.97-1.537c.068-.034.089-.117.055-.184a3.695 3.695 0 0 0-3.08-1.866c-.068 0-.136.054-.136.13m0 8.048a4.489 4.489 0 0 1-4.49-4.482 4.488 4.488 0 0 1 4.49-4.482 4.488 4.488 0 0 1 4.489 4.482 4.484 4.484 0 0 1-4.49 4.482m0-10.85a6.363 6.363 0 1 0 0 12.729 6.37 6.37 0 0 0 6.372-6.368 6.358 6.358 0 0 0-6.371-6.36' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100%;
+  overflow: hidden;
+  text-indent: -9000px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+</style>
+        <div class="TDesign-doc-search">
+          <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input id="TDSearch" class="TDesign-doc-search__inner ds-input" placeholder="搜索" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-label="search input" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;system-ui&quot;, -apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ds-dataset-1"></div></span></span>
+          <span class="TDesign-doc-search__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M8.125 2.5C5.0184 2.5 2.5 5.0184 2.5 8.125C2.5 11.2316 5.0184 13.75 8.125 13.75C9.22568 13.75 10.2525 13.4339 11.1197 12.8874L15.8839 17.6517L16.7678 16.7678L12.1025 12.1025C13.1204 11.0846 13.75 9.6783 13.75 8.125C13.75 5.0184 11.2316 2.5 8.125 2.5ZM8.125 3.75C10.5412 3.75 12.5 5.70875 12.5 8.125C12.5 10.5412 10.5412 12.5 8.125 12.5C5.70875 12.5 3.75 10.5412 3.75 8.125C3.75 5.70875 5.70875 3.75 8.125 3.75Z"></path>
+</svg>
+</span>
+        </div>
+      </td-doc-search></td-header><td-doc-aside title="Vue Next for Web"><div class="t-select__wrap" id="historyVersion" slot="extra"><div class="t-popup__reference t-select__popup-reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-select__dropdown narrow-scrollbar"><div class="t-select__dropdown-inner"><!----><ul class="t-select__create-option t-select__list" style="display: none;"><li class="t-select-option t-size-m t-select__create-option--special" title=""></li></ul><!----><!----><ul class="t-select__list"><li class="t-select-option t-size-m" title="0.9.4">0.9.4</li><li class="t-select-option t-size-m" title="0.8.1">0.8.1</li><li class="t-select-option t-size-m" title="0.7.0">0.7.0</li><li class="t-select-option t-size-m" title="0.6.4">0.6.4</li></ul><!----></div><!----></div></div><div class="t-select t-size-m"><!----><!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display: none;"><!---->+0<!----></span><span title="0.9.4" class="t-select__single">0.9.4</span><!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg><!----><!----></div></div></div></td-doc-aside><td-doc-content page-status="show" platform="web" style="visibility: visible;"><td-doc-header slot="doc-header" component-name="divider" platform="web"><h1 id="__td_doc_title__">Divider 分割线</h1></td-doc-header><td-doc-tabs tab="demo"></td-doc-tabs><div><div name="DEMO"><nav class="tdesign-toc_container"><ol class="tdesign-toc_list"><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#基础分割线">基础分割线</a><ol class="tdesign-toc_list"></ol></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#带文字的分割线">带文字的分割线</a></li></ol></nav><h3 id="基础分割线">基础分割线 <a class="header-anchor" href="#基础分割线"></a></h3><p>基础分割线是没有文字的独立线条，又分为水平分割线和垂直分割线。</p><h4 id="水平分割线">水平分割线 <a class="header-anchor" href="#水平分割线"></a></h4><p>水平分割线常用来对不同元素内容进行分割。</p><div class="tdesign-demo-wrapper tdesign-demo-item--divider-base tdesign-demo-item--divider"><td-doc-demo component-name="divider" code="<template>
+  <div>
+    <p>
+      这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider />
+    <p>
+      这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider dashed />
+    <p>
+      这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+  </div>
+</template>
+" demo-name="base" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div>
+    <p>
+      这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider />
+    <p>
+      这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider dashed />
+    <p>
+      这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+  </div>
+</template>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div><p> 这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 </p><div class="t-divider t-divider--horizontal"><!----></div><p> 这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 </p><div class="t-divider t-divider--horizontal t-divider--dashed"><!----></div><p> 这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 </p></div></div></td-doc-demo></div><h4 id="垂直分割线">垂直分割线 <a class="header-anchor" href="#垂直分割线"></a></h4><p>垂直分割线常用来做行内分割。</p><div class="tdesign-demo-wrapper tdesign-demo-item--divider-vertical tdesign-demo-item--divider"><td-doc-demo component-name="divider" code="<template>
+  <div>
+    <span>正直</span>
+    <t-divider theme=&quot;vertical&quot; />
+    <span>进取</span>
+    <t-divider theme=&quot;vertical&quot; />
+    <span>合作</span>
+    <t-divider theme=&quot;vertical&quot; dashed />
+    <span>创新</span>
+  </div>
+</template>
+" demo-name="vertical" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div>
+    <span>正直</span>
+    <t-divider theme=&quot;vertical&quot; />
+    <span>进取</span>
+    <t-divider theme=&quot;vertical&quot; />
+    <span>合作</span>
+    <t-divider theme=&quot;vertical&quot; dashed />
+    <span>创新</span>
+  </div>
+</template>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div><span>正直</span><div class="t-divider t-divider--vertical"><!----></div><span>进取</span><div class="t-divider t-divider--vertical"><!----></div><span>合作</span><div class="t-divider t-divider--vertical t-divider--dashed"><!----></div><span>创新</span></div></div></td-doc-demo></div><h3 id="带文字的分割线">带文字的分割线 <a class="header-anchor" href="#带文字的分割线"></a></h3><p>带文字的分割线是在分割线中嵌入文字，在需要对分割内容进行解释说明时使用。</p><div class="tdesign-demo-wrapper tdesign-demo-item--divider-text tdesign-demo-item--divider"><td-doc-demo component-name="divider" code="<template>
+  <div>
+    <p>
+      这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider align=&quot;left&quot;> TDesign </t-divider>
+    <p>
+      这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider align=&quot;center&quot; dashed> TDesign </t-divider>
+    <p>
+      这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider align=&quot;right&quot; dashed> TDesign </t-divider>
+    <p>
+      这是第四种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+  </div>
+</template>
+" demo-name="text" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div>
+    <p>
+      这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider align=&quot;left&quot;> TDesign </t-divider>
+    <p>
+      这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider align=&quot;center&quot; dashed> TDesign </t-divider>
+    <p>
+      这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+    <t-divider align=&quot;right&quot; dashed> TDesign </t-divider>
+    <p>
+      这是第四种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。
+    </p>
+  </div>
+</template>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div><p> 这是第一种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 </p><div class="t-divider t-divider--horizontal t-divider--with-text t-divider--with-text-left"><span class="t-divider__inner-text"> TDesign </span></div><p> 这是第二种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 </p><div class="t-divider t-divider--horizontal t-divider--dashed t-divider--with-text t-divider--with-text-center"><span class="t-divider__inner-text"> TDesign </span></div><p> 这是第三种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 </p><div class="t-divider t-divider--horizontal t-divider--dashed t-divider--with-text t-divider--with-text-right"><span class="t-divider__inner-text"> TDesign </span></div><p> 这是第四种类型的内容元素或信息数据，通过分割线进行分割。分割线方便用户清晰明确的读取和预览，减少信息符合，提高用户使用效率。避免大段内容的聚集、信息负荷过多，导致信息获取或内容操作效率降低。 </p></div></div></td-doc-demo></div></div><td-contributors platform="web" framework="vue" component-name="divider"></td-contributors></div><div name="API" style="display: none;"><nav class="tdesign-toc_container"><ol class="tdesign-toc_list"><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#divider-props">Divider Props</a></li></ol></nav><h3 id="divider-props">Divider Props <a class="header-anchor" href="#divider-props"></a></h3><table><thead><tr><th>名称</th><th>类型</th><th>默认值</th><th>说明</th><th>必传</th></tr></thead><tbody><tr><td>align</td><td>String</td><td>center</td><td>文本位置（仅在水平分割线有效）。可选项：left/right/center</td><td>N</td></tr><tr><td>content</td><td>String / Slot / Function</td><td>-</td><td>子元素。TS 类型：<code>string | TNode</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>dashed</td><td>Boolean</td><td>false</td><td>是否虚线（仅在水平分割线有效）</td><td>N</td></tr><tr><td>default</td><td>String / Slot / Function</td><td>-</td><td>子元素，同 content。TS 类型：<code>string | TNode</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>layout</td><td>String</td><td>horizontal</td><td>分隔线类型有两种：水平和垂直。可选项：horizontal/vertical</td><td>N</td></tr><tr><td>theme</td><td>String</td><td>horizontal</td><td>已废弃。请更为使用 <code>layout</code>。分隔线类型有两种：水平和垂直。可选项：horizontal/vertical</td><td>N</td></tr></tbody></table></div><div name="DESIGN" style="display: none;"><nav class="tdesign-toc_container"><ol class="tdesign-toc_list"><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#何时使用">何时使用</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#与页面布局相关">与页面布局相关</a><ol class="tdesign-toc_list"></ol></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#推荐-慎用示例">推荐/慎用示例</a><ol class="tdesign-toc_list"></ol></li></ol></nav><h3 id="何时使用">何时使用 <a class="header-anchor" href="#何时使用"></a></h3><p>需要对不同章节的文本段落进行分割时；</p><p>需要对行内文字、链接等进行分割时。</p><h3 id="与页面布局相关">与页面布局相关 <a class="header-anchor" href="#与页面布局相关"></a></h3><h5 id="通栏布局。横向贯穿整个页面，区分更加独立的内容信息，让信息分隔的更明显。">通栏布局。横向贯穿整个页面，区分更加独立的内容信息，让信息分隔的更明显。 <a class="header-anchor" href="#通栏布局。横向贯穿整个页面，区分更加独立的内容信息，让信息分隔的更明显。"></a></h5><img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/design/divider-1.png"><hr><h5 id="内嵌布局。一般在两侧预留缺口，区分同一模块下的相关内容，让用户浏览时更加高效。">内嵌布局。一般在两侧预留缺口，区分同一模块下的相关内容，让用户浏览时更加高效。 <a class="header-anchor" href="#内嵌布局。一般在两侧预留缺口，区分同一模块下的相关内容，让用户浏览时更加高效。"></a></h5><img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/design/divider-2.png"><hr><h5 id="组合布局。通栏分割线与内嵌分割线的组合布局。">组合布局。通栏分割线与内嵌分割线的组合布局。 <a class="header-anchor" href="#组合布局。通栏分割线与内嵌分割线的组合布局。"></a></h5><img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/design/divider-3.png"><h3 id="推荐-慎用示例">推荐/慎用示例 <a class="header-anchor" href="#推荐-慎用示例"></a></h3><h5 id="当有明显的留白或副标题已经对内容起到分割作用时，要避免过度使用分割线导致的视觉干扰。">当有明显的留白或副标题已经对内容起到分割作用时，要避免过度使用分割线导致的视觉干扰。 <a class="header-anchor" href="#当有明显的留白或副标题已经对内容起到分割作用时，要避免过度使用分割线导致的视觉干扰。"></a></h5><div class="legend"><div class="item"><img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/design/divider-4.png"><img class="tag" src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/doc/good.png"></div><div class="item"><img src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/design/divider-5.png"><img class="tag" src="https://oteam-tdesign-1258344706.cos.ap-guangzhou.myqcloud.com/site/doc/bad.png"></div></div></div><div style="margin-top: 48px;"><td-doc-history time="1645181874411"></td-doc-history></div><td-doc-footer slot="doc-footer" platform="web"></td-doc-footer></td-doc-content></td-doc-layout><div class="ReloadPrompt-container" data-v-8c08e3e6=""><!--v-if--><div class="ReloadPrompt-date" data-v-8c08e3e6="">{buildDate}</div></div></div>
+    
+  
+
+<script async="" id="__td_aegis__" type="text/javascript" src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script><div id="nprogress" style="transition: none 0s ease 0s; opacity: 1;"><div class="bar" role="bar" style="transform: translate3d(0%, 0px, 0px); transition: all 200ms ease 0s;"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div></div></body></html>
