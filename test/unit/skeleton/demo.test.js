@@ -3,21 +3,21 @@
  */
 
 import { mount } from '@vue/test-utils';
-import advance from '@/examples/skeleton/demos/advance.vue';
-import containerVue from '@/examples/skeleton/demos/animation.vue';
+import advanceVue from '@/examples/skeleton/demos/advance.vue';
+import animationVue from '@/examples/skeleton/demos/animation.vue';
 import baseVue from '@/examples/skeleton/demos/base.vue';
 import themeVue from '@/examples/skeleton/demos/theme.vue';
 
 const mapper = {
-  advance,
-  containerVue,
+  advanceVue,
+  animationVue,
   baseVue,
   themeVue,
 };
 
-describe('skeleton', () => {
+describe('Skeleton', () => {
   Object.keys(mapper).forEach((demoName) => {
-    it(`skeleton ${demoName} demo works fine`, () => {
+    it(`Skeleton ${demoName} demo works fine`, () => {
       const wrapper = mount(mapper[demoName]);
       expect(wrapper.element).toMatchSnapshot();
     });

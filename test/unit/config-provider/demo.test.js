@@ -2,7 +2,6 @@
  * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
  */
 
-import MockDate from 'mockdate';
 import { mount } from '@vue/test-utils';
 import calendarVue from '@/examples/config-provider/demos/calendar.vue';
 import datePickerVue from '@/examples/config-provider/demos/date-picker.vue';
@@ -11,8 +10,6 @@ import othersVue from '@/examples/config-provider/demos/others.vue';
 import paginationVue from '@/examples/config-provider/demos/pagination.vue';
 import popconfirmVue from '@/examples/config-provider/demos/popconfirm.vue';
 import tableVue from '@/examples/config-provider/demos/table.vue';
-
-MockDate.set('2020-12-28');
 
 const mapper = {
   calendarVue,

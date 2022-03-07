@@ -1,7 +1,6 @@
 /**
  * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
  */
-import MockDate from 'mockdate';
 
 import { mount } from '@vue/test-utils';
 import baseVue from '@/examples/time-picker/demos/base.vue';
@@ -18,7 +17,6 @@ import stepVue from '@/examples/time-picker/demos/step.vue';
 import twelveHourMeridianVue from '@/examples/time-picker/demos/twelve-hour-meridian.vue';
 import twelveHourVue from '@/examples/time-picker/demos/twelve-hour.vue';
 
-MockDate.set('2020-12-28');
 const mapper = {
   baseVue,
   clearableVue,

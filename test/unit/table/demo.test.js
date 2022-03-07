@@ -1,9 +1,9 @@
 /**
  * 该文件为由脚本 `npm run test:demo` 自动生成，如需修改，执行脚本命令即可。请勿手写直接修改，否则会被覆盖
  */
-import MockDate from 'mockdate';
 
 import { mount } from '@vue/test-utils';
+import MockDate from 'mockdate';
 import asyncLoadingVue from '@/examples/table/demos/async-loading.vue';
 import baseVue from '@/examples/table/demos/base.vue';
 import customCellVue from '@/examples/table/demos/custom-cell.vue';
@@ -16,6 +16,7 @@ import filterControlledVue from '@/examples/table/demos/filter-controlled.vue';
 import fixedColumnVue from '@/examples/table/demos/fixed-column.vue';
 import fixedHeaderColVue from '@/examples/table/demos/fixed-header-col.vue';
 import fixedHeaderVue from '@/examples/table/demos/fixed-header.vue';
+import lazyVue from '@/examples/table/demos/lazy.vue';
 import loadingVue from '@/examples/table/demos/loading.vue';
 import mergeCellsVue from '@/examples/table/demos/merge-cells.vue';
 import multiHeaderVue from '@/examples/table/demos/multi-header.vue';
@@ -28,6 +29,7 @@ import showColumnsVue from '@/examples/table/demos/show-columns.vue';
 import singleSortVue from '@/examples/table/demos/single-sort.vue';
 import treeSelectVue from '@/examples/table/demos/tree-select.vue';
 import treeVue from '@/examples/table/demos/tree.vue';
+import virtualScrollVue from '@/examples/table/demos/virtual-scroll.vue';
 
 MockDate.set('2020-12-28');
 
@@ -44,6 +46,7 @@ const mapper = {
   fixedColumnVue,
   fixedHeaderColVue,
   fixedHeaderVue,
+  lazyVue,
   loadingVue,
   mergeCellsVue,
   multiHeaderVue,
@@ -56,6 +59,7 @@ const mapper = {
   singleSortVue,
   treeSelectVue,
   treeVue,
+  virtualScrollVue,
 };
 
 describe('Table', () => {

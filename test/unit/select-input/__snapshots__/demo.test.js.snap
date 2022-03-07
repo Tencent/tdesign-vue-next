@@ -1,0 +1,3931 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectInput SelectInput autocompleteVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-popup__reference t-select-input t-select-input--empty"
+    style="width: 300px;"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <ul
+            class="tdesign-demo__select-input-ul-autocomplete"
+          >
+            
+            <li>
+              Student A
+            </li>
+            <li>
+              Student B
+            </li>
+            <li>
+              Student C
+            </li>
+            <li>
+              Student D
+            </li>
+            <li>
+              Student E
+            </li>
+            <li>
+              Student F
+            </li>
+            
+          </ul>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请输入任意关键词"
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput autowidthMultipleVue demo works fine 1`] = `
+<div
+  class="tdesign-demo__select-input-borderless-multiple"
+  style="width: 100%;"
+>
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="t-checkbox-group tdesign-demo__panel-options-borderless-multiple"
+            modelvalue=""
+          >
+            
+            <label
+              class="t-checkbox t-is-indeterminate"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                all frameworks
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-react
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-miniprogram
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-angular
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-react
+                
+              </span>
+            </label>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-input--suffix t-input--auto-width t-tag-input"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          Vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+        >
+          <!---->
+          
+          +
+          2
+          
+          <!---->
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <span
+        class="t-input__input-pre"
+      >
+        
+      </span>
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-down"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput autowidthVue demo works fine 1`] = `
+<div>
+  <!-- :popup-props="{ trigger: 'hover' }" -->
+  <div
+    class="t-popup__reference t-select-input"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <ul
+            class="tdesign-demo__select-input-ul-auto-width"
+          >
+            
+            <li>
+              tdesign-vue
+            </li>
+            <li>
+              tdesign-react
+            </li>
+            <li>
+              tdesign-miniprogram
+            </li>
+            <li>
+              tdesign-angular
+            </li>
+            <li>
+              tdesign-mobile-vue
+            </li>
+            <li>
+              tdesign-mobile-react
+            </li>
+            
+          </ul>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-input--suffix t-input--auto-width"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="Please Select"
+        type="text"
+      />
+      <span
+        class="t-input__input-pre"
+      >
+        tdesign-vue
+      </span>
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-down"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
+<div
+  class="tdesign-demo__select-input-borderless-multiple"
+  style="width: 100%;"
+>
+  <div
+    class="t-popup__reference t-select-input t-select-input--borderless t-select-input--multiple"
+    style="width: 250px;"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="t-checkbox-group tdesign-demo__panel-options-borderless-multiple"
+            modelvalue=""
+          >
+            
+            <label
+              class="t-checkbox t-is-indeterminate"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                all frameworks
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-react
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-miniprogram
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-angular
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-react
+                
+              </span>
+            </label>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-tag-input"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          Vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+        >
+          <!---->
+          
+          +
+          2
+          
+          <!---->
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput borderlessVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-popup__reference t-select-input t-select-input--borderless"
+    style="width: 200px;"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <ul
+            class="tdesign-demo__select-input-ul-borderless"
+          >
+            
+            <li>
+              tdesign-vue
+            </li>
+            <li>
+              tdesign-react
+            </li>
+            <li>
+              tdesign-miniprogram
+            </li>
+            <li>
+              tdesign-angular
+            </li>
+            <li>
+              tdesign-mobile-vue
+            </li>
+            <li>
+              tdesign-mobile-react
+            </li>
+            
+          </ul>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="Please Select"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
+<div
+  class="tdesign-demo__select-input-collapsed-items"
+  style="width: 100%;"
+>
+  <br />
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
+            modelvalue=""
+          >
+            
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                Check All
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-react
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-miniprogram
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-angular
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-react
+                
+              </span>
+            </label>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-tag-input"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+        >
+          <!---->
+          
+          +
+          5
+          
+          <!---->
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+  <br />
+  <br />
+  <br />
+  <!-- 第一种方式：使用渲染函数 collapsed-items 自定义折叠项 -->
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
+            modelvalue=""
+          >
+            
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                Check All
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-react
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-miniprogram
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-angular
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-react
+                
+              </span>
+            </label>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-tag-input"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-react
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+        >
+          <!---->
+          
+          更多(
+          4
+          )
+          
+          <!---->
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+  <br />
+  <br />
+  <br />
+  <!-- 第二种方式：使用插槽 collapsedItems 自定义折叠项 -->
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
+            modelvalue=""
+          >
+            
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                Check All
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-react
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-miniprogram
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-angular
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-react
+                
+              </span>
+            </label>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-tag-input"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-react
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-miniprogram
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <div
+          class="t-popup__reference"
+        >
+          <transition-stub>
+            <div
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup__content"
+              >
+                
+                
+                <span
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
+                  style="margin: 4px 4px 4px 0px;"
+                >
+                  <!---->
+                  
+                  tdesign-angular
+                  
+                  <!---->
+                </span>
+                <span
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
+                  style="margin: 4px 4px 4px 0px;"
+                >
+                  <!---->
+                  
+                  tdesign-mobile-vue
+                  
+                  <!---->
+                </span>
+                <span
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
+                  style="margin: 4px 4px 4px 0px;"
+                >
+                  <!---->
+                  
+                  tdesign-mobile-react
+                  
+                  <!---->
+                </span>
+                
+                
+                <!---->
+              </div>
+            </div>
+          </transition-stub>
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+          >
+            <!---->
+            
+            More(3)
+            
+            <!---->
+          </span>
+          
+        </div>
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-select-input-custom-tag"
+>
+  <!-- 单选，使用 valueDisplay 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.valueDisplay -->
+  <div
+    class="t-popup__reference t-select-input"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <ul
+            class="tdesign-demo__select-input-ul-single"
+          >
+            
+            <li>
+              tdesign-vue
+            </li>
+            <li>
+              tdesign-react
+            </li>
+            <li>
+              tdesign-miniprogram
+            </li>
+            <li>
+              tdesign-angular
+            </li>
+            <li>
+              tdesign-mobile-vue
+            </li>
+            <li>
+              tdesign-mobile-react
+            </li>
+            
+          </ul>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        
+        <span
+          class="displaySpan"
+        >
+          <svg
+            class="t-icon t-icon-control-platform tdesign-demo-select-input__img"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+           tdesign-vue
+        </span>
+        
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    
+  </div>
+  <br />
+  <br />
+  <!-- 多选，第一种方式：使用 tag 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.tag -->
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="tdesign-demo__select-empty-custom"
+          >
+            暂无示意数据
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-is-readonly t-input--prefix t-tag-input"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+        >
+          <!---->
+          
+          
+          <span
+            class="displaySpan"
+          >
+            <svg
+              class="t-icon t-icon-control-platform"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+             tdesign-vue
+          </span>
+          
+          
+          <!---->
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+        >
+          <!---->
+          
+          
+          <span
+            class="displaySpan"
+          >
+            <svg
+              class="t-icon t-icon-control-platform"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+             tdesign-react
+          </span>
+          
+          
+          <!---->
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+  <br />
+  <br />
+  <!-- 多选，第二种方式：使用 valueDisplay 插槽定义全部选中项的内容，也可使用同名渲染函数 props.valueDisplay -->
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="tdesign-demo__select-empty-custom"
+          >
+            暂无示意数据
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-is-readonly t-input--prefix t-tag-input"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        
+        <!-- &lt;span&gt;&lt;LayersIcon /&gt;{{ value }}&lt;/span&gt; -->
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          style="margin-right: 4px;"
+        >
+          <!---->
+          
+          <span
+            class="displaySpan"
+          >
+            <svg
+              class="t-icon t-icon-control-platform"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span>
+              tdesign-vue
+            </span>
+          </span>
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          style="margin-right: 4px;"
+        >
+          <!---->
+          
+          <span
+            class="displaySpan"
+          >
+            <svg
+              class="t-icon t-icon-control-platform"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span>
+              tdesign-react
+            </span>
+          </span>
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          style="margin-right: 4px;"
+        >
+          <!---->
+          
+          <span
+            class="displaySpan"
+          >
+            <svg
+              class="t-icon t-icon-control-platform"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <span>
+              tdesign-mobile-vue
+            </span>
+          </span>
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = `
+<div
+  class="tdesign-demo__select-input-excess-tags-display-type"
+  style="width: 100%;"
+>
+  <!-- excessTagsDisplayType: 'scroll'，超出时，滚动显示 -->
+  <p>
+    第一种呈现方式：超出时滚动显示
+  </p>
+  <br />
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="t-checkbox-group tdesign-demo__panel-options-excess-tags-display-type"
+            modelvalue=""
+          >
+            
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                Check All
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-react
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-miniprogram
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-angular
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-react
+                
+              </span>
+            </label>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-tag-input"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-react
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-miniprogram
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-angular
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-mobile-vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-mobile-react
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+  <br />
+  <br />
+  <br />
+  <!-- excessTagsDisplayType: 'scroll'，超出时，换行显示 -->
+  <p>
+    第二种呈现方式：超出时换行显示
+  </p>
+  <br />
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="t-checkbox-group tdesign-demo__panel-options-excess-tags-display-type"
+            modelvalue=""
+          >
+            
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                Check All
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-react
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-miniprogram
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-angular
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-react
+                
+              </span>
+            </label>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-tag-input t-tag-input--break-line"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-react
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-miniprogram
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-angular
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-mobile-vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          tdesign-mobile-react
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
+<div>
+  <!-- :popup-props="{ trigger: 'hover' }" -->
+  <!-- 前置内容使用 label 自定义，支持同名插槽 label -->
+  <div
+    class="t-popup__reference t-select-input"
+    style="width: 300px;"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <ul
+            class="tdesign-demo__select-input-ul-label-suffix"
+          >
+            
+            <li>
+              tdesign-vue
+            </li>
+            <li>
+              tdesign-react
+            </li>
+            <li>
+              tdesign-miniprogram
+            </li>
+            <li>
+              tdesign-angular
+            </li>
+            <li>
+              tdesign-mobile-vue
+            </li>
+            <li>
+              tdesign-mobile-react
+            </li>
+            
+          </ul>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        前置内容：
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="Please Select"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    
+  </div>
+  <br />
+  <br />
+  <!-- 后置内容使用 suffix 自定义，支持同名插槽 suffix -->
+  <div
+    class="t-popup__reference t-select-input"
+    style="width: 300px;"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <ul
+            class="tdesign-demo__select-input-ul-label-suffix"
+          >
+            
+            <li>
+              tdesign-vue
+            </li>
+            <li>
+              tdesign-react
+            </li>
+            <li>
+              tdesign-miniprogram
+            </li>
+            <li>
+              tdesign-angular
+            </li>
+            <li>
+              tdesign-mobile-vue
+            </li>
+            <li>
+              tdesign-mobile-react
+            </li>
+            
+          </ul>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="Please Select"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <div
+        class="t-input__suffix"
+      >
+        单位：元
+      </div>
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
+<div
+  class="tdesign-demo__select-input-multiple"
+  style="width: 100%;"
+>
+  <div>
+    <label
+      class="t-checkbox t-is-checked"
+      modelvalue="true"
+    >
+      <input
+        class="t-checkbox__former"
+        type="checkbox"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        是否允许输入
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox t-is-checked"
+      modelvalue="true"
+    >
+      <input
+        class="t-checkbox__former"
+        type="checkbox"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+        允许创建新选项（Enter 创建）
+        
+      </span>
+    </label>
+  </div>
+  <br />
+  <div>
+    <div
+      class="t-radio-group t-size-m t-radio-group__outline"
+      modelvalue="break-line"
+    >
+      
+      <label
+        class="t-radio"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="scroll"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          选中项过多横向滚动
+          
+        </span>
+      </label>
+      <label
+        class="t-radio t-is-checked"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="break-line"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          选中项过多换行显示
+          
+        </span>
+      </label>
+      
+    </div>
+  </div>
+  <br />
+  <br />
+  <!-- :popup-props="{ trigger: 'hover' }" -->
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <div
+            class="t-checkbox-group tdesign-demo__panel-options-multiple"
+            modelvalue=""
+          >
+            
+            <label
+              class="t-checkbox t-is-indeterminate"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                Check All
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="1"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="2"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-react
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox t-is-checked"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="3"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-miniprogram
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="4"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-angular
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="5"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-vue
+                
+              </span>
+            </label>
+            <label
+              class="t-checkbox"
+            >
+              <input
+                class="t-checkbox__former"
+                name=""
+                type="checkbox"
+                value="6"
+              />
+              <span
+                class="t-checkbox__input"
+              />
+              <span
+                class="t-checkbox__label"
+              >
+                
+                tdesign-mobile-react
+                
+              </span>
+            </label>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-input--suffix t-tag-input t-tag-input--break-line"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          Vue
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          React
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          Miniprogram
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-icon t-icon-chevron-down"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput singleVue demo works fine 1`] = `
+<div>
+  <!-- :popup-props="{ trigger: 'hover' }" -->
+  <div
+    class="t-popup__reference t-select-input"
+    style="width: 300px;"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content"
+        >
+          
+          <ul
+            class="tdesign-demo__select-input-ul-single"
+          >
+            
+            <li>
+              tdesign-vue
+            </li>
+            <li>
+              tdesign-react
+            </li>
+            <li>
+              tdesign-miniprogram
+            </li>
+            <li>
+              tdesign-angular
+            </li>
+            <li>
+              tdesign-mobile-vue
+            </li>
+            <li>
+              tdesign-mobile-react
+            </li>
+            
+          </ul>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="Please Select"
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`SelectInput SelectInput statusVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-select-input-status"
+>
+  <div>
+    <span>
+      禁用状态：
+    </span>
+    <div
+      class="t-select-input__wrap"
+    >
+      <div
+        class="t-popup__reference t-select-input"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup__content"
+            >
+              
+              <div
+                class="tdesign-demo__select-empty-status"
+              >
+                暂无数据
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            disabled=""
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        
+      </div>
+      <div
+        class="t-input__tips t-input__tips--normal"
+      >
+        这是禁用状态文本提示
+      </div>
+    </div>
+  </div>
+  <br />
+  <div>
+    <span>
+      只读状态：
+    </span>
+    <div
+      class="t-select-input__wrap"
+    >
+      <div
+        class="t-popup__reference t-select-input"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup__content"
+            >
+              
+              <div
+                class="tdesign-demo__select-empty-status"
+              >
+                暂无数据
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        
+      </div>
+      <div
+        class="t-input__tips t-input__tips--normal"
+      >
+        这是普通状态的文本提示
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div>
+    <span>
+      成功状态：
+    </span>
+    <div
+      class="t-select-input__wrap"
+    >
+      <div
+        class="t-popup__reference t-select-input"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup__content"
+            >
+              
+              <div
+                class="tdesign-demo__select-empty-status"
+              >
+                暂无数据
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-input t-is-success t-is-readonly t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        
+      </div>
+      <div
+        class="t-input__tips t-input__tips--success"
+      >
+        校验通过文本提示
+      </div>
+    </div>
+  </div>
+  <br />
+  <div>
+    <span>
+      警告状态：
+    </span>
+    <div
+      class="t-select-input__wrap"
+    >
+      <div
+        class="t-popup__reference t-select-input"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup__content"
+            >
+              
+              <div
+                class="tdesign-demo__select-empty-status"
+              >
+                暂无数据
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-input t-is-warning t-is-readonly t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        
+      </div>
+      <div
+        class="t-input__tips t-input__tips--warning"
+      >
+        校验不通过文本提示
+      </div>
+    </div>
+  </div>
+  <br />
+  <div>
+    <span>
+      错误状态：
+    </span>
+    <div
+      class="t-select-input__wrap"
+    >
+      <div
+        class="t-popup__reference t-select-input"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup__content"
+            >
+              
+              <div
+                class="tdesign-demo__select-empty-status"
+              >
+                暂无数据
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        <div
+          class="t-input t-is-error t-is-readonly t-input--prefix t-input--suffix"
+        >
+          <!---->
+          <div
+            class="t-input__prefix"
+          >
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        
+      </div>
+      <div
+        class="t-input__tips t-input__tips--error"
+      >
+        校验存在严重问题文本提示
+      </div>
+    </div>
+  </div>
+  <br />
+</div>
+`;
+
+exports[`SelectInput SelectInput widthVue demo works fine 1`] = `
+<div
+  class="tdesign-demo__select-input-width"
+>
+  <div>
+    <span>
+      下拉框默认宽度：
+    </span>
+    <div
+      class="t-popup__reference t-select-input t-demo-normal"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup__content"
+          >
+            
+            <div
+              class="tdesign-demo__select-empty-width"
+            >
+              下拉框宽度和触发元素宽度保持一致（默认）
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <div>
+    <span>
+      下拉框最大宽度：
+    </span>
+    <div
+      class="t-popup__reference t-select-input t-demo-normal"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup__content"
+          >
+            
+            <div
+              class="tdesign-demo__select-empty-width"
+            >
+               下拉框宽度和触发元素宽度保持一致，但是当下拉框内容宽度超出时，自动撑开下拉框宽度，最大不超过 1000px（默认） 
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <div>
+    <span>
+      与内容宽度一致：
+    </span>
+    <div
+      class="t-popup__reference t-select-input t-demo-normal"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup__content"
+          >
+            
+            <div
+              class="tdesign-demo__select-empty-width"
+            >
+              宽度随内容宽度自适应
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      
+    </div>
+  </div>
+  <br />
+  <div>
+    <span>
+      下拉框固定宽度：
+    </span>
+    <div
+      class="t-popup__reference t-select-input t-demo-normal"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup__content"
+          >
+            
+            <div
+              class="tdesign-demo__select-empty-width"
+            >
+              固定宽度 360px
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      
+    </div>
+  </div>
+  <br />
+</div>
+`;
