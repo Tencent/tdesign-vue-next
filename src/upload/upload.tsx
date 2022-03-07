@@ -1,4 +1,4 @@
-import { VNode, defineComponent, ref, computed, toRefs } from 'vue';
+import { VNode, defineComponent, reactive, computed, toRefs } from 'vue';
 
 // sub components
 import { UploadIcon } from 'tdesign-icons-vue-next';
@@ -26,16 +26,6 @@ export default defineComponent({
   setup(props, context) {
     const renderContent = useContent();
 
-    const uploadCtx: UploadCtxType = ref({
-      uploadValue: null,
-      setUploadValue: null,
-      // 加载中的文件
-      loadingFile: null,
-      // 等待上传的文件队列
-      toUploadFiles: [],
-      errorMsg: '',
-    });
-
     const { classPrefix: prefix } = useConfig('upload');
 
     const COMPONENT_NAME = computed(() => {
@@ -43,6 +33,7 @@ export default defineComponent({
     });
 
     const { files, modelValue } = toRefs(props);
+
     // handle controlled property and uncontrolled property
     const [uploadValue, setUploadValue] = useVModel(
       files,
@@ -53,8 +44,15 @@ export default defineComponent({
       'files',
     );
 
-    uploadCtx.value.uploadValue = uploadValue;
-    uploadCtx.value.setUploadValue = setUploadValue;
+    const uploadCtx: UploadCtxType = reactive({
+      uploadValue,
+      setUploadValue,
+      // 加载中的文件
+      loadingFile: null,
+      // 等待上传的文件队列
+      toUploadFiles: [],
+      errorMsg: '',
+    });
 
     const disabled = useFormDisabled();
 
@@ -97,8 +95,8 @@ export default defineComponent({
       !props.draggable &&
       ['file', 'file-input'].includes(props.theme) && (
         <SingleFile
-          file={uploadCtx.value.uploadValue.value && uploadCtx.value.uploadValue.value[0]}
-          loadingFile={uploadCtx.value.loadingFile}
+          file={uploadValue.value && uploadValue.value[0]}
+          loadingFile={uploadCtx.loadingFile}
           theme={props.theme}
           onRemove={handleSingleRemove}
           showUploadProgress={props.showUploadProgress}
@@ -106,7 +104,7 @@ export default defineComponent({
         >
           <div class={`${prefix.value}-upload__trigger`} onclick={triggerUpload}>
             {triggerElement}
-            {!!(props.theme === 'file-input' && uploadCtx.value.uploadValue.value?.length) && (
+            {!!(props.theme === 'file-input' && uploadValue.value?.length) && (
               <TButton theme="primary" variant="text" onClick={handleFileInputRemove}>
                 删除
               </TButton>
@@ -118,7 +116,7 @@ export default defineComponent({
     const renderDraggerTrigger = () => {
       const params = {
         dragActive: dragActive.value,
-        uploadingFile: props.multiple ? uploadCtx.value.toUploadFiles : uploadCtx.value.loadingFile,
+        uploadingFile: props.multiple ? uploadCtx.toUploadFiles : uploadCtx.loadingFile,
       };
       let triggerElement = renderContent('default', 'trigger', { params });
       if (!Array.isArray(triggerElement)) {
@@ -127,8 +125,8 @@ export default defineComponent({
       return (
         <Dragger
           showUploadProgress={props.showUploadProgress}
-          loadingFile={uploadCtx.value.loadingFile}
-          file={uploadCtx.value.uploadValue.value && uploadCtx.value.uploadValue.value[0]}
+          loadingFile={uploadCtx.loadingFile}
+          file={uploadValue.value && uploadValue.value[0]}
           theme={props.theme}
           autoUpload={props.autoUpload}
           onChange={handleDragChange}
@@ -149,10 +147,10 @@ export default defineComponent({
         if (props.theme === 'file-input' || showUploadList.value) {
           return <t-button variant="outline">选择文件</t-button>;
         }
-        const iconSlot = { icon: () => <UploadIcon slot="icon" /> };
+        const iconSlot = { icon: () => <UploadIcon /> };
         return (
           <TButton variant="outline" v-slots={iconSlot}>
-            {uploadCtx.value.uploadValue.value?.length ? '重新上传' : '点击上传'}
+            {uploadValue.value?.length ? '重新上传' : '点击上传'}
           </TButton>
         );
       };
@@ -177,8 +175,8 @@ export default defineComponent({
       !props.draggable &&
       props.theme === 'image' && (
         <ImageCard
-          files={uploadCtx.value.uploadValue.value}
-          loadingFile={uploadCtx.value.loadingFile}
+          files={uploadValue.value}
+          loadingFile={uploadCtx.loadingFile}
           showUploadProgress={props.showUploadProgress}
           multiple={props.multiple}
           max={props.max}
@@ -192,10 +190,10 @@ export default defineComponent({
     const renderFlowList = (triggerElement: VNode) =>
       showUploadList.value && (
         <FlowList
-          files={uploadCtx.value.uploadValue.value}
+          files={uploadValue.value}
           placeholder={props.placeholder}
           autoUpload={props.autoUpload}
-          toUploadFiles={uploadCtx.value.toUploadFiles}
+          toUploadFiles={uploadCtx.toUploadFiles}
           theme={props.theme}
           showUploadProgress={props.showUploadProgress}
           onRemove={handleListRemove}
@@ -240,9 +238,9 @@ export default defineComponent({
 
     const renderTip = () => {
       const renderErrorMsg = () =>
-        !uploadCtx.value.errorMsg && showTips.value && <small class={tipsClasses.value}>{props.tips}</small>;
+        !uploadCtx.errorMsg && showTips.value && <small class={tipsClasses.value}>{props.tips}</small>;
       const renderCustomMsg = () =>
-        showErrorMsg.value && <small class={errorClasses.value}>{uploadCtx.value.errorMsg}</small>;
+        showErrorMsg.value && <small class={errorClasses.value}>{uploadCtx.errorMsg}</small>;
 
       return [renderErrorMsg(), renderCustomMsg()];
     };
@@ -261,6 +259,7 @@ export default defineComponent({
       renderDialog,
       renderTip,
       triggerUpload,
+      uploadCtx,
     };
   },
   render() {

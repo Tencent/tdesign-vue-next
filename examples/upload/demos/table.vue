@@ -36,11 +36,11 @@
           <span>{{ getFileSize(item.size) }}</span>
         </div>
         <div class="tdesign-demo-upload-table__status tdesign-demo-upload-table__status--success">
-          <t-icon :name="getIcon(item.status).name" :style="'color:' + getIcon(item.status).fill" />
+          <icon :name="getIcon(item.status).name" :style="'color:' + getIcon(item.status).fill"></icon>
           <span>{{ getStatusText(item.status) }}</span>
         </div>
         <div class="tdesign-demo-upload-table__operator">
-          <t-button variant="text" size="small" @click="handleDelete(item)"> 删除 </t-button>
+          <t-button variant="text" size="small" @click="handleDelete(item)">删除</t-button>
         </div>
       </div>
     </div>
@@ -51,52 +51,35 @@
     </div>
   </section>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: {
-    UploadIcon,
-  },
-  setup() {
-    const files = ref([]);
+const files = ref([]);
 
-    const handleChange = (files) => {
-      console.log(files);
-    };
+const handleChange = (files) => {
+  console.log(files);
+};
 
-    const handleDelete = (file) => {
-      files.value = files.value.filter((item) => item.uid !== file.uid);
-    };
+const handleDelete = (file) => {
+  files.value = files.value.filter((item) => item.uid !== file.uid);
+};
 
-    const beforeUpload = () => true;
+const beforeUpload = () => true;
 
-    const getStatusText = (status) =>
-      ({
-        success: '上传成功',
-        fail: '上传失败',
-        progress: '上传中',
-      }[status]);
+const getStatusText = (status) =>
+  ({
+    success: '上传成功',
+    fail: '上传失败',
+    progress: '上传中',
+  }[status]);
 
-    const getFileSize = (size) => `${(size / 1024 / 1024).toFixed(2)}Mb`;
+const getFileSize = (size) => `${(size / 1024 / 1024).toFixed(2)}Mb`;
 
-    const getIcon = (status) =>
-      ({
-        success: { name: 'check-circle-filled', fill: 'green' },
-        fail: { name: 'error-circle-filled', fill: '#ff3e00' },
-        progress: { name: 'loading', fill: '#0052d9' },
-      }[status]);
-
-    return {
-      files,
-      handleChange,
-      handleDelete,
-      beforeUpload,
-      getStatusText,
-      getFileSize,
-      getIcon,
-    };
-  },
-});
+const getIcon = (status) =>
+  ({
+    success: { name: 'check-circle-filled', fill: 'green' },
+    fail: { name: 'error-circle-filled', fill: '#ff3e00' },
+    progress: { name: 'loading', fill: '#0052d9' },
+  }[status]);
 </script>
