@@ -1,9 +1,7 @@
 import { defineComponent, computed } from 'vue';
-import { prefix } from '../config';
 import props from './props';
 import { useTNodeJSX } from '../hooks/tnode';
-
-const name = `${prefix}-badge`;
+import { useConfig } from '../config-provider/useConfig';
 
 export default defineComponent({
   name: 'TBadge',
@@ -26,6 +24,8 @@ export default defineComponent({
       return count > props.maxCount ? `${props.maxCount}+` : count;
     });
 
+    const renderChildren = () => renderTNodeJSX('default');
+
     const getOffset = () => {
       if (!props.offset) return {};
       let [xOffset, yOffset]: Array<string | number> = props.offset;
@@ -36,6 +36,8 @@ export default defineComponent({
     /** 内容计算相关逻辑 end */
 
     /** 样式计算相关逻辑 start */
+    const { classPrefix } = useConfig('classPrefix');
+    const name = `${classPrefix.value}-badge`;
     const isHidden = computed(() => {
       return !props.showZero && (content.value === 0 || content.value === '0');
     });
@@ -65,15 +67,15 @@ export default defineComponent({
       inlineStyle,
       badgeClassNames,
       isHidden,
+      renderChildren,
+      name,
     };
   },
 
   render() {
-    const children = this.$slots.default ? this.$slots.default(null) : '';
-
     return (
-      <div class={name} {...this.$attrs}>
-        {children || null}
+      <div class={this.name} {...this.$attrs}>
+        {this.renderChildren()}
         {this.isHidden ? null : (
           <sup class={this.badgeClassNames} style={this.inlineStyle}>
             {this.content}
