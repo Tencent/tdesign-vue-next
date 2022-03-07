@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2022-01-04 21:01:56
  * */
 
 import { TNode } from '../common';
@@ -46,6 +45,10 @@ export interface TdUploadProps {
    */
   draggable?: boolean;
   /**
+   * 【开发中】用于完全自定义文件列表内容
+   */
+  fileListDisplay?: TNode;
+  /**
    * 已上传文件列表
    */
   files?: Array<UploadFile>;
@@ -53,6 +56,10 @@ export interface TdUploadProps {
    * 已上传文件列表，非受控属性
    */
   defaultFiles?: Array<UploadFile>;
+  /**
+   * 已上传文件列表
+   */
+  modelValue?: Array<UploadFile>;
   /**
    * 文件上传前转换文件数据
    */
@@ -65,6 +72,11 @@ export interface TdUploadProps {
    * 设置上传的请求头部
    */
   headers?: { [key: string]: string };
+  /**
+   * 文件是否作为一个独立文件包，整体替换，整体删除。不允许追加文件，只允许替换文件
+   * @default false
+   */
+  isBatchUpload?: boolean;
   /**
    * 用于控制文件上传数量，值为 0 则不限制
    * @default 0
@@ -118,6 +130,11 @@ export interface TdUploadProps {
    */
   trigger?: string | TNode<TriggerContext>;
   /**
+   * 是否在同一个请求中上传全部文件，默认一个请求上传一个文件
+   * @default false
+   */
+  uploadAllFilesInOneRequest?: boolean;
+  /**
    * 是否显示为模拟进度。上传进度有模拟进度和真实进度两种。一般大小的文件上传，真实的上传进度只有 0 和 100，不利于交互呈现，因此组件内置模拟上传进度。真实上传进度一般用于大文件上传
    * @default true
    */
@@ -160,7 +177,11 @@ export interface TdUploadProps {
    */
   onRemove?: (context: UploadRemoveContext) => void;
   /**
-   * 上传成功后触发
+   * 文件选择后，上传开始前，触发
+   */
+  onSelectChange?: (files: Array<UploadFile>) => void;
+  /**
+   * 上传成功后触发，`context.currentFiles` 表示当次请求上传的文件，`context.fileList` 表示上传成功后的文件，`context.response` 表示上传请求的返回数据。<br />⚠️ `context.file` 请勿使用
    */
   onSuccess?: (context: SuccessContext) => void;
 }
@@ -226,7 +247,9 @@ export interface SizeLimitObj {
   message?: string;
 }
 
-export type SizeUnit = 'B' | 'KB' | 'MB' | 'GB';
+export type SizeUnitArray = ['B', 'KB', 'MB', 'GB'];
+
+export type SizeUnit = SizeUnitArray[number];
 
 export interface TriggerContext {
   dragActive?: boolean;
@@ -259,6 +282,7 @@ export interface UploadRemoveContext {
 export interface SuccessContext {
   e?: ProgressEvent;
   file?: UploadFile;
+  currentFiles?: UploadFile[];
   fileList?: UploadFile[];
   response: any;
 }

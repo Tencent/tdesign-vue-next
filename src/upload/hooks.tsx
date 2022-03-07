@@ -20,16 +20,14 @@ export const useComponentsStatus = (props: TdUploadProps, uploadCtx: UploadCtxTy
   // 默认文件上传风格：文件进行上传和上传成功后不显示 tips
   const showTips = computed(() => {
     if (props.theme === 'file') {
-      const hasNoFile =
-        (!uploadCtx.value.uploadValue.value || !uploadCtx.value.uploadValue.value.length) &&
-        !uploadCtx.value.loadingFile;
+      const hasNoFile = (!uploadCtx.uploadValue || !uploadCtx.uploadValue.length) && !uploadCtx.loadingFile;
       return props.tips && hasNoFile;
     }
     return Boolean(props.tips);
   });
 
   const showErrorMsg = computed(() => {
-    return !showUploadList.value && !!uploadCtx.value.errorMsg;
+    return !showUploadList.value && !!uploadCtx.errorMsg;
   });
 
   // 拖拽类单文件或图片上传
@@ -103,9 +101,9 @@ export const useDragger = (props: TdUploadProps, disabled: ComputedRef<boolean>)
 export const useRemove = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   const handleSingleRemove = (e: MouseEvent) => {
     const changeCtx = { trigger: 'remove' };
-    if (uploadCtx.value.loadingFile) uploadCtx.value.loadingFile = null;
-    uploadCtx.value.errorMsg = '';
-    uploadCtx.value.setUploadValue([], changeCtx);
+    if (uploadCtx.loadingFile) uploadCtx.loadingFile = null;
+    uploadCtx.errorMsg = '';
+    uploadCtx.setUploadValue([], changeCtx);
     props.onRemove?.({ e });
   };
 
@@ -117,19 +115,19 @@ export const useRemove = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
 
   const handleMultipleRemove = (options: UploadRemoveOptions) => {
     const changeCtx = { trigger: 'remove', ...options };
-    const files = uploadCtx.value.uploadValue.value.concat();
+    const files = uploadCtx.uploadValue.concat();
     files.splice(options.index, 1);
-    uploadCtx.value.setUploadValue(files, changeCtx);
+    uploadCtx.setUploadValue(files, changeCtx);
     props.onRemove?.(options);
   };
 
   const handleListRemove = (context: FlowRemoveContext) => {
     const { file } = context;
-    const index = findIndex(uploadCtx.value.toUploadFiles, (o: any) => o.name === file.name);
+    const index = findIndex(uploadCtx.toUploadFiles, (o: any) => o.name === file.name);
     if (index >= 0) {
-      uploadCtx.value.toUploadFiles.splice(index, 1);
+      uploadCtx.toUploadFiles.splice(index, 1);
     } else {
-      const index = findIndex(uploadCtx.value.uploadValue.value, (o: any) => o.name === file.name);
+      const index = findIndex(uploadCtx.uploadValue, (o: any) => o.name === file.name);
       handleMultipleRemove({ e: context.e, index });
     }
   };
@@ -166,15 +164,15 @@ export const useActions = (props: TdUploadProps, uploadCtx: UploadCtxType, disab
   };
 
   const cancelUpload = () => {
-    if (uploadCtx.value.loadingFile) {
+    if (uploadCtx.loadingFile) {
       // 如果存在自定义上传方法，则只需要抛出事件，而后由父组件处理取消上传
       if (props.requestMethod) {
         props.onCancelUpload?.();
       } else {
         xhrReq.value && xhrReq.value.abort();
-        uploadCtx.value.toUploadFiles = [];
+        uploadCtx.toUploadFiles = [];
       }
-      uploadCtx.value.loadingFile = null;
+      uploadCtx.loadingFile = null;
     }
     (inputRef.value as HTMLInputElement).value = '';
   };

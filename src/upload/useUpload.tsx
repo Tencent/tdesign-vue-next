@@ -10,11 +10,11 @@ import { isOverSizeLimit } from './util';
 import xhr from '../_common/js/upload/xhr';
 import log from '../_common/js/log/index';
 
-export const useUploadProgress = (props: TdUploadProps, ctx: UploadCtxType) => {
+export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   const handleProgress = ({ event, file, percent, type = 'real' }: InnerProgressContext) => {
     if (!file) throw new Error('Error file');
     file.percent = Math.min(percent, 100);
-    ctx.value.loadingFile = file;
+    uploadCtx.loadingFile = file;
     const progressCtx = {
       percent,
       e: event,
@@ -27,12 +27,12 @@ export const useUploadProgress = (props: TdUploadProps, ctx: UploadCtxType) => {
   const onError = (options: { event?: ProgressEvent; file: UploadFile; response?: any; resFormatted?: boolean }) => {
     const { event, file, response, resFormatted } = options;
     file.status = 'fail';
-    ctx.value.loadingFile = file;
+    uploadCtx.loadingFile = file;
     let res = response;
     if (!resFormatted && typeof props.formatResponse === 'function') {
       res = props.formatResponse(response, { file });
     }
-    ctx.value.errorMsg = res?.error;
+    uploadCtx.errorMsg = res?.error;
     const context = { e: event, file };
     props.onFail?.(context);
   };
@@ -52,18 +52,20 @@ export const useUploadProgress = (props: TdUploadProps, ctx: UploadCtxType) => {
         response: res,
         resFormatted: true,
       });
-      ctx.value.loadingFile = null;
+      uploadCtx.loadingFile = null;
       return;
     }
     file.url = res?.url || file.url;
     // 从待上传文件队列中移除上传成功的文件
-    const index = findIndex(ctx.value.toUploadFiles, (o: any) => o.name === file.name);
-    ctx.value.toUploadFiles.splice(index, 1);
+    const index = findIndex(uploadCtx.toUploadFiles, (o: any) => o.name === file.name);
+    uploadCtx.toUploadFiles.splice(index, 1);
     // 上传成功的文件发送到 files
     const newFile: UploadFile = { ...file, response: res };
-    const files = props.multiple ? props.files.concat(newFile) : [newFile];
+    const files = props.multiple ? uploadCtx.uploadValue.concat(newFile) : [newFile];
     const context = { e: event, response: res, trigger: 'upload-success' };
-    props.onChange?.(files, context);
+    // 更新数据
+    uploadCtx.setUploadValue(files, context);
+
     const sContext = {
       file,
       fileList: files,
@@ -71,7 +73,7 @@ export const useUploadProgress = (props: TdUploadProps, ctx: UploadCtxType) => {
       response: res,
     };
     props.onSuccess?.(sContext);
-    ctx.value.loadingFile = null;
+    uploadCtx.loadingFile = null;
   };
 
   const handleMockProgress = (file: UploadFile) => {
@@ -97,11 +99,11 @@ export const useUploadProgress = (props: TdUploadProps, ctx: UploadCtxType) => {
   };
 };
 
-export const useUpload = (props: TdUploadProps, store: any) => {
+export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   const xhrReq = ref<XMLHttpRequest>(null);
   const { global, t } = useConfig('upload');
   // 上传状态
-  const { handleProgress, handleMockProgress, handleSuccess, onError } = useUploadProgress(props, store);
+  const { handleProgress, handleMockProgress, handleSuccess, onError } = useUploadProgress(props, uploadCtx);
 
   const handleSizeLimit = (fileSize: number) => {
     const sizeLimit: SizeLimitObj =
@@ -110,7 +112,7 @@ export const useUpload = (props: TdUploadProps, store: any) => {
     const rSize = isOverSizeLimit(fileSize, sizeLimit.size, sizeLimit.unit);
     if (!rSize) {
       // 有参数 message 则使用，没有就使用全局 locale 配置
-      store.value.errorMsg = sizeLimit.message
+      uploadCtx.errorMsg = sizeLimit.message
         ? t(sizeLimit.message, { sizeLimit: sizeLimit.size })
         : `${t(global.value.sizeLimitMessage, { sizeLimit: sizeLimit.size })} ${sizeLimit.unit}`;
     }
@@ -172,9 +174,9 @@ export const useUpload = (props: TdUploadProps, store: any) => {
       log.error('Upload', 'one of action and requestMethod must be exist.');
       return;
     }
-    store.value.errorMsg = '';
+    uploadCtx.errorMsg = '';
     file.status = 'progress';
-    store.value.loadingFile = file;
+    uploadCtx.loadingFile = file;
     // requestMethod 为父组件定义的自定义上传方法
     if (props.requestMethod) {
       handleRequestMethod(file);
@@ -201,7 +203,7 @@ export const useUpload = (props: TdUploadProps, store: any) => {
   const uploadFiles = (files: FileList) => {
     let tmpFiles = [...files];
     if (props.max) {
-      tmpFiles = tmpFiles.slice(0, props.max - props.files.length);
+      tmpFiles = tmpFiles.slice(0, props.max - uploadCtx.uploadValue.length);
       if (tmpFiles.length !== files.length) {
         console.warn(`TDesign Upload Warn: you can only upload ${props.max} files`);
       }
@@ -230,10 +232,10 @@ export const useUpload = (props: TdUploadProps, store: any) => {
       };
       handleBeforeUpload(file).then((canUpload) => {
         if (!canUpload) return;
-        const newFiles = store.value.toUploadFiles.concat();
+        const newFiles = uploadCtx.toUploadFiles.concat();
         newFiles.push(uploadFile);
-        store.value.toUploadFiles = [...new Set(newFiles)];
-        store.value.loadingFile = uploadFile;
+        uploadCtx.toUploadFiles = [...new Set(newFiles)];
+        uploadCtx.loadingFile = uploadFile;
         if (props.autoUpload) {
           upload(uploadFile);
         }

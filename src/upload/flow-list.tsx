@@ -28,6 +28,7 @@ const flowListProps = {
   autoUpload: props.autoUpload,
   disabled: props.disabled,
   theme: props.theme,
+  batchUpload: props.isBatchUpload,
   // 已上传完成的文件
   files: props.files,
   // 上传队列中的文件（可能存在已经上传过的文件）
@@ -164,6 +165,36 @@ export default defineComponent({
       );
     };
 
+    const renderNormalActionCol = (file: UploadFile, index: number) => {
+      return (
+        <td>
+          <span
+            class={`${UPLOAD_NAME.value}__flow-button`}
+            onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
+          >
+            {global.value.triggerUploadText.delete}
+          </span>
+        </td>
+      );
+    };
+
+    // batchUpload action col
+    const renderBatchActionCol = (index: number) => {
+      // 第一行数据才需要合并单元格
+      return index === 0 ? (
+        <td rowspan={listFiles.value.length} class={`${UPLOAD_NAME.value}__flow-table__batch-row`}>
+          <span
+            class={`${UPLOAD_NAME.value}__flow-button`}
+            onClick={(e: MouseEvent) => props.onRemove({ e, index: -1, file: null })}
+          >
+            {global.value.triggerUploadText.delete}
+          </span>
+        </td>
+      ) : (
+        ''
+      );
+    };
+
     const renderFileList = () =>
       props.theme === 'file-flow' && (
         <table class={`${UPLOAD_NAME.value}__flow-table`}>
@@ -188,7 +219,10 @@ export default defineComponent({
                   class={`${UPLOAD_NAME.value}__flow-button`}
                   onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
                 >
-                  {global.value.triggerUploadText.delete}
+                  {/* 合并操作出现条件为：当前为合并上传模式且列表内没有待上传文件 */}
+                  {props.batchUpload && props.toUploadFiles.length === 0
+                    ? renderBatchActionCol(index)
+                    : renderNormalActionCol(file, index)}
                 </span>
               </td>
             </tr>

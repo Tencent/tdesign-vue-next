@@ -19,13 +19,13 @@ export type {
   FlowRemoveContext,
 };
 
-export type UploadCtxType = Ref<{
-  uploadValue: Ref<TdUploadProps['files']>;
+export type UploadCtxType = {
+  uploadValue: TdUploadProps['files'];
   setUploadValue: TdUploadProps['onChange'];
   loadingFile: UploadFile;
   toUploadFiles: UploadFile[];
   errorMsg: string;
-}>;
+};
 
 export type UploadProps = TdUploadProps;
 export * from './type';
