@@ -20,8 +20,7 @@ export default defineComponent({
     const { destroyOnHide, active } = (instance as any).ctx;
     if (destroyOnHide && !active) return null;
     return (
-      // use v-show to replace display:none. , in the production env, v-show is performance for v-if.
-      <div class="t-tab-panel" style={active ? { display: 'none' } : {}}>
+      <div class={`${prefix}-tab-panel`} v-show={active}>
         {renderContent(this, 'default', 'panel')}
       </div>
     );

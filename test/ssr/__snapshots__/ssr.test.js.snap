@@ -18048,7 +18048,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
       </div>
       <div class="t-tabs__content">
         <!--[-->
-        <div class="t-tab-panel" style="display:none;">
+        <div class="t-tab-panel">
           <!--[-->
           <div style="padding:24px 24px 24px 0;">
             <!-- 重点阅读：数组里面，注意 name 定义，用于区分不同的字段 -->
@@ -18115,7 +18115,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
           </div>
           <!--]-->
         </div>
-        <div class="t-tab-panel" style="">
+        <div class="t-tab-panel" style="display:none;">
           <!--[-->
           <div style="padding:24px 24px 24px 0;">
             <!-- 重点阅读：数组里面，注意 name 定义，用于区分不同的字段 -->
@@ -40268,7 +40268,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/ban.vue correctly 1`] =
     </div>
     <div class="t-tabs__content">
       <!--[-->
-      <div class="t-tab-panel" style="display:none;">
+      <div class="t-tab-panel">
         <!--[-->
         <p style="padding:25px;">选项卡1的内容</p>
         <!--]-->
@@ -40319,7 +40319,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/base.vue correctly 1`] 
     </div>
     <div class="t-tabs__content">
       <!--[-->
-      <div class="t-tab-panel" style="display:none;">
+      <div class="t-tab-panel">
         <!--[-->
         <p style="padding:25px;">选项卡1的内容，使用 t-tab-pannel 渲染</p>
         <!--]-->
@@ -40364,7 +40364,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/base.vue correctly 1`] 
       </div>
     </div>
     <!--[-->
-    <div class="t-tab-panel" style="display:none;">
+    <div class="t-tab-panel">
       <p style="padding: 25px">这是选项卡一的内容，使用 t-tabs 渲染</p>
     </div>
     <!---->
@@ -40470,7 +40470,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/combination.vue correct
     </div>
     <div class="t-tabs__content">
       <!--[-->
-      <div class="t-tab-panel" style="display:none;">
+      <div class="t-tab-panel">
         <!--[-->
         <p style="padding:25px;">选项卡2</p>
         <!--]-->
@@ -40537,7 +40537,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/custom.vue correctly 1`
     </div>
     <div class="t-tabs__content">
       <!--[-->
-      <div class="t-tab-panel" style="display:none;">
+      <div class="t-tab-panel">
         <!--[-->
         <p style="padding:25px;">原有选项卡1内容</p>
         <!--]-->
@@ -40594,7 +40594,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/icon.vue correctly 1`] 
     </div>
     <div class="t-tabs__content">
       <!--[-->
-      <div class="t-tab-panel" style="display:none;">
+      <div class="t-tab-panel">
         <!--[-->
         <p style="padding:25px;">normal选项卡1内容</p>
         <!--]-->
@@ -40647,7 +40647,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/operation.vue correctly
     </div>
     <div class="t-tabs__content">
       <!--[-->
-      <div class="t-tab-panel" style="display:none;">
+      <div class="t-tab-panel">
         <!--[-->
         <p style="padding:25px;">原有选项卡内容</p>
         <!--]-->
@@ -40704,7 +40704,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/position.vue correctly 
     </div>
     <div class="t-tabs__content">
       <!--[-->
-      <div class="t-tab-panel" style="display:none;">
+      <div class="t-tab-panel">
         <!--[-->
         <p style="padding:25px;">选项卡1</p>
         <!--]-->
@@ -40756,7 +40756,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/size.vue correctly 1`] 
       </div>
       <div class="t-tabs__content">
         <!--[-->
-        <div class="t-tab-panel" style="display:none;">
+        <div class="t-tab-panel">
           <!--[-->
           <p style="padding:25px;">选项卡1</p>
           <!--]-->
@@ -40802,7 +40802,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/size.vue correctly 1`] 
       </div>
       <div class="t-tabs__content">
         <!--[-->
-        <div class="t-tab-panel" style="display:none;">
+        <div class="t-tab-panel">
           <!--[-->
           <p style="padding:25px;">选项卡1</p>
           <!--]-->
@@ -40855,7 +40855,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/theme.vue correctly 1`]
       </div>
       <div class="t-tabs__content">
         <!--[-->
-        <div class="t-tab-panel" style="display:none;">
+        <div class="t-tab-panel">
           <!--[-->
           <p style="padding:25px;">选项卡1</p>
           <!--]-->
@@ -40901,7 +40901,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/theme.vue correctly 1`]
       </div>
       <div class="t-tabs__content">
         <!--[-->
-        <div class="t-tab-panel" style="display:none;">
+        <div class="t-tab-panel">
           <!--[-->
           <p style="padding:25px;">选项卡1</p>
           <!--]-->
