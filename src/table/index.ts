@@ -1,3 +1,4 @@
+import cloneDeep from 'lodash/cloneDeep';
 import _BaseTable from './base-table/index';
 import _PrimaryTable from './primary-table/index';
 import _EnhancedTable from './enhanced-table/index';
@@ -33,6 +34,9 @@ const TPrimaryTable = mapProps([
 export const BaseTable: WithInstallType<typeof _BaseTable> = withInstall(_BaseTable);
 export const PrimaryTable: WithInstallType<typeof TPrimaryTable> = withInstall(TPrimaryTable);
 export const EnhancedTable: WithInstallType<typeof _EnhancedTable> = withInstall(_EnhancedTable);
-export const Table = withInstall(TPrimaryTable);
+
+const LocalTable = cloneDeep(TPrimaryTable);
+LocalTable.name = `TPrimaryTable`;
+export const Table: WithInstallType<typeof LocalTable> = withInstall(LocalTable);
 
 export default PrimaryTable;
