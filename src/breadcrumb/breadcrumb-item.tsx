@@ -9,7 +9,7 @@ import { emitEvent } from '../utils/event';
 import { getPropsApiByEvent } from '../utils/helper';
 
 const separatorClass = `${prefix}-breadcrumb__separator`;
-const disableClass = `${prefix}-disabled`;
+const disableClass = `${prefix}-is-disabled`;
 const linkClass = `${prefix}-link`;
 const maxLengthClass = `${prefix}-breadcrumb__inner`;
 const textFlowClass = `${prefix}-breadcrumb--text-overflow`;

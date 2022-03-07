@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TdDatePickerProps } from './type';
+import { TdDatePickerProps, TdDateRangePickerProps } from './type';
 import { PropType } from 'vue';
 
 export default {
@@ -93,4 +93,6 @@ export default {
   onFocus: Function as PropType<TdDatePickerProps['onFocus']>,
   /** 输入框数据发生变化时触发，参数 input 表示输入内容，value 表示组件当前有效值 */
   onInput: Function as PropType<TdDatePickerProps['onInput']>,
+  /* 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期 */
+  onPick: Function as PropType<TdDateRangePickerProps['onPick']>,
 };

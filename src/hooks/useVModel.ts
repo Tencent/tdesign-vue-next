@@ -2,12 +2,12 @@ import { ref, Ref, SetupContext } from 'vue';
 
 export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
 
-export default function useDefault<T, P extends any[]>(
+export default function useVModel<T, P extends any[]>(
   value: Ref<T>,
   modelValue: Ref<T>,
   defaultValue: T,
   onChange: ChangeHandler<T, P>,
-  // emit 和 eventName 用于支持 v-model 和 v-model:xxx 语法糖
+  // emit 和 eventName 用于支持 v-model 和 xxx.sync 语法糖
   emit?: SetupContext['emit'],
   propsName?: string,
 ): [Ref<T>, ChangeHandler<T, P>] {

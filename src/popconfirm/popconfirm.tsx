@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent } from 'vue';
 import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { PopconfirmConfig } from '../config-provider/config-receiver';

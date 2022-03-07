@@ -1,7 +1,9 @@
 import { defineComponent, VNode, ComponentPublicInstance, provide, toRefs } from 'vue';
 import isEmpty from 'lodash/isEmpty';
+import isBoolean from 'lodash/isBoolean';
+import isArray from 'lodash/isArray';
 import { prefix } from '../config';
-import { FormValidateResult, TdFormProps, FormValidateParams } from './type';
+import { FormValidateResult, TdFormProps, FormValidateParams, ValidateResultList } from './type';
 import props from './props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES, FORM_CONTROL_COMPONENTS } from './const';
 import FormItem from './form-item';
@@ -60,13 +62,15 @@ export default defineComponent({
   },
 
   methods: {
-    getFirstError(r: Result) {
-      if (r === true) return;
-      const [firstKey] = Object.keys(r);
+    getFirstError(result: Result) {
+      if (isBoolean(result)) return '';
+      const [firstKey] = Object.keys(result);
       if (this.scrollToFirstError) {
         this.scrollTo(`.${FORM_ITEM_CLASS_PREFIX + firstKey}`);
       }
-      return r[firstKey][0].message;
+      const resArr = result[firstKey] as ValidateResultList;
+      if (!isArray(resArr)) return '';
+      return resArr.filter((item) => !item.result)[0].message;
     },
     // 校验不通过时，滚动到第一个错误表单
     scrollTo(selector: string) {

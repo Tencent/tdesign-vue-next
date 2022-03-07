@@ -1,8 +1,7 @@
-import { ComponentPublicInstance, defineComponent, nextTick } from 'vue';
+import { defineComponent, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import { CalendarIcon, TimeIcon } from 'tdesign-icons-vue-next';
-import debounce from 'lodash/debounce';
 import { emitEvent } from '../utils/event';
 
 import { prefix } from '../config';
@@ -28,10 +27,6 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import { useFormDisabled } from '../form/hooks';
 
 dayjs.extend(isBetween);
-
-const onOpenDebounce = debounce((vm?: any) => {
-  vm.createPopover();
-}, 250);
 
 const name = `${prefix}-date-picker`;
 
@@ -310,10 +305,7 @@ export default defineComponent({
         this.tempValue = '';
         // open
         this.isOpen = true;
-        nextTick().then(() => {
-          onOpenDebounce(this);
-          emitEvent(this, 'open', this.selectedDates);
-        });
+        nextTick().then(() => emitEvent(this, 'open', this.selectedDates));
       }
     },
     close() {
@@ -374,6 +366,8 @@ export default defineComponent({
         const selectedDates: any[] = [];
         this.selectedDates = selectedDates;
         this.formattedValue = '';
+        this.start = new Date();
+        this.end = new Date();
         this.submitInput(selectedDates, triggerChange);
       }
     },
@@ -531,21 +525,6 @@ export default defineComponent({
       }
       const d1 = new Date(date);
       return dayjs(d1).format(dateFormat);
-    },
-    createPopover() {
-      if (this.inlineView) {
-        return;
-      }
-      const nativeInput = this.$refs.native as ComponentPublicInstance;
-
-      const tip: HTMLElement = this.$refs.dropdownPopup as HTMLElement;
-      const refEl: Element = ((nativeInput && nativeInput.$el) || this.$el) as Element;
-
-      if (!tip || !refEl) {
-        return;
-      }
-
-      this.initClickAway(tip);
     },
     getPlaceholderText() {
       const { placeholder, mode } = this;
