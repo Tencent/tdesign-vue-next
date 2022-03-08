@@ -13003,7 +13003,6 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <div
                       class="t-popup__reference"
-                      modelvalue="false"
                     >
                       <transition-stub>
                         <div
@@ -13185,7 +13184,6 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <div
                       class="t-popup__reference"
-                      modelvalue="false"
                     >
                       <transition-stub>
                         <div
@@ -13367,7 +13365,6 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <div
                       class="t-popup__reference"
-                      modelvalue="false"
                     >
                       <transition-stub>
                         <div
@@ -13549,7 +13546,6 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <div
                       class="t-popup__reference"
-                      modelvalue="false"
                     >
                       <transition-stub>
                         <div
@@ -13731,7 +13727,6 @@ exports[`Table Table treeVue demo works fine 1`] = `
                     </button>
                     <div
                       class="t-popup__reference"
-                      modelvalue="false"
                     >
                       <transition-stub>
                         <div

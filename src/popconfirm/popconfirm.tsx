@@ -1,118 +1,125 @@
-import { defineComponent } from 'vue';
+import { defineComponent, computed, toRefs } from 'vue';
 import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { PopconfirmConfig } from '../config-provider/config-receiver';
-import { prefix } from '../config';
+import { useConfig } from '../config-provider';
 import Popup, { PopupProps } from '../popup/index';
 import props from './props';
-import { renderTNodeJSX, renderContent, renderTNodeJSXDefault } from '../utils/render-tnode';
-import { PopconfirmVisibleChangeContext, TdPopconfirmProps } from './type';
-import { emitEvent } from '../utils/event';
-import ActionMixin from '../dialog/actions';
-
-const name = `${prefix}-popconfirm`;
-const popupName = `${prefix}-popup`;
-
-type IconConstructor = typeof InfoCircleFilledIcon;
+import { PopconfirmVisibleChangeContext } from './type';
+import { useAction } from '../dialog/hooks';
+import { useContent, useTNodeJSX, useTNodeDefault } from '../hooks/tnode';
+import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
-  ...mixins(ActionMixin, getConfigReceiverMixins<PopconfirmConfig>('popconfirm')),
   name: 'TPopconfirm',
   props,
-  emits: ['close', 'cancel', 'confirm', 'visible-change'],
-  data() {
+  setup(props, context) {
+    const { global, classPrefix } = useConfig('popconfirm');
+
+    const { visible, modelValue } = toRefs(props);
+    const [innerVisible, setInnerVisible] = useVModel(
+      visible,
+      modelValue,
+      props.defaultVisible,
+      props.onVisibleChange,
+      context.emit,
+      'visible',
+    );
+    const componentName = computed(() => {
+      return `${classPrefix.value}-popconfirm`;
+    });
+
+    const confirmBtnAction = (e: MouseEvent) => {
+      props.onConfirm?.({ e });
+      setInnerVisible(false, { e });
+    };
+
+    const cancelBtnAction = (e: MouseEvent) => {
+      props.onCancel?.({ e });
+      setInnerVisible(false, { e });
+    };
+
+    const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
+
+    const renderTNodeJSX = useTNodeJSX();
+    const innerPopupProps = computed(() => {
+      return {
+        showArrow: props.showArrow,
+        overlayClassName: componentName.value,
+        trigger: 'click',
+        destroyOnClose: props.destroyOnClose,
+        placement: props.placement,
+        ...(props.popupProps as PopupProps),
+      };
+    });
+
+    const renderTNodeDefault = useTNodeDefault();
+    const renderContent = () => {
+      const cancelBtn = getCancelBtn({
+        cancelBtn: props.cancelBtn,
+        globalCancel: global.value.cancel,
+        className: `${componentName.value}__cancel`,
+      });
+
+      const confirmBtn = getConfirmBtn({
+        theme: props.theme,
+        confirmBtn: props.confirmBtn,
+        globalConfirm: global.value.confirm,
+        globalConfirmBtnTheme: global.value.confirmBtnTheme,
+        className: `${componentName.value}__confirm`,
+      });
+
+      const renderIcon = () => {
+        const Icon = {
+          default: InfoCircleFilledIcon,
+          warning: ErrorCircleFilledIcon,
+          danger: ErrorCircleFilledIcon,
+        }[props.theme];
+        const theme = props.theme || 'default';
+        return renderTNodeDefault('icon', <Icon class={`${componentName.value}__icon--${theme}`} />);
+      };
+
+      return (
+        <div class={`${componentName.value}__content`}>
+          <div class={`${componentName.value}__body`}>
+            {renderIcon()}
+            <div class={`${componentName.value}__inner`}>{renderTNodeJSX('content')}</div>
+          </div>
+          {Boolean(cancelBtn || confirmBtn) && (
+            <div class={`${componentName.value}__buttons`}>
+              {cancelBtn}
+              {confirmBtn}
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    const onPopupVisibleChange = (val: boolean, context: PopconfirmVisibleChangeContext) => {
+      setInnerVisible(val, context);
+    };
+
+    const renderTNodeContent = useContent();
+    const renderTriggerElement = () => renderTNodeContent('default', 'triggerElement');
+
     return {
-      name,
-      popupName,
+      innerVisible,
+      innerPopupProps,
+      onPopupVisibleChange,
+      renderContent,
+      renderTriggerElement,
     };
   },
-  computed: {
-    themeIcon(): IconConstructor {
-      const iconMap = {
-        default: InfoCircleFilledIcon,
-        warning: ErrorCircleFilledIcon,
-        danger: ErrorCircleFilledIcon,
-      };
-      return iconMap[this.theme];
-    },
-    iconCls(): string {
-      const theme = this.theme || 'default';
-      return `${name}__icon--${theme}`;
-    },
-    innerPopupProps(): PopupProps {
-      return {
-        showArrow: this.showArrow,
-        overlayClassName: name,
-        trigger: 'click',
-        destroyOnClose: this.destroyOnClose,
-        placement: this.placement,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        ...this.popupProps,
-      };
-    },
-  },
-  methods: {
-    cancelBtnAction(e: MouseEvent) {
-      emitEvent<Parameters<TdPopconfirmProps['onCancel']>>(this, 'cancel', { e });
-      const cancelContext: PopconfirmVisibleChangeContext = { e, trigger: 'cancel' };
-      emitEvent<Parameters<TdPopconfirmProps['onVisibleChange']>>(this, 'visible-change', false, cancelContext);
-    },
-    // used in ActionMixin, do not Delete
-    confirmBtnAction(e: MouseEvent) {
-      emitEvent<Parameters<TdPopconfirmProps['onConfirm']>>(this, 'confirm', { e });
-      const confirmContext: PopconfirmVisibleChangeContext = { e, trigger: 'confirm' };
-      emitEvent<Parameters<TdPopconfirmProps['onVisibleChange']>>(this, 'visible-change', false, confirmContext);
-    },
-    renderIcon() {
-      const Icon = this.themeIcon;
-      return renderTNodeJSXDefault(this, 'icon', <Icon class={this.iconCls} />);
-    },
-    onPopupVisibleChange(val: boolean, context: PopconfirmVisibleChangeContext) {
-      emitEvent(this, 'visible-change', val, context);
-      this.onVisibleChange && this.onVisibleChange(val, context);
-    },
-  },
   render() {
-    const triggerElement = renderContent(this, 'default', 'triggerElement');
-    // this.getCancelBtn is a function of ActionMixin
-    const cancelBtn = this.getCancelBtn({
-      cancelBtn: this.cancelBtn,
-      globalCancel: this.global.cancel,
-      className: `${name}__cancel`,
-    });
-    // this.getConfirmBtn is a function of ActionMixin
-    const confirmBtn = this.getConfirmBtn({
-      theme: this.theme,
-      confirmBtn: this.confirmBtn,
-      globalConfirm: this.global.confirm,
-      globalConfirmBtnTheme: this.global.confirmBtnTheme,
-      className: `${name}__confirm`,
-    });
     return (
       <Popup
         ref="popup"
-        visible={this.visible}
+        visible={this.innerVisible}
         {...this.innerPopupProps}
         onVisibleChange={this.onPopupVisibleChange}
         v-slots={{
-          content: () => (
-            <div class={`${name}__content`}>
-              <div class={`${name}__body`}>
-                {this.renderIcon()}
-                <div class={`${name}__inner`}>{renderTNodeJSX(this, 'content')}</div>
-              </div>
-              {Boolean(cancelBtn || confirmBtn) && (
-                <div class={`${name}__buttons`}>
-                  {cancelBtn}
-                  {confirmBtn}
-                </div>
-              )}
-            </div>
-          ),
+          content: this.renderContent,
         }}
       >
-        {triggerElement}
+        {this.renderTriggerElement()}
       </Popup>
     );
   },

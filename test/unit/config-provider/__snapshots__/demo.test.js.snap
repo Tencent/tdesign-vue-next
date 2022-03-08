@@ -9334,7 +9334,6 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
 >
   <div
     class="t-popup__reference"
-    modelvalue="false"
   >
     <transition-stub>
       <div
@@ -9376,7 +9375,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               class="t-popconfirm__buttons"
             >
               <button
-                class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
                 type="button"
               >
                 <span
@@ -9423,7 +9422,6 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    modelvalue="false"
   >
     <transition-stub>
       <div
@@ -9465,7 +9463,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               class="t-popconfirm__buttons"
             >
               <button
-                class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
                 type="button"
               >
                 <span
@@ -9512,7 +9510,6 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    modelvalue="false"
   >
     <transition-stub>
       <div
@@ -9554,7 +9551,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
               class="t-popconfirm__buttons"
             >
               <button
-                class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
+                class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel"
                 type="button"
               >
                 <span
