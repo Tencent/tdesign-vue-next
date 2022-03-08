@@ -3,16 +3,16 @@ import { throttle } from 'lodash';
 import props from '../../props';
 import Color from '../../utils/color';
 import { Select as TSelect, Option as TOption } from '../../../select';
-import { Input as TInput } from '../../../input';
-import { InputNumber as TInputNumber } from '../../../input-number';
+import TInput from '../../../input';
+import TInputNumber from '../../../input-number';
 import { FORMAT_INPUT_CONFIG } from './config';
 
 export default defineComponent({
   name: 'FormatInputs',
   components: {
-    TInput,
     TSelect,
     TOption,
+    TInput,
     TInputNumber,
   },
   props: {
@@ -37,6 +37,7 @@ export default defineComponent({
     });
 
     const modelValue = reactive<any>({});
+    const lastModelValue = reactive<any>({});
 
     const updateModelValue = () => {
       const { format, color } = props;
@@ -66,7 +67,10 @@ export default defineComponent({
           break;
       }
       values.a = Math.round(color.alpha * 100) / 100;
-      Object.keys(values).map((key) => (modelValue[key] = values[key]));
+      Object.keys(values).forEach((key) => {
+        modelValue[key] = values[key];
+        lastModelValue[key] = values[key];
+      });
     };
 
     updateModelValue();
@@ -79,6 +83,9 @@ export default defineComponent({
     }, throttleUpdate);
 
     const handleChange = (key: string, v: number | string) => {
+      if (v === lastModelValue[key]) {
+        return;
+      }
       let value = null;
       switch (props.format) {
         case 'HSV':
@@ -125,7 +132,7 @@ export default defineComponent({
                   v-model={this.modelValue[config.key]}
                   maxlength={this.format === 'HEX' ? 9 : undefined}
                   title={this.modelValue[config.key]}
-                  onChange={(v: string) => this.handleChange(config.key, v)}
+                  onBlur={(v: string) => this.handleChange(config.key, v)}
                 />
               ) : (
                 <t-input-number
@@ -136,7 +143,7 @@ export default defineComponent({
                   min={config.min}
                   max={config.max}
                   theme="normal"
-                  onChange={(v: number) => this.handleChange(config.key, v)}
+                  onBlur={(v: number) => this.handleChange(config.key, v)}
                 />
               )}
             </div>

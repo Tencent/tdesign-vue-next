@@ -11,6 +11,7 @@ import {
   TITLE_RECENT_COLORS,
   TITLE_SWATCH_COLORS,
   DEFAULT_SYSTEM_SWATCH_COLORS,
+  CLASS_NAME_DISABLE,
 } from '../const';
 import ColorPickerHeader from './header';
 import LinearGradient from './linear-gradient';
@@ -207,6 +208,7 @@ export default defineComponent({
       color.value.update(input);
       color.value.alpha = alpha;
       emitColorChange('input');
+      addRecentlyUsedColor(color.value.css);
     };
 
     /**
@@ -324,7 +326,7 @@ export default defineComponent({
     };
 
     return (
-      <div class={[`${name}__panel`, this.customClass, this.disabled ? 'is-disabled' : false]}>
+      <div class={[`${name}__panel`, this.customClass, this.disabled ? CLASS_NAME_DISABLE : false]}>
         <color-picker-header {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
         <div class={[`${name}__body`]}>
           {this.mode === 'linear-gradient' ? <linear-gradient {...props} onChange={this.handleGradientChange} /> : null}

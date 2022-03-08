@@ -8,6 +8,12 @@ export const COMPONENT_NAME = `${prefix}-color-picker`;
 // 组件面板
 export const COMPONENT_PANEL_NAME = `${COMPONENT_NAME}-panel`;
 
+// 状态样式
+export const CLASS_NAME_DISABLE = `${prefix}-is-disabled`;
+export const CLASS_NAME_ACTIVE = `${prefix}-is-active`;
+export const CLASS_NAME_CURRENT = `${prefix}-is-current`;
+export const CLASS_NAME_INLINE = `${prefix}-is-inline`;
+
 // t-popup provide interface
 export interface TdColorPickerPopupProvide {
   visible: Ref<boolean>;
@@ -38,7 +44,7 @@ export type TdColorMode = 'monochrome' | 'linear-gradient';
 // 颜色模式options配置
 export const COLOR_MODES = {
   monochrome: '单色',
-  'linear-gradient': '线性渐变',
+  'linear-gradient': '渐变',
 };
 
 // emit 事件类型

@@ -1,7 +1,12 @@
 import { defineComponent, provide, ref, watch } from 'vue';
 import props from './props';
 import ColorPickerPanel from './panel';
-import { COMPONENT_PANEL_NAME, TdColorPickerPopupProvide, TD_COLOR_PICKER_POPUP_PROVIDE } from './const';
+import {
+  CLASS_NAME_INLINE,
+  COMPONENT_PANEL_NAME,
+  TdColorPickerPopupProvide,
+  TD_COLOR_PICKER_POPUP_PROVIDE,
+} from './const';
 import { useColorPicker } from './common';
 
 export default defineComponent({
@@ -40,7 +45,7 @@ export default defineComponent({
       <color-picker-panel
         {...props}
         value={this.color}
-        custom-class="is-inline"
+        custom-class={CLASS_NAME_INLINE}
         close-btn={false}
         onChange={this.handleChange}
         onPaletteChange={this.handlePaletteChange}

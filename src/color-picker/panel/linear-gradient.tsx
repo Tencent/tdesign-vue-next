@@ -2,6 +2,7 @@ import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, reactive
 import { cloneDeep } from 'lodash';
 import props from '../props';
 import {
+  CLASS_NAME_ACTIVE,
   COMPONENT_NAME,
   GRADIENT_SLIDER_DEFAULT_WIDTH,
   TdColorPickerUsedColorsProvide,
@@ -211,7 +212,7 @@ export default defineComponent({
     const { colors, selectedId, degree, disabled } = this;
     return (
       <div class={`${COMPONENT_NAME}__gradient`}>
-        <div class={`${COMPONENT_NAME}__gradient__slider`}>
+        <div class={`${COMPONENT_NAME}__gradient-slider`}>
           <div
             class={[`${COMPONENT_NAME}__slider`, `${COMPONENT_NAME}--bg-alpha`]}
             onKeyup={this.handleKeyup}
@@ -232,7 +233,7 @@ export default defineComponent({
                     class={[
                       `${COMPONENT_NAME}__thumb`,
                       'gradient-thumbs__item',
-                      selectedId === t.id ? 'is-active' : '',
+                      selectedId === t.id ? CLASS_NAME_ACTIVE : '',
                     ]}
                     key={t.id}
                     id={t.id}
@@ -244,17 +245,16 @@ export default defineComponent({
                     onClick={(e: MouseEvent) => e.stopPropagation()}
                     onMousedown={(e: MouseEvent) => this.handleStart(t.id, e)}
                   >
-                    <span class={['gradient-thumbs__item__inner', `${COMPONENT_NAME}--bg-alpha`]}></span>
+                    <span class={['gradient-thumbs__item-inner', `${COMPONENT_NAME}--bg-alpha`]}></span>
                   </li>
                 );
               })}
             </ul>
           </div>
         </div>
-        <div class={`${COMPONENT_NAME}__gradient__degree`} title={`${degree}deg`}>
+        <div class={`${COMPONENT_NAME}__gradient-degree`} title={`${degree}deg`}>
           <t-input-number
             theme="normal"
-            size="large"
             min={0}
             max={360}
             step={1}

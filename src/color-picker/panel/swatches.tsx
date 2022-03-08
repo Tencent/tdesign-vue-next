@@ -1,6 +1,13 @@
 import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, ref } from 'vue';
 import { DeleteIcon } from 'tdesign-icons-vue-next';
-import { COMPONENT_NAME, TdColorPickerUsedColorsProvide, TD_COLOR_USED_COLORS_PROVIDE } from '../const';
+import {
+  CLASS_NAME_ACTIVE,
+  CLASS_NAME_CURRENT,
+  CLASS_NAME_DISABLE,
+  COMPONENT_NAME,
+  TdColorPickerUsedColorsProvide,
+  TD_COLOR_USED_COLORS_PROVIDE,
+} from '../const';
 import { Select as TSelect, Option as TOption } from '../../select';
 import Color from '../utils/color';
 import { useClickOutsider } from '../utils/click-outsider';
@@ -78,7 +85,7 @@ export default defineComponent({
             <span
               role="button"
               title="移除选中的颜色"
-              class={[`${COMPONENT_NAME}__icon`, !this.activeColor ? 'is-disabled' : '']}
+              class={[`${COMPONENT_NAME}__icon`, !this.activeColor ? CLASS_NAME_DISABLE : '']}
               onMouseup={(e) => e.stopPropagation()}
               onClick={() => {
                 if (this.disabled) {
@@ -101,8 +108,8 @@ export default defineComponent({
                 ref={this.colorItemRefs}
                 class={[
                   `${BASE_CLASS_NAME}--item`,
-                  this.activeColor === color && this.removable ? 'is-active' : '',
-                  this.isEqualCurrentColor(color) ? 'is-current' : '',
+                  this.activeColor === color && this.removable ? CLASS_NAME_ACTIVE : '',
+                  this.isEqualCurrentColor(color) ? CLASS_NAME_CURRENT : '',
                 ]}
                 key={color}
                 title={color}

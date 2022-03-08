@@ -8,14 +8,14 @@ import {
   TdColorPickerPopupProvide,
   TD_COLOR_PICKER_POPUP_PROVIDE,
 } from '../const';
-import { Select as TSelect, Option as TOption } from '../../select';
+import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../radio';
 
 export default defineComponent({
   name: 'ColorPickerHeader',
   components: {
-    TSelect,
-    TOption,
     CloseIcon,
+    TRadioGroup,
+    TRadioButton,
   },
   inject: [TD_COLOR_PICKER_POPUP_PROVIDE],
   inheritAttrs: false,
@@ -49,15 +49,26 @@ export default defineComponent({
           {this.colorModes?.length === 1 ? (
             COLOR_MODES[this.colorModes[0]]
           ) : (
-            <t-select bordered={false} v-model={this.modeValue} onChange={this.handleModeChange}>
+            <t-radio-group
+              variant="default-filled"
+              size="small"
+              v-model={this.modeValue}
+              onChange={this.handleModeChange}
+            >
               {Object.keys(COLOR_MODES).map((key) => (
-                <t-option key={key} value={key} label={COLOR_MODES[key]} />
+                <t-radio-button key={key} value={key}>
+                  {COLOR_MODES[key]}
+                </t-radio-button>
               ))}
-            </t-select>
+            </t-radio-group>
           )}
         </div>
         {this.closeBtn ? (
-          <span role="button" className={`${COMPONENT_NAME}__close`} onClick={this.handleClosePopup}>
+          <span
+            role="button"
+            class={[`${COMPONENT_NAME}__icon`, `${COMPONENT_NAME}__close`]}
+            onClick={this.handleClosePopup}
+          >
             <close-icon />
           </span>
         ) : null}
