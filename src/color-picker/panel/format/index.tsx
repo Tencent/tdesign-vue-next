@@ -71,7 +71,7 @@ export default defineComponent({
         <div className={`${COMPONENT_NAME}__format--item`}>
           <t-select {...selectInputProps} v-model={this.formatModel} onChange={handleModeChange}>
             {formats.map((item) => (
-              <t-option key={item} value={item} label={upperCase(item)} style={{ fontSize: '14px' }} />
+              <t-option key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
             ))}
           </t-select>
         </div>
