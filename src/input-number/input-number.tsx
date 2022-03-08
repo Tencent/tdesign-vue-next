@@ -351,8 +351,11 @@ export default defineComponent({
             }}
           />
         )}
-        <div class={this.inputWrapProps}>
-          <input value={this.displayValue} class={this.inputClasses} {...this.inputAttrs} {...this.inputEvents} />
+        {/* // 保持和input结构相同 */}
+        <div class={`${prefix}-input__wrap`}>
+          <div class={this.inputWrapProps}>
+            <input value={this.displayValue} class={this.inputClasses} {...this.inputAttrs} {...this.inputEvents} />
+          </div>
         </div>
         {this.theme !== 'normal' && (
           <t-button

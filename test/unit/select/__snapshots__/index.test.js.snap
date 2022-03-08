@@ -53,7 +53,7 @@ exports[`Select :props :bordered 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -152,7 +152,7 @@ exports[`Select :props :clearable 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -251,7 +251,7 @@ exports[`Select :props :creatable 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -350,7 +350,7 @@ exports[`Select :props :disabled 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-is-disabled t-size-m"
+      class="t-select t-select-polyfill t-is-disabled t-size-m"
     >
       <!---->
       <span
@@ -450,7 +450,7 @@ exports[`Select :props :labelInValue 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -549,7 +549,7 @@ exports[`Select :props :loading 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -676,7 +676,7 @@ exports[`Select :props :multiple 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -775,7 +775,7 @@ exports[`Select :props :placeholder 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -875,7 +875,7 @@ exports[`Select :props :remote 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -974,7 +974,7 @@ exports[`Select :props :reserveKeyword 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -1073,7 +1073,7 @@ exports[`Select :props :size 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-l"
+      class="t-select t-select-polyfill t-size-l"
     >
       <!---->
       <span
@@ -1180,7 +1180,7 @@ exports[`Select Option :props :disabled 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <!---->
@@ -1287,7 +1287,7 @@ exports[`Select Option :props :label 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <!---->
@@ -1394,7 +1394,7 @@ exports[`Select Option :props :value 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <!---->
@@ -1533,7 +1533,7 @@ exports[`Select OptionGroup :props :value 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <!---->

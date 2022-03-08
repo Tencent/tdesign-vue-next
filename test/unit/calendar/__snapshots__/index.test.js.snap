@@ -242,7 +242,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -442,7 +442,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -1605,7 +1605,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -1805,7 +1805,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -2688,7 +2688,7 @@ exports[`Calendar :props :mode 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -3215,7 +3215,7 @@ exports[`Calendar :props :range 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -3415,7 +3415,7 @@ exports[`Calendar :props :range 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -4460,7 +4460,7 @@ exports[`Calendar :props :theme 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -4660,7 +4660,7 @@ exports[`Calendar :props :theme 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -5679,7 +5679,7 @@ exports[`Calendar :props :value 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
@@ -5879,7 +5879,7 @@ exports[`Calendar :props :value 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
