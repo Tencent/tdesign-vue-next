@@ -130,13 +130,13 @@ export default defineComponent({
     };
     // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
     const getDefaultFooter = () => {
-      // this.getConfirmBtn is a function of ActionMixin
+      // this.getConfirmBtn is a function of useAction
       const confirmBtn = getConfirmBtn({
         confirmBtn: props.confirmBtn,
         globalConfirm: global.value.confirm,
         className: `${prefix}-drawer__confirm`,
       });
-      // this.getCancelBtn is a function of ActionMixin
+      // this.getCancelBtn is a function of useAction
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn,
         globalCancel: global.value.cancel,

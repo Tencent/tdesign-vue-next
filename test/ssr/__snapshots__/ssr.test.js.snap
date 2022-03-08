@@ -10842,7 +10842,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
 
 exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.vue correctly 1`] = `
 <div class="tdesign-demo-item__config-provider-base" style="padding:16px;">
-  <div class="t-popup__reference" modelvalue="false">
+  <div class="t-popup__reference">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-popconfirm">
         <!--[-->
@@ -10852,7 +10852,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.v
             </svg>
             <div class="t-popconfirm__inner">Do you want to delete</div>
           </div>
-          <div class="t-popconfirm__buttons"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
+          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
         </div>
         <!--]-->
         <div class="t-popup__arrow"></div>
@@ -10863,7 +10863,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.v
     <!--]-->
     <!--]-->
   </div>
-  <div class="t-popup__reference" modelvalue="false">
+  <div class="t-popup__reference">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-popconfirm">
         <!--[-->
@@ -10873,7 +10873,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.v
             </svg>
             <div class="t-popconfirm__inner">Do you want to delete</div>
           </div>
-          <div class="t-popconfirm__buttons"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-warning t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
+          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-warning t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
         </div>
         <!--]-->
         <div class="t-popup__arrow"></div>
@@ -10884,7 +10884,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.v
     <!--]-->
     <!--]-->
   </div>
-  <div class="t-popup__reference" modelvalue="false">
+  <div class="t-popup__reference">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-popconfirm">
         <!--[-->
@@ -10894,7 +10894,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.v
             </svg>
             <div class="t-popconfirm__inner">Do you want to delete</div>
           </div>
-          <div class="t-popconfirm__buttons"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-danger t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
+          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-danger t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
         </div>
         <!--]-->
         <div class="t-popup__arrow"></div>
@@ -24740,7 +24740,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/base.vue correctl
 <div class="popconfirm-demo">
   <div class="tdesign-demo-block">
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -24763,7 +24763,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/base.vue correctl
       </div>
     </div><!-- 受控用法：自由控制浮层显示与否 -->
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -24794,7 +24794,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/button.vue correc
   <!-- 和 Dialog/Drawer 组件的确认/取消 逻辑一样 -->
   <div class="tdesign-demo-block">
     <!-- 使用 props 定义按钮内容 -->
-    <div class="t-popup__reference" modelvalue="false">
+    <div class="t-popup__reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
           <!--[-->
@@ -24815,7 +24815,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/button.vue correc
       <!--]-->
       <!--]-->
     </div><!-- 通过透传按钮属性自定义按钮，cancelBtn 和 confirmBtn 值为 null 时表示不显示该按钮 -->
-    <div class="t-popup__reference" modelvalue="false">
+    <div class="t-popup__reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
           <!--[-->
@@ -24836,7 +24836,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/button.vue correc
       <!--]-->
       <!--]-->
     </div><!-- 使用插槽定义按钮内容 -->
-    <div class="t-popup__reference" modelvalue="false">
+    <div class="t-popup__reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
           <!--[-->
@@ -24870,7 +24870,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/describe.vue corr
 <div class="popconfirm-demo">
   <div class="tdesign-demo-block">
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -24898,7 +24898,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/describe.vue corr
       </div>
     </div>
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -24933,7 +24933,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/icon.vue correctl
 <div class="popconfirm-demo">
   <div class="tdesign-demo-block">
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -24956,7 +24956,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/icon.vue correctl
       </div>
     </div>
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -24979,7 +24979,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/icon.vue correctl
       </div>
     </div>
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -25004,7 +25004,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/icon.vue correctl
   </div><br><br>
   <div class="tdesign-demo-block">
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -25029,7 +25029,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/icon.vue correctl
       </div>
     </div>
     <div class="demo-item">
-      <div class="t-popup__reference" modelvalue="false">
+      <div class="t-popup__reference">
         <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
           <div class="t-popup__content t-popup__content--arrow t-popconfirm">
             <!--[-->
@@ -25060,7 +25060,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/inherit.vue corre
 <div class="popconfirm-demo">
   <!-- 可以使用 popupProps.placement 控制弹出方向 -->
   <div class="tdesign-demo-block">
-    <div class="t-popup__reference" modelvalue="false">
+    <div class="t-popup__reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
           <!--[-->
@@ -25081,7 +25081,7 @@ exports[`ssr snapshot test renders ./examples/popconfirm/demos/inherit.vue corre
       <!--]-->
       <!--]-->
     </div>
-    <div class="t-popup__reference" modelvalue="false">
+    <div class="t-popup__reference">
       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
           <!--[-->
@@ -40324,7 +40324,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
                 <td class="" style="" length="4">String</td>
                 <td class="t-align-center" style="overflow:hidden;" length="4">
                   <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
-                    <div class="t-popup__reference" modelvalue="false">
+                    <div class="t-popup__reference">
                       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
                           <!--[-->
@@ -40361,7 +40361,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
                 <td class="" style="" length="4">Number</td>
                 <td class="t-align-center" style="overflow:hidden;" length="4">
                   <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
-                    <div class="t-popup__reference" modelvalue="false">
+                    <div class="t-popup__reference">
                       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
                           <!--[-->
@@ -40398,7 +40398,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
                 <td class="" style="" length="4">Array</td>
                 <td class="t-align-center" style="overflow:hidden;" length="4">
                   <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
-                    <div class="t-popup__reference" modelvalue="false">
+                    <div class="t-popup__reference">
                       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
                           <!--[-->
@@ -40435,7 +40435,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
                 <td class="" style="" length="4">Object</td>
                 <td class="t-align-center" style="overflow:hidden;" length="4">
                   <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
-                    <div class="t-popup__reference" modelvalue="false">
+                    <div class="t-popup__reference">
                       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
                           <!--[-->
@@ -40472,7 +40472,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
                 <td class="" style="" length="4">String</td>
                 <td class="t-align-center" style="overflow:hidden;" length="4">
                   <div class="tdesign-table-demo__table-operations"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->插入<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->更新<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[-->查看<!--]--></span></button>
-                    <div class="t-popup__reference" modelvalue="false">
+                    <div class="t-popup__reference">
                       <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                         <div class="t-popup__content t-popup__content--arrow t-popconfirm">
                           <!--[-->
