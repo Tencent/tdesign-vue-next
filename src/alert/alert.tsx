@@ -1,4 +1,4 @@
-import { defineComponent, h, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
+import { defineComponent, VNode, ComponentPublicInstance, ref, onMounted, onBeforeUnmount } from 'vue';
 import {
   CheckCircleFilledIcon,
   CloseIcon,
@@ -11,7 +11,6 @@ import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
-import { useEmitEvent } from '../hooks/event';
 import { useIcon } from '../hooks/icon';
 
 const name = `${prefix}-alert`;
@@ -19,9 +18,7 @@ const name = `${prefix}-alert`;
 export default defineComponent({
   name: 'TAlert',
   props,
-  emits: ['close', 'closed'],
   setup(props) {
-    const emitEvent = useEmitEvent();
     const renderIconTNode = useIcon();
     // alert的dom引用
     const ele = ref<HTMLElement | null>(null);
@@ -125,14 +122,14 @@ export default defineComponent({
       );
     };
     const handleClose = (e: MouseEvent) => {
-      emitEvent('close', { e });
+      props.onClose?.({ e });
       addClass(ele.value, `${name}--closing`);
     };
 
     const handleCloseEnd = (e: TransitionEvent) => {
       if (e.propertyName === 'opacity') {
         visible.value = false;
-        emitEvent('closed', { e });
+        props.onClosed?.({ e });
       }
     };
 

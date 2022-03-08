@@ -1,7 +1,6 @@
 import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, DrawerConfig } from '../config-provider';
-import { useEmitEvent } from '../hooks/event';
+import { useConfig } from '../config-provider';
 import { addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
 import { prefix } from '../config';
@@ -28,30 +27,16 @@ export default defineComponent({
   directives: {
     TransferDom,
   },
-
   props,
-
-  emits: [
-    'open',
-    'close',
-    'opened',
-    'closed',
-    'update:visible',
-    'overlay',
-    'close-btn',
-    'esc-keydown',
-    'confirm',
-    'cancel',
-  ],
-
-  setup(props) {
+  // TODO update:visible 是否是受控的
+  emits: ['update:visible'],
+  setup(props, context) {
     const { global } = useConfig('drawer');
-    const emitEvent = useEmitEvent();
     const confirmBtnAction = (e: MouseEvent) => {
-      emitEvent('confirm', e);
+      props.onConfirm?.({ e });
     };
     const cancelBtnAction = (e: MouseEvent) => {
-      emitEvent('cancel', e);
+      props.onCancel?.({ e });
       closeDrawer({ trigger: 'cancel', e });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
@@ -184,11 +169,11 @@ export default defineComponent({
       { immediate: true },
     );
     const handleCloseBtnClick = (e: MouseEvent) => {
-      emitEvent('close-btn', e);
+      props.onCloseBtnClick?.({ e });
       closeDrawer({ trigger: 'close-btn', e });
     };
     const handleWrapperClick = (e: MouseEvent) => {
-      emitEvent('overlay', e);
+      props.onOverlayClick?.({ e });
       if (props.closeOnOverlayClick) {
         closeDrawer({ trigger: 'overlay', e });
       }
@@ -196,13 +181,13 @@ export default defineComponent({
     const onKeyDown = (e: KeyboardEvent) => {
       // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
       if (props.closeOnEscKeydown && e.key === 'Escape') {
-        emitEvent('esc-keydown', e);
+        props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }
     };
     const closeDrawer = (params: DrawerCloseContext) => {
-      emitEvent('close', params);
-      emitEvent('update:visible', false);
+      props.onClose?.(params);
+      context.emit('update:visible', false);
     };
 
     onUpdated(() => {
