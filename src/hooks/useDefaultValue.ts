@@ -1,15 +1,16 @@
-import { ref, Ref, SetupContext } from 'vue';
+import { ref, Ref, getCurrentInstance } from 'vue';
 
 export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
 
+// 用于实现 v-model:propsName
 export default function useDefaultValue<T, P extends any[]>(
   value: Ref<T>,
   defaultValue: T,
   onChange: ChangeHandler<T, P>,
-  // emit 和 eventName 用于支持 v-model:xxx 语法糖
-  emit?: SetupContext['emit'],
-  propsName?: string,
+  propsName: string,
 ): [Ref<T>, ChangeHandler<T, P>] {
+  const instance = getCurrentInstance();
+  const { emit } = instance;
   const internalValue = ref();
   internalValue.value = defaultValue;
 

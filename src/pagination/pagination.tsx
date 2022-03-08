@@ -1,4 +1,4 @@
-import { defineComponent, computed, ref, watch, h } from 'vue';
+import { defineComponent, computed, ref, watch, toRefs } from 'vue';
 import isNaN from 'lodash/isNaN';
 import {
   ChevronLeftIcon,
@@ -7,37 +7,46 @@ import {
   ChevronRightDoubleIcon,
   EllipsisIcon,
 } from 'tdesign-icons-vue-next';
-import config from '../config';
 import { TdPaginationProps } from '../pagination/type';
 import { useConfig } from '../config-provider';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import TInputNumber from '../input-number';
 import { Option, Select } from '../select';
-import { useEmitEvent } from '../hooks/event';
 import props from './props';
 import usePaginationClasses from './usePaginationClasses';
 import useMoreAction from './useMoreAction';
+import useVModel from '../hooks/useVModel';
+import useDefaultValue from '../hooks/useDefaultValue';
 
-const { prefix } = config;
-const name = `${prefix}-pagination`;
 const min = 1;
 
 export default defineComponent({
   name: 'TPagination',
   props,
-  emits: ['change', 'update:current', 'update:pageSize', 'page-size-change', 'current-change'],
   setup(props) {
-    const { t, global } = useConfig('pagination');
-    const emitEvent = useEmitEvent();
+    const { modelValue, pageSize, current } = toRefs(props);
+    const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onCurrentChange);
 
-    const { pageCount, ...paginationClasses } = usePaginationClasses(props, name);
+    const [innerPageSize, setInnerPageSize] = useDefaultValue(
+      pageSize,
+      props.defaultPageSize,
+      props.onPageSizeChange,
+      'pageSize',
+    );
+
+    const { t, global, classPrefix: prefix } = useConfig('pagination');
+
+    const name = computed(() => `${prefix.value}-pagination`);
+
+    const { pageCount, ...paginationClasses } = usePaginationClasses(props, innerCurrent, name);
 
     const { prevMore, isPrevMoreShow, curPageLeftCount, nextMore, isNextMoreShow, curPageRightCount } = useMoreAction(
       props,
       pageCount,
+      innerCurrent,
     );
 
-    const jumpIndex = ref(props.current);
+    const jumpIndex = ref(innerCurrent.value);
 
     const isSimple = computed(() => props.theme === 'simple');
     const isFolded = computed(() => pageCount.value > props.maxPageBtn);
@@ -70,8 +79,8 @@ export default defineComponent({
 
       if (isFolded.value) {
         if (isPrevMoreShow.value && isNextMoreShow.value) {
-          start = props.current - curPageLeftCount.value;
-          end = props.current + curPageRightCount.value;
+          start = innerCurrent.value - curPageLeftCount.value;
+          end = innerCurrent.value + curPageRightCount.value;
         } else {
           start = isPrevMoreShow.value ? pageCount.value - props.foldedMaxPageBtn + 1 : 2;
           end = isPrevMoreShow.value ? pageCount.value - 1 : props.foldedMaxPageBtn;
@@ -88,7 +97,7 @@ export default defineComponent({
     });
 
     watch(
-      () => props.current,
+      () => innerCurrent.value,
       (val) => (jumpIndex.value = val),
     );
 
@@ -102,27 +111,26 @@ export default defineComponent({
       } else if (pageIndex > pageCount.value) {
         current = pageCount.value;
       }
-      if (props.current !== current) {
-        const prev = props.current;
+      if (innerCurrent.value !== current) {
+        const prev = innerCurrent.value;
         const pageInfo = {
           current,
           previous: prev,
           pageSize: props.pageSize,
         };
         if (isTriggerChange !== false) {
-          emitEvent('change', pageInfo);
+          props.onChange?.(pageInfo);
         }
-        emitEvent('update:current', current);
-        emitEvent('current-change', current, pageInfo);
+        setInnerCurrent(current, pageInfo);
       }
     };
 
     const handlePageChange = (type: string) => {
       const pageChangeMap = {
-        prevPage: () => toPage(props.current - 1),
-        nextPage: () => toPage(props.current + 1),
-        prevMorePage: () => toPage(props.current - props.foldedMaxPageBtn),
-        nextMorePage: () => toPage(props.current + props.foldedMaxPageBtn),
+        prevPage: () => toPage(current.value - 1),
+        nextPage: () => toPage(current.value + 1),
+        prevMorePage: () => toPage(current.value - props.foldedMaxPageBtn),
+        nextMorePage: () => toPage(current.value + props.foldedMaxPageBtn),
       };
 
       pageChangeMap[type]();
@@ -140,7 +148,7 @@ export default defineComponent({
 
       let isIndexChange = false;
 
-      if (props.current > pageCount) {
+      if (current.value > pageCount) {
         isIndexChange = true;
       }
 
@@ -150,12 +158,12 @@ export default defineComponent({
        * @param {Number} index 当前页
        */
       const pageInfo = {
-        current: isIndexChange ? pageCount : props.current,
-        previous: props.current,
+        current: isIndexChange ? pageCount : current.value,
+        previous: current.value,
         pageSize,
       };
-      emitEvent('page-size-change', pageSize, pageInfo);
-      emitEvent('change', pageInfo);
+      props.onChange?.(pageInfo);
+      setInnerPageSize(pageSize, pageInfo);
       if (isIndexChange) {
         toPage(pageCount, false);
       }
@@ -187,11 +195,13 @@ export default defineComponent({
       handlePageChange,
       onSelectorChange,
       onJumperChange,
+      innerCurrent,
+      innerPageSize,
     };
   },
   render() {
-    const { pageCount } = this;
-    const { total, pageSizeOptions, size, pageSize, disabled, current, showJumper } = this.$props;
+    const { pageCount, innerPageSize, innerCurrent } = this;
+    const { total, pageSizeOptions, size, disabled, showJumper } = this.$props;
 
     if (pageCount < 1) return null;
 
@@ -208,7 +218,7 @@ export default defineComponent({
         {pageSizeOptions.length > 0 && (
           <Select
             size={size}
-            value={pageSize}
+            value={innerPageSize}
             disabled={disabled}
             class={this.sizerClass}
             onChange={this.onSelectorChange}
@@ -223,7 +233,7 @@ export default defineComponent({
         <div
           class={this.preBtnClass}
           onClick={() => this.handlePageChange('prevPage')}
-          disabled={disabled || current === min}
+          disabled={disabled || innerCurrent === min}
         >
           <ChevronLeftIcon />
         </div>
@@ -269,7 +279,7 @@ export default defineComponent({
         ) : (
           <Select
             size={size}
-            value={current}
+            value={innerCurrent}
             disabled={disabled}
             class={this.simpleClass}
             onChange={this.toPage}
@@ -280,7 +290,7 @@ export default defineComponent({
         <div
           class={this.nextBtnClass}
           onClick={() => this.handlePageChange('nextPage')}
-          disabled={disabled || current === this.pageCount}
+          disabled={disabled || innerCurrent === this.pageCount}
         >
           <ChevronRightIcon />
         </div>
