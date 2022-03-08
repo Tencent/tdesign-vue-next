@@ -12,7 +12,11 @@ export default {
   /** 当前页 */
   current: {
     type: Number,
-    default: 1,
+    default: undefined,
+  },
+  modelValue: {
+    type: Number,
+    default: undefined,
   },
   /** 当前页，非受控属性 */
   defaultCurrent: {

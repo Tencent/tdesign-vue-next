@@ -13,14 +13,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
   const renderTNode = useTNodeJSX();
   const { value, modelValue, onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps } = toRefs(props);
   // handle controlled property and uncontrolled property
-  const [tagValue, setTagValue] = useVModel(
-    value,
-    modelValue,
-    props.defaultValue || [],
-    props.onChange,
-    context.emit,
-    'value',
-  );
+  const [tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], props.onChange);
   const oldInputValue = ref<InputValue>();
 
   // 点击标签关闭按钮，删除标签

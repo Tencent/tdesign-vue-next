@@ -4,7 +4,6 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -232,7 +231,6 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
   <!-- 非受控用法，代码有效，勿删。 -->
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -437,7 +435,6 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -676,7 +673,6 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-s"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -905,7 +901,6 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="12"
   >
     <div
       class="t-pagination__total"
@@ -1155,7 +1150,6 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
     show-sizer=""
   >
     <div
@@ -1385,7 +1379,6 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-s"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -1773,7 +1766,6 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -2161,7 +2153,6 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="12"
   >
     <div
       class="t-pagination__total"

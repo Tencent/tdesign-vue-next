@@ -5,8 +5,8 @@
       v-model:pageSize="pageSize"
       :total="100"
       @change="onChange"
-      @pageSizeChange="onPageSizeChange"
-      @currentChange="onCurrentChange"
+      @page-size-change="onPageSizeChange"
+      @current-change="onCurrentChange"
     />
     <br /><br />
     <!-- :pageSizeOptions="[]" 表示隐藏分页器选项 -->

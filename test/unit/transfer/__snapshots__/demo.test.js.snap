@@ -4043,7 +4043,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
       >
         <div
           class="t-pagination t-size-s"
-          modelvalue="1"
         >
           <!---->
           <!---->

@@ -9493,7 +9493,6 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
       >
         <div
           class="t-pagination t-size-m"
-          modelvalue="1"
         >
           <div
             class="t-pagination__total"
@@ -10067,7 +10066,6 @@ exports[`Table Table paginationVue demo works fine 1`] = `
         >
           <div
             class="t-pagination t-size-m"
-            modelvalue="1"
           >
             <div
               class="t-pagination__total"
@@ -10118,13 +10116,13 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                           
                           
                           <li
-                            class="t-select-option t-is-selected t-size-m"
+                            class="t-select-option t-size-m"
                             title="5 条/页"
                           >
                             5 条/页
                           </li>
                           <li
-                            class="t-select-option t-size-m"
+                            class="t-select-option t-is-selected t-size-m"
                             title="10 条/页"
                           >
                             10 条/页
@@ -10171,9 +10169,9 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   </span>
                   <span
                     class="t-select__single"
-                    title="5"
+                    title="10"
                   >
-                    5
+                    10
                   </span>
                   <!---->
                   <svg
@@ -10218,13 +10216,14 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             <ul
               class="t-pagination__pager"
             >
+              <!---->
+              <!---->
+              
               <li
                 class="t-pagination__number"
               >
                 1
               </li>
-              <!---->
-              
               <li
                 class="t-pagination__number t-is-current"
               >
@@ -10245,29 +10244,14 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               >
                 5
               </li>
-              
-              <li
-                class="t-pagination__number t-pagination__number--more"
-              >
-                <svg
-                  class="t-icon t-icon-ellipsis"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-              </li>
               <li
                 class="t-pagination__number"
               >
-                12
+                6
               </li>
+              
+              <!---->
+              <!---->
             </ul>
             <div
               class="t-pagination__btn t-pagination__btn-next"

@@ -9176,7 +9176,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
 exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
 <div
   class="t-pagination t-size-m"
-  modelvalue="1"
   style="padding: 16px;"
 >
   <div
