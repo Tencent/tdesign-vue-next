@@ -38,7 +38,7 @@
   "scripts": {
     "init": "git submodule init && git submodule update",
     "start": "npm run init && npm run dev",
-    "dev": "cd site && vite --host",
+    "dev": "cd site && vite",
     "site": "cd site && vite build --debug",
     "site:prerender": "node script/prerender.mjs",
     "site:intranet": "cd site && vite build --mode intranet",
