@@ -1,6 +1,5 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { useEmitEvent } from '../hooks/event';
 import { prefix } from '../config';
 import TButton from '../button';
 import { DialogCloseContext, TdDialogProps } from './type';
@@ -86,28 +85,17 @@ export default defineComponent({
 
   props,
 
-  emits: [
-    'esc-keydown',
-    'update:visible',
-    'overlay-click',
-    'close-btn-click',
-    'cancel',
-    'confirm',
-    'opened',
-    'closed',
-    'close',
-  ],
-  setup(props) {
-    const emitEvent = useEmitEvent();
+  emits: ['update:visible'],
+  setup(props: TdDialogProps, context) {
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
     const { global } = useConfig('dialog');
     const confirmBtnAction = (e: MouseEvent) => {
-      emitEvent<Parameters<TdDialogProps['onConfirm']>>('confirm', { e });
+      props.onConfirm?.({ e });
     };
     const cancelBtnAction = (e: MouseEvent) => {
-      emitEvent<Parameters<TdDialogProps['onCancel']>>('cancel', { e });
+      props.onCancel?.({ e });
       emitCloseEvent({
         trigger: 'cancel',
         e,
@@ -184,7 +172,7 @@ export default defineComponent({
     };
     const keyboardEvent = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
-        emitEvent<Parameters<TdDialogProps['onEscKeydown']>>('esc-keydown', { e });
+        props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown) {
           emitCloseEvent({
@@ -195,7 +183,7 @@ export default defineComponent({
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      emitEvent<Parameters<TdDialogProps['onOverlayClick']>>('overlay-click', { e });
+      props.onOverlayClick?.({ e });
       // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
       if (props.closeOnOverlayClick) {
         emitCloseEvent({
@@ -204,8 +192,8 @@ export default defineComponent({
         });
       }
     };
-    const closeBtnAcion = (e: MouseEvent) => {
-      emitEvent<Parameters<TdDialogProps['onCloseBtnClick']>>('close-btn-click', { e });
+    const closeBtnAction = (e: MouseEvent) => {
+      props.onCloseBtnClick?.({ e });
       emitCloseEvent({
         trigger: 'close-btn',
         e,
@@ -214,17 +202,17 @@ export default defineComponent({
 
     // 打开弹窗动画结束时事件
     const afterEnter = () => {
-      emitEvent<Parameters<TdDialogProps['onOpened']>>('opened');
+      props.onOpened?.();
     };
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
-      emitEvent<Parameters<TdDialogProps['onClosed']>>('closed');
+      props.onClosed?.();
     };
 
-    const emitCloseEvent = (context: DialogCloseContext) => {
-      emitEvent<Parameters<TdDialogProps['onClose']>>('close', context);
+    const emitCloseEvent = (ctx: DialogCloseContext) => {
+      props.onClose?.(ctx);
       // 默认关闭弹窗
-      emitEvent('update:visible', false);
+      context.emit('update:visible', false);
     };
 
     // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，
@@ -281,7 +269,7 @@ export default defineComponent({
             {renderTNodeJSX('header', defaultHeader)}
           </div>
           {props.closeBtn ? (
-            <span class={`${name}__close`} onClick={closeBtnAcion}>
+            <span class={`${name}__close`} onClick={closeBtnAction}>
               {renderTNodeJSX('closeBtn', defaultCloseBtn)}
             </span>
           ) : null}

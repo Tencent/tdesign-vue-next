@@ -1,8 +1,8 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
-import { useEmitEvent } from '../hooks/event';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
+import { TdAvatarProps } from './type';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { Styles } from '../common';
 
@@ -11,9 +11,7 @@ const name = `${prefix}-avatar`;
 export default defineComponent({
   name: 'TAvatar',
   props,
-  emits: ['error'],
-  setup(props) {
-    const emitEvent = useEmitEvent();
+  setup(props: TdAvatarProps) {
     const avatarGroup = inject('avatarGroup', undefined);
     const avatar = ref<HTMLElement | null>(null);
     const avatarChild = ref<HTMLElement | null>(null);
@@ -51,7 +49,7 @@ export default defineComponent({
     const handleImgLoadError = () => {
       const { hideOnLoadFailed } = props;
       isImgExist.value = !hideOnLoadFailed;
-      emitEvent('error');
+      props.onError?.();
     };
     // 设置字符头像大小自适应
     const setScaleParams = () => {

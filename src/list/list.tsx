@@ -1,9 +1,9 @@
-import { defineComponent, VNodeChild, computed, ComponentPublicInstance, ref } from 'vue';
+import { defineComponent, VNodeChild, computed } from 'vue';
 import { useTNodeJSX } from '../hooks/tnode';
-import { useEmitEvent } from '../hooks/event';
 import TLoading from '../loading';
 import { prefix } from '../config';
 import props from './props';
+import { TdListProps } from './type';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
 import { ClassName } from '../common';
@@ -15,9 +15,7 @@ export default defineComponent({
   props: {
     ...props,
   },
-  emits: ['scroll', 'load-more'],
-  setup(props) {
-    const emitEvent = useEmitEvent();
+  setup(props: TdListProps) {
     const renderTNodeJSX = useTNodeJSX();
     /** 列表基础逻辑 start */
     const listClass = computed<ClassName>(() => {
@@ -47,8 +45,8 @@ export default defineComponent({
     const handleScroll = (e: WheelEvent | Event) => {
       const listElement = e.target as HTMLElement;
       const { scrollTop, scrollHeight, clientHeight } = listElement;
-      emitEvent('scroll', {
-        $event: e,
+      props.onScroll?.({
+        e,
         scrollTop,
         scrollBottom: scrollHeight - clientHeight - scrollTop,
       });
@@ -81,7 +79,7 @@ export default defineComponent({
 
     const handleLoadMore = (e: MouseEvent) => {
       if (typeof props.asyncLoading === 'string' && props.asyncLoading !== LOAD_MORE) return;
-      emitEvent('load-more', { e });
+      props.onLoadMore?.({ e });
     };
     /** loading加载相关逻辑 end */
     return {
