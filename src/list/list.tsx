@@ -6,7 +6,7 @@ import props from './props';
 import { TdListProps } from './type';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
-import { ClassName } from '../common';
+import { useConfig } from '../config-provider';
 
 const name = `${prefix}-list`;
 
@@ -16,9 +16,10 @@ export default defineComponent({
     ...props,
   },
   setup(props: TdListProps) {
+    const { global } = useConfig('list');
     const renderTNodeJSX = useTNodeJSX();
     /** 列表基础逻辑 start */
-    const listClass = computed<ClassName>(() => {
+    const listClass = computed(() => {
       return [
         `${name}`,
         CLASSNAMES.SIZE[props.size],
@@ -66,12 +67,12 @@ export default defineComponent({
           return (
             <div>
               <TLoading />
-              <span>正在加载中，请稍等</span>
+              <span>{global.value.loadingText}</span>
             </div>
           );
         }
         if (props.asyncLoading === LOAD_MORE) {
-          return <span>点击加载更多</span>;
+          return <span>{global.value.loadingMoreText}</span>;
         }
       }
       return renderTNodeJSX('asyncLoading');

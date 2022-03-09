@@ -38,7 +38,6 @@ export function useAction(action: BtnAction) {
     const defaultTheme = globalConfirmBtnTheme?.[theme] || 'primary';
     let props: ButtonProps = {
       theme: defaultTheme,
-      content: '确定',
       onClick: (e) => {
         action.confirmBtnAction(e);
       },
@@ -55,7 +54,6 @@ export function useAction(action: BtnAction) {
     const { globalCancel } = options;
     let props: ButtonProps = {
       theme: 'default',
-      content: '取消',
       onClick: (e) => {
         action.cancelBtnAction(e);
       },

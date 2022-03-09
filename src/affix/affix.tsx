@@ -1,18 +1,18 @@
 import { ref, watch, nextTick, onMounted, onBeforeUnmount, defineComponent } from 'vue';
 import isFunction from 'lodash/isFunction';
-import { prefix } from '../config';
 import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { ScrollContainerElement } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
-
-const name = `${prefix}-affix`;
+import { useConfig, useComponentName } from '../config-provider';
 
 export default defineComponent({
   name: 'TAffix',
   props,
   emits: ['fixedChange'],
   setup(props, context) {
+    const COMPONENT_NAME = useComponentName('affix');
+
     const { emit } = context;
     const affixRef = ref(null);
     const fixedTop = ref<false | number>(false);
@@ -102,6 +102,7 @@ export default defineComponent({
     });
 
     return {
+      COMPONENT_NAME,
       affixRef,
       fixedTop,
       scrollContainer,
@@ -114,7 +115,7 @@ export default defineComponent({
     return (
       <div style={fixedTop !== false ? contentStyle : {}} ref="affixRef">
         {fixedTop !== false ? (
-          <div class={name} style={{ zIndex, top: `${fixedTop}px` }}>
+          <div class={this.COMPONENT_NAME} style={{ zIndex, top: `${fixedTop}px` }}>
             {renderTNodeJSX(this, 'default')}
           </div>
         ) : (
