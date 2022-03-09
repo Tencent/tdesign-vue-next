@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 import { emitEvent } from '../utils/event';
 
-import { usePrefixClass, useConfig, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 // 组件相关的自定义类型
 import { CalendarCell } from './type';
@@ -37,8 +37,8 @@ export default defineComponent({
   emits: ['click', 'dblclick', 'rightclick'],
   setup() {
     const COMPONENT_NAME = usePrefixClass('calendar');
+    const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
-    const { classPrefix } = useConfig('classPrefix');
     return {
       STATUS,
       COMPONENT_NAME,

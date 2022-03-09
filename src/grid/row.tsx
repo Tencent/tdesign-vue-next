@@ -1,10 +1,8 @@
 import { defineComponent, provide, computed } from 'vue';
-import { prefix } from '../config';
 import props from './row-props';
 import { useRowSize, calcRowStyle, getRowClasses, RowProviderType } from './common';
 import { renderTNodeJSX } from '../utils/render-tnode';
-
-const name = `${prefix}-row`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TRow',
@@ -18,7 +16,8 @@ export default defineComponent({
 
     const size = useRowSize();
 
-    const rowClasses = computed(() => getRowClasses(name, props));
+    const COMPONENT_NAME = usePrefixClass('col');
+    const rowClasses = computed(() => getRowClasses(COMPONENT_NAME.value, props));
 
     const rowStyle = computed(() => calcRowStyle(props.gutter, size.value));
 

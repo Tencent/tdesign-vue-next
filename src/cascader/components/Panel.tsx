@@ -14,7 +14,7 @@ import Item from './Item';
 // type
 import { ContextType, TreeNode, CascaderContextType } from '../interface';
 import CascaderProps from '../props';
-import { usePrefixClass, useConfig } from '../../config-provider';
+import { usePrefixClass } from '../../config-provider';
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<CascaderConfig>('cascader')),
@@ -31,7 +31,7 @@ export default defineComponent({
 
   setup() {
     const ComponentClassName = usePrefixClass('cascader');
-    const { classPrefix } = useConfig('classPrefix');
+    const classPrefix = usePrefixClass();
 
     return { ComponentClassName, classPrefix };
   },

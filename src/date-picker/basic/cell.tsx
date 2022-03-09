@@ -20,12 +20,15 @@ export default defineComponent({
   },
   setup() {
     const COMPONENT_NAME = usePrefixClass('date-picker__cell');
+    const name = usePrefixClass('date-picker-cell');
     return {
+      name,
       COMPONENT_NAME,
     };
   },
   render() {
     const {
+      name,
       COMPONENT_NAME,
       text,
       value,

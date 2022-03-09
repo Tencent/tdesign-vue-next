@@ -45,7 +45,7 @@ export default defineComponent({
   },
   emits: ['change'],
   setup() {
-    const COMPONENT_NAME = usePrefixClass('date-picker-panel');
+    const COMPONENT_NAME = usePrefixClass('date-picker__panel');
     return {
       COMPONENT_NAME,
     };

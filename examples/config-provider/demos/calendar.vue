@@ -2,12 +2,9 @@
   <t-config-provider :global-config="globalConfig" style="padding: 16px">
     <t-calendar></t-calendar>
   </t-config-provider>
-  <t-input v-model="val"></t-input>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
 const MONTHS = [
   'January',
   'February',
@@ -22,10 +19,8 @@ const MONTHS = [
   'November',
   'December',
 ];
-const val = ref('t');
 
-const globalConfig = ref({
-  classPrefix: val,
+const globalConfig = {
   calendar: {
     yearSelection: '{year}',
     // 1 表示周一；7 表示周日
@@ -81,7 +76,7 @@ const globalConfig = ref({
       },
     },
   },
-});
+};
 </script>
 
 <style scoped>

@@ -1,14 +1,11 @@
 import { defineComponent, VNodeChild, computed } from 'vue';
 import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
-import { prefix } from '../config';
 import props from './props';
 import { TdListProps } from './type';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
-import { useConfig } from '../config-provider';
-
-const name = `${prefix}-list`;
+import { useConfig, usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TList',
@@ -17,6 +14,8 @@ export default defineComponent({
   },
   setup(props: TdListProps) {
     const { global } = useConfig('list');
+    const COMPONENT_NAME = usePrefixClass('list');
+
     const renderTNodeJSX = useTNodeJSX();
     /** 列表基础逻辑 start */
     const listClass = computed(() => {
@@ -24,9 +23,9 @@ export default defineComponent({
         `${name}`,
         CLASSNAMES.SIZE[props.size],
         {
-          [`${name}--split`]: props.split,
-          [`${name}--stripe`]: props.stripe,
-          [`${name}--vertical-action`]: props.layout === 'vertical',
+          [`${COMPONENT_NAME.value}--split`]: props.split,
+          [`${COMPONENT_NAME.value}--stripe`]: props.stripe,
+          [`${COMPONENT_NAME.value}--vertical-action`]: props.layout === 'vertical',
         },
       ];
     });
@@ -34,9 +33,9 @@ export default defineComponent({
       const propsHeaderContent = renderTNodeJSX('header');
       const propsFooterContent = renderTNodeJSX('footer');
       return [
-        propsHeaderContent && <div class={`${name}__header`}>{propsHeaderContent}</div>,
+        propsHeaderContent && <div class={`${COMPONENT_NAME.value}__header`}>{propsHeaderContent}</div>,
         <ul class={`${name}__inner`}>{renderTNodeJSX('default')}</ul>,
-        propsFooterContent && <div class={`${name}__footer`}>{propsFooterContent}</div>,
+        propsFooterContent && <div class={`${COMPONENT_NAME.value}__footer`}>{propsFooterContent}</div>,
       ];
     };
     /** 列表基础逻辑 end */

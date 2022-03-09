@@ -39,7 +39,7 @@ export default defineComponent({
     useRipple(liRef);
 
     const ComponentClassName = usePrefixClass('cascader__item');
-    const { classPrefix } = useConfig('classPrefix');
+    const classPrefix = usePrefixClass();
 
     return { liRef, ComponentClassName, classPrefix };
   },
