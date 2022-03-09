@@ -267,7 +267,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -467,7 +467,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -6926,7 +6926,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -7025,7 +7025,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -7126,7 +7126,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         <!---->
         <!---->
         <div
-          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon"
+          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill"
         >
           <svg
             class="t-loading__gradient t-icon-loading"
@@ -9287,7 +9287,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"

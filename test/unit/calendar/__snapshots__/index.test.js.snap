@@ -266,7 +266,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -466,7 +466,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -1629,7 +1629,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -1829,7 +1829,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -2712,7 +2712,7 @@ exports[`Calendar :props :mode 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -3239,7 +3239,7 @@ exports[`Calendar :props :range 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -3439,7 +3439,7 @@ exports[`Calendar :props :range 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4484,7 +4484,7 @@ exports[`Calendar :props :theme 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4684,7 +4684,7 @@ exports[`Calendar :props :theme 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5703,7 +5703,7 @@ exports[`Calendar :props :value 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5903,7 +5903,7 @@ exports[`Calendar :props :value 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"

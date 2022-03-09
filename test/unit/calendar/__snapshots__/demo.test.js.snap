@@ -266,7 +266,7 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -466,7 +466,7 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -1346,7 +1346,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1632,7 +1632,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -1832,7 +1832,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -2651,7 +2651,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -2969,7 +2969,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -3169,7 +3169,7 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -4189,7 +4189,7 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4389,7 +4389,7 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5516,7 +5516,7 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5716,7 +5716,7 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -7078,7 +7078,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -7278,7 +7278,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -8348,7 +8348,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -8548,7 +8548,7 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -9633,7 +9633,7 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -9833,7 +9833,7 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -10880,7 +10880,7 @@ exports[`Calendar Calendar filterVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -11080,7 +11080,7 @@ exports[`Calendar Calendar filterVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -11828,7 +11828,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -12114,7 +12114,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -12314,7 +12314,7 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -13480,7 +13480,7 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -13680,7 +13680,7 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -14559,7 +14559,7 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -14845,7 +14845,7 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -15373,7 +15373,7 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -15573,7 +15573,7 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -16620,7 +16620,7 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -16820,7 +16820,7 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -17829,7 +17829,7 @@ exports[`Calendar Calendar valueVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -18029,7 +18029,7 @@ exports[`Calendar Calendar valueVue demo works fine 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -19201,7 +19201,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -19401,7 +19401,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -20450,7 +20450,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -20650,7 +20650,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -21685,7 +21685,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -21885,7 +21885,7 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"

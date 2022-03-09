@@ -9603,7 +9603,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -10177,7 +10177,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"

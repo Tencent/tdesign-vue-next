@@ -117,7 +117,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -254,7 +254,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -494,7 +494,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -751,7 +751,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1015,7 +1015,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1148,7 +1148,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1466,7 +1466,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1803,7 +1803,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -2204,7 +2204,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -2616,7 +2616,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -2734,7 +2734,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -2946,7 +2946,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3079,7 +3079,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3279,7 +3279,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3501,7 +3501,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3726,7 +3726,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3844,7 +3844,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -4052,7 +4052,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -4242,7 +4242,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -4560,7 +4560,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -4988,7 +4988,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5356,7 +5356,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5474,7 +5474,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5620,7 +5620,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5756,7 +5756,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5874,7 +5874,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5987,7 +5987,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6115,7 +6115,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6248,7 +6248,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6379,7 +6379,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6509,7 +6509,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6622,7 +6622,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6735,7 +6735,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6866,7 +6866,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6990,7 +6990,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -7089,7 +7089,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         <!---->
         <!---->
         <div
-          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon"
+          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill"
         >
           <svg
             class="t-loading__gradient t-icon-loading"

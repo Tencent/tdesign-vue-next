@@ -1423,7 +1423,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -1512,7 +1512,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -1649,7 +1649,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="card" class="t-select__single">card</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -1787,7 +1787,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -1876,7 +1876,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -2015,7 +2015,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="card" class="t-select__single">card</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -2146,7 +2146,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -2235,7 +2235,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -2670,7 +2670,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -2759,7 +2759,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -3237,7 +3237,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -3326,7 +3326,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -3646,7 +3646,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -3735,7 +3735,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -3961,7 +3961,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -4050,7 +4050,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -4283,7 +4283,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -4372,7 +4372,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -4613,7 +4613,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -4702,7 +4702,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -4845,7 +4845,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="3" class="t-select__single">3</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -4976,7 +4976,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -5065,7 +5065,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -5302,7 +5302,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -5391,7 +5391,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -5528,7 +5528,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="year" class="t-select__single">year</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -5659,7 +5659,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -5801,7 +5801,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -5890,7 +5890,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -6114,7 +6114,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -6203,7 +6203,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -6606,7 +6606,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1998" class="t-select__single">1998</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -6695,7 +6695,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="11" class="t-select__single">11</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -6933,7 +6933,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <!---->
                   <!--[-->
                   <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                  <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                  <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
                   <!---->
@@ -7022,7 +7022,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <!---->
                   <!--[-->
                   <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                  <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                  <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
                   <!---->
@@ -7267,7 +7267,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <!---->
                   <!--[-->
                   <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                  <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                  <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
                   <!---->
@@ -7356,7 +7356,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <!---->
                   <!--[-->
                   <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                  <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                  <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
                   <!---->
@@ -7580,7 +7580,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <!---->
                   <!--[-->
                   <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-                  <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                  <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
                   <!---->
@@ -7669,7 +7669,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                   <!---->
                   <!--[-->
                   <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-                  <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                  <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
                   <!---->
@@ -8699,7 +8699,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -8788,7 +8788,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
               <!---->
               <!--[-->
               <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
-              <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
               <!---->
@@ -10196,7 +10196,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -10232,7 +10232,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -10271,7 +10271,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
         <!---->
         <!---->
         <!---->
-        <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -10802,7 +10802,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
         <!---->
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -17161,7 +17161,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -17377,7 +17377,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -18547,7 +18547,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -18785,7 +18785,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -24034,7 +24034,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24102,7 +24102,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24172,7 +24172,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="20" class="t-select__single">20</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24250,7 +24250,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24322,7 +24322,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24397,7 +24397,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="30" class="t-select__single">30</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24469,7 +24469,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24529,7 +24529,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/20" class="t-select__single">1/20</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24584,7 +24584,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24644,7 +24644,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/20" class="t-select__single">1/20</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -24699,7 +24699,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
           <!---->
           <!--[-->
           <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
-          <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
           <!---->
@@ -26258,7 +26258,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26303,7 +26303,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26354,7 +26354,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
         </svg></span>
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+1<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26411,7 +26411,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
           <!--]-->
         </div>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26472,7 +26472,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/collapsed.vue correct
         </div>
         <!--]-->
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26527,7 +26527,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
             <!---->
           </div>
           <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26642,7 +26642,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26771,7 +26771,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26824,7 +26824,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
         <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项一(1)<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项二(2)<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->选项三(3)<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+3<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26873,7 +26873,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
         <!--]-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+4<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26918,7 +26918,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -26961,7 +26961,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
         <!----></span>
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+2<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27016,7 +27016,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
             <!---->
           </div>
           <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27066,7 +27066,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
             <!---->
           </div>
           <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27160,7 +27160,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
             <!---->
           </div>
           <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27268,7 +27268,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
             <!---->
           </div>
           <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27313,7 +27313,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
         <!---->
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="选项一" class="t-select__single">选项一</span>
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27356,7 +27356,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
         </svg></span>
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+1<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27401,7 +27401,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/max.vue correctly 1`]
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27457,7 +27457,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         </svg></span>
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+2<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27515,7 +27515,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         </svg></span>
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+6<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27569,7 +27569,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/multiple.vue correctl
         </svg></span>
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+2<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27614,7 +27614,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
         <!---->
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27669,7 +27669,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27713,7 +27713,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27758,7 +27758,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
         <!---->
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27798,7 +27798,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
         <!---->
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27842,7 +27842,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/prefix.vue correctly 
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27897,7 +27897,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
             <!---->
           </div>
           <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27943,7 +27943,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
             <!---->
           </div>
           <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -27999,7 +27999,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -28039,7 +28039,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -28079,7 +28079,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-l" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -28126,7 +28126,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -28168,7 +28168,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
         <!---->
@@ -28207,7 +28207,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
         <!---->
         <!---->
         <!---->
-        <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
+        <div class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
             <foreignObject x="1" y="1" width="12" height="12">
               <div class="t-loading__gradient-conic"></div>
             </foreignObject>
@@ -39603,7 +39603,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                   <!---->
                   <!--[-->
                   <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
-                  <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                  <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
                   <!---->
@@ -39719,7 +39719,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
@@ -46201,7 +46201,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
                 <!---->
                 <!--[-->
                 <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/2" class="t-select__single">1/2</span>
-                <!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
                 <!---->
