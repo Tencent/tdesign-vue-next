@@ -7,7 +7,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { emitEvent } from '../utils/event';
-import { useComponentName } from '../config-provider';
+import { usePrefixClass } from '../config-provider';
 
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;
@@ -29,9 +29,9 @@ export default defineComponent({
   emits: ['change', 'click'],
 
   setup() {
-    const COMPONENT_NAME = useComponentName('anchor');
-    const ANCHOR_LINE_CLASSNAME = useComponentName('anchor__line');
-    const ANCHOR_LINE_CURSOR_CLASSNAME = useComponentName('anchor__line-cursor');
+    const COMPONENT_NAME = usePrefixClass('anchor');
+    const ANCHOR_LINE_CLASSNAME = usePrefixClass('anchor__line');
+    const ANCHOR_LINE_CURSOR_CLASSNAME = usePrefixClass('anchor__line-cursor');
 
     return {
       COMPONENT_NAME,

@@ -1,17 +1,15 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
-import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TdAvatarProps } from './type';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { Styles } from '../common';
-
-const name = `${prefix}-avatar`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TAvatar',
   props,
   setup(props: TdAvatarProps) {
+    const COMPONENT_NAME = usePrefixClass('avatar');
     const avatarGroup = inject('avatarGroup', undefined);
     const avatar = ref<HTMLElement | null>(null);
     const avatarChild = ref<HTMLElement | null>(null);
@@ -23,7 +21,7 @@ export default defineComponent({
 
     const isCustomSize = computed(() => sizeValue.value && !CLASSNAMES.SIZE[sizeValue.value]);
 
-    const customAvatarSize = computed<Styles>(() => {
+    const customAvatarSize = computed(() => {
       return isCustomSize.value
         ? {
             width: sizeValue.value,
@@ -32,7 +30,7 @@ export default defineComponent({
           }
         : {};
     });
-    const customImageSize = computed<Styles>(() => {
+    const customImageSize = computed(() => {
       return isCustomSize.value
         ? {
             height: sizeValue.value,
@@ -40,7 +38,7 @@ export default defineComponent({
           }
         : {};
     });
-    const customCharacterSize = computed<Styles>(() => {
+    const customCharacterSize = computed(() => {
       return {
         transform: scale.value,
       };
@@ -79,6 +77,7 @@ export default defineComponent({
     });
 
     return {
+      COMPONENT_NAME,
       avatar,
       avatarChild,
       isImgExist,
@@ -95,17 +94,18 @@ export default defineComponent({
   },
 
   render() {
+    const { COMPONENT_NAME } = this;
     let content = renderContent(this, 'default', 'content');
     const icon = renderTNodeJSX(this, 'icon');
     const isIconOnly = icon && !content;
     const { shape, image, alt } = this.$props;
     const avatarClass = [
-      `${name}`,
+      `${COMPONENT_NAME}`,
       CLASSNAMES.SIZE[this.sizeValue],
       {
-        [`${name}--circle`]: shape === 'circle',
-        [`${name}--round`]: shape === 'round',
-        [`${name}__icon`]: !!isIconOnly,
+        [`${COMPONENT_NAME}--circle`]: shape === 'circle',
+        [`${COMPONENT_NAME}--round`]: shape === 'round',
+        [`${COMPONENT_NAME}__icon`]: !!isIconOnly,
       },
     ];
     content = (

@@ -6,20 +6,19 @@ import {
   HelpCircleFilledIcon,
   InfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import { useIcon } from '../hooks/icon';
-import { useConfig, useComponentName } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TAlert',
   props,
   setup(props) {
-    const { global } = useConfig('alert');
-    const COMPONENT_NAME = useComponentName('affix');
+    const { global, classPrefix } = useConfig('alert');
+    const COMPONENT_NAME = usePrefixClass('alert');
 
     const renderIconTNode = useIcon();
     // alert的dom引用
@@ -144,6 +143,7 @@ export default defineComponent({
     });
     return {
       COMPONENT_NAME,
+      classPrefix,
       ele,
       description,
       visible,
@@ -159,12 +159,12 @@ export default defineComponent({
     };
   },
   render() {
-    const { theme, visible, $attrs, renderIcon, renderContent, renderClose } = this;
+    const { theme, visible, $attrs, renderIcon, renderContent, renderClose, classPrefix } = this;
     const CLASS = [
       `${this.COMPONENT_NAME}`,
       `${this.COMPONENT_NAME}--${theme}`,
       {
-        [`${prefix}-is-hidden`]: !visible,
+        [`${classPrefix}-is-hidden`]: !visible,
       },
     ];
     return (

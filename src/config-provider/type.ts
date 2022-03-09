@@ -111,12 +111,12 @@ export interface AnchorConfig {
    * 展开提示文本
    * @default 请输入
    */
-  anchorCopySuccessText?: string;
+  copySuccessText?: string;
   /**
    * 收起提示文本
    * @default 请输入
    */
-  anchorCopyText?: string;
+  copyText?: string;
 }
 
 export interface AlertConfig {

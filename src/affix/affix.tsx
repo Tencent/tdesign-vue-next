@@ -4,14 +4,14 @@ import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { ScrollContainerElement } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { useConfig, useComponentName } from '../config-provider';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TAffix',
   props,
   emits: ['fixedChange'],
   setup(props, context) {
-    const COMPONENT_NAME = useComponentName('affix');
+    const COMPONENT_NAME = usePrefixClass('affix');
 
     const { emit } = context;
     const affixRef = ref(null);
