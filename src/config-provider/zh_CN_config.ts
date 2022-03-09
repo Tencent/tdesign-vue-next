@@ -147,6 +147,14 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
   input: {
     placeholder: '请输入',
   },
+  alert: {
+    expandText: '展开更多',
+    collapseText: '收起',
+  },
+  anchor: {
+    anchorCopySuccessText: '链接复制成功',
+    anchorCopyText: '复制链接',
+  },
 };
 
 export default GLOBAL_CONFIG_ZH;

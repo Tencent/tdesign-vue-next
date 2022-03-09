@@ -5,9 +5,8 @@ import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
 import TPopup from '../popup';
-import { COMPONENT_NAME } from './constant';
+import { useConfig, useComponentName } from '../config-provider';
 
-const name = `${COMPONENT_NAME}-target`;
 export default defineComponent({
   name: 'TAnchorTarget',
 
@@ -18,6 +17,14 @@ export default defineComponent({
 
   props: { ...props },
 
+  setup() {
+    const { global } = useConfig('anchor');
+    const COMPONENT_NAME = useComponentName('anchor');
+    return {
+      COMPONENT_NAME,
+      global,
+    };
+  },
   methods: {
     /**
      * 复制当前target的链接
@@ -28,7 +35,7 @@ export default defineComponent({
       const a = document.createElement('a');
       a.href = `#${this.id}`;
       copyText(a.href);
-      Message.success('链接复制成功', 1000);
+      Message.success(this.global.anchorCopySuccessText, 1000);
     },
   },
   render() {
@@ -37,12 +44,12 @@ export default defineComponent({
       $slots: { default: children },
       id,
     } = this;
-    const className = [`${COMPONENT_NAME}__target`];
+    const className = [`${this.COMPONENT_NAME}__target`];
     const iconClassName = `${prefix}-copy`;
     return (
       <TAG id={id} class={className}>
         {children && children(null)}
-        <t-popup content="复制链接" placement="top" showArrow class={iconClassName}>
+        <t-popup content={this.global.anchorCopyText} placement="top" showArrow class={iconClassName}>
           <FileCopyIcon onClick={this.copyText} />
         </t-popup>
       </TAG>

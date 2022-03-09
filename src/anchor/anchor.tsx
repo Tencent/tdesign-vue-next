@@ -1,4 +1,4 @@
-import { defineComponent, nextTick, ComponentPublicInstance } from 'vue';
+import { defineComponent, nextTick, ComponentPublicInstance, computed } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
@@ -6,11 +6,8 @@ import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
-import { COMPONENT_NAME } from './constant';
 import { emitEvent } from '../utils/event';
-
-const ANCHOR_LINE_CLASSNAME = `${COMPONENT_NAME}__line`;
-const ANCHOR_LINE_CURSOR_CLASSNAME = `${COMPONENT_NAME}__line-cursor`;
+import { useComponentName } from '../config-provider';
 
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;
@@ -31,6 +28,17 @@ export default defineComponent({
 
   emits: ['change', 'click'],
 
+  setup() {
+    const COMPONENT_NAME = useComponentName('anchor');
+    const ANCHOR_LINE_CLASSNAME = useComponentName('anchor__line');
+    const ANCHOR_LINE_CURSOR_CLASSNAME = useComponentName('anchor__line-cursor');
+
+    return {
+      COMPONENT_NAME,
+      ANCHOR_LINE_CLASSNAME,
+      ANCHOR_LINE_CURSOR_CLASSNAME,
+    };
+  },
   data() {
     return {
       links: [] as string[],
@@ -210,7 +218,7 @@ export default defineComponent({
     },
     renderCursor() {
       const titleContent: SlotReturnValue = renderTNodeJSX(this, 'cursor');
-      return titleContent || <div class={ANCHOR_LINE_CURSOR_CLASSNAME}></div>;
+      return titleContent || <div class={this.ANCHOR_LINE_CURSOR_CLASSNAME}></div>;
     },
   },
 
@@ -222,12 +230,12 @@ export default defineComponent({
       activeLineStyle,
       $attrs,
     } = this;
-    const className = [COMPONENT_NAME, CLASSNAMES.SIZE[size]];
+    const className = [this.COMPONENT_NAME, CLASSNAMES.SIZE[size]];
 
     const content = (
       <div class={className} {...$attrs}>
-        <div class={ANCHOR_LINE_CLASSNAME}>
-          <div class={`${ANCHOR_LINE_CURSOR_CLASSNAME}-wrapper`} style={activeLineStyle}>
+        <div class={this.ANCHOR_LINE_CLASSNAME}>
+          <div class={`${this.ANCHOR_LINE_CURSOR_CLASSNAME}-wrapper`} style={activeLineStyle}>
             {this.renderCursor()}
           </div>
         </div>

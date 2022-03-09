@@ -11,8 +11,16 @@ import { TNode } from '../common';
 
 export interface GlobalConfigProvider {
   /**
+   * 锚点全局配置
+   */
+  anchor?: AnchorConfig;
+  /**
+   * 警告全局配置
+   */
+  alert?: AlertConfig;
+  /**
    * 动画效果控制，`ripple`指波纹动画， `expand` 指展开动画，`fade` 指渐变动画
-   * @default { include: ['ripple','expand','fade'], exclude: [] }
+   * @default `{ include: ['ripple','expand','fade'], exclude: [] }`
    */
   animation?: Record<'include' | 'exclude', Array<AnimationType>>;
   /**
@@ -23,6 +31,11 @@ export interface GlobalConfigProvider {
    * 级联选择器全局配置
    */
   cascader?: CascaderConfig;
+  /**
+   * CSS 类名前缀
+   * @default t
+   */
+  classPrefix?: string;
   /**
    * 日期选择器全局配置
    */
@@ -91,6 +104,32 @@ export interface GlobalConfigProvider {
    * 上传组件全局配置
    */
   upload?: UploadConfig;
+}
+
+export interface AnchorConfig {
+  /**
+   * 展开提示文本
+   * @default 请输入
+   */
+  anchorCopySuccessText?: string;
+  /**
+   * 收起提示文本
+   * @default 请输入
+   */
+  anchorCopyText?: string;
+}
+
+export interface AlertConfig {
+  /**
+   * 展开提示文本
+   * @default 请输入
+   */
+  expandText?: string;
+  /**
+   * 收起提示文本
+   * @default 请输入
+   */
+  collapseText?: string;
 }
 
 export interface InputConfig {
@@ -414,16 +453,15 @@ export interface TableConfig {
    * 语言配置，'暂无数据' 描述文本
    * @default '暂无数据'
    */
-  empty?: string;
+  empty?: string | TNode;
   /**
-   * 展开和收起图标（配置传入收起图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件
+   * 展开和收起图标（配置传入收起图标即可），如果没有配置，组件会内置默认图标
    */
   expandIcon?: TNode;
   /**
-   * 语言配置，'输入关键词过滤' 描述文本
-   * @default '输入关键词过滤'
+   * 过滤图标，如果没有配置，组件会内置默认图标
    */
-  filterInputPlaceholder?: string;
+  filterIcon?: TNode;
   /**
    * 语言配置，'点击加载更多' 描述文本
    * @default '点击加载更多'
@@ -450,7 +488,7 @@ export interface TableConfig {
    */
   sortDescendingOperationText?: string;
   /**
-   * 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件
+   * 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标
    */
   sortIcon?: TNode;
 }
