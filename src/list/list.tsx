@@ -20,7 +20,7 @@ export default defineComponent({
     /** 列表基础逻辑 start */
     const listClass = computed(() => {
       return [
-        `${name}`,
+        `${COMPONENT_NAME.value}`,
         CLASSNAMES.SIZE[props.size],
         {
           [`${COMPONENT_NAME.value}--split`]: props.split,
@@ -34,7 +34,7 @@ export default defineComponent({
       const propsFooterContent = renderTNodeJSX('footer');
       return [
         propsHeaderContent && <div class={`${COMPONENT_NAME.value}__header`}>{propsHeaderContent}</div>,
-        <ul class={`${name}__inner`}>{renderTNodeJSX('default')}</ul>,
+        <ul class={`${COMPONENT_NAME.value}__inner`}>{renderTNodeJSX('default')}</ul>,
         propsFooterContent && <div class={`${COMPONENT_NAME.value}__footer`}>{propsFooterContent}</div>,
       ];
     };
@@ -56,8 +56,8 @@ export default defineComponent({
     /** loading加载相关逻辑 start */
     const loadingClass = computed(() => {
       return typeof props.asyncLoading === 'string' && ['loading', 'load-more'].includes(props.asyncLoading)
-        ? `${name}__load ${name}__load--${props.asyncLoading}`
-        : `${name}__load`;
+        ? `${COMPONENT_NAME.value}__load ${COMPONENT_NAME.value}__load--${props.asyncLoading}`
+        : `${COMPONENT_NAME.value}__load`;
     });
 
     const renderLoading = () => {
@@ -83,6 +83,7 @@ export default defineComponent({
     };
     /** loading加载相关逻辑 end */
     return {
+      COMPONENT_NAME,
       listClass,
       loadingClass,
       renderLoading,
