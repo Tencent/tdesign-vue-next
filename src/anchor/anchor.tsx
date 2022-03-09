@@ -1,5 +1,4 @@
-import { defineComponent, nextTick, ComponentPublicInstance, computed } from 'vue';
-import CLASSNAMES from '../utils/classnames';
+import { defineComponent, nextTick, ComponentPublicInstance } from 'vue';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
 import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
 import props from './props';
@@ -7,7 +6,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;
@@ -33,10 +32,13 @@ export default defineComponent({
     const ANCHOR_LINE_CLASSNAME = usePrefixClass('anchor__line');
     const ANCHOR_LINE_CURSOR_CLASSNAME = usePrefixClass('anchor__line-cursor');
 
+    const { STATUS, SIZE } = useCommonClassName();
     return {
       COMPONENT_NAME,
       ANCHOR_LINE_CLASSNAME,
       ANCHOR_LINE_CURSOR_CLASSNAME,
+      STATUS,
+      SIZE,
     };
   },
   data() {
@@ -140,7 +142,7 @@ export default defineComponent({
      * 当前active-item的top + height, 以及ANCHOR_ITEM_PADDING修正
      */
     updateActiveLine(): void {
-      const ele = this.$el.querySelector(`.${CLASSNAMES.STATUS.active}>a`) as HTMLAnchorElement;
+      const ele = this.$el.querySelector(`.${this.STATUS.active}>a`) as HTMLAnchorElement;
       if (!ele) {
         this.activeLineStyle = null;
         return;
@@ -230,7 +232,7 @@ export default defineComponent({
       activeLineStyle,
       $attrs,
     } = this;
-    const className = [this.COMPONENT_NAME, CLASSNAMES.SIZE[size]];
+    const className = [this.COMPONENT_NAME, this.SIZE[size]];
 
     const content = (
       <div class={className} {...$attrs}>

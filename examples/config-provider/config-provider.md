@@ -6,6 +6,7 @@
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 alert | Object | - | 警告全局配置。TS 类型：`AlertConfig` | N
+anchor | Object | - | 锚点全局配置。TS 类型：`AnchorConfig` | N
 animation | Object | `{ include: ['ripple','expand','fade'], exclude: [] }` | 动画效果控制，`ripple`指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。TS 类型：`Record<'include'|'exclude', Array<AnimationType>> ` `type AnimationType = 'ripple' | 'expand' | 'fade'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 calendar | Object | - | 日历组件全局配置。TS 类型：`CalendarConfig` | N
 cascader | Object | - | 级联选择器全局配置。TS 类型：`CascaderConfig` | N
@@ -238,3 +239,17 @@ closeIcon | Function | - | 关闭图标，【注意】使用渲染函数输出�
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
 errorIcon | Slot / Function | - | 错误步骤图标，【注意】使用渲染函数输出图标组件。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
+
+### AlertConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+collapseText | String | 收起 | 收起提示文本 | N
+expandText | String | 展开更多 | 展开提示文本 | N
+
+### AnchorConfig
+
+名称 | 类型 | 默认值 | 说明 | 必传
+-- | -- | -- | -- | --
+copySuccessText | String | 链接复制成功 | 复制成功文字 | N
+copyText | String | 复制链接 | 复制提示文字 | N

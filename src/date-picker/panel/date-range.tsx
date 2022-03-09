@@ -2,10 +2,10 @@ import { defineComponent, PropType } from 'vue';
 import dayjs from 'dayjs';
 import TDateHeader from '../basic/header';
 import TDateTable from '../basic/table';
-import { prefix } from '../../config';
 import { DatePickerConfig } from '../../config-provider/config-receiver';
-
 import { DateValue } from '../type';
+
+import { usePrefixClass } from '../../config-provider';
 
 import {
   getWeeks,
@@ -25,9 +25,8 @@ const TODAY = getToday();
 const LEFT = 'left';
 const RIGHT = 'right';
 
-const name = `${prefix}-date-picker-date-range`;
 export default defineComponent({
-  name,
+  name: 'TDatePickerDateRange',
   components: {
     TDateHeader,
     TDateTable,
@@ -57,6 +56,12 @@ export default defineComponent({
     onPick: Function,
   },
   emits: ['change'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('date-picker');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       leftYear: null,
@@ -295,6 +300,7 @@ export default defineComponent({
   },
   render() {
     const {
+      COMPONENT_NAME,
       leftYear,
       leftMonth,
       leftType,
@@ -308,8 +314,8 @@ export default defineComponent({
       firstDayOfWeek,
     } = this;
     return (
-      <div class={`${prefix}-date-picker__panels`}>
-        <div class={`${prefix}-date-picker__panel`}>
+      <div class={`${COMPONENT_NAME}__panels`}>
+        <div class={`${COMPONENT_NAME}__panel`}>
           <t-date-header
             year={leftYear}
             month={leftMonth}
@@ -326,7 +332,7 @@ export default defineComponent({
             onCellMouseEnter={this.onMouseEnter}
           />
         </div>
-        <div class={`${prefix}-date-picker__panel`}>
+        <div class={`${COMPONENT_NAME}__panel`}>
           <t-date-header
             year={rightYear}
             month={rightMonth}

@@ -1,5 +1,3 @@
-import { prefix } from '../config';
-
 interface ModeOption {
   // 选项值
   value: string;

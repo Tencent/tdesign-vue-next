@@ -1,11 +1,10 @@
 import { computed, defineComponent, ref } from 'vue';
-import CLASSNAMES from '../utils/classnames';
 import TLoading from '../loading';
 import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import useRipple from '../hooks/useRipple';
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TButton',
@@ -13,6 +12,7 @@ export default defineComponent({
   props,
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('button');
+    const { STATUS, SIZE } = useCommonClassName();
     const disabled = useFormDisabled();
     const btnRef = ref<HTMLElement>();
 
@@ -27,15 +27,15 @@ export default defineComponent({
     });
     const buttonClass = computed(() => [
       `${COMPONENT_NAME.value}`,
-      CLASSNAMES.SIZE[props.size],
+      SIZE.value[props.size],
       `${COMPONENT_NAME.value}--variant-${props.variant}`,
       `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
-        [CLASSNAMES.STATUS.disabled]: isDisabled.value,
-        [CLASSNAMES.STATUS.loading]: props.loading,
+        [STATUS.value.disabled]: isDisabled.value,
+        [STATUS.value.loading]: props.loading,
         [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
         [`${COMPONENT_NAME.value}--ghost`]: props.ghost,
-        [CLASSNAMES.SIZE.block]: props.block,
+        [SIZE.value.block]: props.block,
       },
     ]);
 

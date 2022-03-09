@@ -4,9 +4,7 @@ import isBetween from 'dayjs/plugin/isBetween';
 import { CalendarIcon, TimeIcon } from 'tdesign-icons-vue-next';
 import { emitEvent } from '../utils/event';
 
-import { prefix } from '../config';
 import props from './props';
-import CLASSNAMES from '../utils/classnames';
 
 import { Button as TButton } from '../button';
 import { Input as TInput } from '../input';
@@ -25,10 +23,9 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import { usePrefixClass, useConfig, useCommonClassName } from '../config-provider';
 
 dayjs.extend(isBetween);
-
-const name = `${prefix}-date-picker`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
@@ -46,7 +43,14 @@ export default defineComponent({
   emits: ['input', 'open', 'close', 'focus', 'click', 'change', 'pick'],
   setup() {
     const disabled = useFormDisabled();
+    const { classPrefix } = useConfig('classPrefix');
+    const COMPONENT_NAME = usePrefixClass('date-picker');
+    const { SIZE, STATUS } = useCommonClassName();
     return {
+      classPrefix,
+      COMPONENT_NAME,
+      SIZE,
+      STATUS,
       disabled,
     };
   },
@@ -145,20 +149,20 @@ export default defineComponent({
     },
     classes(): any {
       return [
-        name,
-        CLASSNAMES.SIZE[this.size] || '',
+        this.COMPONENT_NAME,
+        this.SIZE[this.size] || '',
         {
-          [`${name}--month-picker`]: this.mode === 'year' || this.mode === 'month',
-          [`${prefix}-inline`]: this.inline || this.inlineView,
+          [`${this.COMPONENT_NAME}--month-picker`]: this.mode === 'year' || this.mode === 'month',
+          [`${this.classPrefix}-inline`]: this.inline || this.inlineView,
         },
       ];
     },
     pickerStyles() {
       return {
-        [`${name}__container`]: true,
-        [`${name}--open`]: this.isOpen || this.inlineView,
-        [`${name}--calendar-inline-view`]: this.inlineView,
-        [`${name}--range`]: this.range,
+        [`${this.COMPONENT_NAME}__container`]: true,
+        [`${this.COMPONENT_NAME}--open`]: this.isOpen || this.inlineView,
+        [`${this.COMPONENT_NAME}--calendar-inline-view`]: this.inlineView,
+        [`${this.COMPONENT_NAME}--range`]: this.range,
       };
     },
   },
@@ -587,10 +591,10 @@ export default defineComponent({
         )}
         {!showTime && panelComponent}
         {(!!presets || enableTimePicker) && (
-          <div class={`${prefix}-date-picker__footer`}>
+          <div class={`${this.classPrefix}-date-picker__footer`}>
             <TCalendarPresets presets={presets} global={global} onClick={range ? this.clickRange : this.dateClick} />
             {enableTimePicker && (
-              <div class={`${name}--apply`}>
+              <div class={`${this.COMPONENT_NAME}--apply`}>
                 {enableTimePicker && (
                   <t-button theme="primary" variant="text" onClick={this.toggleTime}>
                     {showTime ? global.selectDate : global.selectTime}
@@ -608,9 +612,9 @@ export default defineComponent({
       </div>
     );
     const inputClassNames = [
-      `${prefix}-form-controls`,
+      `${this.classPrefix}-form-controls`,
       {
-        [CLASSNAMES.STATUS.active]: this.isOpen,
+        [this.STATUS.active]: this.isOpen,
       },
     ];
     const prefixIcon = renderTNodeJSX(this, 'prefixIcon');
@@ -628,14 +632,14 @@ export default defineComponent({
       <div class={this.classes}>
         <t-popup
           ref="popup"
-          class={`${name}__popup-reference`}
+          class={`${this.COMPONENT_NAME}__popup-reference`}
           trigger="click"
           placement="bottom-left"
           disabled={disabled}
           showArrow={false}
           visible={isOpen}
           popupProps={popupProps}
-          overlayClassName={name}
+          overlayClassName={this.COMPONENT_NAME}
           content={popupContent}
           expandAnimation={true}
           onVisibleChange={(
