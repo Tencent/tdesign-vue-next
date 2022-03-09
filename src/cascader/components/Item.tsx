@@ -1,6 +1,5 @@
 import { defineComponent, PropType, ref } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../../config';
 
 // utils
 import CLASSNAMES from '../../utils/classnames';
@@ -18,8 +17,7 @@ import TLoading from '../../loading';
 // type
 import { ClassName } from '../../common';
 import { ContextType, CascaderContextType, CascaderItemPropsType, TreeNodeValue, TreeNode } from '../interface';
-
-import { usePrefixClass } from '../../config-provider';
+import { usePrefixClass, useConfig } from '../../config-provider';
 
 export default defineComponent({
   name: 'TCascaderItem',
@@ -41,15 +39,16 @@ export default defineComponent({
     useRipple(liRef);
 
     const ComponentClassName = usePrefixClass('cascader__item');
+    const { classPrefix } = useConfig('classPrefix');
 
-    return { liRef, ComponentClassName };
+    return { liRef, ComponentClassName, classPrefix };
   },
   computed: {
     itemClass(): ClassName {
-      return getCascaderItemClass(prefix, this.node, CLASSNAMES, this.cascaderContext);
+      return getCascaderItemClass(this.classPrefix, this.node, CLASSNAMES, this.cascaderContext);
     },
     iconClass(): ClassName {
-      return getCascaderItemIconClass(prefix, this.node, CLASSNAMES, this.cascaderContext);
+      return getCascaderItemIconClass(this.classPrefix, this.node, CLASSNAMES, this.cascaderContext);
     },
   },
   render() {
