@@ -15,14 +15,7 @@ export default defineComponent({
     const { global, classPrefix } = useConfig('popconfirm');
 
     const { visible, modelValue } = toRefs(props);
-    const [innerVisible, setInnerVisible] = useVModel(
-      visible,
-      modelValue,
-      props.defaultVisible,
-      props.onVisibleChange,
-      context.emit,
-      'visible',
-    );
+    const [innerVisible, setInnerVisible] = useVModel(visible, modelValue, props.defaultVisible, props.onVisibleChange);
     const componentName = computed(() => {
       return `${classPrefix.value}-popconfirm`;
     });
