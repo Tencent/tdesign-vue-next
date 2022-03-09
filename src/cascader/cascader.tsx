@@ -2,7 +2,6 @@ import { defineComponent, VNode, Transition } from 'vue';
 
 // utils
 import isEqual from 'lodash/isEqual';
-import { prefix } from '../config';
 import TreeStore from '../_common/js/tree/tree-store';
 import { emitEvent } from '../utils/event';
 import { getPropsApiByEvent } from '../utils/helper';
@@ -32,8 +31,7 @@ import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './ty
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-
-const name = `${prefix}-cascader`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TCascader',
@@ -44,7 +42,6 @@ export default defineComponent({
     Transition,
     InputContent,
   },
-
   props: {
     ...props,
   },
@@ -53,7 +50,9 @@ export default defineComponent({
 
   setup() {
     const disabled = useFormDisabled();
+    const COMPONENT_NAME = usePrefixClass('cascader');
     return {
+      COMPONENT_NAME,
       disabled,
     };
   },
@@ -251,7 +250,8 @@ export default defineComponent({
     },
   },
   render(): VNode {
-    const { visible, trigger, empty, $attrs, cascaderContext, $slots, placeholder, collapsedItems } = this;
+    const { visible, trigger, empty, $attrs, cascaderContext, $slots, placeholder, collapsedItems, COMPONENT_NAME } =
+      this;
 
     const popupProps = this.popupProps as PopupProps;
 
@@ -265,8 +265,8 @@ export default defineComponent({
 
     return (
       <Popup
-        class={`${name}__popup`}
-        overlayClassName={`${name}__dropdown`}
+        class={`${COMPONENT_NAME}__popup`}
+        overlayClassName={`${COMPONENT_NAME}__dropdown`}
         placement="bottom-left"
         visible={visible}
         expandAnimation={true}

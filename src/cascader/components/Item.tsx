@@ -19,11 +19,10 @@ import TLoading from '../../loading';
 import { ClassName } from '../../common';
 import { ContextType, CascaderContextType, CascaderItemPropsType, TreeNodeValue, TreeNode } from '../interface';
 
-const name = `${prefix}-cascader-item`;
-const ComponentClassName = `${prefix}-cascader__item`;
+import { usePrefixClass } from '../../config-provider';
 
 export default defineComponent({
-  name,
+  name: 'TCascaderItem',
   props: {
     node: {
       type: Object as PropType<CascaderItemPropsType['node']>,
@@ -40,7 +39,10 @@ export default defineComponent({
   setup() {
     const liRef = ref<HTMLElement>();
     useRipple(liRef);
-    return { liRef };
+
+    const ComponentClassName = usePrefixClass('cascader__item');
+
+    return { liRef, ComponentClassName };
   },
   computed: {
     itemClass(): ClassName {
@@ -51,7 +53,7 @@ export default defineComponent({
     },
   },
   render() {
-    const { node, itemClass, iconClass, cascaderContext } = this;
+    const { node, itemClass, iconClass, cascaderContext, ComponentClassName } = this;
 
     const handleClick = (e: Event) => {
       e.stopPropagation();
@@ -89,7 +91,7 @@ export default defineComponent({
           doms.push(<span key={index}>{texts[index]}</span>);
           if (index === texts.length - 1) break;
           doms.push(
-            <span key={`${index}filter`} className={`${name}-label--filter`}>
+            <span key={`${index}filter`} class={`${ComponentClassName}__label--filter`}>
               {inputVal}
             </span>,
           );

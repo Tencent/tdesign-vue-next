@@ -7,12 +7,7 @@ import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
 import { emitEvent } from '../utils/event';
 import { getPropsApiByEvent } from '../utils/helper';
-
-const separatorClass = `${prefix}-breadcrumb__separator`;
-const disableClass = `${prefix}-is-disabled`;
-const linkClass = `${prefix}-link`;
-const maxLengthClass = `${prefix}-breadcrumb__inner`;
-const textFlowClass = `${prefix}-breadcrumb--text-overflow`;
+import { usePrefixClass } from '../config-provider';
 
 export const EVENT_NAME_WITH_KEBAB = ['click'];
 interface LocalTBreadcrumb {
@@ -30,11 +25,6 @@ const localTBreadcrumbOrigin: LocalTBreadcrumb = {
   maxItemWidth: undefined,
 };
 
-const isEventProps = (propName: string): boolean => {
-  const pre = /on[A-Z].+/;
-  return pre.test(propName);
-};
-
 export default defineComponent({
   name: 'TBreadcrumbItem',
   components: {
@@ -48,7 +38,20 @@ export default defineComponent({
   },
 
   emits: ['click'],
-
+  setup() {
+    const separatorClass = usePrefixClass('breadcrumb__separator');
+    const disableClass = usePrefixClass('is-disabled');
+    const linkClass = usePrefixClass('link');
+    const maxLengthClass = usePrefixClass('breadcrumb__inner');
+    const textFlowClass = usePrefixClass('breadcrumb--text-overflow');
+    return {
+      separatorClass,
+      disableClass,
+      linkClass,
+      maxLengthClass,
+      textFlowClass,
+    };
+  },
   data() {
     return {
       localTBreadcrumb: localTBreadcrumbOrigin,
@@ -102,6 +105,7 @@ export default defineComponent({
   },
 
   render() {
+    const { separatorClass, disableClass, linkClass, maxLengthClass, textFlowClass } = this;
     const { localTBreadcrumb, maxWithStyle } = this;
     const { separator: separatorPropContent } = localTBreadcrumb;
     const separatorSlot = localTBreadcrumb.$slots.separator;

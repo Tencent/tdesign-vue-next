@@ -1,21 +1,18 @@
 import { computed, defineComponent, ref } from 'vue';
-import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import TLoading from '../loading';
 import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import useRipple from '../hooks/useRipple';
-
-// hooks
 import { useFormDisabled } from '../form/hooks';
-
-const name = `${prefix}-button`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TButton',
   inheritAttrs: false,
   props,
   setup(props) {
+    const COMPONENT_NAME = usePrefixClass('button');
     const disabled = useFormDisabled();
     const btnRef = ref<HTMLElement>();
 
@@ -29,20 +26,21 @@ export default defineComponent({
       return 'default';
     });
     const buttonClass = computed(() => [
-      `${name}`,
+      `${COMPONENT_NAME.value}`,
       CLASSNAMES.SIZE[props.size],
-      `${name}--variant-${props.variant}`,
-      `${name}--theme-${mergeTheme.value}`,
+      `${COMPONENT_NAME.value}--variant-${props.variant}`,
+      `${COMPONENT_NAME.value}--theme-${mergeTheme.value}`,
       {
         [CLASSNAMES.STATUS.disabled]: isDisabled.value,
         [CLASSNAMES.STATUS.loading]: props.loading,
-        [`${name}--shape-${props.shape}`]: props.shape !== 'rectangle',
-        [`${name}--ghost`]: props.ghost,
+        [`${COMPONENT_NAME.value}--shape-${props.shape}`]: props.shape !== 'rectangle',
+        [`${COMPONENT_NAME.value}--ghost`]: props.ghost,
         [CLASSNAMES.SIZE.block]: props.block,
       },
     ]);
 
     return {
+      COMPONENT_NAME,
       disabled: isDisabled,
       mergeTheme,
       buttonClass,
@@ -50,11 +48,12 @@ export default defineComponent({
     };
   },
   render() {
+    const { COMPONENT_NAME } = this;
     let buttonContent = renderContent(this, 'default', 'content');
     const icon = this.loading ? <TLoading inheritColor={true} /> : renderTNodeJSX(this, 'icon');
     const iconOnly = icon && !buttonContent;
 
-    buttonContent = buttonContent ? <span class={`${name}__text`}>{buttonContent}</span> : '';
+    buttonContent = buttonContent ? <span class={`${COMPONENT_NAME}__text`}>{buttonContent}</span> : '';
     if (icon) {
       buttonContent = [icon, buttonContent];
     }
@@ -62,7 +61,7 @@ export default defineComponent({
     return (
       <button
         ref="btnRef"
-        class={[...this.buttonClass, { [`${name}--icon-only`]: iconOnly }]}
+        class={[...this.buttonClass, { [`${COMPONENT_NAME}--icon-only`]: iconOnly }]}
         type={this.type}
         disabled={this.disabled}
         {...this.$attrs}

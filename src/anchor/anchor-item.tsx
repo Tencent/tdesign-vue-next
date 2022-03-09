@@ -2,7 +2,7 @@ import { defineComponent, h, VNodeChild, computed } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
-import { useComponentName } from '../config-provider';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TAnchorItem',
@@ -20,7 +20,7 @@ export default defineComponent({
     },
   },
   setup() {
-    const CLASSNAME_PREFIX = useComponentName('anchor__item');
+    const CLASSNAME_PREFIX = usePrefixClass('anchor__item');
 
     return {
       CLASSNAME_PREFIX,

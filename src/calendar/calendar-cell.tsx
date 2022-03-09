@@ -6,7 +6,7 @@ import { emitEvent } from '../utils/event';
 // 通用库
 
 // 组件的一些常量
-import { COMPONENT_NAME } from './const';
+import { usePrefixClass } from '../config-provider';
 
 // 组件相关的自定义类型
 import { CalendarCell } from './type';
@@ -19,7 +19,7 @@ const clickTypeEmitEventMap = {
 };
 
 export default defineComponent({
-  name: `${COMPONENT_NAME}-cell`,
+  name: `TCalendarCell`,
   inheritAttrs: false,
   props: {
     item: {
@@ -39,6 +39,12 @@ export default defineComponent({
     cell: Function,
   },
   emits: ['click', 'dblclick', 'rightclick'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('calendar');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   computed: {
     allowSlot(): boolean {
       return this.theme === 'full';
@@ -64,7 +70,7 @@ export default defineComponent({
         {
           [`${prefix}-is-disabled`]: this.disabled,
           [`${prefix}-is-checked`]: isCurrent,
-          [`${COMPONENT_NAME}__table-body-cell--now`]: isNow,
+          [`${this.COMPONENT_NAME}__table-body-cell--now`]: isNow,
         },
       ];
     },

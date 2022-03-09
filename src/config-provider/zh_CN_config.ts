@@ -147,13 +147,17 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
   input: {
     placeholder: '请输入',
   },
+  list: {
+    loadingText: '正在加载中，请稍等',
+    loadingMoreText: '点击加载更多',
+  },
   alert: {
     expandText: '展开更多',
     collapseText: '收起',
   },
   anchor: {
-    anchorCopySuccessText: '链接复制成功',
-    anchorCopyText: '复制链接',
+    copySuccessText: '链接复制成功',
+    copyText: '复制链接',
   },
 };
 
