@@ -1,6 +1,5 @@
 import { VNode, defineComponent, reactive, computed, toRefs } from 'vue';
 
-// sub components
 import { UploadIcon } from 'tdesign-icons-vue-next';
 import Dragger from './dragger';
 import ImageCard from './image';
@@ -9,13 +8,11 @@ import TButton from '../button';
 import TDialog from '../dialog';
 import SingleFile from './single-file';
 
-// props and interface
 import props from './props';
 import { UploadCtxType } from './interface';
 
-// hooks
 import { useFormDisabled } from '../form/hooks';
-import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions } from './hooks';
+import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions, useBatchUpload } from './hooks';
 import { useConfig } from '../config-provider';
 import { useContent } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
@@ -28,7 +25,7 @@ export default defineComponent({
 
     const { classPrefix: prefix } = useConfig('upload');
 
-    const COMPONENT_NAME = computed(() => {
+    const UPLOAD_NAME = computed(() => {
       return `${prefix.value}-upload`;
     });
 
@@ -165,7 +162,7 @@ export default defineComponent({
       return props.draggable ? (
         renderDraggerTrigger()
       ) : (
-        <div class={`${COMPONENT_NAME.value}__trigger`} onclick={triggerUpload}>
+        <div class={`${UPLOAD_NAME.value}__trigger`} onclick={triggerUpload}>
           {triggerElement}
         </div>
       );
@@ -204,7 +201,7 @@ export default defineComponent({
           onDragenter={handleDragenter}
           onDragleave={handleDragleave}
         >
-          <div class={`${COMPONENT_NAME.value}__trigger`} onclick={triggerUpload}>
+          <div class={`${UPLOAD_NAME.value}__trigger`} onclick={triggerUpload}>
             {triggerElement}
           </div>
         </FlowList>
@@ -217,7 +214,7 @@ export default defineComponent({
           showOverlay
           width="auto"
           top="10%"
-          class={`${COMPONENT_NAME.value}__dialog`}
+          class={`${UPLOAD_NAME.value}__dialog`}
           footer={false}
           header={false}
           onClose={cancelPreviewImgDialog}
@@ -229,11 +226,11 @@ export default defineComponent({
       );
 
     const tipsClasses = computed(() => {
-      return [`${COMPONENT_NAME.value}__tips ${prefix.value}-size-s`];
+      return [`${UPLOAD_NAME.value}__tips ${prefix.value}-size-s`];
     });
 
     const errorClasses = computed(() => {
-      return tipsClasses.value.concat(`${COMPONENT_NAME.value}__tips-error`);
+      return tipsClasses.value.concat(`${UPLOAD_NAME.value}__tips-error`);
     });
 
     const renderTip = () => {
@@ -246,7 +243,7 @@ export default defineComponent({
     };
 
     return {
-      COMPONENT_NAME,
+      UPLOAD_NAME,
       inputRef,
       singleDraggable,
       renderInput,
@@ -265,7 +262,7 @@ export default defineComponent({
   render() {
     const triggerElement = this.renderTrigger();
     return (
-      <div class={`${this.COMPONENT_NAME}`}>
+      <div class={`${this.UPLOAD_NAME}`}>
         {this.renderInput()}
         {this.renderCustom(triggerElement)}
         {this.renderSingleDisplay(triggerElement)}

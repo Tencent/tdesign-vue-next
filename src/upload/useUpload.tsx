@@ -37,9 +37,14 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
     props.onFail?.(context);
   };
 
-  const handleSuccess = ({ event, file, response }: SuccessContext) => {
-    if (!file) throw new Error('Error file');
-    file.status = 'success';
+  const handleSuccess = ({ event, file, files: currentFiles, response }: SuccessContext) => {
+    const innerFiles = Array.isArray(currentFiles) ? currentFiles : [file];
+    if (innerFiles?.length <= 0) return log.error('Uploader', 'success no files');
+
+    innerFiles.forEach((file) => {
+      file.status = 'success';
+    });
+
     let res = response;
     if (typeof props.formatResponse === 'function') {
       res = props.formatResponse(response, { file });
@@ -55,7 +60,11 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
       uploadCtx.loadingFile = null;
       return;
     }
-    file.url = res?.url || file.url;
+
+    if (!props.uploadInOneRequest) {
+      innerFiles[0].url = res.url || innerFiles[0].url;
+    }
+
     // 从待上传文件队列中移除上传成功的文件
     const index = findIndex(uploadCtx.toUploadFiles, (o: any) => o.name === file.name);
     uploadCtx.toUploadFiles.splice(index, 1);
@@ -224,7 +233,7 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
         status: 'waiting',
         ...file,
       };
-      // uploadFile.url = this.getLocalFileURL(fileRaw);
+
       const reader = new FileReader();
       reader.readAsDataURL(fileRaw);
       reader.onload = (event: ProgressEvent<FileReader>) => {

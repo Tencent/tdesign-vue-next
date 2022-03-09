@@ -1,4 +1,3 @@
-import { Ref } from 'vue';
 import { TdUploadProps, UploadFile } from './type';
 
 import {

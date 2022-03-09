@@ -1,19 +1,15 @@
 import { defineComponent, PropType, computed } from 'vue';
 
-// components
 import { CloseCircleFilledIcon, ErrorCircleFilledIcon, CheckCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
 
-// utils
 import props from './props';
 import { UploadFile } from './type';
 import { abridgeName } from './util';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
-// hooks
 import { useConfig } from '../config-provider';
 
-// props
 const SingleFileProps = {
   file: {
     type: Object as PropType<UploadFile>,
