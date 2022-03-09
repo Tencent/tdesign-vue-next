@@ -183,3 +183,12 @@ export const useActions = (props: TdUploadProps, uploadCtx: UploadCtxType, disab
   };
   return { handleChange, multipleUpload, triggerUpload, cancelUpload, handleDragChange, upload, inputRef };
 };
+
+export const useBatchUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
+  const uploadInOneRequest = computed(() => {
+    return props.multiple && props.uploadAllFilesInOneRequest;
+  });
+  const canBatchUpload = computed(() => {
+    return uploadInOneRequest.value && props.isBatchUpload;
+  });
+};

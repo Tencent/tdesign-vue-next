@@ -1,6 +1,5 @@
 import { defineComponent, ref, PropType, computed } from 'vue';
 
-// components
 import {
   TimeFilledIcon,
   CheckCircleFilledIcon,
@@ -11,14 +10,12 @@ import {
 import TButton from '../button';
 import TLoading from '../loading';
 
-// utils
 import { UploadFile } from './type';
 import { FlowRemoveContext } from './interface';
 import props from './props';
 import { returnFileSize, abridgeName } from './util';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
-// hooks
 import { useFormDisabled } from '../form/hooks';
 import { useConfig } from '../config-provider';
 

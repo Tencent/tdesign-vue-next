@@ -1,6 +1,5 @@
 import { defineComponent, PropType, computed, ref } from 'vue';
 
-// components
 import { CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TButton from '../button';
 
@@ -10,7 +9,6 @@ import TLoading from '../loading';
 import { returnFileSize, getCurrentDate, abridgeName } from './util';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
-// hooks
 import { useConfig } from '../config-provider';
 
 const TUploadDraggerProps = {

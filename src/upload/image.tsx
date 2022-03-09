@@ -1,20 +1,16 @@
 import { defineComponent, PropType, computed } from 'vue';
 
-// components
 import { AddIcon, DeleteIcon, BrowseIcon } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
 
-// utils
 import CLASSNAMES from '../utils/classnames';
 import { UploadFile } from './type';
 import props from './props';
 import { UploadRemoveOptions } from './interface';
 
-// hooks
 import { useFormDisabled } from '../form/hooks';
 import { useConfig } from '../config-provider';
 
-// props
 const ImageProps = {
   files: props.files,
   loadingFile: {
