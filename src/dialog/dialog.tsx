@@ -106,16 +106,16 @@ export default defineComponent({
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
     const isModeless = computed(() => props.mode === 'modeless');
-    const maskClass = computed(() => [`${COMPONENT_NAME}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
+    const maskClass = computed(() => [`${COMPONENT_NAME.value}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
     const dialogClass = computed(() => {
       const dialogClass = [
-        `${COMPONENT_NAME}`,
-        `${COMPONENT_NAME}--default`,
-        `${COMPONENT_NAME}--${props.placement}`,
-        `${COMPONENT_NAME}__modal-${props.theme}`,
+        `${COMPONENT_NAME.value}`,
+        `${COMPONENT_NAME.value}--default`,
+        `${COMPONENT_NAME.value}--${props.placement}`,
+        `${COMPONENT_NAME.value}__modal-${props.theme}`,
       ];
       if (['modeless', 'modal'].includes(props.mode)) {
-        dialogClass.push(`${COMPONENT_NAME}--fixed`);
+        dialogClass.push(`${COMPONENT_NAME.value}--fixed`);
       }
       return dialogClass;
     });
@@ -253,7 +253,8 @@ export default defineComponent({
           })}
         </div>
       );
-      const bodyClassName = props.theme === 'default' ? `${COMPONENT_NAME}__body` : `${COMPONENT_NAME}__body__icon`;
+      const bodyClassName =
+        props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div
@@ -263,17 +264,17 @@ export default defineComponent({
           v-draggable={isModeless.value && props.draggable}
           ref="dialogEle"
         >
-          <div class={`${COMPONENT_NAME}__header`}>
+          <div class={`${COMPONENT_NAME.value}__header`}>
             {getIcon()}
             {renderTNodeJSX('header', defaultHeader)}
           </div>
           {props.closeBtn ? (
-            <span class={`${COMPONENT_NAME}__close`} onClick={closeBtnAction}>
+            <span class={`${COMPONENT_NAME.value}__close`} onClick={closeBtnAction}>
               {renderTNodeJSX('closeBtn', defaultCloseBtn)}
             </span>
           ) : null}
           <div class={bodyClassName}>{body}</div>
-          <div class={`${COMPONENT_NAME}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
+          <div class={`${COMPONENT_NAME.value}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
         </div>
       );
     };

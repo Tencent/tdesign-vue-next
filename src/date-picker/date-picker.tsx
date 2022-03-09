@@ -23,7 +23,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useConfig, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 dayjs.extend(isBetween);
 
@@ -43,7 +43,7 @@ export default defineComponent({
   emits: ['input', 'open', 'close', 'focus', 'click', 'change', 'pick'],
   setup() {
     const disabled = useFormDisabled();
-    const { classPrefix } = useConfig('classPrefix');
+    const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('date-picker');
     const { SIZE, STATUS } = useCommonClassName();
     return {

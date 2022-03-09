@@ -1,11 +1,8 @@
 import { computed, defineComponent, inject } from 'vue';
-import { prefix } from '../config';
 import props from './col-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
-
+import { usePrefixClass } from '../config-provider';
 import { RowProviderType, useRowSize, parseFlex, calcColPadding, getColClasses } from './common';
-
-const name = `${prefix}-col`;
 
 export default defineComponent({
   name: 'TCol',
@@ -15,11 +12,12 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
+    const COMPONENT_NAME = usePrefixClass('col');
     const rowContext = inject<RowProviderType>('rowContext', Object.create(null));
 
     const size = useRowSize();
 
-    const colClasses = computed(() => getColClasses(name, props));
+    const colClasses = computed(() => getColClasses(COMPONENT_NAME.value, props));
 
     const colStyle = computed(() => {
       const colStyle: Record<string, string> = {};

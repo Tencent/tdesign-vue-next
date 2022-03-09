@@ -1,13 +1,11 @@
 import { defineComponent, VNode } from 'vue';
 import DropdownItem from './dropdown-item';
-import { prefix } from '../config';
 import { DropdownOption } from './type';
 import { TNodeReturnValue } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { pxCompat } from '../utils/helper';
 import { emitEvent } from '../utils/event';
-
-const name = `${prefix}-dropdown__menu`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TDropdownMenu',
@@ -38,6 +36,12 @@ export default defineComponent({
     },
   },
   emits: ['click'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('dropdown__menu');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       path: '', // 当前选中路径，形如{/id1/id2/id3}
@@ -59,7 +63,7 @@ export default defineComponent({
       emitEvent(this, 'click', data, context);
     },
     renderMenuColumn(children: Array<DropdownOption>, showSubmenu: boolean, pathPrefix: string): VNode {
-      const menuClass = [`${name}-column`, 'narrow-scrollbar', { submenu__visible: showSubmenu }];
+      const menuClass = [`${this.COMPONENT_NAME}-column`, 'narrow-scrollbar', { submenu__visible: showSubmenu }];
       const { maxHeight, maxColumnWidth, minColumnWidth } = this.dropdown;
       return (
         <div
@@ -91,14 +95,15 @@ export default defineComponent({
     },
   },
   render() {
+    const { COMPONENT_NAME } = this;
     const columns: TNodeReturnValue[] = [];
     let menuItems = this.options as DropdownOption[];
     let pathPrefix = '';
     if (this.$slots.default) {
       return (
-        <div class={name}>
+        <div class={COMPONENT_NAME}>
           <div
-            class={[`${name}-column`, 'narrow-scrollbar']}
+            class={[`${COMPONENT_NAME}-column`, 'narrow-scrollbar']}
             style={{
               maxHeight: `${this.dropdown.maxHeight}px`,
               maxWidth: `${this.dropdown.maxColumnWidth}px`,
@@ -124,6 +129,6 @@ export default defineComponent({
         menuItems = [];
       }
     }
-    return <div class={name}>{columns}</div>;
+    return <div class={COMPONENT_NAME}>{columns}</div>;
   },
 });

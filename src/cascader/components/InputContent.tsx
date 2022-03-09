@@ -34,7 +34,7 @@ import { TreeNode, InputContentProps } from '../interface';
 import CascaderProps from '../props';
 
 // hooks
-import { usePrefixClass, useConfig } from '../../config-provider';
+import { usePrefixClass } from '../../config-provider';
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<CascaderConfig>('cascader')),
@@ -58,7 +58,7 @@ export default defineComponent({
   emits: ['change'],
   setup() {
     const COMPONENT_NAME = usePrefixClass('cascader');
-    const { classPrefix } = useConfig('classPrefix');
+    const classPrefix = usePrefixClass();
     return {
       COMPONENT_NAME,
       classPrefix,

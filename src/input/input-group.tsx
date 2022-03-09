@@ -1,8 +1,7 @@
 import { defineComponent } from 'vue';
-import { prefix } from '../config';
 import { ClassName } from '../common';
+import { usePrefixClass } from '../config-provider';
 
-const name = `${prefix}-input-group`;
 export default defineComponent({
   name: 'TInputGroup',
   props: {
@@ -11,12 +10,18 @@ export default defineComponent({
       default: false,
     },
   },
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('input-group');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   computed: {
     CLASS(): ClassName {
       return [
-        name,
+        this.COMPONENT_NAME,
         {
-          [`${name}--separate`]: this.separate,
+          [`${this.COMPONENT_NAME}--separate`]: this.separate,
         },
       ];
     },

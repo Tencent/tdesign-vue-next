@@ -58,10 +58,10 @@ export function useConfig<T extends keyof GlobalConfig>(componentName: T) {
   };
 }
 
-export function usePrefixClass(componentName: string) {
+export function usePrefixClass(componentName?: string) {
   const { classPrefix } = useConfig('classPrefix');
   return computed(() => {
-    return `${classPrefix.value}-${componentName}`;
+    return componentName ? `${classPrefix.value}-${componentName}` : classPrefix.value;
   });
 }
 
