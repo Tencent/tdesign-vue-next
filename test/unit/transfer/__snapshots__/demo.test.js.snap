@@ -4126,7 +4126,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </transition-stub>
               
               <div
-                class="t-select t-size-s"
+                class="t-select t-select-polyfill t-size-s"
               >
                 <!---->
                 <!---->
@@ -4150,7 +4150,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -4362,17 +4362,22 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input"
+            class="t-input__wrap"
           >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="请输入关键词搜索"
-              type="text"
-            />
-            <!---->
-            <!---->
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder="请输入关键词搜索"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
             <!---->
           </div>
         </div>
@@ -4979,17 +4984,22 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input"
+            class="t-input__wrap"
           >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="请输入关键词搜索"
-              type="text"
-            />
-            <!---->
-            <!---->
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder="请输入关键词搜索"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
             <!---->
           </div>
         </div>

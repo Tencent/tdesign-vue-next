@@ -93,7 +93,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -117,7 +117,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -230,7 +230,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -254,7 +254,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -420,7 +420,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -494,7 +494,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -657,7 +657,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -751,7 +751,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -914,7 +914,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -1015,7 +1015,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1109,7 +1109,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -1127,23 +1127,28 @@ exports[`Select Select creatableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-is-readonly t-select__input"
-          modelvalue=""
+          class="t-input__wrap"
         >
-          <!---->
-          <!---->
-          <input
-            class="t-input__inner"
-            placeholder="支持自定义创建"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
+          <div
+            class="t-input t-is-readonly t-select__input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="支持自定义创建"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1437,7 +1442,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -1461,7 +1466,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -1774,7 +1779,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -1798,7 +1803,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -2108,7 +2113,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -2199,7 +2204,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -2506,7 +2511,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -2611,7 +2616,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -2705,7 +2710,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-is-disabled t-size-m"
+        class="t-select t-select-polyfill t-is-disabled t-size-m"
       >
         <!---->
         <span
@@ -2729,7 +2734,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -2890,7 +2895,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-is-disabled t-size-m"
+        class="t-select t-select-polyfill t-is-disabled t-size-m"
       >
         <!---->
         <!---->
@@ -2941,7 +2946,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3035,7 +3040,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -3053,23 +3058,28 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-is-readonly t-select__input"
-          modelvalue=""
+          class="t-input__wrap"
         >
-          <!---->
-          <!---->
-          <input
-            class="t-input__inner"
-            placeholder="-请选择-"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
+          <div
+            class="t-input t-is-readonly t-select__input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="-请选择-"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3230,7 +3240,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -3248,23 +3258,28 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-is-readonly t-select__input"
-          modelvalue=""
+          class="t-input__wrap"
         >
-          <!---->
-          <!---->
-          <input
-            class="t-input__inner"
-            placeholder="-请选择-"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
+          <div
+            class="t-input t-is-readonly t-select__input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="-请选择-"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3447,7 +3462,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -3465,23 +3480,28 @@ exports[`Select Select groupVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-is-readonly t-select__input"
-          modelvalue=""
+          class="t-input__wrap"
         >
-          <!---->
-          <!---->
-          <input
-            class="t-input__inner"
-            placeholder="请选择"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
+          <div
+            class="t-input t-is-readonly t-select__input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请选择"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3667,7 +3687,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -3685,23 +3705,28 @@ exports[`Select Select groupVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-is-readonly t-select__input"
-          modelvalue=""
+          class="t-input__wrap"
         >
-          <!---->
-          <!---->
-          <input
-            class="t-input__inner"
-            placeholder="请选择"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
+          <div
+            class="t-input t-is-readonly t-select__input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请选择"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3795,7 +3820,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -3819,7 +3844,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -3980,7 +4005,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -4027,7 +4052,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -4193,7 +4218,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -4217,7 +4242,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -4460,7 +4485,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -4535,7 +4560,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -4776,7 +4801,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -4963,7 +4988,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5201,7 +5226,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -5331,7 +5356,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5425,7 +5450,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m t-no-border"
+        class="t-select t-select-polyfill t-size-m t-no-border"
       >
         <!---->
         <!---->
@@ -5449,7 +5474,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5571,7 +5596,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -5595,7 +5620,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5707,7 +5732,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -5731,7 +5756,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5825,7 +5850,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -5849,7 +5874,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -5938,7 +5963,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -5962,7 +5987,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
         </span>
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6056,7 +6081,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m t-has-prefix"
+        class="t-select t-select-polyfill t-size-m t-has-prefix"
       >
         <span
           class="t-select__left-icon"
@@ -6090,7 +6115,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6184,7 +6209,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -6202,23 +6227,28 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-is-readonly t-select__input"
-          modelvalue=""
+          class="t-input__wrap"
         >
-          <!---->
-          <!---->
-          <input
-            class="t-input__inner"
-            placeholder="请选择"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
+          <div
+            class="t-input t-is-readonly t-select__input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请选择"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6310,7 +6340,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <!---->
@@ -6328,23 +6358,28 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input t-is-readonly t-select__input"
-          modelvalue=""
+          class="t-input__wrap"
         >
-          <!---->
-          <!---->
-          <input
-            class="t-input__inner"
-            placeholder="请输入搜索"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
+          <div
+            class="t-input t-is-readonly t-select__input"
+            modelvalue=""
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入搜索"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
           <!---->
         </div>
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6450,7 +6485,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-s"
+        class="t-select t-select-polyfill t-size-s"
       >
         <!---->
         <span
@@ -6474,7 +6509,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6563,7 +6598,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -6587,7 +6622,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6676,7 +6711,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-l"
+        class="t-select t-select-polyfill t-size-l"
       >
         <!---->
         <span
@@ -6700,7 +6735,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6807,7 +6842,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -6831,7 +6866,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -6931,7 +6966,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-is-disabled t-size-m"
+        class="t-select t-select-polyfill t-is-disabled t-size-m"
       >
         <!---->
         <span
@@ -6955,7 +6990,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         <!---->
         <!---->
         <svg
-          class="t-fake-arrow t-select__right-icon"
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
           fill="none"
           height="16"
           viewBox="0 0 16 16"
@@ -7028,7 +7063,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-select t-size-m"
+        class="t-select t-select-polyfill t-size-m"
       >
         <!---->
         <span
@@ -7054,7 +7089,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
         <!---->
         <!---->
         <div
-          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon"
+          class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill"
         >
           <svg
             class="t-loading__gradient t-icon-loading"

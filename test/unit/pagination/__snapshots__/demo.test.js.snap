@@ -90,7 +90,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
@@ -114,7 +114,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -318,7 +318,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
@@ -342,7 +342,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -523,7 +523,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
@@ -547,7 +547,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -653,12 +653,16 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
       >
         <!---->
         <div
-          class="t-input"
+          class="t-input__wrap"
         >
-          <input
-            autocomplete="off"
-            class="t-input__inner"
-          />
+          <div
+            class="t-input"
+          >
+            <input
+              autocomplete="off"
+              class="t-input__inner"
+            />
+          </div>
         </div>
         <!---->
       </div>
@@ -758,7 +762,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-s"
+          class="t-select t-select-polyfill t-size-s"
         >
           <!---->
           <!---->
@@ -782,7 +786,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -987,7 +991,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
@@ -1011,7 +1015,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1238,7 +1242,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
@@ -1262,7 +1266,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1467,7 +1471,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-s"
+          class="t-select t-select-polyfill t-size-s"
         >
           <!---->
           <!---->
@@ -1491,7 +1495,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1698,7 +1702,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-s"
+          class="t-select t-select-polyfill t-size-s"
         >
           <!---->
           <!---->
@@ -1722,7 +1726,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1855,7 +1859,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
@@ -1879,7 +1883,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -2086,7 +2090,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
@@ -2110,7 +2114,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -2243,7 +2247,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
@@ -2267,7 +2271,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"

@@ -329,14 +329,11 @@ export default defineComponent({
       </div>
     );
     const tips = renderTNodeJSX(this, 'tips');
-    if (tips) {
-      return (
-        <div class={INPUT_WRAP_CLASS}>
-          {inputNode}
-          <div class={`${INPUT_TIPS_CLASS} ${prefix}-input__tips--${this.status || 'normal'}`}>{tips}</div>
-        </div>
-      );
-    }
-    return inputNode;
+    return (
+      <div class={INPUT_WRAP_CLASS}>
+        {inputNode}
+        {tips && <div class={`${INPUT_TIPS_CLASS} ${prefix}-input__tips--${this.status || 'normal'}`}>{tips}</div>}
+      </div>
+    );
   },
 });
