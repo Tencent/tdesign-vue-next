@@ -6,12 +6,9 @@ import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
-import { useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-
-const name = `${prefix}-dialog`;
-const lockClass = `${prefix}-dialog--lock`;
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -87,6 +84,8 @@ export default defineComponent({
 
   emits: ['update:visible'],
   setup(props: TdDialogProps, context) {
+    const COMPONENT_NAME = usePrefixClass('dialog');
+    const LOCK_CLASS = usePrefixClass('dialog--lock');
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
@@ -107,16 +106,16 @@ export default defineComponent({
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
     const isModeless = computed(() => props.mode === 'modeless');
-    const maskClass = computed(() => [`${name}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
+    const maskClass = computed(() => [`${COMPONENT_NAME}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
     const dialogClass = computed(() => {
       const dialogClass = [
-        `${name}`,
-        `${name}--default`,
-        `${name}--${props.placement}`,
-        `${name}__modal-${props.theme}`,
+        `${COMPONENT_NAME}`,
+        `${COMPONENT_NAME}--default`,
+        `${COMPONENT_NAME}--${props.placement}`,
+        `${COMPONENT_NAME}__modal-${props.theme}`,
       ];
       if (['modeless', 'modal'].includes(props.mode)) {
-        dialogClass.push(`${name}--fixed`);
+        dialogClass.push(`${COMPONENT_NAME}--fixed`);
       }
       return dialogClass;
     });
@@ -147,7 +146,7 @@ export default defineComponent({
             const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
             document.body.style.cssText = bodyCssText;
           }
-          !isModeless.value && addClass(document.body, lockClass);
+          !isModeless.value && addClass(document.body, LOCK_CLASS.value);
           nextTick(() => {
             if (mousePosition && dialogEle.value) {
               dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
@@ -157,7 +156,7 @@ export default defineComponent({
           });
         } else {
           document.body.style.cssText = '';
-          removeClass(document.body, lockClass);
+          removeClass(document.body, LOCK_CLASS.value);
         }
         addKeyboardEvent(value);
       },
@@ -254,7 +253,7 @@ export default defineComponent({
           })}
         </div>
       );
-      const bodyClassName = props.theme === 'default' ? `${name}__body` : `${name}__body__icon`;
+      const bodyClassName = props.theme === 'default' ? `${COMPONENT_NAME}__body` : `${COMPONENT_NAME}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div
@@ -264,17 +263,17 @@ export default defineComponent({
           v-draggable={isModeless.value && props.draggable}
           ref="dialogEle"
         >
-          <div class={`${name}__header`}>
+          <div class={`${COMPONENT_NAME}__header`}>
             {getIcon()}
             {renderTNodeJSX('header', defaultHeader)}
           </div>
           {props.closeBtn ? (
-            <span class={`${name}__close`} onClick={closeBtnAction}>
+            <span class={`${COMPONENT_NAME}__close`} onClick={closeBtnAction}>
               {renderTNodeJSX('closeBtn', defaultCloseBtn)}
             </span>
           ) : null}
           <div class={bodyClassName}>{body}</div>
-          <div class={`${name}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
+          <div class={`${COMPONENT_NAME}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
         </div>
       );
     };
@@ -287,6 +286,7 @@ export default defineComponent({
     });
 
     return {
+      COMPONENT_NAME,
       scrollWidth,
       isModal,
       isModeless,
@@ -302,15 +302,16 @@ export default defineComponent({
     };
   },
   render() {
+    const { COMPONENT_NAME } = this;
     const maskView = this.isModal && <div key="mask" class={this.maskClass} onClick={this.overlayAction}></div>;
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };
-    const ctxClass = [`${name}__ctx`, { 't-dialog__ctx--fixed': this.mode === 'modal' }];
+    const ctxClass = [`${COMPONENT_NAME}__ctx`, { 't-dialog__ctx--fixed': this.mode === 'modal' }];
     return (
       <transition
         duration={300}
-        name={`${name}-zoom__vue`}
+        name={`${COMPONENT_NAME}-zoom__vue`}
         onAfterEnter={this.afterEnter}
         onAfterLeave={this.afterLeave}
       >

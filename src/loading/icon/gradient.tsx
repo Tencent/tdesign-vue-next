@@ -1,20 +1,23 @@
 import { defineComponent, onMounted, getCurrentInstance } from 'vue';
-import { prefix } from '../../config';
 import circleAdapter from '../../_common/js/loading/circle-adapter';
-
-const name = `${prefix}-loading__gradient`;
+import { useConfig } from '../../config-provider';
 
 export default defineComponent({
-  name,
+  name: 'TLoadingGradient',
 
   setup() {
+    const { classPrefix } = useConfig('classPrefix');
     onMounted(() => {
       const circleElem = getCurrentInstance().refs.circle as HTMLElement;
       circleAdapter(circleElem);
     });
+    return {
+      classPrefix,
+    };
   },
   render() {
-    const classes = [name, `${prefix}-icon-loading`];
+    const { classPrefix } = this;
+    const classes = [`${classPrefix}-loading__gradient`, `${classPrefix}-icon-loading`];
     return (
       <svg
         class={classes}

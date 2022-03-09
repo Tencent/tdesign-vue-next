@@ -1,7 +1,6 @@
 import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import { prefix } from '../config';
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
@@ -39,12 +38,14 @@ export default defineComponent({
 
   emits: ['click'],
   setup() {
+    const COMPONENT_NAME = usePrefixClass('breadcrumb__item');
     const separatorClass = usePrefixClass('breadcrumb__separator');
     const disableClass = usePrefixClass('is-disabled');
     const linkClass = usePrefixClass('link');
     const maxLengthClass = usePrefixClass('breadcrumb__inner');
     const textFlowClass = usePrefixClass('breadcrumb--text-overflow');
     return {
+      COMPONENT_NAME,
       separatorClass,
       disableClass,
       linkClass,
@@ -112,7 +113,7 @@ export default defineComponent({
     const separatorContent = separatorPropContent || separatorSlot || (
       <ChevronRightIcon {...{ color: 'rgba(0,0,0,.3)' }} />
     );
-    const itemClass = [`${prefix}-breadcrumb__item`, this.themeClassName];
+    const itemClass = [this.COMPONENT_NAME, this.themeClassName];
     const textClass = [textFlowClass];
 
     if (this.disabled) {

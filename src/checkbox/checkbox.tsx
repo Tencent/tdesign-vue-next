@@ -1,6 +1,5 @@
 import { defineComponent, ref } from 'vue';
 import { renderContent } from '../utils/render-tnode';
-import CLASSNAMES from '../utils/classnames';
 import checkboxProps from './props';
 import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
@@ -9,7 +8,7 @@ import { TdCheckboxProps } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TCheckbox',
@@ -25,12 +24,14 @@ export default defineComponent({
     const formDisabled = useFormDisabled();
     const labelRef = ref<HTMLElement>();
     const COMPONENT_NAME = usePrefixClass('checkbox');
+    const { STATUS } = useCommonClassName();
 
     if (props.needRipple) {
       useRipple(labelRef);
     }
     return {
       COMPONENT_NAME,
+      STATUS,
       formDisabled,
       labelRef,
     };
@@ -41,9 +42,9 @@ export default defineComponent({
       return [
         `${this.COMPONENT_NAME}`,
         {
-          [CLASSNAMES.STATUS.checked]: this.checked$,
-          [CLASSNAMES.STATUS.disabled]: this.disabled$,
-          [CLASSNAMES.STATUS.indeterminate]: this.indeterminate$,
+          [this.STATUS.checked]: this.checked$,
+          [this.STATUS.disabled]: this.disabled$,
+          [this.STATUS.indeterminate]: this.indeterminate$,
         },
       ];
     },

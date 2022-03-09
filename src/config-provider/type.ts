@@ -11,13 +11,13 @@ import { TNode } from '../common';
 
 export interface GlobalConfigProvider {
   /**
-   * 锚点全局配置
-   */
-  anchor?: AnchorConfig;
-  /**
    * 警告全局配置
    */
   alert?: AlertConfig;
+  /**
+   * 锚点全局配置
+   */
+  anchor?: AnchorConfig;
   /**
    * 动画效果控制，`ripple`指波纹动画， `expand` 指展开动画，`fade` 指渐变动画
    * @default `{ include: ['ripple','expand','fade'], exclude: [] }`
@@ -104,32 +104,6 @@ export interface GlobalConfigProvider {
    * 上传组件全局配置
    */
   upload?: UploadConfig;
-}
-
-export interface AnchorConfig {
-  /**
-   * 展开提示文本
-   * @default 请输入
-   */
-  copySuccessText?: string;
-  /**
-   * 收起提示文本
-   * @default 请输入
-   */
-  copyText?: string;
-}
-
-export interface AlertConfig {
-  /**
-   * 展开提示文本
-   * @default 请输入
-   */
-  expandText?: string;
-  /**
-   * 收起提示文本
-   * @default 请输入
-   */
-  collapseText?: string;
 }
 
 export interface InputConfig {
@@ -680,6 +654,32 @@ export interface StepsConfig {
    * 错误步骤图标，【注意】使用渲染函数输出图标组件
    */
   errorIcon?: TNode;
+}
+
+export interface AlertConfig {
+  /**
+   * 收起提示文本
+   * @default 收起
+   */
+  collapseText?: string;
+  /**
+   * 展开提示文本
+   * @default 展开更多
+   */
+  expandText?: string;
+}
+
+export interface AnchorConfig {
+  /**
+   * 复制成功文字
+   * @default 链接复制成功
+   */
+  copySuccessText?: string;
+  /**
+   * 复制提示文字
+   * @default 复制链接
+   */
+  copyText?: string;
 }
 
 export type AnimationType = 'ripple' | 'expand' | 'fade';

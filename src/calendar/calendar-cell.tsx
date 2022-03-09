@@ -1,12 +1,8 @@
 import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
-import { prefix } from '../config';
 import { emitEvent } from '../utils/event';
 
-// 通用库
-
-// 组件的一些常量
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass, useConfig, useCommonClassName } from '../config-provider';
 
 // 组件相关的自定义类型
 import { CalendarCell } from './type';
@@ -41,8 +37,12 @@ export default defineComponent({
   emits: ['click', 'dblclick', 'rightclick'],
   setup() {
     const COMPONENT_NAME = usePrefixClass('calendar');
+    const { STATUS } = useCommonClassName();
+    const { classPrefix } = useConfig('classPrefix');
     return {
+      STATUS,
       COMPONENT_NAME,
+      classPrefix,
     };
   },
   computed: {
@@ -66,10 +66,10 @@ export default defineComponent({
       const isNow =
         mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
       return [
-        `${prefix}-calendar__table-body-cell`,
+        `${this.COMPONENT_NAME}__table-body-cell`,
         {
-          [`${prefix}-is-disabled`]: this.disabled,
-          [`${prefix}-is-checked`]: isCurrent,
+          [this.STATUS.disabled]: this.disabled,
+          [this.STATUS.checked]: isCurrent,
           [`${this.COMPONENT_NAME}__table-body-cell--now`]: isNow,
         },
       ];
@@ -87,8 +87,8 @@ export default defineComponent({
 
     const defaultNode = () => (
       <span>
-        <div class={`${prefix}-calendar__table-body-cell-display`}>{valueDisplay}</div>
-        <div class={`${prefix}-calendar__table-body-cell-content`}>
+        <div class={`${this.COMPONENT_NAME}__table-body-cell-display`}>{valueDisplay}</div>
+        <div class={`${this.COMPONENT_NAME}__table-body-cell-content`}>
           {allowSlot &&
             renderTNodeJSX(this, 'cellAppend', {
               params: item,

@@ -1,6 +1,6 @@
 import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 import { addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
 import { prefix } from '../config';
@@ -13,7 +13,6 @@ import { useAction } from '../dialog/hooks';
 
 type FooterButtonType = 'confirm' | 'cancel';
 
-const name = `${prefix}-drawer`;
 const lockClass = `${prefix}-drawer--lock`;
 
 export default defineComponent({
@@ -32,6 +31,7 @@ export default defineComponent({
   emits: ['update:visible'],
   setup(props, context) {
     const { global } = useConfig('drawer');
+    const COMPONENT_NAME = usePrefixClass('drawer');
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
     };
@@ -119,7 +119,12 @@ export default defineComponent({
       const theme = isCancel ? 'default' : 'primary';
       const isApiObject = typeof btnApi === 'object';
       return (
-        <t-button theme={theme} onClick={clickAction} props={isApiObject ? btnApi : {}} class={`${name}-${btnType}`}>
+        <t-button
+          theme={theme}
+          onClick={clickAction}
+          props={isApiObject ? btnApi : {}}
+          class={`${COMPONENT_NAME.value}-${btnType}`}
+        >
           {btnApi && typeof btnApi === 'object' ? btnApi.content : btnApi}
         </t-button>
       );
@@ -134,13 +139,13 @@ export default defineComponent({
       const confirmBtn = getConfirmBtn({
         confirmBtn: props.confirmBtn,
         globalConfirm: global.value.confirm,
-        className: `${prefix}-drawer__confirm`,
+        className: `${COMPONENT_NAME.value}__confirm`,
       });
       // this.getCancelBtn is a function of useAction
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn,
         globalCancel: global.value.cancel,
-        className: `${prefix}-drawer__cancel`,
+        className: `${COMPONENT_NAME.value}__cancel`,
       });
       return (
         <div style={footerStyle.value}>
@@ -195,6 +200,7 @@ export default defineComponent({
     });
 
     return {
+      COMPONENT_NAME,
       drawerEle,
       drawerClasses,
       wrapperStyles,
@@ -215,6 +221,7 @@ export default defineComponent({
   },
 
   render() {
+    const { COMPONENT_NAME } = this;
     if (this.destroyOnClose && !this.visible) return;
     const defaultCloseBtn = <close-icon class="t-submenu-icon"></close-icon>;
     const body = renderContent(this, 'body', 'default');
@@ -228,16 +235,18 @@ export default defineComponent({
         {...this.$attrs}
         ref="drawerEle"
       >
-        {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick} />}
+        {this.showOverlay && <div class={`${COMPONENT_NAME}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wrapperClasses} style={this.wrapperStyles}>
-          {this.header && <div class={`${name}__header`}>{renderTNodeJSX(this, 'header')}</div>}
+          {this.header && <div class={`${COMPONENT_NAME}__header`}>{renderTNodeJSX(this, 'header')}</div>}
           {this.closeBtn && (
-            <div class={`${name}__close-btn`} onClick={this.handleCloseBtnClick}>
+            <div class={`${COMPONENT_NAME}__close-btn`} onClick={this.handleCloseBtnClick}>
               {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
             </div>
           )}
-          <div class={[`${name}__body`, 'narrow-scrollbar']}>{body}</div>
-          {this.footer && <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>}
+          <div class={[`${COMPONENT_NAME}__body`, 'narrow-scrollbar']}>{body}</div>
+          {this.footer && (
+            <div class={`${COMPONENT_NAME}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>
+          )}
         </div>
       </div>
     );

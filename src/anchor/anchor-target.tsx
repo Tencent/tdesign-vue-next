@@ -40,12 +40,13 @@ export default defineComponent({
   },
   render() {
     const {
+      COMPONENT_NAME,
       classPrefix,
       tag: TAG,
       $slots: { default: children },
       id,
     } = this;
-    const className = [`${this.COMPONENT_NAME}__target`];
+    const className = [`${COMPONENT_NAME}__target`];
     const iconClassName = `${classPrefix}-copy`;
     return (
       <TAG id={id} class={className}>

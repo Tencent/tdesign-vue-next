@@ -5,18 +5,21 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import { panelColProps } from './props';
 import { COMPONENT_NAME, EPickerCols } from '../constant';
-
-import { prefix } from '../../config';
-
-const name = `${prefix}-time-picker-pane-col`;
+import { useCommonClassName } from '../../config-provider';
 
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
-  name,
+  name: 'TTimePickerPanelCol',
   props: panelColProps(),
 
   emits: ['time-pick'],
+  setup() {
+    const { STATUS } = useCommonClassName();
+    return {
+      STATUS,
+    };
+  },
   data() {
     return {
       splitValue: Object.create(null),
@@ -148,8 +151,8 @@ export default defineComponent({
         const classNames = [
           `${COMPONENT_NAME}__panel-body-scroll-item`,
           {
-            [`${prefix}-is-disabled`]: !this.timeItemCanUsed(col, el),
-            [`${prefix}-is-current`]: isCurrent,
+            [this.STATUS.disabled]: !this.timeItemCanUsed(col, el),
+            [this.STATUS.current]: isCurrent,
           },
         ];
         return (

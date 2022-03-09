@@ -1,15 +1,15 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
-import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TdAvatarProps } from './type';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TAvatar',
   props,
   setup(props: TdAvatarProps) {
     const COMPONENT_NAME = usePrefixClass('avatar');
+    const { SIZE } = useCommonClassName();
     const avatarGroup = inject('avatarGroup', undefined);
     const avatar = ref<HTMLElement | null>(null);
     const avatarChild = ref<HTMLElement | null>(null);
@@ -19,7 +19,7 @@ export default defineComponent({
     const sizeValue = ref('');
     const scale = ref('');
 
-    const isCustomSize = computed(() => sizeValue.value && !CLASSNAMES.SIZE[sizeValue.value]);
+    const isCustomSize = computed(() => sizeValue.value && !SIZE.value[sizeValue.value]);
 
     const customAvatarSize = computed(() => {
       return isCustomSize.value
@@ -78,6 +78,7 @@ export default defineComponent({
 
     return {
       COMPONENT_NAME,
+      SIZE,
       avatar,
       avatarChild,
       isImgExist,
@@ -94,14 +95,14 @@ export default defineComponent({
   },
 
   render() {
-    const { COMPONENT_NAME } = this;
+    const { COMPONENT_NAME, SIZE } = this;
     let content = renderContent(this, 'default', 'content');
     const icon = renderTNodeJSX(this, 'icon');
     const isIconOnly = icon && !content;
     const { shape, image, alt } = this.$props;
     const avatarClass = [
       `${COMPONENT_NAME}`,
-      CLASSNAMES.SIZE[this.sizeValue],
+      SIZE[this.sizeValue],
       {
         [`${COMPONENT_NAME}--circle`]: shape === 'circle',
         [`${COMPONENT_NAME}--round`]: shape === 'round',
