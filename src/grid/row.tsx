@@ -16,7 +16,7 @@ export default defineComponent({
 
     const size = useRowSize();
 
-    const COMPONENT_NAME = usePrefixClass('col');
+    const COMPONENT_NAME = usePrefixClass('row');
     const rowClasses = computed(() => getRowClasses(COMPONENT_NAME.value, props));
 
     const rowStyle = computed(() => calcRowStyle(props.gutter, size.value));

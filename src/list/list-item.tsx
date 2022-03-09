@@ -22,7 +22,7 @@ export default defineComponent({
       <li class={COMPONENT_NAME}>
         <div class={`${COMPONENT_NAME}-main`}>
           {propsDefaultContent || propsContent}
-          {propsActionContent && <li class={`${name}__action`}>{propsActionContent}</li>}
+          {propsActionContent && <li class={`${COMPONENT_NAME}__action`}>{propsActionContent}</li>}
         </div>
       </li>
     );
