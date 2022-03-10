@@ -99,6 +99,102 @@ exports[`Input Input addonVue demo works fine 1`] = `
 </div>
 `;
 
+exports[`Input Input alignVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column"
+  style="max-width: 300px;"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input"
+    >
+      <!---->
+      <!---->
+      <input
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-center"
+    >
+      <!---->
+      <!---->
+      <input
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-align-right"
+    >
+      <!---->
+      <!---->
+      <input
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Input Input autoWidthVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-input--auto-width"
+    >
+      <!---->
+      <!---->
+      <input
+        class="t-input__inner"
+        placeholder="请输入"
+        type="text"
+      />
+      <span
+        class="t-input__input-pre"
+      >
+        宽度自适应
+      </span>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`Input Input baseVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
@@ -224,6 +320,34 @@ exports[`Input Input focusVue demo works fine 1`] = `
       <!---->
     </div>
     <!---->
+  </div>
+</div>
+`;
+
+exports[`Input Input formatVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input"
+      modelvalue=""
+    >
+      <!---->
+      <!---->
+      <input
+        class="t-input__inner"
+        placeholder="请输入数字"
+        type="text"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+    
   </div>
 </div>
 `;
@@ -464,6 +588,39 @@ exports[`Input Input groupVue demo works fine 1`] = `
       </div>
       
     </div>
+  </div>
+</div>
+`;
+
+exports[`Input Input maxLengthCountVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column"
+  style="max-width: 500px;"
+>
+  <div
+    class="t-input__wrap"
+  >
+    <div
+      class="t-input t-input--suffix"
+      modelvalue=""
+    >
+      <!---->
+      <!---->
+      <input
+        class="t-input__inner"
+        maxlength="5"
+        placeholder="请输入"
+        type="text"
+      />
+      <!---->
+      <div
+        class="t-input__suffix"
+      >
+        0/5
+      </div>
+      <!---->
+    </div>
+    <!---->
   </div>
 </div>
 `;
