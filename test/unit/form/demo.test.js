@@ -8,7 +8,6 @@ import baseVue from '@/examples/form/demos/base.vue';
 import clearValidateVue from '@/examples/form/demos/clear-validate.vue';
 import customValidatorVue from '@/examples/form/demos/custom-validator.vue';
 import disabledVue from '@/examples/form/demos/disabled.vue';
-import errorMessageVue from '@/examples/form/demos/error-message.vue';
 import layoutVue from '@/examples/form/demos/layout.vue';
 import loginVue from '@/examples/form/demos/login.vue';
 import resetVue from '@/examples/form/demos/reset.vue';
@@ -24,7 +23,6 @@ const mapper = {
   clearValidateVue,
   customValidatorVue,
   disabledVue,
-  errorMessageVue,
   layoutVue,
   loginVue,
   resetVue,
