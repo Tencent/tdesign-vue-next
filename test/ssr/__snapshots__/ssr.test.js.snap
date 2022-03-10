@@ -16034,6 +16034,251 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue correctly 1`] = `
+<div>
+  <!-- 可以使用全局 ConfigProvider errorMessage 配置规则校验结果描述，而无需给每一个表单都配置校验信息 -->
+  <div>
+    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="default">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="default" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 使用表单默认校验信息 <!--]--></div><!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="config" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 表单统一配置校验信息 <!--]--></div><!--]--><!--]--></span></label>
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+      <!--]-->
+    </div>
+  </div><br><br><!-- error-message 非必需 -->
+  <form class="t-form">
+    <!--[-->
+    <div class="t-form__item t-form-item__account t-form__item-with-help t-form__item-with-extra">
+      <div class="t-form__label t-form__label--required t-form__label--right" style="width:100px;"><label for>用户名</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-input__wrap">
+            <div class="t-input" modelvalue>
+              <!---->
+              <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <div class="t-form__help">这是用户名字段帮助说明</div>
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__description t-form__item-with-help t-form__item-with-extra">
+      <div class="t-form__label t-form__label--right" style="width:100px;"><label for>个人简介</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-input__wrap">
+            <div class="t-input" modelvalue>
+              <!---->
+              <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <div class="t-form__help">一句话介绍自己</div>
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__password">
+      <div class="t-form__label t-form__label--required t-form__label--right" style="width:100px;"><label for>密码</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-input__wrap">
+            <div class="t-input t-input--suffix" modelvalue>
+              <!---->
+              <!----><input class="t-input__inner" placeholder="请输入" type="password" value>
+              <!---->
+              <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse-off t-input__suffix-clear" style=""><path fill="currentColor" d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z" fill-opacity="0.9"></path><path fill="currentColor" d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z" fill-opacity="0.9"></path></svg></span>
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__email">
+      <div class="t-form__label t-form__label--required t-form__label--right" style="width:100px;"><label for>邮箱</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-input__wrap">
+            <div class="t-input" modelvalue>
+              <!---->
+              <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__gender">
+      <div class="t-form__label t-form__label--required t-form__label--right" style="width:100px;"><label for>性别</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue>
+            <!--[--><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="male" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="femal" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__course">
+      <div class="t-form__label t-form__label--required t-form__label--right" style="width:100px;"><label for>课程</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-checkbox-group">
+            <!--[--><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="1"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->语文<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="2"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->数学<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name value="3"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->英语<!--]--></span></label>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__college">
+      <div class="t-form__label t-form__label--right" style="width:100px;"><label for>学院</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-select__wrap demo-select-base" modelvalue>
+            <div class="t-popup__reference t-select__popup-reference">
+              <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+                  <!--[-->
+                  <div class="t-select__dropdown-inner">
+                    <!---->
+                    <ul class="t-select__create-option t-select__list" style="display:none;">
+                      <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
+                    </ul>
+                    <!---->
+                    <li class="t-select__empty t-size-m">暂无数据</li>
+                    <ul class="t-select__groups t-select__list">
+                      <!--[-->
+                      <!--[-->
+                      <li class="t-select-option t-size-m" title="计算机学院">
+                        <!--[-->计算机学院
+                        <!--]-->
+                      </li>
+                      <li class="t-select-option t-size-m" title="软件学院">
+                        <!--[-->软件学院
+                        <!--]-->
+                      </li>
+                      <li class="t-select-option t-size-m" title="物联网学院">
+                        <!--[-->物联网学院
+                        <!--]-->
+                      </li>
+                      <!--]-->
+                      <!--]-->
+                    </ul>
+                    <!---->
+                  </div>
+                  <!--]-->
+                  <!---->
+                </div>
+              </div>
+              <!--[-->
+              <div class="t-select t-select-polyfill t-size-m">
+                <!----><span class="t-select__placeholder"> 请选择</span>
+                <!--[-->
+                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+                <!---->
+                <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                  <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                </svg>
+                <!---->
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__date">
+      <div class="t-form__label t-form__label--right" style="width:100px;"><label for>入学时间</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-input__wrap">
+            <div class="t-input" modelvalue>
+              <!---->
+              <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__content.url">
+      <div class="t-form__label t-form__label--required t-form__label--right" style="width:100px;"><label for>个人网站</label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[-->
+          <div class="t-input__wrap">
+            <div class="t-input" modelvalue>
+              <!---->
+              <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="t-form__item t-form-item__" style="padding-top:8px;">
+      <div class="t-form__label t-form__label--right" style="width:100px;"><label for></label></div>
+      <div class="t-form__controls" style="margin-left:100px;">
+        <div class="t-form__controls-content">
+          <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="submit" style="margin-right:10px;"><span class="t-button__text"><!--[-->提交<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="reset" style="margin-right:10px;"><span class="t-button__text"><!--[-->重置<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->清空校验结果<!--]--></span></button>
+          <!--]-->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <!--]-->
+  </form>
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/form/demos/layout.vue correctly 1`] = `
 <div>
   <div class="controls">
