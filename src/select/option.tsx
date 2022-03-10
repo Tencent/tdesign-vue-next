@@ -176,7 +176,7 @@ export default defineComponent({
             {optionChild}
           </t-checkbox>
         ) : (
-          optionChild
+          <span>{optionChild}</span>
         )}
       </li>
     );
