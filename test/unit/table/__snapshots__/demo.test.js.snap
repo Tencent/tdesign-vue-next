@@ -19684,7 +19684,9 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                           class="t-select-option t-size-m t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -19702,25 +19704,33 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
                           class="t-select-option t-size-m"
                           title="5 条/页"
                         >
-                          5 条/页
+                          <span>
+                            5 条/页
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-is-selected t-size-m"
                           title="10 条/页"
                         >
-                          10 条/页
+                          <span>
+                            10 条/页
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
                           title="20 条/页"
                         >
-                          20 条/页
+                          <span>
+                            20 条/页
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
                           title="50 条/页"
                         >
-                          50 条/页
+                          <span>
+                            50 条/页
+                          </span>
                         </li>
                         
                         
@@ -20257,7 +20267,9 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                             class="t-select-option t-size-m t-select__create-option--special"
                             title=""
                           >
-                            
+                            <span>
+                              
+                            </span>
                           </li>
                         </ul>
                         <!---->
@@ -20275,25 +20287,33 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                             class="t-select-option t-size-m"
                             title="5 条/页"
                           >
-                            5 条/页
+                            <span>
+                              5 条/页
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-is-selected t-size-m"
                             title="10 条/页"
                           >
-                            10 条/页
+                            <span>
+                              10 条/页
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
                             title="20 条/页"
                           >
-                            20 条/页
+                            <span>
+                              20 条/页
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
                             title="50 条/页"
                           >
-                            50 条/页
+                            <span>
+                              50 条/页
+                            </span>
                           </li>
                           
                           
