@@ -30,7 +30,9 @@ exports[`Select :props :bordered 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -129,7 +131,9 @@ exports[`Select :props :clearable 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -228,7 +232,9 @@ exports[`Select :props :creatable 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -327,7 +333,9 @@ exports[`Select :props :disabled 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -427,7 +435,9 @@ exports[`Select :props :labelInValue 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -526,7 +536,9 @@ exports[`Select :props :loading 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <div
@@ -752,7 +764,9 @@ exports[`Select :props :placeholder 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -852,7 +866,9 @@ exports[`Select :props :remote 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -951,7 +967,9 @@ exports[`Select :props :reserveKeyword 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1050,7 +1068,9 @@ exports[`Select :props :size 1`] = `
                 class="t-select-option t-size-l t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1150,7 +1170,9 @@ exports[`Select Option :props :disabled 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1167,7 +1189,9 @@ exports[`Select Option :props :disabled 1`] = `
                 class="t-select-option t-is-disabled t-is-selected t-size-m"
                 title="1"
               >
-                1
+                <span>
+                  1
+                </span>
               </li>
               
             </ul>
@@ -1257,7 +1281,9 @@ exports[`Select Option :props :label 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1274,7 +1300,9 @@ exports[`Select Option :props :label 1`] = `
                 class="t-select-option t-is-selected t-size-m"
                 title="1"
               >
-                1
+                <span>
+                  1
+                </span>
               </li>
               
             </ul>
@@ -1364,7 +1392,9 @@ exports[`Select Option :props :value 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1381,7 +1411,9 @@ exports[`Select Option :props :value 1`] = `
                 class="t-select-option t-is-selected t-size-m"
                 title="1"
               >
-                1
+                <span>
+                  1
+                </span>
               </li>
               
             </ul>
@@ -1471,7 +1503,9 @@ exports[`Select OptionGroup :props :value 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1498,7 +1532,9 @@ exports[`Select OptionGroup :props :value 1`] = `
                     class="t-select-option t-is-selected t-size-m"
                     title="1"
                   >
-                    1
+                    <span>
+                      1
+                    </span>
                   </li>
                   
                 </ul>
@@ -1517,7 +1553,9 @@ exports[`Select OptionGroup :props :value 1`] = `
                     class="t-select-option t-size-m"
                     title="a"
                   >
-                    a
+                    <span>
+                      a
+                    </span>
                   </li>
                   
                 </ul>

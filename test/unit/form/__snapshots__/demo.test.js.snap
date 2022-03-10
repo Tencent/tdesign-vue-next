@@ -1081,7 +1081,9 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
                           class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -1099,25 +1101,31 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
                           class="t-select-option t-size-m"
                           title="计算机学院"
                         >
-                          
-                          计算机学院
-                          
+                          <span>
+                            
+                            计算机学院
+                            
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
                           title="软件学院"
                         >
-                          
-                          软件学院
-                          
+                          <span>
+                            
+                            软件学院
+                            
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
                           title="物联网学院"
                         >
-                          
-                          物联网学院
-                          
+                          <span>
+                            
+                            物联网学院
+                            
+                          </span>
                         </li>
                         
                         
@@ -1745,7 +1753,9 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                           class="t-select-option t-is-disabled t-is-selected t-size-m t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -1758,19 +1768,25 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                           class="t-select-option t-is-disabled t-size-m"
                           title="学院 A"
                         >
-                          学院 A
+                          <span>
+                            学院 A
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-is-disabled t-size-m"
                           title="学院 B"
                         >
-                          学院 B
+                          <span>
+                            学院 B
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-is-disabled t-size-m"
                           title="学院 C"
                         >
-                          学院 C
+                          <span>
+                            学院 C
+                          </span>
                         </li>
                         
                       </ul>
@@ -6301,7 +6317,9 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
                           class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -6319,25 +6337,31 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
                           class="t-select-option t-size-m"
                           title="计算机学院"
                         >
-                          
-                          计算机学院
-                          
+                          <span>
+                            
+                            计算机学院
+                            
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
                           title="软件学院"
                         >
-                          
-                          软件学院
-                          
+                          <span>
+                            
+                            软件学院
+                            
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
                           title="物联网学院"
                         >
-                          
-                          物联网学院
-                          
+                          <span>
+                            
+                            物联网学院
+                            
+                          </span>
                         </li>
                         
                         
@@ -7656,7 +7680,9 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                           class="t-select-option t-size-m t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -7674,25 +7700,31 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                           class="t-select-option t-size-m"
                           title="计算机学院"
                         >
-                          
-                          计算机学院
-                          
+                          <span>
+                            
+                            计算机学院
+                            
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
                           title="软件学院"
                         >
-                          
-                          软件学院
-                          
+                          <span>
+                            
+                            软件学院
+                            
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
                           title="物联网学院"
                         >
-                          
-                          物联网学院
-                          
+                          <span>
+                            
+                            物联网学院
+                            
+                          </span>
                         </li>
                         
                         

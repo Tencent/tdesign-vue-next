@@ -35,7 +35,9 @@ exports[`Select Select baseVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -48,38 +50,50 @@ exports[`Select Select baseVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="架构云"
                 >
-                  架构云
+                  <span>
+                    架构云
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="大数据"
                 >
-                  大数据
+                  <span>
+                    大数据
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="区块链"
                 >
-                  区块链
+                  <span>
+                    区块链
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
                   title="物联网"
                 >
-                  物联网
+                  <span>
+                    物联网
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="人工智能"
                 >
-                  人工智能
+                  <span>
+                    人工智能
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="计算场景"
                 >
                   <span>
-                    计算场景（高性能计算）
+                    <span>
+                      计算场景（高性能计算）
+                    </span>
                   </span>
                 </li>
                 
@@ -168,7 +182,9 @@ exports[`Select Select baseVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -186,37 +202,49 @@ exports[`Select Select baseVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="云服务器"
                 >
-                  云服务器
+                  <span>
+                    云服务器
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="云数据库"
                 >
-                  云数据库
+                  <span>
+                    云数据库
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="域名注册"
                 >
-                  域名注册
+                  <span>
+                    域名注册
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="网站备案"
                 >
-                  网站备案
+                  <span>
+                    网站备案
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="对象存储"
                 >
-                  对象存储
+                  <span>
+                    对象存储
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="低代码平台"
                 >
-                  低代码平台
+                  <span>
+                    低代码平台
+                  </span>
                 </li>
                 
                 
@@ -1071,7 +1099,9 @@ exports[`Select Select creatableVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -1084,19 +1114,25 @@ exports[`Select Select creatableVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="选项一"
                 >
-                  选项一
+                  <span>
+                    选项一
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项二"
                 >
-                  选项二
+                  <span>
+                    选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项三"
                 >
-                  选项三
+                  <span>
+                    选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -1206,7 +1242,9 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                   class="t-select-option t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -1219,217 +1257,235 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="用户一"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户一
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户一
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户二"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户二
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户二
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户三"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户三
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户三
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户四"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户四
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户四
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户五"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户五
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户五
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户六"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户六
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户六
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户七"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户七
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户七
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户八"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户八
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户八
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户九"
                 >
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户九
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户九
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </span>
                 </li>
                 
               </ul>
@@ -1519,7 +1575,9 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                   class="t-select-option t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -1537,235 +1595,253 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="用户一"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户一
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户一
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户二"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户二
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户二
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户三"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户三
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户三
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户四"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户四
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户四
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户五"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户五
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户五
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户六"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户六
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户六
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户七"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户七
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户七
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户八"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户八
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户八
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="用户九"
                 >
-                  
-                  <div
-                    class="tdesign-demo__user-option"
-                  >
-                    <img
-                      src="https://tdesign.gtimg.com/site/avatar.jpg"
-                    />
+                  <span>
+                    
                     <div
-                      class="tdesign-demo__user-option-info"
+                      class="tdesign-demo__user-option"
                     >
-                      <div>
-                        用户九
-                      </div>
+                      <img
+                        src="https://tdesign.gtimg.com/site/avatar.jpg"
+                      />
                       <div
-                        class="tdesign-demo__user-option-desc"
+                        class="tdesign-demo__user-option-info"
                       >
-                        这是一段用户描述信息，可自定义内容
+                        <div>
+                          用户九
+                        </div>
+                        <div
+                          class="tdesign-demo__user-option-desc"
+                        >
+                          这是一段用户描述信息，可自定义内容
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
+                    
+                  </span>
                 </li>
                 
                 
@@ -2672,7 +2748,9 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -2685,19 +2763,25 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="选项一"
                 >
-                  选项一
+                  <span>
+                    选项一
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项二"
                 >
-                  选项二
+                  <span>
+                    选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项三"
                 >
-                  选项三
+                  <span>
+                    选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -3002,7 +3086,9 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -3015,19 +3101,25 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="选项一"
                 >
-                  选项一
+                  <span>
+                    选项一
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项二"
                 >
-                  选项二
+                  <span>
+                    选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项三"
                 >
-                  选项三
+                  <span>
+                    选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -3337,7 +3429,9 @@ exports[`Select Select groupVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -3364,13 +3458,17 @@ exports[`Select Select groupVue demo works fine 1`] = `
                         class="t-select-option t-size-m"
                         title="选项一"
                       >
-                        选项一
+                        <span>
+                          选项一
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="选项二"
                       >
-                        选项二
+                        <span>
+                          选项二
+                        </span>
                       </li>
                       
                     </ul>
@@ -3395,19 +3493,25 @@ exports[`Select Select groupVue demo works fine 1`] = `
                         class="t-select-option t-size-m"
                         title="选项三"
                       >
-                        选项三
+                        <span>
+                          选项三
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="选项四"
                       >
-                        选项四
+                        <span>
+                          选项四
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="选项五"
                       >
-                        选项五
+                        <span>
+                          选项五
+                        </span>
                       </li>
                       
                     </ul>
@@ -3432,19 +3536,25 @@ exports[`Select Select groupVue demo works fine 1`] = `
                         class="t-select-option t-size-m"
                         title="选项六"
                       >
-                        选项六
+                        <span>
+                          选项六
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="选项七"
                       >
-                        选项七
+                        <span>
+                          选项七
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="选项八"
                       >
-                        选项八
+                        <span>
+                          选项八
+                        </span>
                       </li>
                       
                     </ul>
@@ -3552,7 +3662,9 @@ exports[`Select Select groupVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -3581,17 +3693,21 @@ exports[`Select Select groupVue demo works fine 1`] = `
                       class="t-select-option t-size-m"
                       title="选项一"
                     >
-                      
-                      选项一
-                      
+                      <span>
+                        
+                        选项一
+                        
+                      </span>
                     </li>
                     <li
                       class="t-select-option t-size-m"
                       title="选项二"
                     >
-                      
-                      选项二
-                      
+                      <span>
+                        
+                        选项二
+                        
+                      </span>
                     </li>
                     
                     
@@ -3612,25 +3728,31 @@ exports[`Select Select groupVue demo works fine 1`] = `
                       class="t-select-option t-size-m"
                       title="选项三"
                     >
-                      
-                      选项三
-                      
+                      <span>
+                        
+                        选项三
+                        
+                      </span>
                     </li>
                     <li
                       class="t-select-option t-size-m"
                       title="选项四"
                     >
-                      
-                      选项四
-                      
+                      <span>
+                        
+                        选项四
+                        
+                      </span>
                     </li>
                     <li
                       class="t-select-option t-size-m"
                       title="选项五"
                     >
-                      
-                      选项五
-                      
+                      <span>
+                        
+                        选项五
+                        
+                      </span>
                     </li>
                     
                     
@@ -3651,25 +3773,31 @@ exports[`Select Select groupVue demo works fine 1`] = `
                       class="t-select-option t-size-m"
                       title="选项六"
                     >
-                      
-                      选项六
-                      
+                      <span>
+                        
+                        选项六
+                        
+                      </span>
                     </li>
                     <li
                       class="t-select-option t-size-m"
                       title="选项七"
                     >
-                      
-                      选项七
-                      
+                      <span>
+                        
+                        选项七
+                        
+                      </span>
                     </li>
                     <li
                       class="t-select-option t-size-m"
                       title="选项八"
                     >
-                      
-                      选项八
-                      
+                      <span>
+                        
+                        选项八
+                        
+                      </span>
                     </li>
                     
                     
@@ -3782,7 +3910,9 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                   class="t-select-option t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -3795,19 +3925,25 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m"
                   title="选项一"
                 >
-                  选项一
+                  <span>
+                    选项一
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项二"
                 >
-                  选项二
+                  <span>
+                    选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项三"
                 >
-                  选项三
+                  <span>
+                    选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -5412,7 +5548,9 @@ exports[`Select Select noborderVue demo works fine 1`] = `
                   class="t-select-option t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -5425,19 +5563,25 @@ exports[`Select Select noborderVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m"
                   title="已选择的选项"
                 >
-                  已选择的选项
+                  <span>
+                    已选择的选项
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="短的选项二"
                 >
-                  短的选项二
+                  <span>
+                    短的选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="很长很长很长的选项三"
                 >
-                  很长很长很长的选项三
+                  <span>
+                    很长很长很长的选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -5546,7 +5690,9 @@ exports[`Select Select panelVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -5559,31 +5705,41 @@ exports[`Select Select panelVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="架构云"
                 >
-                  架构云
+                  <span>
+                    架构云
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="大数据"
                 >
-                  大数据
+                  <span>
+                    大数据
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="区块链"
                 >
-                  区块链
+                  <span>
+                    区块链
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
                   title="物联网"
                 >
-                  物联网
+                  <span>
+                    物联网
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="人工智能"
                 >
-                  人工智能
+                  <span>
+                    人工智能
+                  </span>
                 </li>
                 
               </ul>
@@ -5671,7 +5827,9 @@ exports[`Select Select panelVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -5689,19 +5847,25 @@ exports[`Select Select panelVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="云服务器"
                 >
-                  云服务器
+                  <span>
+                    云服务器
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="云数据库"
                 >
-                  云数据库
+                  <span>
+                    云数据库
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="域名注册"
                 >
-                  域名注册
+                  <span>
+                    域名注册
+                  </span>
                 </li>
                 
                 
@@ -5812,7 +5976,9 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
                   class="t-select-option t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -5825,19 +5991,25 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m"
                   title="已选择的选项"
                 >
-                  已选择的选项
+                  <span>
+                    已选择的选项
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="短的选项二"
                 >
-                  短的选项二
+                  <span>
+                    短的选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="很长很长很很长很长很长的选项三"
                 >
-                  很长很长很很长很长很长的选项三
+                  <span>
+                    很长很长很很长很长很长的选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -5925,7 +6097,9 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
                   class="t-select-option t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -5938,19 +6112,25 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m"
                   title="已选择的选项"
                 >
-                  已选择的选项
+                  <span>
+                    已选择的选项
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="短的选项二"
                 >
-                  短的选项二
+                  <span>
+                    短的选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="很长很长很很长很长很长的选项三"
                 >
-                  很长很长很很长很长很长的选项三
+                  <span>
+                    很长很长很很长很长很长的选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -6043,7 +6223,9 @@ exports[`Select Select prefixVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -6056,19 +6238,25 @@ exports[`Select Select prefixVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="选项一"
                 >
-                  选项一
+                  <span>
+                    选项一
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项二"
                 >
-                  选项二
+                  <span>
+                    选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项三"
                 >
-                  选项三
+                  <span>
+                    选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -6171,7 +6359,9 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -6184,19 +6374,25 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="选项一"
                 >
-                  选项一
+                  <span>
+                    选项一
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项二"
                 >
-                  选项二
+                  <span>
+                    选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项三"
                 >
-                  选项三
+                  <span>
+                    选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -6435,7 +6631,9 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-s t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -6453,25 +6651,31 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                   class="t-select-option t-size-s"
                   title="选项一"
                 >
-                  
-                  选项一
-                  
+                  <span>
+                    
+                    选项一
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-s"
                   title="选项二"
                 >
-                  
-                  选项二
-                  
+                  <span>
+                    
+                    选项二
+                    
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-s"
                   title="选项三"
                 >
-                  
-                  选项三
-                  
+                  <span>
+                    
+                    选项三
+                    
+                  </span>
                 </li>
                 
                 
@@ -6560,7 +6764,9 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -6573,19 +6779,25 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="选项一"
                 >
-                  选项一
+                  <span>
+                    选项一
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项二"
                 >
-                  选项二
+                  <span>
+                    选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="选项三"
                 >
-                  选项三
+                  <span>
+                    选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -6673,7 +6885,9 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-l t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -6686,19 +6900,25 @@ exports[`Select Select sizeVue demo works fine 1`] = `
                   class="t-select-option t-size-l"
                   title="选项一"
                 >
-                  选项一
+                  <span>
+                    选项一
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-l"
                   title="选项二"
                 >
-                  选项二
+                  <span>
+                    选项二
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-l"
                   title="选项三"
                 >
-                  选项三
+                  <span>
+                    选项三
+                  </span>
                 </li>
                 
               </ul>
@@ -6792,7 +7012,9 @@ exports[`Select Select statusVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -6805,31 +7027,41 @@ exports[`Select Select statusVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="架构云"
                 >
-                  架构云
+                  <span>
+                    架构云
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="大数据"
                 >
-                  大数据
+                  <span>
+                    大数据
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="区块链"
                 >
-                  区块链
+                  <span>
+                    区块链
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
                   title="物联网"
                 >
-                  物联网
+                  <span>
+                    物联网
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="人工智能"
                 >
-                  人工智能
+                  <span>
+                    人工智能
+                  </span>
                 </li>
                 
               </ul>
@@ -6916,7 +7148,9 @@ exports[`Select Select statusVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <!---->
@@ -6929,31 +7163,41 @@ exports[`Select Select statusVue demo works fine 1`] = `
                   class="t-select-option t-size-m"
                   title="架构云"
                 >
-                  架构云
+                  <span>
+                    架构云
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="大数据"
                 >
-                  大数据
+                  <span>
+                    大数据
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="区块链"
                 >
-                  区块链
+                  <span>
+                    区块链
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-is-disabled t-size-m"
                   title="物联网"
                 >
-                  物联网
+                  <span>
+                    物联网
+                  </span>
                 </li>
                 <li
                   class="t-select-option t-size-m"
                   title="人工智能"
                 >
-                  人工智能
+                  <span>
+                    人工智能
+                  </span>
                 </li>
                 
               </ul>
@@ -7040,7 +7284,9 @@ exports[`Select Select statusVue demo works fine 1`] = `
                   class="t-select-option t-is-selected t-size-m t-select__create-option--special"
                   title=""
                 >
-                  
+                  <span>
+                    
+                  </span>
                 </li>
               </ul>
               <div
