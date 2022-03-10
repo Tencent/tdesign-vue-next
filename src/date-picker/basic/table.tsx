@@ -1,17 +1,14 @@
 import { defineComponent } from 'vue';
-import { prefix } from '../../config';
 import TDatePickerCell from './cell';
 import { Cell } from '../interface';
 import mixins from '../../utils/mixins';
 import getConfigReceiverMixins, { DatePickerConfig } from '../../config-provider/config-receiver';
 
-const name = `${prefix}-date-picker-table`;
-
 const DAY_NAMES = ['一', '二', '三', '四', '五', '六', '日'];
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
-  name,
+  name: 'TDatePickerTable',
   components: {
     TDatePickerCell,
   },

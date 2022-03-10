@@ -4043,7 +4043,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
       >
         <div
           class="t-pagination t-size-s"
-          modelvalue="1"
         >
           <!---->
           <!---->
@@ -4094,7 +4093,9 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                           class="t-select-option t-size-s t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -4107,13 +4108,17 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                           class="t-select-option t-is-selected t-size-s"
                           title="1/2"
                         >
-                          1/2
+                          <span>
+                            1/2
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-s"
                           title="2/2"
                         >
-                          2/2
+                          <span>
+                            2/2
+                          </span>
                         </li>
                         
                       </ul>
@@ -4126,7 +4131,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               </transition-stub>
               
               <div
-                class="t-select t-size-s"
+                class="t-select t-select-polyfill t-size-s"
               >
                 <!---->
                 <!---->
@@ -4150,7 +4155,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -4362,17 +4367,22 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input"
+            class="t-input__wrap"
           >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="请输入关键词搜索"
-              type="text"
-            />
-            <!---->
-            <!---->
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder="请输入关键词搜索"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
             <!---->
           </div>
         </div>
@@ -4979,17 +4989,22 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
           searchvalue=""
         >
           <div
-            class="t-input"
+            class="t-input__wrap"
           >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="请输入关键词搜索"
-              type="text"
-            />
-            <!---->
-            <!---->
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder="请输入关键词搜索"
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
             <!---->
           </div>
         </div>

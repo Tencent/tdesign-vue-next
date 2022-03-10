@@ -3,6 +3,8 @@
  */
 
 import { mount } from '@vue/test-utils';
+import MockDate from 'mockdate';
+
 import baseVue from '@/examples/time-picker/demos/base.vue';
 import clearableVue from '@/examples/time-picker/demos/clearable.vue';
 import disabledVue from '@/examples/time-picker/demos/disabled.vue';
@@ -16,6 +18,8 @@ import showStepsVue from '@/examples/time-picker/demos/show-steps.vue';
 import stepVue from '@/examples/time-picker/demos/step.vue';
 import twelveHourMeridianVue from '@/examples/time-picker/demos/twelve-hour-meridian.vue';
 import twelveHourVue from '@/examples/time-picker/demos/twelve-hour.vue';
+
+MockDate.set('2020-12-28');
 
 const mapper = {
   baseVue,

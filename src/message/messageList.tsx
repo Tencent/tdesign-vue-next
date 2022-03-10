@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
-import { prefix } from '../config';
 import { MessageOptions } from './type';
 
 export const DEFAULT_Z_INDEX = 6000;
@@ -15,7 +14,7 @@ const getUniqueId = (() => {
 })();
 
 export const MessageList = defineComponent({
-  name: `${prefix}-message__list`,
+  name: 'TMessageList',
   components: { TMessage },
   props: {
     zIndex: {

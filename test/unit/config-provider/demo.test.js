@@ -3,6 +3,8 @@
  */
 
 import { mount } from '@vue/test-utils';
+import MockDate from 'mockdate';
+
 import calendarVue from '@/examples/config-provider/demos/calendar.vue';
 import datePickerVue from '@/examples/config-provider/demos/date-picker.vue';
 import dialogVue from '@/examples/config-provider/demos/dialog.vue';

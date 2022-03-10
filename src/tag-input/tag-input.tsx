@@ -28,7 +28,6 @@ export default defineComponent({
       inputValue,
       props.defaultInputValue,
       props.onInputChange,
-      context.emit,
       'inputValue',
     );
     const { excessTagsDisplayType, readonly, disabled, clearable, placeholder } = toRefs(props);

@@ -34,120 +34,65 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   class="t-color-picker__mode"
                 >
                   <div
-                    class="t-select__wrap"
+                    class="t-radio-group t-size-s t-radio-group--filled"
                     modelvalue="monochrome"
                   >
-                    <div
-                      class="t-popup__reference t-select__popup-reference"
+                    
+                    
+                    <label
+                      class="t-radio-button t-is-checked"
                     >
-                      <transition-stub>
-                        <div
-                          aria-hidden="true"
-                          class="t-popup"
-                          role="tooltip"
-                          style="display: none;"
-                        >
-                          <div
-                            class="t-popup__content t-select__dropdown narrow-scrollbar"
-                          >
-                            
-                            <div
-                              class="t-select__dropdown-inner"
-                            >
-                              <!---->
-                              <ul
-                                class="t-select__create-option t-select__list"
-                                style="display: none;"
-                              >
-                                <li
-                                  class="t-select-option t-size-m t-select__create-option--special"
-                                  title=""
-                                >
-                                  
-                                </li>
-                              </ul>
-                              <!---->
-                              <li
-                                class="t-select__empty t-size-m"
-                              >
-                                暂无数据
-                              </li>
-                              <ul
-                                class="t-select__groups t-select__list"
-                              >
-                                
-                                
-                                <li
-                                  class="t-select-option t-is-selected t-size-m"
-                                  title="单色"
-                                >
-                                  单色
-                                </li>
-                                <li
-                                  class="t-select-option t-size-m"
-                                  title="线性渐变"
-                                >
-                                  线性渐变
-                                </li>
-                                
-                                
-                              </ul>
-                              <!---->
-                            </div>
-                            
-                            <!---->
-                          </div>
-                        </div>
-                      </transition-stub>
-                      
-                      <div
-                        class="t-select t-size-m t-no-border"
+                      <input
+                        class="t-radio-button__former"
+                        name=""
+                        type="radio"
+                        value="monochrome"
+                      />
+                      <span
+                        class="t-radio-button__input"
+                      />
+                      <span
+                        class="t-radio-button__label"
                       >
-                        <!---->
-                        <!---->
                         
                         
-                        <span
-                          class="t-tag t-tag--default t-tag--dark t-size-m"
-                          style="display: none;"
-                        >
-                          <!---->
-                          
-                          +0
-                          
-                          <!---->
-                        </span>
-                        <span
-                          class="t-select__single"
-                          title="monochrome"
-                        >
-                          monochrome
-                        </span>
-                        <!---->
-                        <svg
-                          class="t-fake-arrow t-select__right-icon"
-                          fill="none"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          width="16"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                            stroke="black"
-                            stroke-opacity="0.9"
-                            stroke-width="1.3"
-                          />
-                        </svg>
-                        <!---->
-                        <!---->
-                      </div>
-                      
-                    </div>
+                        单色
+                        
+                        
+                      </span>
+                    </label>
+                    <label
+                      class="t-radio-button"
+                    >
+                      <input
+                        class="t-radio-button__former"
+                        name=""
+                        type="radio"
+                        value="linear-gradient"
+                      />
+                      <span
+                        class="t-radio-button__input"
+                      />
+                      <span
+                        class="t-radio-button__label"
+                      >
+                        
+                        
+                        渐变
+                        
+                        
+                      </span>
+                    </label>
+                    
+                    <div
+                      class="t-radio-group__bg-block"
+                      style="width: 0px; left: 0px;"
+                    />
+                    
                   </div>
                 </div>
                 <span
-                  class="t-color-picker__close"
+                  class="t-color-picker__icon t-color-picker__close"
                   role="button"
                 >
                   <svg
@@ -176,7 +121,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   <span
                     class="t-color-picker__thumb"
                     role="slider"
-                    style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+                    style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
                     tabindex="0"
                   />
                 </div>
@@ -189,7 +134,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   <span
                     class="t-color-picker__thumb"
                     role="slider"
-                    style="left: 193px; color: rgb(0, 82, 217);"
+                    style="left: 150px; color: rgb(0, 82, 217);"
                     tabindex="0"
                   />
                 </div>
@@ -231,7 +176,9 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                                     class="t-select-option t-size-m t-select__create-option--special"
                                     title=""
                                   >
-                                    
+                                    <span>
+                                      
+                                    </span>
                                   </li>
                                 </ul>
                                 <!---->
@@ -247,45 +194,57 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                                   
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HEX"
                                   >
-                                    HEX
+                                    <span>
+                                      HEX
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-is-selected t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="RGB"
                                   >
-                                    RGB
+                                    <span>
+                                      RGB
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HSL"
                                   >
-                                    HSL
+                                    <span>
+                                      HSL
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HSV"
                                   >
-                                    HSV
+                                    <span>
+                                      HSV
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="CMYK"
                                   >
-                                    CMYK
+                                    <span>
+                                      CMYK
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="CSS"
                                   >
-                                    CSS
+                                    <span>
+                                      CSS
+                                    </span>
                                   </li>
                                   
                                   
@@ -299,7 +258,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         </transition-stub>
                         
                         <div
-                          class="t-select t-size-m"
+                          class="t-select t-select-polyfill t-size-m"
                         >
                           <!---->
                           <!---->
@@ -323,7 +282,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           </span>
                           <!---->
                           <svg
-                            class="t-fake-arrow t-select__right-icon"
+                            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                             fill="none"
                             height="16"
                             viewBox="0 0 16 16"
@@ -362,12 +321,16 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <div
-                            class="t-input"
+                            class="t-input__wrap"
                           >
-                            <input
-                              autocomplete="off"
-                              class="t-input__inner"
-                            />
+                            <div
+                              class="t-input"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="t-input__inner"
+                              />
+                            </div>
                           </div>
                           <!---->
                         </div>
@@ -383,12 +346,16 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <div
-                            class="t-input"
+                            class="t-input__wrap"
                           >
-                            <input
-                              autocomplete="off"
-                              class="t-input__inner"
-                            />
+                            <div
+                              class="t-input"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="t-input__inner"
+                              />
+                            </div>
                           </div>
                           <!---->
                         </div>
@@ -404,12 +371,16 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <div
-                            class="t-input"
+                            class="t-input__wrap"
                           >
-                            <input
-                              autocomplete="off"
-                              class="t-input__inner"
-                            />
+                            <div
+                              class="t-input"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="t-input__inner"
+                              />
+                            </div>
                           </div>
                           <!---->
                         </div>
@@ -530,7 +501,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         </span>
                       </li>
                       <li
-                        class="t-color-picker__swatches--item is-current"
+                        class="t-color-picker__swatches--item t-is-current"
                         title="#0052D9"
                       >
                         <span
@@ -978,35 +949,40 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
           class="t-color-picker__trigger--default"
         >
           <div
-            class="t-input t-input--prefix t-input--auto-width"
-            modelvalue="#0052d9"
+            class="t-input__wrap"
           >
-            <!---->
             <div
-              class="t-input__prefix"
+              class="t-input t-input--prefix t-input--auto-width"
+              modelvalue="#0052d9"
             >
-              
+              <!---->
               <div
-                class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+                class="t-input__prefix"
               >
-                <span
-                  class="color-inner"
-                  style="background: rgb(0, 82, 217);"
-                />
+                
+                <div
+                  class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+                >
+                  <span
+                    class="color-inner"
+                    style="background: rgb(0, 82, 217);"
+                  />
+                </div>
+                
               </div>
-              
+              <input
+                class="t-input__inner"
+                placeholder="请选择"
+                type="text"
+              />
+              <span
+                class="t-input__input-pre"
+              >
+                #0052d9
+              </span>
+              <!---->
+              <!---->
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              type="text"
-            />
-            <span
-              class="t-input__input-pre"
-            >
-              #0052d9
-            </span>
-            <!---->
             <!---->
           </div>
         </div>
@@ -1046,7 +1022,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   单色
                 </div>
                 <span
-                  class="t-color-picker__close"
+                  class="t-color-picker__icon t-color-picker__close"
                   role="button"
                 >
                   <svg
@@ -1075,7 +1051,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   <span
                     class="t-color-picker__thumb"
                     role="slider"
-                    style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+                    style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
                     tabindex="0"
                   />
                 </div>
@@ -1088,7 +1064,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   <span
                     class="t-color-picker__thumb"
                     role="slider"
-                    style="left: 193px; color: rgb(0, 82, 217);"
+                    style="left: 150px; color: rgb(0, 82, 217);"
                     tabindex="0"
                   />
                 </div>
@@ -1130,7 +1106,9 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                                     class="t-select-option t-size-m t-select__create-option--special"
                                     title=""
                                   >
-                                    
+                                    <span>
+                                      
+                                    </span>
                                   </li>
                                 </ul>
                                 <!---->
@@ -1146,45 +1124,57 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                                   
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HEX"
                                   >
-                                    HEX
+                                    <span>
+                                      HEX
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-is-selected t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="RGB"
                                   >
-                                    RGB
+                                    <span>
+                                      RGB
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HSL"
                                   >
-                                    HSL
+                                    <span>
+                                      HSL
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HSV"
                                   >
-                                    HSV
+                                    <span>
+                                      HSV
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="CMYK"
                                   >
-                                    CMYK
+                                    <span>
+                                      CMYK
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="CSS"
                                   >
-                                    CSS
+                                    <span>
+                                      CSS
+                                    </span>
                                   </li>
                                   
                                   
@@ -1198,7 +1188,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         </transition-stub>
                         
                         <div
-                          class="t-select t-size-m"
+                          class="t-select t-select-polyfill t-size-m"
                         >
                           <!---->
                           <!---->
@@ -1222,7 +1212,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           </span>
                           <!---->
                           <svg
-                            class="t-fake-arrow t-select__right-icon"
+                            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                             fill="none"
                             height="16"
                             viewBox="0 0 16 16"
@@ -1261,12 +1251,16 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <div
-                            class="t-input"
+                            class="t-input__wrap"
                           >
-                            <input
-                              autocomplete="off"
-                              class="t-input__inner"
-                            />
+                            <div
+                              class="t-input"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="t-input__inner"
+                              />
+                            </div>
                           </div>
                           <!---->
                         </div>
@@ -1282,12 +1276,16 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <div
-                            class="t-input"
+                            class="t-input__wrap"
                           >
-                            <input
-                              autocomplete="off"
-                              class="t-input__inner"
-                            />
+                            <div
+                              class="t-input"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="t-input__inner"
+                              />
+                            </div>
                           </div>
                           <!---->
                         </div>
@@ -1303,12 +1301,16 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <div
-                            class="t-input"
+                            class="t-input__wrap"
                           >
-                            <input
-                              autocomplete="off"
-                              class="t-input__inner"
-                            />
+                            <div
+                              class="t-input"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="t-input__inner"
+                              />
+                            </div>
                           </div>
                           <!---->
                         </div>
@@ -1429,7 +1431,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         </span>
                       </li>
                       <li
-                        class="t-color-picker__swatches--item is-current"
+                        class="t-color-picker__swatches--item t-is-current"
                         title="#0052D9"
                       >
                         <span
@@ -1877,35 +1879,40 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
           class="t-color-picker__trigger--default"
         >
           <div
-            class="t-input t-input--prefix t-input--auto-width"
-            modelvalue="#0052d9"
+            class="t-input__wrap"
           >
-            <!---->
             <div
-              class="t-input__prefix"
+              class="t-input t-input--prefix t-input--auto-width"
+              modelvalue="#0052d9"
             >
-              
+              <!---->
               <div
-                class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+                class="t-input__prefix"
               >
-                <span
-                  class="color-inner"
-                  style="background: rgb(0, 82, 217);"
-                />
+                
+                <div
+                  class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+                >
+                  <span
+                    class="color-inner"
+                    style="background: rgb(0, 82, 217);"
+                  />
+                </div>
+                
               </div>
-              
+              <input
+                class="t-input__inner"
+                placeholder="请选择"
+                type="text"
+              />
+              <span
+                class="t-input__input-pre"
+              >
+                #0052d9
+              </span>
+              <!---->
+              <!---->
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              type="text"
-            />
-            <span
-              class="t-input__input-pre"
-            >
-              #0052d9
-            </span>
-            <!---->
             <!---->
           </div>
         </div>
@@ -1942,10 +1949,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 <div
                   class="t-color-picker__mode"
                 >
-                  线性渐变
+                  渐变
                 </div>
                 <span
-                  class="t-color-picker__close"
+                  class="t-color-picker__icon t-color-picker__close"
                   role="button"
                 >
                   <svg
@@ -1970,7 +1977,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   class="t-color-picker__gradient"
                 >
                   <div
-                    class="t-color-picker__gradient__slider"
+                    class="t-color-picker__gradient-slider"
                   >
                     <div
                       class="t-color-picker__slider t-color-picker--bg-alpha"
@@ -1981,23 +1988,23 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         
                         <li
-                          class="t-color-picker__thumb gradient-thumbs__item is-active"
-                          id="e8e334a4.760d08"
+                          class="t-color-picker__thumb gradient-thumbs__item t-is-active"
+                          id="a0bde4e2.59f198"
                           style="color: rgb(79, 172, 254); left: 0%;"
                           title="rgb(79, 172, 254) 0%"
                         >
                           <span
-                            class="gradient-thumbs__item__inner t-color-picker--bg-alpha"
+                            class="gradient-thumbs__item-inner t-color-picker--bg-alpha"
                           />
                         </li>
                         <li
                           class="t-color-picker__thumb gradient-thumbs__item"
-                          id="14943ea0.719841"
+                          id="dcd23813.056288"
                           style="color: rgb(0, 242, 254); left: 100%;"
                           title="rgb(0, 242, 254) 100%"
                         >
                           <span
-                            class="gradient-thumbs__item__inner t-color-picker--bg-alpha"
+                            class="gradient-thumbs__item-inner t-color-picker--bg-alpha"
                           />
                         </li>
                         
@@ -2005,21 +2012,25 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                     </div>
                   </div>
                   <div
-                    class="t-color-picker__gradient__degree"
+                    class="t-color-picker__gradient-degree"
                     title="45deg"
                   >
                     <div
-                      class="t-input-number t-size-l t-input-number--normal"
+                      class="t-input-number t-size-m t-input-number--normal"
                       modelvalue="45"
                     >
                       <!---->
                       <div
-                        class="t-input"
+                        class="t-input__wrap"
                       >
-                        <input
-                          autocomplete="off"
-                          class="t-input__inner"
-                        />
+                        <div
+                          class="t-input"
+                        >
+                          <input
+                            autocomplete="off"
+                            class="t-input__inner"
+                          />
+                        </div>
                       </div>
                       <!---->
                     </div>
@@ -2032,7 +2043,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   <span
                     class="t-color-picker__thumb"
                     role="slider"
-                    style="color: rgb(79, 172, 254); left: 220px; top: 1px;"
+                    style="color: rgb(79, 172, 254); left: 171px; top: 1px;"
                     tabindex="0"
                   />
                 </div>
@@ -2045,7 +2056,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   <span
                     class="t-color-picker__thumb"
                     role="slider"
-                    style="left: 185px; color: rgb(79, 172, 254);"
+                    style="left: 143px; color: rgb(79, 172, 254);"
                     tabindex="0"
                   />
                 </div>
@@ -2087,7 +2098,9 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                                     class="t-select-option t-size-m t-select__create-option--special"
                                     title=""
                                   >
-                                    
+                                    <span>
+                                      
+                                    </span>
                                   </li>
                                 </ul>
                                 <!---->
@@ -2103,45 +2116,57 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                                   
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HEX"
                                   >
-                                    HEX
+                                    <span>
+                                      HEX
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="RGB"
                                   >
-                                    RGB
+                                    <span>
+                                      RGB
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HSL"
                                   >
-                                    HSL
+                                    <span>
+                                      HSL
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="HSV"
                                   >
-                                    HSV
+                                    <span>
+                                      HSV
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="CMYK"
                                   >
-                                    CMYK
+                                    <span>
+                                      CMYK
+                                    </span>
                                   </li>
                                   <li
                                     class="t-select-option t-is-selected t-size-m"
-                                    style="font-size: 14px;"
+                                    style="font-size: 12px;"
                                     title="CSS"
                                   >
-                                    CSS
+                                    <span>
+                                      CSS
+                                    </span>
                                   </li>
                                   
                                   
@@ -2155,7 +2180,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         </transition-stub>
                         
                         <div
-                          class="t-select t-size-m"
+                          class="t-select t-select-polyfill t-size-m"
                         >
                           <!---->
                           <!---->
@@ -2179,7 +2204,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           </span>
                           <!---->
                           <svg
-                            class="t-fake-arrow t-select__right-icon"
+                            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                             fill="none"
                             height="16"
                             viewBox="0 0 16 16"
@@ -2212,19 +2237,24 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         style="flex: 3;"
                       >
                         <div
-                          class="t-input"
-                          modelvalue="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
-                          title="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
+                          class="t-input__wrap"
                         >
-                          <!---->
-                          <!---->
-                          <input
-                            class="t-input__inner"
-                            placeholder="请输入"
-                            type="text"
-                          />
-                          <!---->
-                          <!---->
+                          <div
+                            class="t-input"
+                            modelvalue="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
+                            title="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
+                          >
+                            <!---->
+                            <!---->
+                            <input
+                              class="t-input__inner"
+                              placeholder="请输入"
+                              type="text"
+                            />
+                            <!---->
+                            <!---->
+                            <!---->
+                          </div>
                           <!---->
                         </div>
                       </div>
@@ -2792,34 +2822,39 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
           class="t-color-picker__trigger--default"
         >
           <div
-            class="t-input t-input--prefix t-input--auto-width"
-            modelvalue="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"
+            class="t-input__wrap"
           >
-            <!---->
             <div
-              class="t-input__prefix"
+              class="t-input t-input--prefix t-input--auto-width"
+              modelvalue="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"
             >
-              
+              <!---->
               <div
-                class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+                class="t-input__prefix"
               >
-                <span
-                  class="color-inner"
-                />
+                
+                <div
+                  class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+                >
+                  <span
+                    class="color-inner"
+                  />
+                </div>
+                
               </div>
-              
+              <input
+                class="t-input__inner"
+                placeholder="请选择"
+                type="text"
+              />
+              <span
+                class="t-input__input-pre"
+              >
+                linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)
+              </span>
+              <!---->
+              <!---->
             </div>
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              type="text"
-            />
-            <span
-              class="t-input__input-pre"
-            >
-              linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)
-            </span>
-            <!---->
             <!---->
           </div>
         </div>
@@ -2835,7 +2870,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
   class="tdesign-demo-block-row"
 >
   <div
-    class="t-color-picker__panel is-inline"
+    class="t-color-picker__panel t-is-inline"
   >
     <div
       class="t-color-picker__head"
@@ -2844,116 +2879,61 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
         class="t-color-picker__mode"
       >
         <div
-          class="t-select__wrap"
+          class="t-radio-group t-size-s t-radio-group--filled"
           modelvalue="monochrome"
         >
-          <div
-            class="t-popup__reference t-select__popup-reference"
+          
+          
+          <label
+            class="t-radio-button t-is-checked"
           >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content t-select__dropdown narrow-scrollbar"
-                >
-                  
-                  <div
-                    class="t-select__dropdown-inner"
-                  >
-                    <!---->
-                    <ul
-                      class="t-select__create-option t-select__list"
-                      style="display: none;"
-                    >
-                      <li
-                        class="t-select-option t-size-m t-select__create-option--special"
-                        title=""
-                      >
-                        
-                      </li>
-                    </ul>
-                    <!---->
-                    <li
-                      class="t-select__empty t-size-m"
-                    >
-                      暂无数据
-                    </li>
-                    <ul
-                      class="t-select__groups t-select__list"
-                    >
-                      
-                      
-                      <li
-                        class="t-select-option t-is-selected t-size-m"
-                        title="单色"
-                      >
-                        单色
-                      </li>
-                      <li
-                        class="t-select-option t-size-m"
-                        title="线性渐变"
-                      >
-                        线性渐变
-                      </li>
-                      
-                      
-                    </ul>
-                    <!---->
-                  </div>
-                  
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
-            
-            <div
-              class="t-select t-size-m t-no-border"
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="monochrome"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
             >
-              <!---->
-              <!---->
               
               
-              <span
-                class="t-tag t-tag--default t-tag--dark t-size-m"
-                style="display: none;"
-              >
-                <!---->
-                
-                +0
-                
-                <!---->
-              </span>
-              <span
-                class="t-select__single"
-                title="monochrome"
-              >
-                monochrome
-              </span>
-              <!---->
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-              <!---->
-              <!---->
-            </div>
-            
-          </div>
+              单色
+              
+              
+            </span>
+          </label>
+          <label
+            class="t-radio-button"
+          >
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="linear-gradient"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              
+              
+              渐变
+              
+              
+            </span>
+          </label>
+          
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
+          
         </div>
       </div>
       <!---->
@@ -2969,7 +2949,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
           tabindex="0"
         />
       </div>
@@ -2982,7 +2962,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="left: 193px; color: rgb(0, 82, 217);"
+          style="left: 150px; color: rgb(0, 82, 217);"
           tabindex="0"
         />
       </div>
@@ -2995,13 +2975,13 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="left: 320px; color: rgb(0, 82, 217);"
+          style="left: 248px; color: rgb(0, 82, 217);"
           tabindex="0"
         />
       </div>
       <div
         class="t-color-picker__format"
-        customclass="is-inline"
+        customclass="t-is-inline"
       >
         <div
           class="t-color-picker__format--item"
@@ -3036,7 +3016,9 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                           class="t-select-option t-size-m t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -3052,45 +3034,57 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                         
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HEX"
                         >
-                          HEX
+                          <span>
+                            HEX
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-is-selected t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="RGB"
                         >
-                          RGB
+                          <span>
+                            RGB
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HSL"
                         >
-                          HSL
+                          <span>
+                            HSL
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HSV"
                         >
-                          HSV
+                          <span>
+                            HSV
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="CMYK"
                         >
-                          CMYK
+                          <span>
+                            CMYK
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="CSS"
                         >
-                          CSS
+                          <span>
+                            CSS
+                          </span>
                         </li>
                         
                         
@@ -3104,7 +3098,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
               </transition-stub>
               
               <div
-                class="t-select t-size-m"
+                class="t-select t-select-polyfill t-size-m"
               >
                 <!---->
                 <!---->
@@ -3128,7 +3122,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -3167,12 +3161,16 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner"
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -3188,12 +3186,16 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner"
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -3209,12 +3211,16 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner"
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -3230,12 +3236,16 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner"
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -3356,7 +3366,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-color-picker__swatches--item is-current"
+              class="t-color-picker__swatches--item t-is-current"
               title="#0052D9"
             >
               <span
@@ -3799,7 +3809,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
   class="tdesign-demo-block-row"
 >
   <div
-    class="t-color-picker__panel is-inline"
+    class="t-color-picker__panel t-is-inline"
   >
     <div
       class="t-color-picker__head"
@@ -3808,116 +3818,61 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
         class="t-color-picker__mode"
       >
         <div
-          class="t-select__wrap"
+          class="t-radio-group t-size-s t-radio-group--filled"
           modelvalue="monochrome"
         >
-          <div
-            class="t-popup__reference t-select__popup-reference"
+          
+          
+          <label
+            class="t-radio-button t-is-checked"
           >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content t-select__dropdown narrow-scrollbar"
-                >
-                  
-                  <div
-                    class="t-select__dropdown-inner"
-                  >
-                    <!---->
-                    <ul
-                      class="t-select__create-option t-select__list"
-                      style="display: none;"
-                    >
-                      <li
-                        class="t-select-option t-size-m t-select__create-option--special"
-                        title=""
-                      >
-                        
-                      </li>
-                    </ul>
-                    <!---->
-                    <li
-                      class="t-select__empty t-size-m"
-                    >
-                      暂无数据
-                    </li>
-                    <ul
-                      class="t-select__groups t-select__list"
-                    >
-                      
-                      
-                      <li
-                        class="t-select-option t-is-selected t-size-m"
-                        title="单色"
-                      >
-                        单色
-                      </li>
-                      <li
-                        class="t-select-option t-size-m"
-                        title="线性渐变"
-                      >
-                        线性渐变
-                      </li>
-                      
-                      
-                    </ul>
-                    <!---->
-                  </div>
-                  
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
-            
-            <div
-              class="t-select t-size-m t-no-border"
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="monochrome"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
             >
-              <!---->
-              <!---->
               
               
-              <span
-                class="t-tag t-tag--default t-tag--dark t-size-m"
-                style="display: none;"
-              >
-                <!---->
-                
-                +0
-                
-                <!---->
-              </span>
-              <span
-                class="t-select__single"
-                title="monochrome"
-              >
-                monochrome
-              </span>
-              <!---->
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-              <!---->
-              <!---->
-            </div>
-            
-          </div>
+              单色
+              
+              
+            </span>
+          </label>
+          <label
+            class="t-radio-button"
+          >
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="linear-gradient"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              
+              
+              渐变
+              
+              
+            </span>
+          </label>
+          
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
+          
         </div>
       </div>
       <!---->
@@ -3933,7 +3888,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
           tabindex="0"
         />
       </div>
@@ -3946,14 +3901,14 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="left: 193px; color: rgb(0, 82, 217);"
+          style="left: 150px; color: rgb(0, 82, 217);"
           tabindex="0"
         />
       </div>
       <!---->
       <div
         class="t-color-picker__format"
-        customclass="is-inline"
+        customclass="t-is-inline"
       >
         <div
           class="t-color-picker__format--item"
@@ -3988,7 +3943,9 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                           class="t-select-option t-size-m t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -4004,45 +3961,57 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                         
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HEX"
                         >
-                          HEX
+                          <span>
+                            HEX
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-is-selected t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="RGB"
                         >
-                          RGB
+                          <span>
+                            RGB
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HSL"
                         >
-                          HSL
+                          <span>
+                            HSL
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HSV"
                         >
-                          HSV
+                          <span>
+                            HSV
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="CMYK"
                         >
-                          CMYK
+                          <span>
+                            CMYK
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="CSS"
                         >
-                          CSS
+                          <span>
+                            CSS
+                          </span>
                         </li>
                         
                         
@@ -4056,7 +4025,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
               </transition-stub>
               
               <div
-                class="t-select t-size-m"
+                class="t-select t-select-polyfill t-size-m"
               >
                 <!---->
                 <!---->
@@ -4080,7 +4049,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -4119,12 +4088,16 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner"
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -4140,12 +4113,16 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner"
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -4161,12 +4138,16 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner"
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner"
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -4287,7 +4268,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-color-picker__swatches--item is-current"
+              class="t-color-picker__swatches--item t-is-current"
               title="#0052D9"
             >
               <span
@@ -4734,7 +4715,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
       预设最近使用色
     </h6>
     <div
-      class="t-color-picker__panel is-inline"
+      class="t-color-picker__panel t-is-inline"
     >
       <div
         class="t-color-picker__head"
@@ -4743,116 +4724,61 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           class="t-color-picker__mode"
         >
           <div
-            class="t-select__wrap"
+            class="t-radio-group t-size-s t-radio-group--filled"
             modelvalue="monochrome"
           >
-            <div
-              class="t-popup__reference t-select__popup-reference"
+            
+            
+            <label
+              class="t-radio-button t-is-checked"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          
-                        </li>
-                      </ul>
-                      <!---->
-                      <li
-                        class="t-select__empty t-size-m"
-                      >
-                        暂无数据
-                      </li>
-                      <ul
-                        class="t-select__groups t-select__list"
-                      >
-                        
-                        
-                        <li
-                          class="t-select-option t-is-selected t-size-m"
-                          title="单色"
-                        >
-                          单色
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="线性渐变"
-                        >
-                          线性渐变
-                        </li>
-                        
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-size-m t-no-border"
+              <input
+                class="t-radio-button__former"
+                name=""
+                type="radio"
+                value="monochrome"
+              />
+              <span
+                class="t-radio-button__input"
+              />
+              <span
+                class="t-radio-button__label"
               >
-                <!---->
-                <!---->
                 
                 
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
-                  
-                  +0
-                  
-                  <!---->
-                </span>
-                <span
-                  class="t-select__single"
-                  title="monochrome"
-                >
-                  monochrome
-                </span>
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
-              
-            </div>
+                单色
+                
+                
+              </span>
+            </label>
+            <label
+              class="t-radio-button"
+            >
+              <input
+                class="t-radio-button__former"
+                name=""
+                type="radio"
+                value="linear-gradient"
+              />
+              <span
+                class="t-radio-button__input"
+              />
+              <span
+                class="t-radio-button__label"
+              >
+                
+                
+                渐变
+                
+                
+              </span>
+            </label>
+            
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
+            
           </div>
         </div>
         <!---->
@@ -4868,7 +4794,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
             tabindex="0"
           />
         </div>
@@ -4881,14 +4807,14 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="left: 193px; color: rgb(0, 82, 217);"
+            style="left: 150px; color: rgb(0, 82, 217);"
             tabindex="0"
           />
         </div>
         <!---->
         <div
           class="t-color-picker__format"
-          customclass="is-inline"
+          customclass="t-is-inline"
         >
           <div
             class="t-color-picker__format--item"
@@ -4923,7 +4849,9 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                             class="t-select-option t-size-m t-select__create-option--special"
                             title=""
                           >
-                            
+                            <span>
+                              
+                            </span>
                           </li>
                         </ul>
                         <!---->
@@ -4939,45 +4867,57 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                           
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HEX"
                           >
-                            HEX
+                            <span>
+                              HEX
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-is-selected t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="RGB"
                           >
-                            RGB
+                            <span>
+                              RGB
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HSL"
                           >
-                            HSL
+                            <span>
+                              HSL
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HSV"
                           >
-                            HSV
+                            <span>
+                              HSV
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="CMYK"
                           >
-                            CMYK
+                            <span>
+                              CMYK
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="CSS"
                           >
-                            CSS
+                            <span>
+                              CSS
+                            </span>
                           </li>
                           
                           
@@ -4991,7 +4931,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 </transition-stub>
                 
                 <div
-                  class="t-select t-size-m"
+                  class="t-select t-select-polyfill t-size-m"
                 >
                   <!---->
                   <!---->
@@ -5015,7 +4955,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -5054,12 +4994,16 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -5075,12 +5019,16 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -5096,12 +5044,16 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -5125,7 +5077,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 最近使用颜色
               </span>
               <span
-                class="t-color-picker__icon is-disabled"
+                class="t-color-picker__icon t-is-disabled"
                 role="button"
                 title="移除选中的颜色"
               >
@@ -5364,7 +5316,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 </span>
               </li>
               <li
-                class="t-color-picker__swatches--item is-current"
+                class="t-color-picker__swatches--item t-is-current"
                 title="#0052D9"
               >
                 <span
@@ -5805,7 +5757,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
       完全不显示最近使用色
     </h6>
     <div
-      class="t-color-picker__panel is-inline"
+      class="t-color-picker__panel t-is-inline"
     >
       <div
         class="t-color-picker__head"
@@ -5814,116 +5766,61 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           class="t-color-picker__mode"
         >
           <div
-            class="t-select__wrap"
+            class="t-radio-group t-size-s t-radio-group--filled"
             modelvalue="monochrome"
           >
-            <div
-              class="t-popup__reference t-select__popup-reference"
+            
+            
+            <label
+              class="t-radio-button t-is-checked"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          
-                        </li>
-                      </ul>
-                      <!---->
-                      <li
-                        class="t-select__empty t-size-m"
-                      >
-                        暂无数据
-                      </li>
-                      <ul
-                        class="t-select__groups t-select__list"
-                      >
-                        
-                        
-                        <li
-                          class="t-select-option t-is-selected t-size-m"
-                          title="单色"
-                        >
-                          单色
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="线性渐变"
-                        >
-                          线性渐变
-                        </li>
-                        
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-size-m t-no-border"
+              <input
+                class="t-radio-button__former"
+                name=""
+                type="radio"
+                value="monochrome"
+              />
+              <span
+                class="t-radio-button__input"
+              />
+              <span
+                class="t-radio-button__label"
               >
-                <!---->
-                <!---->
                 
                 
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
-                  
-                  +0
-                  
-                  <!---->
-                </span>
-                <span
-                  class="t-select__single"
-                  title="monochrome"
-                >
-                  monochrome
-                </span>
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
-              
-            </div>
+                单色
+                
+                
+              </span>
+            </label>
+            <label
+              class="t-radio-button"
+            >
+              <input
+                class="t-radio-button__former"
+                name=""
+                type="radio"
+                value="linear-gradient"
+              />
+              <span
+                class="t-radio-button__input"
+              />
+              <span
+                class="t-radio-button__label"
+              >
+                
+                
+                渐变
+                
+                
+              </span>
+            </label>
+            
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
+            
           </div>
         </div>
         <!---->
@@ -5939,7 +5836,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
             tabindex="0"
           />
         </div>
@@ -5952,14 +5849,14 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="left: 193px; color: rgb(0, 82, 217);"
+            style="left: 150px; color: rgb(0, 82, 217);"
             tabindex="0"
           />
         </div>
         <!---->
         <div
           class="t-color-picker__format"
-          customclass="is-inline"
+          customclass="t-is-inline"
         >
           <div
             class="t-color-picker__format--item"
@@ -5994,7 +5891,9 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                             class="t-select-option t-size-m t-select__create-option--special"
                             title=""
                           >
-                            
+                            <span>
+                              
+                            </span>
                           </li>
                         </ul>
                         <!---->
@@ -6010,45 +5909,57 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                           
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HEX"
                           >
-                            HEX
+                            <span>
+                              HEX
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-is-selected t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="RGB"
                           >
-                            RGB
+                            <span>
+                              RGB
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HSL"
                           >
-                            HSL
+                            <span>
+                              HSL
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HSV"
                           >
-                            HSV
+                            <span>
+                              HSV
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="CMYK"
                           >
-                            CMYK
+                            <span>
+                              CMYK
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="CSS"
                           >
-                            CSS
+                            <span>
+                              CSS
+                            </span>
                           </li>
                           
                           
@@ -6062,7 +5973,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 </transition-stub>
                 
                 <div
-                  class="t-select t-size-m"
+                  class="t-select t-select-polyfill t-size-m"
                 >
                   <!---->
                   <!---->
@@ -6086,7 +5997,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -6125,12 +6036,16 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -6146,12 +6061,16 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -6167,12 +6086,16 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -6293,7 +6216,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 </span>
               </li>
               <li
-                class="t-color-picker__swatches--item is-current"
+                class="t-color-picker__swatches--item t-is-current"
                 title="#0052D9"
               >
                 <span
@@ -6764,36 +6687,41 @@ exports[`ColorPicker ColorPicker statusDisabledVue demo works fine 1`] = `
         class="t-color-picker__trigger--default"
       >
         <div
-          class="t-input t-is-disabled t-input--prefix t-input--auto-width"
-          modelvalue="#0052d9"
+          class="t-input__wrap"
         >
-          <!---->
           <div
-            class="t-input__prefix"
+            class="t-input t-is-disabled t-input--prefix t-input--auto-width"
+            modelvalue="#0052d9"
           >
-            
+            <!---->
             <div
-              class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+              class="t-input__prefix"
             >
-              <span
-                class="color-inner"
-                style="background: rgb(0, 82, 217);"
-              />
+              
+              <div
+                class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+              >
+                <span
+                  class="color-inner"
+                  style="background: rgb(0, 82, 217);"
+                />
+              </div>
+              
             </div>
-            
+            <input
+              class="t-input__inner"
+              disabled=""
+              placeholder="请选择"
+              type="text"
+            />
+            <span
+              class="t-input__input-pre"
+            >
+              #0052d9
+            </span>
+            <!---->
+            <!---->
           </div>
-          <input
-            class="t-input__inner"
-            disabled=""
-            placeholder="请选择"
-            type="text"
-          />
-          <span
-            class="t-input__input-pre"
-          >
-            #0052d9
-          </span>
-          <!---->
           <!---->
         </div>
       </div>
@@ -6808,7 +6736,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
   class="tdesign-demo-block-row"
 >
   <div
-    class="t-color-picker__panel is-inline is-disabled"
+    class="t-color-picker__panel t-is-inline t-is-disabled"
   >
     <div
       class="t-color-picker__head"
@@ -6817,116 +6745,61 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
         class="t-color-picker__mode"
       >
         <div
-          class="t-select__wrap"
+          class="t-radio-group t-size-s t-radio-group--filled"
           modelvalue="monochrome"
         >
-          <div
-            class="t-popup__reference t-select__popup-reference"
+          
+          
+          <label
+            class="t-radio-button t-is-checked"
           >
-            <transition-stub>
-              <div
-                aria-hidden="true"
-                class="t-popup"
-                role="tooltip"
-                style="display: none;"
-              >
-                <div
-                  class="t-popup__content t-select__dropdown narrow-scrollbar"
-                >
-                  
-                  <div
-                    class="t-select__dropdown-inner"
-                  >
-                    <!---->
-                    <ul
-                      class="t-select__create-option t-select__list"
-                      style="display: none;"
-                    >
-                      <li
-                        class="t-select-option t-size-m t-select__create-option--special"
-                        title=""
-                      >
-                        
-                      </li>
-                    </ul>
-                    <!---->
-                    <li
-                      class="t-select__empty t-size-m"
-                    >
-                      暂无数据
-                    </li>
-                    <ul
-                      class="t-select__groups t-select__list"
-                    >
-                      
-                      
-                      <li
-                        class="t-select-option t-is-selected t-size-m"
-                        title="单色"
-                      >
-                        单色
-                      </li>
-                      <li
-                        class="t-select-option t-size-m"
-                        title="线性渐变"
-                      >
-                        线性渐变
-                      </li>
-                      
-                      
-                    </ul>
-                    <!---->
-                  </div>
-                  
-                  <!---->
-                </div>
-              </div>
-            </transition-stub>
-            
-            <div
-              class="t-select t-size-m t-no-border"
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="monochrome"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
             >
-              <!---->
-              <!---->
               
               
-              <span
-                class="t-tag t-tag--default t-tag--dark t-size-m"
-                style="display: none;"
-              >
-                <!---->
-                
-                +0
-                
-                <!---->
-              </span>
-              <span
-                class="t-select__single"
-                title="monochrome"
-              >
-                monochrome
-              </span>
-              <!---->
-              <svg
-                class="t-fake-arrow t-select__right-icon"
-                fill="none"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                  stroke="black"
-                  stroke-opacity="0.9"
-                  stroke-width="1.3"
-                />
-              </svg>
-              <!---->
-              <!---->
-            </div>
-            
-          </div>
+              单色
+              
+              
+            </span>
+          </label>
+          <label
+            class="t-radio-button"
+          >
+            <input
+              class="t-radio-button__former"
+              name=""
+              type="radio"
+              value="linear-gradient"
+            />
+            <span
+              class="t-radio-button__input"
+            />
+            <span
+              class="t-radio-button__label"
+            >
+              
+              
+              渐变
+              
+              
+            </span>
+          </label>
+          
+          <div
+            class="t-radio-group__bg-block"
+            style="width: 0px; left: 0px;"
+          />
+          
         </div>
       </div>
       <!---->
@@ -6942,7 +6815,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+          style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
           tabindex="0"
         />
       </div>
@@ -6955,14 +6828,14 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
         <span
           class="t-color-picker__thumb"
           role="slider"
-          style="left: 193px; color: rgb(0, 82, 217);"
+          style="left: 150px; color: rgb(0, 82, 217);"
           tabindex="0"
         />
       </div>
       <!---->
       <div
         class="t-color-picker__format"
-        customclass="is-inline"
+        customclass="t-is-inline"
       >
         <div
           class="t-color-picker__format--item"
@@ -6997,7 +6870,9 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                           class="t-select-option t-size-m t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -7013,45 +6888,57 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                         
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HEX"
                         >
-                          HEX
+                          <span>
+                            HEX
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-is-selected t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="RGB"
                         >
-                          RGB
+                          <span>
+                            RGB
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HSL"
                         >
-                          HSL
+                          <span>
+                            HSL
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="HSV"
                         >
-                          HSV
+                          <span>
+                            HSV
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="CMYK"
                         >
-                          CMYK
+                          <span>
+                            CMYK
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-m"
-                          style="font-size: 14px;"
+                          style="font-size: 12px;"
                           title="CSS"
                         >
-                          CSS
+                          <span>
+                            CSS
+                          </span>
                         </li>
                         
                         
@@ -7065,7 +6952,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
               </transition-stub>
               
               <div
-                class="t-select t-size-m"
+                class="t-select t-select-polyfill t-size-m"
               >
                 <!---->
                 <!---->
@@ -7089,7 +6976,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                 </span>
                 <!---->
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   viewBox="0 0 16 16"
@@ -7128,13 +7015,17 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner t-is-disabled"
-                    disabled=""
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner t-is-disabled"
+                      disabled=""
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -7150,13 +7041,17 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner t-is-disabled"
-                    disabled=""
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner t-is-disabled"
+                      disabled=""
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -7172,13 +7067,17 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
               >
                 <!---->
                 <div
-                  class="t-input"
+                  class="t-input__wrap"
                 >
-                  <input
-                    autocomplete="off"
-                    class="t-input__inner t-is-disabled"
-                    disabled=""
-                  />
+                  <div
+                    class="t-input"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="t-input__inner t-is-disabled"
+                      disabled=""
+                    />
+                  </div>
                 </div>
                 <!---->
               </div>
@@ -7299,7 +7198,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
               </span>
             </li>
             <li
-              class="t-color-picker__swatches--item is-current"
+              class="t-color-picker__swatches--item t-is-current"
               title="#0052D9"
             >
               <span
@@ -7746,7 +7645,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
       自定义系统色
     </h6>
     <div
-      class="t-color-picker__panel is-inline"
+      class="t-color-picker__panel t-is-inline"
     >
       <div
         class="t-color-picker__head"
@@ -7755,116 +7654,61 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           class="t-color-picker__mode"
         >
           <div
-            class="t-select__wrap"
+            class="t-radio-group t-size-s t-radio-group--filled"
             modelvalue="monochrome"
           >
-            <div
-              class="t-popup__reference t-select__popup-reference"
+            
+            
+            <label
+              class="t-radio-button t-is-checked"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          
-                        </li>
-                      </ul>
-                      <!---->
-                      <li
-                        class="t-select__empty t-size-m"
-                      >
-                        暂无数据
-                      </li>
-                      <ul
-                        class="t-select__groups t-select__list"
-                      >
-                        
-                        
-                        <li
-                          class="t-select-option t-is-selected t-size-m"
-                          title="单色"
-                        >
-                          单色
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="线性渐变"
-                        >
-                          线性渐变
-                        </li>
-                        
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-size-m t-no-border"
+              <input
+                class="t-radio-button__former"
+                name=""
+                type="radio"
+                value="monochrome"
+              />
+              <span
+                class="t-radio-button__input"
+              />
+              <span
+                class="t-radio-button__label"
               >
-                <!---->
-                <!---->
                 
                 
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
-                  
-                  +0
-                  
-                  <!---->
-                </span>
-                <span
-                  class="t-select__single"
-                  title="monochrome"
-                >
-                  monochrome
-                </span>
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
-              
-            </div>
+                单色
+                
+                
+              </span>
+            </label>
+            <label
+              class="t-radio-button"
+            >
+              <input
+                class="t-radio-button__former"
+                name=""
+                type="radio"
+                value="linear-gradient"
+              />
+              <span
+                class="t-radio-button__input"
+              />
+              <span
+                class="t-radio-button__label"
+              >
+                
+                
+                渐变
+                
+                
+              </span>
+            </label>
+            
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
+            
           </div>
         </div>
         <!---->
@@ -7880,7 +7724,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
             tabindex="0"
           />
         </div>
@@ -7893,14 +7737,14 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="left: 193px; color: rgb(0, 82, 217);"
+            style="left: 150px; color: rgb(0, 82, 217);"
             tabindex="0"
           />
         </div>
         <!---->
         <div
           class="t-color-picker__format"
-          customclass="is-inline"
+          customclass="t-is-inline"
         >
           <div
             class="t-color-picker__format--item"
@@ -7935,7 +7779,9 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                             class="t-select-option t-size-m t-select__create-option--special"
                             title=""
                           >
-                            
+                            <span>
+                              
+                            </span>
                           </li>
                         </ul>
                         <!---->
@@ -7951,45 +7797,57 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                           
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HEX"
                           >
-                            HEX
+                            <span>
+                              HEX
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-is-selected t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="RGB"
                           >
-                            RGB
+                            <span>
+                              RGB
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HSL"
                           >
-                            HSL
+                            <span>
+                              HSL
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HSV"
                           >
-                            HSV
+                            <span>
+                              HSV
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="CMYK"
                           >
-                            CMYK
+                            <span>
+                              CMYK
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="CSS"
                           >
-                            CSS
+                            <span>
+                              CSS
+                            </span>
                           </li>
                           
                           
@@ -8003,7 +7861,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 </transition-stub>
                 
                 <div
-                  class="t-select t-size-m"
+                  class="t-select t-select-polyfill t-size-m"
                 >
                   <!---->
                   <!---->
@@ -8027,7 +7885,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -8066,12 +7924,16 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -8087,12 +7949,16 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -8108,12 +7974,16 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -8220,7 +8090,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
       完全不显示系统色
     </h6>
     <div
-      class="t-color-picker__panel is-inline"
+      class="t-color-picker__panel t-is-inline"
     >
       <div
         class="t-color-picker__head"
@@ -8229,116 +8099,61 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           class="t-color-picker__mode"
         >
           <div
-            class="t-select__wrap"
+            class="t-radio-group t-size-s t-radio-group--filled"
             modelvalue="monochrome"
           >
-            <div
-              class="t-popup__reference t-select__popup-reference"
+            
+            
+            <label
+              class="t-radio-button t-is-checked"
             >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div
-                      class="t-select__dropdown-inner"
-                    >
-                      <!---->
-                      <ul
-                        class="t-select__create-option t-select__list"
-                        style="display: none;"
-                      >
-                        <li
-                          class="t-select-option t-size-m t-select__create-option--special"
-                          title=""
-                        >
-                          
-                        </li>
-                      </ul>
-                      <!---->
-                      <li
-                        class="t-select__empty t-size-m"
-                      >
-                        暂无数据
-                      </li>
-                      <ul
-                        class="t-select__groups t-select__list"
-                      >
-                        
-                        
-                        <li
-                          class="t-select-option t-is-selected t-size-m"
-                          title="单色"
-                        >
-                          单色
-                        </li>
-                        <li
-                          class="t-select-option t-size-m"
-                          title="线性渐变"
-                        >
-                          线性渐变
-                        </li>
-                        
-                        
-                      </ul>
-                      <!---->
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
-              <div
-                class="t-select t-size-m t-no-border"
+              <input
+                class="t-radio-button__former"
+                name=""
+                type="radio"
+                value="monochrome"
+              />
+              <span
+                class="t-radio-button__input"
+              />
+              <span
+                class="t-radio-button__label"
               >
-                <!---->
-                <!---->
                 
                 
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
-                  
-                  +0
-                  
-                  <!---->
-                </span>
-                <span
-                  class="t-select__single"
-                  title="monochrome"
-                >
-                  monochrome
-                </span>
-                <!---->
-                <svg
-                  class="t-fake-arrow t-select__right-icon"
-                  fill="none"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <!---->
-                <!---->
-              </div>
-              
-            </div>
+                单色
+                
+                
+              </span>
+            </label>
+            <label
+              class="t-radio-button"
+            >
+              <input
+                class="t-radio-button__former"
+                name=""
+                type="radio"
+                value="linear-gradient"
+              />
+              <span
+                class="t-radio-button__input"
+              />
+              <span
+                class="t-radio-button__label"
+              >
+                
+                
+                渐变
+                
+                
+              </span>
+            </label>
+            
+            <div
+              class="t-radio-group__bg-block"
+              style="width: 0px; left: 0px;"
+            />
+            
           </div>
         </div>
         <!---->
@@ -8354,7 +8169,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+            style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
             tabindex="0"
           />
         </div>
@@ -8367,14 +8182,14 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
           <span
             class="t-color-picker__thumb"
             role="slider"
-            style="left: 193px; color: rgb(0, 82, 217);"
+            style="left: 150px; color: rgb(0, 82, 217);"
             tabindex="0"
           />
         </div>
         <!---->
         <div
           class="t-color-picker__format"
-          customclass="is-inline"
+          customclass="t-is-inline"
         >
           <div
             class="t-color-picker__format--item"
@@ -8409,7 +8224,9 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                             class="t-select-option t-size-m t-select__create-option--special"
                             title=""
                           >
-                            
+                            <span>
+                              
+                            </span>
                           </li>
                         </ul>
                         <!---->
@@ -8425,45 +8242,57 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                           
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HEX"
                           >
-                            HEX
+                            <span>
+                              HEX
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-is-selected t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="RGB"
                           >
-                            RGB
+                            <span>
+                              RGB
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HSL"
                           >
-                            HSL
+                            <span>
+                              HSL
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="HSV"
                           >
-                            HSV
+                            <span>
+                              HSV
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="CMYK"
                           >
-                            CMYK
+                            <span>
+                              CMYK
+                            </span>
                           </li>
                           <li
                             class="t-select-option t-size-m"
-                            style="font-size: 14px;"
+                            style="font-size: 12px;"
                             title="CSS"
                           >
-                            CSS
+                            <span>
+                              CSS
+                            </span>
                           </li>
                           
                           
@@ -8477,7 +8306,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 </transition-stub>
                 
                 <div
-                  class="t-select t-size-m"
+                  class="t-select t-select-polyfill t-size-m"
                 >
                   <!---->
                   <!---->
@@ -8501,7 +8330,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   </span>
                   <!---->
                   <svg
-                    class="t-fake-arrow t-select__right-icon"
+                    class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                     fill="none"
                     height="16"
                     viewBox="0 0 16 16"
@@ -8540,12 +8369,16 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -8561,12 +8394,16 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -8582,12 +8419,16 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <div
-                    class="t-input"
+                    class="t-input__wrap"
                   >
-                    <input
-                      autocomplete="off"
-                      class="t-input__inner"
-                    />
+                    <div
+                      class="t-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="t-input__inner"
+                      />
+                    </div>
                   </div>
                   <!---->
                 </div>
@@ -8631,120 +8472,65 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                 class="t-color-picker__mode"
               >
                 <div
-                  class="t-select__wrap"
+                  class="t-radio-group t-size-s t-radio-group--filled"
                   modelvalue="monochrome"
                 >
-                  <div
-                    class="t-popup__reference t-select__popup-reference"
+                  
+                  
+                  <label
+                    class="t-radio-button t-is-checked"
                   >
-                    <transition-stub>
-                      <div
-                        aria-hidden="true"
-                        class="t-popup"
-                        role="tooltip"
-                        style="display: none;"
-                      >
-                        <div
-                          class="t-popup__content t-select__dropdown narrow-scrollbar"
-                        >
-                          
-                          <div
-                            class="t-select__dropdown-inner"
-                          >
-                            <!---->
-                            <ul
-                              class="t-select__create-option t-select__list"
-                              style="display: none;"
-                            >
-                              <li
-                                class="t-select-option t-size-m t-select__create-option--special"
-                                title=""
-                              >
-                                
-                              </li>
-                            </ul>
-                            <!---->
-                            <li
-                              class="t-select__empty t-size-m"
-                            >
-                              暂无数据
-                            </li>
-                            <ul
-                              class="t-select__groups t-select__list"
-                            >
-                              
-                              
-                              <li
-                                class="t-select-option t-is-selected t-size-m"
-                                title="单色"
-                              >
-                                单色
-                              </li>
-                              <li
-                                class="t-select-option t-size-m"
-                                title="线性渐变"
-                              >
-                                线性渐变
-                              </li>
-                              
-                              
-                            </ul>
-                            <!---->
-                          </div>
-                          
-                          <!---->
-                        </div>
-                      </div>
-                    </transition-stub>
-                    
-                    <div
-                      class="t-select t-size-m t-no-border"
+                    <input
+                      class="t-radio-button__former"
+                      name=""
+                      type="radio"
+                      value="monochrome"
+                    />
+                    <span
+                      class="t-radio-button__input"
+                    />
+                    <span
+                      class="t-radio-button__label"
                     >
-                      <!---->
-                      <!---->
                       
                       
-                      <span
-                        class="t-tag t-tag--default t-tag--dark t-size-m"
-                        style="display: none;"
-                      >
-                        <!---->
-                        
-                        +0
-                        
-                        <!---->
-                      </span>
-                      <span
-                        class="t-select__single"
-                        title="monochrome"
-                      >
-                        monochrome
-                      </span>
-                      <!---->
-                      <svg
-                        class="t-fake-arrow t-select__right-icon"
-                        fill="none"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                          stroke="black"
-                          stroke-opacity="0.9"
-                          stroke-width="1.3"
-                        />
-                      </svg>
-                      <!---->
-                      <!---->
-                    </div>
-                    
-                  </div>
+                      单色
+                      
+                      
+                    </span>
+                  </label>
+                  <label
+                    class="t-radio-button"
+                  >
+                    <input
+                      class="t-radio-button__former"
+                      name=""
+                      type="radio"
+                      value="linear-gradient"
+                    />
+                    <span
+                      class="t-radio-button__input"
+                    />
+                    <span
+                      class="t-radio-button__label"
+                    >
+                      
+                      
+                      渐变
+                      
+                      
+                    </span>
+                  </label>
+                  
+                  <div
+                    class="t-radio-group__bg-block"
+                    style="width: 0px; left: 0px;"
+                  />
+                  
                 </div>
               </div>
               <span
-                class="t-color-picker__close"
+                class="t-color-picker__icon t-color-picker__close"
                 role="button"
               >
                 <svg
@@ -8773,7 +8559,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                 <span
                   class="t-color-picker__thumb"
                   role="slider"
-                  style="color: rgb(0, 82, 217); left: 320px; top: 36px;"
+                  style="color: rgb(0, 82, 217); left: 248px; top: 21px;"
                   tabindex="0"
                 />
               </div>
@@ -8786,7 +8572,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                 <span
                   class="t-color-picker__thumb"
                   role="slider"
-                  style="left: 193px; color: rgb(0, 82, 217);"
+                  style="left: 150px; color: rgb(0, 82, 217);"
                   tabindex="0"
                 />
               </div>
@@ -8828,7 +8614,9 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                                   class="t-select-option t-size-m t-select__create-option--special"
                                   title=""
                                 >
-                                  
+                                  <span>
+                                    
+                                  </span>
                                 </li>
                               </ul>
                               <!---->
@@ -8844,45 +8632,57 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                                 
                                 <li
                                   class="t-select-option t-size-m"
-                                  style="font-size: 14px;"
+                                  style="font-size: 12px;"
                                   title="HEX"
                                 >
-                                  HEX
+                                  <span>
+                                    HEX
+                                  </span>
                                 </li>
                                 <li
                                   class="t-select-option t-is-selected t-size-m"
-                                  style="font-size: 14px;"
+                                  style="font-size: 12px;"
                                   title="RGB"
                                 >
-                                  RGB
+                                  <span>
+                                    RGB
+                                  </span>
                                 </li>
                                 <li
                                   class="t-select-option t-size-m"
-                                  style="font-size: 14px;"
+                                  style="font-size: 12px;"
                                   title="HSL"
                                 >
-                                  HSL
+                                  <span>
+                                    HSL
+                                  </span>
                                 </li>
                                 <li
                                   class="t-select-option t-size-m"
-                                  style="font-size: 14px;"
+                                  style="font-size: 12px;"
                                   title="HSV"
                                 >
-                                  HSV
+                                  <span>
+                                    HSV
+                                  </span>
                                 </li>
                                 <li
                                   class="t-select-option t-size-m"
-                                  style="font-size: 14px;"
+                                  style="font-size: 12px;"
                                   title="CMYK"
                                 >
-                                  CMYK
+                                  <span>
+                                    CMYK
+                                  </span>
                                 </li>
                                 <li
                                   class="t-select-option t-size-m"
-                                  style="font-size: 14px;"
+                                  style="font-size: 12px;"
                                   title="CSS"
                                 >
-                                  CSS
+                                  <span>
+                                    CSS
+                                  </span>
                                 </li>
                                 
                                 
@@ -8896,7 +8696,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                       </transition-stub>
                       
                       <div
-                        class="t-select t-size-m"
+                        class="t-select t-select-polyfill t-size-m"
                       >
                         <!---->
                         <!---->
@@ -8920,7 +8720,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                         </span>
                         <!---->
                         <svg
-                          class="t-fake-arrow t-select__right-icon"
+                          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                           fill="none"
                           height="16"
                           viewBox="0 0 16 16"
@@ -8959,12 +8759,16 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                       >
                         <!---->
                         <div
-                          class="t-input"
+                          class="t-input__wrap"
                         >
-                          <input
-                            autocomplete="off"
-                            class="t-input__inner"
-                          />
+                          <div
+                            class="t-input"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="t-input__inner"
+                            />
+                          </div>
                         </div>
                         <!---->
                       </div>
@@ -8980,12 +8784,16 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                       >
                         <!---->
                         <div
-                          class="t-input"
+                          class="t-input__wrap"
                         >
-                          <input
-                            autocomplete="off"
-                            class="t-input__inner"
-                          />
+                          <div
+                            class="t-input"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="t-input__inner"
+                            />
+                          </div>
                         </div>
                         <!---->
                       </div>
@@ -9001,12 +8809,16 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                       >
                         <!---->
                         <div
-                          class="t-input"
+                          class="t-input__wrap"
                         >
-                          <input
-                            autocomplete="off"
-                            class="t-input__inner"
-                          />
+                          <div
+                            class="t-input"
+                          >
+                            <input
+                              autocomplete="off"
+                              class="t-input__inner"
+                            />
+                          </div>
                         </div>
                         <!---->
                       </div>
@@ -9127,7 +8939,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                       </span>
                     </li>
                     <li
-                      class="t-color-picker__swatches--item is-current"
+                      class="t-color-picker__swatches--item t-is-current"
                       title="#0052D9"
                     >
                       <span
@@ -9575,35 +9387,40 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
         class="t-color-picker__trigger--default"
       >
         <div
-          class="t-input t-input--prefix t-input--auto-width"
-          modelvalue="#0052d9"
+          class="t-input__wrap"
         >
-          <!---->
           <div
-            class="t-input__prefix"
+            class="t-input t-input--prefix t-input--auto-width"
+            modelvalue="#0052d9"
           >
-            
+            <!---->
             <div
-              class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+              class="t-input__prefix"
             >
-              <span
-                class="color-inner"
-                style="background: rgb(0, 82, 217);"
-              />
+              
+              <div
+                class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"
+              >
+                <span
+                  class="color-inner"
+                  style="background: rgb(0, 82, 217);"
+                />
+              </div>
+              
             </div>
-            
+            <input
+              class="t-input__inner"
+              placeholder="请选择"
+              type="text"
+            />
+            <span
+              class="t-input__input-pre"
+            >
+              #0052d9
+            </span>
+            <!---->
+            <!---->
           </div>
-          <input
-            class="t-input__inner"
-            placeholder="请选择"
-            type="text"
-          />
-          <span
-            class="t-input__input-pre"
-          >
-            #0052d9
-          </span>
-          <!---->
           <!---->
         </div>
       </div>

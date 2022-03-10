@@ -2,7 +2,6 @@ import { defineComponent, VNode, ComponentPublicInstance, provide, toRefs } from
 import isEmpty from 'lodash/isEmpty';
 import isBoolean from 'lodash/isBoolean';
 import isArray from 'lodash/isArray';
-import { prefix } from '../config';
 import { FormValidateResult, TdFormProps, FormValidateParams, ValidateResultList } from './type';
 import props from './props';
 import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES, FORM_CONTROL_COMPONENTS } from './const';
@@ -11,12 +10,11 @@ import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
 import { FormDisabledProvider } from './hooks';
+import { usePrefixClass } from '../config-provider';
 
 export type FormItemInstance = InstanceType<typeof FormItem>;
 
 type Result = FormValidateResult<TdFormProps['data']>;
-
-const name = `${prefix}-form`;
 
 export default defineComponent({
   name: 'TForm',
@@ -32,9 +30,14 @@ export default defineComponent({
 
   setup(props) {
     const { disabled } = toRefs(props);
+    const COMPONENT_NAME = usePrefixClass('form');
+
     provide<FormDisabledProvider>('formDisabled', {
       disabled,
     });
+    return {
+      COMPONENT_NAME,
+    };
   },
 
   data() {
@@ -48,7 +51,7 @@ export default defineComponent({
       return [
         CLASS_NAMES.form,
         {
-          [`${name}-inline`]: this.layout === 'inline',
+          [`${this.COMPONENT_NAME}-inline`]: this.layout === 'inline',
         },
       ];
     },

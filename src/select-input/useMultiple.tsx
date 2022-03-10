@@ -25,9 +25,9 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
     inputValue,
     props.defaultInputValue,
     props.onInputChange,
-    context.emit,
     'inputValue',
   );
+
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
     if (!(props.value instanceof Array)) {

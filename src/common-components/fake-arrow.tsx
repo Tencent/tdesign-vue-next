@@ -1,11 +1,9 @@
 import { defineComponent, PropType, computed } from 'vue';
-import { prefix } from '../config';
-
-const name = `${prefix}-fake-arrow`;
+import { usePrefixClass } from '../config-provider';
 
 // 统一使用的翻转箭头组件
 export default defineComponent({
-  name,
+  name: 'TFakeArrow',
   props: {
     // 是否active状态 active状态下箭头向上翻转
     isActive: {
@@ -20,10 +18,11 @@ export default defineComponent({
   },
 
   setup(props) {
+    const COMPONENT_NAME = usePrefixClass('fake-arrow');
     const classes = computed(() => [
-      name,
+      COMPONENT_NAME.value,
       {
-        [`${name}--active`]: props.isActive,
+        [`${COMPONENT_NAME.value}--active`]: props.isActive,
       },
       props.overlayClassName,
     ]);

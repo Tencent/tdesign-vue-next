@@ -1,8 +1,6 @@
 import { defineComponent, computed, provide, ref, Ref } from 'vue';
-import { prefix } from '../config';
 import { renderTNodeJSX } from '../utils/render-tnode';
-
-const name = `${prefix}-layout`;
+import { usePrefixClass } from '../config-provider';
 
 export type LayoutProvideType = {
   hasSide: Ref<boolean>;
@@ -14,10 +12,11 @@ export default defineComponent({
   setup() {
     const hasSide = ref(false);
 
+    const COMPONENT_NAME = usePrefixClass('layout');
     const classes = computed(() => [
-      name,
+      COMPONENT_NAME.value,
       {
-        [`${name}--with-sider`]: hasSide.value,
+        [`${COMPONENT_NAME.value}--with-sider`]: hasSide.value,
       },
     ]);
 

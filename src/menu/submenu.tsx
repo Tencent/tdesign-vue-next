@@ -1,17 +1,18 @@
 import { defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, watch } from 'vue';
-import { prefix } from '../config';
 import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
 import FakeArrow from '../common-components/fake-arrow';
 import useRipple from '../hooks/useRipple';
 import { ClassName } from '../common';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TSubmenu',
 
   props,
   setup(props, ctx) {
+    const classPrefix = usePrefixClass();
     const menu = inject<TdMenuInterface>('TdMenu');
     const { theme, activeValues, expandValues, mode, isHead, open } = menu;
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', null);
@@ -32,36 +33,36 @@ export default defineComponent({
     useRipple(submenuRef, rippleColor);
 
     const classes = computed(() => [
-      `${prefix}-submenu`,
+      `${classPrefix.value}-submenu`,
       {
-        [`${prefix}-is-disabled`]: props.disabled,
-        [`${prefix}-is-opened`]: isOpen.value,
+        [`${classPrefix.value}-is-disabled`]: props.disabled,
+        [`${classPrefix.value}-is-opened`]: isOpen.value,
       },
     ]);
     const popupClass = computed(() => [
-      `${prefix}-menu__popup`,
+      `${classPrefix.value}-menu__popup`,
       {
-        [`${prefix}-is-opened`]: popupVisible.value,
-        [`${prefix}-is-vertical`]: !isHead,
+        [`${classPrefix.value}-is-opened`]: popupVisible.value,
+        [`${classPrefix.value}-is-vertical`]: !isHead,
       },
     ]);
     const submenuClass = computed(() => [
-      `${prefix}-menu__item`,
+      `${classPrefix.value}-menu__item`,
       {
-        [`${prefix}-is-disabled`]: props.disabled,
-        [`${prefix}-is-opened`]: isOpen.value,
-        [`${prefix}-is-active`]: isActive.value,
+        [`${classPrefix.value}-is-disabled`]: props.disabled,
+        [`${classPrefix.value}-is-opened`]: isOpen.value,
+        [`${classPrefix.value}-is-active`]: isActive.value,
       },
     ]);
     const subClass = computed(() => [
-      `${prefix}-menu__sub`,
+      `${classPrefix.value}-menu__sub`,
       {
-        [`${prefix}-is-opened`]: isOpen.value,
+        [`${classPrefix.value}-is-opened`]: isOpen.value,
       },
     ]);
     const arrowClass: ClassName = computed(() => [
       {
-        [`${prefix}-fake-arrow--active`]: isOpen.value,
+        [`${classPrefix.value}-fake-arrow--active`]: isOpen.value,
       },
     ]);
 
@@ -115,6 +116,7 @@ export default defineComponent({
     });
 
     return {
+      classPrefix,
       menuItems,
       mode,
       isHead,
@@ -148,7 +150,7 @@ export default defineComponent({
           />
         </div>,
         <div ref="popup" class={this.popupClass}>
-          <ul ref="popupInner" class={`${prefix}-menu__popup-wrapper`}>
+          <ul ref="popupInner" class={`${this.classPrefix}-menu__popup-wrapper`}>
             {renderContent(this, 'default', 'content')}
           </ul>
         </div>,
@@ -174,7 +176,7 @@ export default defineComponent({
       const normalSubmenu = [
         <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
           {icon}
-          <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
+          <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
           {hasContent && (
             <FakeArrow
               overlayClassName={this.arrowClass}
@@ -190,14 +192,14 @@ export default defineComponent({
       const popupSubmenu = [
         <div class={this.submenuClass}>
           {icon}
-          <span class={[`${prefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
+          <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
           <FakeArrow
             overlayClassName={this.arrowClass}
             overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
           />
         </div>,
         <div ref="popup" class={this.popupClass}>
-          <ul ref="popupInner" class={`${prefix}-menu__popup-wrapper`}>
+          <ul ref="popupInner" class={`${this.classPrefix}-menu__popup-wrapper`}>
             {child}
           </ul>
         </div>,

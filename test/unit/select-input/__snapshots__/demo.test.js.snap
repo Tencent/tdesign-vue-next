@@ -48,41 +48,46 @@ exports[`SelectInput SelectInput autocompleteVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-input--suffix"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="请输入任意关键词"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
-      >
-        <svg
-          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请输入任意关键词"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     
   </div>
@@ -261,76 +266,81 @@ exports[`SelectInput SelectInput autowidthMultipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-input--suffix t-input--auto-width t-tag-input"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-input--suffix t-input--auto-width t-tag-input"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          Vue
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            Vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+          >
+            <!---->
+            
+            +
+            2
+            
+            <!---->
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          
+        </span>
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close"
+            class="t-icon t-icon-chevron-down"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
               fill="currentColor"
               fill-opacity="0.9"
             />
           </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-        >
-          <!---->
           
-          +
-          2
-          
-          <!---->
         </span>
-        
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
-      <span
-        class="t-input__input-pre"
-      >
-        
-      </span>
       <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-down"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-      </span>
     </div>
     
   </div>
@@ -385,47 +395,52 @@ exports[`SelectInput SelectInput autowidthVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-input--suffix t-input--auto-width"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-input--suffix t-input--auto-width"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="Please Select"
-        type="text"
-      />
-      <span
-        class="t-input__input-pre"
-      >
-        tdesign-vue
-      </span>
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-down"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          type="text"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          tdesign-vue
+        </span>
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          
+          <svg
+            class="t-icon t-icon-chevron-down"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          
+        </span>
+      </div>
+      <!---->
     </div>
     
   </div>
@@ -605,53 +620,58 @@ exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-tag-input"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          Vue
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-        >
-          <!---->
+            <!---->
+            
+            Vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+          >
+            <!---->
+            
+            +
+            2
+            
+            <!---->
+          </span>
           
-          +
-          2
-          
-          <!---->
-        </span>
-        
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
-      <!---->
-      <!---->
       <!---->
     </div>
     
@@ -707,42 +727,47 @@ exports[`SelectInput SelectInput borderlessVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="Please Select"
-        readonly=""
-        type="text"
-      />
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
-      >
-        <svg
-          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     
   </div>
@@ -922,53 +947,58 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-tag-input"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          tdesign-vue
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-        >
-          <!---->
+            <!---->
+            
+            tdesign-vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+          >
+            <!---->
+            
+            +
+            5
+            
+            <!---->
+          </span>
           
-          +
-          5
-          
-          <!---->
-        </span>
-        
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
-      <!---->
-      <!---->
       <!---->
     </div>
     
@@ -1144,75 +1174,80 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-tag-input"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          tdesign-vue
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-react
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-        >
-          <!---->
+            <!---->
+            
+            tdesign-react
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-size-m"
+          >
+            <!---->
+            
+            更多(
+            4
+            )
+            
+            <!---->
+          </span>
           
-          更多(
-          4
-          )
-          
-          <!---->
-        </span>
-        
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
-      <!---->
-      <!---->
       <!---->
     </div>
     
@@ -1388,150 +1423,155 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-tag-input"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-vue
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-react
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-miniprogram
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
+        <!---->
         <div
-          class="t-popup__reference"
+          class="t-input__prefix"
         >
-          <transition-stub>
-            <div
-              aria-hidden="true"
-              class="t-popup"
-              role="tooltip"
-              style="display: none;"
-            >
-              <div
-                class="t-popup__content"
-              >
-                
-                
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="margin: 4px 4px 4px 0px;"
-                >
-                  <!---->
-                  
-                  tdesign-angular
-                  
-                  <!---->
-                </span>
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="margin: 4px 4px 4px 0px;"
-                >
-                  <!---->
-                  
-                  tdesign-mobile-vue
-                  
-                  <!---->
-                </span>
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="margin: 4px 4px 4px 0px;"
-                >
-                  <!---->
-                  
-                  tdesign-mobile-react
-                  
-                  <!---->
-                </span>
-                
-                
-                <!---->
-              </div>
-            </div>
-          </transition-stub>
           
           <span
-            class="t-tag t-tag--default t-tag--dark t-size-m"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
-            More(3)
+            tdesign-vue
             
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
             <!---->
+            
+            tdesign-react
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            tdesign-miniprogram
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
           </span>
           
+          <div
+            class="t-popup__reference"
+          >
+            <transition-stub>
+              <div
+                aria-hidden="true"
+                class="t-popup"
+                role="tooltip"
+                style="display: none;"
+              >
+                <div
+                  class="t-popup__content"
+                >
+                  
+                  
+                  <span
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
+                    style="margin: 4px 4px 4px 0px;"
+                  >
+                    <!---->
+                    
+                    tdesign-angular
+                    
+                    <!---->
+                  </span>
+                  <span
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
+                    style="margin: 4px 4px 4px 0px;"
+                  >
+                    <!---->
+                    
+                    tdesign-mobile-vue
+                    
+                    <!---->
+                  </span>
+                  <span
+                    class="t-tag t-tag--default t-tag--dark t-size-m"
+                    style="margin: 4px 4px 4px 0px;"
+                  >
+                    <!---->
+                    
+                    tdesign-mobile-react
+                    
+                    <!---->
+                  </span>
+                  
+                  
+                  <!---->
+                </div>
+              </div>
+            </transition-stub>
+            
+            <span
+              class="t-tag t-tag--default t-tag--dark t-size-m"
+            >
+              <!---->
+              
+              More(3)
+              
+              <!---->
+            </span>
+            
+          </div>
+          
+          
         </div>
-        
-        
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
-      <!---->
-      <!---->
       <!---->
     </div>
     
@@ -1589,62 +1629,67 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
       >
-        
-        
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          
+          <span
+            class="displaySpan"
+          >
+            <svg
+              class="t-icon t-icon-control-platform tdesign-demo-select-input__img"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+             tdesign-vue
+          </span>
+          
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
         <span
-          class="displaySpan"
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
         >
           <svg
-            class="t-icon t-icon-control-platform tdesign-demo-select-input__img"
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              clip-rule="evenodd"
-              d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
               fill="currentColor"
-              fill-rule="evenodd"
+              fill-opacity="0.9"
             />
           </svg>
-           tdesign-vue
         </span>
-        
-        <!---->
-        
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-      />
       <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
-      >
-        <svg
-          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
     </div>
     
   </div>
@@ -1677,81 +1722,86 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-is-readonly t-input--prefix t-tag-input"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-readonly t-input--prefix t-tag-input"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
-          
           
           <span
-            class="displaySpan"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
           >
-            <svg
-              class="t-icon t-icon-control-platform"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <!---->
+            
+            
+            <span
+              class="displaySpan"
             >
-              <path
-                clip-rule="evenodd"
-                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-             tdesign-vue
+              <svg
+                class="t-icon t-icon-control-platform"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+               tdesign-vue
+            </span>
+            
+            
+            <!---->
           </span>
-          
-          
-          <!---->
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-        >
-          <!---->
-          
-          
           <span
-            class="displaySpan"
+            class="t-tag t-tag--default t-tag--dark t-size-m"
           >
-            <svg
-              class="t-icon t-icon-control-platform"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <!---->
+            
+            
+            <span
+              class="displaySpan"
             >
-              <path
-                clip-rule="evenodd"
-                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-             tdesign-react
+              <svg
+                class="t-icon t-icon-control-platform"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+               tdesign-react
+            </span>
+            
+            
+            <!---->
           </span>
           
-          
-          <!---->
-        </span>
-        
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-      />
-      <!---->
-      <!---->
       <!---->
     </div>
     
@@ -1785,154 +1835,159 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-is-readonly t-input--prefix t-tag-input"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-readonly t-input--prefix t-tag-input"
       >
-        
-        
-        <!-- &lt;span&gt;&lt;LayersIcon /&gt;{{ value }}&lt;/span&gt; -->
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-          style="margin-right: 4px;"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
+          
+          
+          <!-- &lt;span&gt;&lt;LayersIcon /&gt;{{ value }}&lt;/span&gt; -->
           
           <span
-            class="displaySpan"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+            style="margin-right: 4px;"
           >
+            <!---->
+            
+            <span
+              class="displaySpan"
+            >
+              <svg
+                class="t-icon t-icon-control-platform"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <span>
+                tdesign-vue
+              </span>
+            </span>
+            
             <svg
-              class="t-icon t-icon-control-platform"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                clip-rule="evenodd"
-                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
                 fill="currentColor"
-                fill-rule="evenodd"
+                fill-opacity="0.9"
               />
             </svg>
-            <span>
-              tdesign-vue
-            </span>
           </span>
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-          style="margin-right: 4px;"
-        >
-          <!---->
-          
           <span
-            class="displaySpan"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+            style="margin-right: 4px;"
           >
+            <!---->
+            
+            <span
+              class="displaySpan"
+            >
+              <svg
+                class="t-icon t-icon-control-platform"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <span>
+                tdesign-react
+              </span>
+            </span>
+            
             <svg
-              class="t-icon t-icon-control-platform"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                clip-rule="evenodd"
-                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
                 fill="currentColor"
-                fill-rule="evenodd"
+                fill-opacity="0.9"
               />
             </svg>
-            <span>
-              tdesign-react
-            </span>
           </span>
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-          style="margin-right: 4px;"
-        >
-          <!---->
-          
           <span
-            class="displaySpan"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+            style="margin-right: 4px;"
           >
+            <!---->
+            
+            <span
+              class="displaySpan"
+            >
+              <svg
+                class="t-icon t-icon-control-platform"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <span>
+                tdesign-mobile-vue
+              </span>
+            </span>
+            
             <svg
-              class="t-icon t-icon-control-platform"
+              class="t-icon t-icon-close t-tag__icon-close"
               fill="none"
               height="1em"
               viewBox="0 0 16 16"
               width="1em"
             >
               <path
-                clip-rule="evenodd"
-                d="M14.5 4.25L8.47.77a.94.94 0 00-.94 0L1.5 4.25v6.96c0 .33.18.64.47.81L8 15.5l6.03-3.48a.94.94 0 00.47-.81V4.25zM8 7.42L3 4.54l5-2.89 5 2.89-5 2.88zm.5.87l5-2.89v5.77l-5 2.89V8.29zm-1 0v5.77l-5-2.89V5.4l5 2.89z"
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
                 fill="currentColor"
-                fill-rule="evenodd"
+                fill-opacity="0.9"
               />
             </svg>
-            <span>
-              tdesign-mobile-vue
-            </span>
           </span>
           
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
-        
-        
+          
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        readonly=""
-        type="text"
-      />
-      <!---->
-      <!---->
       <!---->
     </div>
     
@@ -2117,148 +2172,153 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-tag-input"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          tdesign-vue
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-react
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-miniprogram
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-react
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-angular
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-miniprogram
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-mobile-vue
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-angular
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-mobile-react
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-mobile-vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
+            <!---->
+            
+            tdesign-mobile-react
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
-      <!---->
-      <!---->
       <!---->
     </div>
     
@@ -2438,148 +2498,153 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-tag-input t-tag-input--break-line"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-tag-input t-tag-input--break-line"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          tdesign-vue
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-react
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-miniprogram
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-react
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-angular
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-miniprogram
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-mobile-vue
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-angular
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          tdesign-mobile-react
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+            <!---->
+            
+            tdesign-mobile-vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
+            <!---->
+            
+            tdesign-mobile-react
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
-      <!---->
-      <!---->
       <!---->
     </div>
     
@@ -2637,42 +2702,47 @@ exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        前置内容：
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="Please Select"
-        readonly=""
-        type="text"
-      />
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
-      >
-        <svg
-          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          前置内容：
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     
   </div>
@@ -2725,46 +2795,51 @@ exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-is-readonly t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="Please Select"
-        readonly=""
-        type="text"
-      />
-      <!---->
-      <div
-        class="t-input__suffix"
-      >
-        单位：元
-      </div>
-      <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
-      >
-        <svg
-          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <div
+          class="t-input__suffix"
+        >
+          单位：元
+        </div>
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     
   </div>
@@ -3036,104 +3111,109 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-input--suffix t-tag-input t-tag-input--break-line"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-input--suffix t-tag-input t-tag-input--break-line"
       >
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        <!---->
+        <div
+          class="t-input__prefix"
         >
-          <!---->
           
-          Vue
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            Vue
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            React
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+          >
+            <!---->
+            
+            Miniprogram
+            
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
           
           <svg
-            class="t-icon t-icon-close t-tag__icon-close"
+            class="t-icon t-icon-chevron-down"
             fill="none"
             height="1em"
             viewBox="0 0 16 16"
             width="1em"
           >
             <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
               fill="currentColor"
               fill-opacity="0.9"
             />
           </svg>
+          
         </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          React
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        <span
-          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
-        >
-          <!---->
-          
-          Miniprogram
-          
-          <svg
-            class="t-icon t-icon-close t-tag__icon-close"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
-        
       </div>
-      <input
-        class="t-input__inner"
-        placeholder=""
-        type="text"
-      />
       <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon"
-      >
-        
-        <svg
-          class="t-icon t-icon-chevron-down"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        
-      </span>
     </div>
     
   </div>
@@ -3189,41 +3269,46 @@ exports[`SelectInput SelectInput singleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input t-input--prefix t-input--suffix"
+      class="t-input__wrap"
     >
-      <!---->
       <div
-        class="t-input__prefix"
+        class="t-input t-input--prefix t-input--suffix"
       >
-        
         <!---->
-        <!---->
-        
-      </div>
-      <input
-        class="t-input__inner"
-        placeholder="Please Select"
-        type="text"
-      />
-      <!---->
-      <!---->
-      <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
-      >
-        <svg
-          class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-          fill="none"
-          height="1em"
-          viewBox="0 0 16 16"
-          width="1em"
+        <div
+          class="t-input__prefix"
         >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-      </span>
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="Please Select"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon t-input__clear"
+        >
+          <svg
+            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+      </div>
+      <!---->
     </div>
     
   </div>
@@ -3267,43 +3352,48 @@ exports[`SelectInput SelectInput statusVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
+          class="t-input__wrap"
         >
-          <!---->
           <div
-            class="t-input__prefix"
+            class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
           >
-            
             <!---->
-            <!---->
-            
-          </div>
-          <input
-            class="t-input__inner"
-            disabled=""
-            placeholder="Please Select"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
-          <span
-            class="t-input__suffix t-input__suffix-icon t-input__clear"
-          >
-            <svg
-              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-input__prefix"
             >
-              <path
-                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </span>
+              
+              <!---->
+              <!---->
+              
+            </div>
+            <input
+              class="t-input__inner"
+              disabled=""
+              placeholder="Please Select"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <span
+              class="t-input__suffix t-input__suffix-icon t-input__clear"
+            >
+              <svg
+                class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
         </div>
         
       </div>
@@ -3348,42 +3438,47 @@ exports[`SelectInput SelectInput statusVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-input t-is-readonly t-input--prefix t-input--suffix"
+          class="t-input__wrap"
         >
-          <!---->
           <div
-            class="t-input__prefix"
+            class="t-input t-is-readonly t-input--prefix t-input--suffix"
           >
-            
             <!---->
-            <!---->
-            
-          </div>
-          <input
-            class="t-input__inner"
-            placeholder="Please Select"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
-          <span
-            class="t-input__suffix t-input__suffix-icon t-input__clear"
-          >
-            <svg
-              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-input__prefix"
             >
-              <path
-                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </span>
+              
+              <!---->
+              <!---->
+              
+            </div>
+            <input
+              class="t-input__inner"
+              placeholder="Please Select"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <span
+              class="t-input__suffix t-input__suffix-icon t-input__clear"
+            >
+              <svg
+                class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
         </div>
         
       </div>
@@ -3429,42 +3524,47 @@ exports[`SelectInput SelectInput statusVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-input t-is-success t-is-readonly t-input--prefix t-input--suffix"
+          class="t-input__wrap"
         >
-          <!---->
           <div
-            class="t-input__prefix"
+            class="t-input t-is-success t-is-readonly t-input--prefix t-input--suffix"
           >
-            
             <!---->
-            <!---->
-            
-          </div>
-          <input
-            class="t-input__inner"
-            placeholder="Please Select"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
-          <span
-            class="t-input__suffix t-input__suffix-icon t-input__clear"
-          >
-            <svg
-              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-input__prefix"
             >
-              <path
-                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </span>
+              
+              <!---->
+              <!---->
+              
+            </div>
+            <input
+              class="t-input__inner"
+              placeholder="Please Select"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <span
+              class="t-input__suffix t-input__suffix-icon t-input__clear"
+            >
+              <svg
+                class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
         </div>
         
       </div>
@@ -3509,42 +3609,47 @@ exports[`SelectInput SelectInput statusVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-input t-is-warning t-is-readonly t-input--prefix t-input--suffix"
+          class="t-input__wrap"
         >
-          <!---->
           <div
-            class="t-input__prefix"
+            class="t-input t-is-warning t-is-readonly t-input--prefix t-input--suffix"
           >
-            
             <!---->
-            <!---->
-            
-          </div>
-          <input
-            class="t-input__inner"
-            placeholder="Please Select"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
-          <span
-            class="t-input__suffix t-input__suffix-icon t-input__clear"
-          >
-            <svg
-              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-input__prefix"
             >
-              <path
-                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </span>
+              
+              <!---->
+              <!---->
+              
+            </div>
+            <input
+              class="t-input__inner"
+              placeholder="Please Select"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <span
+              class="t-input__suffix t-input__suffix-icon t-input__clear"
+            >
+              <svg
+                class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
         </div>
         
       </div>
@@ -3589,42 +3694,47 @@ exports[`SelectInput SelectInput statusVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-input t-is-error t-is-readonly t-input--prefix t-input--suffix"
+          class="t-input__wrap"
         >
-          <!---->
           <div
-            class="t-input__prefix"
+            class="t-input t-is-error t-is-readonly t-input--prefix t-input--suffix"
           >
-            
             <!---->
-            <!---->
-            
-          </div>
-          <input
-            class="t-input__inner"
-            placeholder="Please Select"
-            readonly=""
-            type="text"
-          />
-          <!---->
-          <!---->
-          <span
-            class="t-input__suffix t-input__suffix-icon t-input__clear"
-          >
-            <svg
-              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-              fill="none"
-              height="1em"
-              viewBox="0 0 16 16"
-              width="1em"
+            <div
+              class="t-input__prefix"
             >
-              <path
-                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-          </span>
+              
+              <!---->
+              <!---->
+              
+            </div>
+            <input
+              class="t-input__inner"
+              placeholder="Please Select"
+              readonly=""
+              type="text"
+            />
+            <!---->
+            <!---->
+            <span
+              class="t-input__suffix t-input__suffix-icon t-input__clear"
+            >
+              <svg
+                class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+            </span>
+          </div>
+          <!---->
         </div>
         
       </div>
@@ -3673,42 +3783,47 @@ exports[`SelectInput SelectInput widthVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input__wrap"
       >
-        <!---->
         <div
-          class="t-input__prefix"
+          class="t-input t-is-readonly t-input--prefix t-input--suffix"
         >
-          
           <!---->
-          <!---->
-          
-        </div>
-        <input
-          class="t-input__inner"
-          placeholder="Please Select"
-          readonly=""
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-input__prefix"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
       </div>
       
     </div>
@@ -3744,42 +3859,47 @@ exports[`SelectInput SelectInput widthVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input__wrap"
       >
-        <!---->
         <div
-          class="t-input__prefix"
+          class="t-input t-is-readonly t-input--prefix t-input--suffix"
         >
-          
           <!---->
-          <!---->
-          
-        </div>
-        <input
-          class="t-input__inner"
-          placeholder="Please Select"
-          readonly=""
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-input__prefix"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
       </div>
       
     </div>
@@ -3815,42 +3935,47 @@ exports[`SelectInput SelectInput widthVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input__wrap"
       >
-        <!---->
         <div
-          class="t-input__prefix"
+          class="t-input t-is-readonly t-input--prefix t-input--suffix"
         >
-          
           <!---->
-          <!---->
-          
-        </div>
-        <input
-          class="t-input__inner"
-          placeholder="Please Select"
-          readonly=""
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-input__prefix"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
       </div>
       
     </div>
@@ -3886,42 +4011,47 @@ exports[`SelectInput SelectInput widthVue demo works fine 1`] = `
       </transition-stub>
       
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input__wrap"
       >
-        <!---->
         <div
-          class="t-input__prefix"
+          class="t-input t-is-readonly t-input--prefix t-input--suffix"
         >
-          
           <!---->
-          <!---->
-          
-        </div>
-        <input
-          class="t-input__inner"
-          placeholder="Please Select"
-          readonly=""
-          type="text"
-        />
-        <!---->
-        <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-input__prefix"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+            
+            <!---->
+            <!---->
+            
+          </div>
+          <input
+            class="t-input__inner"
+            placeholder="Please Select"
+            readonly=""
+            type="text"
+          />
+          <!---->
+          <!---->
+          <span
+            class="t-input__suffix t-input__suffix-icon t-input__clear"
+          >
+            <svg
+              class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+        </div>
+        <!---->
       </div>
       
     </div>

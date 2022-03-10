@@ -1,9 +1,7 @@
-import isFunction from 'lodash/isFunction';
 import { PropType, defineComponent } from 'vue';
 import { DatePickerConfig } from '../config-provider/config-receiver';
-import { CalendarPresetsProps, DateValue, TdDatePickerProps } from './interface';
-import { prefix } from '../config';
-import { emitEvent } from '../utils/event';
+import { CalendarPresetsProps, DateValue } from './interface';
+import { usePrefixClass } from '../config-provider';
 
 import { Button as TButton } from '../button';
 
@@ -21,6 +19,12 @@ export default defineComponent({
     },
     onClick: Function,
   },
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('date-picker__presets');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   methods: {
     clickPreset(value: DateValue | (() => DateValue)) {
       this.onClick(value);
@@ -29,7 +33,7 @@ export default defineComponent({
   render() {
     const { presets } = this;
     return (
-      <div class={`${prefix}-date-picker__presets`}>
+      <div class={this.COMPONENT_NAME}>
         <ul>
           {presets &&
             Object.keys(presets).map((key: string) => (

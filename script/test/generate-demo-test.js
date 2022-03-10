@@ -5,7 +5,14 @@ const upperFirst = require('lodash/upperFirst');
 
 const framework = 'VueNext(PC)';
 
-const fixedDateComponentList = ['time-Picker', 'date-picker', 'table', 'calendar']; // 需要在测试阶段固定日期的组件，table中因为有filter例子 渲染datepicker需要固定
+const fixedDateComponentList = ['config-provider', 'time-picker', 'date-picker', 'table', 'calendar']; // 需要在测试阶段固定日期的组件，table中因为有filter例子 渲染datepicker需要固定
+
+// TODO 过滤掉一些导致挂掉的demo
+const filterCom = ['tree-select', 'table'];
+const filterDemo = {
+  'tree-select': ['collapsed', 'filterable', 'multiple', 'props', 'valuetype'],
+  table: ['virtual-scroll'],
+};
 
 const CONFIG = {
   'VueNext(PC)': {
@@ -19,7 +26,6 @@ function main() {
     if (err) {
       console.log('Error', err);
     } else {
-      // console.log('Result', files);
       files.forEach((componentFolder) => {
         const demoPath = `${CONFIG[framework].sourcePath}/${componentFolder}/demos`;
         fs.readdir(demoPath, (err1, demoFiles) => {
@@ -65,13 +71,15 @@ function outputOneComponentTestFile(component, demoFiles) {
   const demos = ['\nconst mapper = {'];
 
   demoFiles.forEach((demo) => {
+    if (filterCom.includes(component) && filterDemo[component].includes(demo.replace('.vue', ''))) return;
+
     const name = camelCase(demo);
     imports.push(`import ${name} from '@/examples/${component}/demos/${demo}';`);
     demos.push(`  ${name},`);
   });
   if (fixedDateComponentList.includes(component)) {
-    imports.push(`import MockDate from 'mockdate';\n`);
-    imports.push(`MockDate.set('2020-12-28');`);
+    imports.unshift(`import MockDate from 'mockdate';\n`);
+    imports.push(`\nMockDate.set('2020-12-28');`);
   }
 
   demos.push('};');

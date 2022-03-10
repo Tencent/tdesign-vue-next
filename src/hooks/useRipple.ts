@@ -1,6 +1,6 @@
 import { ref, onMounted, onUnmounted, Ref } from 'vue';
 import useKeepAnimation from './useKeepAnimation';
-import { useConfig } from '../config-provider/useConfig';
+import { usePrefixClass } from '../config-provider/useConfig';
 import setStyle from '../utils/set-style';
 
 const period = 200;
@@ -36,7 +36,7 @@ const getRippleColor = (el: HTMLElement, fixedRippleColor?: string) => {
  */
 export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) {
   const rippleContainer = ref(null);
-  const { classPrefix } = useConfig('classPrefix');
+  const classPrefix = usePrefixClass();
   // 全局配置ripple
   const { keepRipple } = useKeepAnimation();
   // 为节点添加斜八角动画 add ripple to the DOM and set up the animation
