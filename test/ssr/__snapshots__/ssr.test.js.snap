@@ -16172,25 +16172,16 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
                   <div class="t-select__dropdown-inner">
                     <!---->
                     <ul class="t-select__create-option t-select__list" style="display:none;">
-                      <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title></li>
+                      <li class="t-select-option t-is-selected t-size-m t-select__create-option--special" title><span></span></li>
                     </ul>
                     <!---->
                     <li class="t-select__empty t-size-m">暂无数据</li>
                     <ul class="t-select__groups t-select__list">
                       <!--[-->
                       <!--[-->
-                      <li class="t-select-option t-size-m" title="计算机学院">
-                        <!--[-->计算机学院
-                        <!--]-->
-                      </li>
-                      <li class="t-select-option t-size-m" title="软件学院">
-                        <!--[-->软件学院
-                        <!--]-->
-                      </li>
-                      <li class="t-select-option t-size-m" title="物联网学院">
-                        <!--[-->物联网学院
-                        <!--]-->
-                      </li>
+                      <li class="t-select-option t-size-m" title="计算机学院"><span><!--[-->计算机学院<!--]--></span></li>
+                      <li class="t-select-option t-size-m" title="软件学院"><span><!--[-->软件学院<!--]--></span></li>
+                      <li class="t-select-option t-size-m" title="物联网学院"><span><!--[-->物联网学院<!--]--></span></li>
                       <!--]-->
                       <!--]-->
                     </ul>
