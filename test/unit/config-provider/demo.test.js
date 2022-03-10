@@ -13,6 +13,8 @@ import paginationVue from '@/examples/config-provider/demos/pagination.vue';
 import popconfirmVue from '@/examples/config-provider/demos/popconfirm.vue';
 import tableVue from '@/examples/config-provider/demos/table.vue';
 
+MockDate.set('2020-12-28');
+
 const mapper = {
   calendarVue,
   datePickerVue,

@@ -29,7 +29,6 @@ import showColumnsVue from '@/examples/table/demos/show-columns.vue';
 import singleSortVue from '@/examples/table/demos/single-sort.vue';
 import treeSelectVue from '@/examples/table/demos/tree-select.vue';
 import treeVue from '@/examples/table/demos/tree.vue';
-import virtualScrollVue from '@/examples/table/demos/virtual-scroll.vue';
 
 MockDate.set('2020-12-28');
 
@@ -59,7 +58,6 @@ const mapper = {
   singleSortVue,
   treeSelectVue,
   treeVue,
-  virtualScrollVue,
 };
 
 describe('Table', () => {
