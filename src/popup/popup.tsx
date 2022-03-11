@@ -61,7 +61,7 @@ export default defineComponent({
     },
   },
 
-  emits: ['visible-change'],
+  emits: ['visible-change', 'enter', 'leave'],
 
   data() {
     return {
@@ -333,6 +333,8 @@ export default defineComponent({
             role="tooltip"
             aria-hidden={this.disabled || !this.visible ? 'true' : 'false'}
             style={{ zIndex: this.zIndex }}
+            onMouseenter={(e) => this.$emit('enter', e)}
+            onMouseleave={(e) => this.$emit('leave', e)}
           >
             <div class={this.overlayClasses} ref="overlay">
               {renderTNodeJSX(this, 'content')}
