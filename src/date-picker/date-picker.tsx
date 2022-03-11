@@ -596,14 +596,14 @@ export default defineComponent({
             {enableTimePicker && (
               <div class={`${this.COMPONENT_NAME}--apply`}>
                 {enableTimePicker && (
-                  <t-button theme="primary" variant="text" onClick={this.toggleTime}>
+                  <TButton theme="primary" variant="text" onClick={this.toggleTime}>
                     {showTime ? global.selectDate : global.selectTime}
-                  </t-button>
+                  </TButton>
                 )}
                 {
-                  <t-button theme="primary" onClick={this.clickedApply}>
+                  <TButton theme="primary" onClick={() => this.clickedApply()}>
                     {global.confirm}
-                  </t-button>
+                  </TButton>
                 }
               </div>
             )}

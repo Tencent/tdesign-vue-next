@@ -27,6 +27,7 @@ export default {
   labelAlign: {
     type: String as PropType<TdFormItemProps['labelAlign']>,
     validator(val: TdFormItemProps['labelAlign']): boolean {
+      if (!val) return true;
       return ['left', 'right', 'top'].includes(val);
     },
   },
