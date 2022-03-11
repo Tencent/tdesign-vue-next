@@ -4,7 +4,6 @@ import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
-import { useEmitEvent } from '../hooks/event';
 
 const name = `${prefix}-notification`;
 
@@ -13,11 +12,9 @@ export default defineComponent({
   props: {
     ...props,
   },
-  emits: ['duration-end', 'click-close-btn'],
   setup(props, { slots }) {
-    const emitEvent = useEmitEvent();
     const close = (e?: MouseEvent) => {
-      emitEvent('click-close-btn', e);
+      props.onCloseBtnClick({ e });
     };
     const renderIcon = () => {
       let iconContent;
@@ -55,12 +52,13 @@ export default defineComponent({
       if (props.duration > 0) {
         const timer = setTimeout(() => {
           clearTimeout(timer);
-          emitEvent('duration-end');
+          props.onDurationEnd();
         }, props.duration);
       }
     });
 
     return {
+      close,
       renderIcon,
       renderClose,
       renderMainContent,

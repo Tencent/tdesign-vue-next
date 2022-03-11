@@ -56,9 +56,9 @@ export default defineComponent({
       return styles;
     };
 
-    const getListeners = (options: NotificationOptions, index: number) => {
+    const getListeners = (index: number) => {
       return {
-        onClickCloseBtn: () => remove(index),
+        onCloseBtnClick: () => remove(index),
         onDurationEnd: () => remove(index),
       };
     };
@@ -85,7 +85,7 @@ export default defineComponent({
               key={item.id}
               style={this.notificationStyles(item)}
               {...item}
-              {...this.getListeners(item, index)}
+              {...this.getListeners(index)}
             />
           ))}
         </TransitionGroup>
