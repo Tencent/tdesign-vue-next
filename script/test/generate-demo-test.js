@@ -5,7 +5,7 @@ const upperFirst = require('lodash/upperFirst');
 
 const framework = 'VueNext(PC)';
 
-const fixedDateComponentList = ['config-provider', 'time-picker', 'date-picker', 'table', 'calendar']; // 需要在测试阶段固定日期的组件，table中因为有filter例子 渲染datepicker需要固定
+const fixedDateComponentList = ['config-provider', 'time-picker', 'date-picker', 'table', 'form', 'calendar']; // 需要在测试阶段固定日期的组件，table中因为有filter例子 渲染datepicker需要固定
 
 // TODO 过滤掉一些导致挂掉的demo
 const filterCom = ['tree-select', 'table'];

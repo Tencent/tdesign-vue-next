@@ -2362,7 +2362,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                                 class="t-button__text"
                               >
                                 
-                                2022 年
+                                2020 年
                                 
                               </span>
                             </button>
@@ -2375,7 +2375,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                                 class="t-button__text"
                               >
                                 
-                                3 月
+                                12 月
                                 
                               </span>
                             </button>
@@ -2505,7 +2505,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                                     <span
                                       class="t-date-picker__cell-text"
                                     >
-                                      28
+                                      30
                                     </span>
                                   </div>
                                 </td>
@@ -2640,7 +2640,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                                   </div>
                                 </td>
                                 <td
-                                  class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
+                                  class="t-date-picker-cell"
                                   type="current-month"
                                 >
                                   <div
@@ -2904,7 +2904,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                               <tr>
                                 
                                 <td
-                                  class="t-date-picker-cell"
+                                  class="t-date-picker-cell t-date-picker__cell--now t-date-picker__cell--active"
                                   type="current-month"
                                 >
                                   <div
