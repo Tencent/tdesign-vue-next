@@ -5,7 +5,7 @@ toc: false
 docClass: timeline
 ---
 
-## 0.9.5 `2022-03-11`
+## 0.10.0 `2022-03-11`
 
 ### BREAKING CHANGES
 
