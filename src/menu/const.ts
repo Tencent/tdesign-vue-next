@@ -25,4 +25,5 @@ export interface TdSubMenuInterface {
   value: MenuValue;
   hasIcon?: boolean;
   addMenuItem?: (item: TdMenuItem) => void;
+  closePopup?: () => void;
 }
