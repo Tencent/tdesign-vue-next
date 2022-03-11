@@ -23,7 +23,7 @@ export default defineComponent({
   },
   emits: ['change'],
   setup(props, { emit }) {
-    const inputConfig = computed(() => {
+    const inputConfigs = computed(() => {
       const configs = [...FORMAT_INPUT_CONFIG[props.format]];
       if (props.enableAlpha) {
         configs.push({
@@ -106,17 +106,17 @@ export default defineComponent({
 
     return {
       modelValue,
-      inputConfig,
+      inputConfigs,
       handleChange,
     };
   },
   render() {
     const inputProps = {
-      ...(this.inputProps || {}),
+      ...((this.inputProps as any) || {}),
     };
     return (
       <div class={['input-group']}>
-        {this.inputConfig.map((config) => {
+        {this.inputConfigs.map((config) => {
           return (
             <div
               class="input-group__item"

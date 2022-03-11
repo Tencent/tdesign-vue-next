@@ -4,6 +4,7 @@
 
 import { mount } from '@vue/test-utils';
 import MockDate from 'mockdate';
+
 import baseVue from '@/examples/calendar/demos/base.vue';
 import cardCellVue from '@/examples/calendar/demos/card-cell.vue';
 import cardVue from '@/examples/calendar/demos/card.vue';

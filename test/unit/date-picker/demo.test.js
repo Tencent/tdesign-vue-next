@@ -4,6 +4,7 @@
 
 import { mount } from '@vue/test-utils';
 import MockDate from 'mockdate';
+
 import baseVue from '@/examples/date-picker/demos/base.vue';
 import customIconVue from '@/examples/date-picker/demos/custom-icon.vue';
 import datePresetsAltVue from '@/examples/date-picker/demos/date-presets-alt.vue';

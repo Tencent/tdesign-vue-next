@@ -1,6 +1,7 @@
 import { Ref } from 'vue';
 import { TdColorPickerProps } from '.';
 import { prefix } from '../config';
+import { ColorObject, ColorPickerChangeTrigger } from './type';
 
 /** 常量 */
 // 组件名
@@ -114,3 +115,8 @@ export const SATURATION_PANEL_DEFAULT_WIDTH = 248;
 export const SATURATION_PANEL_DEFAULT_HEIGHT = 140;
 export const SLIDER_DEFAULT_WIDTH = 248;
 export const GRADIENT_SLIDER_DEFAULT_WIDTH = 190;
+
+export interface ColorContext {
+  color: ColorObject;
+  trigger: ColorPickerChangeTrigger;
+}

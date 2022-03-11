@@ -10,19 +10,11 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const color = ref('#0052d9');
-    const systemColors = ref(['red', 'green', 'yellow', 'blue', 'purple']);
-    return {
-      color,
-      systemColors,
-    };
-  },
-});
+const color = ref('#0052d9');
+const systemColors = ref(['red', 'green', 'yellow', 'blue', 'purple']);
 </script>
 <style scoped>
 .tdesign-demo-block-row {

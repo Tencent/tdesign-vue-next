@@ -4,6 +4,7 @@
 
 import { mount } from '@vue/test-utils';
 import MockDate from 'mockdate';
+
 import asyncLoadingVue from '@/examples/table/demos/async-loading.vue';
 import baseVue from '@/examples/table/demos/base.vue';
 import customCellVue from '@/examples/table/demos/custom-cell.vue';

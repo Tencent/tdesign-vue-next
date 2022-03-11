@@ -23,11 +23,40 @@ import SwatchesPanel from './swatches';
 import Color from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
 import { TdColorPickerProps, ColorPickerChangeTrigger } from '..';
+import { ColorObject } from '../type';
 
 const name = COMPONENT_NAME;
 
+const COLOR_OBJECT_OUTPUT_KEYS = [
+  'alpha',
+  'css',
+  'hex',
+  'hex8',
+  'hsl',
+  'hsla',
+  'hsv',
+  'hsva',
+  'rgb',
+  'rgba',
+  'saturation',
+  'value',
+  'isGradient',
+];
+
+export const getColorObject = (color: Color): ColorObject => {
+  if (!color) {
+    return null;
+  }
+  const colorObject = Object.create(null);
+  COLOR_OBJECT_OUTPUT_KEYS.forEach((key) => (colorObject[key] = color[key]));
+  if (color.isGradient) {
+    colorObject.linearGradient = color.linearGradient;
+  }
+  return colorObject;
+};
+
 export default defineComponent({
-  name: 'ColorPickerPanel',
+  name: 'ColorPanel',
   components: {
     ColorPickerHeader,
     LinearGradient,
@@ -83,7 +112,10 @@ export default defineComponent({
     };
 
     const emitColorChange = (trigger?: ColorPickerChangeTrigger) => {
-      return emit('change', formatValue(), color.value, trigger || 'palette');
+      return emit('change', formatValue(), {
+        color: getColorObject(color.value),
+        trigger: trigger || 'palette',
+      });
     };
 
     /**
@@ -187,7 +219,7 @@ export default defineComponent({
     const handleHueChange = (hue: number) => {
       color.value.hue = hue;
       emitColorChange();
-      emit('palette-bar-change', formatValue(), color.value);
+      emit('palette-bar-change', getColorObject(color.value));
     };
 
     /**

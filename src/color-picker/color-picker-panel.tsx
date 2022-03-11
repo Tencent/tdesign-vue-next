@@ -1,6 +1,6 @@
 import { defineComponent, provide, ref, watch } from 'vue';
 import props from './props';
-import ColorPickerPanel from './panel';
+import ColorPanel from './panel';
 import {
   CLASS_NAME_INLINE,
   COMPONENT_PANEL_NAME,
@@ -12,7 +12,7 @@ import { useColorPicker } from './common';
 export default defineComponent({
   name: COMPONENT_PANEL_NAME,
   components: {
-    ColorPickerPanel,
+    ColorPanel,
   },
   inheritAttrs: false,
   props,
@@ -42,7 +42,7 @@ export default defineComponent({
     delete props.onChange;
     delete props.onPaletteBarChange;
     return (
-      <color-picker-panel
+      <color-panel
         {...props}
         value={this.color}
         custom-class={CLASS_NAME_INLINE}

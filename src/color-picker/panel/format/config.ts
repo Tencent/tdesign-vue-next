@@ -1,12 +1,12 @@
 import { TdColorPickerProps } from '../../type';
 
-interface Input {
+export interface FormatInput {
   key: string;
   type: 'input';
   flex?: number;
 }
 
-interface InputNumber {
+export interface FormatInputNumber {
   key: string;
   min: number;
   max: number;
@@ -14,8 +14,8 @@ interface InputNumber {
   flex?: number;
 }
 
-type FormatInputsConfig = {
-  [propName in TdColorPickerProps['format']]?: Array<Input | InputNumber>;
+export type FormatInputsConfig = {
+  [propName in TdColorPickerProps['format']]?: Array<FormatInput | FormatInputNumber>;
 };
 
 export const FORMAT_INPUT_CONFIG: FormatInputsConfig = {
@@ -120,3 +120,5 @@ export const FORMAT_INPUT_CONFIG: FormatInputsConfig = {
     },
   ],
 };
+
+export default FORMAT_INPUT_CONFIG;

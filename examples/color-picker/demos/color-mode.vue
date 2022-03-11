@@ -14,21 +14,12 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const color1 = ref('#0052d9');
-    const color2 = ref('#0052d9');
-    const color3 = ref('linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)');
-    return {
-      color1,
-      color2,
-      color3,
-    };
-  },
-});
+const color1 = ref('#0052d9');
+const color2 = ref('#0052d9');
+const color3 = ref('linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)');
 </script>
 <style scoped>
 .item {

@@ -22,17 +22,10 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const color = ref('#0052d9');
-    return {
-      color,
-    };
-  },
-});
+const color = ref('#0052d9');
 </script>
 <style scoped>
 .tdesign-demo-block-row {

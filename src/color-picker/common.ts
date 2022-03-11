@@ -1,37 +1,7 @@
 import { ref } from 'vue';
-import { ColorObject, ColorPickerChangeTrigger } from '.';
-import { TdColorEvent } from './const';
-import Color from './utils/color';
+import { ColorContext, TdColorEvent } from './const';
 
 type Emit = (event: TdColorEvent, ...args: any[]) => void;
-
-const COLOR_OBJECT_OUTPUT_KEYS = [
-  'alpha',
-  'css',
-  'hex',
-  'hex8',
-  'hsl',
-  'hsla',
-  'hsv',
-  'hsva',
-  'rgb',
-  'rgba',
-  'saturation',
-  'value',
-  'isGradient',
-];
-
-const getColorObject = (color: Color): ColorObject => {
-  if (!color) {
-    return null;
-  }
-  const colorObject = Object.create(null);
-  COLOR_OBJECT_OUTPUT_KEYS.forEach((key) => (colorObject[key] = color[key]));
-  if (color.isGradient) {
-    colorObject.linearGradient = color.linearGradient;
-  }
-  return colorObject;
-};
 
 /**
  * picker 和 panel 模式共用
@@ -42,17 +12,12 @@ const getColorObject = (color: Color): ColorObject => {
  */
 export const useColorPicker = (value: string, emit: Emit) => {
   const color = ref(value);
-  const handleChange = (value: string, colorInstance: Color, trigger?: ColorPickerChangeTrigger) => {
+  const handleChange = (value: string, context: ColorContext) => {
     color.value = value;
-    emit('change', value, {
-      color: getColorObject(colorInstance),
-      trigger,
-    });
+    emit('change', value, context);
   };
-  const handlePaletteChange = (value: string, colorInstance: Color) => {
-    emit('palette-bar-change', {
-      color: getColorObject(colorInstance),
-    });
+  const handlePaletteChange = (context: ColorContext) => {
+    emit('palette-bar-change', context);
   };
   const updateColor = (value: string) => (color.value = value);
 
