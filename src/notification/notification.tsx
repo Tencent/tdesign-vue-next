@@ -4,6 +4,7 @@ import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
+import { TdNotificationProps } from './type';
 
 const name = `${prefix}-notification`;
 
@@ -12,10 +13,11 @@ export default defineComponent({
   props: {
     ...props,
   },
-  setup(props, { slots }) {
+  setup(props: TdNotificationProps, { slots }) {
     const close = (e?: MouseEvent) => {
-      props.onCloseBtnClick({ e });
+      props.onCloseBtnClick?.({ e });
     };
+
     const renderIcon = () => {
       let iconContent;
       if (props.icon === false) return null;
@@ -52,7 +54,7 @@ export default defineComponent({
       if (props.duration > 0) {
         const timer = setTimeout(() => {
           clearTimeout(timer);
-          props.onDurationEnd();
+          props.onDurationEnd?.();
         }, props.duration);
       }
     });
