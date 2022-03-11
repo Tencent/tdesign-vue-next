@@ -5,22 +5,23 @@ toc: false
 docClass: timeline
 ---
 
-## [0.9.5](https://github.com/Tencent/tdesign-vue-next/compare/0.9.4...0.9.5) `2022-03-10`
+## 0.9.5 `2022-03-11`
 
 
 ### Bug Fixes
 
-* Select: 
+* Select:
   * 修复单选下斜八度动画覆盖文字的错误 ([pr #421](https://github.com/Tencent/tdesign-vue-next/pull/421)), ([@uyarn](https://github.com/uyarn))
   * 修复 `filterable` 属性导致高度变化 ([pr #422](https://github.com/Tencent/tdesign-vue-next/pull/422)), ([issue #405](https://github.com/Tencent/tdesign-vue-next/issues/405)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * cascader: ([pr #422](https://github.com/Tencent/tdesign-vue-next/pull/422)), ([@pengYYYYY](https://github.com/pengYYYYY))
-  * 修复 `filterable` 属性导致高度变化
+  * 修复 `filterable` 属性导致 `hover` 样式异常的问题
   * 修复可选任意一级缺少高亮状  ([issue #114](https://github.com/Tencent/tdesign-vue-next/issue/114))
 * DatePicker: 修复按需引入时，按钮展示问题 ([pr #425](https://github.com/Tencent/tdesign-vue-next/pull/425)), ([issue #419](https://github.com/Tencent/tdesign-vue-next/issues/419)), ([@BuptStEve](https://github.com/BuptStEve))
 * Tree: 修复数据无法更新问题 ([pr #406](https://github.com/Tencent/tdesign-vue-next/pull/406)), ([@pengYYYYY](https://github.com/pengYYYYY))
 
 ### Features
 
+* Badge: 使用 `compositionAPI` 重构组件 ([pr #402](https://github.com/Tencent/tdesign-vue-next/pull/402)), ([issue #58](https://github.com/Tencent/tdesign-vue-next/pull/58)), ([@ChrisLee0211](https://github.com/ChrisLee0211 ))
 
 
 ## 0.9.4 `2022-03-04`
