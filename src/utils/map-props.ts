@@ -157,7 +157,7 @@ export default function (props: (string | PropOption)[]): any {
         _listeners(): Record<string, any> {
           const others = {};
           Object.keys(this.$attrs).forEach((attr: string): void => {
-            const event = attr.startsWith('on') ? attr[2].toLowerCase() + attr.substr(2) : null;
+            const event = attr.startsWith('on') ? attr[2].toLowerCase() + attr.slice(3) : null;
             if (event && defineEvents.indexOf(event) === -1) {
               others[attr] = (...args: any[]): void => {
                 // (this.$listeners[event] as Function)(...args);
