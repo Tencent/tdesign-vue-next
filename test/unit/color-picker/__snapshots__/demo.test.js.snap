@@ -1984,7 +1984,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         
                         <li
                           class="t-color-picker__thumb gradient-thumbs__item t-is-active"
-                          id="5d427cfd.f7b1a4"
                           style="color: rgb(79, 172, 254); left: 0%;"
                           title="rgb(79, 172, 254) 0%"
                         >
@@ -1994,7 +1993,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         </li>
                         <li
                           class="t-color-picker__thumb gradient-thumbs__item"
-                          id="f9627d25.38c59"
                           style="color: rgb(0, 242, 254); left: 100%;"
                           title="rgb(0, 242, 254) 100%"
                         >

@@ -236,7 +236,6 @@ export default defineComponent({
                       selectedId === t.id ? CLASS_NAME_ACTIVE : '',
                     ]}
                     key={t.id}
-                    id={t.id}
                     title={`${t.color} ${left}`}
                     style={{
                       color: t.color,
