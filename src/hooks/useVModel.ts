@@ -25,8 +25,8 @@ export default function useVModel<T, P extends any[]>(
     return [
       modelValue,
       (newValue, ...args) => {
-        onChange?.(newValue, ...args);
         emit?.(`update:modelValue`, newValue, ...args);
+        onChange?.(newValue, ...args);
       },
     ];
   }
