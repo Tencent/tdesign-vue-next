@@ -78,9 +78,6 @@ export default defineComponent({
         />
       );
     };
-    const slots = {
-      content: () => {},
-    };
     const popProps = {
       ...((popupProps as any) || {
         placement: 'bottom-left',
