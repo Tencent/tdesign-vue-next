@@ -1,11 +1,10 @@
-import { defineComponent } from 'vue';
+import { defineComponent, computed, watch, ref, nextTick, onMounted } from 'vue';
 import { prefix } from '../config';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TextareaValue } from './type';
 import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
-import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { ClassName } from '../common';
 
@@ -32,130 +31,159 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
-  setup() {
+  setup(props, { attrs, emit }) {
     const disabled = useFormDisabled();
-    return {
-      disabled,
+    const textareaStyle = ref({});
+    const refTextareaElem = ref<HTMLTextAreaElement>();
+    const refInputElem = ref<HTMLInputElement>();
+    const value = ref(props.value || '');
+    const focused = ref(false);
+
+    // methods
+    const adjustTextareaHeight = () => {
+      if (props.autosize === true) {
+        textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
+      } else if (typeof props.autosize === 'object') {
+        const { minRows, maxRows } = props.autosize;
+        textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
+      } else if (attrs.rows) {
+        textareaStyle.value = { height: 'auto', minHeight: 'auto' };
+      }
     };
-  },
-  data() {
-    return {
-      focused: false,
-      mouseHover: false,
-      textareaStyle: {},
+    const focus = () => {
+      refInputElem.value?.focus();
     };
-  },
-  computed: {
-    textareaClasses(): ClassName {
-      return [
-        name,
-        {
-          [`${prefix}-is-disabled`]: this.disabled,
-          [`${prefix}-is-readonly`]: this.readonly,
-        },
-      ];
-    },
-    inputAttrs(): Record<string, any> {
-      return getValidAttrs({
-        autofocus: this.autofocus,
-        disabled: this.disabled,
-        readonly: this.readonly,
-        placeholder: this.placeholder,
-        maxlength: this.maxlength || undefined,
-        name: this.name || undefined,
-      });
-    },
-    characterNumber(): number {
-      const characterInfo = getCharacterLength(String(this.value || ''));
-      if (typeof characterInfo === 'object') {
-        return characterInfo.length;
-      }
-      return characterInfo;
-    },
-  },
+    const blur = () => {
+      refInputElem.value?.blur();
+    };
 
-  watch: {
-    value() {
-      this.adjustTextareaHeight();
-    },
-  },
-
-  mounted() {
-    this.adjustTextareaHeight();
-  },
-
-  methods: {
-    adjustTextareaHeight() {
-      if (this.autosize === true) {
-        this.textareaStyle = calcTextareaHeight(this.$refs.refTextareaElem as HTMLTextAreaElement);
-      } else if (typeof this.autosize === 'object') {
-        const { minRows, maxRows } = this.autosize;
-        this.textareaStyle = calcTextareaHeight(this.$refs.refTextareaElem as HTMLTextAreaElement, minRows, maxRows);
-      } else if (this.$attrs.rows) {
-        this.textareaStyle = { height: 'auto', minHeight: 'auto' };
-      }
-    },
-
-    focus(): void {
-      const input = this.$refs.refInputElem as HTMLInputElement;
-      input?.focus();
-    },
-    blur(): void {
-      const input = this.$refs.refInputElem as HTMLInputElement;
-      input?.blur();
-    },
-
-    handleInput(e: any): void {
-      if (e.isComposing || e.inputType === 'insertCompositionText') return;
-      this.inputValueChangeHandle(e);
-    },
-    onCompositionend(e: InputEvent | CompositionEvent) {
-      this.inputValueChangeHandle(e as InputEvent);
-    },
-    inputValueChangeHandle(e: InputEvent) {
-      const { target } = e;
-      let val = (target as HTMLInputElement).value;
-      if (this.maxcharacter && this.maxcharacter >= 0) {
-        const stringInfo = getCharacterLength(val, this.maxcharacter);
-        val = typeof stringInfo === 'object' && stringInfo.characters;
-      }
-      this.$emit('update:value', val);
-      emitEvent(this, 'change', val, { e });
-
-      this.$nextTick(() => this.setInputValue(val));
-      this.adjustTextareaHeight();
-    },
-    setInputValue(v: TextareaValue = ''): void {
-      const textareaElem = this.$refs.refTextareaElem as HTMLInputElement;
+    const setInputValue = (v: TextareaValue = '') => {
+      const textareaElem = refTextareaElem.value;
       const sV = String(v);
       if (!textareaElem) {
         return;
       }
       if (textareaElem.value !== sV) {
         textareaElem.value = sV;
+        value.value = sV;
       }
-    },
-    emitKeyDown(e: KeyboardEvent) {
-      if (this.disabled) return;
-      emitEvent(this, 'keydown', this.value, { e });
-    },
-    emitKeyUp(e: KeyboardEvent) {
-      if (this.disabled) return;
-      emitEvent(this, 'keyup', this.value, { e });
-    },
-    emitKeypress(e: KeyboardEvent) {
-      if (this.disabled) return;
-      emitEvent(this, 'keypress', this.value, { e });
-    },
-    emitFocus(e: FocusEvent) {
-      if (this.disabled) return;
-      this.focused = true;
-      emitEvent(this, 'focus', this.value, { e });
-    },
-    emitBlur(e: FocusEvent) {
-      this.focused = false;
-      emitEvent(this, 'blur', this.value, { e });
-    },
+    };
+    const inputValueChangeHandle = (e: InputEvent) => {
+      const { target } = e;
+      let val = (target as HTMLInputElement).value;
+      if (props.maxcharacter && props.maxcharacter >= 0) {
+        const stringInfo = getCharacterLength(val, props.maxcharacter);
+        val = typeof stringInfo === 'object' && stringInfo.characters;
+      }
+      emit('update:value', val);
+      emit('change', val, { e });
+      nextTick(() => setInputValue(val));
+      adjustTextareaHeight();
+    };
+
+    const handleInput = (e: any) => {
+      if (e.isComposing || e.inputType === 'insertCompositionText') return;
+      inputValueChangeHandle(e);
+    };
+    const onCompositionend = (e: InputEvent | CompositionEvent) => {
+      inputValueChangeHandle(e as InputEvent);
+    };
+
+    const eventDeal = (name: 'keydown' | 'keyup' | 'keypress' | 'change', e: KeyboardEvent | FocusEvent) => {
+      if (disabled.value) return;
+      const _name = `on${name[0].toUpperCase()}${name.slice(1)}`;
+      if (props[_name] && typeof props[_name] === 'function') {
+        props[_name](value.value, { e });
+      } else {
+        emit(name, value.value, { e });
+      }
+    };
+
+    const emitKeyDown = (e: KeyboardEvent) => {
+      eventDeal('keydown', e);
+    };
+    const emitKeyUp = (e: KeyboardEvent) => {
+      eventDeal('keyup', e);
+    };
+    const emitKeypress = (e: KeyboardEvent) => {
+      eventDeal('keypress', e);
+    };
+
+    const emitFocus = (e: FocusEvent) => {
+      if (disabled.value) return;
+      focused.value = true;
+      if (props.onFocus && typeof props.onFocus === 'function') {
+        props.onFocus(value.value, { e });
+      } else {
+        emit('focus', value.value, { e });
+      }
+    };
+    const emitBlur = (e: FocusEvent) => {
+      focused.value = false;
+      if (props.onBlur && typeof props.onBlur === 'function') {
+        props.onBlur(value.value, { e });
+      } else {
+        emit('blur', value.value, { e });
+      }
+    };
+
+    // computed
+    const textareaClasses = computed<ClassName>(() => {
+      return [
+        name,
+        {
+          [`${prefix}-is-disabled`]: disabled.value,
+          [`${prefix}-is-readonly`]: props.readonly,
+        },
+      ];
+    });
+    const inputAttrs = computed<Record<string, any>>(() => {
+      return getValidAttrs({
+        autofocus: props.autofocus,
+        disabled: disabled.value,
+        readonly: props.readonly,
+        placeholder: props.placeholder,
+        maxlength: props.maxlength || undefined,
+        name: props.name || undefined,
+      });
+    });
+    const characterNumber = computed<number>(() => {
+      const characterInfo = getCharacterLength(String(value.value || ''));
+      if (typeof characterInfo === 'object') {
+        return characterInfo.length;
+      }
+      return characterInfo;
+    });
+
+    // watch
+    watch(
+      () => props.value,
+      () => adjustTextareaHeight(),
+    );
+    onMounted(() => {
+      adjustTextareaHeight();
+    });
+
+    return {
+      refTextareaElem,
+      refInputElem,
+      disabled,
+      focused,
+      value,
+      textareaStyle,
+      textareaClasses,
+      inputAttrs,
+      characterNumber,
+      handleInput,
+      onCompositionend,
+      emitFocus,
+      emitBlur,
+      emitKeyDown,
+      emitKeyUp,
+      emitKeypress,
+      focus,
+      blur,
+    };
   },
 
   render() {
