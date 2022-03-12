@@ -1,18 +1,10 @@
 import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, ref } from 'vue';
 import { DeleteIcon } from 'tdesign-icons-vue-next';
-import {
-  CLASS_NAME_ACTIVE,
-  CLASS_NAME_CURRENT,
-  CLASS_NAME_DISABLE,
-  COMPONENT_NAME,
-  TdColorPickerUsedColorsProvide,
-  TD_COLOR_USED_COLORS_PROVIDE,
-} from '../const';
 import { Select as TSelect, Option as TOption } from '../../select';
 import Color from '../utils/color';
 import { useClickOutsider } from '../utils/click-outsider';
-
-const BASE_CLASS_NAME = `${COMPONENT_NAME}__swatches`;
+import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
+import { useBaseClassName, useStatusClassName } from '../hooks';
 
 export default defineComponent({
   name: 'SwatchesPanel',
@@ -20,7 +12,7 @@ export default defineComponent({
     TSelect,
     TOption,
   },
-  inject: [TD_COLOR_USED_COLORS_PROVIDE],
+  inject: [TdColorPickerProvides.USED_COLORS],
   props: {
     color: {
       type: Object as PropType<Color>,
@@ -44,8 +36,11 @@ export default defineComponent({
   },
   emits: ['set-color'],
   setup(props, { emit }) {
-    const { activeColor, removeColor, setActiveColor } =
-      inject<TdColorPickerUsedColorsProvide>(TD_COLOR_USED_COLORS_PROVIDE);
+    const baseClassName = useBaseClassName();
+    const statusClassNames = useStatusClassName();
+    const { activeColor, removeColor, setActiveColor } = inject<TdColorPickerUsedColorsProvide>(
+      TdColorPickerProvides.USED_COLORS,
+    );
 
     const handleClick = (color: string) => emit('set-color', color);
 
@@ -68,6 +63,8 @@ export default defineComponent({
     });
 
     return {
+      baseClassName,
+      statusClassNames,
       activeColor,
       colorItemRefs,
       handleClick,
@@ -77,22 +74,23 @@ export default defineComponent({
     };
   },
   render() {
+    const { baseClassName, statusClassNames, colors, activeColor, title, removable, disabled, colorItemRefs } = this;
+    const swatchesClass = `${baseClassName}__swatches`;
     return (
-      <div class={BASE_CLASS_NAME}>
-        <h3 class={`${BASE_CLASS_NAME}--title`}>
-          <span>{this.title}</span>
-          {this.removable ? (
+      <div class={swatchesClass}>
+        <h3 class={`${swatchesClass}--title`}>
+          <span>{title}</span>
+          {removable ? (
             <span
               role="button"
-              title="移除选中的颜色"
-              class={[`${COMPONENT_NAME}__icon`, !this.activeColor ? CLASS_NAME_DISABLE : '']}
+              class={[`${baseClassName}__icon`, !activeColor ? statusClassNames.disabledClassName : '']}
               onMouseup={(e) => e.stopPropagation()}
               onClick={() => {
-                if (this.disabled) {
+                if (disabled) {
                   return;
                 }
-                if (this.activeColor) {
-                  this.removeColor(this.activeColor);
+                if (activeColor) {
+                  this.removeColor(activeColor);
                   this.setActiveColor('');
                 }
               }}
@@ -101,15 +99,15 @@ export default defineComponent({
             </span>
           ) : null}
         </h3>
-        <ul class={[`${BASE_CLASS_NAME}--items`, 'narrow-scrollbar']}>
-          {this.colors.map((color) => {
+        <ul class={[`${swatchesClass}--items`, 'narrow-scrollbar']}>
+          {colors.map((color) => {
             return (
               <li
-                ref={this.colorItemRefs}
+                ref={colorItemRefs}
                 class={[
-                  `${BASE_CLASS_NAME}--item`,
-                  this.activeColor === color && this.removable ? CLASS_NAME_ACTIVE : '',
-                  this.isEqualCurrentColor(color) ? CLASS_NAME_CURRENT : '',
+                  `${swatchesClass}--item`,
+                  activeColor === color && removable ? statusClassNames.activeClassName : '',
+                  this.isEqualCurrentColor(color) ? statusClassNames.currentClassName : '',
                 ]}
                 key={color}
                 title={color}
@@ -120,9 +118,9 @@ export default defineComponent({
                   this.handleClick(color);
                 }}
               >
-                <span class={[`${BASE_CLASS_NAME}--item__color`, `${COMPONENT_NAME}--bg-alpha`]}>
+                <span class={[`${swatchesClass}--item__color`, `${baseClassName}--bg-alpha`]}>
                   <span
-                    class={`${BASE_CLASS_NAME}--item__inner`}
+                    class={`${swatchesClass}--item__inner`}
                     style={{
                       background: color,
                     }}

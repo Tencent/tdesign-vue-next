@@ -1,8 +1,8 @@
 import { computed, defineComponent, PropType } from 'vue';
-import { COMPONENT_NAME } from '../const';
 import ColorSlider from './slider';
 import Color from '../utils/color';
 import props from '../props';
+import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'AlphaSlider',
@@ -18,6 +18,7 @@ export default defineComponent({
   },
   emits: ['change'],
   setup(props, { emit }) {
+    const baseClassName = useBaseClassName();
     const handleChange = (v: number) => emit('change', v / 100);
     const railStyle = computed(() => {
       return {
@@ -25,14 +26,16 @@ export default defineComponent({
       };
     });
     return {
+      baseClassName,
       railStyle,
       handleChange,
     };
   },
   render() {
+    const { baseClassName } = this;
     return (
       <color-slider
-        class={[`${COMPONENT_NAME}__alpha`, `${COMPONENT_NAME}--bg-alpha`]}
+        class={[`${baseClassName}__alpha`, `${baseClassName}--bg-alpha`]}
         color={this.color}
         value={this.color.alpha * 100}
         onChange={this.handleChange}

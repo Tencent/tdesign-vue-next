@@ -1,15 +1,11 @@
 import { computed, defineComponent, inject, nextTick, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
-import {
-  COMPONENT_NAME,
-  SATURATION_PANEL_DEFAULT_HEIGHT,
-  SATURATION_PANEL_DEFAULT_WIDTH,
-  TdColorPickerUsedColorsProvide,
-  TD_COLOR_USED_COLORS_PROVIDE,
-} from '../const';
+import { SATURATION_PANEL_DEFAULT_HEIGHT, SATURATION_PANEL_DEFAULT_WIDTH } from '../const';
 import { Select as TSelect, Option as TOption } from '../../select';
 import Draggable, { Coordinate } from '../utils/draggable';
 import Color from '../utils/color';
 import props from '../props';
+import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
+import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'SaturationPanel',
@@ -17,7 +13,7 @@ export default defineComponent({
     TSelect,
     TOption,
   },
-  inject: [TD_COLOR_USED_COLORS_PROVIDE],
+  inject: [TdColorPickerProvides.USED_COLORS],
   inheritAttrs: false,
   props: {
     ...props,
@@ -27,7 +23,8 @@ export default defineComponent({
   },
   emits: ['change'],
   setup(props, { emit }) {
-    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TD_COLOR_USED_COLORS_PROVIDE);
+    const baseClassName = useBaseClassName();
+    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refPanel = ref<HTMLElement>(null);
     const refThumb = ref<HTMLElement>(null);
     const dragInstance = ref<Draggable>(null);
@@ -102,6 +99,7 @@ export default defineComponent({
     });
 
     return {
+      baseClassName,
       refThumb,
       refPanel,
       styles,
@@ -109,15 +107,16 @@ export default defineComponent({
     };
   },
   render() {
+    const { baseClassName, styles, panelBackground } = this;
     return (
       <div
-        class={[`${COMPONENT_NAME}__saturation`]}
+        class={[`${baseClassName}__saturation`]}
         ref="refPanel"
         style={{
-          background: this.panelBackground,
+          background: panelBackground,
         }}
       >
-        <span class={[`${COMPONENT_NAME}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={this.styles}></span>
+        <span class={[`${baseClassName}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={styles}></span>
       </div>
     );
   },

@@ -1,16 +1,12 @@
 import { defineComponent, provide, ref, watch } from 'vue';
 import props from './props';
 import ColorPanel from './panel';
-import {
-  CLASS_NAME_INLINE,
-  COMPONENT_PANEL_NAME,
-  TdColorPickerPopupProvide,
-  TD_COLOR_PICKER_POPUP_PROVIDE,
-} from './const';
 import { useColorPicker } from './common';
+import { TdColorPickerPopupProvide, TdColorPickerProvides } from './interfaces';
+import { useStatusClassName } from './hooks';
 
 export default defineComponent({
-  name: COMPONENT_PANEL_NAME,
+  name: 'TColorPickerPanel',
   components: {
     ColorPanel,
   },
@@ -18,7 +14,8 @@ export default defineComponent({
   props,
   emits: ['change'],
   setup(props, { emit }) {
-    provide<TdColorPickerPopupProvide>(TD_COLOR_PICKER_POPUP_PROVIDE, {
+    const statusClassNames = useStatusClassName();
+    provide<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP, {
       visible: ref(false),
       setVisible() {},
     });
@@ -33,19 +30,20 @@ export default defineComponent({
 
     return {
       color,
+      statusClassNames,
       handleChange,
       handlePaletteChange,
     };
   },
   render() {
-    const { popupProps, ...props } = this.$props;
+    const { popupProps, color, statusClassNames, ...props } = this;
     delete props.onChange;
     delete props.onPaletteBarChange;
     return (
       <color-panel
         {...props}
-        value={this.color}
-        custom-class={CLASS_NAME_INLINE}
+        value={color}
+        custom-class={statusClassNames.inlineClassName}
         close-btn={false}
         onChange={this.handleChange}
         onPaletteChange={this.handlePaletteChange}

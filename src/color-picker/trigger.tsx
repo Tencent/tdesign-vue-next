@@ -1,11 +1,9 @@
 import { defineComponent, PropType, ref, watch } from 'vue';
-import { COMPONENT_NAME } from './const';
 import { Input as TInput } from '../input';
 import { InputNumber as TInputNumber } from '../input-number';
 import Color from './utils/color';
 import { TdColorPickerProps } from '.';
-
-const name = COMPONENT_NAME;
+import { useBaseClassName } from './hooks';
 
 export default defineComponent({
   name: 'DefaultTrigger',
@@ -34,6 +32,7 @@ export default defineComponent({
   },
   emits: ['trigger-change'],
   setup(props, { emit }) {
+    const baseClassName = useBaseClassName();
     const value = ref(props.color);
     const setValue = () => (value.value = props.color);
     setValue();
@@ -49,17 +48,18 @@ export default defineComponent({
     };
 
     return {
+      baseClassName,
       value,
       handleChange,
     };
   },
 
   render() {
-    const { value } = this;
+    const { value, baseClassName } = this;
     const inputSlots = {
       label: () => {
         return (
-          <div class={[`${name}__trigger--default__color`, `${COMPONENT_NAME}--bg-alpha`]}>
+          <div class={[`${baseClassName}__trigger--default__color`, `${baseClassName}--bg-alpha`]}>
             <span
               class={['color-inner']}
               style={{

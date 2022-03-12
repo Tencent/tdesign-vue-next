@@ -1,5 +1,6 @@
 import { ref } from 'vue';
-import { ColorContext, TdColorEvent } from './const';
+import { TdColorEvent } from './const';
+import { TdColorContext } from './interfaces';
 
 type Emit = (event: TdColorEvent, ...args: any[]) => void;
 
@@ -12,11 +13,11 @@ type Emit = (event: TdColorEvent, ...args: any[]) => void;
  */
 export const useColorPicker = (value: string, emit: Emit) => {
   const color = ref(value);
-  const handleChange = (value: string, context: ColorContext) => {
+  const handleChange = (value: string, context: TdColorContext) => {
     color.value = value;
     emit('change', value, context);
   };
-  const handlePaletteChange = (context: ColorContext) => {
+  const handlePaletteChange = (context: TdColorContext) => {
     emit('palette-bar-change', context);
   };
   const updateColor = (value: string) => (color.value = value);

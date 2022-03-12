@@ -115,7 +115,7 @@ export default defineComponent({
       ...((this.inputProps as any) || {}),
     };
     return (
-      <div class={['input-group']}>
+      <div class="input-group">
         {this.inputConfigs.map((config) => {
           return (
             <div

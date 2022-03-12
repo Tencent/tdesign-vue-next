@@ -2,11 +2,12 @@ import { defineComponent, PropType, ref, watch } from 'vue';
 import { upperCase } from 'lodash';
 import { TdColorPickerProps } from '../../type';
 import props from '../../props';
-import { COMPONENT_NAME, FORMATS } from '../../const';
+import { FORMATS } from '../../const';
 import Color from '../../utils/color';
 import { Select as TSelect, Option as TOption } from '../../../select';
 import { Input as TInput } from '../../../input';
 import FormatInputs from './inputs';
+import { useBaseClassName } from '../../hooks';
 
 export default defineComponent({
   name: 'FormatPanel',
@@ -24,6 +25,7 @@ export default defineComponent({
   },
   emits: ['mode-change', 'change'],
   setup(props, { emit }) {
+    const baseClassName = useBaseClassName();
     const formatModel = ref<TdColorPickerProps['format']>(props.format);
     watch(
       () => [props.format],
@@ -50,13 +52,14 @@ export default defineComponent({
 
     return {
       formatModel,
+      baseClassName,
       handleModeChange,
       handleColorChange,
     };
   },
   render() {
     const formats: TdColorPickerProps['format'][] = [...FORMATS];
-    const { handleModeChange, handleColorChange } = this;
+    const { baseClassName, handleModeChange, handleColorChange } = this;
     const newProps = {
       ...this.$props,
       format: this.formatModel,
@@ -67,15 +70,15 @@ export default defineComponent({
     delete newProps.onChange;
     delete newProps.onPaletteBarChange;
     return (
-      <div className={`${COMPONENT_NAME}__format`}>
-        <div className={`${COMPONENT_NAME}__format--item`}>
+      <div className={`${baseClassName}__format`}>
+        <div className={`${baseClassName}__format--item`}>
           <t-select {...selectInputProps} v-model={this.formatModel} onChange={handleModeChange}>
             {formats.map((item) => (
               <t-option key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
             ))}
           </t-select>
         </div>
-        <div className={`${COMPONENT_NAME}__format--item`}>
+        <div className={`${baseClassName}__format--item`}>
           <format-inputs {...newProps} onChange={handleColorChange} />
         </div>
       </div>

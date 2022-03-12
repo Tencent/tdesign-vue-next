@@ -1,13 +1,10 @@
 import { computed, defineComponent, inject, nextTick, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
-import {
-  COMPONENT_NAME,
-  SLIDER_DEFAULT_WIDTH,
-  TdColorPickerUsedColorsProvide,
-  TD_COLOR_USED_COLORS_PROVIDE,
-} from '../const';
+import { SLIDER_DEFAULT_WIDTH } from '../const';
 import { Select as TSelect, Option as TOption } from '../../select';
 import Draggable, { Coordinate } from '../utils/draggable';
 import Color from '../utils/color';
+import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
+import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'ColorSlider',
@@ -15,7 +12,7 @@ export default defineComponent({
     TSelect,
     TOption,
   },
-  inject: [TD_COLOR_USED_COLORS_PROVIDE],
+  inject: [TdColorPickerProvides.USED_COLORS],
   props: {
     color: {
       type: Object as PropType<Color>,
@@ -42,7 +39,8 @@ export default defineComponent({
   },
   emits: ['change'],
   setup(props, { emit }) {
-    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TD_COLOR_USED_COLORS_PROVIDE);
+    const baseClassName = useBaseClassName();
+    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refPanel = ref<HTMLElement>(null);
     const refThumb = ref<HTMLElement>(null);
     const dragInstance = ref<Draggable>(null);
@@ -96,16 +94,18 @@ export default defineComponent({
     });
 
     return {
+      baseClassName,
       refThumb,
       refPanel,
       styles,
     };
   },
   render() {
+    const { baseClassName, className, railStyle, styles } = this;
     return (
-      <div class={[`${COMPONENT_NAME}__slider`, this.className]} ref="refPanel">
-        <div class={`${COMPONENT_NAME}__rail`} style={this.railStyle}></div>
-        <span class={[`${COMPONENT_NAME}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={this.styles}></span>
+      <div class={[`${baseClassName}__slider`, className]} ref="refPanel">
+        <div class={`${baseClassName}__rail`} style={railStyle}></div>
+        <span class={[`${baseClassName}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={styles}></span>
       </div>
     );
   },

@@ -1,19 +1,14 @@
 import { defineComponent, provide, ref, watch } from 'vue';
 import props from '../props';
 import {
-  COMPONENT_NAME,
   DEFAULT_COLOR,
   DEFAULT_LINEAR_GRADIENT,
-  TdColorMode,
-  TdColorPickerUsedColorsProvide,
   TD_COLOR_USED_COLORS_MAX_SIZE,
-  TD_COLOR_USED_COLORS_PROVIDE,
   TITLE_RECENT_COLORS,
   TITLE_SWATCH_COLORS,
   DEFAULT_SYSTEM_SWATCH_COLORS,
-  CLASS_NAME_DISABLE,
 } from '../const';
-import ColorPickerHeader from './header';
+import PanelHeader from './header';
 import LinearGradient from './linear-gradient';
 import SaturationPanel from './saturation';
 import HueSlider from './hue';
@@ -24,8 +19,8 @@ import Color from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
 import { TdColorPickerProps, ColorPickerChangeTrigger } from '..';
 import { ColorObject } from '../type';
-
-const name = COMPONENT_NAME;
+import { TdColorModes, TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
+import { useBaseClassName, useStatusClassName } from '../hooks';
 
 const COLOR_OBJECT_OUTPUT_KEYS = [
   'alpha',
@@ -58,7 +53,7 @@ export const getColorObject = (color: Color): ColorObject => {
 export default defineComponent({
   name: 'ColorPanel',
   components: {
-    ColorPickerHeader,
+    PanelHeader,
     LinearGradient,
     SaturationPanel,
     HueSlider,
@@ -76,8 +71,10 @@ export default defineComponent({
   },
   emits: ['change', 'palette-bar-change'],
   setup(props, { emit }) {
+    const baseClassName = useBaseClassName();
+    const statusClassNames = useStatusClassName();
     const color = ref<Color>(new Color(props.value || props.defaultValue || DEFAULT_COLOR));
-    const mode = ref<TdColorMode>(color.value.isGradient ? 'linear-gradient' : 'monochrome');
+    const mode = ref<TdColorModes>(color.value.isGradient ? 'linear-gradient' : 'monochrome');
     const formatModel = ref<TdColorPickerProps['format']>(color.value.isGradient ? 'CSS' : 'RGB');
     const recentlyUsedColors = ref<string[]>(props.recentColors as string[]);
     const activeRecentlyUsedColor = ref('');
@@ -157,7 +154,7 @@ export default defineComponent({
       activeRecentlyUsedColor.value = color;
     };
 
-    provide<TdColorPickerUsedColorsProvide>(TD_COLOR_USED_COLORS_PROVIDE, {
+    provide<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS, {
       colors: recentlyUsedColors,
       activeColor: activeRecentlyUsedColor,
       setActiveColor: setActiveRecentlyUsedColor,
@@ -184,7 +181,7 @@ export default defineComponent({
      * @param value
      * @returns
      */
-    const handleModeChange = (value: TdColorMode) => {
+    const handleModeChange = (value: TdColorModes) => {
       mode.value = value;
       if (value === 'linear-gradient') {
         color.value.update(
@@ -300,6 +297,8 @@ export default defineComponent({
 
     // todo watch props.value
     return {
+      baseClassName,
+      statusClassNames,
       color,
       mode,
       formatModel,
@@ -316,6 +315,7 @@ export default defineComponent({
     };
   },
   render() {
+    const { baseClassName, statusClassNames } = this;
     const props = { ...this.$props, color: this.color, format: this.formatModel };
     delete props.onChange;
     delete props.onPaletteBarChange;
@@ -331,7 +331,7 @@ export default defineComponent({
       }
       return (
         <>
-          <div class={`${name}__swatches-wrap`}>
+          <div class={`${baseClassName}__swatches-wrap`}>
             {showUsedColors ? (
               <swatches-panel
                 title={TITLE_RECENT_COLORS}
@@ -358,9 +358,16 @@ export default defineComponent({
     };
 
     return (
-      <div class={[`${name}__panel`, this.customClass, this.disabled ? CLASS_NAME_DISABLE : false]}>
-        <color-picker-header {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
-        <div class={[`${name}__body`]}>
+      <div
+        class={[
+          `${baseClassName}__panel`,
+          this.customClass,
+          this.disabled ? statusClassNames.disabledClassName : false,
+        ]}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <panel-header {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
+        <div class={[`${baseClassName}__body`]}>
           {this.mode === 'linear-gradient' ? <linear-gradient {...props} onChange={this.handleGradientChange} /> : null}
           <saturation-panel {...props} onChange={this.handleSatAndValueChange} />
           <hue-slider {...props} onChange={this.handleHueChange} />

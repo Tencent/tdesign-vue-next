@@ -1,17 +1,16 @@
 import { ComponentPublicInstance, defineComponent, onBeforeUnmount, onMounted, provide, ref, watch } from 'vue';
 import { renderContent } from '../utils/render-tnode';
 import props from './props';
-import { COMPONENT_NAME, TdColorPickerPopupProvide, TD_COLOR_PICKER_POPUP_PROVIDE } from './const';
 import { Popup as TPopup } from '../popup';
 import { useClickOutsider } from './utils/click-outsider';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
 import { useColorPicker } from './common';
-
-const name = COMPONENT_NAME;
+import { TdColorPickerPopupProvide, TdColorPickerProvides } from './interfaces';
+import { useBaseClassName } from './hooks';
 
 export default defineComponent({
-  name,
+  name: 'TColorPicker',
   components: {
     TPopup,
     ColorPanel,
@@ -21,12 +20,11 @@ export default defineComponent({
   props,
   emits: ['change'],
   setup(props, { emit }) {
+    const baseClassName = useBaseClassName();
     const visible = ref(false);
-    const setVisible = (value: boolean) => {
-      visible.value = value;
-    };
+    const setVisible = (value: boolean) => (visible.value = value);
     // 提供给 head组件中的closeBtn使用
-    provide<TdColorPickerPopupProvide>(TD_COLOR_PICKER_POPUP_PROVIDE, {
+    provide<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP, {
       visible,
       setVisible,
     });
@@ -49,6 +47,7 @@ export default defineComponent({
     });
 
     return {
+      baseClassName,
       color,
       visible,
       refTrigger,
@@ -60,7 +59,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { popupProps, disabled } = this;
+    const { popupProps, disabled, baseClassName } = this;
     const colorPickerProps = { ...this.$props };
     delete colorPickerProps.onChange;
     delete colorPickerProps.onPaletteBarChange;
@@ -84,7 +83,7 @@ export default defineComponent({
         trigger: 'click',
       }),
       attach: 'body',
-      overlayClassName: [name],
+      overlayClassName: [baseClassName],
       visible: this.visible,
       overlayStyle: {
         padding: 0,
@@ -93,7 +92,7 @@ export default defineComponent({
     };
     return (
       <t-popup {...popProps}>
-        <div className={`${name}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
+        <div className={`${baseClassName}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
           {renderContent(
             this,
             'default',

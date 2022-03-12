@@ -1,46 +1,9 @@
-import { Ref } from 'vue';
 import { TdColorPickerProps } from '.';
-import { prefix } from '../config';
-import { ColorObject, ColorPickerChangeTrigger } from './type';
 
 /** 常量 */
-// 组件名
-export const COMPONENT_NAME = `${prefix}-color-picker`;
-// 组件面板
-export const COMPONENT_PANEL_NAME = `${COMPONENT_NAME}-panel`;
-
-// 状态样式
-export const CLASS_NAME_DISABLE = `${prefix}-is-disabled`;
-export const CLASS_NAME_ACTIVE = `${prefix}-is-active`;
-export const CLASS_NAME_CURRENT = `${prefix}-is-current`;
-export const CLASS_NAME_INLINE = `${prefix}-is-inline`;
-
-// t-popup provide interface
-export interface TdColorPickerPopupProvide {
-  visible: Ref<boolean>;
-  setVisible: (value: boolean) => void;
-}
-
-// t-popup provide key
-export const TD_COLOR_PICKER_POPUP_PROVIDE = 'TD_COLOR_PICKER_POPUP_PROVIDE';
-
-// usedColors provide interface
-export interface TdColorPickerUsedColorsProvide {
-  colors: Ref<string[]>;
-  activeColor: Ref<string>;
-  setActiveColor: (color: string) => void;
-  addColor: (color: string) => void;
-  removeColor: (color: string) => void;
-}
-
-// usedColors provide key
-export const TD_COLOR_USED_COLORS_PROVIDE = 'TD_COLOR_USED_COLORS_PROVIDE';
 
 // 最近使用颜色最大个数
 export const TD_COLOR_USED_COLORS_MAX_SIZE = 100; // 每行10个
-
-// 颜色模式
-export type TdColorMode = 'monochrome' | 'linear-gradient';
 
 // 颜色模式options配置
 export const COLOR_MODES = {
@@ -54,8 +17,6 @@ export type TdColorEvent = 'change' | 'palette-bar-change';
 // 非透明色格式化类型
 export const FORMATS: TdColorPickerProps['format'][] = ['HEX', 'RGB', 'HSL', 'HSV', 'CMYK', 'CSS'];
 
-// 透明色格式化类型
-
 // 默认颜色
 export const DEFAULT_COLOR = '#001F97';
 
@@ -66,7 +27,7 @@ export const DEFAULT_LINEAR_GRADIENT = 'linear-gradient(90deg, rgba(241,29,0,1) 
 export const TITLE_RECENT_COLORS = '最近使用颜色';
 export const TITLE_SWATCH_COLORS = '系统预设颜色';
 
-// 系统色彩
+// 默认系统色彩
 export const DEFAULT_SYSTEM_SWATCH_COLORS = [
   '#ECF2FE',
   '#D4E3FC',
@@ -115,8 +76,3 @@ export const SATURATION_PANEL_DEFAULT_WIDTH = 248;
 export const SATURATION_PANEL_DEFAULT_HEIGHT = 140;
 export const SLIDER_DEFAULT_WIDTH = 248;
 export const GRADIENT_SLIDER_DEFAULT_WIDTH = 190;
-
-export interface ColorContext {
-  color: ColorObject;
-  trigger: ColorPickerChangeTrigger;
-}

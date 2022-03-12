@@ -1,16 +1,12 @@
 import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, reactive, ref, watch } from 'vue';
 import { cloneDeep } from 'lodash';
 import props from '../props';
-import {
-  CLASS_NAME_ACTIVE,
-  COMPONENT_NAME,
-  GRADIENT_SLIDER_DEFAULT_WIDTH,
-  TdColorPickerUsedColorsProvide,
-  TD_COLOR_USED_COLORS_PROVIDE,
-} from '../const';
+import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '../const';
 import Color, { genGradientPoint } from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
 import { InputNumber as TInputNumber } from '../../input-number';
+import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
+import { useBaseClassName, useStatusClassName } from '../hooks';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];
 
@@ -28,7 +24,9 @@ export default defineComponent({
   },
   emits: ['change'],
   setup(props, { emit }) {
-    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TD_COLOR_USED_COLORS_PROVIDE);
+    const baseClassName = useBaseClassName();
+    const statusClassNames = useStatusClassName();
+    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refSlider = ref<HTMLElement>(null);
     const sliderRect = reactive({
       left: 0,
@@ -195,6 +193,8 @@ export default defineComponent({
     });
 
     return {
+      baseClassName,
+      statusClassNames,
       refSlider,
       degree,
       selectedId,
@@ -208,13 +208,13 @@ export default defineComponent({
     };
   },
   render() {
-    const { linearGradient } = this.$props.color;
-    const { colors, selectedId, degree, disabled } = this;
+    const { linearGradient } = this.color;
+    const { colors, selectedId, degree, disabled, baseClassName, statusClassNames } = this;
     return (
-      <div class={`${COMPONENT_NAME}__gradient`}>
-        <div class={`${COMPONENT_NAME}__gradient-slider`}>
+      <div class={`${baseClassName}__gradient`}>
+        <div class={`${baseClassName}__gradient-slider`}>
           <div
-            class={[`${COMPONENT_NAME}__slider`, `${COMPONENT_NAME}--bg-alpha`]}
+            class={[`${baseClassName}__slider`, `${baseClassName}--bg-alpha`]}
             onKeyup={this.handleKeyup}
             tabindex={0}
             ref="refSlider"
@@ -231,9 +231,9 @@ export default defineComponent({
                 return (
                   <li
                     class={[
-                      `${COMPONENT_NAME}__thumb`,
+                      `${baseClassName}__thumb`,
                       'gradient-thumbs__item',
-                      selectedId === t.id ? CLASS_NAME_ACTIVE : '',
+                      selectedId === t.id ? statusClassNames.activeClassName : '',
                     ]}
                     key={t.id}
                     title={`${t.color} ${left}`}
@@ -244,14 +244,14 @@ export default defineComponent({
                     onClick={(e: MouseEvent) => e.stopPropagation()}
                     onMousedown={(e: MouseEvent) => this.handleStart(t.id, e)}
                   >
-                    <span class={['gradient-thumbs__item-inner', `${COMPONENT_NAME}--bg-alpha`]}></span>
+                    <span class={['gradient-thumbs__item-inner', `${baseClassName}--bg-alpha`]}></span>
                   </li>
                 );
               })}
             </ul>
           </div>
         </div>
-        <div class={`${COMPONENT_NAME}__gradient-degree`} title={`${degree}deg`}>
+        <div class={`${baseClassName}__gradient-degree`} title={`${degree}deg`}>
           <t-input-number
             theme="normal"
             min={0}

@@ -1,8 +1,8 @@
 import { defineComponent, PropType } from 'vue';
-import { COMPONENT_NAME } from '../const';
 import ColorSlider from './slider';
 import Color from '../utils/color';
 import props from '../props';
+import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
   name: 'HueSlider',
@@ -18,15 +18,17 @@ export default defineComponent({
   },
   emits: ['change'],
   setup(props, { emit }) {
+    const baseClassName = useBaseClassName();
     const handleChange = (v: number) => emit('change', v);
     return {
+      baseClassName,
       handleChange,
     };
   },
   render() {
     return (
       <color-slider
-        className={`${COMPONENT_NAME}__hue`}
+        className={`${this.baseClassName}__hue`}
         color={this.color}
         value={this.color.hue}
         onChange={this.handleChange}
