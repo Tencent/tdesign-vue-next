@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdPopconfirmProps } from './type';
@@ -41,6 +40,7 @@ export default {
     type: String as PropType<TdPopconfirmProps['placement']>,
     default: 'top' as TdPopconfirmProps['placement'],
     validator(val: TdPopconfirmProps['placement']): boolean {
+      if (!val) return true;
       return [
         'top',
         'left',
@@ -71,6 +71,7 @@ export default {
     type: String as PropType<TdPopconfirmProps['theme']>,
     default: 'default' as TdPopconfirmProps['theme'],
     validator(val: TdPopconfirmProps['theme']): boolean {
+      if (!val) return true;
       return ['default', 'warning', 'danger'].includes(val);
     },
   },
@@ -79,7 +80,14 @@ export default {
     type: [String, Function] as PropType<TdPopconfirmProps['triggerElement']>,
   },
   /** 是否显示气泡确认框 */
-  visible: Boolean,
+  visible: {
+    type: Boolean,
+    default: undefined,
+  },
+  modelValue: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否显示气泡确认框，非受控属性 */
   defaultVisible: Boolean,
   /** 点击取消按钮时触发 */

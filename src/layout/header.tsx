@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import { prefix } from '../config';
+import { usePrefixClass } from '../config-provider';
 import props from './header-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
@@ -8,10 +8,16 @@ export default defineComponent({
 
   props,
 
+  setup() {
+    const classPrefix = usePrefixClass();
+    return {
+      classPrefix,
+    };
+  },
   render() {
     const styles = this.height ? { height: this.height } : {};
     return (
-      <header class={`${prefix}-layout__header`} style={styles}>
+      <header class={`${this.classPrefix}-layout__header`} style={styles}>
         {renderTNodeJSX(this, 'default')}
       </header>
     );

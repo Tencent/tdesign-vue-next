@@ -1,15 +1,22 @@
 import { defineComponent, computed } from 'vue';
-import { prefix } from '../config';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
-const preName = `${prefix}-comment`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TComment',
   props,
   slots: ['avatar', 'reply', 'author', 'datetime', 'content', 'quote', 'actions'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('comment');
+
+    return {
+      COMPONENT_NAME,
+    };
+  },
   render() {
+    const { COMPONENT_NAME } = this;
     const reply = renderTNodeJSX(this, 'reply');
     const author = renderTNodeJSX(this, 'author');
     const datetime = renderTNodeJSX(this, 'datetime');
@@ -19,20 +26,20 @@ export default defineComponent({
     const avatar = renderTNodeJSX(this, 'avatar');
     const showAuthorDatetime = computed(() => author || datetime);
 
-    const replyDom = reply ? <div class={`${preName}__reply`}>{reply}</div> : null;
+    const replyDom = reply ? <div class={`${COMPONENT_NAME}__reply`}>{reply}</div> : null;
 
-    const quoteDom = quote ? <div class={`${preName}__quote`}>{quote}</div> : null;
+    const quoteDom = quote ? <div class={`${COMPONENT_NAME}__quote`}>{quote}</div> : null;
 
     const avatarDom = avatar ? (
-      <div class={`${preName}__avatar`}>
-        {typeof avatar === 'string' ? <img src={avatar} alt="" class={`${preName}__avatar-image`} /> : avatar}
+      <div class={`${COMPONENT_NAME}__avatar`}>
+        {typeof avatar === 'string' ? <img src={avatar} alt="" class={`${COMPONENT_NAME}__avatar-image`} /> : avatar}
       </div>
     ) : null;
 
     const authorDatetimeDom = showAuthorDatetime.value && (
-      <div class={`${preName}__author`}>
-        {author && <span class={`${preName}__name`}>{author}</span>}
-        {datetime && <span class={`${preName}__time`}>{datetime}</span>}
+      <div class={`${COMPONENT_NAME}__author`}>
+        {author && <span class={`${COMPONENT_NAME}__name`}>{author}</span>}
+        {datetime && <span class={`${COMPONENT_NAME}__time`}>{datetime}</span>}
       </div>
     );
 
@@ -40,7 +47,7 @@ export default defineComponent({
       if (!actions || !actions.length) return null;
 
       return (
-        <ul class={`${preName}__actions`}>
+        <ul class={`${COMPONENT_NAME}__actions`}>
           {(Array.isArray(actions) ? actions : [actions]).map((action, index: number) => (
             <li key={`action-${index}`}>{action}</li>
           ))}
@@ -49,17 +56,17 @@ export default defineComponent({
     };
 
     const contentDom = (
-      <div class={`${preName}__content`}>
+      <div class={`${COMPONENT_NAME}__content`}>
         {authorDatetimeDom}
-        <div class={`${preName}__detail`}>{content}</div>
+        <div class={`${COMPONENT_NAME}__detail`}>{content}</div>
         {quoteDom}
         {renderActions()}
       </div>
     );
 
     return (
-      <div class={preName}>
-        <div class={`${preName}__inner`}>
+      <div class={COMPONENT_NAME}>
+        <div class={`${COMPONENT_NAME}__inner`}>
           {avatarDom}
           {contentDom}
         </div>

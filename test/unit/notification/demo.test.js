@@ -7,12 +7,12 @@ import baseVue from '@/examples/notification/demos/base.vue';
 import closeAllVue from '@/examples/notification/demos/close-all.vue';
 import closeVue from '@/examples/notification/demos/close.vue';
 import contentVue from '@/examples/notification/demos/content.vue';
-import pluginVue from '@/examples/notification/demos/plugin.vue';
 import footerVue from '@/examples/notification/demos/footer.vue';
 import iconVue from '@/examples/notification/demos/icon.vue';
 import offsetVue from '@/examples/notification/demos/offset.vue';
 import operationVue from '@/examples/notification/demos/operation.vue';
 import placementVue from '@/examples/notification/demos/placement.vue';
+import pluginVue from '@/examples/notification/demos/plugin.vue';
 import sizeVue from '@/examples/notification/demos/size.vue';
 import toggleVue from '@/examples/notification/demos/toggle.vue';
 import typeVue from '@/examples/notification/demos/type.vue';
@@ -23,12 +23,12 @@ const mapper = {
   closeAllVue,
   closeVue,
   contentVue,
-  pluginVue,
   footerVue,
   iconVue,
   offsetVue,
   operationVue,
   placementVue,
+  pluginVue,
   sizeVue,
   toggleVue,
   typeVue,

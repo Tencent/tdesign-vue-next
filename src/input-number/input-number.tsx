@@ -1,6 +1,5 @@
 import { defineComponent, VNode } from 'vue';
 import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import TButton from '../button';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
@@ -10,8 +9,7 @@ import { emitEvent } from '../utils/event';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-
-const name = `${prefix}-input-number`;
+import { usePrefixClass } from '../config-provider';
 
 type InputNumberEvent = {
   onInput?: (e: InputEvent) => void;
@@ -44,9 +42,13 @@ export default defineComponent({
   },
   props: { ...props },
   emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
-  setup(props) {
+  setup() {
     const disabled = useFormDisabled();
+    const COMPONENT_NAME = usePrefixClass('input-number');
+    const classPrefix = usePrefixClass();
     return {
+      classPrefix,
+      COMPONENT_NAME,
       disabled,
     };
   },
@@ -91,7 +93,7 @@ export default defineComponent({
     },
     reduceClasses() {
       return [
-        `${name}__decrease`,
+        `${this.COMPONENT_NAME}__decrease`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
         },
@@ -104,7 +106,7 @@ export default defineComponent({
     },
     addClasses(): ClassName {
       return [
-        `${name}__increase`,
+        `${this.COMPONENT_NAME}__increase`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
         },
@@ -131,7 +133,7 @@ export default defineComponent({
         't-input',
         {
           't-is-error': this.isError,
-          [`${prefix}-align-${this.align}`]: this.align,
+          [`${this.classPrefix}-align-${this.align}`]: this.align,
         },
       ];
     },
@@ -140,7 +142,7 @@ export default defineComponent({
         't-input__inner',
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
-          [`${name}-text-align`]: this.theme === 'row',
+          [`${this.COMPONENT_NAME}-text-align`]: this.theme === 'row',
         },
       ];
     },
@@ -351,8 +353,11 @@ export default defineComponent({
             }}
           />
         )}
-        <div class={this.inputWrapProps}>
-          <input value={this.displayValue} class={this.inputClasses} {...this.inputAttrs} {...this.inputEvents} />
+        {/* // 保持和input结构相同 */}
+        <div class={`${this.classPrefix}-input__wrap`}>
+          <div class={this.inputWrapProps}>
+            <input value={this.displayValue} class={this.inputClasses} {...this.inputAttrs} {...this.inputEvents} />
+          </div>
         </div>
         {this.theme !== 'normal' && (
           <t-button

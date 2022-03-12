@@ -1,12 +1,10 @@
 import { VNode, defineComponent, h } from 'vue';
 import intersection from 'lodash/intersection';
-import { prefix } from '../config';
 import Checkbox from './checkbox';
 import checkboxGroupProps from './checkbox-group-props';
 import { emitEvent } from '../utils/event';
 import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue, CheckboxGroupChangeContext } from './type';
-
-const name = `${prefix}-checkbox-group`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -20,6 +18,13 @@ export default defineComponent({
   },
   props: { ...checkboxGroupProps },
   emits: ['change'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('checkbox-group');
+
+    return {
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       checkedMap: {},
@@ -155,6 +160,7 @@ export default defineComponent({
   },
 
   render(): VNode {
+    const { COMPONENT_NAME } = this;
     let children = null;
     if (this.options?.length) {
       children = this.optionList?.map((option, index) => (
@@ -167,6 +173,6 @@ export default defineComponent({
       this.optionList = this.getOptionListBySlots(nodes);
       children = nodes;
     }
-    return <div class={name}>{children}</div>;
+    return <div class={COMPONENT_NAME}>{children}</div>;
   },
 });
