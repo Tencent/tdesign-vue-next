@@ -1,78 +1,103 @@
-import { defineComponent, h, VNodeChild } from 'vue';
+import { defineComponent, h, VNodeChild, computed, watch, watchEffect, toRefs } from 'vue';
 import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 import TLoading from '../loading';
-import { SwitchValue } from './type';
 import props from './props';
 import { TNodeReturnValue } from '../common';
-import { emitEvent } from '../utils/event';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-
-const name = `${prefix}-switch`;
+import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TSwitch',
   props: { ...props },
-  emits: ['change'],
-  setup() {
+  emits: ['change', UPDATE_MODEL],
+  setup(props, { slots }) {
     const disabled = useFormDisabled();
-    return {
-      disabled,
-    };
-  },
-  computed: {
-    classes() {
-      return [
-        `${name}`,
-        CLASSNAMES.SIZE[this.size],
-        {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-          [CLASSNAMES.STATUS.loading]: this.loading,
-          [CLASSNAMES.STATUS.checked]: this.value === this.activeValue,
-        },
-      ];
-    },
-    nodeClasses() {
-      return [
-        `${name}__handle`,
-        {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-          [CLASSNAMES.STATUS.loading]: this.loading,
-        },
-      ];
-    },
-    contentClasses() {
-      return [
-        `${name}__content`,
-        CLASSNAMES.SIZE[this.size],
-        {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-        },
-      ];
-    },
-    activeValue() {
-      if (this.customValue && this.customValue.length > 0) {
-        return this.customValue[0];
+    const COMPONENT_NAME = usePrefixClass('switch');
+    const { STATUS, SIZE } = useCommonClassName();
+    // values
+    const { value, modelValue } = toRefs(props);
+    const [innerValue, setSwitchVal] = useVModel(value, modelValue, props.defaultValue || false, props.onChange);
+
+    const activeValue = computed(() => {
+      if (props.customValue && props.customValue.length > 0) {
+        return props.customValue[0];
       }
       return true;
-    },
-    inactiveValue() {
-      if (this.customValue && this.customValue.length > 1) {
-        return this.customValue[1];
+    });
+    const inactiveValue = computed(() => {
+      if (props.customValue && props.customValue.length > 1) {
+        return props.customValue[1];
       }
       return false;
-    },
-    content(): VNodeChild {
-      if (typeof this.label === 'function') {
-        return this.label(h, { value: this.value });
+    });
+
+    // methods
+    function handleToggle() {
+      const checked = innerValue.value === activeValue.value ? inactiveValue.value : activeValue.value;
+      // emits
+      setSwitchVal(checked);
+    }
+
+    function toggle() {
+      if (props.disabled || props.loading) {
+        return;
       }
-      if (typeof this.label === 'string') {
-        return this.label;
+      handleToggle();
+    }
+
+    // classes
+    const classes = computed(() => [
+      `${COMPONENT_NAME.value}`,
+      SIZE.value[props.size],
+      {
+        [STATUS.value.disabled]: disabled.value,
+        [STATUS.value.loading]: props.loading,
+        [STATUS.value.checked]: innerValue.value === activeValue.value || props.modelValue === activeValue.value,
+      },
+    ]);
+    const nodeClasses = computed(() => {
+      return [
+        `${COMPONENT_NAME.value}__handle`,
+        {
+          [STATUS.value.disabled]: disabled.value,
+          [STATUS.value.loading]: props.loading,
+        },
+      ];
+    });
+    const contentClasses = computed(() => {
+      return [
+        `${COMPONENT_NAME.value}__content`,
+        SIZE.value[props.size],
+        {
+          [STATUS.value.disabled]: disabled.value,
+        },
+      ];
+    });
+
+    watch(
+      innerValue,
+      (val) => {
+        if (props.customValue && props.customValue.length && !props.customValue.includes(val)) {
+          throw new Error(`value is not in ${JSON.stringify(props.customValue)}`);
+        }
+      },
+      {
+        immediate: true,
+      },
+    );
+
+    const content = computed<VNodeChild>(() => {
+      if (typeof props.label === 'function') {
+        return props.label(h, { value: innerValue.value });
       }
-      if (Array.isArray(this.label)) {
-        const label = this.value === this.activeValue ? this.label[0] : this.label[1];
+      if (typeof props.label === 'string') {
+        return props.label;
+      }
+      if (Array.isArray(props.label)) {
+        const label = innerValue.value === activeValue.value ? props.label[0] : props.label[1];
         if (!label) return;
         if (typeof label === 'string') {
           return label;
@@ -81,51 +106,35 @@ export default defineComponent({
           return label(h);
         }
       }
-      if (this.$slots.label) {
-        return this.$slots.label({ value: this.value });
+      if (slots.label) {
+        return slots.label({ value: innerValue.value });
       }
       return null;
-    },
-  },
-  watch: {
-    value: {
-      handler(val: SwitchValue): void {
-        if (this.customValue && this.customValue.length && !this.customValue.includes(val)) {
-          throw new Error(`value is not in ${JSON.stringify(this.customValue)}`);
-        }
-      },
-      immediate: true,
-    },
-  },
-  methods: {
-    handleToggle(): void {
-      const checked = this.value === this.activeValue ? this.inactiveValue : this.activeValue;
-      emitEvent(this, 'change', checked);
-    },
-    toggle(): void {
-      if (this.disabled || this.loading) {
-        return;
+    });
+
+    const renderContent = () => {
+      let switchContent: VNodeChild;
+      let loadingContent: TNodeReturnValue;
+      if (props.loading) {
+        loadingContent = <TLoading size="small" />;
+      } else if (content.value) {
+        switchContent = content.value;
       }
-      this.handleToggle();
-    },
+
+      return (
+        <div class={classes.value} disabled={disabled.value} onClick={toggle}>
+          <span class={nodeClasses.value}>{loadingContent}</span>
+          <div class={contentClasses.value}>{switchContent}</div>
+        </div>
+      );
+    };
+
+    return {
+      renderContent,
+    };
   },
+
   render() {
-    const { loading, disabled, content, nodeClasses, classes, toggle, contentClasses } = this;
-
-    let switchContent: VNodeChild;
-    let loadingContent: TNodeReturnValue;
-
-    if (loading) {
-      loadingContent = <TLoading size="small" />;
-    } else if (content) {
-      switchContent = content;
-    }
-
-    return (
-      <div class={classes} disabled={disabled} onClick={toggle}>
-        <span class={nodeClasses}>{loadingContent}</span>
-        <div class={contentClasses}>{switchContent}</div>
-      </div>
-    );
+    return this.renderContent();
   },
 });

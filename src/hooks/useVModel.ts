@@ -40,3 +40,6 @@ export default function useVModel<T, P extends any[]>(
     },
   ];
 }
+
+// emits name
+export const UPDATE_MODEL = 'update:modelValue';
