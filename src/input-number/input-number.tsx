@@ -128,7 +128,7 @@ export default defineComponent({
         CLASSNAMES.SIZE[this.size],
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
-          't-is-controls-right': this.theme === 'column',
+          [`${this.classPrefix}-is-controls-right`]: this.theme === 'column',
           [`${this.COMPONENT_NAME}--${this.theme}`]: this.theme,
           [`${this.COMPONENT_NAME}--auto-width`]: this.autoWidth,
         },
