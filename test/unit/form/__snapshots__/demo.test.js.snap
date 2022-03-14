@@ -370,7 +370,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m"
-            modelvalue="false"
           >
             <span
               class="t-switch__handle"
@@ -3233,7 +3232,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           <div
             class="t-switch t-size-m t-is-disabled t-is-checked"
             disabled="true"
-            modelvalue="true"
           >
             <span
               class="t-switch__handle t-is-disabled"
@@ -5391,7 +5389,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m"
-            modelvalue="false"
           >
             <span
               class="t-switch__handle"
