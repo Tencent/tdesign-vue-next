@@ -3454,15 +3454,22 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               class="t-input__wrap"
             >
               <div
-                class="t-input"
+                class="t-input t-is-disabled"
+                unselectable="off"
               >
+                <!---->
+                <!---->
                 <input
-                  autocomplete="off"
-                  class="t-input__inner t-is-disabled"
+                  class="t-input__inner"
                   disabled=""
                   placeholder="数字"
+                  type="text"
                 />
+                <!---->
+                <!---->
+                <!---->
               </div>
+              <!---->
             </div>
             <!---->
           </div>

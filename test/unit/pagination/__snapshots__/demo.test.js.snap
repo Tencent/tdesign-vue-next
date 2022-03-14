@@ -684,12 +684,20 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
         >
           <div
             class="t-input"
+            unselectable="off"
           >
+            <!---->
+            <!---->
             <input
-              autocomplete="off"
               class="t-input__inner"
+              placeholder="请输入"
+              type="text"
             />
+            <!---->
+            <!---->
+            <!---->
           </div>
+          <!---->
         </div>
         <!---->
       </div>

@@ -257,7 +257,7 @@ export default defineComponent({
       onBlur: this.formatAndEmitBlur,
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
-      onKeypresss: this.handleKeypress,
+      onKeypress: this.handleKeypress,
       onPaste: this.onHandlePaste,
       onCompositionend: this.onHandleCompositionend,
       onCompositionstart: this.onHandleonCompositionstart,
