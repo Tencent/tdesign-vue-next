@@ -1,6 +1,7 @@
 import { ref } from 'vue';
 import findIndex from 'lodash/findIndex';
 import isFunction from 'lodash/isFunction';
+import without from 'lodash/without';
 import { TdUploadProps, UploadFile, RequestMethodResponse, SizeLimitObj } from './type';
 import { SuccessContext, InnerProgressContext, UploadCtxType } from './interface';
 
@@ -11,29 +12,46 @@ import xhr from '../_common/js/upload/xhr';
 import log from '../_common/js/log/index';
 
 export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
-  const handleProgress = ({ event, file, percent, type = 'real' }: InnerProgressContext) => {
-    if (!file) throw new Error('Error file');
-    file.percent = Math.min(percent, 100);
-    uploadCtx.loadingFile = file;
+  const handleProgress = ({ event, file, files: currentFiles, percent, type = 'real' }: InnerProgressContext) => {
+    const innerFiles = Array.isArray(currentFiles) ? currentFiles : [file];
+    if (innerFiles?.length <= 0) return log.error('Uploader', 'Progress Error files');
+
+    innerFiles.forEach((file) => {
+      file.percent = Math.min(percent, 100);
+      uploadCtx.loadingFile = file;
+    });
+
     const progressCtx = {
       percent,
       e: event,
       file,
       type,
+      currentFiles: innerFiles,
     };
     props.onProgress?.(progressCtx);
   };
 
-  const onError = (options: { event?: ProgressEvent; file: UploadFile; response?: any; resFormatted?: boolean }) => {
-    const { event, file, response, resFormatted } = options;
-    file.status = 'fail';
-    uploadCtx.loadingFile = file;
+  const onError = (options: {
+    event?: ProgressEvent;
+    file: UploadFile;
+    files: UploadFile[];
+    response?: any;
+    resFormatted?: boolean;
+  }) => {
+    const { event, file, files, response, resFormatted } = options;
+    const innerFiles = Array.isArray(files) ? files : [file];
+
+    innerFiles.forEach((file) => {
+      file.status = 'fail';
+      uploadCtx.loadingFile = file;
+    });
+
     let res = response;
     if (!resFormatted && typeof props.formatResponse === 'function') {
-      res = props.formatResponse(response, { file });
+      res = props.formatResponse(response, { file, currentFiles: files });
     }
     uploadCtx.errorMsg = res?.error;
-    const context = { e: event, file };
+    const context = { e: event, file: uploadCtx.uploadInOneRequest ? null : innerFiles[0], currentFiles: innerFiles };
     props.onFail?.(context);
   };
 
@@ -47,33 +65,40 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
 
     let res = response;
     if (typeof props.formatResponse === 'function') {
-      res = props.formatResponse(response, { file });
+      res = props.formatResponse(response, {
+        file: uploadCtx.uploadInOneRequest ? null : innerFiles[0],
+        currentFiles: innerFiles,
+      });
     }
     // 如果返回值存在 error，则认为当前接口上传失败
     if (res?.error) {
       onError({
         event,
-        file,
+        file: uploadCtx.uploadInOneRequest ? null : innerFiles[0],
+        files: innerFiles,
         response: res,
         resFormatted: true,
       });
       uploadCtx.loadingFile = null;
       return;
     }
+    if (!uploadCtx.uploadInOneRequest) {
+      innerFiles[0].url = res.url || innerFiles[0].url;
+    }
 
-    // 从待上传文件队列中移除上传成功的文件
-    const index = findIndex(uploadCtx.toUploadFiles, (o: any) => o.name === file.name);
-    uploadCtx.toUploadFiles.splice(index, 1);
+    uploadCtx.toUploadFiles = without(uploadCtx.toUploadFiles, ...innerFiles);
+
     // 上传成功的文件发送到 files
-    const newFile: UploadFile = { ...file, response: res };
-    const files = props.multiple ? uploadCtx.uploadValue.concat(newFile) : [newFile];
+    const newFiles = innerFiles.map((file) => ({ ...file, response: res }));
+    const uploadedFiles = props.multiple ? uploadCtx.uploadValue.concat(newFiles) : newFiles;
     const context = { e: event, response: res, trigger: 'upload-success' };
     // 更新数据
-    uploadCtx.setUploadValue(files, context);
+    uploadCtx.setUploadValue(uploadedFiles, context);
 
     const sContext = {
-      file,
-      fileList: files,
+      file: uploadCtx.uploadInOneRequest ? null : newFiles[0],
+      fileList: uploadedFiles,
+      currentFiles: newFiles,
       e: event,
       response: res,
     };
@@ -81,16 +106,19 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
     uploadCtx.loadingFile = null;
   };
 
-  const handleMockProgress = (file: UploadFile) => {
+  const handleMockProgress = (files: UploadFile[]) => {
     const timer = setInterval(() => {
-      if (file.status === 'success' || file.percent >= 99) {
-        clearInterval(timer);
-        return;
-      }
-      file.percent += 1;
+      files.forEach((file) => {
+        if (file.status === 'success' || file.percent >= 99) {
+          clearInterval(timer);
+          return;
+        }
+        file.percent += 1;
+      });
+      const { percent } = files[0];
       handleProgress({
-        file,
-        percent: file.percent,
+        files,
+        percent,
         type: 'mock',
       });
     }, 10);
@@ -158,43 +186,55 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
     return true;
   };
 
-  const handleRequestMethod = (file: UploadFile) => {
+  const handleRequestMethod = (files: UploadFile[]) => {
     if (!isFunction(props.requestMethod)) {
       log.warn('Upload', '`requestMethod` must be a function.');
       return;
     }
-    props.requestMethod(file).then((res: RequestMethodResponse) => {
+    // requestMethod first argument can be file or currentFiles
+    const requestMethodParam = uploadCtx.uploadInOneRequest ? files : files[0];
+
+    props.requestMethod(requestMethodParam).then((res: RequestMethodResponse) => {
       if (!handleRequestMethodResponse(res)) return;
       if (res.status === 'success') {
-        handleSuccess({ file, response: res.response });
+        handleSuccess({ files, response: res.response });
       } else if (res.status === 'fail') {
         const r = res.response || {};
-        onError({ event: null, file, response: { ...r, error: res.error } });
+        onError({
+          event: null,
+          file: uploadCtx.uploadInOneRequest ? null : files[0],
+          files,
+          response: { ...r, error: res.error },
+        });
       }
     });
   };
 
-  const upload = async (file: UploadFile): Promise<void> => {
+  const upload = async (currentFiles: UploadFile | UploadFile[]): Promise<void> => {
+    const innerFiles = Array.isArray(currentFiles) ? currentFiles : [currentFiles];
+
     if (!props.action && !props.requestMethod) {
       log.error('Upload', 'one of action and requestMethod must be exist.');
       return;
     }
-    uploadCtx.errorMsg = '';
-    file.status = 'progress';
-    uploadCtx.loadingFile = file;
+    innerFiles.forEach((file) => {
+      file.status = 'progress';
+      uploadCtx.loadingFile = file;
+    });
+
     // requestMethod 为父组件定义的自定义上传方法
     if (props.requestMethod) {
-      handleRequestMethod(file);
+      handleRequestMethod(innerFiles);
     } else {
       // 模拟进度条
       if (props.useMockProgress) {
-        handleMockProgress(file);
+        handleMockProgress(innerFiles);
       }
       const request = xhr;
       xhrReq.value = request({
         action: props.action,
         data: props.data,
-        file,
+        files: innerFiles,
         name: props.name,
         headers: props.headers,
         withCredentials: props.withCredentials,
@@ -206,6 +246,12 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   };
 
   const uploadFiles = (files: FileList) => {
+    // 合并上传前则需要清空已上传列表
+    if (uploadCtx.canBatchUpload && uploadCtx.uploadValue?.length > 0) {
+      const context = { trigger: 'batch-clear' };
+      uploadCtx.setUploadValue([], context);
+    }
+
     let tmpFiles = [...files];
     if (props.max) {
       tmpFiles = tmpFiles.slice(0, props.max - uploadCtx.uploadValue.length);

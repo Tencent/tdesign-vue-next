@@ -45,7 +45,7 @@ export default defineComponent({
     const dragActive = ref(false);
 
     const renderTNodeJSX = useTNodeJSX();
-    const tDisabled = useFormDisabled();
+    const disabled = useFormDisabled();
     const { classPrefix: prefix, global } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
     const { SIZE } = useCommonClassName();
@@ -251,7 +251,7 @@ export default defineComponent({
                   <span class={`${UPLOAD_NAME.value}__card-mask-item-divider`}></span>
                 </span>
               )}
-              {!tDisabled.value && (
+              {!disabled.value && (
                 <span
                   class={`${UPLOAD_NAME.value}__card-mask-item`}
                   onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}

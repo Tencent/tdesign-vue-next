@@ -26,12 +26,16 @@ export default defineComponent({
     const UPLOAD_NAME = usePrefixClass('upload');
     const { files, modelValue } = toRefs(props);
 
+    // 合并上传相关状态
+    const { canBatchUpload, uploadInOneRequest } = useBatchUpload(props);
     // handle controlled property and uncontrolled property
     const [uploadValue, setUploadValue] = useVModel(files, modelValue, props.defaultFiles || [], props.onChange);
 
     const uploadCtx: UploadCtxType = reactive({
       uploadValue,
       setUploadValue,
+      uploadInOneRequest,
+      canBatchUpload,
       // 加载中的文件
       loadingFile: null,
       // 等待上传的文件队列
@@ -127,6 +131,18 @@ export default defineComponent({
       );
     };
 
+    const uploadListTriggerText = computed(() => {
+      let uploadText = '选择文件';
+      if (uploadCtx.toUploadFiles?.length > 0 || uploadCtx.uploadValue?.length > 0) {
+        if (props.theme === 'file-input' || (uploadCtx.uploadValue?.length > 0 && canBatchUpload.value)) {
+          uploadText = '重新选择';
+        } else {
+          uploadText = '继续选择';
+        }
+      }
+      return uploadText;
+    });
+
     const renderTrigger = () => {
       const getDefaultTrigger = () => {
         if (props.theme === 'file-input' || showUploadList.value) {
@@ -135,7 +151,7 @@ export default defineComponent({
         const iconSlot = { icon: () => <UploadIcon /> };
         return (
           <TButton variant="outline" v-slots={iconSlot}>
-            {uploadValue.value?.length ? '重新上传' : '点击上传'}
+            {uploadListTriggerText.value}
           </TButton>
         );
       };
