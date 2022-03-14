@@ -239,7 +239,6 @@ exports[`Upload Upload draggableVue demo works fine 1`] = `
     是否自动上传：
     <div
       class="t-switch t-size-m t-is-checked"
-      modelvalue="true"
     >
       <span
         class="t-switch__handle"

@@ -2310,7 +2310,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
     允许点击行之后展开/收起: 
     <div
       class="t-switch t-size-m t-is-checked"
-      modelvalue="true"
     >
       <span
         class="t-switch__handle"
