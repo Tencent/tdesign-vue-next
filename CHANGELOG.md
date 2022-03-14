@@ -5,6 +5,14 @@ toc: false
 docClass: timeline
 ---
 
+## 0.10.1 `2022-03-14`
+
+
+### Bug Fixes
+
+* TreeSelect: 修复边框样式异常和右侧图标样式异常
+
+
 ## 0.10.0 `2022-03-11`
 
 ### BREAKING CHANGES
