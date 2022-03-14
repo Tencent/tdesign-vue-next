@@ -1,5 +1,4 @@
-import { defineComponent, h, VNodeChild, computed, watch, watchEffect, toRefs } from 'vue';
-import { prefix } from '../config';
+import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../config-provider';
 import TLoading from '../loading';
 import props from './props';
