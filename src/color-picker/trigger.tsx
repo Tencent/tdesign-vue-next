@@ -29,22 +29,32 @@ export default defineComponent({
         };
       },
     },
+    onTriggerChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
-  emits: ['trigger-change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
     const value = ref(props.color);
-    const setValue = () => (value.value = props.color);
-    setValue();
-    watch(() => [props.color], setValue);
+
+    watch(
+      () => [props.color],
+      () => (value.value = props.color),
+    );
 
     const handleChange = (input: string) => {
+      if (input === props.color) {
+        return;
+      }
       if (!Color.isValid(input)) {
         value.value = props.color;
       } else {
         value.value = input;
       }
-      emit('trigger-change', value.value);
+      props.onTriggerChange(value.value);
     };
 
     return {
@@ -55,7 +65,7 @@ export default defineComponent({
   },
 
   render() {
-    const { value, baseClassName } = this;
+    const { baseClassName } = this;
     const inputSlots = {
       label: () => {
         return (
@@ -63,7 +73,7 @@ export default defineComponent({
             <span
               class={['color-inner']}
               style={{
-                background: value,
+                background: this.value,
               }}
             ></span>
           </div>
@@ -71,14 +81,13 @@ export default defineComponent({
       },
     };
     return (
-      <div class={`${name}__trigger--default`}>
+      <div class={`${baseClassName}__trigger--default`}>
         <t-input
           {...this.inputProps}
           v-slots={inputSlots}
-          v-model={value}
-          placeholder="请选择"
+          v-model={this.value}
           disabled={this.disabled}
-          onChange={this.handleChange}
+          onBlur={this.handleChange}
         />
       </div>
     );

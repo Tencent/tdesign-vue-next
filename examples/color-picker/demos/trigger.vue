@@ -3,8 +3,15 @@
     <t-color-picker v-model="color" />
   </div>
 </template>
-<script setup>
-import { ref } from 'vue';
+<script>
+import { defineComponent, ref } from 'vue';
 
-const color = ref('#0052d9');
+export default defineComponent({
+  setup() {
+    const color = ref('#0052d9');
+    return {
+      color,
+    };
+  },
+});
 </script>

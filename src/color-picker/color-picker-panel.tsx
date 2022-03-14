@@ -1,8 +1,8 @@
-import { defineComponent, provide, ref, watch } from 'vue';
+import { defineComponent, provide, ref, toRefs } from 'vue';
+import useVModel from '../hooks/useVModel';
 import props from './props';
 import ColorPanel from './panel';
-import { useColorPicker } from './common';
-import { TdColorPickerPopupProvide, TdColorPickerProvides } from './interfaces';
+import { TdColorPickerPopupProvide, TdColorPickerProvides, TdColorContext } from './interfaces';
 import { useStatusClassName } from './hooks';
 
 export default defineComponent({
@@ -12,41 +12,39 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props,
-  emits: ['change'],
-  setup(props, { emit }) {
+  setup(props) {
     const statusClassNames = useStatusClassName();
     provide<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP, {
       visible: ref(false),
       setVisible() {},
     });
 
-    const { color, handleChange, handlePaletteChange, updateColor } = useColorPicker(props.value, emit);
-    watch(
-      () => [props.value],
-      () => {
-        updateColor(props.value);
-      },
-    );
+    const { value, modelValue } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+
+    const handleChange = (value: string, context: TdColorContext) => {
+      setInnerValue(value, context);
+    };
+
+    const handlePaletteChange = (context: TdColorContext) => {
+      props.onPaletteBarChange(context);
+    };
 
     return {
-      color,
+      innerValue,
       statusClassNames,
       handleChange,
       handlePaletteChange,
     };
   },
   render() {
-    const { popupProps, color, statusClassNames, ...props } = this;
-    delete props.onChange;
-    delete props.onPaletteBarChange;
+    const { statusClassNames } = this;
     return (
       <color-panel
-        {...props}
-        value={color}
-        custom-class={statusClassNames.inlineClassName}
+        {...this.$props}
+        popupProps={null}
         close-btn={false}
-        onChange={this.handleChange}
-        onPaletteChange={this.handlePaletteChange}
+        custom-class={statusClassNames.inlineClassName}
       />
     );
   },

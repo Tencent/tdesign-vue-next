@@ -57,7 +57,11 @@ export default {
   /** 色值 */
   value: {
     type: String,
-    default: '',
+    default: undefined,
+  },
+  modelValue: {
+    type: String,
+    default: undefined,
   },
   /** 色值，非受控属性 */
   defaultValue: {

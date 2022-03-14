@@ -1,7 +1,6 @@
 import { computed, defineComponent, PropType } from 'vue';
 import ColorSlider from './slider';
 import Color from '../utils/color';
-import props from '../props';
 import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
@@ -11,15 +10,26 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
-    ...props,
     color: {
       type: Object as PropType<Color>,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    onChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
   emits: ['change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
-    const handleChange = (v: number) => emit('change', v / 100);
+    const handleChange = (v: number) => {
+      props.onChange(v / 100);
+    };
     const railStyle = computed(() => {
       return {
         background: `linear-gradient(to right, rgba(0, 0, 0, 0), ${props.color.rgb})`,

@@ -1,5 +1,5 @@
 import { Ref } from 'vue';
-import { TdColorPickerProps, ColorObject, ColorPickerChangeTrigger } from '.';
+import { ColorObject, ColorPickerChangeTrigger } from '.';
 
 // provides
 export enum TdColorPickerProvides {

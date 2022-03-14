@@ -1,12 +1,12 @@
-import { ComponentPublicInstance, defineComponent, onBeforeUnmount, onMounted, provide, ref, watch } from 'vue';
+import { ComponentPublicInstance, defineComponent, onBeforeUnmount, onMounted, provide, ref, toRefs } from 'vue';
+import useVModel from '../hooks/useVModel';
 import { renderContent } from '../utils/render-tnode';
 import props from './props';
 import { Popup as TPopup } from '../popup';
 import { useClickOutsider } from './utils/click-outsider';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
-import { useColorPicker } from './common';
-import { TdColorPickerPopupProvide, TdColorPickerProvides } from './interfaces';
+import { TdColorPickerPopupProvide, TdColorPickerProvides, TdColorContext } from './interfaces';
 import { useBaseClassName } from './hooks';
 
 export default defineComponent({
@@ -18,8 +18,7 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props,
-  emits: ['change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
     const visible = ref(false);
     const setVisible = (value: boolean) => (visible.value = value);
@@ -29,13 +28,8 @@ export default defineComponent({
       setVisible,
     });
 
-    const { color, handleChange, handlePaletteChange, updateColor } = useColorPicker(props.value, emit);
-    watch(
-      () => [props.value],
-      () => {
-        updateColor(props.value);
-      },
-    );
+    const { value: inputValue, modelValue } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
 
     const refTrigger = ref<HTMLElement>();
     const refColorPanel = ref<ComponentPublicInstance>();
@@ -46,62 +40,58 @@ export default defineComponent({
       removeClickOutsider();
     });
 
-    return {
-      baseClassName,
-      color,
-      visible,
-      refTrigger,
-      refColorPanel,
-      updateColor,
-      handleChange,
-      handlePaletteChange,
-      setVisible,
-    };
-  },
-  render() {
-    const { popupProps, disabled, baseClassName } = this;
-    const colorPickerProps = { ...this.$props };
-    delete colorPickerProps.onChange;
-    delete colorPickerProps.onPaletteBarChange;
-    const popupContent = () => {
-      if (disabled) {
+    const renderPopupContent = () => {
+      if (props.disabled) {
         return null;
       }
       return (
         <ColorPanel
-          {...colorPickerProps}
-          value={this.color}
+          {...props}
+          disabled={props.disabled}
+          value={innerValue.value}
+          onChange={(value: string, context: TdColorContext) => setInnerValue(value, context)}
           ref="refColorPanel"
-          onChange={this.handleChange}
-          onPaletteChange={this.handlePaletteChange}
         />
       );
     };
+
+    return {
+      baseClassName,
+      innerValue,
+      visible,
+      refTrigger,
+      refColorPanel,
+      renderPopupContent,
+      setVisible,
+      setInnerValue,
+    };
+  },
+  render() {
+    const { popupProps, disabled, baseClassName } = this;
     const popProps = {
       ...((popupProps as any) || {
         placement: 'bottom-left',
-        trigger: 'click',
       }),
+      trigger: 'click',
       attach: 'body',
       overlayClassName: [baseClassName],
       visible: this.visible,
       overlayStyle: {
         padding: 0,
       },
-      content: popupContent,
     };
     return (
-      <t-popup {...popProps}>
+      <t-popup {...popProps} content={this.renderPopupContent}>
         <div className={`${baseClassName}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
           {renderContent(
             this,
             'default',
             null,
             <default-trigger
-              color={this.color}
-              disabled={this.disabled}
+              color={this.innerValue}
+              disabled={disabled}
               input-props={this.inputProps}
-              onTriggerChange={this.updateColor}
+              onTriggerChange={this.setInnerValue}
             />,
           )}
         </div>

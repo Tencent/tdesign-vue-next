@@ -11,9 +11,6 @@ export const COLOR_MODES = {
   'linear-gradient': '渐变',
 };
 
-// emit 事件类型
-export type TdColorEvent = 'change' | 'palette-bar-change';
-
 // 非透明色格式化类型
 export const FORMATS: TdColorPickerProps['format'][] = ['HEX', 'RGB', 'HSL', 'HSV', 'CMYK', 'CSS'];
 

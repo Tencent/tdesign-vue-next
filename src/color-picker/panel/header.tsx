@@ -21,6 +21,12 @@ export default defineComponent({
       type: String as PropType<TdColorModes>,
       default: 'color',
     },
+    onModeChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
   emits: ['mode-change'],
   setup(props, { emit }) {
@@ -28,7 +34,7 @@ export default defineComponent({
     const { setVisible } = inject<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP);
     const modeValue = ref(props.mode);
     const handleClosePopup = () => setVisible(false);
-    const handleModeChange = (v: string) => emit('mode-change', v);
+    const handleModeChange = (v: string) => props.onModeChange(v);
     watch(
       () => props.mode,
       (v) => (modeValue.value = v),

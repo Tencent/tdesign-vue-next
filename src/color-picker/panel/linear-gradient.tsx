@@ -1,6 +1,5 @@
 import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, reactive, ref, watch } from 'vue';
 import { cloneDeep } from 'lodash';
-import props from '../props';
 import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '../const';
 import Color, { genGradientPoint } from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
@@ -17,13 +16,21 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
-    ...props,
     color: {
       type: Object as PropType<Color>,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    onChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
-  emits: ['change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
     const statusClassNames = useStatusClassName();
     const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
@@ -59,7 +66,7 @@ export default defineComponent({
       if (props.disabled) {
         return;
       }
-      emit('change', {
+      props.onChange({
         key,
         payload,
       });
@@ -260,6 +267,7 @@ export default defineComponent({
             format={(value: number) => `${value}°`}
             v-model={this.degree}
             onBlur={this.handleDegreeChange}
+            onEnter={this.handleDegreeChange}
             disabled={disabled}
           />
         </div>

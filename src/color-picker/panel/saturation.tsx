@@ -3,7 +3,6 @@ import { SATURATION_PANEL_DEFAULT_HEIGHT, SATURATION_PANEL_DEFAULT_WIDTH } from 
 import { Select as TSelect, Option as TOption } from '../../select';
 import Draggable, { Coordinate } from '../utils/draggable';
 import Color from '../utils/color';
-import props from '../props';
 import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 
@@ -16,13 +15,21 @@ export default defineComponent({
   inject: [TdColorPickerProvides.USED_COLORS],
   inheritAttrs: false,
   props: {
-    ...props,
     color: {
       type: Object as PropType<Color>,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    onChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
-  emits: ['change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
     const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refPanel = ref<HTMLElement>(null);
@@ -61,7 +68,7 @@ export default defineComponent({
         return;
       }
       const { saturation, value } = getSaturationAndValueByCoordinate(coordinate);
-      emit('change', {
+      props.onChange({
         saturation: saturation / 100,
         value: value / 100,
       });

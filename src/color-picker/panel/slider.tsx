@@ -36,9 +36,14 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    onChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
-  emits: ['change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
     const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refPanel = ref<HTMLElement>(null);
@@ -66,7 +71,7 @@ export default defineComponent({
       const { width } = panelRect;
       const { x } = coordinate;
       const value = Math.round((x / width) * props.maxValue * 100) / 100;
-      emit('change', value);
+      props.onChange(value);
     };
 
     const handleDragEnd = (coordinate: Coordinate) => {

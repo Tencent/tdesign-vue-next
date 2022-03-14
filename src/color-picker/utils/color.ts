@@ -1,5 +1,6 @@
 import tinyColor from 'tinycolor2';
 import { TdColorPickerProps } from '..';
+import { ColorObject } from '../type';
 import { cmykInputToColor, rgb2cmyk } from './cmyk';
 import { parseGradientString, GradientColors, GradientColorPoint, isGradientColor } from './gradient';
 
@@ -352,5 +353,38 @@ export class Color {
 
   static isGradientColor = (input: string) => !!isGradientColor(input);
 }
+
+const COLOR_OBJECT_OUTPUT_KEYS = [
+  'alpha',
+  'css',
+  'hex',
+  'hex8',
+  'hsl',
+  'hsla',
+  'hsv',
+  'hsva',
+  'rgb',
+  'rgba',
+  'saturation',
+  'value',
+  'isGradient',
+];
+
+/**
+ * 获取对外输出的color对象
+ * @param color
+ * @returns
+ */
+export const getColorObject = (color: Color): ColorObject => {
+  if (!color) {
+    return null;
+  }
+  const colorObject = Object.create(null);
+  COLOR_OBJECT_OUTPUT_KEYS.forEach((key) => (colorObject[key] = color[key]));
+  if (color.isGradient) {
+    colorObject.linearGradient = color.linearGradient;
+  }
+  return colorObject;
+};
 
 export default Color;

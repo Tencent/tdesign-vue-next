@@ -1,4 +1,4 @@
-import { defineComponent, provide, ref, watch } from 'vue';
+import { defineComponent, provide, ref, toRefs, watch } from 'vue';
 import props from '../props';
 import {
   DEFAULT_COLOR,
@@ -15,40 +15,12 @@ import HueSlider from './hue';
 import AlphaSlider from './alpha';
 import FormatPanel from './format';
 import SwatchesPanel from './swatches';
-import Color from '../utils/color';
+import Color, { getColorObject } from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
 import { TdColorPickerProps, ColorPickerChangeTrigger } from '..';
-import { ColorObject } from '../type';
 import { TdColorModes, TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
 import { useBaseClassName, useStatusClassName } from '../hooks';
-
-const COLOR_OBJECT_OUTPUT_KEYS = [
-  'alpha',
-  'css',
-  'hex',
-  'hex8',
-  'hsl',
-  'hsla',
-  'hsv',
-  'hsva',
-  'rgb',
-  'rgba',
-  'saturation',
-  'value',
-  'isGradient',
-];
-
-export const getColorObject = (color: Color): ColorObject => {
-  if (!color) {
-    return null;
-  }
-  const colorObject = Object.create(null);
-  COLOR_OBJECT_OUTPUT_KEYS.forEach((key) => (colorObject[key] = color[key]));
-  if (color.isGradient) {
-    colorObject.linearGradient = color.linearGradient;
-  }
-  return colorObject;
-};
+import useVModel from '../../hooks/useVModel';
 
 export default defineComponent({
   name: 'ColorPanel',
@@ -69,11 +41,14 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: ['change', 'palette-bar-change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
     const statusClassNames = useStatusClassName();
-    const color = ref<Color>(new Color(props.value || props.defaultValue || DEFAULT_COLOR));
+    const { value: inputValue, modelValue } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
+    const color = ref<Color>(new Color(innerValue.value || DEFAULT_COLOR));
+    const updateColor = () => color.value.update(innerValue.value || DEFAULT_COLOR);
+
     const mode = ref<TdColorModes>(color.value.isGradient ? 'linear-gradient' : 'monochrome');
     const formatModel = ref<TdColorPickerProps['format']>(color.value.isGradient ? 'CSS' : 'RGB');
     const recentlyUsedColors = ref<string[]>(props.recentColors as string[]);
@@ -109,7 +84,7 @@ export default defineComponent({
     };
 
     const emitColorChange = (trigger?: ColorPickerChangeTrigger) => {
-      return emit('change', formatValue(), {
+      setInnerValue(formatValue(), {
         color: getColorObject(color.value),
         trigger: trigger || 'palette',
       });
@@ -162,12 +137,10 @@ export default defineComponent({
       removeColor: removeRecentlyUsedColor,
     });
 
-    const updateColor = () => color.value.update(props.value || props.defaultValue || DEFAULT_COLOR);
-
     watch(() => [props.defaultValue, props.enableAlpha], updateColor);
 
     watch(
-      () => props.value,
+      () => innerValue.value,
       (newColor) => {
         if (newColor !== formatValue()) {
           updateColor();
@@ -216,7 +189,9 @@ export default defineComponent({
     const handleHueChange = (hue: number) => {
       color.value.hue = hue;
       emitColorChange();
-      emit('palette-bar-change', getColorObject(color.value));
+      props?.onPaletteBarChange({
+        color: getColorObject(color.value),
+      });
     };
 
     /**
@@ -295,7 +270,6 @@ export default defineComponent({
       emitColorChange();
     };
 
-    // todo watch props.value
     return {
       baseClassName,
       statusClassNames,
@@ -368,10 +342,14 @@ export default defineComponent({
       >
         <panel-header {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
         <div class={[`${baseClassName}__body`]}>
-          {this.mode === 'linear-gradient' ? <linear-gradient {...props} onChange={this.handleGradientChange} /> : null}
-          <saturation-panel {...props} onChange={this.handleSatAndValueChange} />
-          <hue-slider {...props} onChange={this.handleHueChange} />
-          {this.enableAlpha ? <alpha-slider {...props} onChange={this.handleAlphaChange} /> : null}
+          {this.mode === 'linear-gradient' ? (
+            <linear-gradient color={this.color} disabled={this.disabled} onChange={this.handleGradientChange} />
+          ) : null}
+          <saturation-panel color={this.color} disabled={this.disabled} onChange={this.handleSatAndValueChange} />
+          <hue-slider color={this.color} disabled={this.disabled} onChange={this.handleHueChange} />
+          {this.enableAlpha ? (
+            <alpha-slider color={this.color} disabled={this.disabled} onChange={this.handleAlphaChange} />
+          ) : null}
           <format-panel {...props} onModeChange={this.handleFormatModeChange} onChange={this.handleInputChange} />
           {renderSwatches()}
         </div>

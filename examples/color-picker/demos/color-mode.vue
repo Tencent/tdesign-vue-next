@@ -8,6 +8,7 @@
       <h5>仅单色模式</h5>
       <t-color-picker v-model="color2" format="CSS" :color-modes="['monochrome']" />
     </div>
+    <div style="width: 100%"></div>
     <div class="item">
       <h5>仅线性渐变模式</h5>
       <t-color-picker v-model="color3" format="CSS" :color-modes="['linear-gradient']" />

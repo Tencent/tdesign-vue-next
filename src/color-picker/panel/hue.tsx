@@ -1,7 +1,6 @@
 import { defineComponent, PropType } from 'vue';
 import ColorSlider from './slider';
 import Color from '../utils/color';
-import props from '../props';
 import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
@@ -11,18 +10,24 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
-    ...props,
     color: {
       type: Object as PropType<Color>,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    onChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
-  emits: ['change'],
-  setup(props, { emit }) {
+  setup() {
     const baseClassName = useBaseClassName();
-    const handleChange = (v: number) => emit('change', v);
     return {
       baseClassName,
-      handleChange,
     };
   },
   render() {
@@ -31,7 +36,7 @@ export default defineComponent({
         className={`${this.baseClassName}__hue`}
         color={this.color}
         value={this.color.hue}
-        onChange={this.handleChange}
+        onChange={this.onChange}
         disabled={this.disabled}
       />
     );
