@@ -1,8 +1,8 @@
-import { ComponentPublicInstance, defineComponent, h, onMounted } from 'vue';
+import { defineComponent, h, onMounted } from 'vue';
 import { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import isFunction from 'lodash/isFunction';
 import { prefix } from '../config';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from './props';
 import { TdNotificationProps } from './type';
 
@@ -14,6 +14,9 @@ export default defineComponent({
     ...props,
   },
   setup(props: TdNotificationProps, { slots }) {
+    const renderTNode = useTNodeJSX();
+    const renderContent = useContent();
+
     const close = (e?: MouseEvent) => {
       props.onCloseBtnClick?.({ e });
     };
@@ -37,17 +40,17 @@ export default defineComponent({
       return iconContent;
     };
 
-    const renderClose = (context: ComponentPublicInstance) => {
+    const renderClose = () => {
       const defaultClose = <CloseIcon />;
       return (
         <span class={`${prefix}-message__close`} onClick={close}>
-          {renderTNodeJSX(context, 'closeBtn', defaultClose)}
+          {renderTNode('closeBtn', defaultClose)}
         </span>
       );
     };
 
-    const renderMainContent = (context: ComponentPublicInstance) => {
-      return <div class={`${name}__content`}>{renderContent(context, 'default', 'content')}</div>;
+    const renderMainContent = () => {
+      return <div class={`${name}__content`}>{renderContent('default', 'content')}</div>;
     };
 
     onMounted(() => {
@@ -64,15 +67,16 @@ export default defineComponent({
       renderIcon,
       renderClose,
       renderMainContent,
+      renderTNode,
     };
   },
   render() {
-    const { renderIcon, renderClose, renderMainContent } = this;
+    const { renderIcon, renderClose, renderMainContent, renderTNode } = this;
     const icon = renderIcon();
-    const close = renderClose(this);
-    const content = renderMainContent(this);
-    const footer = renderTNodeJSX(this, 'footer');
-    const title = renderTNodeJSX(this, 'title');
+    const close = renderClose();
+    const content = renderMainContent();
+    const footer = renderTNode('footer');
+    const title = renderTNode('title');
 
     return (
       <div class={`${name}`}>
