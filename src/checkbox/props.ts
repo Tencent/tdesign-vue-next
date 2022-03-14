@@ -11,7 +11,10 @@ export default {
   /** 用于标识是否为「全选选项」。单独使用无效，需在 CheckboxGroup 中使用 */
   checkAll: Boolean,
   /** 是否选中 */
-  checked: Boolean,
+  checked: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否选中，非受控属性 */
   defaultChecked: Boolean,
   /** 复选框内容，同 label */
@@ -40,6 +43,13 @@ export default {
   value: {
     type: [String, Number] as PropType<TdCheckboxProps['value']>,
   },
+  /** 复选框的值 */
+  modelValue: {
+    type: Boolean,
+    default: undefined,
+  },
+  needRipple: Boolean,
   /** 值变化时触发 */
   onChange: Function as PropType<TdCheckboxProps['onChange']>,
+  onUpdateModelValue: Function as PropType<TdCheckboxProps['onUpdateModelValue']>,
 };
