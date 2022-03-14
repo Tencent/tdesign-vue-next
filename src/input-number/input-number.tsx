@@ -1,17 +1,15 @@
 import { defineComponent, VNode } from 'vue';
 import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import TButton from '../button';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
-import { ChangeSource } from './type';
+import { ChangeSource, TdInputNumberProps } from './type';
 import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-
-const name = `${prefix}-input-number`;
+import { usePrefixClass } from '../config-provider';
 
 type InputNumberEvent = {
   onInput?: (e: InputEvent) => void;
@@ -31,6 +29,11 @@ type InputNumberAttr = {
   autocomplete?: string;
   ref: string;
   placeholder: string;
+  unselectable?: string;
+  tips: TdInputNumberProps['tips'];
+  autoWidth: boolean;
+  align: TdInputNumberProps['align'];
+  status: TdInputNumberProps['status'];
 };
 
 export default defineComponent({
@@ -44,9 +47,13 @@ export default defineComponent({
   },
   props: { ...props },
   emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
-  setup(props) {
+  setup() {
     const disabled = useFormDisabled();
+    const COMPONENT_NAME = usePrefixClass('input-number');
+    const classPrefix = usePrefixClass();
     return {
+      classPrefix,
+      COMPONENT_NAME,
       disabled,
     };
   },
@@ -55,7 +62,7 @@ export default defineComponent({
       userInput: null,
       filterValue: null,
       isError: false,
-      inputing: false,
+      inputting: false,
     };
   },
   computed: {
@@ -91,7 +98,7 @@ export default defineComponent({
     },
     reduceClasses() {
       return [
-        `${name}__decrease`,
+        `${this.COMPONENT_NAME}__decrease`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabledReduce,
         },
@@ -104,7 +111,7 @@ export default defineComponent({
     },
     addClasses(): ClassName {
       return [
-        `${name}__increase`,
+        `${this.COMPONENT_NAME}__increase`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabledAdd,
         },
@@ -117,36 +124,18 @@ export default defineComponent({
     },
     cmptWrapClasses(): ClassName {
       return [
-        't-input-number',
+        this.COMPONENT_NAME,
         CLASSNAMES.SIZE[this.size],
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
-          't-is-controls-right': this.theme === 'column',
-          't-input-number--normal': this.theme === 'normal',
-        },
-      ];
-    },
-    inputWrapProps(): ClassName {
-      return [
-        't-input',
-        {
-          't-is-error': this.isError,
-          [`${prefix}-align-${this.align}`]: this.align,
-        },
-      ];
-    },
-    inputClasses(): ClassName {
-      return [
-        't-input__inner',
-        {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-          [`${name}-text-align`]: this.theme === 'row',
+          [`${this.classPrefix}-is-controls-right`]: this.theme === 'column',
+          [`${this.COMPONENT_NAME}--${this.theme}`]: this.theme,
+          [`${this.COMPONENT_NAME}--auto-width`]: this.autoWidth,
         },
       ];
     },
     inputEvents(): InputNumberEvent {
       return {
-        onInput: this.handleInput,
         onBlur: this.handleBlur,
         onFocus: this.handleFocus,
         onKeydown: this.handleKeydown,
@@ -157,9 +146,15 @@ export default defineComponent({
     inputAttrs(): InputNumberAttr {
       return {
         disabled: this.disabled,
+        readonly: this.readonly,
         autocomplete: 'off',
         ref: 'refInputElem',
         placeholder: this.placeholder,
+        unselectable: this.readonly ? 'on' : 'off',
+        tips: this.tips,
+        autoWidth: this.autoWidth,
+        align: this.align || (this.theme === 'row' ? 'center' : undefined),
+        status: this.isError ? 'error' : this.status,
       };
     },
     decreaseIcon(): VNode {
@@ -169,13 +164,13 @@ export default defineComponent({
       return this.theme === 'column' ? <chevron-up-icon size={this.size} /> : <add-icon size={this.size} />;
     },
     displayValue(): number | string {
-      // inputing
-      if (this.inputing && this.userInput !== null) {
+      // inputting
+      if (this.inputting && this.userInput !== null) {
         return this.filterValue;
       }
       if ([undefined, null].includes(this.value)) return '';
       // end input
-      return this.format && !this.inputing ? this.format(this.value) : this.value.toFixed(this.digitsNum);
+      return this.format && !this.inputting ? this.format(this.value) : this.value.toFixed(this.digitsNum);
     },
   },
   watch: {
@@ -190,7 +185,7 @@ export default defineComponent({
   },
   methods: {
     handleAdd(e: MouseEvent) {
-      if (this.disabledAdd) return;
+      if (this.disabledAdd || this.readonly) return;
       const value = this.value || 0;
       const factor = 10 ** this.digitsNum;
       this.handleAction(
@@ -200,7 +195,7 @@ export default defineComponent({
       );
     },
     handleReduce(e: MouseEvent) {
-      if (this.disabledReduce) return;
+      if (this.disabledReduce || this.readonly) return;
       const value = this.value || 0;
       const factor = 10 ** this.digitsNum;
       this.handleAction(
@@ -209,9 +204,9 @@ export default defineComponent({
         e,
       );
     },
-    handleInput(e: InputEvent) {
+    handleInput(val: string, e: InputEvent) {
       // get
-      this.userInput = (e.target as HTMLInputElement).value;
+      this.userInput = val;
       // filter
       this.filterValue = this.toValidStringNumber(this.userInput);
       this.userInput = '';
@@ -271,12 +266,12 @@ export default defineComponent({
       emitEvent(this, 'keypress', this.value, { e });
     },
     handleStartInput() {
-      this.inputing = true;
+      this.inputting = true;
       if (this.value === undefined) return;
       this.filterValue = this.value.toFixed(this.digitsNum);
     },
     handleEndInput(e: FocusEvent) {
-      this.inputing = false;
+      this.inputting = false;
       const value = this.toValidNumber(this.filterValue);
       if (value !== this.value) {
         this.updateValue(value);
@@ -351,12 +346,13 @@ export default defineComponent({
             }}
           />
         )}
-        {/* // 保持和input结构相同 */}
-        <div class={`${prefix}-input__wrap`}>
-          <div class={this.inputWrapProps}>
-            <input value={this.displayValue} class={this.inputClasses} {...this.inputAttrs} {...this.inputEvents} />
-          </div>
-        </div>
+
+        <t-input
+          {...this.inputAttrs}
+          {...this.inputEvents}
+          value={this.displayValue}
+          onChange={(val: string, { e }: { e: InputEvent }) => this.handleInput(val, e)}
+        />
         {this.theme !== 'normal' && (
           <t-button
             class={this.addClasses}

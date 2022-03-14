@@ -1,6 +1,5 @@
 import { defineComponent, PropType, ref } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../../config';
 
 // utils
 import CLASSNAMES from '../../utils/classnames';
@@ -18,12 +17,10 @@ import TLoading from '../../loading';
 // type
 import { ClassName } from '../../common';
 import { ContextType, CascaderContextType, CascaderItemPropsType, TreeNodeValue, TreeNode } from '../interface';
-
-const name = `${prefix}-cascader-item`;
-const ComponentClassName = `${prefix}-cascader__item`;
+import { usePrefixClass, useConfig } from '../../config-provider';
 
 export default defineComponent({
-  name,
+  name: 'TCascaderItem',
   props: {
     node: {
       type: Object as PropType<CascaderItemPropsType['node']>,
@@ -40,18 +37,22 @@ export default defineComponent({
   setup() {
     const liRef = ref<HTMLElement>();
     useRipple(liRef);
-    return { liRef };
+
+    const ComponentClassName = usePrefixClass('cascader__item');
+    const classPrefix = usePrefixClass();
+
+    return { liRef, ComponentClassName, classPrefix };
   },
   computed: {
     itemClass(): ClassName {
-      return getCascaderItemClass(prefix, this.node, CLASSNAMES, this.cascaderContext);
+      return getCascaderItemClass(this.classPrefix, this.node, CLASSNAMES, this.cascaderContext);
     },
     iconClass(): ClassName {
-      return getCascaderItemIconClass(prefix, this.node, CLASSNAMES, this.cascaderContext);
+      return getCascaderItemIconClass(this.classPrefix, this.node, CLASSNAMES, this.cascaderContext);
     },
   },
   render() {
-    const { node, itemClass, iconClass, cascaderContext } = this;
+    const { node, itemClass, iconClass, cascaderContext, ComponentClassName } = this;
 
     const handleClick = (e: Event) => {
       e.stopPropagation();
@@ -89,7 +90,7 @@ export default defineComponent({
           doms.push(<span key={index}>{texts[index]}</span>);
           if (index === texts.length - 1) break;
           doms.push(
-            <span key={`${index}filter`} className={`${name}-label--filter`}>
+            <span key={`${index}filter`} class={`${ComponentClassName}__label--filter`}>
               {inputVal}
             </span>,
           );

@@ -33,6 +33,7 @@ export default {
     type: String as PropType<TdFormProps['labelAlign']>,
     default: 'right' as TdFormProps['labelAlign'],
     validator(val: TdFormProps['labelAlign']): boolean {
+      if (!val) return true;
       return ['left', 'right', 'top'].includes(val);
     },
   },
@@ -46,10 +47,11 @@ export default {
     type: String as PropType<TdFormProps['layout']>,
     default: 'vertical' as TdFormProps['layout'],
     validator(val: TdFormProps['layout']): boolean {
+      if (!val) return true;
       return ['vertical', 'inline'].includes(val);
     },
   },
-  /** 是否阻止表单提交默认事件，即提交后会刷新页面 */
+  /** 是否阻止表单提交默认事件（表单提交默认事件会刷新页面），设置为 `true` 可以避免刷新 */
   preventSubmitDefault: {
     type: Boolean,
     default: true,
@@ -64,6 +66,7 @@ export default {
     type: String as PropType<TdFormProps['resetType']>,
     default: 'empty' as TdFormProps['resetType'],
     validator(val: TdFormProps['resetType']): boolean {
+      if (!val) return true;
       return ['empty', 'initial'].includes(val);
     },
   },
@@ -75,10 +78,11 @@ export default {
   scrollToFirstError: {
     type: String as PropType<TdFormProps['scrollToFirstError']>,
     validator(val: TdFormProps['scrollToFirstError']): boolean {
+      if (!val) return true;
       return ['smooth', 'auto'].includes(val);
     },
   },
-  /** 校验不通过时，是否显示错误提示信息 */
+  /** 校验不通过时，是否显示错误提示信息，统一控制全部表单项。如果希望控制单个表单项，请给 FormItem 设置该属性 */
   showErrorMessage: {
     type: Boolean,
     default: true,
@@ -88,6 +92,7 @@ export default {
     type: String as PropType<TdFormProps['size']>,
     default: 'medium' as TdFormProps['size'],
     validator(val: TdFormProps['size']): boolean {
+      if (!val) return true;
       return ['medium', 'large'].includes(val);
     },
   },

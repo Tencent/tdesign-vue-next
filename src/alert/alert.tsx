@@ -6,19 +6,20 @@ import {
   HelpCircleFilledIcon,
   InfoCircleFilledIcon,
 } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import { on, off, addClass } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import { useIcon } from '../hooks/icon';
-
-const name = `${prefix}-alert`;
+import { useConfig, usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TAlert',
   props,
   setup(props) {
+    const { global, classPrefix } = useConfig('alert');
+    const COMPONENT_NAME = usePrefixClass('alert');
+
     const renderIconTNode = useIcon();
     // alert的dom引用
     const ele = ref<HTMLElement | null>(null);
@@ -40,7 +41,7 @@ export default defineComponent({
         question: HelpCircleFilledIcon,
       };
       const iconContent = renderIconTNode('icon', Component);
-      return iconContent ? <div class={`${name}__icon`}>{iconContent}</div> : null;
+      return iconContent ? <div class={`${COMPONENT_NAME.value}__icon`}>{iconContent}</div> : null;
     };
 
     const renderClose = () => {
@@ -54,7 +55,7 @@ export default defineComponent({
         closeContent = renderIconTNode('close');
       }
       return closeContent ? (
-        <div class={`${name}__close`} onClick={handleClose}>
+        <div class={`${COMPONENT_NAME.value}__close`} onClick={handleClose}>
           {closeContent}
         </div>
       ) : null;
@@ -62,15 +63,15 @@ export default defineComponent({
 
     const renderTitle = (context: ComponentPublicInstance) => {
       const titleContent = renderTNodeJSX(context, 'title');
-      return titleContent ? <div class={`${name}__title`}> {titleContent}</div> : null;
+      return titleContent ? <div class={`${COMPONENT_NAME.value}__title`}> {titleContent}</div> : null;
     };
 
     const renderMessage = (context: ComponentPublicInstance) => {
       const operationContent = renderTNodeJSX(context, 'operation');
       return (
-        <div class={`${name}__message`}>
+        <div class={`${COMPONENT_NAME.value}__message`}>
           {renderDescription(context)}
-          {operationContent ? <div class={`${name}__operation`}>{operationContent}</div> : null}
+          {operationContent ? <div class={`${COMPONENT_NAME.value}__operation`}>{operationContent}</div> : null}
         </div>
       );
     };
@@ -96,7 +97,7 @@ export default defineComponent({
 
       // 如果需要折叠，则元素之间补<br/>；否则不补
       return (
-        <div class={`${name}__description`} ref="description">
+        <div class={`${COMPONENT_NAME.value}__description`} ref="description">
           {hasCollapse
             ? (messageContent as Array<string | VNode>).map((content) => <div>{content}</div>)
             : messageContent}
@@ -107,7 +108,7 @@ export default defineComponent({
                 collapsed.value = !collapsed.value;
               }}
             >
-              {collapsed.value ? '展开全部' : '收起'}
+              {collapsed.value ? global.value.expandText : global.value.collapseText}
             </div>
           ) : null}
         </div>
@@ -115,7 +116,7 @@ export default defineComponent({
     };
     const renderContent = (context: ComponentPublicInstance) => {
       return (
-        <div class={`${name}__content`}>
+        <div class={`${COMPONENT_NAME.value}__content`}>
           {renderTitle(context)}
           {renderMessage(context)}
         </div>
@@ -123,7 +124,7 @@ export default defineComponent({
     };
     const handleClose = (e: MouseEvent) => {
       props.onClose?.({ e });
-      addClass(ele.value, `${name}--closing`);
+      addClass(ele.value, `${COMPONENT_NAME.value}--closing`);
     };
 
     const handleCloseEnd = (e: TransitionEvent) => {
@@ -141,6 +142,8 @@ export default defineComponent({
       off(ele.value, 'transitionend', handleCloseEnd);
     });
     return {
+      COMPONENT_NAME,
+      classPrefix,
       ele,
       description,
       visible,
@@ -156,12 +159,12 @@ export default defineComponent({
     };
   },
   render() {
-    const { theme, visible, $attrs, renderIcon, renderContent, renderClose } = this;
+    const { theme, visible, $attrs, renderIcon, renderContent, renderClose, classPrefix } = this;
     const CLASS = [
-      `${name}`,
-      `${name}--${theme}`,
+      `${this.COMPONENT_NAME}`,
+      `${this.COMPONENT_NAME}--${theme}`,
       {
-        [`${prefix}-is-hidden`]: !visible,
+        [`${classPrefix}-is-hidden`]: !visible,
       },
     ];
     return (

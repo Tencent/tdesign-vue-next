@@ -75,6 +75,7 @@ export default defineComponent({
     classes(): ClassName {
       return [
         `${prefix}-select`,
+        `${prefix}-select-polyfill`,
         {
           [CLASSNAMES.STATUS.disabled]: this.disabled,
           [CLASSNAMES.STATUS.active]: this.visible,
@@ -483,22 +484,20 @@ export default defineComponent({
             {searchInput}
             {this.showArrow && !this.showLoading && (
               <FakeArrow
-                overlayClassName={`${prefix}-select__right-icon`}
+                overlayClassName={`${prefix}-select__right-icon ${prefix}-select__right-icon-polyfill`}
                 overlayStyle={iconStyle}
                 isActive={this.visible && !this.disabled}
               />
             )}
             <CloseCircleFilledIcon
               v-show={this.showClose && !this.showLoading}
-              name="close"
-              class={`${prefix}-select__right-icon ${prefix}-select__right-icon-clear`}
+              class={`${prefix}-select__right-icon ${prefix}-select__right-icon-polyfill ${prefix}-select__active-icon`}
               size={this.size}
               onClick={({ e }) => this.clear(e)}
             />
             <Loading
               v-show={this.showLoading}
-              name="loading"
-              class={`${prefix}-select__right-icon ${prefix}-select__active-icon`}
+              class={`${prefix}-select__loading-tips ${prefix}-select__right-icon-polyfill`}
               size="small"
             />
           </div>

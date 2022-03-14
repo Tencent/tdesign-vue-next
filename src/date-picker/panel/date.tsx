@@ -1,10 +1,10 @@
 import { defineComponent, PropType } from 'vue';
 import TDateHeader from '../basic/header';
 import TDateTable from '../basic/table';
-import { prefix } from '../../config';
 import props from '../props';
 import { TdDatePickerProps } from '../type';
 import { DatePickerConfig } from '../../config-provider/config-receiver';
+import { usePrefixClass } from '../../config-provider';
 
 import {
   getWeeks,
@@ -18,10 +18,8 @@ import {
   OptionsType,
 } from '../../_common/js/date-picker/utils';
 
-const name = `${prefix}-date-picker-panel`;
-
 export default defineComponent({
-  name,
+  name: 'TDatePickerPanel',
   components: {
     TDateHeader,
     TDateTable,
@@ -46,6 +44,12 @@ export default defineComponent({
     onChange: props.onChange,
   },
   emits: ['change'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('date-picker__panel');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       year: this.value.getFullYear(),
@@ -151,9 +155,9 @@ export default defineComponent({
     },
   },
   render() {
-    const { year, month, type, tableData, firstDayOfWeek } = this;
+    const { year, month, type, tableData, firstDayOfWeek, COMPONENT_NAME } = this;
     return (
-      <div class={`${prefix}-date-picker__panel`}>
+      <div class={COMPONENT_NAME}>
         <t-date-header
           year={year}
           month={month}

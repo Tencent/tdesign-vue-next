@@ -1,11 +1,7 @@
 import { defineComponent, h, VNodeChild } from 'vue';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
-import { COMPONENT_NAME } from './constant';
-
-const CLASSNAME_PREFIX = `${COMPONENT_NAME}__item`;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TAnchorItem',
@@ -21,6 +17,15 @@ export default defineComponent({
         return ANCHOR_SHARP_REGEXP.test(v);
       },
     },
+  },
+  setup() {
+    const CLASSNAME_PREFIX = usePrefixClass('anchor__item');
+    const { STATUS } = useCommonClassName();
+
+    return {
+      STATUS,
+      CLASSNAME_PREFIX,
+    };
   },
   watch: {
     href: {
@@ -72,14 +77,14 @@ export default defineComponent({
     },
   },
   render() {
-    const { href, target, $slots, tAnchor } = this;
+    const { href, target, $slots, tAnchor, CLASSNAME_PREFIX, STATUS } = this;
     const { default: children, title: titleSlot } = $slots;
     const title = this.renderTitle();
     const titleAttr = typeof title === 'string' ? title : null;
     const active = tAnchor.active === href;
     const wrapperClass = {
       [CLASSNAME_PREFIX]: true,
-      [CLASSNAMES.STATUS.active]: active,
+      [STATUS.active]: active,
     };
     const titleClass = {
       [`${CLASSNAME_PREFIX}-link`]: true,

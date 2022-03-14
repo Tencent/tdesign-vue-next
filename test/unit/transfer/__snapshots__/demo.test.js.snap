@@ -4043,7 +4043,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
       >
         <div
           class="t-pagination t-size-s"
-          modelvalue="1"
         >
           <!---->
           <!---->
@@ -4094,7 +4093,9 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                           class="t-select-option t-size-s t-select__create-option--special"
                           title=""
                         >
-                          
+                          <span>
+                            
+                          </span>
                         </li>
                       </ul>
                       <!---->
@@ -4107,13 +4108,17 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
                           class="t-select-option t-is-selected t-size-s"
                           title="1/2"
                         >
-                          1/2
+                          <span>
+                            1/2
+                          </span>
                         </li>
                         <li
                           class="t-select-option t-size-s"
                           title="2/2"
                         >
-                          2/2
+                          <span>
+                            2/2
+                          </span>
                         </li>
                         
                       </ul>

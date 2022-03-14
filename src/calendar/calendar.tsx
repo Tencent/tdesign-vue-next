@@ -9,7 +9,7 @@ import * as utils from './utils';
 import { emitEvent } from '../utils/event';
 
 // 组件的一些常量
-import { COMPONENT_NAME, MIN_YEAR, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DEFAULT_YEAR_CELL_NUMINROW } from './const';
+import { MIN_YEAR, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DEFAULT_YEAR_CELL_NUMINROW } from './const';
 
 // 子组件
 import { Select as TSelect, Option as TOption } from '../select';
@@ -18,6 +18,7 @@ import { Button as TButton } from '../button';
 import { CheckTag as TCheckTag } from '../tag';
 import CalendarCellItem from './calendar-cell';
 import { renderTNodeJSX, renderTNodeJSXDefault } from '../utils/render-tnode';
+import { usePrefixClass } from '../config-provider';
 
 // 组件相关的自定义类型
 import {
@@ -85,6 +86,12 @@ export default defineComponent({
   },
   props: { ...props },
   emits: ['cell-click', 'cell-double-click', 'cell-right-click', 'controller-change'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('calendar');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       curDate: null,
@@ -118,11 +125,11 @@ export default defineComponent({
     },
     // 组件最外层的class名（除去前缀，class名和theme参数一致）
     calendarCls(): Record<string, any> {
-      return [`${COMPONENT_NAME}`, `${COMPONENT_NAME}--${this.theme}`];
+      return [`${this.COMPONENT_NAME}`, `${this.COMPONENT_NAME}--${this.theme}`];
     },
 
     calendarPanelCls(): Record<string, any> {
-      return [`${COMPONENT_NAME}__panel`, `${COMPONENT_NAME}__panel--${this.curSelectedMode}`];
+      return [`${this.COMPONENT_NAME}__panel`, `${this.COMPONENT_NAME}__panel--${this.curSelectedMode}`];
     },
 
     isWeekRender(): boolean {
@@ -461,7 +468,7 @@ export default defineComponent({
       return disabled;
     },
     renderControl() {
-      const { controllerOptions } = this;
+      const { controllerOptions, COMPONENT_NAME } = this;
       return (
         <div class={`${COMPONENT_NAME}__control`}>
           <div class={`${COMPONENT_NAME}__title`}>
@@ -554,8 +561,14 @@ export default defineComponent({
     },
   },
   render() {
-    const { calendarCls, calendarPanelCls, isControllerVisible, cellColHeaders, checkMonthCellColHeaderVisibled } =
-      this;
+    const {
+      COMPONENT_NAME,
+      calendarCls,
+      calendarPanelCls,
+      isControllerVisible,
+      cellColHeaders,
+      checkMonthCellColHeaderVisibled,
+    } = this;
 
     const monthBody = () => {
       return (

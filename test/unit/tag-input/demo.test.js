@@ -3,18 +3,24 @@
  */
 
 import { mount } from '@vue/test-utils';
+import autoWidthVue from '@/examples/tag-input/demos/auto-width.vue';
 import baseVue from '@/examples/tag-input/demos/base.vue';
 import collapsedVue from '@/examples/tag-input/demos/collapsed.vue';
 import customTagVue from '@/examples/tag-input/demos/custom-tag.vue';
+import excessVue from '@/examples/tag-input/demos/excess.vue';
 import maxVue from '@/examples/tag-input/demos/max.vue';
+import sizeVue from '@/examples/tag-input/demos/size.vue';
 import statusVue from '@/examples/tag-input/demos/status.vue';
 import themeVue from '@/examples/tag-input/demos/theme.vue';
 
 const mapper = {
+  autoWidthVue,
   baseVue,
   collapsedVue,
   customTagVue,
+  excessVue,
   maxVue,
+  sizeVue,
   statusVue,
   themeVue,
 };

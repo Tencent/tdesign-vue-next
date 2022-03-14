@@ -5,7 +5,6 @@ import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
 import isNil from 'lodash/isNil';
 import lodashTemplate from 'lodash/template';
-import { prefix } from '../config';
 import { validate } from './form-model';
 import {
   Data,
@@ -24,6 +23,8 @@ import { ClassName, TNodeReturnValue, Styles } from '../common';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { FormConfig } from '../config-provider/config-receiver';
 
+import { usePrefixClass } from '../config-provider';
+
 type IconConstructor = typeof ErrorCircleFilledIcon;
 
 type FormInstance = InstanceType<typeof Form>;
@@ -35,8 +36,6 @@ export const enum ValidateStatus {
   FAIL = 'fail',
 }
 
-const name = `${prefix}-form-item`;
-
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<FormConfig>('form')),
   name: 'TFormItem',
@@ -46,6 +45,12 @@ export default defineComponent({
   },
 
   props: { ...props },
+  setup() {
+    const FROM_LABEL = usePrefixClass('form__label');
+    return {
+      FROM_LABEL,
+    };
+  },
 
   data() {
     return {
@@ -73,6 +78,7 @@ export default defineComponent({
       ];
     },
     labelClasses() {
+      const { FROM_LABEL } = this;
       const parent = this.form;
       const labelAlign = isNil(this.labelAlign) ? parent?.labelAlign : this.labelAlign;
       const labelWidth = isNil(this.labelWidth) ? parent?.labelWidth : this.labelWidth;
@@ -80,11 +86,11 @@ export default defineComponent({
       return [
         CLASS_NAMES.label,
         {
-          [`${prefix}-form__label--required`]: this.needRequiredMark,
-          [`${prefix}-form__label--colon`]: this.hasColon,
-          [`${prefix}-form__label--top`]: labelAlign === 'top' || !labelWidth,
-          [`${prefix}-form__label--left`]: labelAlign === 'left' && labelWidth,
-          [`${prefix}-form__label--right`]: labelAlign === 'right' && labelWidth,
+          [`${FROM_LABEL}--required`]: this.needRequiredMark,
+          [`${FROM_LABEL}--colon`]: this.hasColon,
+          [`${FROM_LABEL}--top`]: labelAlign === 'top' || !labelWidth,
+          [`${FROM_LABEL}--left`]: labelAlign === 'left' && labelWidth,
+          [`${FROM_LABEL}--right`]: labelAlign === 'right' && labelWidth,
         },
       ];
     },

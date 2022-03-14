@@ -1,8 +1,7 @@
 import { defineComponent, onMounted, onUnmounted, inject } from 'vue';
-import { prefix } from '../config';
 import props from './aside-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
-
+import { usePrefixClass } from '../config-provider';
 import { LayoutProvideType } from './layout';
 
 export default defineComponent({
@@ -12,6 +11,7 @@ export default defineComponent({
 
   setup() {
     const { hasSide } = inject<LayoutProvideType>('layout', Object.create(null));
+    const classPrefix = usePrefixClass();
     if (!hasSide) return;
 
     onMounted(() => {
@@ -21,12 +21,16 @@ export default defineComponent({
     onUnmounted(() => {
       hasSide.value = false;
     });
+    return {
+      classPrefix,
+    };
   },
 
   render() {
+    const { classPrefix } = this;
     const styles = this.width ? { width: this.width } : {};
     return (
-      <aside class={`${prefix}-layout__sider`} style={styles}>
+      <aside class={`${classPrefix}-layout__sider`} style={styles}>
         {renderTNodeJSX(this, 'default')}
       </aside>
     );

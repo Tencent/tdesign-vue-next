@@ -1,28 +1,29 @@
 import { defineComponent, computed, inject, onMounted, ref } from 'vue';
-import { prefix } from '../config';
 import props from './menu-item-props';
 import { TdMenuInterface, TdSubMenuInterface } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
 import useRipple from '../hooks/useRipple';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TMenuItem',
   props: { ...props },
   emits: ['click'],
   setup(props, ctx) {
+    const classPrefix = usePrefixClass();
     const menu = inject<TdMenuInterface>('TdMenu');
     const itemRef = ref<HTMLElement>();
     useRipple(itemRef);
     const submenu = inject<TdSubMenuInterface>('TdSubmenu', null);
     const active = computed(() => menu.activeValue.value === props.value);
     const classes = computed(() => [
-      `${prefix}-menu__item`,
+      `${classPrefix.value}-menu__item`,
       {
-        [`${prefix}-is-active`]: active.value,
-        [`${prefix}-is-disabled`]: props.disabled,
-        [`${prefix}-menu__item--plain`]: !ctx.slots.icon && !props.icon,
-        [`${prefix}-submenu__item`]: !!submenu && !menu.isHead,
+        [`${classPrefix.value}-is-active`]: active.value,
+        [`${classPrefix.value}-is-disabled`]: props.disabled,
+        [`${classPrefix.value}-menu__item--plain`]: !ctx.slots.icon && !props.icon,
+        [`${classPrefix.value}-submenu__item`]: !!submenu && !menu.isHead,
       },
     ]);
 
@@ -32,6 +33,7 @@ export default defineComponent({
     });
 
     return {
+      classPrefix,
       menu,
       active,
       classes,
@@ -66,7 +68,7 @@ export default defineComponent({
     return (
       <li ref="itemRef" class={this.classes} onClick={this.handleClick}>
         {renderTNodeJSX(this, 'icon')}
-        <span class={[`${prefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
+        <span class={[`${this.classPrefix}-menu__content`]}>{renderContent(this, 'default', 'content')}</span>
       </li>
     );
   },
