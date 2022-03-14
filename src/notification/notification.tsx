@@ -1,12 +1,10 @@
 import { defineComponent, h, onMounted } from 'vue';
 import { InfoCircleFilledIcon, CheckCircleFilledIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import isFunction from 'lodash/isFunction';
-import { prefix } from '../config';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from './props';
 import { TdNotificationProps } from './type';
-
-const name = `${prefix}-notification`;
+import { useConfig } from '../config-provider/useConfig';
 
 export default defineComponent({
   name: 'TNotification',
@@ -16,6 +14,8 @@ export default defineComponent({
   setup(props: TdNotificationProps, { slots }) {
     const renderTNode = useTNodeJSX();
     const renderContent = useContent();
+    const { classPrefix } = useConfig('classPrefix');
+    const name = `${classPrefix.value}-notification`;
 
     const close = (e?: MouseEvent) => {
       props.onCloseBtnClick?.({ e });
@@ -43,7 +43,7 @@ export default defineComponent({
     const renderClose = () => {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${prefix}-message__close`} onClick={close}>
+        <span class={`${classPrefix.value}-message__close`} onClick={close}>
           {renderTNode('closeBtn', defaultClose)}
         </span>
       );
@@ -63,6 +63,7 @@ export default defineComponent({
     });
 
     return {
+      name,
       close,
       renderIcon,
       renderClose,
@@ -71,7 +72,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { renderIcon, renderClose, renderMainContent, renderTNode } = this;
+    const { renderIcon, renderClose, renderMainContent, renderTNode, name } = this;
     const icon = renderIcon();
     const close = renderClose();
     const content = renderMainContent();
