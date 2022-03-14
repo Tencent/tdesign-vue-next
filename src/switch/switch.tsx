@@ -12,14 +12,14 @@ import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
 export default defineComponent({
   name: 'TSwitch',
   props: { ...props },
-  emits: ['change', UPDATE_MODEL],
+  emits: [UPDATE_MODEL],
   setup(props, { slots }) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('switch');
     const { STATUS, SIZE } = useCommonClassName();
     // values
     const { value, modelValue } = toRefs(props);
-    const [innerValue, setSwitchVal] = useVModel(value, modelValue, props.defaultValue || false, props.onChange);
+    const [innerValue, setSwitchVal] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
     const activeValue = computed(() => {
       if (props.customValue && props.customValue.length > 0) {
