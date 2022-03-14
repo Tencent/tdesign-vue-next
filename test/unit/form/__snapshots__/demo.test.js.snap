@@ -2103,7 +2103,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               </transition-stub>
               
               <div
-                class="t-select t-is-disabled t-size-m"
+                class="t-select t-select-polyfill t-is-disabled t-size-m"
               >
                 <!---->
                 <span
@@ -2148,7 +2148,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                   <!---->
                 </div>
                 <svg
-                  class="t-fake-arrow t-select__right-icon"
+                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                   fill="none"
                   height="16"
                   style="font-size: medium;"
@@ -2164,10 +2164,9 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                   />
                 </svg>
                 <svg
-                  class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-clear"
+                  class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon"
                   fill="none"
                   height="1em"
-                  name="close"
                   style="font-size: medium; display: none;"
                   viewBox="0 0 16 16"
                   width="1em"
@@ -2179,8 +2178,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                   />
                 </svg>
                 <div
-                  class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon"
-                  name="loading"
+                  class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill"
                   style="display: none;"
                 >
                   <svg
