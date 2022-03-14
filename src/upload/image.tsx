@@ -3,43 +3,39 @@ import { defineComponent, PropType, computed } from 'vue';
 import { AddIcon, DeleteIcon, BrowseIcon } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
 
-import CLASSNAMES from '../utils/classnames';
 import { UploadFile } from './type';
 import props from './props';
 import { UploadRemoveOptions } from './interface';
 
 import { useFormDisabled } from '../form/hooks';
-import { useConfig } from '../config-provider';
-
-const ImageProps = {
-  files: props.files,
-  loadingFile: {
-    type: Object as PropType<UploadFile>,
-    default: () => {
-      return null as UploadFile;
-    },
-  },
-  showUploadProgress: props.showUploadProgress,
-  multiple: props.multiple,
-  max: props.max,
-  disabled: props.disabled,
-  onClick: Function as PropType<(e: MouseEvent) => void>,
-  onRemove: Function as PropType<(options: UploadRemoveOptions) => void>,
-  onImgPreview: Function as PropType<(options: MouseEvent, file: UploadFile) => void>,
-};
+import { useConfig, usePrefixClass, useCommonClassName } from '../config-provider';
 
 // props
 export default defineComponent({
   name: 'TImageUpload',
 
-  props: ImageProps,
+  props: {
+    files: props.files,
+    loadingFile: {
+      type: Object as PropType<UploadFile>,
+      default: () => {
+        return null as UploadFile;
+      },
+    },
+    showUploadProgress: props.showUploadProgress,
+    multiple: props.multiple,
+    max: props.max,
+    disabled: props.disabled,
+    onClick: Function as PropType<(e: MouseEvent) => void>,
+    onRemove: Function as PropType<(options: UploadRemoveOptions) => void>,
+    onImgPreview: Function as PropType<(options: MouseEvent, file: UploadFile) => void>,
+  },
 
   setup(props) {
-    const disabled = useFormDisabled();
+    const tDisabled = useFormDisabled();
     const { classPrefix: prefix, global } = useConfig('upload');
-    const UPLOAD_NAME = computed(() => {
-      return `${prefix.value}-upload`;
-    });
+    const UPLOAD_NAME = usePrefixClass('upload');
+    const { STATUS } = useCommonClassName();
 
     const showTrigger = computed(() => {
       const { multiple, max, files } = props;
@@ -66,7 +62,7 @@ export default defineComponent({
                 }}
               />
             </span>
-            {!props.disabled && [
+            {!tDisabled.value && [
               <span class={`${UPLOAD_NAME.value}__card-mask-item-divider`} key="divider"></span>,
               <span class={`${UPLOAD_NAME.value}__card-mask-item`} key="delete-icon">
                 <DeleteIcon
@@ -86,7 +82,7 @@ export default defineComponent({
       <li
         class={[
           `${UPLOAD_NAME.value}__card-item ${prefix.value}-is--background`,
-          { [CLASSNAMES.STATUS.disabled]: props.disabled },
+          { [STATUS.value.disabled]: tDisabled.value },
         ]}
         onClick={props.onClick}
       >
@@ -106,23 +102,10 @@ export default defineComponent({
       </li>
     );
 
-    return {
-      prefix,
-      UPLOAD_NAME,
-      onMaskClick,
-      showTrigger,
-      disabled,
-      renderCardItem,
-      renderTrigger,
-    };
-  },
-
-  render() {
-    const { UPLOAD_NAME, renderTrigger, renderCardItem } = this;
-    return (
-      <ul class={`${UPLOAD_NAME}__card`}>
-        {this.files && this.files.map((file, index) => renderCardItem(file, index))}
-        {this.showTrigger && renderTrigger()}
+    return () => (
+      <ul class={`${UPLOAD_NAME.value}__card`}>
+        {props.files && props.files.map((file, index) => renderCardItem(file, index))}
+        {showTrigger.value && renderTrigger()}
       </ul>
     );
   },

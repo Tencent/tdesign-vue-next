@@ -61,10 +61,6 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
       return;
     }
 
-    if (!props.uploadInOneRequest) {
-      innerFiles[0].url = res.url || innerFiles[0].url;
-    }
-
     // 从待上传文件队列中移除上传成功的文件
     const index = findIndex(uploadCtx.toUploadFiles, (o: any) => o.name === file.name);
     uploadCtx.toUploadFiles.splice(index, 1);
