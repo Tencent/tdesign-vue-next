@@ -89,24 +89,16 @@ export default defineComponent({
     const handleMouseLeavePopup = (e: any) => {
       const { toElement } = e;
       let target = toElement;
-      const isPopup = (el: Element) => /popup$/i.test(el.className);
+      const isSubmenu = (el: Element) => el === submenuRef.value;
 
-      while (target !== document && !/popup$/i.test(target.className)) {
+      while (target !== document && !isSubmenu(target)) {
         target = target.parentNode;
       }
 
       isCursorInPopup.value = false;
 
-      if (isPopup(toElement)) {
-        // no child's popup
-        isCursorInPopup.value = true;
-        // popupVisible.value = false;
-      } else {
+      if (!isSubmenu(target)) {
         popupVisible.value = false;
-      }
-
-      if (target === document) {
-        submenu?.closePopup();
       }
     };
 
@@ -127,9 +119,6 @@ export default defineComponent({
         if (submenu) {
           submenu.addMenuItem(item);
         }
-      },
-      closePopup() {
-        popupVisible.value = false;
       },
     });
 
@@ -169,30 +158,41 @@ export default defineComponent({
         <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent(this, 'default', 'content')}</ul>,
       ];
 
+      const popupWrapper = (
+        <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
+      );
+      const popupInside = (
+        <div ref="submenuRef" class={this.submenuClass}>
+          {renderTNodeJSX(this, 'title')}
+          <FakeArrow
+            overlayClassName={this.arrowClass}
+            overlayStyle={{ transform: `rotate(${this.isNested ? -90 : 0}deg)` }}
+          />
+          <div class={this.popupClass}>{popupWrapper}</div>
+        </div>
+      );
       const slots = {
-        content: () => (
-          <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
-        ),
+        content: () => popupWrapper,
       };
-      const popupSubmenu = [
+      const realPopup = (
         <Popup
           overlayClassName={this.popupClass}
           onEnter={() => (this.isCursorInPopup = true)}
           onLeave={this.handleMouseLeavePopup}
           visible={this.popupVisible}
-          placement={this.isNested ? 'right-top' : 'bottom'}
+          placement={this.isNested ? 'right-top' : 'bottom-left'}
           v-slots={slots}
         >
-          <div class={this.submenuClass}>
+          <div ref="submenuRef" class={this.submenuClass}>
             {renderTNodeJSX(this, 'title')}
             <FakeArrow
               overlayClassName={this.arrowClass}
               overlayStyle={{ transform: `rotate(${this.isNested ? -90 : 0}deg)` }}
             />
           </div>
-        </Popup>,
-        // this.isNested ? popupInside : <Popup visible={this.popupVisible} placement="bottom">{popupInside}</Popup>,
-      ];
+        </Popup>
+      );
+      const popupSubmenu = this.isNested ? popupInside : realPopup;
       return this.mode === 'normal' ? normalSubmenu : popupSubmenu;
     },
     renderSubmenu() {
