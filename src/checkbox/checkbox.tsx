@@ -11,13 +11,11 @@ import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig } from '../config-provider/useConfig';
 import { CheckboxGroupInjectionKey } from './type';
-
-const name = `${prefix}-checkbox`;
 
 export default defineComponent({
   name: 'TCheckbox',
-
   inheritAttrs: false,
   props,
 
@@ -88,12 +86,15 @@ export default defineComponent({
       return props.indeterminate;
     });
 
+    /** 样式计算相关逻辑 */
+    const { classPrefix } = useConfig('classPrefix');
+    const classPrefixName = `${classPrefix.value}-checkbox`;
     const labelClasses = computed<ClassName>(() => [
-      `${name}`,
+      `${classPrefixName}`,
       {
-        [CLASSNAMES.STATUS.checked]: checked$.value,
-        [CLASSNAMES.STATUS.disabled]: disabled$.value,
-        [CLASSNAMES.STATUS.indeterminate]: indeterminate$.value,
+        [`${classPrefix.value}-is-checked`]: checked$.value,
+        [`${classPrefix.value}-is-disabled`]: disabled$.value,
+        [`${classPrefix.value}-is-indeterminate`]: indeterminate$.value,
       },
     ]);
 
@@ -114,6 +115,7 @@ export default defineComponent({
       checked$,
       disabled$,
       indeterminate$,
+      classPrefixName,
       labelClasses,
       handleChange,
     };

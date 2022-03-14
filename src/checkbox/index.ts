@@ -1,6 +1,5 @@
 import _Checkbox from './checkbox';
 import _Group from './group';
-import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdCheckboxProps } from './type';
 

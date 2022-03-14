@@ -14,8 +14,7 @@ import {
 
 // hooks
 import useVModel from '../hooks/useVModel';
-
-const name = `${prefix}-checkbox-group`;
+import { useConfig } from '../config-provider/useConfig';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
@@ -25,6 +24,10 @@ export default defineComponent({
   props,
 
   setup(props, { emit, slots }) {
+    /** 样式 */
+    const { classPrefix } = useConfig('classPrefix');
+    const name = `${classPrefix.value}-checkbox-group`;
+
     const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange, emit, 'value');
