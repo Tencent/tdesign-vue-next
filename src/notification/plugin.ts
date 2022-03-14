@@ -52,7 +52,7 @@ const NotificationFunction = (options: NotificationOptions): Promise<Notificatio
 
   return new Promise((resolve) => {
     nextTick(() => {
-      const lastChild = tmpInstance.$refs.notification0 as NotificationInstance;
+      const lastChild = tmpInstance.$refs?.notification0 as NotificationInstance;
       resolve(lastChild);
     });
   });
