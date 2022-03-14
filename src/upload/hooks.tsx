@@ -1,5 +1,6 @@
 import { computed, ref, ComputedRef } from 'vue';
 import findIndex from 'lodash/findIndex';
+import log from '../_common/js/log';
 
 import {
   TdUploadProps,
@@ -49,7 +50,7 @@ export const useImgPreview = (props: TdUploadProps) => {
   const showImageViewDialog = ref(false);
 
   const handlePreviewImg = (event: MouseEvent, file?: UploadFile) => {
-    if (!file || !file.url) throw new Error('Error file');
+    if (!file || !file.url) return log.error('Uploader', 'Preview Error file');
     showImageViewUrl.value = file.url;
     showImageViewDialog.value = true;
     const previewCtx = { file, e: event };
@@ -108,26 +109,32 @@ export const useRemove = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   };
 
   const handleFileInputRemove = (e: MouseEvent) => {
-    // prevent trigger upload
     e?.stopPropagation();
     handleSingleRemove(e);
   };
 
   const handleMultipleRemove = (options: UploadRemoveOptions) => {
+    let files: UploadFile[] = [];
+    if (!uploadCtx.canBatchUpload) {
+      files = uploadCtx.uploadValue.concat();
+      files.splice(options.index, 1);
+    } else {
+      // All files remove in batchUpload
+      files = [];
+      options.files = uploadCtx.uploadValue.concat();
+    }
     const changeCtx = { trigger: 'remove', ...options };
-    const files = uploadCtx.uploadValue.concat();
-    files.splice(options.index, 1);
     uploadCtx.setUploadValue(files, changeCtx);
     props.onRemove?.(options);
   };
 
   const handleListRemove = (context: FlowRemoveContext) => {
     const { file } = context;
-    const index = findIndex(uploadCtx.toUploadFiles, (o: any) => o.name === file.name);
+    const index = findIndex(uploadCtx.toUploadFiles, (o: any) => o.name === file?.name);
     if (index >= 0) {
       uploadCtx.toUploadFiles.splice(index, 1);
     } else {
-      const index = findIndex(uploadCtx.uploadValue, (o: any) => o.name === file.name);
+      const index = findIndex(uploadCtx.uploadValue, (o: any) => o.name === file?.name);
       handleMultipleRemove({ e: context.e, index });
     }
   };
@@ -140,7 +147,7 @@ export const useRemove = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
   };
 };
 
-// 组件动作
+// 上传相关动作
 export const useActions = (props: TdUploadProps, uploadCtx: UploadCtxType, disabled: ComputedRef<boolean>) => {
   const { uploadFiles, upload, xhrReq } = useUpload(props, uploadCtx);
   const inputRef = ref(null);
@@ -152,10 +159,15 @@ export const useActions = (props: TdUploadProps, uploadCtx: UploadCtxType, disab
     (inputRef.value as HTMLInputElement).value = '';
   };
 
-  const multipleUpload = (files: Array<UploadFile>) => {
-    files.forEach((file) => {
-      upload(file);
-    });
+  const multipleUpload = (currentFiles: Array<UploadFile>) => {
+    if (props.uploadAllFilesInOneRequest) {
+      // 一个请求同时上传多个文件
+      upload(currentFiles);
+    } else {
+      currentFiles.forEach((file) => {
+        upload(file);
+      });
+    }
   };
 
   const triggerUpload = () => {
@@ -184,11 +196,17 @@ export const useActions = (props: TdUploadProps, uploadCtx: UploadCtxType, disab
   return { handleChange, multipleUpload, triggerUpload, cancelUpload, handleDragChange, upload, inputRef };
 };
 
-export const useBatchUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
+// 合并上传
+export const useBatchUpload = (props: TdUploadProps) => {
   const uploadInOneRequest = computed(() => {
     return props.multiple && props.uploadAllFilesInOneRequest;
   });
   const canBatchUpload = computed(() => {
     return uploadInOneRequest.value && props.isBatchUpload;
   });
+
+  return {
+    uploadInOneRequest,
+    canBatchUpload,
+  };
 };

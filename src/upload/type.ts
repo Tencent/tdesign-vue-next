@@ -105,7 +105,7 @@ export interface TdUploadProps {
   /**
    * 自定义上传方法。返回值 status 表示上传成功或失败，error 表示上传失败的原因，response 表示请求上传成功后的返回数据，response.url 表示上传成功后的图片地址。示例一：`{ status: 'fail', error: '上传失败', response }`。示例二：`{ status: 'success', response: { url: 'https://tdesign.gtimg.com/site/avatar.jpg' } }`
    */
-  requestMethod?: (files: UploadFile) => Promise<RequestMethodResponse>;
+  requestMethod?: (files: UploadFile | UploadFile[]) => Promise<RequestMethodResponse>;
   /**
    * 是否显示上传进度
    * @default true
@@ -233,6 +233,7 @@ export type ResponseType = { error?: string; url?: string } & Record<string, any
 
 export interface FormatResponseContext {
   file: UploadFile;
+  currentFiles?: UploadFile[];
 }
 
 export interface RequestMethodResponse {
@@ -282,7 +283,6 @@ export interface UploadRemoveContext {
 export interface SuccessContext {
   e?: ProgressEvent;
   file?: UploadFile;
-  currentFiles?: UploadFile[];
   fileList?: UploadFile[];
   response: any;
 }

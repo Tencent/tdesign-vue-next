@@ -21,6 +21,8 @@ export type {
 export type UploadCtxType = {
   uploadValue: TdUploadProps['files'];
   setUploadValue: TdUploadProps['onChange'];
+  uploadInOneRequest: boolean;
+  canBatchUpload: boolean;
   loadingFile: UploadFile;
   toUploadFiles: UploadFile[];
   errorMsg: string;

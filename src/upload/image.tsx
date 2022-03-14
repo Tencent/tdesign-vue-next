@@ -32,7 +32,7 @@ export default defineComponent({
   },
 
   setup(props) {
-    const tDisabled = useFormDisabled();
+    const disabled = useFormDisabled();
     const { classPrefix: prefix, global } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
     const { STATUS } = useCommonClassName();
@@ -62,7 +62,7 @@ export default defineComponent({
                 }}
               />
             </span>
-            {!tDisabled.value && [
+            {!disabled.value && [
               <span class={`${UPLOAD_NAME.value}__card-mask-item-divider`} key="divider"></span>,
               <span class={`${UPLOAD_NAME.value}__card-mask-item`} key="delete-icon">
                 <DeleteIcon
@@ -82,7 +82,7 @@ export default defineComponent({
       <li
         class={[
           `${UPLOAD_NAME.value}__card-item ${prefix.value}-is--background`,
-          { [STATUS.value.disabled]: tDisabled.value },
+          { [STATUS.value.disabled]: disabled.value },
         ]}
         onClick={props.onClick}
       >
