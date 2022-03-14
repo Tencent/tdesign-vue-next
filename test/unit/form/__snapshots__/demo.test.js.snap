@@ -487,7 +487,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group"
-            modelvalue=""
           >
             
             <label
@@ -3349,7 +3348,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group"
-            modelvalue=""
           >
             
             <label
