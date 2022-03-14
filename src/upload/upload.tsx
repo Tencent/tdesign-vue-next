@@ -13,33 +13,21 @@ import { UploadCtxType } from './interface';
 
 import { useFormDisabled } from '../form/hooks';
 import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions, useBatchUpload } from './hooks';
-import { useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 import { useContent } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TUpload',
-  props: { ...props },
-  setup(props, context) {
-    const renderContent = useContent();
-
+  props,
+  setup(props) {
+    const renderTNodeContent = useContent();
     const { classPrefix: prefix } = useConfig('upload');
-
-    const UPLOAD_NAME = computed(() => {
-      return `${prefix.value}-upload`;
-    });
-
+    const UPLOAD_NAME = usePrefixClass('upload');
     const { files, modelValue } = toRefs(props);
 
     // handle controlled property and uncontrolled property
-    const [uploadValue, setUploadValue] = useVModel(
-      files,
-      modelValue,
-      props.defaultFiles || [],
-      props.onChange,
-      context.emit,
-      'files',
-    );
+    const [uploadValue, setUploadValue] = useVModel(files, modelValue, props.defaultFiles || [], props.onChange);
 
     const uploadCtx: UploadCtxType = reactive({
       uploadValue,
@@ -76,7 +64,7 @@ export default defineComponent({
     const renderInput = () => {
       return (
         <input
-          ref="inputRef"
+          ref={inputRef}
           type="file"
           disabled={disabled.value}
           onChange={handleChange}
@@ -115,7 +103,7 @@ export default defineComponent({
         dragActive: dragActive.value,
         uploadingFile: props.multiple ? uploadCtx.toUploadFiles : uploadCtx.loadingFile,
       };
-      let triggerElement = renderContent('default', 'trigger', { params });
+      let triggerElement = renderTNodeContent('default', 'trigger', { params });
       if (!Array.isArray(triggerElement)) {
         triggerElement = {};
       }
@@ -153,7 +141,7 @@ export default defineComponent({
       };
 
       const defaultNode = getDefaultTrigger();
-      return renderContent('default', 'trigger', defaultNode);
+      return renderTNodeContent('default', 'trigger', defaultNode);
     };
 
     // 完全自定义上传
@@ -242,36 +230,20 @@ export default defineComponent({
       return [renderErrorMsg(), renderCustomMsg()];
     };
 
-    return {
-      UPLOAD_NAME,
-      inputRef,
-      singleDraggable,
-      renderInput,
-      renderSingleDisplay,
-      renderTrigger,
-      renderCustom,
-      renderDraggerTrigger,
-      renderImgCard,
-      renderFlowList,
-      renderDialog,
-      renderTip,
-      triggerUpload,
-      uploadCtx,
+    return () => {
+      const triggerElement = renderTrigger();
+      return (
+        <div class={`${UPLOAD_NAME.value}`}>
+          {renderInput()}
+          {renderCustom(triggerElement)}
+          {renderSingleDisplay(triggerElement)}
+          {singleDraggable.value && renderDraggerTrigger()}
+          {renderImgCard()}
+          {renderFlowList(triggerElement)}
+          {renderDialog()}
+          {renderTip()}
+        </div>
+      );
     };
-  },
-  render() {
-    const triggerElement = this.renderTrigger();
-    return (
-      <div class={`${this.UPLOAD_NAME}`}>
-        {this.renderInput()}
-        {this.renderCustom(triggerElement)}
-        {this.renderSingleDisplay(triggerElement)}
-        {this.singleDraggable && this.renderDraggerTrigger()}
-        {this.renderImgCard()}
-        {this.renderFlowList(triggerElement)}
-        {this.renderDialog()}
-        {this.renderTip()}
-      </div>
-    );
   },
 });

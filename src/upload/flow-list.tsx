@@ -14,46 +14,41 @@ import { UploadFile } from './type';
 import { FlowRemoveContext } from './interface';
 import props from './props';
 import { returnFileSize, abridgeName } from './util';
-import { renderTNodeJSX } from '../utils/render-tnode';
 
+import { useTNodeJSX } from '../hooks/tnode';
 import { useFormDisabled } from '../form/hooks';
-import { useConfig } from '../config-provider';
-
-const flowListProps = {
-  showUploadProgress: props.showUploadProgress,
-  placeholder: props.placeholder,
-  autoUpload: props.autoUpload,
-  disabled: props.disabled,
-  theme: props.theme,
-  batchUpload: props.isBatchUpload,
-  // 已上传完成的文件
-  files: props.files,
-  // 上传队列中的文件（可能存在已经上传过的文件）
-  toUploadFiles: Array as PropType<Array<UploadFile>>,
-  onRemove: Function as PropType<(ctx: FlowRemoveContext) => void>,
-  onUpload: Function as PropType<(files: Array<UploadFile>, e: MouseEvent) => void>,
-  onCancel: Function as PropType<(e: MouseEvent) => void>,
-  onChange: Function as PropType<(files: FileList) => void>,
-  onDragleave: Function as PropType<(e: DragEvent) => void>,
-  onDragenter: Function as PropType<(e: DragEvent) => void>,
-  onImgPreview: Function as PropType<(options: MouseEvent, file: UploadFile) => void>,
-};
+import { useConfig, usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TUploadFlowList',
-
-  props: flowListProps,
-
+  props: {
+    showUploadProgress: props.showUploadProgress,
+    placeholder: props.placeholder,
+    autoUpload: props.autoUpload,
+    disabled: props.disabled,
+    theme: props.theme,
+    batchUpload: props.isBatchUpload,
+    // 已上传完成的文件
+    files: props.files,
+    // 上传队列中的文件（可能存在已经上传过的文件）
+    toUploadFiles: Array as PropType<Array<UploadFile>>,
+    onRemove: Function as PropType<(ctx: FlowRemoveContext) => void>,
+    onUpload: Function as PropType<(files: Array<UploadFile>, e: MouseEvent) => void>,
+    onCancel: Function as PropType<(e: MouseEvent) => void>,
+    onChange: Function as PropType<(files: FileList) => void>,
+    onDragleave: Function as PropType<(e: DragEvent) => void>,
+    onDragenter: Function as PropType<(e: DragEvent) => void>,
+    onImgPreview: Function as PropType<(options: MouseEvent, file: UploadFile) => void>,
+  },
   setup(props) {
     const target = ref(null);
     const dragActive = ref(false);
 
-    const disabled = useFormDisabled();
+    const renderTNodeJSX = useTNodeJSX();
+    const tDisabled = useFormDisabled();
     const { classPrefix: prefix, global } = useConfig('upload');
-
-    const UPLOAD_NAME = computed(() => {
-      return `${prefix.value}-upload`;
-    });
+    const UPLOAD_NAME = usePrefixClass('upload');
+    const { SIZE } = useCommonClassName();
 
     const waitingUploadFiles = computed(() => {
       const list: Array<UploadFile> = [];
@@ -256,7 +251,7 @@ export default defineComponent({
                   <span class={`${UPLOAD_NAME.value}__card-mask-item-divider`}></span>
                 </span>
               )}
-              {!props.disabled && (
+              {!tDisabled.value && (
                 <span
                   class={`${UPLOAD_NAME.value}__card-mask-item`}
                   onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
@@ -299,28 +294,15 @@ export default defineComponent({
         </div>
       );
 
-    return {
-      UPLOAD_NAME,
-      prefix,
-      allowUpload,
-      uploadText,
-      disabled,
-      renderImgList,
-      renderFileList,
-      renderFooter,
-    };
-  },
-
-  render() {
-    return (
-      <div class={[`${this.UPLOAD_NAME}__flow`, `${this.UPLOAD_NAME}__flow-${this.theme}`]}>
-        <div class={`${this.UPLOAD_NAME}__flow-op`}>
-          {renderTNodeJSX(this, 'default')}
-          <small class={`${this.prefix}-size-s ${this.UPLOAD_NAME}__flow-placeholder`}>{this.placeholder}</small>
+    return () => (
+      <div class={[`${UPLOAD_NAME.value}__flow`, `${UPLOAD_NAME.value}__flow-${props.theme}`]}>
+        <div class={`${UPLOAD_NAME.value}__flow-op`}>
+          {renderTNodeJSX('default')}
+          <small class={`${SIZE.value.small} ${UPLOAD_NAME.value}__flow-placeholder`}>{props.placeholder}</small>
         </div>
-        {this.renderFileList()}
-        {this.renderImgList()}
-        {this.renderFooter()}
+        {renderFileList()}
+        {renderImgList()}
+        {renderFooter()}
       </div>
     );
   },
