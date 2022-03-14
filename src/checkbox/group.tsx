@@ -1,42 +1,51 @@
-import { defineComponent, provide, computed, VNode, h, reactive, watchEffect, ref } from 'vue';
+import { defineComponent, provide, computed, VNode, h, reactive, watchEffect, ref, toRefs, PropType } from 'vue';
 import intersection from 'lodash/intersection';
 import Checkbox from './checkbox';
 import checkboxGroupProps from './checkbox-group-props';
-import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue, CheckboxGroupChangeContext } from './type';
 import { usePrefixClass } from '../config-provider';
+import props from './checkbox-group-props';
+import {
+  CheckboxOptionObj,
+  TdCheckboxProps,
+  CheckboxGroupValue,
+  CheckboxGroupChangeContext,
+  CheckboxGroupInjectionKey,
+} from './type';
+
+// hooks
+import useVModel from '../hooks/useVModel';
+
+const name = `${prefix}-checkbox-group`;
 
 export default defineComponent({
   name: 'TCheckboxGroup',
   components: {
     Checkbox,
   },
-  props: { ...checkboxGroupProps },
-  emits: ['change'],
+  props,
 
   setup(props, { emit, slots }) {
+    const { isArray } = Array;
+    const { value, modelValue } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange, emit, 'value');
+
     // data
-    const checkedMap = ref({});
+    const checkedMap = ref<{ [key: string | number]: boolean }>({});
     const optionList = ref<Array<CheckboxOptionObj>>([]);
 
     // computed
-    const values = computed<string>(() => {
-      if (props.value instanceof Array) {
-        return props.value.join();
-      }
-      return '';
-    });
 
     const intersectionLen = computed<number>(() => {
       const values = optionList.value.map((item) => item.value);
-      if (props.value instanceof Array) {
-        const n = intersection(props.value, values);
+      if (isArray(innerValue.value)) {
+        const n = intersection(innerValue.value, values);
         return n.length;
       }
       return 0;
     });
 
     const isCheckAll = computed<boolean>(() => {
-      if (props.value instanceof Array && props.value.length !== optionList.value.length - 1) {
+      if (isArray(innerValue.value) && innerValue.value.length !== optionList.value.length - 1) {
         return false;
       }
       return intersectionLen.value === optionList.value.length - 1;
@@ -46,13 +55,13 @@ export default defineComponent({
       () => !isCheckAll.value && intersectionLen.value < optionList.value.length && intersectionLen.value !== 0,
     );
 
-    const maxExceeded = computed<boolean>(() => props.max !== undefined && props.value.length === props.max);
+    const maxExceeded = computed<boolean>(() => props.max !== undefined && innerValue.value.length === props.max);
 
     // watch
     watchEffect(() => {
-      if (props.value instanceof Array) {
+      if (isArray(innerValue.value)) {
         const map = {};
-        props.value.forEach((item: string | number) => {
+        innerValue.value.forEach((item: string | number) => {
           map[item] = true;
         });
         checkedMap.value = map;
@@ -74,9 +83,8 @@ export default defineComponent({
     });
 
     // methods
-    const emitChange = (val: CheckboxGroupValue, context: CheckboxGroupChangeContext) => {
-      emit('change', val, context);
-    };
+    const emitChange = (val: CheckboxGroupValue, context: CheckboxGroupChangeContext) => setInnerValue(val, context);
+
     const getAllCheckboxValue = (): CheckboxGroupValue => {
       const val = new Set<TdCheckboxProps['value']>();
       for (let i = 0, len = optionList.value.length; i < len; i++) {
@@ -99,8 +107,8 @@ export default defineComponent({
 
     const handleCheckboxChange = (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => {
       const currentValue = data.option.value;
-      if (props.value instanceof Array) {
-        const val = [...props.value];
+      if (isArray(innerValue.value)) {
+        const val = [...innerValue.value];
         if (data.checked) {
           val.push(currentValue);
         } else {
@@ -113,7 +121,7 @@ export default defineComponent({
           type: data.checked ? 'check' : 'uncheck',
         });
       } else {
-        console.warn(`TDesign CheckboxGroup Warn: \`value\` must be an array, instead of ${typeof props.value}`);
+        console.warn(`TDesign CheckboxGroup Warn: \`value\` must be an array, instead of ${typeof innerValue.value}`);
       }
     };
 
@@ -147,7 +155,7 @@ export default defineComponent({
 
     // provide
     provide(
-      'checkboxGroup',
+      CheckboxGroupInjectionKey,
       reactive({
         name: props.name,
         isCheckAll,

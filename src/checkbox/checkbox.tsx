@@ -1,29 +1,27 @@
 import { defineComponent, ref, toRefs, computed, inject } from 'vue';
 import { renderContent } from '../utils/render-tnode';
 import checkboxProps from './props';
+import { prefix } from '../config';
+import CLASSNAMES from '../utils/classnames';
+import props from './props';
 import { ClassName } from '../common';
-import useVModel from '../hooks/useVModel';
 
 // hooks
+import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { CheckboxGroupInjectionKey } from './type';
+
+const name = `${prefix}-checkbox`;
 
 export default defineComponent({
   name: 'TCheckbox',
 
   inheritAttrs: false,
-  props: {
-    ...checkboxProps,
-    needRipple: Boolean,
-    modelValue: {
-      type: Boolean,
-      default: undefined,
-    },
-  },
-  emits: ['change', 'checked-change'],
+  props,
 
-  setup(props, { attrs, emit }) {
+  setup(props, { emit }) {
     const formDisabled = useFormDisabled();
     const labelRef = ref<HTMLElement>();
     const COMPONENT_NAME = usePrefixClass('checkbox');
@@ -66,7 +64,7 @@ export default defineComponent({
     );
 
     // inject
-    const checkboxGroup = inject('checkboxGroup', undefined);
+    const checkboxGroup = inject(CheckboxGroupInjectionKey, undefined);
 
     // computed
     const name$ = computed<string>(() => props.name || checkboxGroup?.name);
@@ -102,7 +100,7 @@ export default defineComponent({
     // methods
     const handleChange = (e: Event) => {
       const checked = !checked$.value;
-      setInnerChecked(checked);
+      setInnerChecked(checked, { e });
       if (checkboxGroup && checkboxGroup.handleCheckboxChange) {
         checkboxGroup.onCheckedChange({ checked, checkAll: props.checkAll, e, option: props });
       }
