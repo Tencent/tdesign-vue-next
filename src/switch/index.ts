@@ -1,5 +1,4 @@
 import _Switch from './switch';
-import mapProps from '../utils/map-props';
 import { withInstall, WithInstallType } from '../utils/withInstall';
 import { TdSwitchProps } from './type';
 
