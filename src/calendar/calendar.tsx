@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, computed, reactive, watch, nextTick } from 'vue';
 // 通用库
 import dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
@@ -17,8 +17,12 @@ import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio
 import { Button as TButton } from '../button';
 import { CheckTag as TCheckTag } from '../tag';
 import CalendarCellItem from './calendar-cell';
-import { renderTNodeJSX, renderTNodeJSXDefault } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+
+// new-begin
+import { usePrefixClass, useConfig } from '../config-provider';
+// new-end
 
 // 组件相关的自定义类型
 import {
@@ -71,76 +75,174 @@ const getDefaultControllerConfigData = (visible = true): Record<string, any> => 
   },
 });
 
+const CONFIG_NAME = 'calendar';
+
+interface CalendarState {
+  curDate: dayjs.Dayjs | null;
+  curSelectedYear: number | null;
+  curSelectedMonth: number | null;
+  curSelectedMode: string | null;
+  isShowWeekend: boolean;
+  controlSize: string;
+}
+
 // 组件逻辑
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<CalendarConfig>('calendar')),
   name: 'TCalendar',
-  components: {
-    TCheckTag,
-    TSelect,
-    TOption,
-    TRadioGroup,
-    TRadioButton,
-    TButton,
-    CalendarCellItem,
-  },
   props: { ...props },
-  emits: ['cell-click', 'cell-double-click', 'cell-right-click', 'controller-change'],
-  setup() {
-    const COMPONENT_NAME = usePrefixClass('calendar');
-    return {
-      COMPONENT_NAME,
-    };
-  },
-  data() {
-    return {
+  setup(props) {
+    const { t, global } = useConfig(CONFIG_NAME);
+
+    // data
+    // TODO: 这里很多属性都是直接监听props，然后透传，迟点功能调通后考虑优化掉watch，甚至整个state可以优化掉。
+    const state = reactive<CalendarState>({
       curDate: null,
       curSelectedYear: null,
       curSelectedMonth: null,
       curSelectedMode: null,
       isShowWeekend: true,
       controlSize: 'medium',
-    };
-  },
-  computed: {
-    realFirstDayOfWeek(): number {
-      return this.firstDayOfWeek ?? this.global.firstDayOfWeek ?? 1;
-    },
-    TEXT_MAP(): TextConfigType {
-      const { t, global } = this;
+    });
+
+    // 组件名
+    const prefixClass = usePrefixClass(CONFIG_NAME);
+
+    // 一些UI文案
+    const TEXT_MAP = computed(() => {
       const r: TextConfigType = {
         // showWeekend: '显示周末',
-        showWeekend: t(global.showWeekend),
+        showWeekend: t(global.value.showWeekend),
         // hideWeekend: '隐藏周末',
-        hideWeekend: t(global.hideWeekend),
+        hideWeekend: t(global.value.hideWeekend),
         // today: '今天',
-        today: t(global.today),
+        today: t(global.value.today),
         // thisMonth: '本月',
-        thisMonth: t(global.thisMonth),
+        thisMonth: t(global.value.thisMonth),
       };
       return r;
-    },
-    weekDipalyText(): TdCalendarProps['week'] {
-      return this.week || this.t(this.global.week).split(',');
-    },
-    // 组件最外层的class名（除去前缀，class名和theme参数一致）
-    calendarCls(): Record<string, any> {
-      return [`${this.COMPONENT_NAME}`, `${this.COMPONENT_NAME}--${this.theme}`];
-    },
+    });
 
-    calendarPanelCls(): Record<string, any> {
-      return [`${this.COMPONENT_NAME}__panel`, `${this.COMPONENT_NAME}__panel--${this.curSelectedMode}`];
-    },
+    // 日历第一列显示周几
+    const realFirstDayOfWeek = computed(() => {
+      return props.firstDayOfWeek ?? global.value.firstDayOfWeek ?? 1;
+    });
+    watch(
+      () => props.isShowWeekendDefault,
+      (v: TdCalendarProps['isShowWeekendDefault']) => {
+        state.isShowWeekend = v;
+      },
+      { immediate: true },
+    );
+    const checkMonthCellColHeaderVisibled = (item: CellColHeader): boolean => {
+      let re = true;
+      if (!state.isShowWeekend) {
+        re = item.num !== 6 && item.num !== 7;
+      }
+      return re;
+    };
 
-    isWeekRender(): boolean {
-      return typeof this.week === 'function';
-    },
+    // 样式class
+    const calendarCls = computed<string[]>(() => {
+      return [`${prefixClass.value}`, `${prefixClass.value}--${props.theme}`];
+    });
+    const calendarPanelCls = computed<string[]>(() => {
+      return [`${prefixClass.value}__panel`, `${prefixClass.value}__panel--${state.curSelectedMode}`];
+    });
 
-    rangeFromTo(): CalendarRange {
-      if (!this.range || this.range.length < 2) {
+    // 日历控件栏（右上角的控件们）
+    const controllerOptions = computed<ControllerOptions>(() => {
+      const dayJsFilterDate = dayjs(`${state.curSelectedYear}-${state.curSelectedMonth}`);
+      const re = {
+        isShowWeekend: state.isShowWeekend,
+        filterDate: dayJsFilterDate.toDate(),
+        formattedFilterDate: dayJsFilterDate.format(props.format),
+        mode: state.curSelectedMode,
+      };
+      return re;
+    });
+    const controllerConfigData = computed<Record<string, any>>(() => {
+      const controllerConfig = props.controllerConfig ?? global.value.controllerConfig ?? true;
+      if (typeof controllerConfig === 'boolean') {
+        return getDefaultControllerConfigData(controllerConfig);
+      }
+      return {
+        ...getDefaultControllerConfigData(),
+        ...controllerConfig,
+      };
+    });
+    const isControllerVisible = computed<boolean>(() => {
+      const configData = controllerConfigData.value;
+      return !!configData && configData.visible;
+    });
+    /**
+     * 判断某个控件是否显示
+     * @param name 控件对应的配置节点名（对应controllerConfigData）
+     * @returns true表示显示
+     */
+    const checkControllerVisible = (name: string): boolean => {
+      let re = true;
+      const conf = controllerConfigData.value;
+      if (!conf || !conf.visible || conf[name] === false || (conf[name] && !conf[name].visible)) {
+        re = false;
+      }
+      return re;
+    };
+    /**
+     * 判断某个控件是否禁用
+     * @param name 控件对应的配置节点名（对应controllerConfigData）
+     * @param propsName 表示禁用的控件属性（对应controllerConfigData）
+     * @returns true表示禁用
+     */
+    const checkControllerDisabled = (name: string, propsName: string): boolean => {
+      let re = false;
+      const conf = controllerConfigData.value;
+      if (conf && (conf.disabled || (conf[name] && conf[name][propsName] && conf[name][propsName].disabled))) {
+        re = true;
+      }
+      return re;
+    };
+    const controllerChange = () => {
+      nextTick(() => {
+        props.onControllerChange && props.onControllerChange({ ...controllerOptions.value });
+      });
+    };
+
+    // 日历主体头部（日历模式下使用）
+    const weekDipalyText = computed<TdCalendarProps['week']>(() => {
+      return props.week || t(global.value.week).split(',');
+    });
+    const getWeekDisplay = (weekNum: number): string => {
+      const weekText = weekDipalyText.value;
+      return typeof weekText === 'object' && weekText[weekNum - 1] ? weekText[weekNum - 1] : utils.getDayCn(weekNum);
+    };
+    const cellColHeaders = computed<CellColHeader[]>(() => {
+      const re: CellColHeader[] = [];
+      const min: WeekDay = 1;
+      const max: WeekDay = 7;
+
+      for (let i = realFirstDayOfWeek.value; i <= max; i++) {
+        re.push({
+          num: i as WeekDay,
+          display: getWeekDisplay(i),
+        });
+      }
+      if (realFirstDayOfWeek.value > min) {
+        for (let i = min; i < realFirstDayOfWeek.value; i++) {
+          re.push({
+            num: i as WeekDay,
+            display: getWeekDisplay(i),
+          });
+        }
+      }
+      return re;
+    });
+
+    // 年\月份下拉框数据源
+    const rangeFromTo = computed<CalendarRange>(() => {
+      if (!props.range || props.range.length < 2) {
         return null;
       }
-      const [v1, v2] = this.range;
+      const [v1, v2] = props.range;
       if (dayjs(v1).isBefore(dayjs(v2))) {
         return {
           from: v1,
@@ -151,50 +253,34 @@ export default defineComponent({
         from: v2,
         to: v1,
       };
-    },
-
-    controllerOptions(): ControllerOptions {
-      const dayJsFilterDate: dayjs.Dayjs = dayjs(`${this.curSelectedYear}-${this.curSelectedMonth}`);
-      const re = {
-        isShowWeekend: this.isShowWeekend,
-        filterDate: dayJsFilterDate.toDate(),
-        formattedFilterDate: dayJsFilterDate.format(this.format),
-        mode: this.curSelectedMode,
-      };
-      return re;
-    },
-
-    // 日历主体头部（日历模式下使用）
-    cellColHeaders(): CellColHeader[] {
-      const re: CellColHeader[] = [];
-      const min: WeekDay = 1;
-      const max: WeekDay = 7;
-
-      for (let i = this.realFirstDayOfWeek; i <= max; i++) {
-        re.push({
-          num: i as WeekDay,
-          display: this.getWeekDisplay(i),
-        });
-      }
-      if (this.realFirstDayOfWeek > min) {
-        for (let i = min; i < this.realFirstDayOfWeek; i++) {
-          re.push({
-            num: i as WeekDay,
-            display: this.getWeekDisplay(i),
-          });
+    });
+    const checkMonthAndYearSelecterDisabled = (year: number, month: number): boolean => {
+      let disabled = false;
+      if (rangeFromTo.value && rangeFromTo.value.from && rangeFromTo.value.to) {
+        const beginYear = dayjs(rangeFromTo.value.from).year();
+        const endYear = dayjs(rangeFromTo.value.to).year();
+        if (year === beginYear) {
+          const beginMon = parseInt(dayjs(rangeFromTo.value.from).format('M'), 10);
+          disabled = month < beginMon;
+        } else if (year === endYear) {
+          const endMon = parseInt(dayjs(rangeFromTo.value.to).format('M'), 10);
+          disabled = month > endMon;
         }
       }
-      return re;
-    },
-
-    // 年份下拉框数据源
-    yearSelectOptionList(): YearMonthOption[] {
+      return disabled;
+    };
+    const toCurrent = (value?: TdCalendarProps['value']): void => {
+      state.curDate = value ? dayjs(value) : createDefaultCurDate();
+      state.curSelectedYear = state.curDate.year();
+      state.curSelectedMonth = parseInt(state.curDate.format('M'), 10);
+    };
+    const yearSelectOptionList = computed<YearMonthOption[]>(() => {
       const re: YearMonthOption[] = [];
-      let begin: number = this.curSelectedYear - 10;
-      let end: number = this.curSelectedYear + 10;
-      if (this.rangeFromTo && this.rangeFromTo.from && this.rangeFromTo.to) {
-        begin = dayjs(this.rangeFromTo.from).year();
-        end = dayjs(this.rangeFromTo.to).year();
+      let begin: number = state.curSelectedYear - 10;
+      let end: number = state.curSelectedYear + 10;
+      if (rangeFromTo.value && rangeFromTo.value.from && rangeFromTo.value.to) {
+        begin = dayjs(rangeFromTo.value.from).year();
+        end = dayjs(rangeFromTo.value.to).year();
       }
 
       if (begin < MIN_YEAR) {
@@ -205,52 +291,108 @@ export default defineComponent({
       }
 
       for (let i = begin; i <= end; i++) {
-        const disabled = this.checkMonthAndYearSelecterDisabled(i, this.curSelectedMonth);
+        const disabled = checkMonthAndYearSelecterDisabled(i, state.curSelectedMonth);
         re.push({
           value: i,
-          label: this.t(this.global.yearSelection, { year: i }),
+          label: t(global.value.yearSelection, { year: i }),
           disabled,
         });
       }
       return re;
-    },
-    // 月份下拉框数据源
-    monthSelectOptionList(): YearMonthOption[] {
+    });
+    const monthSelectOptionList = computed<YearMonthOption[]>(() => {
       const re: YearMonthOption[] = [];
       for (let i = FIRST_MONTH_OF_YEAR; i <= LAST_MONTH_OF_YEAR; i++) {
-        const disabled = this.checkMonthAndYearSelecterDisabled(this.curSelectedYear, i);
+        const disabled = checkMonthAndYearSelecterDisabled(state.curSelectedYear, i);
         re.push({
           value: i,
-          label: this.t(this.global.monthSelection, { month: i }),
+          label: t(global.value.monthSelection, { month: i }),
           disabled,
         });
       }
       return re;
-    },
+    });
+    watch(
+      () => props.value,
+      (v: TdCalendarProps['value']) => {
+        toCurrent(v);
+      },
+      { immediate: true },
+    );
+    watch(
+      () => {
+        return {
+          year: `${controllerOptions.value.filterDate.getFullYear()}`,
+          month: `${controllerOptions.value.filterDate.getMonth() + 1}`,
+        };
+      },
+      (v: { month: string; year: string }) => {
+        if (props.onMonthChange) {
+          props.onMonthChange({ ...v });
+        }
+        controllerChange();
+      },
+    );
 
     // 模式选项数据源
-    modeSelectOptionList(): ModeOption[] {
+    const modeSelectOptionList = computed<ModeOption[]>(() => {
       return [
-        { value: 'month', label: this.t(this.global.monthRadio) },
-        { value: 'year', label: this.t(this.global.yearRadio) },
+        { value: 'month', label: t(global.value.monthRadio) },
+        { value: 'year', label: t(global.value.yearRadio) },
       ];
-    },
-    // month模式下日历单元格的数据
-    monthCellsData(): CalendarCell[][] {
-      const { realFirstDayOfWeek } = this;
+    });
+    watch(
+      () => props.mode,
+      (v: TdCalendarProps['mode']) => {
+        state.curSelectedMode = v;
+      },
+      { immediate: true },
+    );
+
+    // 显示\隐藏周末按钮
+    const weekendBtnText = computed<string>(() => {
+      return state.isShowWeekend ? TEXT_MAP.value.hideWeekend : TEXT_MAP.value.showWeekend;
+    });
+    const weekendBtnVBind = computed<object>(() => {
+      const c = controllerConfigData.value.weekend;
+      return state.isShowWeekend ? c.hideWeekendButtonProps : c.showWeekendButtonProps;
+    });
+    const isWeekendToggleDisabled = computed(() => {
+      const p = state.isShowWeekend ? 'hideWeekendButtonProps' : 'showWeekendButtonProps';
+      return checkControllerDisabled('weekend', p);
+    });
+    const onWeekendToggleClick = (): void => {
+      state.isShowWeekend = !state.isShowWeekend;
+      controllerChange();
+    };
+
+    // 今天\本月按钮
+    const currentBtnText = computed<string>(() => {
+      return state.curSelectedMode === 'month' ? TEXT_MAP.value.today : TEXT_MAP.value.thisMonth;
+    });
+    const currentBtnVBind = computed<object>(() => {
+      const c = controllerConfigData.value.current;
+      return state.curSelectedMode === 'month' ? c.currentDayButtonProps : c.currentMonthButtonProps;
+    });
+    const isCurrentBtnDisabled = computed(() => {
+      const p = state.curSelectedMode === 'month' ? 'currentDayButtonProps' : 'currentMonthButtonProps';
+      return checkControllerDisabled('current', p);
+    });
+
+    // 单元格数据
+    const monthCellsData = computed<CalendarCell[][]>(() => {
       const daysArr: CalendarCell[][] = utils.createMonthCellsData(
-        this.curSelectedYear,
-        this.curSelectedMonth,
-        realFirstDayOfWeek,
-        this.curDate,
-        this.format,
+        state.curSelectedYear,
+        state.curSelectedMonth,
+        realFirstDayOfWeek.value,
+        state.curDate,
+        props.format,
       );
       return daysArr;
-    },
-    // year模式下日历单元格的数据
-    yearCellsData(): CalendarCell[][] {
+    });
+    const yearCellsData = computed<CalendarCell[][]>(() => {
       const re: CalendarCell[][] = [];
-      const monthsArr: CalendarCell[] = utils.createYearCellsData(this.curSelectedYear, this.curDate, this.format);
+      const monthsArr: CalendarCell[] = utils.createYearCellsData(state.curSelectedYear, state.curDate, props.format);
       const rowCount = Math.ceil(monthsArr.length / DEFAULT_YEAR_CELL_NUMINROW);
       let index = 0;
       for (let i = 1; i <= rowCount; i++) {
@@ -262,227 +404,98 @@ export default defineComponent({
         re.push(row);
       }
       return re;
-    },
-
-    controllerConfigData(): Record<string, any> {
-      const controllerConfig = this.controllerConfig ?? this.global.controllerConfig ?? true;
-      if (typeof controllerConfig === 'boolean') {
-        return getDefaultControllerConfigData(controllerConfig);
-      }
+    });
+    const getCellClickEventOptions = (e: MouseEvent, cellData: CalendarCell): CellEventOption => {
       return {
-        ...getDefaultControllerConfigData(),
-        ...controllerConfig,
+        cell: {
+          ...cellData,
+          ...controllerOptions.value,
+        },
+        e,
       };
-    },
+    };
 
-    // 是否显示控件（整个右上角的所有控件）
-    isControllerVisible(): boolean {
-      return this.controllerConfigData && this.controllerConfigData.visible;
-    },
+    return {
+      global,
+      state,
+      prefixClass,
 
-    weekendBtnText(): string {
-      return this.isShowWeekend ? this.TEXT_MAP.hideWeekend : this.TEXT_MAP.showWeekend;
-    },
-    weekendBtnVBind(): object {
-      const c = this.controllerConfigData.weekend;
-      return this.isShowWeekend ? c.hideWeekendButtonProps : c.showWeekendButtonProps;
-    },
+      realFirstDayOfWeek,
 
-    currentBtnText(): string {
-      return this.curSelectedMode === 'month' ? this.TEXT_MAP.today : this.TEXT_MAP.thisMonth;
-    },
-    currentBtnVBind(): object {
-      const c = this.controllerConfigData.current;
-      return this.curSelectedMode === 'month' ? c.currentDayButtonProps : c.currentMonthButtonProps;
-    },
+      TEXT_MAP,
 
-    isModeVisible(): boolean {
-      return this.checkControllerVisible('mode');
-    },
-    isYearVisible(): boolean {
-      return this.checkControllerVisible('year');
-    },
-    isMonthVisible(): boolean {
-      return this.checkControllerVisible('month');
-    },
-    isWeekendToggleVisible(): boolean {
-      return this.checkControllerVisible('weekend');
-    },
-    isCurrentBtnVisible(): boolean {
-      return this.checkControllerVisible('current');
-    },
+      weekDipalyText,
 
-    isModeDisabled(): boolean {
-      return this.checkControllerDisabled('mode', 'radioGroupProps');
-    },
-    isYearDisabled(): boolean {
-      return this.checkControllerDisabled('year', 'selecteProps');
-    },
-    isMonthDisabled(): boolean {
-      return this.checkControllerDisabled('month', 'selecteProps');
-    },
-    isWeekendToggleDisabled(): boolean {
-      const p = this.isShowWeekend ? 'hideWeekendButtonProps' : 'showWeekendButtonProps';
-      return this.checkControllerDisabled('weekend', p);
-    },
-    isCurrentBtnDisabled(): boolean {
-      const p = this.curSelectedMode === 'month' ? 'currentDayButtonProps' : 'currentMonthButtonProps';
-      return this.checkControllerDisabled('current', p);
-    },
+      calendarCls,
+      calendarPanelCls,
 
-    filterYearStr(): string {
-      return `${this.controllerOptions.filterDate.getFullYear()}`;
-    },
-    filterMonthStr(): string {
-      return `${this.controllerOptions.filterDate.getMonth() + 1}`;
-    },
-    filterYearMonth(): { month: string; year: string } {
-      return {
-        year: this.filterYearStr,
-        month: this.filterMonthStr,
-      };
-    },
+      controllerOptions,
+      controllerConfigData,
+      isControllerVisible,
+
+      cellColHeaders,
+
+      yearSelectOptionList,
+      monthSelectOptionList,
+      modeSelectOptionList,
+
+      weekendBtnText,
+      weekendBtnVBind,
+      isWeekendToggleDisabled,
+
+      currentBtnText,
+      currentBtnVBind,
+      isCurrentBtnDisabled,
+
+      monthCellsData,
+      yearCellsData,
+      getCellClickEventOptions,
+
+      t,
+      toCurrent,
+      checkMonthCellColHeaderVisibled,
+      checkControllerVisible,
+      checkControllerDisabled,
+      controllerChange,
+      onWeekendToggleClick,
+    };
   },
-  watch: {
-    value: {
-      handler(v: TdCalendarProps['value']) {
-        this.toCurrent(v);
-      },
-      immediate: true,
-    },
-    mode: {
-      handler(v: TdCalendarProps['mode']) {
-        this.curSelectedMode = v;
-      },
-      immediate: true,
-    },
-    isShowWeekendDefault: {
-      handler(v: TdCalendarProps['isShowWeekendDefault']) {
-        this.isShowWeekend = v;
-      },
-      immediate: true,
-    },
-    filterYearMonth: {
-      handler(v: { month: string; year: string }) {
-        emitEvent<Parameters<TdCalendarProps['onMonthChange']>>(this, 'month-change', v);
-        this.controllerChange();
-      },
-    },
-  },
-  methods: {
-    getCalendarWeekSlotData(item: CellColHeader): CalendarWeek {
-      return {
-        day: item.num,
-      };
-    },
-    getWeekDisplay(weekNum: number): string {
-      const weekText = this.weekDipalyText;
-      return typeof weekText === 'object' && weekText[weekNum - 1] ? weekText[weekNum - 1] : utils.getDayCn(weekNum);
-    },
-    checkMonthCellItemShowed(cellData: CalendarCell): boolean {
-      return this.isShowWeekend || cellData.day < 6;
-    },
-    createCalendarCell(cellData: CalendarCell): CalendarCell {
-      return {
-        ...cellData,
-        ...this.controllerOptions,
-      };
-    },
-    clickCell(e: MouseEvent, cellData: CalendarCell) {
+  render() {
+    const { prefixClass: COMPONENT_NAME } = this;
+
+    const clickCell = (e: MouseEvent, cellData: CalendarCell): void => {
       this.curDate = dayjs(cellData.date);
       const options = this.getCellClickEventOptions(e, cellData);
+      console.info(options);
       emitEvent<Parameters<TdCalendarProps['onCellClick']>>(this, 'cell-click', options);
-    },
-    doubleClickCell(e: MouseEvent, cellData: CalendarCell) {
+    };
+    const doubleClickCell = (e: MouseEvent, cellData: CalendarCell): void => {
       const options = this.getCellClickEventOptions(e, cellData);
       emitEvent<Parameters<TdCalendarProps['onCellDoubleClick']>>(this, 'cell-double-click', options);
-    },
-    rightClickCell(e: MouseEvent, cellData: CalendarCell) {
+    };
+    const rightClickCell = (e: MouseEvent, cellData: CalendarCell): void => {
       if (this.preventCellContextmenu) {
         e.preventDefault();
       }
       const options = this.getCellClickEventOptions(e, cellData);
       emitEvent<Parameters<TdCalendarProps['onCellRightClick']>>(this, 'cell-right-click', options);
-    },
-    getCellClickEventOptions(e: MouseEvent, cellData: CalendarCell): CellEventOption {
-      return {
-        cell: this.createCalendarCell(cellData),
-        e,
-      };
-    },
-    controllerChange(): void {
-      this.$nextTick(() => {
-        const options = this.controllerOptions;
-        emitEvent<Parameters<TdCalendarProps['onControllerChange']>>(this, 'controller-change', options);
-      });
-    },
-    onWeekendToggleClick(): void {
-      this.isShowWeekend = !this.isShowWeekend;
-      this.controllerChange();
-    },
-    // 判断月历单元格头是否显示
-    checkMonthCellColHeaderVisibled(item: CellColHeader): boolean {
-      let re = true;
-      if (!this.isShowWeekend) {
-        re = item.num !== 6 && item.num !== 7;
-      }
-      return re;
-    },
-    // 判断某个控件是否禁用
-    checkControllerDisabled(name: string, propsName: string): boolean {
-      let re = false;
-      const conf = this.controllerConfigData;
-      if (conf && (conf.disabled || (conf[name] && conf[name][propsName] && conf[name][propsName].disabled))) {
-        re = true;
-      }
-      return re;
-    },
-    // 判断某个控件是否显示
-    checkControllerVisible(name: string): boolean {
-      let re = true;
-      const conf = this.controllerConfigData;
-      if (!conf || !conf.visible || conf[name] === false || (conf[name] && !conf[name].visible)) {
-        re = false;
-      }
-      return re;
-    },
-    // 显示当前月份\年份
-    toCurrent(value?: TdCalendarProps['value']): void {
-      this.curDate = value ? dayjs(value) : createDefaultCurDate();
-      this.curSelectedYear = this.curDate.year();
-      this.curSelectedMonth = parseInt(this.curDate.format('M'), 10);
-    },
-    checkMonthAndYearSelecterDisabled(year: number, month: number): boolean {
-      let disabled = false;
-      if (this.rangeFromTo && this.rangeFromTo.from && this.rangeFromTo.to) {
-        const beginYear = dayjs(this.rangeFromTo.from).year();
-        const endYear = dayjs(this.rangeFromTo.to).year();
-        if (year === beginYear) {
-          const beginMon = parseInt(dayjs(this.rangeFromTo.from).format('M'), 10);
-          disabled = month < beginMon;
-        } else if (year === endYear) {
-          const endMon = parseInt(dayjs(this.rangeFromTo.to).format('M'), 10);
-          disabled = month > endMon;
-        }
-      }
-      return disabled;
-    },
-    renderControl() {
-      const { controllerOptions, COMPONENT_NAME } = this;
+    };
+
+    const renderControl = () => {
       return (
         <div class={`${COMPONENT_NAME}__control`}>
           <div class={`${COMPONENT_NAME}__title`}>
             {renderTNodeJSX(this, 'head', {
-              params: controllerOptions,
+              params: this.controllerOptions,
             })}
           </div>
           <div class={`${COMPONENT_NAME}__control-section`}>
-            {this.isYearVisible && (
+            {this.checkControllerVisible('year') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`}>
                 <t-select
-                  v-model={this.curSelectedYear}
-                  size={this.controlSize}
-                  disabled={this.isYearDisabled}
+                  v-model={this.state.curSelectedYear}
+                  size={this.state.controlSize}
+                  disabled={this.checkControllerDisabled('year', 'selecteProps')}
                   {...this.controllerConfigData.year.selecteProps}
                 >
                   {this.yearSelectOptionList.map((item) => (
@@ -493,12 +506,12 @@ export default defineComponent({
                 </t-select>
               </div>
             )}
-            {this.curSelectedMode === 'month' && this.isMonthVisible && (
+            {this.state.curSelectedMode === 'month' && this.checkControllerVisible('month') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`}>
                 <t-select
-                  v-model={this.curSelectedMonth}
-                  size={this.controlSize}
-                  disabled={this.isMonthDisabled}
+                  v-model={this.state.curSelectedMonth}
+                  size={this.state.controlSize}
+                  disabled={this.checkControllerDisabled('month', 'selecteProps')}
                   {...this.controllerConfigData.month.selecteProps}
                 >
                   {this.monthSelectOptionList.map((item) => (
@@ -509,13 +522,13 @@ export default defineComponent({
                 </t-select>
               </div>
             )}
-            {this.isModeVisible && (
+            {this.checkControllerVisible('mode') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`} style="height: auto">
                 <t-radio-group
-                  v-model={this.curSelectedMode}
+                  v-model={this.state.curSelectedMode}
                   variant="default-filled"
-                  size={this.controlSize}
-                  disabled={this.isModeDisabled}
+                  size={this.state.controlSize}
+                  disabled={this.checkControllerDisabled('mode', 'radioGroupProps')}
                   {...this.controllerConfigData.mode.radioGroupProps}
                   onChange={this.controllerChange}
                 >
@@ -527,12 +540,12 @@ export default defineComponent({
                 </t-radio-group>
               </div>
             )}
-            {this.theme === 'full' && this.curSelectedMode && this.isWeekendToggleVisible && (
+            {this.theme === 'full' && this.checkControllerVisible('current') && this.checkControllerVisible('weekend') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`}>
                 <t-check-tag
                   class={`${COMPONENT_NAME}__control-tag`}
-                  theme={this.isShowWeekend ? 'default' : 'primary'}
-                  size={this.controlSize}
+                  theme={this.state.isShowWeekend ? 'default' : 'primary'}
+                  size={this.state.controlSize}
                   disabled={this.isWeekendToggleDisabled}
                   {...this.weekendBtnVBind}
                   onClick={this.onWeekendToggleClick}
@@ -541,10 +554,10 @@ export default defineComponent({
                 </t-check-tag>
               </div>
             )}
-            {this.theme === 'full' && this.isCurrentBtnVisible && (
+            {this.theme === 'full' && this.checkControllerVisible('current') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`}>
                 <t-button
-                  size={this.controlSize}
+                  size={this.state.controlSize}
                   disabled={this.isCurrentBtnDisabled}
                   onClick={() => {
                     this.toCurrent();
@@ -558,32 +571,21 @@ export default defineComponent({
           </div>
         </div>
       );
-    },
-  },
-  render() {
-    const {
-      COMPONENT_NAME,
-      calendarCls,
-      calendarPanelCls,
-      isControllerVisible,
-      cellColHeaders,
-      checkMonthCellColHeaderVisibled,
-    } = this;
-
-    const monthBody = () => {
+    };
+    const renderMonthBody = () => {
       return (
         <table class={`${COMPONENT_NAME}__table`}>
           <thead class={`${COMPONENT_NAME}__table-head`}>
             <tr class={`${COMPONENT_NAME}__table-head-row`}>
-              {cellColHeaders.map(
+              {this.cellColHeaders.map(
                 (item, index) =>
-                  checkMonthCellColHeaderVisibled(item) && (
+                  this.checkMonthCellColHeaderVisibled(item) && (
                     <th class={`${COMPONENT_NAME}__table-head-cell`}>
                       {Array.isArray(this.week)
                         ? this.week[index]
-                        : renderTNodeJSXDefault(this, 'week', {
+                        : renderContent(this, 'default', 'week', {
                             defaultNode: <span>{item.display}</span>,
-                            params: this.getCalendarWeekSlotData(item),
+                            params: { day: item.num },
                           })}
                     </th>
                   ),
@@ -596,8 +598,8 @@ export default defineComponent({
               <tr class={`${COMPONENT_NAME}__table-body-row`}>
                 {week.map(
                   (item, itemIndex) =>
-                    this.checkMonthCellItemShowed(item) && (
-                      <calendar-cell-item
+                    (this.state.isShowWeekend || item.day < 6) && (
+                      <CalendarCellItem
                         key={`${weekIndex}-${itemIndex}`}
                         item={item}
                         theme={this.theme}
@@ -605,12 +607,12 @@ export default defineComponent({
                         global={this.global}
                         cell={this.cell}
                         fillWithZero={this.fillWithZero}
-                        onClick={(e: MouseEvent) => this.clickCell(e, item)}
-                        onDblclick={(e: MouseEvent) => this.doubleClickCell(e, item)}
-                        onRightclick={(e: MouseEvent) => this.rightClickCell(e, item)}
+                        onClick={(e: MouseEvent) => clickCell(e, item)}
+                        onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
+                        onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
                       >
                         {{ ...this.$slots }}
-                      </calendar-cell-item>
+                      </CalendarCellItem>
                     ),
                 )}
               </tr>
@@ -619,15 +621,14 @@ export default defineComponent({
         </table>
       );
     };
-
-    const yearBody = () => {
+    const renderYearBody = () => {
       return (
         <table class={`${COMPONENT_NAME}__table`}>
           <tbody class={`${COMPONENT_NAME}__table-body`}>
             {this.yearCellsData.map((cell, cellIndex) => (
               <tr class={`${COMPONENT_NAME}__table-body-row`}>
                 {cell.map((item, itemIndex) => (
-                  <calendar-cell-item
+                  <CalendarCellItem
                     key={`${cellIndex}-${itemIndex}`}
                     item={item}
                     theme={this.theme}
@@ -635,12 +636,12 @@ export default defineComponent({
                     global={this.global}
                     cell={this.cell}
                     fillWithZero={this.fillWithZero}
-                    onClick={(e: MouseEvent) => this.clickCell(e, item)}
-                    onDblclick={(e: MouseEvent) => this.doubleClickCell(e, item)}
-                    onRightclick={(e: MouseEvent) => this.rightClickCell(e, item)}
+                    onClick={(e: MouseEvent) => clickCell(e, item)}
+                    onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
+                    onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
                   >
                     {{ ...this.$slots }}
-                  </calendar-cell-item>
+                  </CalendarCellItem>
                 ))}
               </tr>
             ))}
@@ -650,9 +651,11 @@ export default defineComponent({
     };
 
     return (
-      <div class={calendarCls}>
-        {isControllerVisible && this.renderControl()}
-        <div class={calendarPanelCls}>{this.curSelectedMode === 'month' ? monthBody() : yearBody()}</div>
+      <div class={this.calendarCls}>
+        {this.isControllerVisible && renderControl()}
+        <div class={this.calendarPanelCls}>
+          {this.state.curSelectedMode === 'month' ? renderMonthBody() : renderYearBody()}
+        </div>
       </div>
     );
   },

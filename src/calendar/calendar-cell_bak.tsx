@@ -1,4 +1,4 @@
-import { computed, defineComponent } from 'vue';
+import { defineComponent } from 'vue';
 import dayjs from 'dayjs';
 import { emitEvent } from '../utils/event';
 
@@ -32,63 +32,65 @@ export default defineComponent({
     },
     t: Function,
     global: Object,
-    cell: [String, Function],
+    cell: Function,
   },
   emits: ['click', 'dblclick', 'rightclick'],
-  setup(props) {
+  setup() {
     const COMPONENT_NAME = usePrefixClass('calendar');
     const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
-
-    const valueDisplay = computed<string>(() => {
-      if (props.item.mode === 'month') {
-        const dateNum = props.item.date.getDate();
-        const fillZero = dateNum < 10 && (props.fillWithZero ?? props.global.fillWithZero ?? true);
-        return fillZero ? `0${dateNum}` : dateNum;
-      }
-      const map = props.t(props.global.cellMonth).split(',');
-      return map[props.item.date.getMonth().toString()];
-    });
-    const allowSlot = computed<boolean>(() => {
-      return props.theme === 'full';
-    });
-    const disabled = computed<boolean>(() => {
-      return props.item.mode === 'month' && props.item.belongTo !== 0;
-    });
-    const cellCls = computed(() => {
-      const { mode, date, formattedDate, isCurrent } = props.item;
-      const isNow =
-        mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
-      return [
-        `${COMPONENT_NAME.value}__table-body-cell`,
-        {
-          [STATUS.value.disabled]: disabled.value,
-          [STATUS.value.checked]: isCurrent,
-          [`${COMPONENT_NAME.value}__table-body-cell--now`]: isNow,
-        },
-      ];
-    });
-
     return {
       STATUS,
       COMPONENT_NAME,
       classPrefix,
-      cellCls,
-      valueDisplay,
-      allowSlot,
-      disabled,
     };
   },
-  render() {
-    const { item, cellCls, valueDisplay, allowSlot } = this;
-
-    const clickCell = (e: MouseEvent): void => {
+  computed: {
+    // [FIN]
+    allowSlot(): boolean {
+      return this.theme === 'full';
+    },
+    // [FIN]
+    disabled(): boolean {
+      return this.item.mode === 'month' && this.item.belongTo !== 0;
+    },
+    // [FIN]
+    valueDisplay(): string {
+      if (this.item.mode === 'month') {
+        const dateNum = this.item.date.getDate();
+        const fillZero = dateNum < 10 && (this.fillWithZero ?? this.global.fillWithZero ?? true);
+        return fillZero ? `0${dateNum}` : dateNum;
+      }
+      const map = this.t(this.global.cellMonth).split(',');
+      return map[this.item.date.getMonth().toString()];
+    },
+    // [FIN]
+    cellCls(): Record<string, any> {
+      const { mode, date, formattedDate, isCurrent } = this.item;
+      const isNow =
+        mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
+      return [
+        `${this.COMPONENT_NAME}__table-body-cell`,
+        {
+          [this.STATUS.disabled]: this.disabled,
+          [this.STATUS.checked]: isCurrent,
+          [`${this.COMPONENT_NAME}__table-body-cell--now`]: isNow,
+        },
+      ];
+    },
+  },
+  methods: {
+    clickCell(e: MouseEvent) {
       if (this.disabled) return;
       emitEvent(this, clickTypeEmitEventMap[e.type], e);
-    };
+    },
+  },
+  render() {
+    // const { item, cellCls, clickCell, dblclick, contextmenuClick, valueDisplay, allowSlot } = this;
+    const { item, cellCls, clickCell, valueDisplay, allowSlot } = this;
 
-    const renderDefaultNode = () => (
-      <>
+    const defaultNode = () => (
+      <span>
         <div class={`${this.COMPONENT_NAME}__table-body-cell-display`}>{valueDisplay}</div>
         <div class={`${this.COMPONENT_NAME}__table-body-cell-content`}>
           {allowSlot &&
@@ -96,18 +98,19 @@ export default defineComponent({
               params: item,
             })}
         </div>
-      </>
+      </span>
     );
+
     return (
       item && (
-        <td class={cellCls} onClick={clickCell} ondblclick={clickCell} oncontextmenu={clickCell}>
+        <div class={cellCls} onClick={clickCell} ondblclick={clickCell} oncontextmenu={clickCell}>
           {typeof this.cell === 'function'
             ? this.cell(item)
             : renderTNodeJSXDefault(this, 'cell', {
-                defaultNode: renderDefaultNode(),
+                defaultNode: defaultNode(),
                 params: item,
               })}
-        </td>
+        </div>
       )
     );
   },
