@@ -31,6 +31,7 @@ export default defineComponent({
   name: 'TTextarea',
   inheritAttrs: false,
   props: { ...props },
+  emits: ['change', 'update:value'],
   setup(props, { attrs, emit }) {
     const disabled = useFormDisabled();
     const textareaStyle = ref({});
