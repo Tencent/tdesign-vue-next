@@ -1,6 +1,5 @@
 import { defineComponent, VNode } from 'vue';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 import { omit } from '../utils/helper';
 import props from './props';
 import { emitEvent } from '../utils/event';
@@ -8,9 +7,6 @@ import { TdRadioProps } from './type';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-
-const name = `${prefix}-radio`;
-export const radioBtnName = `${prefix}-radio-button`;
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
@@ -33,7 +29,13 @@ export default defineComponent({
   emits: ['change', 'click'],
   setup() {
     const disabled = useFormDisabled();
+    const COMPONENT_NAME = usePrefixClass('radio');
+    const radioBtnName = usePrefixClass('radio-button');
+    const { STATUS } = useCommonClassName();
     return {
+      STATUS,
+      COMPONENT_NAME,
+      radioBtnName,
       disabled,
     };
   },
@@ -86,13 +88,13 @@ export default defineComponent({
       inputProps.name = radioGroup.name;
     }
 
-    const prefixCls = radioButton ? radioBtnName : name;
+    const prefixCls = radioButton ? this.radioBtnName : this.COMPONENT_NAME;
 
     const inputClass = [
       `${prefixCls}`,
       {
-        [CLASSNAMES.STATUS.checked]: inputProps.checked,
-        [CLASSNAMES.STATUS.disabled]: inputProps.disabled,
+        [this.STATUS.checked]: inputProps.checked,
+        [this.STATUS.disabled]: inputProps.disabled,
       },
     ];
 

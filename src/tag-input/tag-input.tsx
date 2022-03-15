@@ -5,17 +5,21 @@ import TInput, { InputValue } from '../input';
 
 import { TdTagInputProps } from './type';
 import props from './props';
-import { prefix } from '../config';
 import { renderTNodeJSX } from '../utils/render-tnode';
+import { usePrefixClass } from '../config-provider';
 
 import useTagScroll from './useTagScroll';
 import useTagList from './useTagList';
 import useHover from './useHover';
 import useDefault from '../hooks/useDefaultValue';
 
-const NAME_CLASS = `${prefix}-tag-input`;
-const CLEAR_CLASS = `${prefix}-tag-input__suffix-clear`;
-const BREAK_LINE_CLASS = `${prefix}-tag-input--break-line`;
+const useCOmponentClassName = () => {
+  return {
+    NAME_CLASS: usePrefixClass('tag-input'),
+    CLEAR_CLASS: usePrefixClass('tag-input__suffix-clear'),
+    BREAK_LINE_CLASS: usePrefixClass('tag-input--break-line'),
+  };
+};
 
 export default defineComponent({
   name: 'TTagInput',
@@ -23,6 +27,8 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
+    const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useCOmponentClassName();
+
     const { inputValue } = toRefs(props);
     const [tInputValue, setTInputValue] = useDefault(
       inputValue,
@@ -39,16 +45,13 @@ export default defineComponent({
     });
     const { scrollToRight, onWheel, scrollToRightOnEnter, scrollToLeftOnLeave, tagInputRef } = useTagScroll(props);
     // handle tag add and remove
-    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(
-      props,
-      context,
-    );
+    const { tagValue, onInnerEnter, onInputBackspaceKeyUp, clearAll, renderLabel, onClose } = useTagList(props);
 
     const classes = computed(() => {
       return [
-        NAME_CLASS,
+        NAME_CLASS.value,
         {
-          [BREAK_LINE_CLASS]: excessTagsDisplayType.value === 'break-line',
+          [BREAK_LINE_CLASS.value]: excessTagsDisplayType.value === 'break-line',
         },
       ];
     });
@@ -84,6 +87,7 @@ export default defineComponent({
     };
 
     return {
+      CLEAR_CLASS,
       tagValue,
       tInputValue,
       isHover,
@@ -109,7 +113,7 @@ export default defineComponent({
 
   render() {
     const suffixIconNode = this.showClearIcon ? (
-      <CloseCircleFilledIcon class={CLEAR_CLASS} onClick={this.onClearClick} />
+      <CloseCircleFilledIcon class={this.CLEAR_CLASS} onClick={this.onClearClick} />
     ) : (
       renderTNodeJSX(this, 'suffixIcon')
     );

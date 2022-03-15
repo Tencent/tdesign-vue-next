@@ -1,5 +1,4 @@
-import { defineComponent, VNode, PropType, ref, onMounted } from 'vue';
-import { prefix } from '../../config';
+import { defineComponent, VNode, PropType } from 'vue';
 import {
   EmptyType,
   SearchEvent,
@@ -14,6 +13,8 @@ import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps }
 import { getLeefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
 import { renderTNodeJSXDefault } from '../../utils/render-tnode';
+
+import { usePrefixClass } from '../../config-provider';
 
 export default defineComponent({
   name: 'TTransferList',
@@ -70,6 +71,12 @@ export default defineComponent({
     },
   },
   emits: ['pageChange', 'checkedChange', 'scroll', 'search'],
+  setup() {
+    const classPrefix = usePrefixClass();
+    return {
+      classPrefix,
+    };
+  },
   data() {
     return {
       filterValue: '', // 搜索框输入内容,
@@ -188,8 +195,8 @@ export default defineComponent({
               value={item.value}
               needRipple={true}
               class={[
-                `${prefix}-transfer__list-item`,
-                this.checkedValue.includes(item.value) ? `${prefix}-is-checked` : '',
+                `${this.classPrefix}-transfer__list-item`,
+                this.checkedValue.includes(item.value) ? `${this.classPrefix}-is-checked` : '',
               ]}
               key={item.key}
               {...{ props: this.checkboxProps }}
@@ -203,7 +210,7 @@ export default defineComponent({
         </TCheckboxGroup>
       );
       return (
-        <div class={`${prefix}-transfer__list-content narrow-scrollbar`} onScroll={this.scroll}>
+        <div class={`${this.classPrefix}-transfer__list-content narrow-scrollbar`} onScroll={this.scroll}>
           {/* {this.$slots.tree
             ? this.$slots.tree({
                 data: this.curPageData,
@@ -226,7 +233,7 @@ export default defineComponent({
       const empty = this.empty || this.t(this.global.empty);
       const defaultNode: VNode = typeof empty === 'string' ? <span>{empty}</span> : null;
       return (
-        <div class={`${prefix}-transfer__empty`}>
+        <div class={`${this.classPrefix}-transfer__empty`}>
           {renderTNodeJSXDefault(this, 'empty', {
             defaultNode,
             params: {
@@ -238,7 +245,9 @@ export default defineComponent({
     },
     renderFooter() {
       const defaultNode =
-        typeof this.footer === 'string' ? <div class={`${prefix}-transfer__footer`}>{this.footer}</div> : null;
+        typeof this.footer === 'string' ? (
+          <div class={`${this.classPrefix}-transfer__footer`}>{this.footer}</div>
+        ) : null;
       return renderTNodeJSXDefault(this, 'footer', {
         defaultNode,
         params: {
@@ -249,8 +258,8 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class={`${prefix}-transfer__list ${prefix}-transfer__list-${this.listType}`}>
-        <div class={`${prefix}-transfer__list-header`}>
+      <div class={`${this.classPrefix}-transfer__list ${this.classPrefix}-transfer__list-${this.listType}`}>
+        <div class={`${this.classPrefix}-transfer__list-header`}>
           <div>
             {this.checkAll && (
               <TCheckbox
@@ -269,7 +278,12 @@ export default defineComponent({
           </div>
           {this.renderTitle()}
         </div>
-        <div class={[`${prefix}-transfer__list-body`, this.search ? `${prefix}-transfer__list--with-search` : '']}>
+        <div
+          class={[
+            `${this.classPrefix}-transfer__list-body`,
+            this.search ? `${this.classPrefix}-transfer__list--with-search` : '',
+          ]}
+        >
           {this.search && (
             <search
               searchValue={this.filterValue}
@@ -282,7 +296,7 @@ export default defineComponent({
           {this.curPageData.length > 0 ? this.renderContent() : this.renderEmpty()}
         </div>
         {this.pagination && this.pageSize > 0 && this.pageTotal > 0 && (
-          <div class={`${prefix}-transfer__list-pagination`}>
+          <div class={`${this.classPrefix}-transfer__list-pagination`}>
             <t-pagination {...this.paginationProps} onChange={this.handlePaginationChange} />
           </div>
         )}
