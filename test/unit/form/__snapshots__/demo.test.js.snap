@@ -3499,7 +3499,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-upload"
-            modelvalue="[object Object]"
           >
             <input
               accept="image/*"
@@ -3512,7 +3511,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
             <!---->
             <ul
               class="t-upload__card"
-              touploadfiles=""
             >
               
               <li
@@ -3619,12 +3617,14 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                 
               </div>
             </transition-stub>
+            
             <small
               class="t-upload__tips t-size-s"
             >
               请选择单张图片文件上传
             </small>
             <!---->
+            
           </div>
           
           <!---->

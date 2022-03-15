@@ -16023,8 +16023,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
                 </div>
               </div>
               <!--]-->
-            </div><small class="t-upload__tips t-size-s">请选择单张图片文件上传</small>
+            </div>
+            <!--[--><small class="t-upload__tips t-size-s">请选择单张图片文件上传</small>
             <!---->
+            <!--]-->
           </div>
           <!--]-->
           <!---->
@@ -47940,11 +47942,11 @@ exports[`ssr snapshot test renders ./examples/upload/demos/base.vue correctly 1`
     <!--[-->
     <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-upload" style="" slot="icon">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-upload" style="">
           <path fill="currentColor" d="M3.74 6.68L7.5 2.9v8.59h1V2.91l3.76 3.77.71-.7-4.62-4.63a.5.5 0 00-.7 0L3.03 5.97l.7.7z" fill-opacity="0.9"></path>
           <path fill="currentColor" d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z" fill-opacity="0.9"></path>
         </svg>
-        <!--]--><span class="t-button__text"><!--[-->点击上传<!--]--></span>
+        <!--]--><span class="t-button__text"><!--[-->选择文件<!--]--></span>
         <!--]-->
       </button>
       <!---->
@@ -47955,8 +47957,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/base.vue correctly 1`
   <!---->
   <!---->
   <!---->
-  <!----><small class="t-upload__tips t-size-s">上传文件大小在 5M 以内</small>
   <!---->
+  <!--[--><small class="t-upload__tips t-size-s">上传文件大小在 5M 以内</small>
+  <!---->
+  <!--]-->
 </div>
 <!--]-->
 `;
@@ -47978,7 +47982,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/custom-drag.vue corre
         <!--[-->
         <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->自定义拖拽区域<!--]--></span></button>
         <!--]-->
-        <!--v-if--><br><br>
+        <!--v-if--><br><br><!-- <span>数据状态：{{params}}</span> -->
         <!--]-->
         <!--]-->
       </div>
@@ -48006,24 +48010,31 @@ exports[`ssr snapshot test renders ./examples/upload/demos/custom-drag.vue corre
       </div>
       <!--]-->
     </div>
+    <!--[-->
     <!---->
     <!---->
+    <!--]-->
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/upload/demos/draggable.vue correctly 1`] = `
-<div>
-  <div>是否自动上传：<div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
-      <div class="t-switch__content t-size-m">
-        <!---->
+<div class="tdesign-demo-block-column-large">
+  <div class="tdesign-demo-block-column">
+    <div>是否自动上传：<div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
+        <div class="t-switch__content t-size-m">
+          <!---->
+        </div>
       </div>
     </div>
-  </div><br>
-  <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="file">
-    <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="file" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 文件拖拽上传 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="image" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 图片拖拽上传 <!--]--><!--]--></span></label>
-    <!--]-->
-  </div><br><br><!-- data 表示传递给上传接口的额外数据；如果有更复杂的数据场景传递，请使用 format 方法 -->
+    <div>
+      <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="file">
+        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="file" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->文件拖拽上传<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="image" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->图片拖拽上传<!--]--><!--]--></span></label>
+        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+        <!--]-->
+      </div>
+    </div>
+  </div><!-- data 表示传递给上传接口的额外数据；如果有更复杂的数据场景传递，请使用 format 方法 -->
   <div class="t-upload"><input type="file" accept hidden>
     <!---->
     <!---->
@@ -48035,7 +48046,9 @@ exports[`ssr snapshot test renders ./examples/upload/demos/draggable.vue correct
     <!---->
     <!---->
     <!---->
+    <!--[-->
     <!---->
+    <!--]-->
   </div>
 </div>
 `;
@@ -48056,24 +48069,66 @@ exports[`ssr snapshot test renders ./examples/upload/demos/file-flow-list.vue co
       <table class="t-upload__flow-table">
         <tr>
           <th>文件名</th>
-          <th>大小</th>
+          <th>文件尺寸</th>
           <th>状态</th>
           <th>操作</th>
         </tr>
         <tr>
           <td colspan="4">
-            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖拽到此区域</div>
+            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
           </td>
         </tr>
         <!--[-->
         <!--]-->
       </table>
       <!---->
-      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->取消<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
     </div>
     <!---->
+    <!--[-->
     <!---->
     <!---->
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/upload/demos/file-flow-list-batch-upload.vue correctly 1`] = `
+<div class="t-upload__file-flow-demo">
+  <div class="t-upload" batch-upload><input type="file" multiple accept hidden>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div class="t-upload__flow t-upload__flow-file-flow">
+      <div class="t-upload__flow-op">
+        <!--[-->
+        <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->选择文件<!--]--></span></button></div>
+        <!--]--><small class="t-size-s t-upload__flow-placeholder">批量合并上传，会通过一个接口上传所有的文件</small>
+      </div>
+      <table class="t-upload__flow-table">
+        <tr>
+          <th>文件名</th>
+          <th>文件尺寸</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
+          </td>
+        </tr>
+        <!--[-->
+        <!--]-->
+      </table>
+      <!---->
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+    </div>
+    <!---->
+    <!--[-->
+    <!---->
+    <!---->
+    <!--]-->
   </div>
 </div>
 `;
@@ -48115,8 +48170,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/image.vue correctly 1
           </div>
         </div>
         <!--]-->
-      </div><small class="t-upload__tips t-size-s">请选择单张图片文件上传（上传成功状态演示）</small>
+      </div>
+      <!--[--><small class="t-upload__tips t-size-s">请选择单张图片文件上传（上传成功状态演示）</small>
       <!---->
+      <!--]-->
     </div>
   </div>
   <div class="tdesign-demo-upload-item">
@@ -48154,8 +48211,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/image.vue correctly 1
           </div>
         </div>
         <!--]-->
-      </div><small class="t-upload__tips t-size-s">请选择单张图片文件上传（上传失败状态演示）</small>
+      </div>
+      <!--[--><small class="t-upload__tips t-size-s">请选择单张图片文件上传（上传失败状态演示）</small>
       <!---->
+      <!--]-->
     </div>
   </div>
   <div class="tdesign-demo-upload-item">
@@ -48193,8 +48252,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/image.vue correctly 1
           </div>
         </div>
         <!--]-->
-      </div><small class="t-upload__tips t-size-s">请选择单张图片文件上传（自定义预览图片地址）</small>
+      </div>
+      <!--[--><small class="t-upload__tips t-size-s">请选择单张图片文件上传（自定义预览图片地址）</small>
       <!---->
+      <!--]-->
     </div>
   </div>
   <div class="tdesign-demo-upload-item">
@@ -48232,8 +48293,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/image.vue correctly 1
           </div>
         </div>
         <!--]-->
-      </div><small class="t-upload__tips t-size-s">允许选择多张图片文件上传，最多只能上传 3 张图片</small>
+      </div>
+      <!--[--><small class="t-upload__tips t-size-s">允许选择多张图片文件上传，最多只能上传 3 张图片</small>
       <!---->
+      <!--]-->
     </div>
   </div>
 </div>
@@ -48254,10 +48317,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/img-flow-list.vue cor
       </div>
       <!---->
       <div class="t-upload__flow-card-area">
-        <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖拽到此区域</div>
+        <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
         <!---->
       </div>
-      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->取消<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
     </div>
     <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
       <!--[-->
@@ -48278,8 +48341,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/img-flow-list.vue cor
       </div>
       <!--]-->
     </div>
+    <!--[-->
     <!---->
     <!---->
+    <!--]-->
   </div>
 </div>
 `;
@@ -48313,18 +48378,23 @@ exports[`ssr snapshot test renders ./examples/upload/demos/listType.vue correctl
       <!---->
       <!---->
       <!---->
+      <!--[-->
       <!---->
+      <!--]-->
     </div>
   </header>
 </section>
 `;
 
 exports[`ssr snapshot test renders ./examples/upload/demos/request-method.vue correctly 1`] = `
-<div>
-  <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="requestSuccessMethod">
-    <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="requestSuccessMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 上传成功示例 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="requestFailMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 上传失败示例 <!--]--><!--]--></span></label>
-    <!--]-->
-  </div><br><br>
+<div class="tdesign-demo-block-column-large">
+  <div>
+    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="requestSuccessMethod">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="requestSuccessMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->上传成功示例<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="requestFailMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->上传失败示例<!--]--><!--]--></span></label>
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+      <!--]-->
+    </div>
+  </div>
   <div class="t-upload"><input type="file" accept hidden>
     <!---->
     <div class="t-upload__single t-upload__single-file">
@@ -48332,11 +48402,11 @@ exports[`ssr snapshot test renders ./examples/upload/demos/request-method.vue co
       <!--[-->
       <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button">
           <!--[-->
-          <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-upload" style="" slot="icon">
+          <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-upload" style="">
             <path fill="currentColor" d="M3.74 6.68L7.5 2.9v8.59h1V2.91l3.76 3.77.71-.7-4.62-4.63a.5.5 0 00-.7 0L3.03 5.97l.7.7z" fill-opacity="0.9"></path>
             <path fill="currentColor" d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z" fill-opacity="0.9"></path>
           </svg>
-          <!--]--><span class="t-button__text"><!--[-->点击上传<!--]--></span>
+          <!--]--><span class="t-button__text"><!--[-->选择文件<!--]--></span>
           <!--]-->
         </button>
         <!---->
@@ -48347,8 +48417,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/request-method.vue co
     <!---->
     <!---->
     <!---->
-    <!----><small class="t-upload__tips t-size-s">自定义上传方法需要返回成功或失败信息</small>
     <!---->
+    <!--[--><small class="t-upload__tips t-size-s">自定义上传方法需要返回成功或失败信息</small>
+    <!---->
+    <!--]-->
   </div>
 </div>
 `;
@@ -48358,7 +48430,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-custom.vue cor
   <div>
     <div class="t-upload"><input type="file" multiple accept hidden>
       <div class="t-upload__trigger">
-        <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 自定义上传 <!--]--></span></button>
+        <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->自定义上传<!--]--></span></button>
         <!--]-->
       </div>
       <!---->
@@ -48383,8 +48455,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-custom.vue cor
           </div>
         </div>
         <!--]-->
-      </div><small class="t-upload__tips t-size-s">上传文件大小在 5M 以内</small>
+      </div>
+      <!--[--><small class="t-upload__tips t-size-s">上传文件大小在 5M 以内</small>
       <!---->
+      <!--]-->
     </div>
     <!--v-if-->
   </div>
@@ -48403,7 +48477,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-input.vue corr
           </div>
         </div>
         <!--[-->
-        <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->选择文件<!--]--></span></button>
+        <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->选择文件<!--]--></span></button>
           <!---->
         </div>
         <!--]-->
@@ -48413,8 +48487,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-input.vue corr
       <!---->
       <!---->
       <!---->
+      <!--[-->
       <!---->
       <!---->
+      <!--]-->
     </div>
   </div>
 </div>
@@ -48448,7 +48524,9 @@ exports[`ssr snapshot test renders ./examples/upload/demos/table.vue correctly 1
       <!---->
       <!---->
       <!---->
+      <!--[-->
       <!---->
+      <!--]-->
     </div>
   </header>
   <div class="tdesign-demo-upload-table">
