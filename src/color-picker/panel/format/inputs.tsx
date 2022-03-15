@@ -20,9 +20,14 @@ export default defineComponent({
     color: {
       type: Object as PropType<Color>,
     },
+    onInputChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
-  emits: ['change'],
-  setup(props, { emit }) {
+  setup(props) {
     const inputConfigs = computed(() => {
       const configs = [...FORMAT_INPUT_CONFIG[props.format]];
       if (props.enableAlpha) {
@@ -101,7 +106,7 @@ export default defineComponent({
           value = modelValue.hex;
           break;
       }
-      emit('change', value, modelValue.a, key, v);
+      props.onInputChange(value, modelValue.a, key, v);
     };
 
     return {
@@ -133,6 +138,7 @@ export default defineComponent({
                   maxlength={this.format === 'HEX' ? 9 : undefined}
                   title={this.modelValue[config.key]}
                   onBlur={(v: string) => this.handleChange(config.key, v)}
+                  onEnter={(v: string) => this.handleChange(config.key, v)}
                 />
               ) : (
                 <t-input-number
@@ -144,6 +150,7 @@ export default defineComponent({
                   max={config.max}
                   theme="normal"
                   onBlur={(v: number) => this.handleChange(config.key, v)}
+                  onEnter={(v: number) => this.handleChange(config.key, v)}
                 />
               )}
             </div>

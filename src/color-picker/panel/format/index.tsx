@@ -22,9 +22,20 @@ export default defineComponent({
     color: {
       type: Object as PropType<Color>,
     },
+    onModeChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
+    onInputChange: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
-  emits: ['mode-change', 'change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
     const formatModel = ref<TdColorPickerProps['format']>(props.format);
     watch(
@@ -38,28 +49,18 @@ export default defineComponent({
      */
     const handleModeChange = (v: TdColorPickerProps['format']) => {
       formatModel.value = v;
-      emit('mode-change', v);
-    };
-
-    /**
-     * 颜色变化时触发
-     * @param input
-     * @param alpha
-     */
-    const handleColorChange = (input: string, alpha?: number) => {
-      emit('change', input, alpha);
+      props.onModeChange(v);
     };
 
     return {
       formatModel,
       baseClassName,
       handleModeChange,
-      handleColorChange,
     };
   },
   render() {
     const formats: TdColorPickerProps['format'][] = [...FORMATS];
-    const { baseClassName, handleModeChange, handleColorChange } = this;
+    const { baseClassName, handleModeChange } = this;
     const newProps = {
       ...this.$props,
       format: this.formatModel,
@@ -67,8 +68,6 @@ export default defineComponent({
     const selectInputProps = {
       ...((this.selectInputProps as Object) || {}),
     };
-    delete newProps.onChange;
-    delete newProps.onPaletteBarChange;
     return (
       <div className={`${baseClassName}__format`}>
         <div className={`${baseClassName}__format--item`}>
@@ -79,7 +78,7 @@ export default defineComponent({
           </t-select>
         </div>
         <div className={`${baseClassName}__format--item`}>
-          <format-inputs {...newProps} onChange={handleColorChange} />
+          <format-inputs {...newProps} />
         </div>
       </div>
     );

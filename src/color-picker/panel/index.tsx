@@ -291,8 +291,6 @@ export default defineComponent({
   render() {
     const { baseClassName, statusClassNames } = this;
     const props = { ...this.$props, color: this.color, format: this.formatModel };
-    delete props.onChange;
-    delete props.onPaletteBarChange;
     const showUsedColors = props.recentColors !== null && this.recentlyUsedColors?.length > 0;
     let systemColors = props.swatchColors;
     if (systemColors === undefined) {
@@ -350,7 +348,13 @@ export default defineComponent({
           {this.enableAlpha ? (
             <alpha-slider color={this.color} disabled={this.disabled} onChange={this.handleAlphaChange} />
           ) : null}
-          <format-panel {...props} onModeChange={this.handleFormatModeChange} onChange={this.handleInputChange} />
+          <format-panel
+            {...this.$props}
+            color={this.color}
+            format={this.formatModel}
+            onModeChange={this.handleFormatModeChange}
+            onInputChange={this.handleInputChange}
+          />
           {renderSwatches()}
         </div>
       </div>

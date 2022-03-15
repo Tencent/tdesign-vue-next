@@ -324,12 +324,20 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           >
                             <div
                               class="t-input"
+                              unselectable="off"
                             >
+                              <!---->
+                              <!---->
                               <input
-                                autocomplete="off"
                                 class="t-input__inner"
+                                placeholder="请输入"
+                                type="text"
                               />
+                              <!---->
+                              <!---->
+                              <!---->
                             </div>
+                            <!---->
                           </div>
                           <!---->
                         </div>
@@ -349,12 +357,20 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           >
                             <div
                               class="t-input"
+                              unselectable="off"
                             >
+                              <!---->
+                              <!---->
                               <input
-                                autocomplete="off"
                                 class="t-input__inner"
+                                placeholder="请输入"
+                                type="text"
                               />
+                              <!---->
+                              <!---->
+                              <!---->
                             </div>
+                            <!---->
                           </div>
                           <!---->
                         </div>
@@ -374,12 +390,20 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           >
                             <div
                               class="t-input"
+                              unselectable="off"
                             >
+                              <!---->
+                              <!---->
                               <input
-                                autocomplete="off"
                                 class="t-input__inner"
+                                placeholder="请输入"
+                                type="text"
                               />
+                              <!---->
+                              <!---->
+                              <!---->
                             </div>
+                            <!---->
                           </div>
                           <!---->
                         </div>
@@ -970,7 +994,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               </div>
               <input
                 class="t-input__inner"
-                placeholder="请选择"
+                placeholder="请输入"
                 type="text"
               />
               <span
@@ -1252,12 +1276,20 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           >
                             <div
                               class="t-input"
+                              unselectable="off"
                             >
+                              <!---->
+                              <!---->
                               <input
-                                autocomplete="off"
                                 class="t-input__inner"
+                                placeholder="请输入"
+                                type="text"
                               />
+                              <!---->
+                              <!---->
+                              <!---->
                             </div>
+                            <!---->
                           </div>
                           <!---->
                         </div>
@@ -1277,12 +1309,20 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           >
                             <div
                               class="t-input"
+                              unselectable="off"
                             >
+                              <!---->
+                              <!---->
                               <input
-                                autocomplete="off"
                                 class="t-input__inner"
+                                placeholder="请输入"
+                                type="text"
                               />
+                              <!---->
+                              <!---->
+                              <!---->
                             </div>
+                            <!---->
                           </div>
                           <!---->
                         </div>
@@ -1302,12 +1342,20 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           >
                             <div
                               class="t-input"
+                              unselectable="off"
                             >
+                              <!---->
+                              <!---->
                               <input
-                                autocomplete="off"
                                 class="t-input__inner"
+                                placeholder="请输入"
+                                type="text"
                               />
+                              <!---->
+                              <!---->
+                              <!---->
                             </div>
+                            <!---->
                           </div>
                           <!---->
                         </div>
@@ -1898,7 +1946,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               </div>
               <input
                 class="t-input__inner"
-                placeholder="请选择"
+                placeholder="请输入"
                 type="text"
               />
               <span
@@ -1916,6 +1964,9 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
       
     </div>
   </div>
+  <div
+    style="width: 100%;"
+  />
   <div
     class="item"
   >
@@ -2018,12 +2069,20 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input"
+                          unselectable="off"
                         >
+                          <!---->
+                          <!---->
                           <input
-                            autocomplete="off"
                             class="t-input__inner"
+                            placeholder="请输入"
+                            type="text"
                           />
+                          <!---->
+                          <!---->
+                          <!---->
                         </div>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -2836,7 +2895,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               </div>
               <input
                 class="t-input__inner"
-                placeholder="请选择"
+                placeholder="请输入"
                 type="text"
               />
               <span
@@ -3157,12 +3216,20 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 >
                   <div
                     class="t-input"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
                       class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -3182,12 +3249,20 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 >
                   <div
                     class="t-input"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
                       class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -3207,12 +3282,20 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 >
                   <div
                     class="t-input"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
                       class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -3232,12 +3315,20 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 >
                   <div
                     class="t-input"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
                       class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -4084,12 +4175,20 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                 >
                   <div
                     class="t-input"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
                       class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -4109,12 +4208,20 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                 >
                   <div
                     class="t-input"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
                       class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -4134,12 +4241,20 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                 >
                   <div
                     class="t-input"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
                       class="t-input__inner"
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -4990,12 +5105,20 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -5015,12 +5138,20 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -5040,12 +5171,20 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -5071,7 +5210,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               <span
                 class="t-color-picker__icon t-is-disabled"
                 role="button"
-                title="移除选中的颜色"
               >
                 <svg
                   class="t-icon t-icon-delete"
@@ -6032,12 +6170,20 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -6057,12 +6203,20 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -6082,12 +6236,20 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -6701,7 +6863,7 @@ exports[`ColorPicker ColorPicker statusDisabledVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               disabled=""
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <span
@@ -7008,14 +7170,22 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input"
+                    class="t-input t-is-disabled"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
-                      class="t-input__inner t-is-disabled"
+                      class="t-input__inner"
                       disabled=""
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7034,14 +7204,22 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input"
+                    class="t-input t-is-disabled"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
-                      class="t-input__inner t-is-disabled"
+                      class="t-input__inner"
                       disabled=""
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7060,14 +7238,22 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                   class="t-input__wrap"
                 >
                   <div
-                    class="t-input"
+                    class="t-input t-is-disabled"
+                    unselectable="off"
                   >
+                    <!---->
+                    <!---->
                     <input
-                      autocomplete="off"
-                      class="t-input__inner t-is-disabled"
+                      class="t-input__inner"
                       disabled=""
+                      placeholder="请输入"
+                      type="text"
                     />
+                    <!---->
+                    <!---->
+                    <!---->
                   </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7918,12 +8104,20 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -7943,12 +8137,20 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -7968,12 +8170,20 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8363,12 +8573,20 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8388,12 +8606,20 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8413,12 +8639,20 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input"
+                      unselectable="off"
                     >
+                      <!---->
+                      <!---->
                       <input
-                        autocomplete="off"
                         class="t-input__inner"
+                        placeholder="请输入"
+                        type="text"
                       />
+                      <!---->
+                      <!---->
+                      <!---->
                     </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8752,12 +8986,20 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                         >
                           <div
                             class="t-input"
+                            unselectable="off"
                           >
+                            <!---->
+                            <!---->
                             <input
-                              autocomplete="off"
                               class="t-input__inner"
+                              placeholder="请输入"
+                              type="text"
                             />
+                            <!---->
+                            <!---->
+                            <!---->
                           </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -8777,12 +9019,20 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                         >
                           <div
                             class="t-input"
+                            unselectable="off"
                           >
+                            <!---->
+                            <!---->
                             <input
-                              autocomplete="off"
                               class="t-input__inner"
+                              placeholder="请输入"
+                              type="text"
                             />
+                            <!---->
+                            <!---->
+                            <!---->
                           </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -8802,12 +9052,20 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                         >
                           <div
                             class="t-input"
+                            unselectable="off"
                           >
+                            <!---->
+                            <!---->
                             <input
-                              autocomplete="off"
                               class="t-input__inner"
+                              placeholder="请输入"
+                              type="text"
                             />
+                            <!---->
+                            <!---->
+                            <!---->
                           </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -9398,7 +9656,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
             </div>
             <input
               class="t-input__inner"
-              placeholder="请选择"
+              placeholder="请输入"
               type="text"
             />
             <span
