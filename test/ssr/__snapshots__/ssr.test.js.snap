@@ -6710,7 +6710,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                         <!---->
                         <div class="t-input__wrap">
-                          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                          <div class="t-input" unselectable="off">
+                            <!---->
+                            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                            <!---->
+                            <!---->
+                            <!---->
+                          </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -6719,7 +6726,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                         <!---->
                         <div class="t-input__wrap">
-                          <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                          <div class="t-input" unselectable="off">
+                            <!---->
+                            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                            <!---->
+                            <!---->
+                            <!---->
+                          </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -6728,7 +6742,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                         <!---->
                         <div class="t-input__wrap">
-                          <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                          <div class="t-input" unselectable="off">
+                            <!---->
+                            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                            <!---->
+                            <!---->
+                            <!---->
+                          </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -6806,7 +6827,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请选择" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
               <!---->
               <!---->
             </div>
@@ -6888,7 +6909,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                         <!---->
                         <div class="t-input__wrap">
-                          <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                          <div class="t-input" unselectable="off">
+                            <!---->
+                            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                            <!---->
+                            <!---->
+                            <!---->
+                          </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -6897,7 +6925,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                         <!---->
                         <div class="t-input__wrap">
-                          <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                          <div class="t-input" unselectable="off">
+                            <!---->
+                            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                            <!---->
+                            <!---->
+                            <!---->
+                          </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -6906,7 +6941,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                         <!---->
                         <div class="t-input__wrap">
-                          <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                          <div class="t-input" unselectable="off">
+                            <!---->
+                            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                            <!---->
+                            <!---->
+                            <!---->
+                          </div>
+                          <!---->
                         </div>
                         <!---->
                       </div>
@@ -6984,7 +7026,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请选择" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
               <!---->
               <!---->
             </div>
@@ -6995,6 +7037,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
       <!--]-->
     </div>
   </div>
+  <div style="width:100%;"></div>
   <div class="item">
     <h5>仅线性渐变模式</h5>
     <div class="t-popup__reference">
@@ -7020,7 +7063,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                   <div class="t-input-number t-size-m t-input-number--normal" modelvalue="45">
                     <!---->
                     <div class="t-input__wrap">
-                      <div class="t-input"><input value="45°" class="t-input__inner" autocomplete="off"></div>
+                      <div class="t-input" unselectable="off">
+                        <!---->
+                        <!----><input class="t-input__inner" placeholder="请输入" type="text" value="45°">
+                        <!---->
+                        <!---->
+                        <!---->
+                      </div>
+                      <!---->
                     </div>
                     <!---->
                   </div>
@@ -7167,7 +7217,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请选择" type="text" value="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"><span class="t-input__input-pre">linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"><span class="t-input__input-pre">linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)</span>
               <!---->
               <!---->
             </div>
@@ -7260,7 +7310,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                  <div class="t-input" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7269,7 +7326,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                  <div class="t-input" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7278,7 +7342,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                  <div class="t-input" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7287,7 +7358,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               <div class="t-input-number t-size-m t-input-number--normal" modelvalue="1" title="1">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="1" class="t-input__inner" autocomplete="off"></div>
+                  <div class="t-input" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="1">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7432,7 +7510,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
               <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                  <div class="t-input" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7441,7 +7526,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
               <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                  <div class="t-input" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7450,7 +7542,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
               <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                  <div class="t-input" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7597,7 +7696,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -7606,7 +7712,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -7615,7 +7728,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -7627,7 +7747,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
         <!--[-->
         <div class="t-color-picker__swatches-wrap">
           <div class="t-color-picker__swatches" activecolor>
-            <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span><span role="button" title="移除选中的颜色" class="t-color-picker__icon t-is-disabled"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-delete" style=""><path fill="currentColor" d="M6 12V6h1v6H6zM9 6v6h1V6H9z" fill-opacity="0.9"></path><path fill="currentColor" d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z" fill-opacity="0.9"></path></svg></span></h3>
+            <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span><span role="button" class="t-color-picker__icon t-is-disabled"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-delete" style=""><path fill="currentColor" d="M6 12V6h1v6H6zM9 6v6h1V6H9z" fill-opacity="0.9"></path><path fill="currentColor" d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z" fill-opacity="0.9"></path></svg></span></h3>
             <ul class="t-color-picker__swatches--items narrow-scrollbar">
               <!--[-->
               <li class="t-color-picker__swatches--item" title="red"><span class="t-color-picker__swatches--item__color t-color-picker--bg-alpha"><span class="t-color-picker__swatches--item__inner" style="background:red;"></span></span></li>
@@ -7772,7 +7892,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -7781,7 +7908,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -7790,7 +7924,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -7878,7 +8019,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-disabled
               <!--[-->
               <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
               <!--]-->
-            </div><input class="t-input__inner" disabled placeholder="请选择" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
+            </div><input class="t-input__inner" disabled placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
             <!---->
             <!---->
           </div>
@@ -7968,7 +8109,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
               <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" modelvalue="0" title="0">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="0" class="t-input__inner t-is-disabled" disabled autocomplete="off"></div>
+                  <div class="t-input t-is-disabled" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value="0">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7977,7 +8125,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
               <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" modelvalue="82" title="82">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="82" class="t-input__inner t-is-disabled" disabled autocomplete="off"></div>
+                  <div class="t-input t-is-disabled" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value="82">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -7986,7 +8141,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
               <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" modelvalue="217" title="217">
                 <!---->
                 <div class="t-input__wrap">
-                  <div class="t-input"><input value="217" class="t-input__inner t-is-disabled" disabled autocomplete="off"></div>
+                  <div class="t-input t-is-disabled" unselectable="off">
+                    <!---->
+                    <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value="217">
+                    <!---->
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
                 </div>
                 <!---->
               </div>
@@ -8133,7 +8295,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8142,7 +8311,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8151,7 +8327,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8259,7 +8442,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8268,7 +8458,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8277,7 +8474,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                   <!---->
                   <div class="t-input__wrap">
-                    <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                    <div class="t-input" unselectable="off">
+                      <!---->
+                      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                      <!---->
+                      <!---->
+                      <!---->
+                    </div>
+                    <!---->
                   </div>
                   <!---->
                 </div>
@@ -8372,7 +8576,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
                     <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
                       <!---->
                       <div class="t-input__wrap">
-                        <div class="t-input"><input value="0" class="t-input__inner" autocomplete="off"></div>
+                        <div class="t-input" unselectable="off">
+                          <!---->
+                          <!----><input class="t-input__inner" placeholder="请输入" type="text" value="0">
+                          <!---->
+                          <!---->
+                          <!---->
+                        </div>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -8381,7 +8592,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
                     <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
                       <!---->
                       <div class="t-input__wrap">
-                        <div class="t-input"><input value="82" class="t-input__inner" autocomplete="off"></div>
+                        <div class="t-input" unselectable="off">
+                          <!---->
+                          <!----><input class="t-input__inner" placeholder="请输入" type="text" value="82">
+                          <!---->
+                          <!---->
+                          <!---->
+                        </div>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -8390,7 +8608,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
                     <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
                       <!---->
                       <div class="t-input__wrap">
-                        <div class="t-input"><input value="217" class="t-input__inner" autocomplete="off"></div>
+                        <div class="t-input" unselectable="off">
+                          <!---->
+                          <!----><input class="t-input__inner" placeholder="请输入" type="text" value="217">
+                          <!---->
+                          <!---->
+                          <!---->
+                        </div>
+                        <!---->
                       </div>
                       <!---->
                     </div>
@@ -8468,7 +8693,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
               <!--[-->
               <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
               <!--]-->
-            </div><input class="t-input__inner" placeholder="请选择" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
+            </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
             <!---->
             <!---->
           </div>

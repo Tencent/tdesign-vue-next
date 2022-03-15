@@ -3,7 +3,7 @@ import useVModel from '../hooks/useVModel';
 import props from './props';
 import ColorPanel from './panel';
 import { TdColorPickerPopupProvide, TdColorPickerProvides, TdColorContext } from './interfaces';
-import { useStatusClassName } from './hooks';
+import { usePrefixClass } from '..';
 
 export default defineComponent({
   name: 'TColorPickerPanel',
@@ -13,7 +13,7 @@ export default defineComponent({
   inheritAttrs: false,
   props,
   setup(props) {
-    const statusClassNames = useStatusClassName();
+    const prefix = usePrefixClass();
     provide<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP, {
       visible: ref(false),
       setVisible() {},
@@ -32,20 +32,13 @@ export default defineComponent({
 
     return {
       innerValue,
-      statusClassNames,
+      prefix,
       handleChange,
       handlePaletteChange,
     };
   },
   render() {
-    const { statusClassNames } = this;
-    return (
-      <color-panel
-        {...this.$props}
-        popupProps={null}
-        close-btn={false}
-        custom-class={statusClassNames.inlineClassName}
-      />
-    );
+    const { prefix } = this;
+    return <color-panel {...this.$props} popupProps={null} close-btn={false} custom-class={`${prefix}-is-inline`} />;
   },
 });

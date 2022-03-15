@@ -4,7 +4,8 @@ import { Select as TSelect, Option as TOption } from '../../select';
 import Color from '../utils/color';
 import { useClickOutsider } from '../utils/click-outsider';
 import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
-import { useBaseClassName, useStatusClassName } from '../hooks';
+import { useBaseClassName } from '../hooks';
+import { useCommonClassName } from '../../config-provider';
 
 export default defineComponent({
   name: 'SwatchesPanel',
@@ -33,16 +34,22 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    onSetColor: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
   },
-  emits: ['set-color'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
-    const statusClassNames = useStatusClassName();
+    const { STATUS } = useCommonClassName();
+    const statusClassNames = STATUS.value;
     const { activeColor, removeColor, setActiveColor } = inject<TdColorPickerUsedColorsProvide>(
       TdColorPickerProvides.USED_COLORS,
     );
 
-    const handleClick = (color: string) => emit('set-color', color);
+    const handleClick = (color: string) => props.onSetColor(color);
 
     const isEqualCurrentColor = (color: string) => props.color.equals(color);
 
@@ -83,7 +90,7 @@ export default defineComponent({
           {removable ? (
             <span
               role="button"
-              class={[`${baseClassName}__icon`, !activeColor ? statusClassNames.disabledClassName : '']}
+              class={[`${baseClassName}__icon`, !activeColor ? statusClassNames.disabled : '']}
               onMouseup={(e) => e.stopPropagation()}
               onClick={() => {
                 if (disabled) {
@@ -106,8 +113,8 @@ export default defineComponent({
                 ref={colorItemRefs}
                 class={[
                   `${swatchesClass}--item`,
-                  activeColor === color && removable ? statusClassNames.activeClassName : '',
-                  this.isEqualCurrentColor(color) ? statusClassNames.currentClassName : '',
+                  activeColor === color && removable ? statusClassNames.active : '',
+                  this.isEqualCurrentColor(color) ? statusClassNames.current : '',
                 ]}
                 key={color}
                 title={color}

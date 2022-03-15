@@ -5,7 +5,8 @@ import Color, { genGradientPoint } from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
 import { InputNumber as TInputNumber } from '../../input-number';
 import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
-import { useBaseClassName, useStatusClassName } from '../hooks';
+import { useBaseClassName } from '../hooks';
+import { useCommonClassName } from '../../config-provider';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];
 
@@ -32,7 +33,8 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
-    const statusClassNames = useStatusClassName();
+    const { STATUS } = useCommonClassName();
+    const statusClassNames = STATUS.value;
     const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refSlider = ref<HTMLElement>(null);
     const sliderRect = reactive({
@@ -240,7 +242,7 @@ export default defineComponent({
                     class={[
                       `${baseClassName}__thumb`,
                       'gradient-thumbs__item',
-                      selectedId === t.id ? statusClassNames.activeClassName : '',
+                      selectedId === t.id ? statusClassNames.active : '',
                     ]}
                     key={t.id}
                     title={`${t.color} ${left}`}

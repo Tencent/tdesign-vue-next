@@ -1,4 +1,5 @@
 import { defineComponent, provide, ref, toRefs, watch } from 'vue';
+import { useCommonClassName } from '../../config-provider';
 import props from '../props';
 import {
   DEFAULT_COLOR,
@@ -19,7 +20,7 @@ import Color, { getColorObject } from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
 import { TdColorPickerProps, ColorPickerChangeTrigger } from '..';
 import { TdColorModes, TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
-import { useBaseClassName, useStatusClassName } from '../hooks';
+import { useBaseClassName } from '../hooks';
 import useVModel from '../../hooks/useVModel';
 
 export default defineComponent({
@@ -43,7 +44,8 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
-    const statusClassNames = useStatusClassName();
+    const { STATUS } = useCommonClassName();
+    const statusClassNames = STATUS.value;
     const { value: inputValue, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
     const color = ref<Color>(new Color(innerValue.value || DEFAULT_COLOR));
@@ -331,11 +333,7 @@ export default defineComponent({
 
     return (
       <div
-        class={[
-          `${baseClassName}__panel`,
-          this.customClass,
-          this.disabled ? statusClassNames.disabledClassName : false,
-        ]}
+        class={[`${baseClassName}__panel`, this.customClass, this.disabled ? statusClassNames.disabled : false]}
         onClick={(e) => e.stopPropagation()}
       >
         <panel-header {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
