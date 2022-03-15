@@ -77,7 +77,7 @@ export default defineComponent({
   render() {
     const { placement, styles, list } = this;
     return (
-      <div class={`${prefix}-notification__show--${placement}`} style={styles}>
+      <div class={`${prefix}-notification__show-transition--${placement}`} style={styles}>
         <TransitionGroup name="notification-slide-fade">
           {list.map((item, index) => (
             <Notification
