@@ -223,7 +223,7 @@ export default defineComponent({
           header={false}
           onClose={cancelPreviewImgDialog}
         >
-          <div class={`${prefix}__dialog-body-img-box`}>
+          <div class={`${prefix.value}__dialog-body-img-box`}>
             <img src={showImageViewUrl.value} alt="" />
           </div>
         </TDialog>
