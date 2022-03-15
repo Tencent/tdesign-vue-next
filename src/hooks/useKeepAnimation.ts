@@ -1,4 +1,3 @@
-import { computed } from 'vue';
 import { useConfig } from '../config-provider/useConfig';
 import { EAnimationType } from '../config-provider/context';
 
