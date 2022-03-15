@@ -4,13 +4,14 @@ import isFunction from 'lodash/isFunction';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from './props';
 import { TdNotificationProps } from './type';
-import { usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TNotification',
   props,
   setup(props: TdNotificationProps, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('notification');
+    const { classPrefix } = useConfig('classPrefix');
     const renderTNode = useTNodeJSX();
     const renderContent = useContent();
 
@@ -40,7 +41,7 @@ export default defineComponent({
     const renderClose = () => {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${COMPONENT_NAME.value}-message__close`} onClick={close}>
+        <span class={`${classPrefix.value}-message__close`} onClick={close}>
           {renderTNode('closeBtn', defaultClose)}
         </span>
       );
