@@ -8,14 +8,20 @@ import TransferDom from '../utils/transfer-dom';
 import props from './props';
 import { Styles } from '../common';
 
-const name = `${prefix}-loading`;
-const centerClass = `${prefix}-loading--center`;
-const fullscreenClass = `${prefix}-loading__fullscreen`;
-const lockClass = `${prefix}-loading--lock`;
-const overlayClass = `${prefix}-loading__overlay`;
-const relativeClass = `${prefix}-loading__parent`;
-const fullClass = `${prefix}-loading--full`;
-const inheritColorClass = `${prefix}-loading--inherit-color`;
+import { usePrefixClass } from '../config-provider';
+
+const useComponentClassName = () => {
+  return {
+    name: usePrefixClass('loading'),
+    centerClass: usePrefixClass('loading--center'),
+    fullscreenClass: usePrefixClass('loading__fullscreen'),
+    lockClass: usePrefixClass('loading--lock'),
+    overlayClass: usePrefixClass('loading__overlay'),
+    relativeClass: usePrefixClass('loading__parent'),
+    fullClass: usePrefixClass('loading--full'),
+    inheritColorClass: usePrefixClass('loading--inherit-color'),
+  };
+};
 
 export default defineComponent({
   name: 'TLoading',
@@ -25,6 +31,9 @@ export default defineComponent({
   props,
   setup(props, { slots }) {
     const delayShowLoading = ref(false);
+
+    const { name, centerClass, fullscreenClass, lockClass, overlayClass, relativeClass, fullClass, inheritColorClass } =
+      useComponentClassName();
 
     const countDelay = () => {
       delayShowLoading.value = false;
@@ -57,21 +66,25 @@ export default defineComponent({
     const showNormalLoading = computed(() => props.attach && props.loading && delayCounted.value);
 
     const classes = computed(() => {
-      const baseClasses = [centerClass, SIZE_CLASSNAMES[props.size], { [inheritColorClass]: props.inheritColor }];
-      const fullScreenClasses = [name, fullscreenClass, centerClass, overlayClass];
+      const baseClasses = [
+        centerClass.value,
+        SIZE_CLASSNAMES[props.size],
+        { [inheritColorClass.value]: props.inheritColor },
+      ];
+      const fullScreenClasses = [name.value, fullscreenClass.value, centerClass.value, overlayClass.value];
 
       return {
         baseClasses,
-        attachClasses: baseClasses.concat([name, fullClass, { [overlayClass]: props.showOverlay }]),
+        attachClasses: baseClasses.concat([name.value, fullClass.value, { [overlayClass.value]: props.showOverlay }]),
         withContentClasses: baseClasses.concat([
-          name,
-          fullClass,
+          name.value,
+          fullClass.value,
           {
-            [overlayClass]: props.showOverlay,
+            [overlayClass.value]: props.showOverlay,
           },
         ]),
         fullScreenClasses,
-        normalClasses: baseClasses.concat([name]),
+        normalClasses: baseClasses.concat([name.value]),
       };
     });
 
@@ -80,9 +93,9 @@ export default defineComponent({
     watch([loadingRef], ([isLoading]) => {
       if (isLoading) {
         countDelay();
-        lockFullscreen.value && addClass(document.body, lockClass);
+        lockFullscreen.value && addClass(document.body, lockClass.value);
       } else {
-        lockFullscreen.value && removeClass(document.body, lockClass);
+        lockFullscreen.value && removeClass(document.body, lockClass.value);
       }
     });
 
@@ -91,6 +104,7 @@ export default defineComponent({
     });
 
     return {
+      relativeClass,
       delayShowLoading,
       styles,
       showText,
@@ -125,7 +139,7 @@ export default defineComponent({
     // Loading is wrapping a HTMLElement.
     if (this.hasContent) {
       return (
-        <div class={relativeClass}>
+        <div class={this.relativeClass}>
           {renderContent(this, 'default', 'content')}
           {this.showWrapLoading && (
             <div class={withContentClasses} style={this.styles}>
