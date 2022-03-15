@@ -22,7 +22,7 @@ export default defineComponent({
   props,
   setup(props) {
     const renderTNodeContent = useContent();
-    const { classPrefix: prefix } = useConfig('upload');
+    const { classPrefix: prefix, global } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
     const { files, modelValue } = toRefs(props);
 
@@ -132,12 +132,12 @@ export default defineComponent({
     };
 
     const uploadListTriggerText = computed(() => {
-      let uploadText = '选择文件';
+      let uploadText = global.value.triggerUploadText.fileInput;
       if (uploadCtx.toUploadFiles?.length > 0 || uploadCtx.uploadValue?.length > 0) {
         if (props.theme === 'file-input' || (uploadCtx.uploadValue?.length > 0 && canBatchUpload.value)) {
-          uploadText = '重新选择';
+          uploadText = global.value.triggerUploadText.reupload;
         } else {
-          uploadText = '继续选择';
+          uploadText = global.value.triggerUploadText.continueUpload;
         }
       }
       return uploadText;
@@ -146,7 +146,7 @@ export default defineComponent({
     const renderTrigger = () => {
       const getDefaultTrigger = () => {
         if (props.theme === 'file-input' || showUploadList.value) {
-          return <t-button variant="outline">选择文件</t-button>;
+          return <t-button variant="outline">{global.value.triggerUploadText.fileInput}</t-button>;
         }
         const iconSlot = { icon: () => <UploadIcon /> };
         return (
@@ -196,6 +196,7 @@ export default defineComponent({
           autoUpload={props.autoUpload}
           toUploadFiles={uploadCtx.toUploadFiles}
           theme={props.theme}
+          batchUpload={uploadCtx.canBatchUpload}
           showUploadProgress={props.showUploadProgress}
           onRemove={handleListRemove}
           onUpload={multipleUpload}

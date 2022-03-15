@@ -48095,7 +48095,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/file-flow-list.vue co
 
 exports[`ssr snapshot test renders ./examples/upload/demos/file-flow-list-batch-upload.vue correctly 1`] = `
 <div class="t-upload__file-flow-demo">
-  <div class="t-upload" batch-upload><input type="file" multiple accept hidden>
+  <div class="t-upload"><input type="file" multiple accept hidden>
     <!---->
     <!---->
     <!---->
