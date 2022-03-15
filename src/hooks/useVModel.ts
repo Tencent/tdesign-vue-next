@@ -10,8 +10,7 @@ export default function useVModel<T, P extends any[]>(
   onChange: ChangeHandler<T, P>,
   // emit 和 eventName 用于支持 v-model 和 xxx.sync 语法糖
 ): [Ref<T>, ChangeHandler<T, P>] {
-  const instance = getCurrentInstance();
-  const { emit, props } = instance;
+  const { emit } = getCurrentInstance();
   const internalValue = ref<T>();
   internalValue.value = defaultValue;
 
@@ -40,3 +39,6 @@ export default function useVModel<T, P extends any[]>(
     },
   ];
 }
+
+// emits name
+export const UPDATE_MODEL = 'update:modelValue';
