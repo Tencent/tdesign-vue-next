@@ -1,15 +1,16 @@
 import { defineComponent, computed, watch, ref, nextTick, onMounted } from 'vue';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 import props from './props';
 import { TextareaValue } from './type';
 import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
-import { renderTNodeJSX } from '../utils/render-tnode';
 import { ClassName } from '../common';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import { useTNodeJSX } from '../hooks/tnode';
+
+const prefix = usePrefixClass().value;
 
 const name = `${prefix}-textarea`;
 const TEXTAREA_WRAP_CLASS = `${prefix}-textarea__wrap`;
@@ -30,12 +31,10 @@ export default defineComponent({
   name: 'TTextarea',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['keydown', 'keyup', 'keypress', 'focus', 'blur', 'change', 'update:value'],
   setup(props, { attrs, emit }) {
     const disabled = useFormDisabled();
     const textareaStyle = ref({});
     const refTextareaElem = ref<HTMLTextAreaElement>();
-    const refInputElem = ref<HTMLInputElement>();
     const value = ref(props.value || '');
     const focused = ref(false);
 
@@ -49,12 +48,6 @@ export default defineComponent({
       } else if (attrs.rows) {
         textareaStyle.value = { height: 'auto', minHeight: 'auto' };
       }
-    };
-    const focus = () => {
-      refInputElem.value?.focus();
-    };
-    const blur = () => {
-      refInputElem.value?.blur();
     };
 
     const setInputValue = (v: TextareaValue = '') => {
@@ -92,11 +85,7 @@ export default defineComponent({
     const eventDeal = (name: 'keydown' | 'keyup' | 'keypress' | 'change', e: KeyboardEvent | FocusEvent) => {
       if (disabled.value) return;
       const _name = `on${name[0].toUpperCase()}${name.slice(1)}`;
-      if (props[_name] && typeof props[_name] === 'function') {
-        props[_name](value.value, { e });
-      } else {
-        emit(name, value.value, { e });
-      }
+      props[_name]?.(value.value, { e });
     };
 
     const emitKeyDown = (e: KeyboardEvent) => {
@@ -112,19 +101,11 @@ export default defineComponent({
     const emitFocus = (e: FocusEvent) => {
       if (disabled.value) return;
       focused.value = true;
-      if (props.onFocus && typeof props.onFocus === 'function') {
-        props.onFocus(value.value, { e });
-      } else {
-        emit('focus', value.value, { e });
-      }
+      props.onFocus?.(value.value, { e });
     };
     const emitBlur = (e: FocusEvent) => {
       focused.value = false;
-      if (props.onBlur && typeof props.onBlur === 'function') {
-        props.onBlur(value.value, { e });
-      } else {
-        emit('blur', value.value, { e });
-      }
+      props.onBlur?.(value.value, { e });
     };
 
     // computed
@@ -160,80 +141,66 @@ export default defineComponent({
       () => props.value,
       () => adjustTextareaHeight(),
     );
+    watch(refTextareaElem, (el) => {
+      if (!el) return;
+      adjustTextareaHeight();
+    });
     onMounted(() => {
       adjustTextareaHeight();
     });
 
-    return {
-      refTextareaElem,
-      refInputElem,
-      disabled,
-      focused,
-      value,
-      textareaStyle,
-      textareaClasses,
-      inputAttrs,
-      characterNumber,
-      handleInput,
-      onCompositionend,
-      emitFocus,
-      emitBlur,
-      emitKeyDown,
-      emitKeyUp,
-      emitKeypress,
-      focus,
-      blur,
-    };
-  },
+    const renderTNodeJSX = useTNodeJSX();
+    return () => {
+      const inputEvents = getValidAttrs({
+        onFocus: emitFocus,
+        onBlur: emitBlur,
+        onKeydown: emitKeyDown,
+        onKeyup: emitKeyUp,
+        onKeypress: emitKeypress,
+      });
+      const { STATUS } = useCommonClassName();
+      const classes = [
+        `${name}__inner`,
+        {
+          [`${prefix}-is-${props.status}`]: props.status,
+          [STATUS.value.disabled]: disabled.value,
+          [STATUS.value.focused]: focused.value,
+          [`${prefix}-resize-none`]: props.maxlength,
+        },
+        'narrow-scrollbar',
+      ];
 
-  render() {
-    const inputEvents = getValidAttrs({
-      onFocus: this.emitFocus,
-      onBlur: this.emitBlur,
-      onKeydown: this.emitKeyDown,
-      onKeyup: this.emitKeyUp,
-      onKeypress: this.emitKeypress,
-    });
-    const classes = [
-      `${name}__inner`,
-      {
-        [`${prefix}-is-${this.status}`]: this.status,
-        [CLASSNAMES.STATUS.disabled]: this.disabled,
-        [CLASSNAMES.STATUS.focused]: this.focused,
-        [`${prefix}-resize-none`]: this.maxlength,
-      },
-      'narrow-scrollbar',
-    ];
-
-    const textareaNode = (
-      <div class={this.textareaClasses}>
-        <textarea
-          onInput={this.handleInput}
-          onCompositionend={this.onCompositionend}
-          ref="refTextareaElem"
-          value={this.value}
-          style={this.textareaStyle}
-          class={classes}
-          {...this.$attrs}
-          {...inputEvents}
-          {...this.inputAttrs}
-        ></textarea>
-        {this.maxcharacter && <span class={TEXTAREA_LIMIT}>{`${this.characterNumber}/${this.maxcharacter}`}</span>}
-        {!this.maxcharacter && this.maxlength ? (
-          <span class={TEXTAREA_LIMIT}>{`${this.value ? String(this.value)?.length : 0}/${this.maxlength}`}</span>
-        ) : null}
-      </div>
-    );
-
-    const tips = renderTNodeJSX(this, 'tips');
-    if (tips) {
-      return (
-        <div class={TEXTAREA_WRAP_CLASS}>
-          {textareaNode}
-          <div class={`${TEXTAREA_TIPS_CLASS} ${prefix}-textarea__tips--${this.status || 'normal'}`}>{tips}</div>
+      const textareaNode = (
+        <div class={textareaClasses.value}>
+          <textarea
+            onInput={handleInput}
+            onCompositionend={onCompositionend}
+            ref={refTextareaElem}
+            value={value.value}
+            style={textareaStyle.value}
+            class={classes}
+            {...attrs}
+            {...inputEvents}
+            {...inputAttrs.value}
+          ></textarea>
+          {props.maxcharacter && <span class={TEXTAREA_LIMIT}>{`${characterNumber.value}/${props.maxcharacter}`}</span>}
+          {!props.maxcharacter && props.maxlength ? (
+            <span class={TEXTAREA_LIMIT}>{`${value.value ? String(value.value)?.length : 0}/${props.maxlength}`}</span>
+          ) : null}
         </div>
       );
-    }
-    return textareaNode;
+
+      const tips = renderTNodeJSX('tips');
+      if (tips) {
+        return (
+          <div class={TEXTAREA_WRAP_CLASS}>
+            {textareaNode}
+            <div class={`${TEXTAREA_TIPS_CLASS} ${prefix}-textarea__tips--${props.status || 'normal'}`}>{tips}</div>
+          </div>
+        );
+      }
+
+      return textareaNode;
+    };
   },
 });
