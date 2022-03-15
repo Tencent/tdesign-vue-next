@@ -4,18 +4,15 @@ import isFunction from 'lodash/isFunction';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from './props';
 import { TdNotificationProps } from './type';
-import { useConfig } from '../config-provider/useConfig';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TNotification',
-  props: {
-    ...props,
-  },
-  setup(props: TdNotificationProps, { slots }) {
+  props,
+  setup(props: TdNotificationProps, { slots, expose }) {
+    const COMPONENT_NAME = usePrefixClass('notification');
     const renderTNode = useTNodeJSX();
     const renderContent = useContent();
-    const { classPrefix } = useConfig('classPrefix');
-    const name = `${classPrefix.value}-notification`;
 
     const close = (e?: MouseEvent) => {
       props.onCloseBtnClick?.({ e });
@@ -43,14 +40,14 @@ export default defineComponent({
     const renderClose = () => {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${classPrefix.value}-message__close`} onClick={close}>
+        <span class={`${COMPONENT_NAME.value}-message__close`} onClick={close}>
           {renderTNode('closeBtn', defaultClose)}
         </span>
       );
     };
 
     const renderMainContent = () => {
-      return <div class={`${name}__content`}>{renderContent('default', 'content')}</div>;
+      return <div class={`${COMPONENT_NAME.value}__content`}>{renderContent('default', 'content')}</div>;
     };
 
     onMounted(() => {
@@ -62,33 +59,17 @@ export default defineComponent({
       }
     });
 
-    return {
-      name,
-      close,
-      renderIcon,
-      renderClose,
-      renderMainContent,
-      renderTNode,
-    };
-  },
-  render() {
-    const { renderIcon, renderClose, renderMainContent, renderTNode, name } = this;
-    const icon = renderIcon();
-    const close = renderClose();
-    const content = renderMainContent();
-    const footer = renderTNode('footer');
-    const title = renderTNode('title');
-
-    return (
-      <div class={`${name}`}>
-        {icon}
-        <div class={`${name}__main`}>
-          <div class={`${name}__title__wrap`}>
-            <span class={`${name}__title`}>{title}</span>
-            {close}
+    expose({ close });
+    return () => (
+      <div class={`${COMPONENT_NAME.value}`}>
+        {renderIcon()}
+        <div class={`${COMPONENT_NAME.value}__main`}>
+          <div class={`${COMPONENT_NAME.value}__title__wrap`}>
+            <span class={`${COMPONENT_NAME.value}__title`}>{renderTNode('title')}</span>
+            {renderClose()}
           </div>
-          {content}
-          {footer}
+          {renderMainContent()}
+          {renderTNode('footer')}
         </div>
       </div>
     );
