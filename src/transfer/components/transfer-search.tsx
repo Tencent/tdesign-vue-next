@@ -1,8 +1,8 @@
 import { defineComponent, VNode, PropType } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../../config';
 import { SearchOption } from '../interface';
 import TInput from '../../input';
+import { usePrefixClass } from '../../config-provider';
 
 export default defineComponent({
   name: 'TTransferSearch',
@@ -21,6 +21,12 @@ export default defineComponent({
     },
   },
   emits: ['change'],
+  setup() {
+    const classPrefix = usePrefixClass();
+    return {
+      classPrefix,
+    };
+  },
   methods: {
     handleChange(value: string, changeCtx: any) {
       this.$emit('change', {
@@ -39,7 +45,7 @@ export default defineComponent({
           };
 
     return (
-      <div class={`${prefix}-transfer__search-wrapper`}>
+      <div class={`${this.classPrefix}-transfer__search-wrapper`}>
         <TInput {...inputProps} defaultValue={value} onChange={this.handleChange} placeholder={placeholder}>
           <SearchIcon slot="suffix-icon" />
         </TInput>

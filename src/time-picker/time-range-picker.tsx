@@ -9,23 +9,21 @@ import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { TimePickerConfig } from '../config-provider/config-receiver';
 import { TimeInputEvent, InputTime, TimePickerPanelInstance } from './interface';
 import TPopup, { PopupVisibleChangeContext } from '../popup';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
 import PickerPanel from './panel';
 import TInput from '../input';
 import InputItems from './input-items';
 import props from './time-range-picker-props';
 import { emitEvent } from '../utils/event';
 
-import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM } from './constant';
+import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, amFormat, pmFormat, AM } from './constant';
 
-const name = `${prefix}-time-picker`;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TimePickerConfig>('timePicker')),
-  name: `${prefix}-time-range-picker`,
+  name: 'TTimeRangePicker',
 
   components: {
     PickerPanel,
@@ -38,6 +36,15 @@ export default defineComponent({
   props: { ...props },
 
   emits: ['input', 'click', 'blur', 'focus', 'change', 'close', 'open'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('time-picker');
+    const { SIZE, STATUS } = useCommonClassName();
+    return {
+      STATUS,
+      SIZE,
+      COMPONENT_NAME,
+    };
+  },
   data() {
     // 初始化数据
     return {
@@ -61,7 +68,7 @@ export default defineComponent({
       const isDefault = (this.inputTime as any).some(
         (item: InputTime) => !!item.hour && !!item.minute && !!item.second,
       );
-      return isDefault ? '' : `${name}__group-text`;
+      return isDefault ? '' : `${this.COMPONENT_NAME}__group-text`;
     },
   },
 
@@ -252,9 +259,9 @@ export default defineComponent({
     },
     renderInput() {
       const classes = [
-        `${name}__group`,
+        `${this.COMPONENT_NAME}__group`,
         {
-          [`${prefix}-is-focused`]: this.isShowPanel,
+          [this.STATUS.focused]: this.isShowPanel,
         },
       ];
       return (
@@ -294,7 +301,7 @@ export default defineComponent({
       $props: { size, disabled },
     } = this;
     // 样式类名
-    const classes = [name, CLASSNAMES.SIZE[size]];
+    const classes = [this.COMPONENT_NAME, this.SIZE[size]];
 
     const slots = {
       content: () => (
@@ -322,7 +329,7 @@ export default defineComponent({
         trigger="click"
         disabled={disabled}
         visible={this.isShowPanel}
-        overlayClassName={`${COMPONENT_NAME}__panel-container`}
+        overlayClassName={`${this.COMPONENT_NAME}__panel-container`}
         onVisibleChange={this.panelVisibleChange}
         expandAnimation={true}
         v-slots={slots}

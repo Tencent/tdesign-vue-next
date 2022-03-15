@@ -7,31 +7,23 @@ import {
   CheckIcon,
   ErrorIcon,
 } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import { getBackgroundColor } from '../utils/helper';
 import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
-
-const name = `${prefix}-progress`;
+import { usePrefixClass } from '../config-provider';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TProgress',
   props,
   setup(props) {
+    const renderTNodeJSX = useTNodeJSX();
+    const COMPONENT_NAME = usePrefixClass('progress');
     const statusStyle = computed(() => {
       if (props.percentage >= 100) {
         return 'success';
       }
       return props.status;
-    });
-
-    const themeClass = computed(() => {
-      const Line = PRO_THEME.LINE;
-      if (props.theme === Line) {
-        return 'thin';
-      }
-      return props.theme;
     });
 
     const trackBgStyle = computed(() => {
@@ -56,8 +48,6 @@ export default defineComponent({
         stroke: strokeColor,
       };
     });
-
-    const isShowIcon = computed(() => STATUS_ICON.includes(props.status) && typeof props.label === 'boolean');
 
     // theme=circle 获取直径
     const diameter = computed(() => {
@@ -142,95 +132,81 @@ export default defineComponent({
         const components = getIconMap();
         const component = components[status];
         if (component) {
-          labelContent = <component class={[`${name}__icon`]}></component>;
+          labelContent = <component class={[`${COMPONENT_NAME.value}__icon`]}></component>;
         }
       }
       return labelContent;
     };
 
-    return {
-      props,
-      statusStyle,
-      themeClass,
-      trackBgStyle,
-      barStyle,
-      circlePathStyle,
-      isShowIcon,
-      diameter,
-      rPoints,
-      radius,
-      circleStyle,
-      circleStrokeWidth,
-      strokeDashArr,
-      getIconMap,
-      getLabelContent,
-    };
-  },
-
-  render() {
-    const labelContent = (
-      <div class={`${name}__info`}>{renderTNodeJSX(this, 'label', this.getLabelContent() as any)}</div>
-    );
-    // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
-    const PLUMP_SEPERATE = 10;
-    const seperateClasses = this.percentage > PLUMP_SEPERATE ? `${name}--over-ten` : `${name}--under-ten`;
-    return (
-      <div class={name}>
-        {this.theme === PRO_THEME.LINE && (
-          <div class={`${name}--thin ${name}--status--${this.statusStyle}`}>
-            <div class={`${name}__bar`} style={this.trackBgStyle}>
-              <div class={`${name}__inner`} style={this.barStyle}></div>
+    return () => {
+      const labelContent = (
+        <div class={`${COMPONENT_NAME.value}__info`}>{renderTNodeJSX('label', getLabelContent())}</div>
+      );
+      // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
+      const PLUMP_SEPERATE = 10;
+      const seperateClasses =
+        props.percentage > PLUMP_SEPERATE ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
+      return (
+        <div class={COMPONENT_NAME.value}>
+          {props.theme === PRO_THEME.LINE && (
+            <div class={`${COMPONENT_NAME.value}--thin ${COMPONENT_NAME.value}--status--${statusStyle.value}`}>
+              <div class={`${COMPONENT_NAME.value}__bar`} style={trackBgStyle.value}>
+                <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}></div>
+              </div>
+              {labelContent}
             </div>
-            {labelContent}
-          </div>
-        )}
+          )}
 
-        {this.theme === PRO_THEME.PLUMP && (
-          <div
-            class={[
-              `${name}__bar ${name}--plump ${seperateClasses}`,
-              { [`${name}--status--${this.statusStyle}`]: this.statusStyle },
-            ]}
-            style={this.trackBgStyle}
-          >
-            <div class={`${name}__inner`} style={this.barStyle}>
-              {this.percentage > PLUMP_SEPERATE && labelContent}
+          {props.theme === PRO_THEME.PLUMP && (
+            <div
+              class={[
+                `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${seperateClasses}`,
+                { [`${COMPONENT_NAME.value}--status--${statusStyle.value}`]: statusStyle.value },
+              ]}
+              style={trackBgStyle.value}
+            >
+              <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}>
+                {props.percentage > PLUMP_SEPERATE && labelContent}
+              </div>
+              {props.percentage < PLUMP_SEPERATE && labelContent}
             </div>
-            {this.percentage < PLUMP_SEPERATE && labelContent}
-          </div>
-        )}
+          )}
 
-        {this.theme === PRO_THEME.CIRCLE && (
-          <div class={`${name}--circle ${name}--status--${this.statusStyle}`} style={this.circleStyle}>
-            {labelContent}
-            <svg width={this.diameter} height={this.diameter} viewBox={`0 0 ${this.diameter} ${this.diameter}`}>
-              <circle
-                cx={this.rPoints}
-                cy={this.rPoints}
-                r={this.radius}
-                stroke-width={this.circleStrokeWidth}
-                stroke={this.trackColor}
-                fill="none"
-                class={[`${name}__circle-outer`]}
-              />
-              {this.percentage > 0 && (
+          {props.theme === PRO_THEME.CIRCLE && (
+            <div
+              class={`${COMPONENT_NAME.value}--circle ${COMPONENT_NAME.value}--status--${statusStyle.value}`}
+              style={circleStyle.value}
+            >
+              {labelContent}
+              <svg width={diameter.value} height={diameter.value} viewBox={`0 0 ${diameter.value} ${diameter.value}`}>
                 <circle
-                  cx={this.rPoints}
-                  cy={this.rPoints}
-                  r={this.radius}
-                  stroke-width={this.circleStrokeWidth}
+                  cx={rPoints.value}
+                  cy={rPoints.value}
+                  r={radius.value}
+                  stroke-width={circleStrokeWidth.value}
+                  stroke={props.trackColor}
                   fill="none"
-                  stroke-linecap="round"
-                  class={[`${name}__circle-inner`]}
-                  transform={`matrix(0,-1,1,0,0,${this.diameter})`}
-                  stroke-dasharray={this.strokeDashArr}
-                  style={this.circlePathStyle}
+                  class={[`${COMPONENT_NAME.value}__circle-outer`]}
                 />
-              )}
-            </svg>
-          </div>
-        )}
-      </div>
-    );
+                {props.percentage > 0 && (
+                  <circle
+                    cx={rPoints.value}
+                    cy={rPoints.value}
+                    r={radius.value}
+                    stroke-width={circleStrokeWidth.value}
+                    fill="none"
+                    stroke-linecap="round"
+                    class={[`${COMPONENT_NAME.value}__circle-inner`]}
+                    transform={`matrix(0,-1,1,0,0,${diameter.value})`}
+                    stroke-dasharray={strokeDashArr.value}
+                    style={circlePathStyle.value}
+                  />
+                )}
+              </svg>
+            </div>
+          )}
+        </div>
+      );
+    };
   },
 });

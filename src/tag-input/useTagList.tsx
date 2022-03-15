@@ -1,16 +1,17 @@
-import { ref, SetupContext, toRefs } from 'vue';
+import { ref, toRefs } from 'vue';
 import { TagInputValue, TdTagInputProps, TagInputChangeContext } from './type';
 import { InputValue } from '../input';
 import Tag from '../tag';
 import useVModel from '../hooks/useVModel';
-import { prefix } from '../config';
+import { usePrefixClass } from '../config-provider';
 import { useTNodeJSX } from '../hooks/tnode';
 
 export type ChangeParams = [TagInputChangeContext];
 
 // handle tag add and remove
-export default function useTagList(props: TdTagInputProps, context: SetupContext) {
+export default function useTagList(props: TdTagInputProps) {
   const renderTNode = useTNodeJSX();
+  const classPrefix = usePrefixClass();
   const { value, modelValue, onRemove, max, minCollapsedNum, size, disabled, readonly, tagProps } = toRefs(props);
   // handle controlled property and uncontrolled property
   const [tagValue, setTagValue] = useVModel(value, modelValue, props.defaultValue || [], props.onChange);
@@ -82,7 +83,7 @@ export default function useTagList(props: TdTagInputProps, context: SetupContext
         });
     if (![null, undefined, ''].includes(label)) {
       list.unshift(
-        <div class={`${prefix}-tag-input__prefix`} key="label">
+        <div class={`${classPrefix.value}-tag-input__prefix`} key="label">
           {label}
         </div>,
       );

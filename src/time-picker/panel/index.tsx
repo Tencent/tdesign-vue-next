@@ -5,25 +5,34 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import mixins from '../../utils/mixins';
 import getConfigReceiverMixins, { TimePickerConfig } from '../../config-provider/config-receiver';
 import { TimePickerPanelColInstance } from '../interface';
-import { COMPONENT_NAME, EPickerCols } from '../constant';
+import { EPickerCols } from '../constant';
 import { panelProps } from './props';
 import PanelCol from './panel-col';
 import TButton from '../../button/button';
-
-const name = `${COMPONENT_NAME}__panel`;
+import { usePrefixClass, useCommonClassName } from '../../config-provider';
 
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TimePickerConfig>('timePicker')),
-  name,
+  name: 'TimePickerPanel',
   components: {
     PanelCol,
     TButton,
   },
   props: panelProps(),
-
   emits: ['sure', 'now-action', 'time-pick'],
+
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('time-picker');
+    const COMPONENT_NAME_PANEL = usePrefixClass('time-picker__panel');
+    const { STATUS } = useCommonClassName();
+    return {
+      COMPONENT_NAME_PANEL,
+      COMPONENT_NAME,
+      STATUS,
+    };
+  },
   data() {
     return {
       panel: null,
@@ -32,10 +41,10 @@ export default defineComponent({
   },
   computed: {
     sectionComponentName() {
-      return `${name}-section`;
+      return `${this.COMPONENT_NAME_PANEL}-section`;
     },
     classNames() {
-      return this.rangePicker ? [name, this.sectionComponentName] : [name];
+      return this.rangePicker ? [this.COMPONENT_NAME_PANEL, this.sectionComponentName] : [this.COMPONENT_NAME_PANEL];
     },
     colValues() {
       return this.value.map((el) => el || dayjs());

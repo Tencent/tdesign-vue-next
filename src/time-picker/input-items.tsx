@@ -4,16 +4,13 @@ import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { TimePickerConfig } from '../config-provider/config-receiver';
 import { emitEvent } from '../utils/event';
 
-import { COMPONENT_NAME, amFormat, KeyboardDirection, EMPTY_VALUE, MERIDIEM_LIST } from './constant';
+import { amFormat, KeyboardDirection, EMPTY_VALUE, MERIDIEM_LIST } from './constant';
 
-import { prefix } from '../config';
-
-const name = `${prefix}-time-picker-input-items`; // t-time-picker-input-items
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TimePickerConfig>('timePicker')),
-  name,
-
+  name: 'TTimePickerInputItems',
   props: {
     // 格式化标准
     format: {
@@ -43,6 +40,13 @@ export default defineComponent({
   },
 
   emits: ['change', 'blurDefault', 'focusDefault', 'toggleMeridiem'],
+
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('time-picker');
+    return {
+      COMPONENT_NAME,
+    };
+  },
 
   computed: {
     displayTimeList(): Array<InputTime | undefined> | Record<string, any> {
@@ -190,12 +194,12 @@ export default defineComponent({
       }
       const isEmptyVal = this.displayTimeList.every((date: InputTime) => isEmptyDayjs(date));
       if (isEmptyVal) {
-        return <span class={`${COMPONENT_NAME}__input-placeholder`}>{placeholder}</span>;
+        return <span class={`${this.COMPONENT_NAME}__input-placeholder`}>{placeholder}</span>;
       }
       const itemClasses = disabled
-        ? [`${COMPONENT_NAME}__input-item`, `${COMPONENT_NAME}__input-item-disabled`]
-        : [`${COMPONENT_NAME}__input-item`];
-      const inputClass = `${COMPONENT_NAME}__input-item-input`;
+        ? [`${this.COMPONENT_NAME}__input-item`, `${this.COMPONENT_NAME}__input-item-disabled`]
+        : [`${this.COMPONENT_NAME}__input-item`];
+      const inputClass = `${this.COMPONENT_NAME}__input-item-input`;
       const render: any = [];
 
       this.displayTimeList.forEach((inputTime: InputTime | undefined, index: number) => {
@@ -274,7 +278,7 @@ export default defineComponent({
   },
 
   render() {
-    const classes = [`${COMPONENT_NAME}__input`];
+    const classes = [`${this.COMPONENT_NAME}__input`];
     return <div class={classes}>{this.switchRenderComponent()}</div>;
   },
 });
