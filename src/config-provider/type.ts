@@ -695,5 +695,6 @@ export interface UploadTriggerUploadText {
   normal?: string;
   fileInput?: string;
   reupload?: string;
+  continueUpload: string;
   delete?: string;
 }

@@ -145,6 +145,7 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
       normal: '点击上传',
       fileInput: '选择文件',
       reupload: '重新上传',
+      continueUpload: '继续上传',
       delete: '删除',
     },
   },

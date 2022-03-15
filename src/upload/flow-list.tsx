@@ -201,24 +201,18 @@ export default defineComponent({
               <td colspan={4}>{renderDragger()}</td>
             </tr>
           )}
-          {listFiles.value.map((file, index) => (
-            <tr>
-              <td>{abridgeName(file.name, 7, 10)}</td>
-              <td>{returnFileSize(file.size)}</td>
-              <td>{renderStatus(file)}</td>
-              <td>
-                <span
-                  class={`${UPLOAD_NAME.value}__flow-button`}
-                  onClick={(e: MouseEvent) => props.onRemove({ e, index, file })}
-                >
-                  {/* 合并操作出现条件为：当前为合并上传模式且列表内没有待上传文件 */}
-                  {props.batchUpload && props.toUploadFiles.length === 0
-                    ? renderBatchActionCol(index)
-                    : renderNormalActionCol(file, index)}
-                </span>
-              </td>
-            </tr>
-          ))}
+          {listFiles.value.map((file, index) => {
+            // 合并操作出现条件为：当前为合并上传模式且列表内没有待上传文件
+            const showBatchUploadAction = props.batchUpload && props.toUploadFiles.length === 0;
+            return (
+              <tr>
+                <td>{abridgeName(file.name, 7, 10)}</td>
+                <td>{returnFileSize(file.size)}</td>
+                <td>{renderStatus(file)}</td>
+                {showBatchUploadAction ? renderBatchActionCol(index) : renderNormalActionCol(file, index)}
+              </tr>
+            );
+          })}
         </table>
       );
 
