@@ -1,9 +1,9 @@
-import { defineComponent, ref, computed, TransitionGroup } from 'vue';
+import { defineComponent, ref, computed, TransitionGroup, Ref } from 'vue';
 import Notification from './notification';
-import { prefix } from '../config';
 import { TdNotificationProps, NotificationOptions } from './type';
 import { Styles } from '../common';
 import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET, DISTANCE } from './const';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   props: {
@@ -15,12 +15,14 @@ export default defineComponent({
       },
     },
   },
-  setup(props) {
+  setup(props, { expose }) {
+    const COMPONENT_NAME = usePrefixClass('notification-list');
+
     const { placement } = props as NotificationOptions;
 
-    const list = ref([]);
+    const list: Ref<NotificationOptions[]> = ref([]);
 
-    const styles = computed<Styles>(() => ({
+    const styles = computed(() => ({
       zIndex: DEFAULT_Z_INDEX,
       ...PLACEMENT_OFFSET[placement],
     }));
@@ -63,29 +65,18 @@ export default defineComponent({
       };
     };
 
-    return {
-      list,
-      styles,
-      add,
-      remove,
-      removeAll,
-      getOffset,
-      notificationStyles,
-      getListeners,
-    };
-  },
-  render() {
-    const { placement, styles, list } = this;
-    return (
-      <div class={`${prefix}-notification__show-transition--${placement}`} style={styles}>
+    expose({ add, remove, removeAll });
+
+    return () => (
+      <div class={`${COMPONENT_NAME.value}__show-transition--${placement}`} style={styles.value}>
         <TransitionGroup name="notification-slide-fade">
-          {list.map((item, index) => (
+          {list.value.map((item: { offset: NotificationOptions['offset']; zIndex: number; id: number }, index) => (
             <Notification
               ref={`notification${index}`}
               key={item.id}
-              style={this.notificationStyles(item)}
+              style={notificationStyles(item)}
               {...item}
-              {...this.getListeners(index)}
+              {...getListeners(index)}
             />
           ))}
         </TransitionGroup>
