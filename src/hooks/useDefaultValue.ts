@@ -9,8 +9,7 @@ export default function useDefaultValue<T, P extends any[]>(
   onChange: ChangeHandler<T, P>,
   propsName: string,
 ): [Ref<T>, ChangeHandler<T, P>] {
-  const instance = getCurrentInstance();
-  const { emit } = instance;
+  const { emit } = getCurrentInstance();
   const internalValue = ref();
   internalValue.value = defaultValue;
 
