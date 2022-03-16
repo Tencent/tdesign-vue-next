@@ -1,6 +1,5 @@
 import { defineComponent, VNode } from 'vue';
 import pick from 'lodash/pick';
-import { prefix } from '../config';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
 import {
@@ -32,6 +31,7 @@ import { TNode } from '../common';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import { usePrefixClass } from '../config-provider';
 
 const SOURCE = 'source';
 const TARGET = 'target';
@@ -63,7 +63,9 @@ export default defineComponent({
   ],
   setup() {
     const disabled = useFormDisabled();
+    const classPrefix = usePrefixClass();
     return {
+      classPrefix,
       disabled,
     };
   },
@@ -252,11 +254,11 @@ export default defineComponent({
     return (
       <div
         class={[
-          `${prefix}-transfer`,
-          this.showSearch ? `${prefix}-transfer__search` : '',
-          this.hasFooter ? `${prefix}-transfer__footer` : '',
-          this.showPagination ? `${prefix}-transfer__pagination` : '',
-          this.isTreeMode ? `${prefix}-transfer--with-tree` : '',
+          `${this.classPrefix}-transfer`,
+          this.showSearch ? `${this.classPrefix}-transfer__search` : '',
+          this.hasFooter ? `${this.classPrefix}-transfer__footer` : '',
+          this.showPagination ? `${this.classPrefix}-transfer__pagination` : '',
+          this.isTreeMode ? `${this.classPrefix}-transfer--with-tree` : '',
         ]}
       >
         {this.renderTransferList(SOURCE)}

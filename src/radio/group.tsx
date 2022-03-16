@@ -4,10 +4,11 @@ import isNumber from 'lodash/isNumber';
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption, RadioValue } from './type';
 import { prefix } from '../config';
-import Radio, { radioBtnName } from './radio';
+import Radio from './radio';
 import { TNodeReturnValue } from '../common';
 import CLASSNAMES, { SIZE_CLASSNAMES } from '../utils/classnames';
 import { emitEvent } from '../utils/event';
+import { usePrefixClass } from '../config-provider';
 
 const name = `${prefix}-radio-group`;
 
@@ -27,6 +28,13 @@ export default defineComponent({
 
   emits: ['change'],
 
+  setup() {
+    const radioBtnName = usePrefixClass('radio-button');
+    return {
+      radioBtnName,
+    };
+  },
+
   data() {
     return {
       barStyle: { width: '0px', left: '0px' },
@@ -35,7 +43,7 @@ export default defineComponent({
   },
   computed: {
     checkedClassName() {
-      return `.${radioBtnName}.${CLASSNAMES.STATUS.checked}`;
+      return `.${this.radioBtnName}.${CLASSNAMES.STATUS.checked}`;
     },
   },
   watch: {

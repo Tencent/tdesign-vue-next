@@ -1,13 +1,10 @@
 import { h, defineComponent } from 'vue';
 import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
-import { prefix } from '../config';
 import { renderContent } from '../utils/render-tnode';
 import props from './props';
 import { SkeletonRowCol, SkeletonRowColObj, TdSkeletonProps } from './type';
-import { ClassName, Styles } from '../common';
-
-const name = `${prefix}-skeleton`;
+import { usePrefixClass } from '../config-provider';
 
 const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
   text: [1],
@@ -38,9 +35,9 @@ const ThemeMap: Record<TdSkeletonProps['theme'], SkeletonRowCol> = {
   ],
 };
 
-const getColItemStyle = (obj: SkeletonRowColObj): Styles => {
+const getColItemStyle = (obj: SkeletonRowColObj) => {
   const styleName = ['width', 'height', 'marginRight', 'marginLeft', 'margin', 'size', 'background', 'backgroundColor'];
-  const style: Styles = {};
+  const style = Object.create(null);
   styleName.forEach((name) => {
     if (name in obj) {
       const px = isNumber(obj[name]) ? `${obj[name]}px` : obj[name];
@@ -60,10 +57,11 @@ export default defineComponent({
   props: { ...props },
 
   setup(props) {
-    const getColItemClass = (obj: SkeletonRowColObj): ClassName => [
-      `${name}__col`,
-      `${name}--type-${obj.type || 'text'}`,
-      { [`${name}--animation-${props.animation}`]: props.animation },
+    const COMPONENT_NAME = usePrefixClass('skeleton');
+    const getColItemClass = (obj: SkeletonRowColObj) => [
+      `${COMPONENT_NAME.value}__col`,
+      `${COMPONENT_NAME.value}--type-${obj.type || 'text'}`,
+      { [`${COMPONENT_NAME.value}--animation-${props.animation}`]: props.animation },
     ];
 
     const renderCols = (_cols: Number | SkeletonRowColObj | Array<SkeletonRowColObj>) => {
@@ -85,12 +83,13 @@ export default defineComponent({
     const renderRowCol = (_rowCol?: SkeletonRowCol) => {
       const rowCol: SkeletonRowCol = _rowCol || props.rowCol;
 
-      const getBlockClass = (): ClassName => [`${name}__row`];
+      const getBlockClass = () => [`${COMPONENT_NAME.value}__row`];
 
       return rowCol.map((item) => <div class={getBlockClass()}>{renderCols(item)}</div>);
     };
 
     return {
+      COMPONENT_NAME,
       renderRowCol,
     };
   },
@@ -118,6 +117,6 @@ export default defineComponent({
       children.push(this.renderRowCol([1, 1, 1, { width: '70%' }]));
     }
 
-    return <div class={name}>{children}</div>;
+    return <div class={this.COMPONENT_NAME}>{children}</div>;
   },
 });
