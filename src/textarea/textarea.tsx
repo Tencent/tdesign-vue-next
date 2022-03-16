@@ -32,7 +32,7 @@ export default defineComponent({
   name: 'TTextarea',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['change', 'update:value', 'update:modelValue'],
+  emits: ['update:modelValue'],
   setup(props, { attrs, emit }) {
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
@@ -72,8 +72,6 @@ export default defineComponent({
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
       setInnerValue(val, { e });
-      emit('update:value', val);
-      emit('change', val, { e });
       nextTick(() => setInputValue(val));
       adjustTextareaHeight();
     };
@@ -132,7 +130,7 @@ export default defineComponent({
         name: props.name || undefined,
       });
     });
-    const characterNumber = computed<number>(() => {
+    const characterNumber = computed(() => {
       const characterInfo = getCharacterLength(String(innerValue.value || ''));
       if (typeof characterInfo === 'object') {
         return characterInfo.length;
