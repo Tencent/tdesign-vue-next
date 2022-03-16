@@ -1,11 +1,8 @@
 import { defineComponent, VNode } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
 import props from './option-group-props';
 import { ClassName } from '../common';
-
-const name = `${prefix}-select-option-group`;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TOptionGroup',
@@ -15,6 +12,14 @@ export default defineComponent({
     },
   },
   props: { ...props },
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('select-option-group');
+    const { SIZE } = useCommonClassName();
+    return {
+      SIZE,
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       visible: true,
@@ -23,10 +28,10 @@ export default defineComponent({
   computed: {
     classes(): ClassName {
       return [
-        name,
+        this.COMPONENT_NAME,
         {
-          [CLASSNAMES.SIZE[this.tSelect.size]]: this.tSelect && this.tSelect.size,
-          [`${name}__divider`]: this.divider,
+          [this.SIZE[this.tSelect.size]]: this.tSelect && this.tSelect.size,
+          [`${this.COMPONENT_NAME}__divider`]: this.divider,
         },
       ];
     },
@@ -43,7 +48,7 @@ export default defineComponent({
     const children = renderTNodeJSX(this, 'default');
     return (
       <li class={this.classes}>
-        <div class={`${name}__header`}>{this.label}</div>
+        <div class={`${this.COMPONENT_NAME}__header`}>{this.label}</div>
         <ul>{children}</ul>
       </li>
     );

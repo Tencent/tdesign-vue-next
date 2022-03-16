@@ -3,7 +3,6 @@ import { CloseIcon } from 'tdesign-icons-vue-next';
 import { useConfig, usePrefixClass } from '../config-provider';
 import { addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
-import { prefix } from '../config';
 import { Button as TButton } from '../button';
 import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
@@ -12,8 +11,6 @@ import TransferDom from '../utils/transfer-dom';
 import { useAction } from '../dialog/hooks';
 
 type FooterButtonType = 'confirm' | 'cancel';
-
-const lockClass = `${prefix}-drawer--lock`;
 
 export default defineComponent({
   name: 'TDrawer',
@@ -32,6 +29,9 @@ export default defineComponent({
   setup(props, context) {
     const { global } = useConfig('drawer');
     const COMPONENT_NAME = usePrefixClass('drawer');
+
+    const LOCK_CLASS = usePrefixClass('drawer--lock');
+
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
     };
@@ -166,9 +166,9 @@ export default defineComponent({
       () => props.visible,
       (value: boolean) => {
         if (value && !props.showInAttachedElement) {
-          props.preventScrollThrough && addClass(document.body, lockClass);
+          props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
         } else {
-          props.preventScrollThrough && removeClass(document.body, lockClass);
+          props.preventScrollThrough && removeClass(document.body, LOCK_CLASS.value);
         }
       },
       { immediate: true },
