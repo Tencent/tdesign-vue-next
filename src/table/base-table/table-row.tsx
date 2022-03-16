@@ -109,7 +109,7 @@ export default defineComponent({
     TableCell,
   },
   props: TableRowProps,
-  emits: ['rowMounted', 'getRowHeight', ...Object.keys(eventsName).map((key) => eventsName[key])],
+  emits: ['rowMounted', 'getRowHeight', 'cell-click', ...Object.keys(eventsName).map((key) => eventsName[key])],
   setup(props, { emit }) {
     const tr = ref(null);
     const isInit = ref(props.index === 0);
