@@ -142,8 +142,8 @@ const GLOBAL_CONFIG_EN: GlobalConfigProvider = {
     placeholder: '',
   },
   colorPicker: {
-    swatchColorTitle: 'System default colors',
-    recentColorTitle: 'Recently used colors',
+    swatchColorTitle: 'System Default',
+    recentColorTitle: 'Recently Used',
   },
 };
 
