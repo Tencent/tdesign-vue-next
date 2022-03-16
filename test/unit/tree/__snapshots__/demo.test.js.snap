@@ -32,7 +32,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -72,7 +71,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -112,7 +110,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -521,7 +518,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -564,7 +560,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -2046,7 +2041,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -2086,7 +2080,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -2574,7 +2567,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -3134,7 +3126,6 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -3174,7 +3165,6 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -3754,7 +3744,6 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -3794,7 +3783,6 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -4738,7 +4726,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -4778,7 +4765,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -4943,7 +4929,6 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m t-is-checked"
-            modelvalue="true"
           >
             <span
               class="t-switch__handle"
@@ -4986,7 +4971,6 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m t-is-checked"
-            modelvalue="true"
           >
             <span
               class="t-switch__handle"
@@ -7290,7 +7274,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -7330,7 +7313,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
