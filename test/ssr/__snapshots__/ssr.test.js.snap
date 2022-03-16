@@ -38490,8 +38490,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                       <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
-                        <li class="t-select-option t-size-m" title="5 条/页"><span>5 条/页</span></li>
-                        <li class="t-select-option t-is-selected t-size-m" title="10 条/页"><span>10 条/页</span></li>
+                        <li class="t-select-option t-is-selected t-size-m" title="5 条/页"><span>5 条/页</span></li>
+                        <li class="t-select-option t-size-m" title="10 条/页"><span>10 条/页</span></li>
                         <li class="t-select-option t-size-m" title="20 条/页"><span>20 条/页</span></li>
                         <li class="t-select-option t-size-m" title="50 条/页"><span>50 条/页</span></li>
                         <!--]-->
@@ -38508,7 +38508,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                   <!---->
                   <!---->
                   <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
+                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -38522,18 +38522,18 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                 <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
               </svg></div>
             <ul class="t-pagination__pager">
-              <!---->
+              <li class="t-pagination__number">1</li>
               <!---->
               <!--[-->
-              <li class="t-pagination__number">1</li>
               <li class="t-pagination__number t-is-current">2</li>
               <li class="t-pagination__number">3</li>
               <li class="t-pagination__number">4</li>
               <li class="t-pagination__number">5</li>
-              <li class="t-pagination__number">6</li>
               <!--]-->
-              <!---->
-              <!---->
+              <li class="t-pagination__number t-pagination__number--more"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-ellipsis" style="">
+                  <path fill="currentColor" d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z" fill-opacity="0.9"></path>
+                </svg></li>
+              <li class="t-pagination__number">12</li>
             </ul>
             <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
                 <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
