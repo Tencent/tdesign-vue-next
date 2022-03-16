@@ -2,9 +2,14 @@ import { computed, Ref } from 'vue';
 import CLASSNAMES from '../utils/classnames';
 import { TdPaginationProps } from './type';
 
-export default function usePaginationClasses(props: TdPaginationProps, innerCurrent: Ref<number>, name: Ref<string>) {
+export default function usePaginationClasses(
+  props: TdPaginationProps,
+  innerCurrent: Ref<number>,
+  innerPageSize: Ref<number>,
+  name: Ref<string>,
+) {
   const pageCount = computed(() => {
-    const c: number = Math.ceil(props.total / props.pageSize);
+    const c: number = Math.ceil(props.total / innerPageSize.value);
     return c > 0 ? c : 1;
   });
 

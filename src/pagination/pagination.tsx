@@ -37,7 +37,12 @@ export default defineComponent({
     const { t, global } = useConfig('pagination');
     const COMPONENT_NAME = usePrefixClass('pagination');
 
-    const { pageCount, ...paginationClasses } = usePaginationClasses(props, innerCurrent, COMPONENT_NAME);
+    const { pageCount, ...paginationClasses } = usePaginationClasses(
+      props,
+      innerCurrent,
+      innerPageSize,
+      COMPONENT_NAME,
+    );
 
     const { prevMore, isPrevMoreShow, curPageLeftCount, nextMore, isNextMoreShow, curPageRightCount } = useMoreAction(
       props,
@@ -115,7 +120,7 @@ export default defineComponent({
         const pageInfo = {
           current,
           previous: prev,
-          pageSize: props.pageSize,
+          pageSize: innerPageSize.value,
         };
         if (isTriggerChange !== false) {
           props.onChange?.(pageInfo);
