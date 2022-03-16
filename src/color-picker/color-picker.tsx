@@ -1,6 +1,6 @@
 import { ComponentPublicInstance, defineComponent, onBeforeUnmount, onMounted, provide, ref, toRefs } from 'vue';
 import useVModel from '../hooks/useVModel';
-import { renderContent } from '../utils/render-tnode';
+import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import props from './props';
 import { Popup as TPopup } from '../popup';
 import { useClickOutsider } from './utils/click-outsider';
@@ -17,7 +17,9 @@ export default defineComponent({
     DefaultTrigger,
   },
   inheritAttrs: false,
-  props,
+  props: {
+    ...props,
+  },
   setup(props) {
     const baseClassName = useBaseClassName();
     const visible = ref(false);
@@ -69,9 +71,8 @@ export default defineComponent({
   render() {
     const { popupProps, disabled, baseClassName } = this;
     const popProps = {
-      ...((popupProps as any) || {
-        placement: 'bottom-left',
-      }),
+      placement: 'bottom-left',
+      ...((popupProps as any) || {}),
       trigger: 'click',
       attach: 'body',
       overlayClassName: [baseClassName],
@@ -83,10 +84,9 @@ export default defineComponent({
     return (
       <t-popup {...popProps} content={this.renderPopupContent}>
         <div className={`${baseClassName}__trigger`} onClick={() => this.setVisible(!this.visible)} ref="refTrigger">
-          {renderContent(
+          {renderTNodeJSXDefault(
             this,
             'default',
-            null,
             <default-trigger
               color={this.innerValue}
               disabled={disabled}

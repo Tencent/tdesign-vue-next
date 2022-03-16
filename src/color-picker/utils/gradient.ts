@@ -178,6 +178,22 @@ export const isGradientColor = (input: string): null | RegExpExecArray => {
   return REG_GRADIENT.exec(input);
 };
 
+// 边界字符串和角度关系
+const sideCornerDegreeMap = {
+  top: 0,
+  right: 90,
+  bottom: 180,
+  left: 270,
+  'top left': 225,
+  'left top': 225,
+  'top right': 135,
+  'right top': 135,
+  'bottom left': 315,
+  'left bottom': 315,
+  'bottom right': 45,
+  'right bottom': 45,
+};
+
 /**
  * 解析渐变字符串为 GradientColors 对象
  * @param input
@@ -206,37 +222,7 @@ export const parseGradientString = (input: string): GradientColors | boolean => 
   gradientColors.points = points;
   let degree = parseInt(result.angle, 10);
   if (Number.isNaN(degree)) {
-    switch (result.sideCorner) {
-      case 'top':
-        degree = 0;
-        break;
-      case 'bottom':
-        degree = 180;
-        break;
-      case 'left':
-        degree = 270;
-        break;
-      case 'top left':
-      case 'left top':
-        degree = 225;
-        break;
-      case 'top right':
-      case 'right top':
-        degree = 135;
-        break;
-      case 'bottom left':
-      case 'left bottom':
-        degree = 315;
-        break;
-      case 'bottom right':
-      case 'right bottom':
-        degree = 45;
-        break;
-      case 'right':
-      default:
-        degree = 90;
-        break;
-    }
+    degree = sideCornerDegreeMap[result.sideCorner] || 90;
   }
   gradientColors.degree = degree;
 

@@ -11,7 +11,9 @@ export default defineComponent({
     ColorPanel,
   },
   inheritAttrs: false,
-  props,
+  props: {
+    ...props,
+  },
   setup(props) {
     const prefix = usePrefixClass();
     provide<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP, {
@@ -39,6 +41,6 @@ export default defineComponent({
   },
   render() {
     const { prefix } = this;
-    return <color-panel {...this.$props} popupProps={null} close-btn={false} custom-class={`${prefix}-is-inline`} />;
+    return <color-panel {...this.$props} popupProps={null} close-btn={false} class={`${prefix}-is-inline`} />;
   },
 });

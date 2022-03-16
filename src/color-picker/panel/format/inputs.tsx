@@ -44,33 +44,42 @@ export default defineComponent({
     const modelValue = reactive<any>({});
     const lastModelValue = reactive<any>({});
 
+    /**
+     * 获取不同格式的输入输出值
+     * @param type 'encode' | 'decode'
+     * @returns
+     */
+    const getFormatColorMap = (type: 'encode' | 'decode') => {
+      const { color } = props;
+      if (type === 'encode') {
+        return {
+          HSV: color.getHsva(),
+          HSL: color.getHsla(),
+          RGB: color.getRgba(),
+          CMYK: color.getCmyk(),
+          CSS: {
+            css: color.css,
+          },
+          HEX: {
+            hex: color.hex,
+          },
+        };
+      }
+      // decode
+      return {
+        HSV: Color.object2color(modelValue, 'HSV'),
+        HSL: Color.object2color(modelValue, 'HSL'),
+        RGB: Color.object2color(modelValue, 'RGB'),
+        CMYK: Color.object2color(modelValue, 'CMYK'),
+        CSS: modelValue.css,
+        HEX: modelValue.hex,
+      };
+    };
+
+    // 更新modelValue
     const updateModelValue = () => {
       const { format, color } = props;
-      let values: any = {};
-      switch (format) {
-        case 'HSV':
-          values = color.getHsva();
-          break;
-        case 'HSL':
-          values = color.getHsla();
-          break;
-        case 'RGB':
-          values = color.getRgba();
-          break;
-        case 'CMYK':
-          values = color.getCmyk();
-          break;
-        case 'CSS':
-          values = {
-            css: props.color.css,
-          };
-          break;
-        case 'HEX':
-          values = {
-            hex: props.color.hex,
-          };
-          break;
-      }
+      const values: any = getFormatColorMap('encode')[format];
       values.a = Math.round(color.alpha * 100) / 100;
       Object.keys(values).forEach((key) => {
         modelValue[key] = values[key];
@@ -91,21 +100,7 @@ export default defineComponent({
       if (v === lastModelValue[key]) {
         return;
       }
-      let value = null;
-      switch (props.format) {
-        case 'HSV':
-        case 'HSL':
-        case 'RGB':
-        case 'CMYK':
-          value = Color.object2color(modelValue, props.format);
-          break;
-        case 'CSS':
-          value = modelValue.css;
-          break;
-        case 'HEX':
-          value = modelValue.hex;
-          break;
-      }
+      const value = getFormatColorMap('decode')[props.format];
       props.onInputChange(value, modelValue.a, key, v);
     };
 

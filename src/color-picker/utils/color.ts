@@ -235,6 +235,20 @@ export class Color {
     return gradientColors.find((color) => color.id === gradientSelectedId);
   }
 
+  getFormatsColorMap() {
+    return {
+      HEX: this.hex,
+      CMYK: this.cmyk,
+      RGB: this.rgb,
+      RGBA: this.rgba,
+      HSL: this.hsl,
+      HSLA: this.hsla,
+      HSV: this.hsv,
+      HSVA: this.hsva,
+      CSS: this.css,
+    };
+  }
+
   updateCurrentGradientColor() {
     const { isGradient, gradientColors, gradientSelectedId } = this;
     const { length } = gradientColors;
@@ -315,6 +329,11 @@ export class Color {
     return tinyColor.equals(this.rgba, color);
   }
 
+  /**
+   * 校验输入色是否是一个有效颜色
+   * @param color
+   * @returns
+   */
   static isValid(color: string): boolean {
     if (parseGradientString(color)) {
       return true;
@@ -340,6 +359,12 @@ export class Color {
     return color.toHexString();
   }
 
+  /**
+   * 对象转颜色字符串
+   * @param object
+   * @param format
+   * @returns
+   */
   static object2color(object: any, format: TdColorPickerProps['format']) {
     if (format === 'CMYK') {
       const { c, m, y, k } = object;

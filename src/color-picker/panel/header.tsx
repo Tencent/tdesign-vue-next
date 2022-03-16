@@ -28,8 +28,7 @@ export default defineComponent({
       },
     },
   },
-  emits: ['mode-change'],
-  setup(props, { emit }) {
+  setup(props) {
     const baseClassName = useBaseClassName();
     const { setVisible } = inject<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP);
     const modeValue = ref(props.mode);

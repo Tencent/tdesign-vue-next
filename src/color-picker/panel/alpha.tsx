@@ -24,7 +24,6 @@ export default defineComponent({
       },
     },
   },
-  emits: ['change'],
   setup(props) {
     const baseClassName = useBaseClassName();
     const handleChange = (v: number) => {

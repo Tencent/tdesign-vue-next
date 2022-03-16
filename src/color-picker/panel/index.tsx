@@ -35,10 +35,6 @@ export default defineComponent({
   inheritAttrs: false,
   props: {
     ...props,
-    customClass: {
-      type: String,
-      default: '',
-    },
   },
   setup(props) {
     const baseClassName = useBaseClassName();
@@ -65,23 +61,7 @@ export default defineComponent({
       if (mode.value === 'linear-gradient') {
         return color.value.linearGradient;
       }
-      switch (props.format) {
-        case 'HEX':
-          return color.value.hex;
-        case 'CMYK':
-          return color.value.cmyk;
-        case 'RGB':
-        case 'RGBA':
-          return props.enableAlpha ? color.value.rgba : color.value.rgb;
-        case 'HSL':
-        case 'HSLA':
-          return props.enableAlpha ? color.value.hsla : color.value.hsl;
-        case 'HSV':
-        case 'HSVA':
-          return props.enableAlpha ? color.value.hsva : color.value.hsv;
-        default:
-          return color.value.css;
-      }
+      return color.value.getFormatsColorMap()[props.format] || color.value.css;
     };
 
     const emitColorChange = (trigger?: ColorPickerChangeTrigger) => {
@@ -334,7 +314,7 @@ export default defineComponent({
 
     return (
       <div
-        class={[`${baseClassName}__panel`, this.customClass, this.disabled ? statusClassNames.disabled : false]}
+        class={[`${baseClassName}__panel`, this.disabled ? statusClassNames.disabled : false]}
         onClick={(e) => e.stopPropagation()}
       >
         <panel-header {...this.$props} mode={this.mode} onModeChange={this.handleModeChange} />
