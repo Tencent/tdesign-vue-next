@@ -70,14 +70,12 @@ exports[`Upload Upload baseVue demo works fine 1`] = `
     <!---->
     <!---->
     <!---->
-    
     <small
       class="t-upload__tips t-size-s"
     >
       上传文件大小在 5M 以内
     </small>
     <!---->
-    
   </div>
   
 </div>
@@ -227,10 +225,8 @@ exports[`Upload Upload customDragVue demo works fine 1`] = `
         
       </div>
     </transition-stub>
-    
     <!---->
     <!---->
-    
   </div>
 </div>
 `;
@@ -352,9 +348,7 @@ exports[`Upload Upload draggableVue demo works fine 1`] = `
     <!---->
     <!---->
     
-    
     <!---->
-    
   </div>
 </div>
 `;
@@ -470,10 +464,8 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
       </div>
     </div>
     <!---->
-    
     <!---->
     <!---->
-    
   </div>
 </div>
 `;
@@ -590,14 +582,12 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
           
         </div>
       </transition-stub>
-      
       <small
         class="t-upload__tips t-size-s"
       >
         请选择单张图片文件上传（上传成功状态演示）
       </small>
       <!---->
-      
     </div>
   </div>
   <div
@@ -708,14 +698,12 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
           
         </div>
       </transition-stub>
-      
       <small
         class="t-upload__tips t-size-s"
       >
         请选择单张图片文件上传（上传失败状态演示）
       </small>
       <!---->
-      
     </div>
   </div>
   <div
@@ -826,14 +814,12 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
           
         </div>
       </transition-stub>
-      
       <small
         class="t-upload__tips t-size-s"
       >
         请选择单张图片文件上传（自定义预览图片地址）
       </small>
       <!---->
-      
     </div>
   </div>
   <div
@@ -945,14 +931,12 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
           
         </div>
       </transition-stub>
-      
       <small
         class="t-upload__tips t-size-s"
       >
         允许选择多张图片文件上传，最多只能上传 3 张图片
       </small>
       <!---->
-      
     </div>
   </div>
 </div>
@@ -1108,10 +1092,8 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
         
       </div>
     </transition-stub>
-    
     <!---->
     <!---->
-    
   </div>
 </div>
 `;
@@ -1188,9 +1170,7 @@ exports[`Upload Upload listTypeVue demo works fine 1`] = `
       <!---->
       <!---->
       
-      
       <!---->
-      
     </div>
   </header>
 </section>
@@ -1317,14 +1297,12 @@ exports[`Upload Upload requestMethodVue demo works fine 1`] = `
     <!---->
     <!---->
     <!---->
-    
     <small
       class="t-upload__tips t-size-s"
     >
       自定义上传方法需要返回成功或失败信息
     </small>
     <!---->
-    
   </div>
 </div>
 `;
@@ -1426,14 +1404,12 @@ exports[`Upload Upload singleCustomVue demo works fine 1`] = `
           
         </div>
       </transition-stub>
-      
       <small
         class="t-upload__tips t-size-s"
       >
         上传文件大小在 5M 以内
       </small>
       <!---->
-      
     </div>
     <!--v-if-->
   </div>
@@ -1499,10 +1475,8 @@ exports[`Upload Upload singleInputVue demo works fine 1`] = `
       <!---->
       <!---->
       <!---->
-      
       <!---->
       <!---->
-      
     </div>
   </div>
 </div>
@@ -1575,9 +1549,7 @@ exports[`Upload Upload tableVue demo works fine 1`] = `
       <!---->
       <!---->
       
-      
       <!---->
-      
     </div>
   </header>
   <div
