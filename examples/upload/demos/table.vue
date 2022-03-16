@@ -36,7 +36,7 @@
           <span>{{ getFileSize(item.size) }}</span>
         </div>
         <div class="tdesign-demo-upload-table__status tdesign-demo-upload-table__status--success">
-          <icon :name="getIcon(item.status).name" :style="'color:' + getIcon(item.status).fill"></icon>
+          <t-icon :name="getIcon(item.status).name" :style="'color:' + getIcon(item.status).fill"></t-icon>
           <span>{{ getStatusText(item.status) }}</span>
         </div>
         <div class="tdesign-demo-upload-table__operator">

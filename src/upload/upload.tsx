@@ -233,19 +233,9 @@ export default defineComponent({
     const tipsClasses = computed(() => {
       return [`${UPLOAD_NAME.value}__tips ${prefix.value}-size-s`];
     });
-
     const errorClasses = computed(() => {
       return tipsClasses.value.concat(`${UPLOAD_NAME.value}__tips-error`);
     });
-
-    const renderTip = () => {
-      const renderErrorMsg = () =>
-        !uploadCtx.errorMsg && showTips.value && <small class={tipsClasses.value}>{props.tips}</small>;
-      const renderCustomMsg = () =>
-        showErrorMsg.value && <small class={errorClasses.value}>{uploadCtx.errorMsg}</small>;
-
-      return [renderErrorMsg(), renderCustomMsg()];
-    };
 
     return () => {
       const triggerElement = renderTrigger();
@@ -258,7 +248,8 @@ export default defineComponent({
           {renderImgCard()}
           {renderFlowList(triggerElement)}
           {renderDialog()}
-          {renderTip()}
+          {!uploadCtx.errorMsg && showTips.value && <small class={tipsClasses.value}>{props.tips}</small>}
+          {showErrorMsg.value && <small class={errorClasses.value}>{uploadCtx.errorMsg}</small>}
         </div>
       );
     };

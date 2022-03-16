@@ -3617,14 +3617,12 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                 
               </div>
             </transition-stub>
-            
             <small
               class="t-upload__tips t-size-s"
             >
               请选择单张图片文件上传
             </small>
             <!---->
-            
           </div>
           
           <!---->
