@@ -1,12 +1,10 @@
 import { defineComponent, provide, ref, toRefs, watch } from 'vue';
-import { useCommonClassName } from '../../config-provider';
+import { useCommonClassName, useConfig } from '../../config-provider';
 import props from '../props';
 import {
   DEFAULT_COLOR,
   DEFAULT_LINEAR_GRADIENT,
   TD_COLOR_USED_COLORS_MAX_SIZE,
-  TITLE_RECENT_COLORS,
-  TITLE_SWATCH_COLORS,
   DEFAULT_SYSTEM_SWATCH_COLORS,
 } from '../const';
 import PanelHeader from './header';
@@ -45,6 +43,7 @@ export default defineComponent({
   setup(props) {
     const baseClassName = useBaseClassName();
     const { STATUS } = useCommonClassName();
+    const { t, global } = useConfig('colorPicker');
     const statusClassNames = STATUS.value;
     const { value: inputValue, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
@@ -275,6 +274,8 @@ export default defineComponent({
     return {
       baseClassName,
       statusClassNames,
+      t,
+      global,
       color,
       mode,
       formatModel,
@@ -291,7 +292,7 @@ export default defineComponent({
     };
   },
   render() {
-    const { baseClassName, statusClassNames } = this;
+    const { baseClassName, statusClassNames, t, global } = this;
     const props = { ...this.$props, color: this.color, format: this.formatModel };
     const showUsedColors = props.recentColors !== null && this.recentlyUsedColors?.length > 0;
     let systemColors = props.swatchColors;
@@ -308,7 +309,7 @@ export default defineComponent({
           <div class={`${baseClassName}__swatches-wrap`}>
             {showUsedColors ? (
               <swatches-panel
-                title={TITLE_RECENT_COLORS}
+                title={t(global.recentColorTitle)}
                 removable
                 color={props.color}
                 colors={this.recentlyUsedColors}
@@ -319,7 +320,7 @@ export default defineComponent({
             ) : null}
             {showSystemColors ? (
               <swatches-panel
-                title={TITLE_SWATCH_COLORS}
+                title={t(global.swatchColorTitle)}
                 color={props.color}
                 colors={systemColors}
                 onSetColor={(color: string) => this.handleSetColor('system', color)}

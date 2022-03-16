@@ -159,6 +159,10 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
     copySuccessText: '链接复制成功',
     copyText: '复制链接',
   },
+  colorPicker: {
+    swatchColorTitle: '系统预设颜色',
+    recentColorTitle: '最近使用颜色',
+  },
 };
 
 export default GLOBAL_CONFIG_ZH;
