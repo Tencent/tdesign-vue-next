@@ -12,9 +12,12 @@ export default {
   align: {
     type: String as PropType<TdInputNumberProps['align']>,
     validator(val: TdInputNumberProps['align']): boolean {
+      if (!val) return true;
       return ['left', 'center', 'right'].includes(val);
     },
   },
+  /** 宽度随内容自适应 */
+  autoWidth: Boolean,
   /** [小数位数](https://en.wiktionary.org/wiki/decimal_place) */
   decimalPlaces: {
     type: Number,
@@ -41,11 +44,14 @@ export default {
     type: String,
     default: undefined,
   },
+  /** 只读状态 */
+  readonly: Boolean,
   /** 组件尺寸 */
   size: {
     type: String as PropType<TdInputNumberProps['size']>,
     default: 'medium' as TdInputNumberProps['size'],
     validator(val: TdInputNumberProps['size']): boolean {
+      if (!val) return true;
       return ['small', 'medium', 'large'].includes(val);
     },
   },
@@ -53,6 +59,7 @@ export default {
   status: {
     type: String as PropType<TdInputNumberProps['status']>,
     validator(val: TdInputNumberProps['status']): boolean {
+      if (!val) return true;
       return ['success', 'warning', 'error'].includes(val);
     },
   },
@@ -66,6 +73,7 @@ export default {
     type: String as PropType<TdInputNumberProps['theme']>,
     default: 'row' as TdInputNumberProps['theme'],
     validator(val: TdInputNumberProps['theme']): boolean {
+      if (!val) return true;
       return ['column', 'row', 'normal'].includes(val);
     },
   },
