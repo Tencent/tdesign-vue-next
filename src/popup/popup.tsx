@@ -56,7 +56,6 @@ export default defineComponent({
       type: Boolean,
     },
   },
-  
   emits: ['visible-change', 'enter', 'leave'],
 
   setup() {
