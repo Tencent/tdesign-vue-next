@@ -6846,7 +6846,7 @@ exports[`ssr snapshot test renders ./examples/comment/demos/reply-form.vue corre
       <div class="t-comment__detail">
         <!--[-->
         <div class="form-container">
-          <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入内容"></textarea>
+          <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入内容"></textarea>
             <!---->
             <!---->
           </div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary form-submit" type="button"><span class="t-button__text"><!--[-->回复<!--]--></span></button>
@@ -15904,7 +15904,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-textarea t-is-disabled"><textarea style="" class="t-textarea__inner t-is-disabled narrow-scrollbar" modelvalue clearable disabled placeholder="简单描述自己的经历"></textarea>
+          <div class="t-textarea t-is-disabled"><textarea style="" class="t-textarea__inner t-is-disabled narrow-scrollbar" clearable disabled placeholder="简单描述自己的经历"></textarea>
             <!---->
             <!---->
           </div>
@@ -18829,7 +18829,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/status.vue correctly 1
 exports[`ssr snapshot test renders ./examples/input/demos/textarea.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
   <h5>文本域输入框已抽离为单独组件，更多示例请参考 Textarea 组件</h5>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入内容"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入内容"></textarea>
     <!---->
     <!---->
   </div>
@@ -26499,7 +26499,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
           <div class="t-select__dropdown-inner">
             <!--[-->
             <div>
-              <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入关键词搜索"></textarea>
+              <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入关键词搜索"></textarea>
                 <!---->
                 <!---->
               </div>
@@ -40807,15 +40807,15 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
 
 exports[`ssr snapshot test renders ./examples/textarea/demos/base.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入描述文案" name="description"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入描述文案" name="description"></textarea>
     <!---->
     <!---->
   </div>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入文案，高度可自适应；autosize=true" name="description"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入文案，高度可自适应；autosize=true" name="description"></textarea>
     <!---->
     <!---->
   </div>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}" name="description"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}" name="description"></textarea>
     <!---->
     <!---->
   </div>
@@ -40824,7 +40824,7 @@ exports[`ssr snapshot test renders ./examples/textarea/demos/base.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/textarea/demos/events.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入"></textarea>
     <!---->
     <!---->
   </div>
@@ -40833,10 +40833,10 @@ exports[`ssr snapshot test renders ./examples/textarea/demos/events.vue correctl
 
 exports[`ssr snapshot test renders ./examples/textarea/demos/maxlength.vue correctly 1`] = `
 <div>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner t-resize-none narrow-scrollbar" modelvalue placeholder="请输入描述文案，文本长度最多20，maxlength=20" maxlength="20"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner t-resize-none narrow-scrollbar" placeholder="请输入描述文案，文本长度最多20，maxlength=20" maxlength="20"></textarea>
     <!----><span class="t-textarea__limit">0/20</span>
   </div><br>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入描述文案，最多20字符（一个汉字占两个字符长度），maxcharacter=20"></textarea><span class="t-textarea__limit">0/20</span>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入描述文案，最多20字符（一个汉字占两个字符长度），maxcharacter=20"></textarea><span class="t-textarea__limit">0/20</span>
     <!---->
   </div>
 </div>

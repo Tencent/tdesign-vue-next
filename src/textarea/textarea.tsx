@@ -1,10 +1,11 @@
-import { defineComponent, computed, watch, ref, nextTick, onMounted } from 'vue';
+import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../config-provider';
 import props from './props';
 import { TextareaValue } from './type';
 import { getCharacterLength } from '../utils/helper';
 import calcTextareaHeight from './calcTextareaHeight';
 import { ClassName } from '../common';
+import useVModel from '../hooks/useVModel';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -31,12 +32,13 @@ export default defineComponent({
   name: 'TTextarea',
   inheritAttrs: false,
   props: { ...props },
-  emits: ['change', 'update:value'],
+  emits: ['change', 'update:value', 'update:modelValue'],
   setup(props, { attrs, emit }) {
+    const { value, modelValue } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const disabled = useFormDisabled();
     const textareaStyle = ref({});
     const refTextareaElem = ref<HTMLTextAreaElement>();
-    const value = ref(props.value || '');
     const focused = ref(false);
 
     // methods
@@ -59,7 +61,7 @@ export default defineComponent({
       }
       if (textareaElem.value !== sV) {
         textareaElem.value = sV;
-        value.value = sV;
+        innerValue.value = sV;
       }
     };
     const inputValueChangeHandle = (e: InputEvent) => {
@@ -69,6 +71,7 @@ export default defineComponent({
         const stringInfo = getCharacterLength(val, props.maxcharacter);
         val = typeof stringInfo === 'object' && stringInfo.characters;
       }
+      setInnerValue(val, { e });
       emit('update:value', val);
       emit('change', val, { e });
       nextTick(() => setInputValue(val));
@@ -86,7 +89,7 @@ export default defineComponent({
     const eventDeal = (name: 'keydown' | 'keyup' | 'keypress' | 'change', e: KeyboardEvent | FocusEvent) => {
       if (disabled.value) return;
       const _name = `on${name[0].toUpperCase()}${name.slice(1)}`;
-      props[_name]?.(value.value, { e });
+      props[_name]?.(innerValue.value, { e });
     };
 
     const emitKeyDown = (e: KeyboardEvent) => {
@@ -102,11 +105,11 @@ export default defineComponent({
     const emitFocus = (e: FocusEvent) => {
       if (disabled.value) return;
       focused.value = true;
-      props.onFocus?.(value.value, { e });
+      props.onFocus?.(innerValue.value, { e });
     };
     const emitBlur = (e: FocusEvent) => {
       focused.value = false;
-      props.onBlur?.(value.value, { e });
+      props.onBlur?.(innerValue.value, { e });
     };
 
     // computed
@@ -130,7 +133,7 @@ export default defineComponent({
       });
     });
     const characterNumber = computed<number>(() => {
-      const characterInfo = getCharacterLength(String(value.value || ''));
+      const characterInfo = getCharacterLength(String(innerValue.value || ''));
       if (typeof characterInfo === 'object') {
         return characterInfo.length;
       }
@@ -139,7 +142,7 @@ export default defineComponent({
 
     // watch
     watch(
-      () => props.value,
+      () => innerValue.value,
       () => adjustTextareaHeight(),
     );
     watch(refTextareaElem, (el) => {
@@ -177,7 +180,7 @@ export default defineComponent({
             onInput={handleInput}
             onCompositionend={onCompositionend}
             ref={refTextareaElem}
-            value={value.value}
+            value={innerValue.value}
             style={textareaStyle.value}
             class={classes}
             {...attrs}
@@ -186,7 +189,9 @@ export default defineComponent({
           ></textarea>
           {props.maxcharacter && <span class={TEXTAREA_LIMIT}>{`${characterNumber.value}/${props.maxcharacter}`}</span>}
           {!props.maxcharacter && props.maxlength ? (
-            <span class={TEXTAREA_LIMIT}>{`${value.value ? String(value.value)?.length : 0}/${props.maxlength}`}</span>
+            <span class={TEXTAREA_LIMIT}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
+              props.maxlength
+            }`}</span>
           ) : null}
         </div>
       );

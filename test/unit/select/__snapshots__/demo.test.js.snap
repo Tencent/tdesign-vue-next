@@ -5674,7 +5674,6 @@ exports[`Select Select panelVue demo works fine 1`] = `
                 >
                   <textarea
                     class="t-textarea__inner narrow-scrollbar"
-                    modelvalue=""
                     placeholder="请输入关键词搜索"
                   />
                   <!---->

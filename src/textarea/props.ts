@@ -52,6 +52,10 @@ export default {
   value: {
     type: [String, Number] as PropType<TdTextareaProps['value']>,
   },
+  /** v-model */
+  modelValue: {
+    type: [String, Number] as PropType<TdTextareaProps['value']>,
+  },
   /** 文本框值，非受控属性 */
   defaultValue: {
     type: [String, Number] as PropType<TdTextareaProps['defaultValue']>,
