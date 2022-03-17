@@ -11,13 +11,6 @@ import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
 
-const prefix = usePrefixClass().value;
-
-const name = `${prefix}-textarea`;
-const TEXTAREA_WRAP_CLASS = `${prefix}-textarea__wrap`;
-const TEXTAREA_TIPS_CLASS = `${prefix}-textarea__tips`;
-const TEXTAREA_LIMIT = `${name}__limit`;
-
 function getValidAttrs(obj: object): object {
   const newObj = {};
   Object.keys(obj).forEach((key) => {
@@ -33,7 +26,13 @@ export default defineComponent({
   inheritAttrs: false,
   props: { ...props },
   emits: ['update:modelValue'],
-  setup(props, { attrs, emit }) {
+  setup(props, { attrs }) {
+    const prefix = usePrefixClass();
+    const name = computed(() => `${prefix.value}-textarea`);
+    const TEXTAREA_WRAP_CLASS = computed(() => `${prefix.value}-textarea__wrap`);
+    const TEXTAREA_TIPS_CLASS = computed(() => `${prefix.value}-textarea__tips`);
+    const TEXTAREA_LIMIT = computed(() => `${name.value}__limit`);
+
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const disabled = useFormDisabled();
@@ -113,10 +112,10 @@ export default defineComponent({
     // computed
     const textareaClasses = computed<ClassName>(() => {
       return [
-        name,
+        name.value,
         {
-          [`${prefix}-is-disabled`]: disabled.value,
-          [`${prefix}-is-readonly`]: props.readonly,
+          [`${prefix.value}-is-disabled`]: disabled.value,
+          [`${prefix.value}-is-readonly`]: props.readonly,
         },
       ];
     });
@@ -161,16 +160,16 @@ export default defineComponent({
         onKeypress: emitKeypress,
       });
       const { STATUS } = useCommonClassName();
-      const classes = [
-        `${name}__inner`,
+      const classes = computed(() => [
+        `${name.value}__inner`,
         {
-          [`${prefix}-is-${props.status}`]: props.status,
+          [`${prefix.value}-is-${props.status}`]: props.status,
           [STATUS.value.disabled]: disabled.value,
           [STATUS.value.focused]: focused.value,
-          [`${prefix}-resize-none`]: props.maxlength,
+          [`${prefix.value}-resize-none`]: props.maxlength,
         },
         'narrow-scrollbar',
-      ];
+      ]);
 
       const textareaNode = (
         <div class={textareaClasses.value}>
@@ -180,14 +179,16 @@ export default defineComponent({
             ref={refTextareaElem}
             value={innerValue.value}
             style={textareaStyle.value}
-            class={classes}
+            class={classes.value}
             {...attrs}
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>
-          {props.maxcharacter && <span class={TEXTAREA_LIMIT}>{`${characterNumber.value}/${props.maxcharacter}`}</span>}
+          {props.maxcharacter && (
+            <span class={TEXTAREA_LIMIT.value}>{`${characterNumber.value}/${props.maxcharacter}`}</span>
+          )}
           {!props.maxcharacter && props.maxlength ? (
-            <span class={TEXTAREA_LIMIT}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
+            <span class={TEXTAREA_LIMIT.value}>{`${innerValue.value ? String(innerValue.value)?.length : 0}/${
               props.maxlength
             }`}</span>
           ) : null}
@@ -197,9 +198,11 @@ export default defineComponent({
       const tips = renderTNodeJSX('tips');
       if (tips) {
         return (
-          <div class={TEXTAREA_WRAP_CLASS}>
+          <div class={TEXTAREA_WRAP_CLASS.value}>
             {textareaNode}
-            <div class={`${TEXTAREA_TIPS_CLASS} ${prefix}-textarea__tips--${props.status || 'normal'}`}>{tips}</div>
+            <div class={`${TEXTAREA_TIPS_CLASS.value} ${prefix.value}-textarea__tips--${props.status || 'normal'}`}>
+              {tips}
+            </div>
           </div>
         );
       }
