@@ -21175,32 +21175,41 @@ exports[`ssr snapshot test renders ./examples/menu/demos/closable-side.vue corre
         <!--]--><span class="t-menu__content"><!--[--> 仪表盘1 <!--]--></span>
       </li>
       <li class="t-submenu" mode="popup">
-        <!--[-->
-        <div class="t-menu__item">
-          <!--[--><svg class="t-icon t-icon-mail" style="">
-            <use href="#t-icon-mail"></use>
-          </svg>
-          <!--]--><span class="t-menu__content"><!--[--><span>信息区</span>
-          <!--]--></span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-          </svg>
-        </div>
-        <div class="t-menu__popup t-is-vertical">
-          <ul class="t-menu__popup-wrapper">
+        <div class="t-popup__reference">
+          <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+            <div class="t-popup__content t-menu__popup t-is-vertical t-menu__spacer t-menu__spacer--left">
+              <!--[-->
+              <ul class="t-menu__popup-wrapper">
+                <!--[-->
+                <li class="t-menu__item t-is-active t-menu__item--plain t-submenu__item">
+                  <!----><span class="t-menu__content"><!--[--> 菜单内容一 <!--]--></span>
+                </li>
+                <li class="t-menu__item t-menu__item--plain t-submenu__item">
+                  <!----><span class="t-menu__content"><!--[--> 菜单内容二 <!--]--></span>
+                </li>
+                <li class="t-menu__item t-menu__item--plain t-submenu__item">
+                  <!----><span class="t-menu__content"><!--[--> 菜单内容三 <!--]--></span>
+                </li>
+                <!--]-->
+              </ul>
+              <!--]-->
+              <!---->
+            </div>
+          </div>
+          <!--[-->
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
             <!--[-->
-            <li class="t-menu__item t-is-active t-menu__item--plain t-submenu__item">
-              <!----><span class="t-menu__content"><!--[--> 菜单内容一 <!--]--></span>
-            </li>
-            <li class="t-menu__item t-menu__item--plain t-submenu__item">
-              <!----><span class="t-menu__content"><!--[--> 菜单内容二 <!--]--></span>
-            </li>
-            <li class="t-menu__item t-menu__item--plain t-submenu__item">
-              <!----><span class="t-menu__content"><!--[--> 菜单内容三 <!--]--></span>
-            </li>
+            <!--[--><svg class="t-icon t-icon-mail" style="">
+              <use href="#t-icon-mail"></use>
+            </svg>
+            <!--]--><span class="t-menu__content"><!--[--><span>信息区</span>
+            <!--]--></span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);margin-left:auto;">
+              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+            </svg>
             <!--]-->
-          </ul>
+          </div>
+          <!--]-->
         </div>
-        <!--]-->
       </li>
       <li class="t-menu__item">
         <!--[--><svg class="t-icon t-icon-play-circle" style="">
@@ -21296,7 +21305,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/double.vue correctly 1`
         <!--[-->
         <li class="t-submenu t-is-opened">
           <!--[-->
-          <div class="t-menu__item t-is-opened">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom t-is-opened">
             <!--[--><span>菜单1</span>
             <!--]-->
           </div>
@@ -21317,7 +21326,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/double.vue correctly 1`
         </li>
         <li class="t-submenu">
           <!--[-->
-          <div class="t-menu__item">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
             <!--[--><span>菜单2</span>
             <!--]-->
           </div>
@@ -21363,7 +21372,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/double.vue correctly 1`
         <!--[-->
         <li class="t-submenu t-is-opened">
           <!--[-->
-          <div class="t-menu__item t-is-opened">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom t-is-opened">
             <!--[--><span>菜单1</span>
             <!--]-->
           </div>
@@ -21384,7 +21393,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/double.vue correctly 1`
         </li>
         <li class="t-submenu">
           <!--[-->
-          <div class="t-menu__item">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
             <!--[--><span>菜单2</span>
             <!--]-->
           </div>
@@ -21591,7 +21600,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/head-menu-tile.vue corr
       <!--[-->
       <!--[-->
       <li class="t-menu__item t-menu__item--plain">
-        <!----><span class="t-menu__content"><!--[-->菜单1 <li class="t-submenu"><!--[--><div class="t-menu__item"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单1-1<!--]--></span>
+        <!----><span class="t-menu__content"><!--[-->菜单1 <li class="t-submenu"><!--[--><div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单1-1<!--]--></span>
       </li>
       <li class="t-menu__item t-menu__item--plain">
         <!----><span class="t-menu__content"><!--[-->子菜单1-2<!--]--></span>
@@ -21606,7 +21615,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/head-menu-tile.vue corr
     </li>
     <!--]--></span></li>
     <li class="t-menu__item t-menu__item--plain">
-      <!----><span class="t-menu__content"><!--[-->菜单2 <li class="t-submenu"><!--[--><div class="t-menu__item"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-is-active t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单2-1<!--]--></span>
+      <!----><span class="t-menu__content"><!--[-->菜单2 <li class="t-submenu"><!--[--><div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-is-active t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单2-1<!--]--></span>
     </li>
     <li class="t-menu__item t-menu__item--plain">
       <!----><span class="t-menu__content"><!--[-->子菜单2-2<!--]--></span>
@@ -21621,7 +21630,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/head-menu-tile.vue corr
     </li>
     <!--]--></span></li>
     <li class="t-menu__item t-menu__item--plain">
-      <!----><span class="t-menu__content"><!--[-->菜单3 <li class="t-submenu"><!--[--><div class="t-menu__item"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单3-1<!--]--></span>
+      <!----><span class="t-menu__content"><!--[-->菜单3 <li class="t-submenu"><!--[--><div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单3-1<!--]--></span>
     </li>
     <li class="t-menu__item t-menu__item--plain">
       <!----><span class="t-menu__content"><!--[-->子菜单3-2<!--]--></span>
@@ -21667,7 +21676,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         <!--[-->
         <li class="t-submenu t-is-opened">
           <!--[-->
-          <div class="t-menu__item t-is-opened">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right t-is-opened">
             <!--[--><svg class="t-icon t-icon-mail" style="">
               <use href="#t-icon-mail"></use>
             </svg>
@@ -21680,7 +21689,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
             <!--[-->
             <li class="t-submenu">
               <!--[-->
-              <div class="t-menu__item">
+              <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
                 <!----><span class="t-menu__content">二级菜单</span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -21702,7 +21711,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
             </li>
             <li class="t-submenu">
               <!--[-->
-              <div class="t-menu__item">
+              <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
                 <!----><span class="t-menu__content">二级菜单</span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -21743,7 +21752,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         </li>
         <li class="t-submenu">
           <!--[-->
-          <div class="t-menu__item">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
             <!--[--><svg class="t-icon t-icon-play-circle" style="">
               <use href="#t-icon-play-circle"></use>
             </svg>
@@ -21808,7 +21817,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         </li>
         <li class="t-submenu t-is-opened">
           <!--[-->
-          <div class="t-menu__item t-is-opened">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right t-is-opened">
             <!--[--><svg class="t-icon t-icon-control-platform" style="">
               <use href="#t-icon-control-platform"></use>
             </svg>
@@ -21840,7 +21849,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         </li>
         <li class="t-submenu t-is-disabled">
           <!--[-->
-          <div class="t-menu__item t-is-disabled">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right t-is-disabled">
             <!--[--><svg class="t-icon t-icon-mail" style="">
               <use href="#t-icon-mail"></use>
             </svg>
@@ -21871,7 +21880,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         </li>
         <li class="t-submenu">
           <!--[-->
-          <div class="t-menu__item">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
             <!--[--><svg class="t-icon t-icon-play-circle" style="">
               <use href="#t-icon-play-circle"></use>
             </svg>
@@ -21925,95 +21934,134 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multiple.vue correctly 
       <ul class="t-menu">
         <!--[-->
         <li class="t-submenu">
-          <!--[-->
-          <div class="t-menu__item">
-            <!--[--><span>菜单1</span>
-            <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-            </svg>
-          </div>
-          <div class="t-menu__popup">
-            <ul class="t-menu__popup-wrapper">
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                <!--[-->
+                <ul class="t-menu__popup-wrapper">
+                  <!--[-->
+                  <li class="t-submenu">
+                    <div class="t-popup__reference">
+                      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                        <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                          <!--[-->
+                          <ul class="t-menu__popup-wrapper">
+                            <!--[-->
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-1-1 <!--]--></span>
+                            </li>
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-1-2 <!--]--></span>
+                            </li>
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-1-3 <!--]--></span>
+                            </li>
+                            <!--]-->
+                          </ul>
+                          <!--]-->
+                          <!---->
+                        </div>
+                      </div>
+                      <!--[-->
+                      <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
+                        <!--[-->子菜单1-1<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                        </svg>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-2 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-3 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-4 <!--]--></span>
+                  </li>
+                  <li class="t-submenu">
+                    <div class="t-popup__reference">
+                      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                        <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                          <!--[-->
+                          <ul class="t-menu__popup-wrapper">
+                            <!--[-->
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-5-1 <!--]--></span>
+                            </li>
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-5-2 <!--]--></span>
+                            </li>
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-5-3 <!--]--></span>
+                            </li>
+                            <!--]-->
+                          </ul>
+                          <!--]-->
+                          <!---->
+                        </div>
+                      </div>
+                      <!--[-->
+                      <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
+                        <!--[-->子菜单1-5<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                        </svg>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                  </li>
+                  <!--]-->
+                </ul>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
               <!--[-->
-              <li class="t-submenu">
-                <!--[-->
-                <div class="t-menu__item">子菜单1-1<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-                    <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-                  </svg></div>
-                <div class="t-menu__popup">
-                  <ul class="t-menu__popup-wrapper">
-                    <!--[-->
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-1-1 <!--]--></span>
-                    </li>
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-1-2 <!--]--></span>
-                    </li>
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-1-3 <!--]--></span>
-                    </li>
-                    <!--]-->
-                  </ul>
-                </div>
-                <!--]-->
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-2 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-3 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-4 <!--]--></span>
-              </li>
-              <li class="t-submenu">
-                <!--[-->
-                <div class="t-menu__item">子菜单1-5<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-                    <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-                  </svg></div>
-                <div class="t-menu__popup">
-                  <ul class="t-menu__popup-wrapper">
-                    <!--[-->
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-5-1 <!--]--></span>
-                    </li>
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-5-2 <!--]--></span>
-                    </li>
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-5-3 <!--]--></span>
-                    </li>
-                    <!--]-->
-                  </ul>
-                </div>
-                <!--]-->
-              </li>
+              <!--[--><span>菜单1</span>
+              <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
               <!--]-->
-            </ul>
+            </div>
+            <!--]-->
           </div>
-          <!--]-->
         </li>
         <li class="t-submenu">
-          <!--[-->
-          <div class="t-menu__item">菜单2<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-            </svg></div>
-          <div class="t-menu__popup">
-            <ul class="t-menu__popup-wrapper">
-              <!--[-->
-              <li class="t-menu__item t-is-active t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-1 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-2 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-3 <!--]--></span>
-              </li>
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                <!--[-->
+                <ul class="t-menu__popup-wrapper">
+                  <!--[-->
+                  <li class="t-menu__item t-is-active t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-1 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-2 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-3 <!--]--></span>
+                  </li>
+                  <!--]-->
+                </ul>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
+              <!--[-->菜单2<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
               <!--]-->
-            </ul>
+            </div>
+            <!--]-->
           </div>
-          <!--]-->
         </li>
         <!--]-->
       </ul>
@@ -22041,54 +22089,72 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multiple.vue correctly 
       <ul class="t-menu">
         <!--[-->
         <li class="t-submenu">
-          <!--[-->
-          <div class="t-menu__item">
-            <!--[--><span>菜单1</span>
-            <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-            </svg>
-          </div>
-          <div class="t-menu__popup">
-            <ul class="t-menu__popup-wrapper">
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                <!--[-->
+                <ul class="t-menu__popup-wrapper">
+                  <!--[-->
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-1 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-2 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-3 <!--]--></span>
+                  </li>
+                  <!--]-->
+                </ul>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
               <!--[-->
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-1 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-2 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-3 <!--]--></span>
-              </li>
+              <!--[--><span>菜单1</span>
+              <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
               <!--]-->
-            </ul>
+            </div>
+            <!--]-->
           </div>
-          <!--]-->
         </li>
         <li class="t-submenu">
-          <!--[-->
-          <div class="t-menu__item">
-            <!--[--><span>菜单2</span>
-            <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-            </svg>
-          </div>
-          <div class="t-menu__popup">
-            <ul class="t-menu__popup-wrapper">
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                <!--[-->
+                <ul class="t-menu__popup-wrapper">
+                  <!--[-->
+                  <li class="t-menu__item t-is-active t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-1 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-2 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-3 <!--]--></span>
+                  </li>
+                  <!--]-->
+                </ul>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
               <!--[-->
-              <li class="t-menu__item t-is-active t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-1 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-2 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-3 <!--]--></span>
-              </li>
+              <!--[--><span>菜单2</span>
+              <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
               <!--]-->
-            </ul>
+            </div>
+            <!--]-->
           </div>
-          <!--]-->
         </li>
         <!--]-->
       </ul>
@@ -22127,7 +22193,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/popup-side.vue correctl
       </li>
       <li class="t-submenu t-is-opened">
         <!--[-->
-        <div class="t-menu__item t-is-opened">
+        <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right t-is-opened">
           <!--[--><svg class="t-icon t-icon-user-circle" style="">
             <use href="#t-icon-user-circle"></use>
           </svg>
@@ -22153,7 +22219,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/popup-side.vue correctl
       </li>
       <li class="t-submenu">
         <!--[-->
-        <div class="t-menu__item">
+        <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
           <!--[--><svg class="t-icon t-icon-root-list" style="">
             <use href="#t-icon-root-list"></use>
           </svg>

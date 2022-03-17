@@ -56,7 +56,7 @@ export default defineComponent({
       type: Boolean,
     },
   },
-  emits: ['visible-change'],
+  emits: ['visible-change', 'enter', 'leave'],
 
   setup() {
     const COMPONENT_NAME = usePrefixClass('popup');
@@ -336,6 +336,8 @@ export default defineComponent({
             role="tooltip"
             aria-hidden={this.disabled || !this.visible ? 'true' : 'false'}
             style={{ zIndex: this.zIndex }}
+            onMouseenter={(e) => this.$emit('enter', e)}
+            onMouseleave={(e) => this.$emit('leave', e)}
           >
             <div class={this.overlayClasses} ref="overlay">
               {renderTNodeJSX(this, 'content')}
