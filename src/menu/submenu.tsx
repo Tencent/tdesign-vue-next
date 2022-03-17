@@ -1,4 +1,4 @@
-import { defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, watch } from 'vue';
+import { defineComponent, computed, inject, ref, provide, onMounted, getCurrentInstance, watch, Slots } from 'vue';
 import props from './submenu-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
@@ -126,7 +126,7 @@ export default defineComponent({
       menu?.vMenu?.add({ value: props.value, parent: submenu?.value, vnode: ctx.slots.default });
       const instance = getCurrentInstance();
 
-      isNested.value = !/headmenu/i.test(instance.parent?.type.name);
+      isNested.value = !/^t(head)?menu/i.test(instance.parent?.type.name);
     });
 
     return {
@@ -150,24 +150,18 @@ export default defineComponent({
     };
   },
   methods: {
-    renderHeadSubmenu() {
-      const normalSubmenu = [
-        <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
-          {renderTNodeJSX(this, 'title')}
-        </div>,
-        <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent(this, 'default', 'content')}</ul>,
-      ];
-
+    renderPopup(triggerElement: Slots[]) {
+      let placement = 'right-top';
+      if (!this.isNested && this.isHead) {
+        placement = 'bottom-left';
+      }
+      const overlayStyle = { [`margin-${this.isHead ? 'top' : 'left'}`]: '20px' };
       const popupWrapper = (
         <ul class={`${this.classPrefix}-menu__popup-wrapper`}>{renderContent(this, 'default', 'content')}</ul>
       );
       const popupInside = (
         <div ref="submenuRef" class={this.submenuClass}>
-          {renderTNodeJSX(this, 'title')}
-          <FakeArrow
-            overlayClassName={this.arrowClass}
-            overlayStyle={{ transform: `rotate(${this.isNested ? -90 : 0}deg)` }}
-          />
+          {triggerElement}
           <div class={this.popupClass}>{popupWrapper}</div>
         </div>
       );
@@ -176,24 +170,42 @@ export default defineComponent({
       };
       const realPopup = (
         <Popup
-          overlayClassName={this.popupClass}
+          overlayClassName={[
+            ...this.popupClass,
+            `${this.classPrefix}-menu__spacer`,
+            `${this.classPrefix}-menu__spacer--${this.isHead ? 'top' : 'left'}`,
+          ]}
           onEnter={() => (this.isCursorInPopup = true)}
           onLeave={this.handleMouseLeavePopup}
           visible={this.popupVisible}
-          placement={this.isNested ? 'right-top' : 'bottom-left'}
+          placement={placement}
+          overlayStyle={overlayStyle}
           v-slots={slots}
         >
           <div ref="submenuRef" class={this.submenuClass}>
-            {renderTNodeJSX(this, 'title')}
-            <FakeArrow
-              overlayClassName={this.arrowClass}
-              overlayStyle={{ transform: `rotate(${this.isNested ? -90 : 0}deg)` }}
-            />
+            {triggerElement}
           </div>
         </Popup>
       );
-      const popupSubmenu = this.isNested ? popupInside : realPopup;
-      return this.mode === 'normal' ? normalSubmenu : popupSubmenu;
+
+      return this.isNested ? popupInside : realPopup;
+    },
+    renderHeadSubmenu() {
+      const normalSubmenu = [
+        <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
+          {renderTNodeJSX(this, 'title')}
+        </div>,
+        <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent(this, 'default', 'content')}</ul>,
+      ];
+      const triggerElement = [
+        renderTNodeJSX(this, 'title'),
+        <FakeArrow
+          overlayClassName={this.arrowClass}
+          overlayStyle={{ transform: `rotate(${this.isNested ? -90 : 0}deg)` }}
+        />,
+      ];
+
+      return this.mode === 'normal' ? normalSubmenu : this.renderPopup(triggerElement);
     },
     renderSubmenu() {
       const hasContent = this.$slots.content || this.$slots.default;
@@ -227,23 +239,16 @@ export default defineComponent({
         </ul>,
       ];
 
-      const popupSubmenu = [
-        <div class={this.submenuClass}>
-          {icon}
-          <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
-          <FakeArrow
-            overlayClassName={this.arrowClass}
-            overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
-          />
-        </div>,
-        <div ref="popup" class={this.popupClass}>
-          <ul ref="popupInner" class={`${this.classPrefix}-menu__popup-wrapper`}>
-            {child}
-          </ul>
-        </div>,
+      const triggerElement = [
+        icon,
+        <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
+        <FakeArrow
+          overlayClassName={this.arrowClass}
+          overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)`, 'margin-left': 'auto' }}
+        />,
       ];
 
-      return this.mode === 'normal' ? normalSubmenu : popupSubmenu;
+      return this.mode === 'normal' ? normalSubmenu : this.renderPopup(triggerElement);
     },
   },
   render() {
