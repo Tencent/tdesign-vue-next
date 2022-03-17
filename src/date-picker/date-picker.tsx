@@ -337,15 +337,10 @@ export default defineComponent({
       }
     },
     toggleTime() {
-      this.timeValue = dayjs(this.start as Date);
-      this.endTimeValue = dayjs(this.end as Date);
+      this.startTimeValue = dayjs(this.start);
+      this.endTimeValue = dayjs(this.end);
 
       this.showTime = !this.showTime;
-
-      this.$nextTick(() => {
-        const timePickerPanel = this.$refs.timePickerPanel as any;
-        timePickerPanel && timePickerPanel.panelColUpdate();
-      });
     },
 
     clickRange(value: DateValue) {
