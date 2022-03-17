@@ -1,6 +1,5 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import TButton from '../button';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
@@ -86,6 +85,7 @@ export default defineComponent({
   setup(props: TdDialogProps, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
     const LOCK_CLASS = usePrefixClass('dialog--lock');
+    const classPrefix = usePrefixClass();
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
@@ -106,7 +106,10 @@ export default defineComponent({
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
     const isModeless = computed(() => props.mode === 'modeless');
-    const maskClass = computed(() => [`${COMPONENT_NAME.value}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
+    const maskClass = computed(() => [
+      `${COMPONENT_NAME.value}__mask`,
+      !props.showOverlay && `${classPrefix.value}-is-hidden`,
+    ]);
     const dialogClass = computed(() => {
       const dialogClass = [
         `${COMPONENT_NAME.value}`,
@@ -242,14 +245,14 @@ export default defineComponent({
           {getCancelBtn({
             cancelBtn: props.cancelBtn,
             globalCancel: global.value.cancel,
-            className: `${prefix}-dialog__cancel`,
+            className: `${COMPONENT_NAME.value}__cancel`,
           })}
           {getConfirmBtn({
             theme: props.theme,
             confirmBtn: props.confirmBtn,
             globalConfirm: global.value.confirm,
             globalConfirmBtnTheme: global.value.confirmBtnTheme,
-            className: `${prefix}-dialog__confirm`,
+            className: `${COMPONENT_NAME.value}__confirm`,
           })}
         </div>
       );

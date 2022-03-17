@@ -1,9 +1,7 @@
 import { defineComponent, VNode, computed } from 'vue';
-import { prefix } from '../config';
 import props from './props';
 import { useChildComponentSlots } from '../hooks/slot';
-
-const name = `${prefix}-swiper`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TSwiper',
@@ -13,7 +11,11 @@ export default defineComponent({
 
   setup() {
     const items = computed(() => useChildComponentSlots('TSwiperItem'));
+    const COMPONENT_NAME = usePrefixClass('swiper');
+    const classPrefix = usePrefixClass();
     return {
+      classPrefix,
+      COMPONENT_NAME,
       items,
     };
   },
@@ -55,8 +57,8 @@ export default defineComponent({
         };
       }
       return (
-        <div class={`${name}__content`}>
-          <div class={`${name}__swiper-wrap--${this.direction}`} style={wraperStyles}>
+        <div class={`${this.COMPONENT_NAME}__content`}>
+          <div class={`${this.COMPONENT_NAME}__swiper-wrap--${this.direction}`} style={wraperStyles}>
             {this.items}
           </div>
         </div>
@@ -109,9 +111,9 @@ export default defineComponent({
   },
   render(): VNode {
     const swiperClass = [
-      `${name}`,
+      `${this.COMPONENT_NAME}`,
       {
-        [`${prefix}-is-hidden`]: !this.visible,
+        [`${this.classPrefix}-is-hidden`]: !this.visible,
       },
     ];
     return (

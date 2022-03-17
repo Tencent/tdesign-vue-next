@@ -8,7 +8,7 @@ import {
   EllipsisIcon,
 } from 'tdesign-icons-vue-next';
 import { TdPaginationProps } from '../pagination/type';
-import { useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import TInputNumber from '../input-number';
 import { Option, Select } from '../select';
@@ -34,11 +34,15 @@ export default defineComponent({
       'pageSize',
     );
 
-    const { t, global, classPrefix: prefix } = useConfig('pagination');
+    const { t, global } = useConfig('pagination');
+    const COMPONENT_NAME = usePrefixClass('pagination');
 
-    const name = computed(() => `${prefix.value}-pagination`);
-
-    const { pageCount, ...paginationClasses } = usePaginationClasses(props, innerCurrent, name);
+    const { pageCount, ...paginationClasses } = usePaginationClasses(
+      props,
+      innerCurrent,
+      innerPageSize,
+      COMPONENT_NAME,
+    );
 
     const { prevMore, isPrevMoreShow, curPageLeftCount, nextMore, isNextMoreShow, curPageRightCount } = useMoreAction(
       props,
@@ -116,7 +120,7 @@ export default defineComponent({
         const pageInfo = {
           current,
           previous: prev,
-          pageSize: props.pageSize,
+          pageSize: innerPageSize.value,
         };
         if (isTriggerChange !== false) {
           props.onChange?.(pageInfo);

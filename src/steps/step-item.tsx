@@ -1,15 +1,13 @@
 import { defineComponent, h } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import props from './step-item-props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, SlotReturnValue } from '../common';
+import { usePrefixClass } from '../config-provider';
 
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { StepsConfig } from '../config-provider/config-receiver';
-
-const name = `${prefix}-steps-item`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<StepsConfig>('steps')),
@@ -24,6 +22,12 @@ export default defineComponent({
   props: {
     ...props,
   },
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('steps-item');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       index: -1,
@@ -34,10 +38,10 @@ export default defineComponent({
       return this.steps && this.steps.current;
     },
     baseClass(): ClassName {
-      return [name, { [`${name}--${this.status}`]: this.status }];
+      return [this.COMPONENT_NAME, { [`${this.COMPONENT_NAME}--${this.status}`]: this.status }];
     },
     iconClass(): ClassName {
-      return [`${name}__icon`, { [`${name}--${this.status}`]: this.status }];
+      return [`${this.COMPONENT_NAME}__icon`, { [`${this.COMPONENT_NAME}--${this.status}`]: this.status }];
     },
     canClick(): boolean {
       return this.status !== 'process' && !this.steps?.readonly;
@@ -69,7 +73,7 @@ export default defineComponent({
             icon = String(this.index + 1);
             break;
         }
-        defaultIcon = <span class={`${name}__icon--number`}>{icon}</span>;
+        defaultIcon = <span class={`${this.COMPONENT_NAME}__icon--number`}>{icon}</span>;
       }
       return renderTNodeJSX(this, 'icon', defaultIcon);
     },
@@ -82,12 +86,15 @@ export default defineComponent({
     const content = renderContent(this, 'default', 'content');
     return (
       <div class={this.baseClass}>
-        <div class={`${name}__inner ${this.canClick ? `${name}--clickable` : ''}`} onClick={this.onStepClick}>
+        <div
+          class={`${this.COMPONENT_NAME}__inner ${this.canClick ? `${this.COMPONENT_NAME}--clickable` : ''}`}
+          onClick={this.onStepClick}
+        >
           <div class={this.iconClass}>{this.renderIcon()}</div>
-          <div class={`${name}__content`}>
-            <div class={`${name}__title`}>{renderTNodeJSX(this, 'title')}</div>
-            <div class={`${name}__description`}>{content}</div>
-            <div class={`${name}__extra`}>{renderTNodeJSX(this, 'extra')}</div>
+          <div class={`${this.COMPONENT_NAME}__content`}>
+            <div class={`${this.COMPONENT_NAME}__title`}>{renderTNodeJSX(this, 'title')}</div>
+            <div class={`${this.COMPONENT_NAME}__description`}>{content}</div>
+            <div class={`${this.COMPONENT_NAME}__extra`}>{renderTNodeJSX(this, 'extra')}</div>
           </div>
         </div>
       </div>

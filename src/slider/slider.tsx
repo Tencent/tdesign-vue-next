@@ -3,7 +3,6 @@ import cloneDeep from 'lodash/cloneDeep';
 import { emitEvent } from '../utils/event';
 import { ClassName, TNode } from '../common';
 import props from './props';
-import { prefix } from '../config';
 import InputNumber from '../input-number/index';
 import TSliderMark from './slider-mark';
 import TSliderButton from './slider-button';
@@ -11,8 +10,8 @@ import { SliderValue, TdSliderProps } from './type';
 import log from '../_common/js/log/log';
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
-const name = `${prefix}-slider`;
 interface MarkItem {
   point: number;
   position: number;
@@ -35,7 +34,11 @@ export default defineComponent({
   props: { ...props },
   setup() {
     const disabled = useFormDisabled();
+    const COMPONENT_NAME = usePrefixClass('slider');
+    const { STATUS } = useCommonClassName();
     return {
+      STATUS,
+      COMPONENT_NAME,
       disabled,
     };
   },
@@ -55,25 +58,25 @@ export default defineComponent({
   },
   computed: {
     containerClass(): ClassName {
-      return [`${name}__container`, { 'is-vertical': this.vertical }];
+      return [`${this.COMPONENT_NAME}__container`, { 'is-vertical': this.vertical }];
     },
     sliderClass(): ClassName {
       return [
-        `${name}`,
+        `${this.COMPONENT_NAME}`,
         {
           'is-vertical': this.vertical,
-          [`${name}--with-input`]: this.inputNumberProps,
-          [`${name}--vertical`]: this.vertical,
-          [`${prefix}-is-disabled`]: this.disabled,
+          [`${this.COMPONENT_NAME}--with-input`]: this.inputNumberProps,
+          [`${this.COMPONENT_NAME}--vertical`]: this.vertical,
+          [this.STATUS.disabled]: this.disabled,
         },
       ];
     },
     sliderRailClass(): ClassName {
-      return [`${name}__rail`, { 'show-input': this.inputNumberProps, disabled: this.disabled }];
+      return [`${this.COMPONENT_NAME}__rail`, { 'show-input': this.inputNumberProps, disabled: this.disabled }];
     },
     sliderNumberClass(): ClassName {
       return [
-        `${name}__input`,
+        `${this.COMPONENT_NAME}__input`,
         {
           'is-vertical': this.vertical,
         },
@@ -376,10 +379,14 @@ export default defineComponent({
           <div>
             <div>
               {this.markList.map((item, index) => (
-                <div class={`${name}__stop ${name}__mark-stop`} style={this.getStopStyle(item.position)} key={index} />
+                <div
+                  class={`${this.COMPONENT_NAME}__stop ${this.COMPONENT_NAME}__mark-stop`}
+                  style={this.getStopStyle(item.position)}
+                  key={index}
+                />
               ))}
             </div>
-            <div class={`${name}__mark`}>
+            <div class={`${this.COMPONENT_NAME}__mark`}>
               {this.markList.map((item, key) => (
                 <t-slider-mark
                   mark={item.mark}
@@ -399,7 +406,7 @@ export default defineComponent({
       return (
         <div
           class={[
-            `${name}__input-container`,
+            `${this.COMPONENT_NAME}__input-container`,
             {
               'is-vertical': this.vertical,
             },
@@ -424,7 +431,7 @@ export default defineComponent({
               theme={this.inputTheme}
             />
           }
-          {range && <div class={`${name}__center-line`} />}
+          {range && <div class={`${this.COMPONENT_NAME}__center-line`} />}
           {range && (
             <t-input-number
               class={this.sliderNumberClass}
@@ -463,7 +470,7 @@ export default defineComponent({
           tooltip-props={this.tooltipProps}
         >
           <div class={this.sliderRailClass} style={this.runwayStyle} onClick={this.onSliderClick} ref="slider">
-            <div class={`${name}__track`} style={this.barStyle} />
+            <div class={`${this.COMPONENT_NAME}__track`} style={this.barStyle} />
             <t-slider-button
               vertical={vertical}
               value={this.firstValue}
@@ -490,7 +497,7 @@ export default defineComponent({
             {this.showSteps && (
               <div>
                 {this.steps.map((item, key) => (
-                  <div class={`${name}__stop`} key={key} style={this.getStopStyle(item)} />
+                  <div class={`${this.COMPONENT_NAME}__stop`} key={key} style={this.getStopStyle(item)} />
                 ))}
               </div>
             )}

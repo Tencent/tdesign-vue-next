@@ -15,7 +15,8 @@ export default function useTagScroll(props: TdTagInputProps) {
   const mouseEnterTimer = ref();
 
   const updateScrollElement = (element: HTMLElement) => {
-    scrollElement.value = element;
+    const inputElement = element.children[0] as HTMLElement;
+    scrollElement.value = inputElement;
   };
 
   const updateScrollDistance = () => {

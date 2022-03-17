@@ -1561,7 +1561,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
     </div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 今天（当前高亮日期） <!--]--></span></button>
   </div>
   <div><label>日期补零：</label>
-    <div class="t-switch t-size-l t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l t-is-checked"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l">
         <!---->
       </div>
@@ -2942,14 +2942,14 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
     <fieldset>
       <legend>控件全局</legend>
       <p><label>是否显示（全部控件）：</label>
-      <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div>
       </p>
       <p><label>是否禁用（全部控件）：</label>
-      <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
@@ -2959,70 +2959,70 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
     <fieldset>
       <legend>控件局部</legend>
       <p><label>是否显示“模式切换”控件：</label>
-      <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div><label>是否禁用“模式切换”控件：</label>
-      <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div>
       </p>
       <p><label>是否显示“年份选择”控件：</label>
-      <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div><label>是否禁用“年份选择”控件：</label>
-      <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div>
       </p>
       <p><label>是否显示“月份选择”控件：</label>
-      <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div><label>是否禁用“月份选择”控件：</label>
-      <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div>
       </p>
       <p><label>是否禁用“隐藏周末”控件：</label>
-      <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div><label>是否禁用“显示周末”控件：</label>
-      <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div><label>是否显示“隐藏\\显示周末”控件：</label>
-      <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div>
       </p>
       <p><label>是否禁用“今天”按钮控件：</label>
-      <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div><label>是否禁用“本月”按钮控件：</label>
-      <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
       </div><label>是否显示“今天\\本月”控件：</label>
-      <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+      <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
         <div class="t-switch__content t-size-m">
           <!---->
         </div>
@@ -3463,7 +3463,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
 exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vue correctly 1`] = `
 <div>
   <div style="margin:12px 0;"><label>禁用单元格右键菜单：</label>
-    <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-m">
         <!---->
       </div>
@@ -6846,7 +6846,7 @@ exports[`ssr snapshot test renders ./examples/comment/demos/reply-form.vue corre
       <div class="t-comment__detail">
         <!--[-->
         <div class="form-container">
-          <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入内容"></textarea>
+          <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入内容"></textarea>
             <!---->
             <!---->
           </div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary form-submit" type="button"><span class="t-button__text"><!--[-->回复<!--]--></span></button>
@@ -15132,7 +15132,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+          <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
             <div class="t-switch__content t-size-m">
               <!---->
             </div>
@@ -15904,7 +15904,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-textarea t-is-disabled"><textarea style="" class="t-textarea__inner t-is-disabled narrow-scrollbar" modelvalue clearable disabled placeholder="简单描述自己的经历"></textarea>
+          <div class="t-textarea t-is-disabled"><textarea style="" class="t-textarea__inner t-is-disabled narrow-scrollbar" clearable disabled placeholder="简单描述自己的经历"></textarea>
             <!---->
             <!---->
           </div>
@@ -15919,7 +15919,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-switch t-size-m t-is-disabled t-is-checked" disabled modelvalue="true"><span class="t-switch__handle t-is-disabled"><!----></span>
+          <div class="t-switch t-size-m t-is-disabled t-is-checked" disabled><span class="t-switch__handle t-is-disabled"><!----></span>
             <div class="t-switch__content t-size-m t-is-disabled">接受</div>
           </div>
           <!--]-->
@@ -16542,7 +16542,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+          <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
             <div class="t-switch__content t-size-m">
               <!---->
             </div>
@@ -18829,7 +18829,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/status.vue correctly 1
 exports[`ssr snapshot test renders ./examples/input/demos/textarea.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
   <h5>文本域输入框已抽离为单独组件，更多示例请参考 Textarea 组件</h5>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入内容"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入内容"></textarea>
     <!---->
     <!---->
   </div>
@@ -20955,7 +20955,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/attach.vue correctly
     <!---->
   </div>
   <div>
-    <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-m">隐藏</div>
     </div>
   </div>
@@ -21007,7 +21007,7 @@ exports[`ssr snapshot test renders ./examples/loading/demos/fullscreen.vue corre
 <div class="tdesign-demo-block-column">
   <!---->
   <!-- <t-loading :loading="loading" text="加载中..." attach="body" fullscreen /> -->
-  <div> 全局加载开关（开启加载1秒后自动归位）： <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+  <div> 全局加载开关（开启加载1秒后自动归位）： <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-m">
         <!---->
       </div>
@@ -26499,7 +26499,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
           <div class="t-select__dropdown-inner">
             <!--[-->
             <div>
-              <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入关键词搜索"></textarea>
+              <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入关键词搜索"></textarea>
                 <!---->
                 <!---->
               </div>
@@ -27105,7 +27105,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/autocomplete.vu
           <!--]-->
         </div><input class="t-input__inner" placeholder="请输入任意关键词" type="text">
         <!---->
-        <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-search" style=""><path fill="currentColor" d="M9.51 10.22a4.76 4.76 0 11.7-.7l3.54 3.52-.7.71-3.54-3.53zm.77-3.7a3.76 3.76 0 10-7.53 0 3.76 3.76 0 007.53 0z" fill-opacity="0.9"></path></svg><!--]--></span>
       </div>
       <!---->
     </div>
@@ -27207,7 +27207,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless.vue 
     </div>
     <!--[-->
     <div class="t-input__wrap">
-      <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <div class="t-input t-is-readonly t-input--prefix">
         <!---->
         <div class="t-input__prefix">
           <!--[-->
@@ -27216,7 +27216,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/borderless.vue 
           <!--]-->
         </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="tdesign-vue">
         <!---->
-        <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+        <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -27385,7 +27386,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
     </div>
     <!--[-->
     <div class="t-input__wrap">
-      <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+      <div class="t-input t-is-readonly t-input--prefix">
         <!---->
         <div class="t-input__prefix">
           <!--[-->
@@ -27395,7 +27396,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/custom-tag.vue 
           <!--]-->
         </div><input class="t-input__inner" readonly placeholder type="text">
         <!---->
-        <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+        <!---->
+        <!---->
       </div>
       <!---->
     </div>
@@ -27570,7 +27572,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vu
           <!--]-->
         </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="tdesign-vue">
         <!---->
-        <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg><!--]--></span>
       </div>
       <!---->
     </div>
@@ -27605,7 +27607,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/label-suffix.vu
           <!--]-->
         </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="tdesign-vue">
         <!---->
-        <div class="t-input__suffix">单位：元</div><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+        <div class="t-input__suffix">单位：元</div><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg><!--]--></span>
       </div>
       <!---->
     </div>
@@ -27685,7 +27687,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/single.vue corr
           <!--]-->
         </div><input class="t-input__inner" placeholder="Please Select" type="text" value="tdesign-vue">
         <!---->
-        <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+        <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg><!--]--></span>
       </div>
       <!---->
     </div>
@@ -27709,7 +27711,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         </div>
         <!--[-->
         <div class="t-input__wrap">
-          <div class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix">
+          <div class="t-input t-is-disabled t-is-readonly t-input--prefix">
             <!---->
             <div class="t-input__prefix">
               <!--[-->
@@ -27718,7 +27720,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
               <!--]-->
             </div><input class="t-input__inner" disabled readonly placeholder="Please Select" type="text" value="TDesign">
             <!---->
-            <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+            <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -27740,7 +27743,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         </div>
         <!--[-->
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+          <div class="t-input t-is-readonly t-input--prefix">
             <!---->
             <div class="t-input__prefix">
               <!--[-->
@@ -27749,7 +27752,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
               <!--]-->
             </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
             <!---->
-            <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+            <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -27771,7 +27775,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         </div>
         <!--[-->
         <div class="t-input__wrap">
-          <div class="t-input t-is-success t-is-readonly t-input--prefix t-input--suffix">
+          <div class="t-input t-is-success t-is-readonly t-input--prefix">
             <!---->
             <div class="t-input__prefix">
               <!--[-->
@@ -27780,7 +27784,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
               <!--]-->
             </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
             <!---->
-            <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+            <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -27802,7 +27807,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         </div>
         <!--[-->
         <div class="t-input__wrap">
-          <div class="t-input t-is-warning t-is-readonly t-input--prefix t-input--suffix">
+          <div class="t-input t-is-warning t-is-readonly t-input--prefix">
             <!---->
             <div class="t-input__prefix">
               <!--[-->
@@ -27811,7 +27816,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
               <!--]-->
             </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
             <!---->
-            <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+            <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -27833,7 +27839,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
         </div>
         <!--[-->
         <div class="t-input__wrap">
-          <div class="t-input t-is-error t-is-readonly t-input--prefix t-input--suffix">
+          <div class="t-input t-is-error t-is-readonly t-input--prefix">
             <!---->
             <div class="t-input__prefix">
               <!--[-->
@@ -27842,7 +27848,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/status.vue corr
               <!--]-->
             </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
             <!---->
-            <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+            <!---->
+            <!---->
           </div>
           <!---->
         </div>
@@ -27868,7 +27875,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
       </div>
       <!--[-->
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+        <div class="t-input t-is-readonly t-input--prefix">
           <!---->
           <div class="t-input__prefix">
             <!--[-->
@@ -27877,7 +27884,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
             <!--]-->
           </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
           <!---->
-          <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+          <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -27896,7 +27904,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
       </div>
       <!--[-->
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+        <div class="t-input t-is-readonly t-input--prefix">
           <!---->
           <div class="t-input__prefix">
             <!--[-->
@@ -27905,7 +27913,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
             <!--]-->
           </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
           <!---->
-          <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+          <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -27924,7 +27933,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
       </div>
       <!--[-->
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+        <div class="t-input t-is-readonly t-input--prefix">
           <!---->
           <div class="t-input__prefix">
             <!--[-->
@@ -27933,7 +27942,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
             <!--]-->
           </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
           <!---->
-          <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+          <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -27952,7 +27962,7 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
       </div>
       <!--[-->
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+        <div class="t-input t-is-readonly t-input--prefix">
           <!---->
           <div class="t-input__prefix">
             <!--[-->
@@ -27961,7 +27971,8 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/width.vue corre
             <!--]-->
           </div><input class="t-input__inner" readonly placeholder="Please Select" type="text" value="TDesign">
           <!---->
-          <!----><span class="t-input__suffix t-input__suffix-icon t-input__clear"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-input__suffix-clear" style=""><path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path></svg></span>
+          <!---->
+          <!---->
         </div>
         <!---->
       </div>
@@ -28268,7 +28279,7 @@ exports[`ssr snapshot test renders ./examples/skeleton/demos/animation.vue corre
 
 exports[`ssr snapshot test renders ./examples/skeleton/demos/base.vue correctly 1`] = `
 <div>
-  <div class="t-switch t-size-m t-is-checked mb-20" modelvalue="true"><span class="t-switch__handle"><!----></span>
+  <div class="t-switch t-size-m t-is-checked mb-20"><span class="t-switch__handle"><!----></span>
     <div class="t-switch__content t-size-m">
       <!---->
     </div>
@@ -30495,12 +30506,12 @@ exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctl
 
 exports[`ssr snapshot test renders ./examples/switch/demos/base.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
-  <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+  <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
     <div class="t-switch__content t-size-m">
       <!---->
     </div>
   </div>
-  <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+  <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
     <div class="t-switch__content t-size-m">
       <!---->
     </div>
@@ -30511,44 +30522,44 @@ exports[`ssr snapshot test renders ./examples/switch/demos/base.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/switch/demos/describe.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
   <div class="tdesign-demo-block-row">
-    <div class="t-switch t-size-l t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l t-is-checked"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l">
         <!---->
       </div>
     </div>
-    <div class="t-switch t-size-l" modelvalue="false"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l">
         <!---->
       </div>
     </div>
   </div>
   <div class="tdesign-demo-block-row">
-    <div class="t-switch t-size-l t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l t-is-checked"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l">开</div>
     </div>
-    <div class="t-switch t-size-l" modelvalue="false"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l">关</div>
     </div>
   </div>
   <div class="tdesign-demo-block-row">
-    <div class="t-switch t-size-l t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l t-is-checked"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style="">
           <path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fill-opacity="0.9"></path>
         </svg></div>
     </div>
-    <div class="t-switch t-size-l" modelvalue="false"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style="">
           <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
         </svg></div>
     </div>
   </div>
   <div class="tdesign-demo-block-row">
-    <div class="t-switch t-size-l t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l t-is-checked"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check" style="">
           <path fill="currentColor" d="M6.43 9.92l6.23-6.22.92.92-7.15 7.14L1.97 7.3l.92-.92 3.54 3.54z" fill-opacity="0.9"></path>
         </svg></div>
     </div>
-    <div class="t-switch t-size-l" modelvalue="false"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style="">
           <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
         </svg></div>
@@ -30560,17 +30571,17 @@ exports[`ssr snapshot test renders ./examples/switch/demos/describe.vue correctl
 exports[`ssr snapshot test renders ./examples/switch/demos/size.vue correctly 1`] = `
 <div class="switch-demo">
   <div class="tdesign-demo-block">
-    <div class="t-switch t-size-l t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-l t-is-checked"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-l">
         <!---->
       </div>
     </div>
-    <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-m">
         <!---->
       </div>
     </div>
-    <div class="t-switch t-size-s" modelvalue="false"><span class="t-switch__handle"><!----></span>
+    <div class="t-switch t-size-s"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-s">
         <!---->
       </div>
@@ -30581,17 +30592,17 @@ exports[`ssr snapshot test renders ./examples/switch/demos/size.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/switch/demos/status.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
-  <div class="t-switch t-size-l t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+  <div class="t-switch t-size-l t-is-checked"><span class="t-switch__handle"><!----></span>
     <div class="t-switch__content t-size-l">
       <!---->
     </div>
   </div>
-  <div class="t-switch t-size-l t-is-loading t-is-checked" modelvalue="true"><span class="t-switch__handle t-is-loading"><div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span>
+  <div class="t-switch t-size-l t-is-loading t-is-checked"><span class="t-switch__handle t-is-loading"><div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span>
     <div class="t-switch__content t-size-l">
       <!---->
     </div>
   </div>
-  <div class="t-switch t-size-l t-is-disabled" disabled modelvalue="false"><span class="t-switch__handle t-is-disabled"><!----></span>
+  <div class="t-switch t-size-l t-is-disabled" disabled><span class="t-switch__handle t-is-disabled"><!----></span>
     <div class="t-switch__content t-size-l t-is-disabled">
       <!---->
     </div>
@@ -31348,7 +31359,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
       <!--]-->
     </div>
   </div>
-  <div>允许点击行之后展开/收起: <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+  <div>允许点击行之后展开/收起: <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-m">
         <!---->
       </div>
@@ -38479,8 +38490,8 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                       <ul class="t-select__groups t-select__list">
                         <!--[-->
                         <!--[-->
-                        <li class="t-select-option t-size-m" title="5 条/页"><span>5 条/页</span></li>
-                        <li class="t-select-option t-is-selected t-size-m" title="10 条/页"><span>10 条/页</span></li>
+                        <li class="t-select-option t-is-selected t-size-m" title="5 条/页"><span>5 条/页</span></li>
+                        <li class="t-select-option t-size-m" title="10 条/页"><span>10 条/页</span></li>
                         <li class="t-select-option t-size-m" title="20 条/页"><span>20 条/页</span></li>
                         <li class="t-select-option t-size-m" title="50 条/页"><span>50 条/页</span></li>
                         <!--]-->
@@ -38497,7 +38508,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                   <!---->
                   <!---->
                   <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
+                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -38511,18 +38522,18 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                 <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
               </svg></div>
             <ul class="t-pagination__pager">
-              <!---->
+              <li class="t-pagination__number">1</li>
               <!---->
               <!--[-->
-              <li class="t-pagination__number">1</li>
               <li class="t-pagination__number t-is-current">2</li>
               <li class="t-pagination__number">3</li>
               <li class="t-pagination__number">4</li>
               <li class="t-pagination__number">5</li>
-              <li class="t-pagination__number">6</li>
               <!--]-->
-              <!---->
-              <!---->
+              <li class="t-pagination__number t-pagination__number--more"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-ellipsis" style="">
+                  <path fill="currentColor" d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z" fill-opacity="0.9"></path>
+                </svg></li>
+              <li class="t-pagination__number">12</li>
             </ul>
             <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
                 <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
@@ -40796,15 +40807,15 @@ exports[`ssr snapshot test renders ./examples/tag-input/demos/theme.vue correctl
 
 exports[`ssr snapshot test renders ./examples/textarea/demos/base.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入描述文案" name="description"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入描述文案" name="description"></textarea>
     <!---->
     <!---->
   </div>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入文案，高度可自适应；autosize=true" name="description"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入文案，高度可自适应；autosize=true" name="description"></textarea>
     <!---->
     <!---->
   </div>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}" name="description"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}" name="description"></textarea>
     <!---->
     <!---->
   </div>
@@ -40813,7 +40824,7 @@ exports[`ssr snapshot test renders ./examples/textarea/demos/base.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/textarea/demos/events.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入"></textarea>
     <!---->
     <!---->
   </div>
@@ -40822,10 +40833,10 @@ exports[`ssr snapshot test renders ./examples/textarea/demos/events.vue correctl
 
 exports[`ssr snapshot test renders ./examples/textarea/demos/maxlength.vue correctly 1`] = `
 <div>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner t-resize-none narrow-scrollbar" modelvalue placeholder="请输入描述文案，文本长度最多20，maxlength=20" maxlength="20"></textarea>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner t-resize-none narrow-scrollbar" placeholder="请输入描述文案，文本长度最多20，maxlength=20" maxlength="20"></textarea>
     <!----><span class="t-textarea__limit">0/20</span>
   </div><br>
-  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" modelvalue placeholder="请输入描述文案，最多20字符（一个汉字占两个字符长度），maxcharacter=20"></textarea><span class="t-textarea__limit">0/20</span>
+  <div class="t-textarea"><textarea style="" class="t-textarea__inner narrow-scrollbar" placeholder="请输入描述文案，最多20字符（一个汉字占两个字符长度），maxcharacter=20"></textarea><span class="t-textarea__limit">0/20</span>
     <!---->
   </div>
 </div>
@@ -45436,7 +45447,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/activable.vue correctly
         <div class="t-form__controls" style="margin-left:120;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45452,7 +45463,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/activable.vue correctly
         <div class="t-form__controls" style="margin-left:120;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45468,7 +45479,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/activable.vue correctly
         <div class="t-form__controls" style="margin-left:120;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45550,7 +45561,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/checkable.vue correctly
         <div class="t-form__controls" style="margin-left:100px;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45566,7 +45577,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/checkable.vue correctly
         <div class="t-form__controls" style="margin-left:100px;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45774,7 +45785,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/disabled.vue correctly 
         <div class="t-form__controls" style="margin-left:150;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45790,7 +45801,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/disabled.vue correctly 
         <div class="t-form__controls" style="margin-left:200;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45857,7 +45868,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/disabled.vue correctly 
         <div class="t-form__controls" style="margin-left:200;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45956,7 +45967,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-all.vue correctl
         <div class="t-form__controls" style="margin-left:150;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -45972,7 +45983,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-all.vue correctl
         <div class="t-form__controls" style="margin-left:150;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -46078,7 +46089,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-mutex.vue correc
         <div class="t-form__controls" style="margin-left:120;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -46094,7 +46105,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-mutex.vue correc
         <div class="t-form__controls" style="margin-left:120;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -46284,7 +46295,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/lazy.vue correctly 1`] 
         <div class="t-form__controls" style="margin-left:150;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -46300,7 +46311,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/lazy.vue correctly 1`] 
         <div class="t-form__controls" style="margin-left:150;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -46339,7 +46350,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/line.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+          <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
             <div class="t-switch__content t-size-m">
               <!---->
             </div>
@@ -46355,7 +46366,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/line.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+          <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
             <div class="t-switch__content t-size-m">
               <!---->
             </div>
@@ -46820,7 +46831,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/operations.vue correctl
         <div class="t-form__controls" style="margin-left:200;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m" modelvalue="false"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -46836,7 +46847,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/operations.vue correctl
         <div class="t-form__controls" style="margin-left:200;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+            <div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
               <div class="t-switch__content t-size-m">
                 <!---->
               </div>
@@ -47937,7 +47948,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/custom-drag.vue corre
 
 exports[`ssr snapshot test renders ./examples/upload/demos/draggable.vue correctly 1`] = `
 <div>
-  <div>是否自动上传：<div class="t-switch t-size-m t-is-checked" modelvalue="true"><span class="t-switch__handle"><!----></span>
+  <div>是否自动上传：<div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
       <div class="t-switch__content t-size-m">
         <!---->
       </div>

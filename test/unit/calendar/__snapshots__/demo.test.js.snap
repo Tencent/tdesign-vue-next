@@ -2842,7 +2842,6 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
     </label>
     <div
       class="t-switch t-size-l t-is-checked"
-      modelvalue="true"
     >
       <span
         class="t-switch__handle"
@@ -6908,7 +6907,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          modelvalue="true"
         >
           <span
             class="t-switch__handle"
@@ -6928,7 +6926,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          modelvalue="false"
         >
           <span
             class="t-switch__handle"
@@ -6953,7 +6950,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          modelvalue="true"
         >
           <span
             class="t-switch__handle"
@@ -6971,7 +6967,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          modelvalue="false"
         >
           <span
             class="t-switch__handle"
@@ -6991,7 +6986,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          modelvalue="true"
         >
           <span
             class="t-switch__handle"
@@ -7009,7 +7003,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          modelvalue="false"
         >
           <span
             class="t-switch__handle"
@@ -7029,7 +7022,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          modelvalue="true"
         >
           <span
             class="t-switch__handle"
@@ -7047,7 +7039,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          modelvalue="false"
         >
           <span
             class="t-switch__handle"
@@ -7067,7 +7058,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          modelvalue="false"
         >
           <span
             class="t-switch__handle"
@@ -7085,7 +7075,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          modelvalue="false"
         >
           <span
             class="t-switch__handle"
@@ -7103,7 +7092,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          modelvalue="true"
         >
           <span
             class="t-switch__handle"
@@ -7123,7 +7111,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          modelvalue="false"
         >
           <span
             class="t-switch__handle"
@@ -7141,7 +7128,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m"
-          modelvalue="false"
         >
           <span
             class="t-switch__handle"
@@ -7159,7 +7145,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         </label>
         <div
           class="t-switch t-size-m t-is-checked"
-          modelvalue="true"
         >
           <span
             class="t-switch__handle"
@@ -8501,7 +8486,6 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
     </label>
     <div
       class="t-switch t-size-m"
-      modelvalue="false"
     >
       <span
         class="t-switch__handle"

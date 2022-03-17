@@ -19,7 +19,6 @@ exports[`Loading Loading attachVue demo works fine 1`] = `
   <div>
     <div
       class="t-switch t-size-m"
-      modelvalue="false"
     >
       <span
         class="t-switch__handle"
@@ -161,7 +160,6 @@ exports[`Loading Loading fullscreenVue demo works fine 1`] = `
      全局加载开关（开启加载1秒后自动归位）： 
     <div
       class="t-switch t-size-m"
-      modelvalue="false"
     >
       <span
         class="t-switch__handle"

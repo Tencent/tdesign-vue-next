@@ -10,7 +10,7 @@ import rowDraggable from './mixins/row-draggable';
 import filter from './mixins/filter';
 import showColumns from './mixins/show-columns';
 import asyncLoadingMixin from './mixins/async-loading';
-import { EVENT_NAME_WITH_KEBAB, RenderExpandRow } from '../util/interface';
+import { EVENT_NAME_WITH_KEBAB } from '../util/interface';
 import { PageInfo } from '../../pagination/type';
 import { emitEvent } from '../../utils/event';
 import { getPropsApiByEvent } from '../../utils/helper';

@@ -1,12 +1,10 @@
 import { defineComponent, ComponentPublicInstance } from 'vue';
-import { prefix } from '../config';
 import TPopup from '../popup/index';
 import { emitEvent } from '../utils/event';
-
-const name = `${prefix}-slider-button`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
-  name,
+  name: 'TSliderButton',
   components: {
     TPopup,
   },
@@ -29,6 +27,12 @@ export default defineComponent({
     },
   },
   emits: ['input'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('slider__button');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       hovering: false,
@@ -50,7 +54,6 @@ export default defineComponent({
       popupVisible: false,
     };
   },
-
   computed: {
     placement() {
       if (this.tooltipProps instanceof Object) {
@@ -266,7 +269,7 @@ export default defineComponent({
     return (
       <div
         ref="button"
-        class={`${prefix}-slider__button-wrapper`}
+        class={`${this.COMPONENT_NAME}-wrapper`}
         style={this.wrapperStyle}
         tabindex="0"
         show-tooltip={this.showTooltip}
@@ -292,7 +295,7 @@ export default defineComponent({
           overlayClassName={this.overlayClassName}
           attach={this.attach}
         >
-          <div class={[`${prefix}-slider__button`, { [`${prefix}-slider__button--dragging`]: this.dragging }]} />
+          <div class={[this.COMPONENT_NAME, { [`${this.COMPONENT_NAME}--dragging`]: this.dragging }]} />
         </t-popup>
       </div>
     );

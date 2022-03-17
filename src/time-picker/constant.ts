@@ -1,7 +1,3 @@
-import { prefix } from '../config';
-
-export const COMPONENT_NAME = `${prefix}-time-picker`;
-
 export enum EPickerCols {
   hour = 'hour',
   minute = 'minute',
