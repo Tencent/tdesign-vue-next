@@ -178,12 +178,11 @@ export const useActions = (props: TdUploadProps, uploadCtx: UploadCtxType, disab
   const cancelUpload = () => {
     if (uploadCtx.loadingFile) {
       // 如果存在自定义上传方法，则只需要抛出事件，而后由父组件处理取消上传
-      if (props.requestMethod) {
-        props.onCancelUpload?.();
-      } else {
+      if (!props.requestMethod) {
         xhrReq.value && xhrReq.value.abort();
         uploadCtx.toUploadFiles = [];
       }
+      props.onCancelUpload?.();
       uploadCtx.loadingFile = null;
     }
     (inputRef.value as HTMLInputElement).value = '';
