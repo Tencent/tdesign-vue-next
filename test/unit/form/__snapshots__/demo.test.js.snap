@@ -1147,8 +1147,7 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -1807,8 +1806,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -4306,8 +4304,7 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -7205,8 +7202,7 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -8568,8 +8564,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
