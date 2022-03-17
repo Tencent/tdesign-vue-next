@@ -3,10 +3,11 @@ import { defineComponent, computed, reactive, watch, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
 import props from './props';
-import getConfigReceiverMixins, { CalendarConfig } from '../config-provider/config-receiver';
-import mixins from '../utils/mixins';
 import * as utils from './utils';
 import { emitEvent } from '../utils/event';
+import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
+import { usePrefixClass, useConfig } from '../config-provider';
+import { SizeEnum } from '../common';
 
 // 组件的一些常量
 import { MIN_YEAR, FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DEFAULT_YEAR_CELL_NUMINROW } from './const';
@@ -17,12 +18,6 @@ import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../radio
 import { Button as TButton } from '../button';
 import { CheckTag as TCheckTag } from '../tag';
 import CalendarCellItem from './calendar-cell';
-
-import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-
-// new-begin
-import { usePrefixClass, useConfig } from '../config-provider';
-// new-end
 
 // 组件相关的自定义类型
 import {
@@ -83,7 +78,7 @@ interface CalendarState {
   curSelectedMonth: number | null;
   curSelectedMode: string | null;
   isShowWeekend: boolean;
-  controlSize: string;
+  controlSize: SizeEnum;
 }
 
 // 组件逻辑
@@ -466,7 +461,6 @@ export default defineComponent({
     const clickCell = (e: MouseEvent, cellData: CalendarCell): void => {
       this.curDate = dayjs(cellData.date);
       const options = this.getCellClickEventOptions(e, cellData);
-      console.info(options);
       emitEvent<Parameters<TdCalendarProps['onCellClick']>>(this, 'cell-click', options);
     };
     const doubleClickCell = (e: MouseEvent, cellData: CalendarCell): void => {
@@ -492,39 +486,39 @@ export default defineComponent({
           <div class={`${COMPONENT_NAME}__control-section`}>
             {this.checkControllerVisible('year') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`}>
-                <t-select
+                <TSelect
                   v-model={this.state.curSelectedYear}
                   size={this.state.controlSize}
                   disabled={this.checkControllerDisabled('year', 'selecteProps')}
                   {...this.controllerConfigData.year.selecteProps}
                 >
                   {this.yearSelectOptionList.map((item) => (
-                    <t-option key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
+                    <TOption key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
                       {item.label}
-                    </t-option>
+                    </TOption>
                   ))}
-                </t-select>
+                </TSelect>
               </div>
             )}
             {this.state.curSelectedMode === 'month' && this.checkControllerVisible('month') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`}>
-                <t-select
+                <TSelect
                   v-model={this.state.curSelectedMonth}
                   size={this.state.controlSize}
                   disabled={this.checkControllerDisabled('month', 'selecteProps')}
                   {...this.controllerConfigData.month.selecteProps}
                 >
                   {this.monthSelectOptionList.map((item) => (
-                    <t-option key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
+                    <TOption key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
                       {item.label}
-                    </t-option>
+                    </TOption>
                   ))}
-                </t-select>
+                </TSelect>
               </div>
             )}
             {this.checkControllerVisible('mode') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`} style="height: auto">
-                <t-radio-group
+                <TRadioGroup
                   v-model={this.state.curSelectedMode}
                   variant="default-filled"
                   size={this.state.controlSize}
@@ -533,16 +527,16 @@ export default defineComponent({
                   onChange={this.controllerChange}
                 >
                   {this.modeSelectOptionList.map((item) => (
-                    <t-radio-button key={item.value} value={item.value}>
+                    <TRadioButton key={item.value} value={item.value}>
                       {item.label}
-                    </t-radio-button>
+                    </TRadioButton>
                   ))}
-                </t-radio-group>
+                </TRadioGroup>
               </div>
             )}
             {this.theme === 'full' && this.checkControllerVisible('current') && this.checkControllerVisible('weekend') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`}>
-                <t-check-tag
+                <TCheckTag
                   class={`${COMPONENT_NAME}__control-tag`}
                   theme={this.state.isShowWeekend ? 'default' : 'primary'}
                   size={this.state.controlSize}
@@ -551,12 +545,12 @@ export default defineComponent({
                   onClick={this.onWeekendToggleClick}
                 >
                   {this.weekendBtnText}
-                </t-check-tag>
+                </TCheckTag>
               </div>
             )}
             {this.theme === 'full' && this.checkControllerVisible('current') && (
               <div class={`${COMPONENT_NAME}__control-section-cell`}>
-                <t-button
+                <TButton
                   size={this.state.controlSize}
                   disabled={this.isCurrentBtnDisabled}
                   onClick={() => {
@@ -565,7 +559,7 @@ export default defineComponent({
                   {...this.currentBtnVBind}
                 >
                   {this.currentBtnText}
-                </t-button>
+                </TButton>
               </div>
             )}
           </div>
