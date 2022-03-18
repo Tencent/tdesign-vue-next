@@ -1,5 +1,5 @@
 import tinyColor from 'tinycolor2';
-import { TdColorPickerProps } from '..';
+import { TdColorPickerProps } from '../index';
 import { ColorObject } from '../type';
 import { cmykInputToColor, rgb2cmyk } from './cmyk';
 import { parseGradientString, GradientColors, GradientColorPoint, isGradientColor } from './gradient';
