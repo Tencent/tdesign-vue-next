@@ -260,8 +260,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <!---->
-                          
-                          
+                          <!---->
                           <span
                             class="t-tag t-tag--default t-tag--dark t-size-m"
                             style="display: none;"
@@ -1211,8 +1210,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <!---->
-                          
-                          
+                          <!---->
                           <span
                             class="t-tag t-tag--default t-tag--dark t-size-m"
                             style="display: none;"
@@ -2233,8 +2231,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                         >
                           <!---->
                           <!---->
-                          
-                          
+                          <!---->
                           <span
                             class="t-tag t-tag--default t-tag--dark t-size-m"
                             style="display: none;"
@@ -3149,8 +3146,7 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
               >
                 <!---->
                 <!---->
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -4107,8 +4103,7 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
               >
                 <!---->
                 <!---->
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -5036,8 +5031,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <!---->
-                  
-                  
+                  <!---->
                   <span
                     class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
@@ -6100,8 +6094,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <!---->
-                  
-                  
+                  <!---->
                   <span
                     class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
@@ -7100,8 +7093,7 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
               >
                 <!---->
                 <!---->
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -8032,8 +8024,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <!---->
-                  
-                  
+                  <!---->
                   <span
                     class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
@@ -8500,8 +8491,7 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                 >
                   <!---->
                   <!---->
-                  
-                  
+                  <!---->
                   <span
                     class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
@@ -8912,8 +8902,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                       >
                         <!---->
                         <!---->
-                        
-                        
+                        <!---->
                         <span
                           class="t-tag t-tag--default t-tag--dark t-size-m"
                           style="display: none;"
