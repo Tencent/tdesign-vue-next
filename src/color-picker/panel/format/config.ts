@@ -12,6 +12,7 @@ export interface FormatInputNumber {
   max: number;
   type: 'inputNumber';
   flex?: number;
+  format?: Function;
 }
 
 export type FormatInputsConfig = {

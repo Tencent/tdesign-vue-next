@@ -177,7 +177,7 @@ export class Color {
     if (this.isGradient) {
       return this.linearGradient;
     }
-    return this.rgb;
+    return this.rgba;
   }
 
   get cssWithAlpha() {

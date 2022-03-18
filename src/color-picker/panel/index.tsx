@@ -170,7 +170,7 @@ export default defineComponent({
     const handleHueChange = (hue: number) => {
       color.value.hue = hue;
       emitColorChange();
-      props?.onPaletteBarChange({
+      props.onPaletteBarChange?.({
         color: getColorObject(color.value),
       });
     };

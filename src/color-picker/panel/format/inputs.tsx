@@ -35,7 +35,8 @@ export default defineComponent({
           type: 'inputNumber',
           key: 'a',
           min: 0,
-          max: 1,
+          max: 100,
+          format: (value: number) => `${value}%`,
         });
       }
       return configs;
@@ -80,7 +81,7 @@ export default defineComponent({
     const updateModelValue = () => {
       const { format, color } = props;
       const values: any = getFormatColorMap('encode')[format];
-      values.a = Math.round(color.alpha * 100) / 100;
+      values.a = Math.round(color.alpha * 100);
       Object.keys(values).forEach((key) => {
         modelValue[key] = values[key];
         lastModelValue[key] = values[key];
@@ -101,7 +102,7 @@ export default defineComponent({
         return;
       }
       const value = getFormatColorMap('decode')[props.format];
-      props.onInputChange(value, modelValue.a, key, v);
+      props.onInputChange(value, modelValue.a / 100, key, v);
     };
 
     return {
@@ -143,6 +144,7 @@ export default defineComponent({
                   title={this.modelValue[config.key]}
                   min={config.min}
                   max={config.max}
+                  format={config.format}
                   theme="normal"
                   onBlur={(v: number) => this.handleChange(config.key, v)}
                   onEnter={(v: number) => this.handleChange(config.key, v)}
