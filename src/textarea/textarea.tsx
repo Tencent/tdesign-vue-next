@@ -28,9 +28,9 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup(props, { attrs }) {
     const prefix = usePrefixClass();
-    const name = computed(() => `${prefix.value}-textarea`);
-    const TEXTAREA_WRAP_CLASS = computed(() => `${prefix.value}-textarea__wrap`);
-    const TEXTAREA_TIPS_CLASS = computed(() => `${prefix.value}-textarea__tips`);
+    const name = usePrefixClass('textarea');
+    const TEXTAREA_WRAP_CLASS = computed(() => `${name.value}__wrap`);
+    const TEXTAREA_TIPS_CLASS = computed(() => `${name.value}__tips`);
     const TEXTAREA_LIMIT = computed(() => `${name.value}__limit`);
 
     const { value, modelValue } = toRefs(props);
@@ -200,9 +200,7 @@ export default defineComponent({
         return (
           <div class={TEXTAREA_WRAP_CLASS.value}>
             {textareaNode}
-            <div class={`${TEXTAREA_TIPS_CLASS.value} ${prefix.value}-textarea__tips--${props.status || 'normal'}`}>
-              {tips}
-            </div>
+            <div class={`${TEXTAREA_TIPS_CLASS.value} ${name.value}__tips--${props.status || 'normal'}`}>{tips}</div>
           </div>
         );
       }
