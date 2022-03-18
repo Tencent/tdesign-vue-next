@@ -8,7 +8,7 @@ import useMultiple from './useMultiple';
 import useOverlayStyle from './useOverlayStyle';
 import { usePrefixClass } from '../config-provider';
 
-const useCOmponentClassName = () => {
+const useComponentClassName = () => {
   return {
     NAME_CLASS: usePrefixClass('select-input'),
     BASE_CLASS_BORDERLESS: usePrefixClass('select-input--borderless'),
@@ -25,7 +25,7 @@ export default defineComponent({
 
   setup(props: TdSelectInputProps, context: SetupContext) {
     const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY } =
-      useCOmponentClassName();
+      useComponentClassName();
     const classPrefix = usePrefixClass();
 
     const selectInputRef = ref();
