@@ -19,6 +19,11 @@
         </t-tag>
       </template>
     </t-select>
+
+    <br /><br />
+    <t-select v-model="value3" :options="options" placeholder="请选择" clearable>
+      <template #valueDisplay="{ value }"> 单选自定义（{{ value }}） </template>
+    </t-select>
   </div>
 </template>
 <script setup lang="jsx">
@@ -38,6 +43,7 @@ const options = [
 
 const value1 = ref(['1', '2', '3']);
 const value2 = ref(['4', '5', '6', '7']);
+const value3 = ref('1');
 
 const valueDisplay = (h, { value, onClose }) => {
   if (!(value instanceof Array)) return;

@@ -9,32 +9,22 @@
         placeholder="未选择文件"
         @fail="handleFail"
         @success="onSuccess"
-      />
+      ></t-upload>
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    const files = ref([]);
-    const tips = ref('');
+const files = ref([]);
+const tips = ref('');
 
-    const handleFail = (file) => {
-      MessagePlugin.error(`文件 ${file.name} 上传失败`);
-    };
+const handleFail = (file) => {
+  MessagePlugin.error(`文件 ${file.name} 上传失败`);
+};
 
-    const onSuccess = () => {
-      tips.value = '';
-    };
-    return {
-      files,
-      handleFail,
-      onSuccess,
-      tips,
-    };
-  },
-});
+const onSuccess = () => {
+  tips.value = '';
+};
 </script>
