@@ -3194,7 +3194,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               class="t-textarea__inner t-is-disabled narrow-scrollbar"
               clearable=""
               disabled=""
-              modelvalue=""
               placeholder="简单描述自己的经历"
             />
             <!---->
