@@ -15,7 +15,9 @@ docClass: timeline
 * Table: 修复 `table-cell` 点击告警。([pr #447](https://github.com/Tencent/tdesign-vue-next/pull/447)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * Pagination: 修复分页组件 `pageSize` 默认值不正确导致的受控问题。([pr #444](https://github.com/Tencent/tdesign-vue-next/pull/444)), ([issue #440](https://github.com/Tencent/tdesign-vue-next/issues/440)), ([issue #456](https://github.com/Tencent/tdesign-vue-next/issues/456)), ([@pengYYYYY](https://github.com/pengYYYYY))
 * UseRipple: 修复 `useRipple` 的告警 ([pr #439](https://github.com/Tencent/tdesign-vue-next/pull/439)), ([issue #435](https://github.com/Tencent/tdesign-vue-next/issues/435)), ([@pengYYYYY](https://github.com/pengYYYYY))
-* Menu: 当菜单项超出时，正常展示 `Popup` ([pr #438](https://github.com/Tencent/tdesign-vue-next/pull/427)), ([issue #86](https://github.com/Tencent/tdesign-vue-next/issues/86)),([@LeeJim](https://github.com/LeeJim))
+* Menu:
+  * 当菜单项超出时，正常展示 `Popup` ([pr #438](https://github.com/Tencent/tdesign-vue-next/pull/427)), ([issue #86](https://github.com/Tencent/tdesign-vue-next/issues/86)),([@LeeJim](https://github.com/LeeJim))
+  * 修复在没 `overflow` 时，仍出现滚动条的问题 ([pr #315](https://github.com/Tencent/tdesign-common/pull/315)), ([@LeeJim](https://github.com/LeeJim))
 * InputNumber: 修复 `decimal` 计算错误 ([pr #433](https://github.com/Tencent/tdesign-vue-next/pull/433)), ([@uyarn](https://github.com/uyarn))
 * Notification: 使用 `transition-group` 优化完善 `notification` 回收时的动画效果 ([pr #429](https://github.com/Tencent/tdesign-vue-next/pull/429)), ([@qunbotop](https://github.com/qunbotop))
 * Upload:([pr #427](https://github.com/Tencent/tdesign-vue-next/pull/427)), ([@pengYYYYY](https://github.com/pengYYYYY))
