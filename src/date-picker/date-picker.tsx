@@ -533,6 +533,11 @@ export default defineComponent({
       }
       return placeholderStr;
     },
+    handleTInputFocus() {
+      // TODO: 待改成select-input后删除
+      // hack 在input聚焦时马上blur 避免出现输入光标
+      (this.$refs.native as HTMLInputElement).blur();
+    },
   },
   render() {
     // props
@@ -655,7 +660,6 @@ export default defineComponent({
               disabled={disabled}
               clearable={clearable}
               placeholder={this.getPlaceholderText()}
-              readonly={!allowInput}
               allowInput={allowInput ? 1 : 0}
               size={size}
               inputProps={inputProps}
@@ -668,6 +672,7 @@ export default defineComponent({
               click={this.onClick}
               suffixIcon={suffixIcon}
               prefixIcon={prefixIcon}
+              onFocus={this.handleTInputFocus}
             />
           </div>
         </t-popup>

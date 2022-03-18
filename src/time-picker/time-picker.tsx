@@ -299,6 +299,11 @@ export default defineComponent({
       emitEvent(this, 'change', undefined);
       e.stopPropagation();
     },
+    handleTInputFocus() {
+      // TODO: 待改成select-input后删除
+      // hack 在input聚焦时马上blur 避免出现输入光标
+      (this.$refs.tInput as HTMLInputElement).blur();
+    },
     renderInput() {
       const classes = [
         `${this.COMPONENT_NAME}__group`,
@@ -317,11 +322,12 @@ export default defineComponent({
             size={this.size}
             onClear={this.clear}
             clearable={this.clearable}
-            readonly
             placeholder=" "
             value={this.time ? ' ' : undefined}
             class={this.isShowPanel ? this.STATUS.focused : ''}
             v-slots={slots}
+            ref="tInput"
+            onFocus={this.handleTInputFocus}
           ></t-input>
           <input-items
             size={this.size}

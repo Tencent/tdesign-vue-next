@@ -257,6 +257,11 @@ export default defineComponent({
       emitEvent(this, 'change', values);
       isFunction(this.onChange) && this.onChange(values);
     },
+    handleTInputFocus() {
+      // TODO: 待改成select-input后删除
+      // hack 在input聚焦时马上blur 避免出现输入光标
+      (this.$refs.tInput as HTMLInputElement).blur();
+    },
     renderInput() {
       const classes = [
         `${this.COMPONENT_NAME}__group`,
@@ -272,8 +277,9 @@ export default defineComponent({
             onClear={this.clear}
             clearable={this.clearable}
             placeholder=" "
-            readonly
             value={!isEqual(this.time, TIME_PICKER_EMPTY) ? ' ' : undefined}
+            ref="tInput"
+            onFocus={this.handleTInputFocus}
           >
             <time-icon slot="suffix-icon"></time-icon>
           </t-input>
