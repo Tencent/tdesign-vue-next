@@ -9,7 +9,6 @@ exports[`Textarea Textarea baseVue demo works fine 1`] = `
   >
     <textarea
       class="t-textarea__inner narrow-scrollbar"
-      modelvalue=""
       name="description"
       placeholder="请输入描述文案"
     />
@@ -21,7 +20,6 @@ exports[`Textarea Textarea baseVue demo works fine 1`] = `
   >
     <textarea
       class="t-textarea__inner narrow-scrollbar"
-      modelvalue=""
       name="description"
       placeholder="请输入文案，高度可自适应；autosize=true"
     />
@@ -33,7 +31,6 @@ exports[`Textarea Textarea baseVue demo works fine 1`] = `
   >
     <textarea
       class="t-textarea__inner narrow-scrollbar"
-      modelvalue=""
       name="description"
       placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}"
     />
@@ -52,7 +49,6 @@ exports[`Textarea Textarea eventsVue demo works fine 1`] = `
   >
     <textarea
       class="t-textarea__inner narrow-scrollbar"
-      modelvalue=""
       placeholder="请输入"
     />
     <!---->
@@ -69,7 +65,6 @@ exports[`Textarea Textarea maxlengthVue demo works fine 1`] = `
     <textarea
       class="t-textarea__inner t-resize-none narrow-scrollbar"
       maxlength="20"
-      modelvalue=""
       placeholder="请输入描述文案，文本长度最多20，maxlength=20"
     />
     <!---->
@@ -85,7 +80,6 @@ exports[`Textarea Textarea maxlengthVue demo works fine 1`] = `
   >
     <textarea
       class="t-textarea__inner narrow-scrollbar"
-      modelvalue=""
       placeholder="请输入描述文案，最多20字符（一个汉字占两个字符长度），maxcharacter=20"
     />
     <span

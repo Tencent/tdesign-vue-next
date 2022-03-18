@@ -370,7 +370,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m"
-            modelvalue="false"
           >
             <span
               class="t-switch__handle"
@@ -1148,8 +1147,7 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -1808,8 +1806,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -3123,7 +3120,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                 >
                   <div
                     allowinput="0"
-                    class="t-input t-is-disabled t-is-readonly t-input--suffix"
+                    class="t-input t-is-disabled t-input--suffix"
                     modelvalue=""
                   >
                     <!---->
@@ -3132,7 +3129,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                       class="t-input__inner"
                       disabled=""
                       placeholder="请选择日期"
-                      readonly=""
                       type="text"
                     />
                     <!---->
@@ -3195,7 +3191,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               class="t-textarea__inner t-is-disabled narrow-scrollbar"
               clearable=""
               disabled=""
-              modelvalue=""
               placeholder="简单描述自己的经历"
             />
             <!---->
@@ -3231,7 +3226,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           <div
             class="t-switch t-size-m t-is-disabled t-is-checked"
             disabled="true"
-            modelvalue="true"
           >
             <span
               class="t-switch__handle t-is-disabled"
@@ -3502,7 +3496,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-upload"
-            modelvalue="[object Object]"
           >
             <input
               accept="image/*"
@@ -3515,7 +3508,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
             <!---->
             <ul
               class="t-upload__card"
-              touploadfiles=""
             >
               
               <li
@@ -4311,8 +4303,7 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -5396,7 +5387,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m"
-            modelvalue="false"
           >
             <span
               class="t-switch__handle"
@@ -7211,8 +7201,7 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -8574,8 +8563,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"

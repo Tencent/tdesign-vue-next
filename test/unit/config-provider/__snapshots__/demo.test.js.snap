@@ -291,8 +291,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-s"
                 style="display: none;"
@@ -517,8 +516,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-s"
                 style="display: none;"
@@ -2118,7 +2116,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -2126,7 +2124,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select date"
-              readonly=""
               type="text"
             />
             <!---->
@@ -3720,7 +3717,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -3728,7 +3725,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select date"
-              readonly=""
               type="text"
             />
             <!---->
@@ -4075,7 +4071,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -4083,7 +4079,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select month"
-              readonly=""
               type="text"
             />
             <!---->
@@ -4715,7 +4710,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -4723,7 +4718,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select month"
-              readonly=""
               type="text"
             />
             <!---->
@@ -5041,7 +5035,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -5049,7 +5043,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select year"
-              readonly=""
               type="text"
             />
             <!---->
@@ -5623,7 +5616,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -5631,7 +5624,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select year"
-              readonly=""
               type="text"
             />
             <!---->
@@ -6989,8 +6981,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
            
           see clear icon, it is configurable
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -7090,8 +7081,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
            
           select without data in Select
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -7191,8 +7181,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
            
           see loading text in Select
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -8786,14 +8775,13 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-readonly t-input--suffix"
+          class="t-input t-input--suffix"
         >
           <!---->
           <!---->
           <input
             class="t-input__inner"
             placeholder=" "
-            readonly=""
             type="text"
           />
           <!---->
@@ -9352,8 +9340,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"

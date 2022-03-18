@@ -337,15 +337,10 @@ export default defineComponent({
       }
     },
     toggleTime() {
-      this.timeValue = dayjs(this.start as Date);
-      this.endTimeValue = dayjs(this.end as Date);
+      this.startTimeValue = dayjs(this.start);
+      this.endTimeValue = dayjs(this.end);
 
       this.showTime = !this.showTime;
-
-      this.$nextTick(() => {
-        const timePickerPanel = this.$refs.timePickerPanel as any;
-        timePickerPanel && timePickerPanel.panelColUpdate();
-      });
     },
 
     clickRange(value: DateValue) {
@@ -538,6 +533,11 @@ export default defineComponent({
       }
       return placeholderStr;
     },
+    handleTInputFocus() {
+      // TODO: 待改成select-input后删除
+      // hack 在input聚焦时马上blur 避免出现输入光标
+      (this.$refs.native as HTMLInputElement).blur();
+    },
   },
   render() {
     // props
@@ -660,7 +660,6 @@ export default defineComponent({
               disabled={disabled}
               clearable={clearable}
               placeholder={this.getPlaceholderText()}
-              readonly={!allowInput}
               allowInput={allowInput ? 1 : 0}
               size={size}
               inputProps={inputProps}
@@ -673,6 +672,7 @@ export default defineComponent({
               click={this.onClick}
               suffixIcon={suffixIcon}
               prefixIcon={prefixIcon}
+              onFocus={this.handleTInputFocus}
             />
           </div>
         </t-popup>

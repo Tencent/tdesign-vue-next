@@ -9,8 +9,6 @@ import TLoading from '../loading';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { SelectConfig } from '../config-provider/config-receiver';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
 import TInput from '../input/index';
 import Tag from '../tag/index';
 import FakeArrow from '../common-components/fake-arrow';
@@ -21,6 +19,7 @@ import props from './props';
 import { SelectOption, TdOptionProps, SelectValue, TdSelectProps, SelectOptionGroup } from './type';
 import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -32,8 +31,6 @@ interface KeysType {
   label?: string;
 }
 
-const name = `${prefix}-select`;
-const listName = `${name}__list`;
 // trigger元素不超过此宽度时，下拉选项的最大宽度（用户未设置overStyle width时）
 // 用户设置overStyle width时，以设置的为准
 const DEFAULT_MAX_OVERLAY_WIDTH = 500;
@@ -72,7 +69,16 @@ export default defineComponent({
   ],
   setup() {
     const disabled = useFormDisabled();
+    const COMPONENT_NAME = usePrefixClass('select');
+    const classPrefix = usePrefixClass('');
+    const listName = usePrefixClass('select__list');
+    const { STATUS, SIZE } = useCommonClassName();
     return {
+      STATUS,
+      SIZE,
+      classPrefix,
+      listName,
+      COMPONENT_NAME,
       disabled,
     };
   },
@@ -102,34 +108,34 @@ export default defineComponent({
   computed: {
     classes(): ClassName {
       return [
-        `${name}`,
-        `${prefix}-select-polyfill`, // 基于select-input改造时需要移除，polyfill代码，同时移除common中此类名
+        `${this.COMPONENT_NAME}`,
+        `${this.COMPONENT_NAME}-polyfill`, // 基于select-input改造时需要移除，polyfill代码，同时移除common中此类名
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-          [CLASSNAMES.STATUS.active]: this.visible,
-          [CLASSNAMES.SIZE[this.size]]: this.size,
-          [`${prefix}-has-prefix`]: this.$slots.prefixIcon,
-          [`${prefix}-no-border`]: !this.bordered,
+          [this.STATUS.disabled]: this.disabled,
+          [this.STATUS.active]: this.visible,
+          [this.SIZE[this.size]]: this.size,
+          [`${this.classPrefix}-has-prefix`]: this.$slots.prefixIcon,
+          [`${this.classPrefix}-no-border`]: !this.bordered,
         },
       ];
     },
     popClass(): string {
       const { popupObject } = this;
-      return `${popupObject.overlayClassName} ${name}__dropdown narrow-scrollbar`;
+      return `${popupObject.overlayClassName} ${this.COMPONENT_NAME}__dropdown narrow-scrollbar`;
     },
     tipsClass(): ClassName {
       return [
-        `${name}__loading-tips`,
+        `${this.COMPONENT_NAME}__loading-tips`,
         {
-          [CLASSNAMES.SIZE[this.size]]: this.size,
+          [this.SIZE[this.size]]: this.size,
         },
       ];
     },
     emptyClass(): ClassName {
       return [
-        `${name}__empty`,
+        `${this.COMPONENT_NAME}__empty`,
         {
-          [CLASSNAMES.SIZE[this.size]]: this.size,
+          [this.SIZE[this.size]]: this.size,
         },
       ];
     },
@@ -414,7 +420,11 @@ export default defineComponent({
     },
     getOptions(option: OptionInstance) {
       // create option值不push到options里
-      if (option.$el && option.$el.className && option.$el.className.indexOf(`${name}__create-option--special`) !== -1)
+      if (
+        option.$el &&
+        option.$el.className &&
+        option.$el.className.indexOf(`${this.COMPONENT_NAME}__create-option--special`) !== -1
+      )
         return;
       const tmp = this.realOptions.filter((item) => get(item, this.realValue) === option.value);
       if (!tmp.length) {
@@ -609,7 +619,11 @@ export default defineComponent({
     },
     getCloseIcon() {
       // TODO 基于select-input改造时需要移除，polyfill代码，同时移除common中此类名
-      const closeIconClass = [`${name}__right-icon`, `${name}__right-icon-clear`, `${name}__right-icon-polyfill`];
+      const closeIconClass = [
+        `${this.COMPONENT_NAME}__right-icon`,
+        `${this.COMPONENT_NAME}__right-icon-clear`,
+        `${this.COMPONENT_NAME}__right-icon-polyfill`,
+      ];
       if (isFunction(this.global.clearIcon)) {
         return (
           <span class={closeIconClass} onClick={this.clearSelect}>
@@ -632,7 +646,7 @@ export default defineComponent({
     },
     renderGroupOptions(options: SelectOptionGroup[]) {
       return (
-        <ul class={listName}>
+        <ul class={this.listName}>
           {options.map((groupList: SelectOptionGroup) => {
             const children = groupList.children.filter((item) =>
               this.displayOptions.find((child) => child.value === item.value),
@@ -649,7 +663,7 @@ export default defineComponent({
     // options 直传时
     renderOptions(options: SelectOption[]) {
       return (
-        <ul class={listName}>
+        <ul class={this.listName}>
           {options.map((item: TdOptionProps, index: number) => (
             <t-option
               value={get(item, this.realValue)}
@@ -716,27 +730,31 @@ export default defineComponent({
     const placeholderText = this.getPlaceholderText();
     const slots = {
       content: () => (
-        <div className={`${prefix}-select__dropdown-inner`}>
+        <div className={`${this.COMPONENT_NAME}__dropdown-inner`}>
           {renderTNodeJSX(this, 'panelTopContent')}
-          <ul v-show={showCreateOption} class={[`${name}__create-option`, listName]}>
-            <t-option value={this.searchInput} label={this.searchInput} class={`${name}__create-option--special`} />
+          <ul v-show={showCreateOption} class={[`${this.COMPONENT_NAME}__create-option`, this.listName]}>
+            <t-option
+              value={this.searchInput}
+              label={this.searchInput}
+              class={`${this.COMPONENT_NAME}__create-option--special`}
+            />
           </ul>
           {loading && <div class={tipsClass}>{loadingTextSlot || loadingText}</div>}
           {!loading && !displayOptions.length && !showCreateOption && <li class={emptyClass}>{emptySlot}</li>}
           {!hasOptions && displayOptions.length && !loading ? (
             this.renderDataWithOptions()
           ) : (
-            <ul class={[`${prefix}-select__groups`, listName]}>{children}</ul>
+            <ul class={[`${this.COMPONENT_NAME}__groups`, this.listName]}>{children}</ul>
           )}
           {renderTNodeJSX(this, 'panelBottomContent')}
         </div>
       ),
     };
     return (
-      <div ref="select" class={`${name}__wrap`}>
+      <div ref="select" class={`${this.COMPONENT_NAME}__wrap`}>
         <Popup
           ref="popup"
-          class={`${name}__popup-reference`}
+          class={`${this.COMPONENT_NAME}__popup-reference`}
           visible={this.visible}
           placement={popupObject.placement}
           trigger={popupObject.trigger}
@@ -752,27 +770,28 @@ export default defineComponent({
             onMouseenter={this.hoverEvent.bind(null, true)}
             onMouseleave={this.hoverEvent.bind(null, false)}
           >
-            {prefixIconSlot && <span class="t-select__left-icon">{prefixIconSlot[0]}</span>}
-            {showPlaceholder && <span class={`${name}__placeholder`}> {placeholderText}</span>}
-            {this.valueDisplay || this.$slots.valueDisplay
-              ? renderTNodeJSX(this, 'valueDisplay', {
-                  params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
-                })
-              : selectedMultiple.map((item: TdOptionProps, index: number) => (
-                  <tag
-                    v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
-                    key={index}
-                    size={size}
-                    closable={!item.disabled && !disabled}
-                    disabled={disabled}
-                    style="max-width: 100%;"
-                    maxWidth="100%"
-                    title={get(item, realLabel)}
-                    onClose={this.removeTag.bind(null, index)}
-                  >
-                    {get(item, realLabel)}
-                  </tag>
-                ))}
+            {prefixIconSlot && <span class={`${this.COMPONENT_NAME}__left-icon`}>{prefixIconSlot[0]}</span>}
+            {showPlaceholder && <span class={`${this.COMPONENT_NAME}__placeholder`}> {placeholderText}</span>}
+            {multiple &&
+              (this.valueDisplay || this.$slots.valueDisplay
+                ? renderTNodeJSX(this, 'valueDisplay', {
+                    params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
+                  })
+                : selectedMultiple.map((item: TdOptionProps, index: number) => (
+                    <tag
+                      v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
+                      key={index}
+                      size={size}
+                      closable={!item.disabled && !disabled}
+                      disabled={disabled}
+                      style="max-width: 100%;"
+                      maxWidth="100%"
+                      title={get(item, realLabel)}
+                      onClose={this.removeTag.bind(null, index)}
+                    >
+                      {get(item, realLabel)}
+                    </tag>
+                  )))}
             {this.collapsedItems || this.$slots.collapsedItems ? (
               renderTNodeJSX(this, 'collapsedItems', {
                 params: {
@@ -786,11 +805,18 @@ export default defineComponent({
                 {`+${selectedMultiple.length - this.minCollapsedNum}`}
               </tag>
             )}
-            {!multiple && !showPlaceholder && !showFilter && (
-              <span title={selectedSingle} class={`${name}__single`}>
-                {selectedSingle}
-              </span>
-            )}
+            {!multiple &&
+              !showPlaceholder &&
+              !showFilter &&
+              (this.valueDisplay || this.$slots.valueDisplay ? (
+                renderTNodeJSX(this, 'valueDisplay', {
+                  params: { value: selectedSingle },
+                })
+              ) : (
+                <span title={selectedSingle} class={`${this.COMPONENT_NAME}__single`}>
+                  {selectedSingle}
+                </span>
+              ))}
             {showFilter && (
               <t-input
                 ref="input"
@@ -798,7 +824,7 @@ export default defineComponent({
                 size={size}
                 placeholder={filterPlaceholder}
                 disabled={disabled}
-                class={`${name}__input`}
+                class={`${this.COMPONENT_NAME}__input`}
                 readonly={!this.visible || !this.showFilter}
                 onFocus={this.focus}
                 onBlur={this.blur}
@@ -807,13 +833,16 @@ export default defineComponent({
             )}
             {this.showArrow && !this.showLoading && (
               <FakeArrow
-                overlayClassName={`${name}__right-icon ${name}__right-icon-polyfill`}
+                overlayClassName={`${this.COMPONENT_NAME}__right-icon ${this.COMPONENT_NAME}__right-icon-polyfill`}
                 isActive={this.visible && !this.disabled}
               />
             )}
             {this.showClose && !this.showLoading && this.getCloseIcon()}
             {this.showLoading && (
-              <TLoading class={`${name}__right-icon ${name}__active-icon ${name}__right-icon-polyfill`} size="small" />
+              <TLoading
+                class={`${this.COMPONENT_NAME}__right-icon ${this.COMPONENT_NAME}__active-icon ${this.COMPONENT_NAME}__right-icon-polyfill`}
+                size="small"
+              />
             )}
           </div>
         </Popup>

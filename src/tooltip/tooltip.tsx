@@ -1,11 +1,11 @@
 import { defineComponent } from 'vue';
-import { prefix } from '../config';
 import props from './props';
 import popupProps from '../popup/props';
 import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup';
 import { ClassName } from '../common';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TTooltip',
@@ -15,6 +15,12 @@ export default defineComponent({
     ...props,
   },
   emits: ['visible-change'],
+  setup() {
+    const classPrefix = usePrefixClass();
+    return {
+      classPrefix,
+    };
+  },
   data() {
     return {
       timer: null,
@@ -23,7 +29,11 @@ export default defineComponent({
   },
   computed: {
     tooltipOverlayClassName(): ClassName {
-      return [`${prefix}-tooltip`, { [`${prefix}-tooltip--${this.theme}`]: this.theme }, this.overlayClassName];
+      return [
+        `${this.classPrefix}-tooltip`,
+        { [`${this.classPrefix}-tooltip--${this.theme}`]: this.theme },
+        this.overlayClassName,
+      ];
     },
   },
   watch: {

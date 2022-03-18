@@ -3,13 +3,10 @@ import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import props from './radio-group-props';
 import { RadioOptionObj, RadioOption, RadioValue } from './type';
-import { prefix } from '../config';
-import Radio, { radioBtnName } from './radio';
+import Radio from './radio';
 import { TNodeReturnValue } from '../common';
-import CLASSNAMES, { SIZE_CLASSNAMES } from '../utils/classnames';
 import { emitEvent } from '../utils/event';
-
-const name = `${prefix}-radio-group`;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TRadioGroup',
@@ -27,6 +24,18 @@ export default defineComponent({
 
   emits: ['change'],
 
+  setup() {
+    const radioBtnName = usePrefixClass('radio-button');
+    const radioGroupName = usePrefixClass('radio-group');
+    const { STATUS, SIZE } = useCommonClassName();
+    return {
+      SIZE,
+      STATUS,
+      radioBtnName,
+      radioGroupName,
+    };
+  },
+
   data() {
     return {
       barStyle: { width: '0px', left: '0px' },
@@ -35,7 +44,7 @@ export default defineComponent({
   },
   computed: {
     checkedClassName() {
-      return `.${radioBtnName}.${CLASSNAMES.STATUS.checked}`;
+      return `.${this.radioBtnName}.${this.STATUS.checked}`;
     },
   },
   watch: {
@@ -107,16 +116,16 @@ export default defineComponent({
     }
 
     const groupClass = [
-      `${name}`,
-      SIZE_CLASSNAMES[this.size],
+      `${this.radioGroupName}`,
+      this.SIZE[this.size],
       {
-        [`${name}__outline`]: this.variant === 'outline',
-        [`${name}--filled`]: this.variant.includes('filled'),
-        [`${name}--primary-filled`]: this.variant === 'primary-filled',
+        [`${this.radioGroupName}__outline`]: this.variant === 'outline',
+        [`${this.radioGroupName}--filled`]: this.variant.includes('filled'),
+        [`${this.radioGroupName}--primary-filled`]: this.variant === 'primary-filled',
       },
     ];
     if (this.variant.includes('filled')) {
-      children && children.push(<div style={this.barStyle} class={`${name}__bg-block`}></div>);
+      children && children.push(<div style={this.barStyle} class={`${this.radioGroupName}__bg-block`}></div>);
     }
     return <div class={groupClass}>{children}</div>;
   },

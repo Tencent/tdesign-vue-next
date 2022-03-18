@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 import Popup, { PopupProps } from '../popup/index';
 import props from './props';
 import { PopconfirmVisibleChangeContext } from './type';
@@ -11,14 +11,12 @@ import useVModel from '../hooks/useVModel';
 export default defineComponent({
   name: 'TPopconfirm',
   props,
-  setup(props, context) {
-    const { global, classPrefix } = useConfig('popconfirm');
+  setup(props) {
+    const { global } = useConfig('popconfirm');
+    const COMPONENT_NAME = usePrefixClass('popconfirm');
 
     const { visible, modelValue } = toRefs(props);
     const [innerVisible, setInnerVisible] = useVModel(visible, modelValue, props.defaultVisible, props.onVisibleChange);
-    const componentName = computed(() => {
-      return `${classPrefix.value}-popconfirm`;
-    });
 
     const confirmBtnAction = (e: MouseEvent) => {
       props.onConfirm?.({ e });
@@ -36,7 +34,7 @@ export default defineComponent({
     const innerPopupProps = computed(() => {
       return {
         showArrow: props.showArrow,
-        overlayClassName: componentName.value,
+        overlayClassName: COMPONENT_NAME.value,
         trigger: 'click',
         destroyOnClose: props.destroyOnClose,
         placement: props.placement,
@@ -49,7 +47,7 @@ export default defineComponent({
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn,
         globalCancel: global.value.cancel,
-        className: `${componentName.value}__cancel`,
+        className: `${COMPONENT_NAME.value}__cancel`,
       });
 
       const confirmBtn = getConfirmBtn({
@@ -57,7 +55,7 @@ export default defineComponent({
         confirmBtn: props.confirmBtn,
         globalConfirm: global.value.confirm,
         globalConfirmBtnTheme: global.value.confirmBtnTheme,
-        className: `${componentName.value}__confirm`,
+        className: `${COMPONENT_NAME.value}__confirm`,
       });
 
       const renderIcon = () => {
@@ -67,17 +65,17 @@ export default defineComponent({
           danger: ErrorCircleFilledIcon,
         }[props.theme];
         const theme = props.theme || 'default';
-        return renderTNodeDefault('icon', <Icon class={`${componentName.value}__icon--${theme}`} />);
+        return renderTNodeDefault('icon', <Icon class={`${COMPONENT_NAME.value}__icon--${theme}`} />);
       };
 
       return (
-        <div class={`${componentName.value}__content`}>
-          <div class={`${componentName.value}__body`}>
+        <div class={`${COMPONENT_NAME.value}__content`}>
+          <div class={`${COMPONENT_NAME.value}__body`}>
             {renderIcon()}
-            <div class={`${componentName.value}__inner`}>{renderTNodeJSX('content')}</div>
+            <div class={`${COMPONENT_NAME.value}__inner`}>{renderTNodeJSX('content')}</div>
           </div>
           {Boolean(cancelBtn || confirmBtn) && (
-            <div class={`${componentName.value}__buttons`}>
+            <div class={`${COMPONENT_NAME.value}__buttons`}>
               {cancelBtn}
               {confirmBtn}
             </div>

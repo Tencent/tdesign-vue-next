@@ -8,7 +8,7 @@
     </t-button>
     <br /><br />
     <t-upload
-      ref="uploadRef"
+      ref="upload"
       v-model="files"
       action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
       draggable
@@ -19,9 +19,7 @@
     >
       <template #default="params">
         <ul v-if="files && files.length">
-          <li v-for="file in files" :key="file.name">
-            {{ file.name }}
-          </li>
+          <li v-for="file in files" :key="file.name">{{ file.name }}</li>
         </ul>
         <template v-else>
           <p v-if="params && params.dragActive">释放鼠标</p>
@@ -29,48 +27,34 @@
         </template>
         <t-button v-if="files && files.length" size="small" style="margin-top: 36px">更换文件</t-button>
         <br /><br />
+        <!-- <span>数据状态：{{params}}</span> -->
       </template>
     </t-upload>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { CloudUploadIcon } from 'tdesign-icons-vue-next';
 import { MessagePlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  components: { CloudUploadIcon },
-  setup() {
-    const files = ref([]);
-    const uploadRef = ref();
-    const progress = ref(0);
+const files = ref([]);
+const uploadRef = ref();
+const progress = ref(0);
 
-    const handleSuccess = ({ file }) => {
-      MessagePlugin.success(`文件 ${file.name} 上传成功`);
-    };
+const handleSuccess = ({ file }) => {
+  MessagePlugin.success(`文件 ${file.name} 上传成功`);
+};
 
-    const handleFail = ({ file }) => {
-      MessagePlugin.error(`文件 ${file.name} 上传失败`);
-    };
+const handleFail = ({ file }) => {
+  MessagePlugin.error(`文件 ${file.name} 上传失败`);
+};
 
-    const onProgress = (val) => {
-      console.log('进度：', val);
-      progress.value = val;
-    };
+const onProgress = (val) => {
+  console.log('进度：', val);
+  progress.value = val;
+};
 
-    const upload = () => {
-      uploadRef.value.triggerUpload();
-    };
-
-    return {
-      files,
-      progress,
-      upload,
-      uploadRef,
-      handleSuccess,
-      handleFail,
-      onProgress,
-    };
-  },
-});
+const upload = () => {
+  uploadRef.value.triggerUpload();
+};
 </script>

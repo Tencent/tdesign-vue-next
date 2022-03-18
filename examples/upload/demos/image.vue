@@ -45,38 +45,33 @@
     </div>
   </div>
 </template>
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 
-export default defineComponent({
-  setup() {
-    const file1 = ref([]);
-    const file2 = ref([]);
-    const files = ref([]);
-    const fileFail = ref([]);
+const file1 = ref([]);
+const file2 = ref([]);
+const files = ref([]);
+const fileFail = ref([]);
 
-    const handleFail = ({ file }) => {
-      MessagePlugin.error(`文件 ${file.name} 上传失败`);
-    };
+const handleFail = ({ file }) => {
+  MessagePlugin.error(`文件 ${file.name} 上传失败`);
+};
 
-    const formatImgResponse = () => {
-      return { url: 'https://img.syt5.com/2019/0912/20190912111829683.jpg.420.240.jpg' };
-    };
+const formatImgResponse = () => {
+  return { url: 'https://tdesign.gtimg.com/site/avatar.jpg' };
+};
 
-    const formatResponse = () => {
-      return { error: '网络异常，图片上传失败' };
-    };
-
-    return {
-      file1,
-      file2,
-      files,
-      fileFail,
-      handleFail,
-      formatImgResponse,
-      formatResponse,
-    };
-  },
-});
+const formatResponse = () => {
+  return { error: '网络异常，图片上传失败' };
+};
 </script>
+<style scoped>
+.tdesign-demo-upload-item {
+  display: inline-block;
+  margin-right: 80px;
+}
+.tdesign-demo-upload-item + .tdesign-demo-upload-item {
+  margin-top: 80px;
+}
+</style>
