@@ -2116,7 +2116,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -2124,7 +2124,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select date"
-              readonly=""
               type="text"
             />
             <!---->
@@ -3718,7 +3717,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -3726,7 +3725,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select date"
-              readonly=""
               type="text"
             />
             <!---->
@@ -4073,7 +4071,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -4081,7 +4079,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select month"
-              readonly=""
               type="text"
             />
             <!---->
@@ -4713,7 +4710,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -4721,7 +4718,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select month"
-              readonly=""
               type="text"
             />
             <!---->
@@ -5039,7 +5035,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -5047,7 +5043,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select year"
-              readonly=""
               type="text"
             />
             <!---->
@@ -5621,7 +5616,7 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         >
           <div
             allowinput="0"
-            class="t-input t-is-readonly t-input--suffix"
+            class="t-input t-input--suffix"
             modelvalue=""
           >
             <!---->
@@ -5629,7 +5624,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
             <input
               class="t-input__inner"
               placeholder="select year"
-              readonly=""
               type="text"
             />
             <!---->
@@ -8781,14 +8775,13 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         class="t-input__wrap"
       >
         <div
-          class="t-input t-is-readonly t-input--suffix"
+          class="t-input t-input--suffix"
         >
           <!---->
           <!---->
           <input
             class="t-input__inner"
             placeholder=" "
-            readonly=""
             type="text"
           />
           <!---->
