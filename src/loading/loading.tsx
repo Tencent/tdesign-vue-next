@@ -1,6 +1,5 @@
 import { defineComponent, ref, computed, watch, onMounted } from 'vue';
 import GradientIcon from './icon/gradient';
-import { prefix } from '../config';
 import { SIZE_CLASSNAMES } from '../utils/classnames';
 import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
@@ -34,6 +33,8 @@ export default defineComponent({
 
     const { name, centerClass, fullscreenClass, lockClass, overlayClass, relativeClass, fullClass, inheritColorClass } =
       useComponentClassName();
+
+    const classPrefix = usePrefixClass();
 
     const countDelay = () => {
       delayShowLoading.value = false;
@@ -104,6 +105,7 @@ export default defineComponent({
     });
 
     return {
+      classPrefix,
       relativeClass,
       delayShowLoading,
       styles,
@@ -121,7 +123,7 @@ export default defineComponent({
 
     const defaultIndicator = <GradientIcon size={this.size} />;
     const indicator = this.loading && renderTNodeJSX(this, 'indicator', defaultIndicator);
-    const text = this.showText && <div class={`${prefix}-loading__text`}>{renderTNodeJSX(this, 'text')}</div>;
+    const text = this.showText && <div class={`${this.classPrefix}-loading__text`}>{renderTNodeJSX(this, 'text')}</div>;
 
     // full screen loading
     if (this.fullscreen) {
