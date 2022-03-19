@@ -3,6 +3,8 @@ import cloneDeep from 'lodash/cloneDeep';
 import _mergeWith from 'lodash/mergeWith';
 import { defaultGlobalConfig, GlobalConfig } from './context';
 
+export * from './type';
+
 // deal with https://github.com/lodash/lodash/issues/1313
 export const merge = (defaultGlobalConfig: GlobalConfig, injectConfig: GlobalConfig) =>
   _mergeWith(defaultGlobalConfig, injectConfig, (objValue, srcValue) => {
@@ -17,7 +19,7 @@ export const merge = (defaultGlobalConfig: GlobalConfig, injectConfig: GlobalCon
  * @returns {t, global}
  * useConfig('pagination')
  */
-export function useConfig<T extends keyof GlobalConfig>(componentName: T) {
+export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
   const mergedGlobalConfig = computed(() => {
     const globalConfig = inject<GlobalConfig>('globalConfig', Object.create(null));
     const mergedGlobalConfig = merge(cloneDeep(defaultGlobalConfig), globalConfig);
