@@ -394,6 +394,13 @@ export default {
           path: '/vue-next/components/tree',
           component: () => import('@/examples/tree/tree.md'),
         },
+        {
+          title: 'Collapse 折叠面板',
+          name: 'collapse',
+          docType: 'data',
+          path: '/vue-next/components/collapse',
+          component: () => import('@/examples/collapse/collapse.md')
+        }
       ],
     },
     {
