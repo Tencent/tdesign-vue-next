@@ -120,6 +120,7 @@ export default defineComponent({
       this.stepChildren = this.stepChildren.filter((t) => t !== item);
     },
     handleChange(cur: TdStepsProps['current'], prev: TdStepsProps['current'], e: MouseEvent) {
+      if (this.readonly) return;
       emitEvent<Parameters<TdStepsProps['onChange']>>(this, 'change', cur, prev, { e });
     },
     renderContent() {
