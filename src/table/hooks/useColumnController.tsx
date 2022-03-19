@@ -25,7 +25,7 @@ export function getColumnKeys(columns: PrimaryTableCol[], keys: string[] = []) {
 
 export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
   const renderTNode = useTNodeDefault();
-  const { classPrefix: prefix } = useConfig();
+  const { classPrefix } = useConfig();
   const { columns, columnController } = toRefs(props);
 
   const enabledColKeys = computed(() => {
@@ -95,10 +95,10 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         const isCheckedAll = checkedLength === enabledColKeys.value.size;
         const isIndeterminate = checkedLength > 0 && checkedLength < enabledColKeys.value.size;
         const defaultNode = (
-          <div class={[`${prefix}-table__column-controller`, `${prefix}-table__column-controller--${widthMode}`]}>
-            <div class={`${prefix}-table__column-controller-body`}>
-              <p class={`${prefix}-table__column-controller-desc`}>请选择需要在表格中显示的数据列</p>
-              <div class={`${prefix}-table__column-controller-block`}>
+          <div class={[`${classPrefix.value}-table__column-controller`, `${classPrefix.value}-table__column-controller--${widthMode}`]}>
+            <div class={`${classPrefix.value}-table__column-controller-body`}>
+              <p class={`${classPrefix.value}-table__column-controller-desc`}>请选择需要在表格中显示的数据列</p>
+              <div class={`${classPrefix.value}-table__column-controller-block`}>
                 <Checkbox
                   indeterminate={isIndeterminate}
                   checked={isCheckedAll}
@@ -108,7 +108,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
                   全选
                 </Checkbox>
               </div>
-              <div class={`${prefix}-table__column-controller-block`}>
+              <div class={`${classPrefix.value}-table__column-controller-block`}>
                 <CheckboxGroup
                   options={checkboxOptions.value}
                   value={columnCheckboxKeys.value}
@@ -136,7 +136,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
 
   const renderColumnController = () => {
     return (
-      <div class={`${prefix}-table__column-controller`}>
+      <div class={`${classPrefix.value}-table__column-controller`}>
         <t-button theme="default" variant="outline" onClick={handleToggleColumnController}>
           <SettingIcon slot="icon" />
           列配置

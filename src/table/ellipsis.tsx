@@ -44,11 +44,11 @@ export default defineComponent({
   // 空 props 是为了 TS 类型检测
   // eslint-disable-next-line
   setup(props: EllipsisProps) {
-    const { classPrefix: prefix } = useConfig();
+    const { classPrefix } = useConfig();
     const root = ref();
     const isOverflow = ref(false);
 
-    const ellipsisClasses = computed(() => [`${prefix}-table__ellipsis`, `${prefix}-text-ellipsis`]);
+    const ellipsisClasses = computed(() => [`${classPrefix.value}-table__ellipsis`, `${classPrefix.value}-text-ellipsis`]);
 
     // 鼠标 hover 的时候显示浮层
     const updateIsOverflow = () => {
@@ -82,15 +82,16 @@ export default defineComponent({
       </div>
     );
     if (this.isOverflow) {
-      const rProps = {
-        content: this.popupContent || (() => cellNode),
-        destroyOnClose: true,
-        zIndex: this.zIndex || 1,
-        attach: this.attach || (() => this.root),
-        placement: this.placement,
-        ...(this.popupProps || {}),
-      };
-      return <TPopup props={rProps}>{ellipsisContent}</TPopup>;
+      return (
+        <TPopup
+          content={this.popupContent || (() => cellNode)}
+          destroyOnClose={true}
+          zIndex={this.zIndex || 80}
+          attach={this.attach}
+          placement={this.placement}
+          { ...this.popupProps }
+        >{ellipsisContent}</TPopup>
+      );
     }
     return ellipsisContent;
   },

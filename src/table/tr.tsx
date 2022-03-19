@@ -145,7 +145,7 @@ export default defineComponent({
     );
 
     const trAttributes = computed(() =>
-      formatRowAttributes(props.rowAttributes, { row: props.row, rowIndex: props.rowIndex, type: 'body' }),
+      formatRowAttributes(props.rowAttributes, { row: props.row, rowIndex: props.rowIndex, type: 'body' }) || {}  ,
     );
 
     const classes = computed(() => {
@@ -161,11 +161,9 @@ export default defineComponent({
       const trListeners: { [eventName: string]: (e: MouseEvent) => void } = {};
       // add events to row
       ROW_LISTENERS.forEach((eventName) => {
-        trListeners[eventName] = (e: MouseEvent) => {
+        trListeners[`on${upperFirst(eventName)}`] = (e: MouseEvent) => {
           const p = { e, row, index: rowIndex };
           props[`onRow${upperFirst(eventName)}`]?.(p);
-          // Vue3 ignore this line
-          context.emit(`row-${eventName}`, p);
         };
       });
       return trListeners;
@@ -262,10 +260,11 @@ export default defineComponent({
       // 前两列左对齐显示
       const placement = colIndex < 2 ? 'top-left' : 'top-right';
       const content = isFunction(col.ellipsis) ? col.ellipsis(h, cellParams) : undefined;
+      const tableElement = this.tableElm;
       return (
         <TEllipsis
           placement={placement}
-          attach={this.tableElm ? () => this.tableElm : undefined}
+          attach={tableElement ? (() => tableElement) : undefined}
           popupContent={content && (() => content)}
           popupProps={typeof col.ellipsis === 'object' ? col.ellipsis : undefined}
         >
@@ -293,8 +292,9 @@ export default defineComponent({
         const p = { ...params, e };
         this.onCellClick?.(p);
       };
+      const attrs = { ...col.attrs, ...cellSpans };
       return (
-        <td class={classes} style={tdStyles.style} attrs={{ ...col.attrs, ...cellSpans }} onClick={onClick}>
+        <td class={classes} style={tdStyles.style} {...attrs} onClick={onClick}>
           {col.ellipsis ? this.renderEllipsisCell(params, { cellNode }) : cellNode}
         </td>
       );
@@ -331,10 +331,10 @@ export default defineComponent({
     return (
       <tr
         ref="tr"
-        attrs={this.trAttributes}
+        {...this.trAttributes}
         style={this.trStyles?.style}
         class={this.classes}
-        on={this.getTrListeners(row, rowIndex)}
+        {...this.getTrListeners(row, rowIndex)}
       >
         {hasHolder ? [<td style={{ height: `${rowHeightRef.value}px`, border: 'none' }} />] : columVNodeList}
       </tr>

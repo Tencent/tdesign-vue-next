@@ -1,34 +1,34 @@
 import { useConfig } from '../config-provider/useConfig';
 
 export default function useCommonClassName() {
-  const { classPrefix: prefix } = useConfig();
+  const { classPrefix } = useConfig();
 
   const sizeClassNames = {
-    small: `${prefix}-size-s`,
-    medium: `${prefix}-size-m`,
-    large: `${prefix}-size-l`,
+    small: `${classPrefix.value}-size-s`,
+    medium: `${classPrefix.value}-size-m`,
+    large: `${classPrefix.value}-size-l`,
     default: '',
-    xs: `${prefix}-size-xs`,
-    xl: `${prefix}-size-xl`,
-    block: `${prefix}-size-full-width`,
+    xs: `${classPrefix.value}-size-xs`,
+    xl: `${classPrefix.value}-size-xl`,
+    block: `${classPrefix.value}-size-full-width`,
   };
 
   const statusClassNames = {
-    loading: `${prefix}-is-loading`,
-    loadMore: `${prefix}-is-load-more`,
-    disabled: `${prefix}-is-disabled`,
-    focused: `${prefix}-is-focused`,
-    success: `${prefix}-is-success`,
-    error: `${prefix}-is-error`,
-    warning: `${prefix}-is-warning`,
-    selected: `${prefix}-is-selected`,
-    active: `${prefix}-is-active`,
-    checked: `${prefix}-is-checked`,
-    current: `${prefix}-is-current`,
-    hidden: `${prefix}-is-hidden`,
-    visible: `${prefix}-is-visible`,
-    expanded: `${prefix}-is-expanded`,
-    indeterminate: `${prefix}-is-indeterminate`,
+    loading: `${classPrefix.value}-is-loading`,
+    loadMore: `${classPrefix.value}-is-load-more`,
+    disabled: `${classPrefix.value}-is-disabled`,
+    focused: `${classPrefix.value}-is-focused`,
+    success: `${classPrefix.value}-is-success`,
+    error: `${classPrefix.value}-is-error`,
+    warning: `${classPrefix.value}-is-warning`,
+    selected: `${classPrefix.value}-is-selected`,
+    active: `${classPrefix.value}-is-active`,
+    checked: `${classPrefix.value}-is-checked`,
+    current: `${classPrefix.value}-is-current`,
+    hidden: `${classPrefix.value}-is-hidden`,
+    visible: `${classPrefix.value}-is-visible`,
+    expanded: `${classPrefix.value}-is-expanded`,
+    indeterminate: `${classPrefix.value}-is-indeterminate`,
   };
   return {
     sizeClassNames,

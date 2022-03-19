@@ -205,6 +205,12 @@ export default defineComponent({
       this.popper = null;
     }
 
+    // remove popup element is important for table ellipsis
+    const popperElement = this.$refs.popper as HTMLDivElement;
+    if (popperElement) {
+      (popperElement as HTMLDivElement).parentNode.removeChild(popperElement);
+    }
+
     const popperElm = this.$refs.popper as HTMLElement;
     if (popperElm && popperElm.parentNode === document.body) {
       popperElm.removeEventListener('click', stop);
@@ -212,6 +218,7 @@ export default defineComponent({
     }
     this.offEvents.forEach((handler) => handler && handler());
   },
+
   methods: {
     createPopper() {
       const currentPlacement = this.placement;

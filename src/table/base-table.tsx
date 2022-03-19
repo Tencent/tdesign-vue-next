@@ -90,17 +90,6 @@ export default defineComponent({
       });
     };
 
-    // Vue3 do not need getListenser
-    const getListenser = () => {
-      const listenser: TableListeners = {};
-      BASE_TABLE_ALL_EVENTS.forEach((key) => {
-        listenser[key] = (...args: any) => {
-          context.emit(key, ...args);
-        };
-      });
-      return listenser;
-    };
-
     const { type, rowHeight, bufferSize = 20, isFixedRowHeight = false } = props.scroll || {};
     const { data } = toRefs<any>(props);
     const {
@@ -177,7 +166,6 @@ export default defineComponent({
       scrollbarWidth,
       isMultipleHeader,
       showRightDivider,
-      getListenser,
       onTableContentScroll,
       renderPagination,
       renderTNode,
@@ -253,8 +241,6 @@ export default defineComponent({
       renderExpandedRow: this.renderExpandedRow,
       ...pick(this.$props, extendTableProps),
     };
-    // Vue3 do not need getListenser
-    const on = this.getListenser();
     const tableContent = (
       <div
         ref="tableContentRef"
@@ -275,7 +261,7 @@ export default defineComponent({
             spansAndLeafNodes={this.spansAndLeafNodes}
             thList={this.thList}
           />
-          <TBody v-slots={this.$slots} {...tableBodyProps} on={on} />
+          <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot
             v-slots={this.$slots}
             isFixedHeader={this.isFixedHeader}

@@ -38,7 +38,7 @@ export default defineComponent({
         return col.foot(h, p);
       }
       if (isString(col.foot) && context.slots[col.foot]) {
-        return context.slots[col.foot](p);
+        return context.slots[col.foot](p) || col.foot;
       }
       return col.foot;
     };
@@ -61,7 +61,7 @@ export default defineComponent({
             ? this.rowClassName({ row, rowIndex, type: 'foot' })
             : this.rowClassName;
           return (
-            <tr attrs={trAttributes} class={customClasses}>
+            <tr {...trAttributes} class={customClasses}>
               {this.columns.map((col, colIndex) => {
                 const tdStyles = getColumnFixedStyles(
                   col,

@@ -13,7 +13,24 @@
         <t-radio-button :value="2"> 右侧固定两列 </t-radio-button>
       </t-radio-group>
     </div>
-    <t-table :data="data" :columns="columns" row-key="index" bordered>
+
+    <div>
+      <t-radio-group v-model="tableLayout" variant="default-filled">
+        <t-radio-button value="fixed">table-layout: fixed</t-radio-button>
+        <t-radio-button value="auto">table-layout: auto</t-radio-button>
+      </t-radio-group>
+      <t-checkbox v-model="emptyData" style="margin-left: 16px; vertical-align: middle">空数据</t-checkbox>
+    </div>
+
+    <!-- 如果希望表格列宽自适应，设置 `table-layout: auto` 即可。这种模式下的固定列，必须指定 tableContentWidth -->
+    <t-table
+      row-key="index"
+      :data="emptyData ? [] : data"
+      :columns="columns"
+      :table-layout="tableLayout"
+      :table-content-width="tableLayout === 'fixed' ? undefined : '1200px'"
+      bordered
+    >
       <template #operation="slotProps">
         <a class="link" @click="rehandleClickOp(slotProps)">删除</a>
       </template>
@@ -40,6 +57,8 @@ for (let i = 0; i < 5; i++) {
 
 const leftFixedColumn = ref(1);
 const rightFixedColumn = ref(2);
+const tableLayout = ref('fixed');
+const emptyData = ref(false);
 
 const columns = computed(() => {
   return [

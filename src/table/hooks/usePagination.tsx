@@ -5,7 +5,7 @@ import { TdBaseTableProps } from '../type';
 
 export default function usePagination(props: TdBaseTableProps, context: SetupContext) {
   const { pagination } = toRefs(props);
-  const { classPrefix: prefix } = useConfig();
+  const { classPrefix } = useConfig();
 
   const current = ref<number>(pagination.value?.current || pagination.value?.defaultCurrent);
   const pageSize = ref<number>(pagination.value?.pageSize || pagination.value?.defaultPageSize);
@@ -33,7 +33,7 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
   const renderPagination = () => {
     if (!pagination.value) return null;
     return (
-      <div class={`${prefix}-table__pagination`}>
+      <div class={`${classPrefix.value}-table__pagination`}>
         <Pagination
           {...{
             props: pagination.value,

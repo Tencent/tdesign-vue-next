@@ -38,6 +38,7 @@ export const extendTableProps = [
   'rowAttributes',
   'loading',
   'empty',
+  'fixedRows',
   'firstFullRow',
   'lastFullRow',
   'rowspanAndColspan',
@@ -88,20 +89,6 @@ export default defineComponent({
 
     const tbodyClases = computed(() => [tableBaseClass.body]);
 
-    const getTrListeners = () => {
-      const trListeners: { [eventName: string]: (e: MouseEvent) => void } = {};
-      // add events to row
-      ROW_AND_TD_LISTENERS.forEach((eventName) => {
-        const name = ['cell-click'].includes(eventName) ? eventName : `row-${eventName}`;
-        trListeners[name] = (context) => {
-          // props[`onRow${upperFirst(eventName)}`]?.(context);
-          // Vue3 ignore this line
-          emit(name, context);
-        };
-      });
-      return trListeners;
-    };
-
     return {
       t,
       global,
@@ -109,7 +96,6 @@ export default defineComponent({
       tableFullRowClasses,
       tbodyClases,
       tableBaseClass,
-      getTrListeners,
     };
   },
 
@@ -194,14 +180,14 @@ export default defineComponent({
       if (this.onCellClick) {
         trProps.onCellClick = this.onCellClick;
       }
-      // Vue3 do not need getTrListeners
-      const on: { [keys: string]: Function } = this.getTrListeners();
-      if (this.handleRowMounted) {
-        on.onRowMounted = this.handleRowMounted;
-      }
 
       const trNode = (
-        <TrElement v-slots={this.$slots} key={get(row, this.rowKey || 'id')} on={on} {...trProps}></TrElement>
+        <TrElement
+          v-slots={this.$slots}
+          key={get(row, this.rowKey || 'id')}
+          {...trProps}
+          onRowMounted={this.handleRowMounted}
+        ></TrElement>
       );
       trNodeList.push(trNode);
 
