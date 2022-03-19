@@ -1,7 +1,7 @@
-import { computed, ref } from 'vue';
+import { computed, ref, Ref } from 'vue';
 import { TdPaginationProps } from './type';
 
-export default function useMoreAction(props: TdPaginationProps, pageCount: any) {
+export default function useMoreAction(props: TdPaginationProps, pageCount: Ref<number>, innerCurrent: Ref<number>) {
   const prevMore = ref(false);
 
   const nextMore = ref(false);
@@ -10,9 +10,9 @@ export default function useMoreAction(props: TdPaginationProps, pageCount: any) 
 
   const curPageRightCount = computed(() => Math.ceil((props.foldedMaxPageBtn - 1) / 2));
 
-  const isPrevMoreShow = computed(() => 2 + curPageLeftCount.value < props.current);
+  const isPrevMoreShow = computed(() => 2 + curPageLeftCount.value < innerCurrent.value);
 
-  const isNextMoreShow = computed(() => pageCount.value - 1 - curPageRightCount.value > props.current);
+  const isNextMoreShow = computed(() => pageCount.value - 1 - curPageRightCount.value > innerCurrent.value);
 
   return {
     prevMore,

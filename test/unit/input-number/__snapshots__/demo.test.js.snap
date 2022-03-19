@@ -3,7 +3,7 @@
 exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
 <div>
   <div
-    class="t-input-number t-size-m"
+    class="t-input-number t-size-m t-input-number--row"
     modelvalue="3"
   >
     <button
@@ -31,12 +31,24 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-      />
+      <div
+        class="t-input t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -69,7 +81,7 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
 exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
 <div>
   <div
-    class="t-input-number t-size-m"
+    class="t-input-number t-size-m t-input-number--row"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -96,12 +108,24 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-      />
+      <div
+        class="t-input t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -134,7 +158,7 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
 exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
 <div>
   <div
-    class="t-input-number t-size-m t-is-disabled"
+    class="t-input-number t-size-m t-is-disabled t-input-number--row"
     modelvalue="3"
   >
     <button
@@ -162,13 +186,25 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-is-disabled t-input-number-text-align"
-        disabled=""
-      />
+      <div
+        class="t-input t-is-disabled t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          disabled=""
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
@@ -201,7 +237,7 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
 exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
 <div>
   <div
-    class="t-input-number t-size-m"
+    class="t-input-number t-size-m t-input-number--row"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -228,13 +264,24 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-        placeholder="输入"
-      />
+      <div
+        class="t-input t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -267,7 +314,7 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
 exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
 <div>
   <div
-    class="t-input-number t-size-m"
+    class="t-input-number t-size-m t-input-number--row"
     modelvalue="3"
   >
     <button
@@ -295,12 +342,24 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-      />
+      <div
+        class="t-input t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -333,7 +392,7 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
 exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
 <div>
   <div
-    class="t-input-number t-size-m t-is-controls-right"
+    class="t-input-number t-size-m t-is-controls-right t-input-number--column"
     modelvalue="3"
   >
     <button
@@ -361,12 +420,24 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner"
-      />
+      <div
+        class="t-input"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -404,12 +475,24 @@ exports[`InputNumber InputNumber normalVue demo works fine 1`] = `
   >
     <!---->
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner"
-      />
+      <div
+        class="t-input"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <!---->
   </div>
@@ -419,7 +502,7 @@ exports[`InputNumber InputNumber normalVue demo works fine 1`] = `
 exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
 <div>
   <div
-    class="t-input-number t-size-s"
+    class="t-input-number t-size-s t-input-number--row"
     modelvalue="3"
   >
     <button
@@ -446,12 +529,24 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-      />
+      <div
+        class="t-input t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -478,7 +573,7 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </button>
   </div>
   <div
-    class="t-input-number t-size-m"
+    class="t-input-number t-size-m t-input-number--row"
     modelvalue="3"
     style="margin: 0px 50px;"
   >
@@ -507,12 +602,24 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-      />
+      <div
+        class="t-input t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -540,7 +647,7 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </button>
   </div>
   <div
-    class="t-input-number t-size-l"
+    class="t-input-number t-size-l t-input-number--row"
     modelvalue="3"
   >
     <button
@@ -567,12 +674,24 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-      />
+      <div
+        class="t-input t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -604,7 +723,7 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
 exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
 <div>
   <div
-    class="t-input-number t-size-m"
+    class="t-input-number t-size-m t-input-number--row"
     modelvalue="3.2"
   >
     <button
@@ -632,12 +751,24 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
       
     </button>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <input
-        autocomplete="off"
-        class="t-input__inner t-input-number-text-align"
-      />
+      <div
+        class="t-input t-align-center"
+        unselectable="off"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"

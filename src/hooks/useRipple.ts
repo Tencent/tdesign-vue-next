@@ -1,6 +1,5 @@
 import { ref, onMounted, onUnmounted, Ref } from 'vue';
 import useKeepAnimation from './useKeepAnimation';
-import { useConfig } from '../config-provider/useConfig';
 import setStyle from '../utils/set-style';
 
 const period = 200;
@@ -36,21 +35,25 @@ const getRippleColor = (el: HTMLElement, fixedRippleColor?: string) => {
  */
 export default function useRipple(el: Ref<HTMLElement>, fixedRippleColor?: Ref<string>) {
   const rippleContainer = ref(null);
-  const { classPrefix } = useConfig('classPrefix');
+
   // 全局配置ripple
   const { keepRipple } = useKeepAnimation();
+
   // 为节点添加斜八角动画 add ripple to the DOM and set up the animation
   const handleAddRipple = (e: MouseEvent) => {
     const dom = el.value;
     const rippleColor = getRippleColor(dom, fixedRippleColor?.value);
     if (e.button !== 0 || !el || !keepRipple) return;
 
-    if (
-      dom.classList.contains(`${classPrefix.value}-is-active`) ||
-      dom.classList.contains(`${classPrefix.value}-is-disabled`) ||
-      dom.classList.contains(`${classPrefix.value}-is-checked`)
-    )
-      return;
+    let isDisabled = false;
+    dom.classList.forEach((item) => {
+      // usePrefixClass 在此处是拿不到最新值的，usePrefixClass 依赖于useConfig, useConfig则依赖于inject,inject只在setUp和function component中生效
+      if (item.includes('-is-active') || item.includes('-is-disabled') || item.includes('-is-checked')) {
+        isDisabled = true;
+      }
+    });
+
+    if (isDisabled) return;
 
     const elStyle = getComputedStyle(dom);
 

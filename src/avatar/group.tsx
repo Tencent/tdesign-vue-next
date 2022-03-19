@@ -1,11 +1,9 @@
 import { ComponentPublicInstance, defineComponent, provide } from 'vue';
-import { prefix } from '../config';
 import props from './avatar-group-props';
 import { SlotReturnValue, TNodeReturnValue } from '../common';
 import Avatar from './avatar';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-
-const name = `${prefix}-avatar-group`;
+import { usePrefixClass, useConfig } from '../config-provider';
 
 export default defineComponent({
   name: 'TAvatarGroup',
@@ -16,6 +14,9 @@ export default defineComponent({
 
   setup(props) {
     provide('avatarGroup', { ...props });
+
+    const AVATAR_NAME = usePrefixClass('avatar');
+    const COMPONENT_NAME = usePrefixClass('avatar-group');
 
     const renderIcon = (context: ComponentPublicInstance) => {
       return isIcon(context) && typeof props.collapseAvatar !== 'string' ? props.collapseAvatar : null;
@@ -56,19 +57,22 @@ export default defineComponent({
     };
 
     return {
+      AVATAR_NAME,
+      COMPONENT_NAME,
       renderEllipsisAvatar,
       isIcon,
       setEllipsisContent,
     };
   },
   render() {
+    const { AVATAR_NAME } = this;
     const children: TNodeReturnValue = renderTNodeJSX(this, 'default');
     const { cascading, max } = this.$props;
     const groupClass = [
-      `${name}`,
+      `${this.COMPONENT_NAME}`,
       {
-        [`${prefix}-avatar--offset-right`]: cascading === 'right-up',
-        [`${prefix}-avatar--offset-left`]: cascading === 'left-up',
+        [`${AVATAR_NAME}--offset-right`]: cascading === 'right-up',
+        [`${AVATAR_NAME}--offset-left`]: cascading === 'left-up',
       },
     ];
     let content = [children];

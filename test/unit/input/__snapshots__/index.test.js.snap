@@ -2,156 +2,191 @@
 
 exports[`Input $attrs input attrs should pass to input element 1`] = `
 <div
-  class="t-input t-input--suffix"
-  maxlength="20"
+  class="t-input__wrap"
 >
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    name="password"
-    placeholder="please text"
-    type="password"
-  />
-  <!---->
-  <!---->
-  <span
-    class="t-input__suffix t-input__suffix-icon"
+  <div
+    class="t-input t-input--suffix"
+    maxlength="20"
   >
-    <svg
-      class="t-icon t-icon-browse-off t-input__suffix-clear"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      name="password"
+      placeholder="please text"
+      type="password"
+    />
+    <!---->
+    <!---->
+    <span
+      class="t-input__suffix t-input__suffix-icon"
     >
-      <path
-        d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-      <path
-        d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
-        fill="currentColor"
-        fill-opacity="0.9"
-      />
-    </svg>
-  </span>
+      <svg
+        class="t-icon t-icon-browse-off t-input__suffix-clear"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M10.77 11.98l1.38 1.37.7-.7-9.7-9.7-.7.7 1.2 1.21a7.9 7.9 0 00-2.53 2.91L1 8l.12.23a7.72 7.72 0 009.65 3.75zM10 11.2A6.67 6.67 0 012.11 8c.56-1 1.34-1.83 2.26-2.43l1.08 1.09a2.88 2.88 0 003.9 3.9l.64.64zM6.21 7.42l2.37 2.37a1.88 1.88 0 01-2.37-2.37zM14.88 8.23L15 8l-.12-.23a7.73 7.73 0 00-9.35-3.86l.8.8A6.7 6.7 0 0113.9 8a6.87 6.87 0 01-2.02 2.26l.7.7a7.9 7.9 0 002.3-2.73z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+        <path
+          d="M10.88 8c0 .37-.07.73-.2 1.06l-.82-.82.02-.24a1.88 1.88 0 00-2.12-1.86l-.82-.82A2.87 2.87 0 0110.88 8z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+    </span>
+  </div>
+  <!---->
 </div>
 `;
 
 exports[`Input :props :autocomplete 1`] = `
 <div
-  class="t-input"
+  class="t-input__wrap"
 >
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    type="text"
-  />
-  <!---->
-  <!---->
+  <div
+    class="t-input"
+  >
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      placeholder="请输入"
+      type="text"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
   <!---->
 </div>
 `;
 
 exports[`Input :props :disabled 1`] = `
 <div
-  class="t-input t-is-disabled"
+  class="t-input__wrap"
 >
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    disabled=""
-    placeholder="请输入"
-    type="text"
-  />
-  <!---->
-  <!---->
+  <div
+    class="t-input t-is-disabled"
+  >
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      disabled=""
+      placeholder="请输入"
+      type="text"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
   <!---->
 </div>
 `;
 
 exports[`Input :props :prefix-icon 1`] = `
 <div
-  class="t-input t-input--prefix"
+  class="t-input__wrap"
 >
-  <span
-    class="t-input__prefix t-input__prefix-icon"
+  <div
+    class="t-input t-input--prefix"
   >
-    <i
-      class="icon"
+    <span
+      class="t-input__prefix t-input__prefix-icon"
+    >
+      <i
+        class="icon"
+      />
+    </span>
+    <!---->
+    <input
+      class="t-input__inner"
+      placeholder="请输入"
+      type="text"
     />
-  </span>
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    type="text"
-  />
-  <!---->
-  <!---->
+    <!---->
+    <!---->
+    <!---->
+  </div>
   <!---->
 </div>
 `;
 
 exports[`Input :props :readonly 1`] = `
 <div
-  class="t-input t-is-readonly"
+  class="t-input__wrap"
 >
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    readonly=""
-    type="text"
-  />
-  <!---->
-  <!---->
+  <div
+    class="t-input t-is-readonly"
+  >
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      placeholder="请输入"
+      readonly=""
+      type="text"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
   <!---->
 </div>
 `;
 
 exports[`Input :props :size 1`] = `
 <div
-  class="t-input t-size-l"
+  class="t-input__wrap"
 >
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    type="text"
-  />
-  <!---->
-  <!---->
+  <div
+    class="t-input t-size-l"
+  >
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      placeholder="请输入"
+      type="text"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
   <!---->
 </div>
 `;
 
 exports[`Input :props :suffix-icon 1`] = `
 <div
-  class="t-input t-input--suffix"
+  class="t-input__wrap"
 >
-  <!---->
-  <!---->
-  <input
-    class="t-input__inner"
-    placeholder="请输入"
-    type="text"
-  />
-  <!---->
-  <!---->
-  <span
-    class="t-input__suffix t-input__suffix-icon"
+  <div
+    class="t-input t-input--suffix"
   >
-    <i
-      class="icon"
+    <!---->
+    <!---->
+    <input
+      class="t-input__inner"
+      placeholder="请输入"
+      type="text"
     />
-  </span>
+    <!---->
+    <!---->
+    <span
+      class="t-input__suffix t-input__suffix-icon"
+    >
+      <i
+        class="icon"
+      />
+    </span>
+  </div>
+  <!---->
 </div>
 `;

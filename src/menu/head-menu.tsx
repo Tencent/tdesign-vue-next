@@ -1,13 +1,13 @@
 import { defineComponent, computed, provide, ref, reactive, watch, onMounted, watchEffect } from 'vue';
 import { useEmitEvent } from '../hooks/event';
 import log from '../_common/js/log/log';
-import { prefix } from '../config';
 import props from './head-menu-props';
 import { MenuValue } from './type';
 import { TdMenuInterface, TdOpenType } from './const';
 import { Tabs, TabPanel } from '../tabs';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import VMenu from './v-menu';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'THeadMenu',
@@ -15,6 +15,7 @@ export default defineComponent({
   props,
   emits: ['change', 'expand'],
   setup(props, ctx) {
+    const classPrefix = usePrefixClass();
     const emitEvent = useEmitEvent();
     watchEffect(() => {
       if (ctx.slots.options) {
@@ -25,7 +26,11 @@ export default defineComponent({
     const activeValues = ref([]);
     const expandValues = ref(props.defaultExpanded || props.expanded || []);
     const theme = computed(() => props.theme);
-    const menuClass = computed(() => [`${prefix}-menu`, `${prefix}-head-menu`, `${prefix}-menu--${props.theme}`]);
+    const menuClass = computed(() => [
+      `${classPrefix.value}-menu`,
+      `${classPrefix.value}-head-menu`,
+      `${classPrefix.value}-menu--${props.theme}`,
+    ]);
     const mode = ref(props.expandType);
     const submenu = reactive([]);
     const vMenu = new VMenu({ isMutex: true, expandValues: expandValues.value });
@@ -106,6 +111,7 @@ export default defineComponent({
     });
 
     return {
+      classPrefix,
       mode,
       menuClass,
       expandValues,
@@ -119,7 +125,7 @@ export default defineComponent({
     renderNormalSubmenu() {
       if (this.submenu.length === 0) return null;
       return (
-        <ul class={[`${prefix}-head-menu__submenu`, `${prefix}-submenu`]}>
+        <ul class={[`${this.classPrefix}-head-menu__submenu`, `${this.classPrefix}-submenu`]}>
           {
             <t-tabs value={this.activeValue} onChange={this.handleTabChange}>
               {this.submenu.map((item) => (
@@ -132,14 +138,15 @@ export default defineComponent({
     },
   },
   render() {
+    const { classPrefix } = this;
     const operations = renderContent(this, 'operations', 'options');
     const logo = renderTNodeJSX(this, 'logo');
     return (
       <div class={this.menuClass}>
-        <div class={`${prefix}-head-menu__inner`}>
-          {logo && <div class={`${prefix}-menu__logo`}>{logo}</div>}
-          <ul class={`${prefix}-menu`}>{renderContent(this, 'default', 'content')}</ul>
-          {operations && <div class={`${prefix}-menu__operations`}>{operations}</div>}
+        <div class={`${classPrefix}-head-menu__inner`}>
+          {logo && <div class={`${classPrefix}-menu__logo`}>{logo}</div>}
+          <ul class={`${classPrefix}-menu`}>{renderContent(this, 'default', 'content')}</ul>
+          {operations && <div class={`${classPrefix}-menu__operations`}>{operations}</div>}
         </div>
         {this.mode === 'normal' && this.renderNormalSubmenu()}
       </div>

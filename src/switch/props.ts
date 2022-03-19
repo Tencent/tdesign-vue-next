@@ -30,10 +30,15 @@ export default {
       return ['small', 'medium', 'large'].includes(val);
     },
   },
+  /** v-model 开关值 */
+  modelValue: {
+    type: [String, Number, Boolean] as PropType<TdSwitchProps['value']>,
+    default: undefined,
+  },
   /** 开关值 */
   value: {
     type: [String, Number, Boolean] as PropType<TdSwitchProps['value']>,
-    default: false,
+    default: undefined,
   },
   /** 开关值，非受控属性 */
   defaultValue: {

@@ -6,18 +6,13 @@ import { InputValue } from './type';
 import { getCharacterLength, omit } from '../utils/helper';
 import getConfigReceiverMixins, { InputConfig } from '../config-provider/config-receiver';
 import mixins from '../utils/mixins';
-import CLASSNAMES from '../utils/classnames';
-import { prefix } from '../config';
 import props from './props';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-
-const name = `${prefix}-input`;
-const INPUT_WRAP_CLASS = `${prefix}-input__wrap`;
-const INPUT_TIPS_CLASS = `${prefix}-input__tips`;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -37,8 +32,20 @@ export default defineComponent({
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
   setup() {
     const disabled = useFormDisabled();
+    const COMPONENT_NAME = usePrefixClass('input');
+    const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
+    const INPUT_TIPS_CLASS = usePrefixClass('input__tips');
+    const { STATUS, SIZE } = useCommonClassName();
+    const classPrefix = usePrefixClass();
+
     return {
       disabled,
+      COMPONENT_NAME,
+      INPUT_WRAP_CLASS,
+      INPUT_TIPS_CLASS,
+      classPrefix,
+      STATUS,
+      SIZE,
     };
   },
   data() {
@@ -50,7 +57,9 @@ export default defineComponent({
   },
   computed: {
     showClear(): boolean {
-      return (this.value && !this.disabled && this.clearable && this.isHover) || this.showClearIconOnEmpty;
+      return (
+        (this.value && !this.disabled && this.clearable && this.isHover && !this.readonly) || this.showClearIconOnEmpty
+      );
     },
     tPlaceholder(): string {
       return this.placeholder ?? this.t(this.global.placeholder);
@@ -187,7 +196,7 @@ export default defineComponent({
     },
     emitFocus(e: FocusEvent) {
       this.inputValue = this.value;
-      if (this.disabled) return;
+      if (this.disabled || this.readonly) return;
       this.focused = true;
       emitEvent(this, 'focus', this.value, { e });
     },
@@ -243,12 +252,14 @@ export default defineComponent({
   },
 
   render(): VNodeChild {
+    const { COMPONENT_NAME, INPUT_WRAP_CLASS, INPUT_TIPS_CLASS, SIZE, STATUS, classPrefix } = this;
+
     const inputEvents = getValidAttrs({
       onFocus: (e: FocusEvent) => this.emitFocus(e),
       onBlur: this.formatAndEmitBlur,
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
-      onKeypresss: this.handleKeypress,
+      onKeypress: this.handleKeypress,
       onPaste: this.onHandlePaste,
       onCompositionend: this.onHandleCompositionend,
       onCompositionstart: this.onHandleonCompositionstart,
@@ -265,35 +276,34 @@ export default defineComponent({
     const label = renderTNodeJSX(this, 'label', { silent: true });
     const suffix = renderTNodeJSX(this, 'suffix');
 
-    const labelContent = label ? <div class={`${name}__prefix`}>{label}</div> : null;
-    const suffixContent = suffix ? <div class={`${name}__suffix`}>{suffix}</div> : null;
+    const labelContent = label ? <div class={`${COMPONENT_NAME}__prefix`}>{label}</div> : null;
+    const suffixContent = suffix ? <div class={`${COMPONENT_NAME}__suffix`}>{suffix}</div> : null;
 
     if (this.showClear) {
-      suffixIcon = <CloseCircleFilledIcon class={`${name}__suffix-clear`} onClick={this.emitClear} />;
+      suffixIcon = <CloseCircleFilledIcon class={`${COMPONENT_NAME}__suffix-clear`} onClick={this.emitClear} />;
     }
 
     if (this.type === 'password') {
       if (this.renderType === 'password') {
-        suffixIcon = <BrowseOffIcon class={`${name}__suffix-clear`} onClick={this.emitPassword} />;
+        suffixIcon = <BrowseOffIcon class={`${COMPONENT_NAME}__suffix-clear`} onClick={this.emitPassword} />;
       } else if (this.renderType === 'text') {
-        suffixIcon = <BrowseIcon class={`${name}__suffix-clear`} onClick={this.emitPassword} />;
+        suffixIcon = <BrowseIcon class={`${COMPONENT_NAME}__suffix-clear`} onClick={this.emitPassword} />;
       }
     }
 
     const classes = [
-      name,
+      COMPONENT_NAME,
       {
-        [CLASSNAMES.SIZE[this.size]]: this.size !== 'medium',
-        [CLASSNAMES.STATUS.disabled]: this.disabled,
-        [CLASSNAMES.STATUS.focused]: this.focused,
-        [`${prefix}-is-${this.status}`]: this.status,
-        [`${prefix}-align-${this.align}`]: this.align !== 'left',
-        [`${prefix}-is-disabled`]: this.disabled,
-        [`${prefix}-is-readonly`]: this.readonly,
-        [`${name}--prefix`]: prefixIcon || labelContent,
-        [`${name}--suffix`]: suffixIcon || suffixContent,
-        [`${name}--focused`]: this.focused,
-        [`${name}--auto-width`]: this.autoWidth,
+        [SIZE[this.size]]: this.size !== 'medium',
+        [STATUS.disabled]: this.disabled,
+        [STATUS.focused]: this.focused,
+        [`${classPrefix}-is-${this.status}`]: this.status,
+        [`${classPrefix}-align-${this.align}`]: this.align !== 'left',
+        [`${classPrefix}-is-readonly`]: this.readonly,
+        [`${COMPONENT_NAME}--prefix`]: prefixIcon || labelContent,
+        [`${COMPONENT_NAME}--suffix`]: suffixIcon || suffixContent,
+        [`${COMPONENT_NAME}--focused`]: this.focused,
+        [`${COMPONENT_NAME}--auto-width`]: this.autoWidth,
       },
     ];
     const inputNode = (
@@ -305,10 +315,12 @@ export default defineComponent({
         onWheel={this.onHandleMousewheel}
         {...wrapperAttrs}
       >
-        {prefixIcon ? <span class={[`${name}__prefix`, `${name}__prefix-icon`]}>{prefixIcon}</span> : null}
+        {prefixIcon ? (
+          <span class={[`${COMPONENT_NAME}__prefix`, `${COMPONENT_NAME}__prefix-icon`]}>{prefixIcon}</span>
+        ) : null}
         {labelContent}
         <input
-          class={`${name}__inner`}
+          class={`${COMPONENT_NAME}__inner`}
           {...{ ...this.inputAttrs }}
           {...inputEvents}
           ref="inputRef"
@@ -316,27 +328,30 @@ export default defineComponent({
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
         />
         {this.autoWidth && (
-          <span ref="inputPreRef" class={`${prefix}-input__input-pre`}>
+          <span ref="inputPreRef" class={`${classPrefix}-input__input-pre`}>
             {this.value || this.tPlaceholder}
           </span>
         )}
         {suffixContent}
         {suffixIcon ? (
-          <span class={[`${name}__suffix`, `${name}__suffix-icon`, { [`${name}__clear`]: this.showClear }]}>
+          <span
+            class={[
+              `${COMPONENT_NAME}__suffix`,
+              `${COMPONENT_NAME}__suffix-icon`,
+              { [`${COMPONENT_NAME}__clear`]: this.showClear },
+            ]}
+          >
             {suffixIcon}
           </span>
         ) : null}
       </div>
     );
     const tips = renderTNodeJSX(this, 'tips');
-    if (tips) {
-      return (
-        <div class={INPUT_WRAP_CLASS}>
-          {inputNode}
-          <div class={`${INPUT_TIPS_CLASS} ${prefix}-input__tips--${this.status || 'normal'}`}>{tips}</div>
-        </div>
-      );
-    }
-    return inputNode;
+    return (
+      <div class={INPUT_WRAP_CLASS}>
+        {inputNode}
+        {tips && <div class={`${INPUT_TIPS_CLASS} ${classPrefix}-input__tips--${this.status || 'normal'}`}>{tips}</div>}
+      </div>
+    );
   },
 });

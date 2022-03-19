@@ -71,8 +71,11 @@ export default defineComponent({
     },
   },
   watch: {
-    data(list) {
-      this.rebuild(list);
+    data: {
+      handler(list) {
+        this.rebuild(list);
+      },
+      deep: true,
     },
     value(nVal) {
       this.store.replaceChecked(nVal);

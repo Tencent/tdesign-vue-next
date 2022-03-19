@@ -1,15 +1,12 @@
 import { defineComponent, ref } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import TDivider from '../divider';
-import { prefix } from '../config';
-import { STATUS_CLASSNAMES } from '../utils/classnames';
 import itemProps from './dropdown-item-props';
 import { renderContent } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
 import { emitEvent } from '../utils/event';
 import useRipple from '../hooks/useRipple';
-
-const name = `${prefix}-dropdown__item`;
+import { useCommonClassName, usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TDropdownItem',
@@ -37,11 +34,16 @@ export default defineComponent({
   setup() {
     const itemRef = ref<HTMLElement>();
     useRipple(itemRef);
-    return { itemRef };
+
+    const { STATUS } = useCommonClassName();
+    const COMPONENT_NAME = usePrefixClass('dropdown__item');
+    const classPrefix = usePrefixClass();
+
+    return { classPrefix, COMPONENT_NAME, STATUS, itemRef };
   },
   methods: {
     renderSuffix(): TNodeReturnValue {
-      return this.hasChildren ? <chevron-right-icon class={`${name}__item-icon`} /> : null;
+      return this.hasChildren ? <chevron-right-icon class={`${this.COMPONENT_NAME}__item-icon`} /> : null;
     },
     handleItemClick(e: MouseEvent): void {
       e.stopPropagation();
@@ -61,20 +63,21 @@ export default defineComponent({
     },
   },
   render() {
+    const { STATUS, COMPONENT_NAME, classPrefix } = this;
     const classes = [
-      name,
+      COMPONENT_NAME,
       {
-        [`${prefix}-dropdown--suffix`]: this.hasChildren,
-        [STATUS_CLASSNAMES.disabled]: this.disabled,
-        [STATUS_CLASSNAMES.active]: this.active,
+        [`${classPrefix}-dropdown--suffix`]: this.hasChildren,
+        [STATUS.disabled]: this.disabled,
+        [STATUS.active]: this.active,
       },
     ];
 
     return (
       <div>
         <div ref="itemRef" class={classes} onClick={this.handleItemClick} onMouseover={this.handleMouseover}>
-          <div class={`${name}-content`}>
-            <span class={`${name}-text`}>{renderContent(this, 'content', 'default')}</span>
+          <div class={`${COMPONENT_NAME}-content`}>
+            <span class={`${COMPONENT_NAME}-text`}>{renderContent(this, 'content', 'default')}</span>
           </div>
           {this.renderSuffix()}
         </div>

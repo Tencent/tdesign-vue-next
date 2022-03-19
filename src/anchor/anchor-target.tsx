@@ -1,13 +1,11 @@
 import { defineComponent } from 'vue';
 import { FileCopyIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
 import TPopup from '../popup';
-import { COMPONENT_NAME } from './constant';
+import { useConfig, usePrefixClass } from '../config-provider';
 
-const name = `${COMPONENT_NAME}-target`;
 export default defineComponent({
   name: 'TAnchorTarget',
 
@@ -18,6 +16,15 @@ export default defineComponent({
 
   props: { ...props },
 
+  setup() {
+    const { global, classPrefix } = useConfig('anchor');
+    const COMPONENT_NAME = usePrefixClass('anchor');
+    return {
+      COMPONENT_NAME,
+      global,
+      classPrefix,
+    };
+  },
   methods: {
     /**
      * 复制当前target的链接
@@ -28,21 +35,23 @@ export default defineComponent({
       const a = document.createElement('a');
       a.href = `#${this.id}`;
       copyText(a.href);
-      Message.success('链接复制成功', 1000);
+      Message.success(this.global.copySuccessText, 1000);
     },
   },
   render() {
     const {
+      COMPONENT_NAME,
+      classPrefix,
       tag: TAG,
       $slots: { default: children },
       id,
     } = this;
     const className = [`${COMPONENT_NAME}__target`];
-    const iconClassName = `${prefix}-copy`;
+    const iconClassName = `${classPrefix}-copy`;
     return (
       <TAG id={id} class={className}>
         {children && children(null)}
-        <t-popup content="复制链接" placement="top" showArrow class={iconClassName}>
+        <t-popup content={this.global.copyText} placement="top" showArrow class={iconClassName}>
           <FileCopyIcon onClick={this.copyText} />
         </t-popup>
       </TAG>

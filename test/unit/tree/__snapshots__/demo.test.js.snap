@@ -32,7 +32,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -72,7 +71,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -112,7 +110,6 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -521,7 +518,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -564,7 +560,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -1481,17 +1476,22 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -1505,17 +1505,22 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -1529,17 +1534,22 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -2031,7 +2041,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -2071,7 +2080,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -2559,7 +2567,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -3119,7 +3126,6 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -3159,7 +3165,6 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -3739,7 +3744,6 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -3779,7 +3783,6 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -3901,18 +3904,23 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
       filter:
     </span>
     <div
-      class="t-input"
-      modelvalue=""
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+        modelvalue=""
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -4718,7 +4726,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -4758,7 +4765,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -4923,7 +4929,6 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m t-is-checked"
-            modelvalue="true"
           >
             <span
               class="t-switch__handle"
@@ -4966,7 +4971,6 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <div
             class="t-switch t-size-m t-is-checked"
-            modelvalue="true"
           >
             <span
               class="t-switch__handle"
@@ -7270,7 +7274,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m"
-              modelvalue="false"
             >
               <span
                 class="t-switch__handle"
@@ -7310,7 +7313,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <div
               class="t-switch t-size-m t-is-checked"
-              modelvalue="true"
             >
               <span
                 class="t-switch__handle"
@@ -7344,18 +7346,23 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         filter:
       </span>
       <div
-        class="t-input"
-        modelvalue=""
+        class="t-input__wrap"
       >
-        <!---->
-        <!---->
-        <input
-          class="t-input__inner"
-          placeholder="请输入"
-          type="text"
-        />
-        <!---->
-        <!---->
+        <div
+          class="t-input"
+          modelvalue=""
+        >
+          <!---->
+          <!---->
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
         <!---->
       </div>
       
@@ -7960,17 +7967,22 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -7984,17 +7996,22 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -8008,17 +8025,22 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -8491,17 +8513,22 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       checked:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -8515,17 +8542,22 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       expanded:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     
@@ -8539,17 +8571,22 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
       actived:
     </span>
     <div
-      class="t-input"
+      class="t-input__wrap"
     >
-      <!---->
-      <!---->
-      <input
-        class="t-input__inner"
-        placeholder="请输入"
-        type="text"
-      />
-      <!---->
-      <!---->
+      <div
+        class="t-input"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
       <!---->
     </div>
     

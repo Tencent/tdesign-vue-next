@@ -1,7 +1,6 @@
 import { defineComponent, PropType } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../../config';
 import CLASSNAMES from '../../utils/classnames';
 import getConfigReceiverMixins, { CascaderConfig } from '../../config-provider/config-receiver';
 import mixins from '../../utils/mixins';
@@ -34,7 +33,8 @@ import { ClassName } from '../../common';
 import { TreeNode, InputContentProps } from '../interface';
 import CascaderProps from '../props';
 
-const name = `${prefix}-cascader`;
+// hooks
+import { usePrefixClass } from '../../config-provider';
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<CascaderConfig>('cascader')),
@@ -56,6 +56,14 @@ export default defineComponent({
     collapsedItems: CascaderProps.collapsedItems,
   },
   emits: ['change'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('cascader');
+    const classPrefix = usePrefixClass();
+    return {
+      COMPONENT_NAME,
+      classPrefix,
+    };
+  },
   data() {
     return {
       isHover: false,
@@ -63,13 +71,13 @@ export default defineComponent({
   },
   computed: {
     closeIconClass(): ClassName {
-      return getCloseIconClass(prefix, CLASSNAMES, this.cascaderContext);
+      return getCloseIconClass(this.classPrefix, CLASSNAMES, this.cascaderContext);
     },
     fakeArrowIconClass(): ClassName {
-      return getFakeArrowIconClass(prefix, CLASSNAMES, this.cascaderContext);
+      return getFakeArrowIconClass(this.classPrefix, CLASSNAMES, this.cascaderContext);
     },
     cascaderInnerClasses(): ClassName {
-      return getCascaderInnerClasses(prefix, CLASSNAMES, this.cascaderContext);
+      return getCascaderInnerClasses(this.classPrefix, CLASSNAMES, this.cascaderContext);
     },
     closeShow() {
       return getCloseShow(this.isHover, this.cascaderContext);
@@ -113,7 +121,9 @@ export default defineComponent({
       const content = !showPlaceholder ? (
         this.InnerContent()
       ) : (
-        <span class={`${prefix}-cascader__placeholder`}>{placeholder || this.t(this.global.placeholder)}</span>
+        <span class={`${this.classPrefix}-cascader__placeholder`}>
+          {placeholder || this.t(this.global.placeholder)}
+        </span>
       );
       return content;
     },
@@ -159,7 +169,7 @@ export default defineComponent({
       };
 
       const generalContent = !multiple ? (
-        <span class={`${prefix}-cascader__content`}>{singleContent}</span>
+        <span class={`${this.classPrefix}-cascader__content`}>{singleContent}</span>
       ) : (
         <span>
           {minCollapsedNum > 0 && multipleContent.length > minCollapsedNum ? (
@@ -227,7 +237,7 @@ export default defineComponent({
 
       if (loading) {
         return (
-          <span class={`${prefix}-cascader__icon`}>
+          <span class={`${this.classPrefix}-cascader__icon`}>
             <TLoading size="small" />
           </span>
         );
