@@ -13,7 +13,7 @@ import useTagList from './useTagList';
 import useHover from './useHover';
 import useDefault from '../hooks/useDefaultValue';
 
-const useCOmponentClassName = () => {
+const useComponentClassName = () => {
   return {
     NAME_CLASS: usePrefixClass('tag-input'),
     CLEAR_CLASS: usePrefixClass('tag-input__suffix-clear'),
@@ -27,7 +27,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdTagInputProps, context) {
-    const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useCOmponentClassName();
+    const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
 
     const { inputValue } = toRefs(props);
     const [tInputValue, setTInputValue] = useDefault(

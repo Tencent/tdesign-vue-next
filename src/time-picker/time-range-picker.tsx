@@ -138,13 +138,13 @@ export default defineComponent({
     },
     // 面板展示隐藏
     panelVisibleChange(val: boolean, context?: PopupVisibleChangeContext) {
-      if (context) {
+      if (context.trigger) {
         const isClickDoc = context.trigger === 'document';
         this.isShowPanel = !isClickDoc;
-        emitEvent(this, isClickDoc ? 'close' : 'open');
+        emitEvent(this, isClickDoc ? 'close' : 'open', context);
       } else {
         this.isShowPanel = val;
-        emitEvent(this, val ? 'open' : 'close');
+        emitEvent(this, val ? 'open' : 'close', context);
       }
     },
     // 切换上下午
@@ -194,8 +194,8 @@ export default defineComponent({
       shouldUpdatePanel && panelRef.panelColUpdate();
     },
     // 确定按钮
-    makeSure() {
-      this.panelVisibleChange(false);
+    makeSure(e: MouseEvent) {
+      this.panelVisibleChange(false, { e });
     },
     // 设置输入框展示
     updateInputTime() {
@@ -257,6 +257,11 @@ export default defineComponent({
       emitEvent(this, 'change', values);
       isFunction(this.onChange) && this.onChange(values);
     },
+    handleTInputFocus() {
+      // TODO: 待改成select-input后删除
+      // hack 在input聚焦时马上blur 避免出现输入光标
+      (this.$refs.tInput as HTMLInputElement).blur();
+    },
     renderInput() {
       const classes = [
         `${this.COMPONENT_NAME}__group`,
@@ -272,8 +277,9 @@ export default defineComponent({
             onClear={this.clear}
             clearable={this.clearable}
             placeholder=" "
-            readonly
             value={!isEqual(this.time, TIME_PICKER_EMPTY) ? ' ' : undefined}
+            ref="tInput"
+            onFocus={this.handleTInputFocus}
           >
             <time-icon slot="suffix-icon"></time-icon>
           </t-input>

@@ -1358,8 +1358,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -1411,8 +1410,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -1548,8 +1546,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="card" class="t-select__single">card</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="card" class="t-select__single">card</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -1623,8 +1620,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -1676,8 +1672,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -1815,8 +1810,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="card" class="t-select__single">card</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="card" class="t-select__single">card</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -1883,8 +1877,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -1936,8 +1929,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -2308,8 +2300,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -2361,8 +2352,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -2776,8 +2766,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -2829,8 +2818,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -3086,8 +3074,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
               <div class="t-select t-select-polyfill t-size-s">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3139,8 +3126,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
               <div class="t-select t-select-polyfill t-size-s">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3302,8 +3288,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3355,8 +3340,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3525,8 +3509,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3578,8 +3561,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3756,8 +3738,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3809,8 +3790,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -3952,8 +3932,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="3" class="t-select__single">3</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="3" class="t-select__single">3</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -4020,8 +3999,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -4073,8 +4051,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -4247,8 +4224,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -4300,8 +4276,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -4437,8 +4412,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="year" class="t-select__single">year</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="year" class="t-select__single">year</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -4505,8 +4479,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -4614,8 +4587,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -4667,8 +4639,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -4828,8 +4799,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -4881,8 +4851,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -5221,8 +5190,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1998" class="t-select__single">1998</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1998" class="t-select__single">1998</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -5274,8 +5242,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
             <div class="t-select t-select-polyfill t-size-m">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="11" class="t-select__single">11</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="11" class="t-select__single">11</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -5449,8 +5416,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-select t-select-polyfill t-size-m">
                   <!---->
                   <!---->
-                  <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                  <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -5502,8 +5468,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-select t-select-polyfill t-size-m">
                   <!---->
                   <!---->
-                  <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                  <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -5684,8 +5649,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-select t-select-polyfill t-size-m">
                   <!---->
                   <!---->
-                  <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                  <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -5737,8 +5701,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-select t-select-polyfill t-size-m">
                   <!---->
                   <!---->
-                  <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                  <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -5898,8 +5861,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-select t-select-polyfill t-size-m">
                   <!---->
                   <!---->
-                  <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+                  <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -5951,8 +5913,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
                 <div class="t-select t-select-polyfill t-size-m">
                   <!---->
                   <!---->
-                  <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+                  <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -6918,8 +6879,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
             <div class="t-select t-select-polyfill t-size-s">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="2020" class="t-select__single">2020</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -6971,8 +6931,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
             <div class="t-select t-select-polyfill t-size-s">
               <!---->
               <!---->
-              <!--[-->
-              <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="12" class="t-select__single">12</span>
               <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                 <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
               </svg>
@@ -7266,9 +7225,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="select date" type="text" value>
+            <!----><input class="t-input__inner" placeholder="select date" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -7642,9 +7601,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="select date" type="text" value>
+            <!----><input class="t-input__inner" placeholder="select date" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -7730,9 +7689,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="select month" type="text" value>
+            <!----><input class="t-input__inner" placeholder="select month" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -7882,9 +7841,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="select month" type="text" value>
+            <!----><input class="t-input__inner" placeholder="select month" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -7965,9 +7924,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="select year" type="text" value>
+            <!----><input class="t-input__inner" placeholder="select year" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -8107,9 +8066,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="select year" type="text" value>
+            <!----><input class="t-input__inner" placeholder="select year" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -8378,8 +8337,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> see clear icon, it is configurable</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -8414,8 +8372,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> select without data in Select</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -8450,8 +8407,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> see loading text in Select</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!---->
         <!---->
@@ -8865,9 +8821,9 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text">
+          <!----><input class="t-input__inner" placeholder=" " type="text">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -8985,8 +8941,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
@@ -9470,9 +9425,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/base.vue correct
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue="2021-11-10" allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue="2021-11-10" allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value="2021-11-10">
+            <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value="2021-11-10">
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -9675,8 +9630,8 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/custom-icon.vue 
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--prefix t-input--suffix" modelvalue allowinput="0"><span class="t-input__prefix t-input__prefix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse" style=""><path fill="currentColor" d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z" fill-opacity="0.9"></path><path fill="currentColor" d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z" fill-opacity="0.9"></path></svg></span>
-            <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+          <div class="t-input t-input--prefix t-input--suffix" modelvalue allowinput="0"><span class="t-input__prefix t-input__prefix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse" style=""><path fill="currentColor" d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z" fill-opacity="0.9"></path><path fill="currentColor" d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z" fill-opacity="0.9"></path></svg></span>
+            <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fill-opacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fill-opacity="0.9"></path></svg><!--]--></span>
           </div>
@@ -10064,9 +10019,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets.vue
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+            <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -10457,9 +10412,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
         <!--[-->
         <div class="t-form-controls">
           <div class="t-input__wrap">
-            <div class="t-input t-is-readonly t-input--suffix" modelvalue="2020-12-28 至 2020-12-28" allowinput="0">
+            <div class="t-input t-input--suffix" modelvalue="2020-12-28 至 2020-12-28" allowinput="0">
               <!---->
-              <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value="2020-12-28 至 2020-12-28">
+              <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value="2020-12-28 至 2020-12-28">
               <!---->
               <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
             </div>
@@ -10669,9 +10624,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
         <!--[-->
         <div class="t-form-controls">
           <div class="t-input__wrap">
-            <div class="t-input t-is-readonly t-input--suffix" modelvalue="2020-12-28" allowinput="0">
+            <div class="t-input t-input--suffix" modelvalue="2020-12-28" allowinput="0">
               <!---->
-              <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value="2020-12-28">
+              <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value="2020-12-28">
               <!---->
               <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
             </div>
@@ -11062,9 +11017,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-tim
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+            <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -11443,9 +11398,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="开始时间 至 结束时间" type="text" value>
+            <!----><input class="t-input__inner" placeholder="开始时间 至 结束时间" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -11826,9 +11781,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+            <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -12038,9 +11993,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-time.vue co
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue="2021-05-01 11:30:20" allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue="2021-05-01 11:30:20" allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value="2021-05-01 11:30:20">
+            <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value="2021-05-01 11:30:20">
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -12244,9 +12199,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         <!--[-->
         <div class="t-form-controls">
           <div class="t-input__wrap">
-            <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+            <div class="t-input t-input--suffix" modelvalue allowinput="0">
               <!---->
-              <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+              <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
               <!---->
               <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
             </div>
@@ -12446,9 +12401,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         <!--[-->
         <div class="t-form-controls">
           <div class="t-input__wrap">
-            <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+            <div class="t-input t-input--suffix" modelvalue allowinput="0">
               <!---->
-              <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+              <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
               <!---->
               <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
             </div>
@@ -12648,9 +12603,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         <!--[-->
         <div class="t-form-controls">
           <div class="t-input__wrap">
-            <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+            <div class="t-input t-input--suffix" modelvalue allowinput="0">
               <!---->
-              <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+              <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
               <!---->
               <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
             </div>
@@ -13026,9 +12981,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         <!--[-->
         <div class="t-form-controls">
           <div class="t-input__wrap">
-            <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+            <div class="t-input t-input--suffix" modelvalue allowinput="0">
               <!---->
-              <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+              <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
               <!---->
               <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
             </div>
@@ -13228,9 +13183,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         <!--[-->
         <div class="t-form-controls">
           <div class="t-input__wrap">
-            <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+            <div class="t-input t-input--suffix" modelvalue allowinput="0">
               <!---->
-              <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+              <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
               <!---->
               <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
             </div>
@@ -13434,9 +13389,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/first-day-of-wee
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="请选择日期" type="text" value>
+            <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -13527,9 +13482,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/month.vue correc
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="请选择月份" type="text" value>
+            <!----><input class="t-input__inner" placeholder="请选择月份" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -13615,9 +13570,9 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/year.vue correct
       <!--[-->
       <div class="t-form-controls">
         <div class="t-input__wrap">
-          <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+          <div class="t-input t-input--suffix" modelvalue allowinput="0">
             <!---->
-            <!----><input class="t-input__inner" readonly placeholder="请选择年份" type="text" value>
+            <!----><input class="t-input__inner" placeholder="请选择年份" type="text" value>
             <!---->
             <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -15341,8 +15296,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
               <!--[-->
               <div class="t-select t-select-polyfill t-size-m">
                 <!----><span class="t-select__placeholder"> 请选择</span>
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -15557,8 +15511,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
               <!--[-->
               <div class="t-select t-select-polyfill t-is-disabled t-size-m">
                 <!----><span class="t-select__placeholder"> 请选择</span>
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -15881,9 +15834,9 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
               <!--[-->
               <div class="t-form-controls">
                 <div class="t-input__wrap">
-                  <div class="t-input t-is-disabled t-is-readonly t-input--suffix" modelvalue allowinput="0">
+                  <div class="t-input t-is-disabled t-input--suffix" modelvalue allowinput="0">
                     <!---->
-                    <!----><input class="t-input__inner" disabled readonly placeholder="请选择日期" type="text" value>
+                    <!----><input class="t-input__inner" disabled placeholder="请选择日期" type="text" value>
                     <!---->
                     <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
                   </div>
@@ -16208,8 +16161,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
               <!--[-->
               <div class="t-select t-select-polyfill t-size-m">
                 <!----><span class="t-select__placeholder"> 请选择</span>
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -16961,8 +16913,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
               <!--[-->
               <div class="t-select t-select-polyfill t-size-m">
                 <!----><span class="t-select__placeholder"> 请选择</span>
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -17190,8 +17141,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
               <!--[-->
               <div class="t-select t-select-polyfill t-size-m">
                 <!----><span class="t-select__placeholder"> 请选择</span>
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
                 <!---->
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -21175,32 +21125,41 @@ exports[`ssr snapshot test renders ./examples/menu/demos/closable-side.vue corre
         <!--]--><span class="t-menu__content"><!--[--> 仪表盘1 <!--]--></span>
       </li>
       <li class="t-submenu" mode="popup">
-        <!--[-->
-        <div class="t-menu__item">
-          <!--[--><svg class="t-icon t-icon-mail" style="">
-            <use href="#t-icon-mail"></use>
-          </svg>
-          <!--]--><span class="t-menu__content"><!--[--><span>信息区</span>
-          <!--]--></span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-          </svg>
-        </div>
-        <div class="t-menu__popup t-is-vertical">
-          <ul class="t-menu__popup-wrapper">
+        <div class="t-popup__reference">
+          <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+            <div class="t-popup__content t-menu__popup t-is-vertical t-menu__spacer t-menu__spacer--left">
+              <!--[-->
+              <ul class="t-menu__popup-wrapper">
+                <!--[-->
+                <li class="t-menu__item t-is-active t-menu__item--plain t-submenu__item">
+                  <!----><span class="t-menu__content"><!--[--> 菜单内容一 <!--]--></span>
+                </li>
+                <li class="t-menu__item t-menu__item--plain t-submenu__item">
+                  <!----><span class="t-menu__content"><!--[--> 菜单内容二 <!--]--></span>
+                </li>
+                <li class="t-menu__item t-menu__item--plain t-submenu__item">
+                  <!----><span class="t-menu__content"><!--[--> 菜单内容三 <!--]--></span>
+                </li>
+                <!--]-->
+              </ul>
+              <!--]-->
+              <!---->
+            </div>
+          </div>
+          <!--[-->
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
             <!--[-->
-            <li class="t-menu__item t-is-active t-menu__item--plain t-submenu__item">
-              <!----><span class="t-menu__content"><!--[--> 菜单内容一 <!--]--></span>
-            </li>
-            <li class="t-menu__item t-menu__item--plain t-submenu__item">
-              <!----><span class="t-menu__content"><!--[--> 菜单内容二 <!--]--></span>
-            </li>
-            <li class="t-menu__item t-menu__item--plain t-submenu__item">
-              <!----><span class="t-menu__content"><!--[--> 菜单内容三 <!--]--></span>
-            </li>
+            <!--[--><svg class="t-icon t-icon-mail" style="">
+              <use href="#t-icon-mail"></use>
+            </svg>
+            <!--]--><span class="t-menu__content"><!--[--><span>信息区</span>
+            <!--]--></span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);margin-left:auto;">
+              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+            </svg>
             <!--]-->
-          </ul>
+          </div>
+          <!--]-->
         </div>
-        <!--]-->
       </li>
       <li class="t-menu__item">
         <!--[--><svg class="t-icon t-icon-play-circle" style="">
@@ -21296,7 +21255,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/double.vue correctly 1`
         <!--[-->
         <li class="t-submenu t-is-opened">
           <!--[-->
-          <div class="t-menu__item t-is-opened">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom t-is-opened">
             <!--[--><span>菜单1</span>
             <!--]-->
           </div>
@@ -21317,7 +21276,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/double.vue correctly 1`
         </li>
         <li class="t-submenu">
           <!--[-->
-          <div class="t-menu__item">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
             <!--[--><span>菜单2</span>
             <!--]-->
           </div>
@@ -21363,7 +21322,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/double.vue correctly 1`
         <!--[-->
         <li class="t-submenu t-is-opened">
           <!--[-->
-          <div class="t-menu__item t-is-opened">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom t-is-opened">
             <!--[--><span>菜单1</span>
             <!--]-->
           </div>
@@ -21384,7 +21343,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/double.vue correctly 1`
         </li>
         <li class="t-submenu">
           <!--[-->
-          <div class="t-menu__item">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
             <!--[--><span>菜单2</span>
             <!--]-->
           </div>
@@ -21591,7 +21550,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/head-menu-tile.vue corr
       <!--[-->
       <!--[-->
       <li class="t-menu__item t-menu__item--plain">
-        <!----><span class="t-menu__content"><!--[-->菜单1 <li class="t-submenu"><!--[--><div class="t-menu__item"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单1-1<!--]--></span>
+        <!----><span class="t-menu__content"><!--[-->菜单1 <li class="t-submenu"><!--[--><div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单1-1<!--]--></span>
       </li>
       <li class="t-menu__item t-menu__item--plain">
         <!----><span class="t-menu__content"><!--[-->子菜单1-2<!--]--></span>
@@ -21606,7 +21565,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/head-menu-tile.vue corr
     </li>
     <!--]--></span></li>
     <li class="t-menu__item t-menu__item--plain">
-      <!----><span class="t-menu__content"><!--[-->菜单2 <li class="t-submenu"><!--[--><div class="t-menu__item"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-is-active t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单2-1<!--]--></span>
+      <!----><span class="t-menu__content"><!--[-->菜单2 <li class="t-submenu"><!--[--><div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-is-active t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单2-1<!--]--></span>
     </li>
     <li class="t-menu__item t-menu__item--plain">
       <!----><span class="t-menu__content"><!--[-->子菜单2-2<!--]--></span>
@@ -21621,7 +21580,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/head-menu-tile.vue corr
     </li>
     <!--]--></span></li>
     <li class="t-menu__item t-menu__item--plain">
-      <!----><span class="t-menu__content"><!--[-->菜单3 <li class="t-submenu"><!--[--><div class="t-menu__item"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单3-1<!--]--></span>
+      <!----><span class="t-menu__content"><!--[-->菜单3 <li class="t-submenu"><!--[--><div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"><!----></div><ul style="opacity: 0; width: 0; height: 0; overflow: hidden"><!--[--><!--[--><li class="t-menu__item t-menu__item--plain"><!----><span class="t-menu__content"><!--[-->子菜单3-1<!--]--></span>
     </li>
     <li class="t-menu__item t-menu__item--plain">
       <!----><span class="t-menu__content"><!--[-->子菜单3-2<!--]--></span>
@@ -21667,7 +21626,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         <!--[-->
         <li class="t-submenu t-is-opened">
           <!--[-->
-          <div class="t-menu__item t-is-opened">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right t-is-opened">
             <!--[--><svg class="t-icon t-icon-mail" style="">
               <use href="#t-icon-mail"></use>
             </svg>
@@ -21680,7 +21639,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
             <!--[-->
             <li class="t-submenu">
               <!--[-->
-              <div class="t-menu__item">
+              <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
                 <!----><span class="t-menu__content">二级菜单</span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -21702,7 +21661,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
             </li>
             <li class="t-submenu">
               <!--[-->
-              <div class="t-menu__item">
+              <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
                 <!----><span class="t-menu__content">二级菜单</span><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -21743,7 +21702,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         </li>
         <li class="t-submenu">
           <!--[-->
-          <div class="t-menu__item">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
             <!--[--><svg class="t-icon t-icon-play-circle" style="">
               <use href="#t-icon-play-circle"></use>
             </svg>
@@ -21808,7 +21767,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         </li>
         <li class="t-submenu t-is-opened">
           <!--[-->
-          <div class="t-menu__item t-is-opened">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right t-is-opened">
             <!--[--><svg class="t-icon t-icon-control-platform" style="">
               <use href="#t-icon-control-platform"></use>
             </svg>
@@ -21840,7 +21799,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         </li>
         <li class="t-submenu t-is-disabled">
           <!--[-->
-          <div class="t-menu__item t-is-disabled">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right t-is-disabled">
             <!--[--><svg class="t-icon t-icon-mail" style="">
               <use href="#t-icon-mail"></use>
             </svg>
@@ -21871,7 +21830,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multi-side.vue correctl
         </li>
         <li class="t-submenu">
           <!--[-->
-          <div class="t-menu__item">
+          <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
             <!--[--><svg class="t-icon t-icon-play-circle" style="">
               <use href="#t-icon-play-circle"></use>
             </svg>
@@ -21925,95 +21884,134 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multiple.vue correctly 
       <ul class="t-menu">
         <!--[-->
         <li class="t-submenu">
-          <!--[-->
-          <div class="t-menu__item">
-            <!--[--><span>菜单1</span>
-            <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-            </svg>
-          </div>
-          <div class="t-menu__popup">
-            <ul class="t-menu__popup-wrapper">
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                <!--[-->
+                <ul class="t-menu__popup-wrapper">
+                  <!--[-->
+                  <li class="t-submenu">
+                    <div class="t-popup__reference">
+                      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                        <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                          <!--[-->
+                          <ul class="t-menu__popup-wrapper">
+                            <!--[-->
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-1-1 <!--]--></span>
+                            </li>
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-1-2 <!--]--></span>
+                            </li>
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-1-3 <!--]--></span>
+                            </li>
+                            <!--]-->
+                          </ul>
+                          <!--]-->
+                          <!---->
+                        </div>
+                      </div>
+                      <!--[-->
+                      <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
+                        <!--[-->子菜单1-1<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                        </svg>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-2 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-3 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-4 <!--]--></span>
+                  </li>
+                  <li class="t-submenu">
+                    <div class="t-popup__reference">
+                      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                        <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                          <!--[-->
+                          <ul class="t-menu__popup-wrapper">
+                            <!--[-->
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-5-1 <!--]--></span>
+                            </li>
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-5-2 <!--]--></span>
+                            </li>
+                            <li class="t-menu__item t-menu__item--plain">
+                              <!----><span class="t-menu__content"><!--[--> 子菜单1-5-3 <!--]--></span>
+                            </li>
+                            <!--]-->
+                          </ul>
+                          <!--]-->
+                          <!---->
+                        </div>
+                      </div>
+                      <!--[-->
+                      <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
+                        <!--[-->子菜单1-5<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                        </svg>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                  </li>
+                  <!--]-->
+                </ul>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
               <!--[-->
-              <li class="t-submenu">
-                <!--[-->
-                <div class="t-menu__item">子菜单1-1<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-                    <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-                  </svg></div>
-                <div class="t-menu__popup">
-                  <ul class="t-menu__popup-wrapper">
-                    <!--[-->
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-1-1 <!--]--></span>
-                    </li>
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-1-2 <!--]--></span>
-                    </li>
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-1-3 <!--]--></span>
-                    </li>
-                    <!--]-->
-                  </ul>
-                </div>
-                <!--]-->
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-2 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-3 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-4 <!--]--></span>
-              </li>
-              <li class="t-submenu">
-                <!--[-->
-                <div class="t-menu__item">子菜单1-5<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-                    <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-                  </svg></div>
-                <div class="t-menu__popup">
-                  <ul class="t-menu__popup-wrapper">
-                    <!--[-->
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-5-1 <!--]--></span>
-                    </li>
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-5-2 <!--]--></span>
-                    </li>
-                    <li class="t-menu__item t-menu__item--plain">
-                      <!----><span class="t-menu__content"><!--[--> 子菜单1-5-3 <!--]--></span>
-                    </li>
-                    <!--]-->
-                  </ul>
-                </div>
-                <!--]-->
-              </li>
+              <!--[--><span>菜单1</span>
+              <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
               <!--]-->
-            </ul>
+            </div>
+            <!--]-->
           </div>
-          <!--]-->
         </li>
         <li class="t-submenu">
-          <!--[-->
-          <div class="t-menu__item">菜单2<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-            </svg></div>
-          <div class="t-menu__popup">
-            <ul class="t-menu__popup-wrapper">
-              <!--[-->
-              <li class="t-menu__item t-is-active t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-1 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-2 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-3 <!--]--></span>
-              </li>
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                <!--[-->
+                <ul class="t-menu__popup-wrapper">
+                  <!--[-->
+                  <li class="t-menu__item t-is-active t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-1 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-2 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-3 <!--]--></span>
+                  </li>
+                  <!--]-->
+                </ul>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
+              <!--[-->菜单2<svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
               <!--]-->
-            </ul>
+            </div>
+            <!--]-->
           </div>
-          <!--]-->
         </li>
         <!--]-->
       </ul>
@@ -22041,54 +22039,72 @@ exports[`ssr snapshot test renders ./examples/menu/demos/multiple.vue correctly 
       <ul class="t-menu">
         <!--[-->
         <li class="t-submenu">
-          <!--[-->
-          <div class="t-menu__item">
-            <!--[--><span>菜单1</span>
-            <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-            </svg>
-          </div>
-          <div class="t-menu__popup">
-            <ul class="t-menu__popup-wrapper">
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                <!--[-->
+                <ul class="t-menu__popup-wrapper">
+                  <!--[-->
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-1 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-2 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单1-3 <!--]--></span>
+                  </li>
+                  <!--]-->
+                </ul>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
               <!--[-->
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-1 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-2 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单1-3 <!--]--></span>
-              </li>
+              <!--[--><span>菜单1</span>
+              <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
               <!--]-->
-            </ul>
+            </div>
+            <!--]-->
           </div>
-          <!--]-->
         </li>
         <li class="t-submenu">
-          <!--[-->
-          <div class="t-menu__item">
-            <!--[--><span>菜单2</span>
-            <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
-              <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-            </svg>
-          </div>
-          <div class="t-menu__popup">
-            <ul class="t-menu__popup-wrapper">
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-menu__popup t-is-horizontal t-menu__spacer t-menu__spacer--top">
+                <!--[-->
+                <ul class="t-menu__popup-wrapper">
+                  <!--[-->
+                  <li class="t-menu__item t-is-active t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-1 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-2 <!--]--></span>
+                  </li>
+                  <li class="t-menu__item t-menu__item--plain">
+                    <!----><span class="t-menu__content"><!--[--> 子菜单2-3 <!--]--></span>
+                  </li>
+                  <!--]-->
+                </ul>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom">
               <!--[-->
-              <li class="t-menu__item t-is-active t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-1 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-2 <!--]--></span>
-              </li>
-              <li class="t-menu__item t-menu__item--plain">
-                <!----><span class="t-menu__content"><!--[--> 子菜单2-3 <!--]--></span>
-              </li>
+              <!--[--><span>菜单2</span>
+              <!--]--><svg class="t-fake-arrow" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform:rotate(0deg);">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
               <!--]-->
-            </ul>
+            </div>
+            <!--]-->
           </div>
-          <!--]-->
         </li>
         <!--]-->
       </ul>
@@ -22127,7 +22143,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/popup-side.vue correctl
       </li>
       <li class="t-submenu t-is-opened">
         <!--[-->
-        <div class="t-menu__item t-is-opened">
+        <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right t-is-opened">
           <!--[--><svg class="t-icon t-icon-user-circle" style="">
             <use href="#t-icon-user-circle"></use>
           </svg>
@@ -22153,7 +22169,7 @@ exports[`ssr snapshot test renders ./examples/menu/demos/popup-side.vue correctl
       </li>
       <li class="t-submenu">
         <!--[-->
-        <div class="t-menu__item">
+        <div class="t-menu__item t-menu__item-spacer t-menu__item-spacer--right">
           <!--[--><svg class="t-icon t-icon-root-list" style="">
             <use href="#t-icon-root-list"></use>
           </svg>
@@ -23055,8 +23071,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23123,8 +23138,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23193,8 +23207,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="20" class="t-select__single">20</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="20" class="t-select__single">20</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23278,8 +23291,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
         <div class="t-select t-select-polyfill t-size-s">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23350,8 +23362,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23425,8 +23436,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="30" class="t-select__single">30</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="30" class="t-select__single">30</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23497,8 +23507,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23557,8 +23566,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/20" class="t-select__single">1/20</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/20" class="t-select__single">1/20</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23612,8 +23620,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
         <div class="t-select t-select-polyfill t-size-s">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23672,8 +23679,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
         <div class="t-select t-select-polyfill t-size-s">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/20" class="t-select__single">1/20</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/20" class="t-select__single">1/20</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -23727,8 +23733,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
         <div class="t-select t-select-polyfill t-size-m">
           <!---->
           <!---->
-          <!--[-->
-          <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
+          <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
           <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
             <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
           </svg>
@@ -25285,8 +25290,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择云解决方案</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -25330,8 +25334,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/base.vue correctly 1`
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择云产品</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -25545,8 +25548,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <div class="t-input__wrap">
           <div class="t-input t-is-readonly t-select__input" modelvalue>
@@ -25606,8 +25608,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -25654,8 +25655,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-options.vue co
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -25767,6 +25767,53 @@ exports[`ssr snapshot test renders ./examples/select/demos/custom-selected.vue c
       </div>
       <!--]-->
     </div>
+  </div><br><br>
+  <div class="t-select__wrap" modelvalue="1">
+    <div class="t-popup__reference t-select__popup-reference">
+      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+          <!--[-->
+          <div class="t-select__dropdown-inner">
+            <!---->
+            <ul class="t-select__create-option t-select__list" style="display:none;">
+              <li class="t-select-option t-size-m t-select__create-option--special" title><span></span></li>
+            </ul>
+            <!---->
+            <!---->
+            <ul class="t-select__list">
+              <!--[-->
+              <li class="t-select-option t-is-selected t-size-m" title="选项一"><span>选项一</span></li>
+              <li class="t-select-option t-size-m" title="选项二"><span>选项二</span></li>
+              <li class="t-select-option t-size-m" title="选项三"><span>选项三</span></li>
+              <li class="t-select-option t-size-m" title="选项四"><span>选项四</span></li>
+              <li class="t-select-option t-size-m" title="选项五"><span>选项五</span></li>
+              <li class="t-select-option t-size-m" title="选项六"><span>选项六</span></li>
+              <li class="t-select-option t-size-m" title="选项七"><span>选项七</span></li>
+              <li class="t-select-option t-size-m" title="选项八"><span>选项八</span></li>
+              <li class="t-select-option t-size-m" title="选项九"><span>选项九</span></li>
+              <!--]-->
+            </ul>
+            <!---->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--[-->
+      <div class="t-select t-select-polyfill t-size-m">
+        <!---->
+        <!---->
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!--[--> 单选自定义（选项一）
+        <!--]-->
+        <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
   </div>
 </div>
 `;
@@ -25801,8 +25848,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/disabled.vue correctl
       <!--[-->
       <div class="t-select t-select-polyfill t-is-disabled t-size-m">
         <!----><span class="t-select__placeholder"> -请选择-</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -25890,8 +25936,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <div class="t-input__wrap">
           <div class="t-input t-is-readonly t-select__input" modelvalue>
@@ -26034,8 +26079,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <div class="t-input__wrap">
           <div class="t-input t-is-readonly t-select__input" modelvalue>
@@ -26118,8 +26162,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <div class="t-input__wrap">
           <div class="t-input t-is-readonly t-select__input" modelvalue>
@@ -26173,8 +26216,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/label-in-value.vue co
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="选项一" class="t-select__single">选项一</span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="选项一" class="t-select__single">选项一</span>
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
@@ -26474,8 +26516,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/noborder.vue correctl
       <div class="t-select t-select-polyfill t-size-m t-no-border">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
@@ -26528,8 +26569,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择云解决方案</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -26572,8 +26612,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/panel.vue correctly 1
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择云产品</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -26618,8 +26657,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
@@ -26658,8 +26696,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/popup-props.vue corre
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="已选择的选项" class="t-select__single">已选择的选项</span>
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
         </svg>
@@ -26701,8 +26738,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/prefix.vue correctly 
       </div>
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m t-has-prefix"><span class="t-select__left-icon"><svg class="t-icon t-icon-browse" style=""><use href="#t-icon-browse"></use></svg></span><span class="t-select__placeholder"> -请选择-</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -26747,8 +26783,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
       <div class="t-select t-select-polyfill t-size-m">
         <!---->
         <!---->
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <div class="t-input__wrap">
           <div class="t-input t-is-readonly t-select__input" modelvalue>
@@ -26849,8 +26884,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       <!--[-->
       <div class="t-select t-select-polyfill t-size-s">
         <!----><span class="t-select__placeholder"> 请选择</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -26889,8 +26923,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -26929,8 +26962,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/size.vue correctly 1`
       <!--[-->
       <div class="t-select t-select-polyfill t-size-l">
         <!----><span class="t-select__placeholder"> 请选择</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-l" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-l" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -26976,8 +27008,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择云解决方案</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -27018,8 +27049,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
       <!--[-->
       <div class="t-select t-select-polyfill t-is-disabled t-size-m">
         <!----><span class="t-select__placeholder"> 请选择云解决方案</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
           <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
@@ -27054,8 +27084,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/status.vue correctly 
       <!--[-->
       <div class="t-select t-select-polyfill t-size-m">
         <!----><span class="t-select__placeholder"> 请选择云解决方案</span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
         <!---->
         <!---->
@@ -31839,9 +31868,9 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                     <!--[-->
                                     <div class="t-form-controls">
                                       <div class="t-input__wrap">
-                                        <div class="t-input t-is-readonly t-input--suffix" modelvalue allowinput="0">
+                                        <div class="t-input t-input--suffix" modelvalue allowinput="0">
                                           <!---->
-                                          <!----><input class="t-input__inner" readonly placeholder="请选择月份" type="text" value>
+                                          <!----><input class="t-input__inner" placeholder="请选择月份" type="text" value>
                                           <!---->
                                           <!----><span class="t-input__suffix t-input__suffix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-calendar" style=""><path fill="currentColor" d="M10 3H6V1.5H5V3H3a1 1 0 00-1 1v9a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1h-2V1.5h-1V3zM5 5h1V4h4v1h1V4h2v2H3V4h2v1zM3 7h10v6H3V7z" fill-opacity="0.9"></path></svg></span>
                                         </div>
@@ -38507,8 +38536,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
                 <div class="t-select t-select-polyfill t-size-m">
                   <!---->
                   <!---->
-                  <!--[-->
-                  <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
+                  <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
                   <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                     <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                   </svg>
@@ -38623,8 +38651,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
               <div class="t-select t-select-polyfill t-size-m">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="10" class="t-select__single">10</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -41069,9 +41096,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/base.vue correct
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -41268,9 +41295,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/base.vue correct
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -41473,9 +41500,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/clearable.vue co
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -41673,9 +41700,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/clearable.vue co
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -41877,9 +41904,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/disabled.vue cor
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-disabled t-is-readonly t-input--suffix">
+        <div class="t-input t-is-disabled t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" disabled readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" disabled placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -42076,9 +42103,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/format.vue corre
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -42281,9 +42308,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -42481,9 +42508,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text">
+          <!----><input class="t-input__inner" placeholder=" " type="text">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -42617,9 +42644,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hm.vue correctly
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text">
+          <!----><input class="t-input__inner" placeholder=" " type="text">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -42818,9 +42845,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hms.vue correctl
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -43023,9 +43050,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/keyboard.vue cor
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -43223,9 +43250,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/keyboard.vue cor
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -43595,9 +43622,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/range.vue correc
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly">
+        <div class="t-input">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!---->
           <!---->
@@ -43730,9 +43757,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/show-steps.vue c
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text">
+          <!----><input class="t-input__inner" placeholder=" " type="text">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -43861,9 +43888,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/step.vue correct
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -44060,9 +44087,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour.vue 
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -44259,9 +44286,9 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour-meri
     <!--[-->
     <div class="t-time-picker__group">
       <div class="t-input__wrap">
-        <div class="t-input t-is-readonly t-input--suffix">
+        <div class="t-input t-input--suffix">
           <!---->
-          <!----><input class="t-input__inner" readonly placeholder=" " type="text" value=" ">
+          <!----><input class="t-input__inner" placeholder=" " type="text" value=" ">
           <!---->
           <!----><span class="t-input__suffix t-input__suffix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-time" style=""><path fill="currentColor" d="M7.5 4v4.39L10 11l.7-.7-2.2-2.33V4h-1z" fill-opacity="0.9"></path><path fill="currentColor" d="M15 8A7 7 0 111 8a7 7 0 0114 0zm-1 0A6 6 0 102 8a6 6 0 0012 0z" fill-opacity="0.9"></path></svg><!--]--></span>
         </div>
@@ -45105,8 +45132,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
               <div class="t-select t-select-polyfill t-size-s">
                 <!---->
                 <!---->
-                <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/2" class="t-select__single">1/2</span>
+                <!----><span class="t-tag t-tag--default t-tag--dark t-size-s" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="1/2" class="t-select__single">1/2</span>
                 <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
                   <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
                 </svg>
@@ -47874,11 +47900,11 @@ exports[`ssr snapshot test renders ./examples/upload/demos/base.vue correctly 1`
     <!--[-->
     <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button">
         <!--[-->
-        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-upload" style="" slot="icon">
+        <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-upload" style="">
           <path fill="currentColor" d="M3.74 6.68L7.5 2.9v8.59h1V2.91l3.76 3.77.71-.7-4.62-4.63a.5.5 0 00-.7 0L3.03 5.97l.7.7z" fill-opacity="0.9"></path>
           <path fill="currentColor" d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z" fill-opacity="0.9"></path>
         </svg>
-        <!--]--><span class="t-button__text"><!--[-->点击上传<!--]--></span>
+        <!--]--><span class="t-button__text"><!--[-->选择文件<!--]--></span>
         <!--]-->
       </button>
       <!---->
@@ -47912,7 +47938,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/custom-drag.vue corre
         <!--[-->
         <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->自定义拖拽区域<!--]--></span></button>
         <!--]-->
-        <!--v-if--><br><br>
+        <!--v-if--><br><br><!-- <span>数据状态：{{params}}</span> -->
         <!--]-->
         <!--]-->
       </div>
@@ -47947,17 +47973,22 @@ exports[`ssr snapshot test renders ./examples/upload/demos/custom-drag.vue corre
 `;
 
 exports[`ssr snapshot test renders ./examples/upload/demos/draggable.vue correctly 1`] = `
-<div>
-  <div>是否自动上传：<div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
-      <div class="t-switch__content t-size-m">
-        <!---->
+<div class="tdesign-demo-block-column-large">
+  <div class="tdesign-demo-block-column">
+    <div>是否自动上传：<div class="t-switch t-size-m t-is-checked"><span class="t-switch__handle"><!----></span>
+        <div class="t-switch__content t-size-m">
+          <!---->
+        </div>
       </div>
     </div>
-  </div><br>
-  <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="file">
-    <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="file" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 文件拖拽上传 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="image" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 图片拖拽上传 <!--]--><!--]--></span></label>
-    <!--]-->
-  </div><br><br><!-- data 表示传递给上传接口的额外数据；如果有更复杂的数据场景传递，请使用 format 方法 -->
+    <div>
+      <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="file">
+        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="file" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->文件拖拽上传<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="image" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->图片拖拽上传<!--]--><!--]--></span></label>
+        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+        <!--]-->
+      </div>
+    </div>
+  </div><!-- data 表示传递给上传接口的额外数据；如果有更复杂的数据场景传递，请使用 format 方法 -->
   <div class="t-upload"><input type="file" accept hidden>
     <!---->
     <!---->
@@ -47990,20 +48021,58 @@ exports[`ssr snapshot test renders ./examples/upload/demos/file-flow-list.vue co
       <table class="t-upload__flow-table">
         <tr>
           <th>文件名</th>
-          <th>大小</th>
+          <th>文件尺寸</th>
           <th>状态</th>
           <th>操作</th>
         </tr>
         <tr>
           <td colspan="4">
-            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖拽到此区域</div>
+            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
           </td>
         </tr>
         <!--[-->
         <!--]-->
       </table>
       <!---->
-      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->取消<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+    </div>
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/upload/demos/file-flow-list-batch-upload.vue correctly 1`] = `
+<div class="t-upload__file-flow-demo">
+  <div class="t-upload"><input type="file" multiple accept hidden>
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div class="t-upload__flow t-upload__flow-file-flow">
+      <div class="t-upload__flow-op">
+        <!--[-->
+        <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->选择文件<!--]--></span></button></div>
+        <!--]--><small class="t-size-s t-upload__flow-placeholder">批量合并上传，会通过一个接口上传所有的文件</small>
+      </div>
+      <table class="t-upload__flow-table">
+        <tr>
+          <th>文件名</th>
+          <th>文件尺寸</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
+          </td>
+        </tr>
+        <!--[-->
+        <!--]-->
+      </table>
+      <!---->
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
     </div>
     <!---->
     <!---->
@@ -48188,10 +48257,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/img-flow-list.vue cor
       </div>
       <!---->
       <div class="t-upload__flow-card-area">
-        <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖拽到此区域</div>
+        <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
         <!---->
       </div>
-      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->取消<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
     </div>
     <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
       <!--[-->
@@ -48254,11 +48323,14 @@ exports[`ssr snapshot test renders ./examples/upload/demos/listType.vue correctl
 `;
 
 exports[`ssr snapshot test renders ./examples/upload/demos/request-method.vue correctly 1`] = `
-<div>
-  <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="requestSuccessMethod">
-    <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="requestSuccessMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 上传成功示例 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="requestFailMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 上传失败示例 <!--]--><!--]--></span></label>
-    <!--]-->
-  </div><br><br>
+<div class="tdesign-demo-block-column-large">
+  <div>
+    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="requestSuccessMethod">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="requestSuccessMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->上传成功示例<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="requestFailMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->上传失败示例<!--]--><!--]--></span></label>
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+      <!--]-->
+    </div>
+  </div>
   <div class="t-upload"><input type="file" accept hidden>
     <!---->
     <div class="t-upload__single t-upload__single-file">
@@ -48266,11 +48338,11 @@ exports[`ssr snapshot test renders ./examples/upload/demos/request-method.vue co
       <!--[-->
       <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button">
           <!--[-->
-          <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-upload" style="" slot="icon">
+          <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-upload" style="">
             <path fill="currentColor" d="M3.74 6.68L7.5 2.9v8.59h1V2.91l3.76 3.77.71-.7-4.62-4.63a.5.5 0 00-.7 0L3.03 5.97l.7.7z" fill-opacity="0.9"></path>
             <path fill="currentColor" d="M2 11v2a1 1 0 001 1h10a1 1 0 001-1v-2h-1v2H3v-2H2z" fill-opacity="0.9"></path>
           </svg>
-          <!--]--><span class="t-button__text"><!--[-->点击上传<!--]--></span>
+          <!--]--><span class="t-button__text"><!--[-->选择文件<!--]--></span>
           <!--]-->
         </button>
         <!---->
@@ -48292,7 +48364,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-custom.vue cor
   <div>
     <div class="t-upload"><input type="file" multiple accept hidden>
       <div class="t-upload__trigger">
-        <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 自定义上传 <!--]--></span></button>
+        <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->自定义上传<!--]--></span></button>
         <!--]-->
       </div>
       <!---->
@@ -48337,7 +48409,7 @@ exports[`ssr snapshot test renders ./examples/upload/demos/single-input.vue corr
           </div>
         </div>
         <!--[-->
-        <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->选择文件<!--]--></span></button>
+        <div class="t-upload__trigger"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->选择文件<!--]--></span></button>
           <!---->
         </div>
         <!--]-->

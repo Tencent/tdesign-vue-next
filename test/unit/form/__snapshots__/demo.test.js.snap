@@ -1147,8 +1147,7 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -1807,8 +1806,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -3122,7 +3120,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                 >
                   <div
                     allowinput="0"
-                    class="t-input t-is-disabled t-is-readonly t-input--suffix"
+                    class="t-input t-is-disabled t-input--suffix"
                     modelvalue=""
                   >
                     <!---->
@@ -3131,7 +3129,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                       class="t-input__inner"
                       disabled=""
                       placeholder="请选择日期"
-                      readonly=""
                       type="text"
                     />
                     <!---->
@@ -3499,7 +3496,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-upload"
-            modelvalue="[object Object]"
           >
             <input
               accept="image/*"
@@ -3512,7 +3508,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
             <!---->
             <ul
               class="t-upload__card"
-              touploadfiles=""
             >
               
               <li
@@ -4308,8 +4303,7 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -7207,8 +7201,7 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -8570,8 +8563,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
                    
                   请选择
                 </span>
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"

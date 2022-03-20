@@ -772,25 +772,26 @@ export default defineComponent({
           >
             {prefixIconSlot && <span class={`${this.COMPONENT_NAME}__left-icon`}>{prefixIconSlot[0]}</span>}
             {showPlaceholder && <span class={`${this.COMPONENT_NAME}__placeholder`}> {placeholderText}</span>}
-            {this.valueDisplay || this.$slots.valueDisplay
-              ? renderTNodeJSX(this, 'valueDisplay', {
-                  params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
-                })
-              : selectedMultiple.map((item: TdOptionProps, index: number) => (
-                  <tag
-                    v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
-                    key={index}
-                    size={size}
-                    closable={!item.disabled && !disabled}
-                    disabled={disabled}
-                    style="max-width: 100%;"
-                    maxWidth="100%"
-                    title={get(item, realLabel)}
-                    onClose={this.removeTag.bind(null, index)}
-                  >
-                    {get(item, realLabel)}
-                  </tag>
-                ))}
+            {multiple &&
+              (this.valueDisplay || this.$slots.valueDisplay
+                ? renderTNodeJSX(this, 'valueDisplay', {
+                    params: { value: selectedMultiple, onClose: (index: number) => this.removeTag(index) },
+                  })
+                : selectedMultiple.map((item: TdOptionProps, index: number) => (
+                    <tag
+                      v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
+                      key={index}
+                      size={size}
+                      closable={!item.disabled && !disabled}
+                      disabled={disabled}
+                      style="max-width: 100%;"
+                      maxWidth="100%"
+                      title={get(item, realLabel)}
+                      onClose={this.removeTag.bind(null, index)}
+                    >
+                      {get(item, realLabel)}
+                    </tag>
+                  )))}
             {this.collapsedItems || this.$slots.collapsedItems ? (
               renderTNodeJSX(this, 'collapsedItems', {
                 params: {
@@ -804,11 +805,18 @@ export default defineComponent({
                 {`+${selectedMultiple.length - this.minCollapsedNum}`}
               </tag>
             )}
-            {!multiple && !showPlaceholder && !showFilter && (
-              <span title={selectedSingle} class={`${this.COMPONENT_NAME}__single`}>
-                {selectedSingle}
-              </span>
-            )}
+            {!multiple &&
+              !showPlaceholder &&
+              !showFilter &&
+              (this.valueDisplay || this.$slots.valueDisplay ? (
+                renderTNodeJSX(this, 'valueDisplay', {
+                  params: { value: selectedSingle },
+                })
+              ) : (
+                <span title={selectedSingle} class={`${this.COMPONENT_NAME}__single`}>
+                  {selectedSingle}
+                </span>
+              ))}
             {showFilter && (
               <t-input
                 ref="input"

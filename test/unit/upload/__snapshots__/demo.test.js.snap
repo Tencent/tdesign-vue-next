@@ -12,7 +12,6 @@ exports[`Upload Upload baseVue demo works fine 1`] = `
   <!-- 上传接口默认只传一个参数，如果希望自定义参数，可以使用 format 方法格式化参数-->
   <div
     class="t-upload"
-    modelvalue=""
   >
     <input
       accept=""
@@ -38,7 +37,6 @@ exports[`Upload Upload baseVue demo works fine 1`] = `
             class="t-icon t-icon-upload"
             fill="none"
             height="1em"
-            slot="icon"
             viewBox="0 0 16 16"
             width="1em"
           >
@@ -58,7 +56,7 @@ exports[`Upload Upload baseVue demo works fine 1`] = `
             class="t-button__text"
           >
             
-            点击上传
+            选择文件
             
           </span>
           
@@ -125,7 +123,6 @@ exports[`Upload Upload customDragVue demo works fine 1`] = `
   <br />
   <div
     class="t-upload"
-    modelvalue=""
   >
     <input
       accept=""
@@ -158,6 +155,7 @@ exports[`Upload Upload customDragVue demo works fine 1`] = `
         <!--v-if-->
         <br />
         <br />
+        <!-- &lt;span&gt;数据状态：{{params}}&lt;/span&gt; -->
         
         
       </div>
@@ -234,82 +232,90 @@ exports[`Upload Upload customDragVue demo works fine 1`] = `
 `;
 
 exports[`Upload Upload draggableVue demo works fine 1`] = `
-<div>
-  <div>
-    是否自动上传：
-    <div
-      class="t-switch t-size-m t-is-checked"
-    >
-      <span
-        class="t-switch__handle"
-      >
-        <!---->
-      </span>
+<div
+  class="tdesign-demo-block-column-large"
+>
+  <div
+    class="tdesign-demo-block-column"
+  >
+    <div>
+      是否自动上传：
       <div
-        class="t-switch__content t-size-m"
+        class="t-switch t-size-m t-is-checked"
       >
-        <!---->
+        <span
+          class="t-switch__handle"
+        >
+          <!---->
+        </span>
+        <div
+          class="t-switch__content t-size-m"
+        >
+          <!---->
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="t-radio-group t-size-m t-radio-group--filled"
+        modelvalue="file"
+      >
+        
+        <label
+          class="t-radio-button t-is-checked"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="file"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            文件拖拽上传
+            
+            
+          </span>
+        </label>
+        <label
+          class="t-radio-button"
+        >
+          <input
+            class="t-radio-button__former"
+            name=""
+            type="radio"
+            value="image"
+          />
+          <span
+            class="t-radio-button__input"
+          />
+          <span
+            class="t-radio-button__label"
+          >
+            
+            
+            图片拖拽上传
+            
+            
+          </span>
+        </label>
+        <div
+          class="t-radio-group__bg-block"
+          style="width: 0px; left: 0px;"
+        />
+        
       </div>
     </div>
   </div>
-  <br />
-  <div
-    class="t-radio-group t-size-m t-radio-group__outline"
-    modelvalue="file"
-  >
-    
-    <label
-      class="t-radio-button t-is-checked"
-    >
-      <input
-        class="t-radio-button__former"
-        name=""
-        type="radio"
-        value="file"
-      />
-      <span
-        class="t-radio-button__input"
-      />
-      <span
-        class="t-radio-button__label"
-      >
-        
-        
-         文件拖拽上传 
-        
-        
-      </span>
-    </label>
-    <label
-      class="t-radio-button"
-    >
-      <input
-        class="t-radio-button__former"
-        name=""
-        type="radio"
-        value="image"
-      />
-      <span
-        class="t-radio-button__input"
-      />
-      <span
-        class="t-radio-button__label"
-      >
-        
-        
-         图片拖拽上传 
-        
-        
-      </span>
-    </label>
-    
-  </div>
-  <br />
-  <br />
   <!-- data 表示传递给上传接口的额外数据；如果有更复杂的数据场景传递，请使用 format 方法 -->
   <div
     class="t-upload"
-    modelvalue=""
   >
     <input
       accept=""
@@ -332,7 +338,8 @@ exports[`Upload Upload draggableVue demo works fine 1`] = `
             点击上传
           </span>
           <span>
-              /  拖拽到此区域
+              /  
+            拖拽到此区域
           </span>
         </div>
       </div>
@@ -352,7 +359,6 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
 >
   <div
     class="t-upload"
-    modelvalue=""
   >
     <input
       accept=""
@@ -402,7 +408,7 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
             文件名
           </th>
           <th>
-            大小
+            文件尺寸
           </th>
           <th>
             状态
@@ -418,7 +424,7 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
             <div
               class="t-upload__flow-empty"
             >
-              点击上方“选择文件”或将文件拖拽到此区域
+              点击上方“选择文件”或将文件拖到此区域
             </div>
           </td>
         </tr>
@@ -430,14 +436,15 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
         class="t-upload__flow-bottom"
       >
         <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-default"
+          class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled"
+          disabled=""
           type="button"
         >
           <span
             class="t-button__text"
           >
             
-            取消
+            取消上传
             
           </span>
         </button>
@@ -472,7 +479,6 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
   >
     <div
       class="t-upload"
-      modelvalue=""
     >
       <input
         accept="image/*"
@@ -484,7 +490,6 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
       <!---->
       <ul
         class="t-upload__card"
-        touploadfiles=""
       >
         
         
@@ -590,7 +595,6 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
   >
     <div
       class="t-upload"
-      modelvalue=""
     >
       <input
         accept="image/*"
@@ -602,7 +606,6 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
       <!---->
       <ul
         class="t-upload__card"
-        touploadfiles=""
       >
         
         
@@ -708,7 +711,6 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
   >
     <div
       class="t-upload"
-      modelvalue=""
     >
       <input
         accept="image/*"
@@ -720,7 +722,6 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
       <!---->
       <ul
         class="t-upload__card"
-        touploadfiles=""
       >
         
         
@@ -826,7 +827,6 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
   >
     <div
       class="t-upload"
-      modelvalue=""
     >
       <input
         accept="image/*"
@@ -839,7 +839,6 @@ exports[`Upload Upload imageVue demo works fine 1`] = `
       <!---->
       <ul
         class="t-upload__card"
-        touploadfiles=""
       >
         
         
@@ -949,7 +948,6 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
 >
   <div
     class="t-upload"
-    modelvalue=""
   >
     <input
       accept="image/*"
@@ -998,7 +996,7 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
         <div
           class="t-upload__flow-empty"
         >
-          点击上方“选择文件”或将文件拖拽到此区域
+          点击上方“选择文件”或将文件拖到此区域
         </div>
         <!---->
       </div>
@@ -1006,14 +1004,15 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
         class="t-upload__flow-bottom"
       >
         <button
-          class="t-button t-size-m t-button--variant-base t-button--theme-default"
+          class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled"
+          disabled=""
           type="button"
         >
           <span
             class="t-button__text"
           >
             
-            取消
+            取消上传
             
           </span>
         </button>
@@ -1178,63 +1177,68 @@ exports[`Upload Upload listTypeVue demo works fine 1`] = `
 `;
 
 exports[`Upload Upload requestMethodVue demo works fine 1`] = `
-<div>
-  <div
-    class="t-radio-group t-size-m t-radio-group__outline"
-    modelvalue="requestSuccessMethod"
-  >
-    
-    <label
-      class="t-radio-button t-is-checked"
+<div
+  class="tdesign-demo-block-column-large"
+>
+  <div>
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+      modelvalue="requestSuccessMethod"
     >
-      <input
-        class="t-radio-button__former"
-        name=""
-        type="radio"
-        value="requestSuccessMethod"
-      />
-      <span
-        class="t-radio-button__input"
-      />
-      <span
-        class="t-radio-button__label"
+      
+      <label
+        class="t-radio-button t-is-checked"
       >
-        
-        
-         上传成功示例 
-        
-        
-      </span>
-    </label>
-    <label
-      class="t-radio-button"
-    >
-      <input
-        class="t-radio-button__former"
-        name=""
-        type="radio"
-        value="requestFailMethod"
-      />
-      <span
-        class="t-radio-button__input"
-      />
-      <span
-        class="t-radio-button__label"
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="requestSuccessMethod"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          上传成功示例
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
       >
-        
-        
-         上传失败示例 
-        
-        
-      </span>
-    </label>
-    
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="requestFailMethod"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          上传失败示例
+          
+          
+        </span>
+      </label>
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+      
+    </div>
   </div>
-  <br />
-  <br />
   <div
     class="t-upload"
-    modelvalue=""
   >
     <input
       accept=""
@@ -1260,7 +1264,6 @@ exports[`Upload Upload requestMethodVue demo works fine 1`] = `
             class="t-icon t-icon-upload"
             fill="none"
             height="1em"
-            slot="icon"
             viewBox="0 0 16 16"
             width="1em"
           >
@@ -1280,7 +1283,7 @@ exports[`Upload Upload requestMethodVue demo works fine 1`] = `
             class="t-button__text"
           >
             
-            点击上传
+            选择文件
             
           </span>
           
@@ -1311,7 +1314,6 @@ exports[`Upload Upload singleCustomVue demo works fine 1`] = `
   <div>
     <div
       class="t-upload"
-      modelvalue=""
     >
       <input
         accept=""
@@ -1331,7 +1333,7 @@ exports[`Upload Upload singleCustomVue demo works fine 1`] = `
             class="t-button__text"
           >
             
-             自定义上传 
+            自定义上传
             
           </span>
         </button>
@@ -1423,7 +1425,6 @@ exports[`Upload Upload singleInputVue demo works fine 1`] = `
   >
     <div
       class="t-upload"
-      modelvalue=""
     >
       <input
         accept=""
@@ -1454,8 +1455,7 @@ exports[`Upload Upload singleInputVue demo works fine 1`] = `
           class="t-upload__trigger"
         >
           <button
-            class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
-            disabled=""
+            class="t-button t-size-m t-button--variant-outline t-button--theme-default"
             type="button"
           >
             <span

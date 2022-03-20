@@ -158,13 +158,13 @@ export default defineComponent({
     },
     // 面板展示隐藏
     panelVisibleChange(val: boolean, context?: PopupVisibleChangeContext) {
-      if (context) {
+      if (context.trigger) {
         const isClickDoc = context.trigger === 'document';
         this.isShowPanel = !isClickDoc;
-        emitEvent(this, isClickDoc ? 'close' : 'open');
+        emitEvent(this, isClickDoc ? 'close' : 'open', context);
       } else {
         this.isShowPanel = val;
-        emitEvent(this, val ? 'open' : 'close');
+        emitEvent(this, val ? 'open' : 'close', context);
       }
     },
     // 切换上下午
@@ -212,8 +212,8 @@ export default defineComponent({
       emitEvent(this, 'change', formatValue);
     },
     // 确定按钮
-    makeSure() {
-      this.panelVisibleChange(false);
+    makeSure(e: MouseEvent) {
+      this.panelVisibleChange(false, { e });
       this.output();
     },
     // 此刻按钮
@@ -299,6 +299,11 @@ export default defineComponent({
       emitEvent(this, 'change', undefined);
       e.stopPropagation();
     },
+    handleTInputFocus() {
+      // TODO: 待改成select-input后删除
+      // hack 在input聚焦时马上blur 避免出现输入光标
+      (this.$refs.tInput as HTMLInputElement).blur();
+    },
     renderInput() {
       const classes = [
         `${this.COMPONENT_NAME}__group`,
@@ -317,11 +322,12 @@ export default defineComponent({
             size={this.size}
             onClear={this.clear}
             clearable={this.clearable}
-            readonly
             placeholder=" "
             value={this.time ? ' ' : undefined}
             class={this.isShowPanel ? this.STATUS.focused : ''}
             v-slots={slots}
+            ref="tInput"
+            onFocus={this.handleTInputFocus}
           ></t-input>
           <input-items
             size={this.size}
