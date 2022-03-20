@@ -1,7 +1,7 @@
 import { computed, defineComponent, toRefs, h } from 'vue';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
-import BaseTable, { BASE_TABLE_ALL_EVENTS, TableListeners } from './base-table';
+import BaseTable from './base-table';
 import { useTNodeJSX } from '../hooks/tnode';
 import useColumnController from './hooks/useColumnController';
 import useRowExpand from './hooks/useRowExpand';
@@ -36,7 +36,7 @@ export default defineComponent({
     // 行选中功能
     const { formatToRowSelectColumn, tRowClassNames } = useRowSelect(props);
     // 过滤功能
-    const { hasEmptyCondition, renderFilterIcon, renderFirstFilterRow } = useFilter(props, context);
+    const { hasEmptyCondition, renderFilterIcon, renderFirstFilterRow } = useFilter(props);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
@@ -54,8 +54,8 @@ export default defineComponent({
         if (item.sorter || item.filter) {
           const titleContent = renderTitle(context.slots, item, i);
           item.title = (h, p) => {
-            const sortIcon = renderSortIcon(p);
-            const filterIcon = renderFilterIcon(p);
+            const sortIcon = item.sorter ? renderSortIcon(p) : null;
+            const filterIcon = item.filter ? renderFilterIcon(p) : null;
             return renderTitleWidthIcon([titleContent, sortIcon, filterIcon]);
           };
         }
@@ -80,7 +80,6 @@ export default defineComponent({
 
     const onInnerPageChange = (pageInfo: PageInfo, newData: Array<TableRowData>) => {
       props.onPageChange?.(pageInfo, newData);
-
       const changeParams: Parameters<TdPrimaryTableProps['onChange']> = [
         { pagination: pageInfo },
         { trigger: 'pagination', currentData: newData },
@@ -104,17 +103,6 @@ export default defineComponent({
   },
 
   methods: {
-    // support @row-click @page-change @row-hover .etc. events, Vue3 do not need this function
-    getListenser() {
-      const listenser: TableListeners = {};
-      BASE_TABLE_ALL_EVENTS.forEach((key) => {
-        listenser[key] = (...args: any) => {
-          this.$emit(key, ...args);
-        };
-      });
-      return listenser;
-    },
-
     formatNode(api: string, renderInnerNode: Function, condition: boolean) {
       if (!condition) return this[api];
       const innerNode = renderInnerNode(h);
@@ -146,16 +134,12 @@ export default defineComponent({
       topContent,
       firstFullRow,
       lastFullRow,
+      onPageChange: this.onInnerPageChange,
     };
 
-    // 事件，Vue3 do not need this.getListenser
-    const on: TableListeners = {
-      ...this.getListenser(),
-      'page-change': this.onInnerPageChange,
-    };
     if (this.expandOnRowClick) {
-      on['row-click'] = this.onInnerExpandRowClick;
+      props.onRowClick = this.onInnerExpandRowClick;
     }
-    return <BaseTable v-slots={this.$slots} props={props} on={on} {...this.$attrs} />;
+    return <BaseTable v-slots={this.$slots} {...props} {...this.$attrs} />;
   },
 });

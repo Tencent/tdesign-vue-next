@@ -1,21 +1,22 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-column-large">
+    <!-- 按钮操作区域 -->
+    <!-- 设置哪些列允许自定义显示 :columnController="{ fields: ['platform', 'type', 'default']}" -->
     <t-table
       row-key="index"
       :data="data"
       :columns="columns"
-      :pagination="pagination"
-      @page-change="onPageChange"
-      @change="onChange"
-    />
+      :column-controller="{ displayType: 'fixed-width', fields: ['platform', 'type', 'default'] }"
+      table-layout="auto"
+      stripe
+      bordered
+      @column-change="onColumnChange"
+    ></t-table>
   </div>
 </template>
-<script setup>
-import { reactive, ref } from 'vue';
-
+<script setup lang="jsx">
 const data = [];
-const TOTAL = 60;
-for (let i = 0; i < TOTAL; i++) {
+for (let i = 0; i < 5; i++) {
   data.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
@@ -32,13 +33,11 @@ for (let i = 0; i < TOTAL; i++) {
 const columns = [
   {
     align: 'center',
-    width: '100',
     className: 'row',
     colKey: 'index',
     title: '序号',
   },
   {
-    width: 100,
     colKey: 'platform',
     title: '平台',
   },
@@ -57,28 +56,11 @@ const columns = [
   {
     colKey: 'detail.postion',
     title: '详情信息',
-    width: 200,
     ellipsis: true,
-  },
-  {
-    colKey: 'description',
-    title: '说明',
   },
 ];
 
-// 非受控用法
-const pagination = ref({
-  defaultCurrent: 2,
-  defaultPageSize: 5,
-  total: TOTAL,
-  showJumper: true,
-});
-
-const onChange = (params, context) => {
-  console.log('change', params, context);
-};
-
-const onPageChange = (pageInfo, context) => {
-  console.log('page-change', pageInfo, context);
+const onColumnChange = (params) => {
+  console.log(params);
 };
 </script>

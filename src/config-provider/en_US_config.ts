@@ -70,6 +70,11 @@ const GLOBAL_CONFIG_EN: GlobalConfigProvider = {
     expandIcon: undefined,
     // 排序图标（使用降序图标）
     sortIcon: undefined,
+    loadingMoreText: 'Load More',
+    loadingText: 'Loading',
+    sortAscendingOperationText: 'ascending sort',
+    sortCancelOperationText: 'cancel sort',
+    sortDescendingOperationText: 'decending sort',
   },
   select: {
     empty: 'Empty Data',

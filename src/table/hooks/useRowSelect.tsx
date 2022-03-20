@@ -70,7 +70,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
         checked={inersectionKeys.value.length === canSelectedRows.value.length}
         indeterminate={isIndeterminate}
         disabled={!canSelectedRows.value.length}
-        {...{ on: { change: handleSelectAll } }}
+        onChange={handleSelectAll}
       />
     );
   }
@@ -78,25 +78,18 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
   function renderSelectCell(p: PrimaryTableCellParams<TableRowData>) {
     const { col: column, row = {}, rowIndex } = p;
     const checked = tSelectedRowKeys.value.includes(get(row, props.rowKey || 'id'));
-    const disabled = typeof column.disabled === 'function' ? column.disabled({ row, rowIndex }) : column.disabled;
+    const disabled: boolean =
+      typeof column.disabled === 'function' ? column.disabled({ row, rowIndex }) : column.disabled;
     const checkProps = isFunction(column.checkProps) ? column.checkProps({ row, rowIndex }) : column.checkProps;
-    const selectBoxProps = {
-      props: {
-        checked,
-        ...column,
-        type: column.type,
-        disabled,
-        rowIndex,
-        ...checkProps,
+    const selectBoxProps: Object = {
+      checked,
+      disabled,
+      ...checkProps,
+      onClick: (e: MouseEvent) => {
+        // 选中行功能中，点击 checkbo/radio 需阻止事件冒泡，避免触发不必要的 onRowClick
+        e?.stopPropagation();
       },
-      on: {
-        click: (e: MouseEvent) => {
-          // 选中行功能中，点击 checkbo/radio 需阻止事件冒泡，避免触发不必要的 onRowClick
-          e?.stopPropagation();
-        },
-        // radio 单选框可再点击一次关闭选择，input / change 事件无法监听
-        change: () => handleSelectChange(row),
-      },
+      onChange: () => handleSelectChange(row),
     };
     if (column.type === 'single') return <Radio {...selectBoxProps} />;
     if (column.type === 'multiple') return <Checkbox {...selectBoxProps} />;

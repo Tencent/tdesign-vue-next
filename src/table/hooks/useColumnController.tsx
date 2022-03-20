@@ -66,8 +66,6 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
     columnCheckboxKeys.value = val;
     const params = { columns: val };
     props.onColumnChange?.(params);
-    // Vue3 ignore next linet
-    context.emit('column-change', params);
   };
 
   const handleClickAllShowColumns = (checked: boolean) => {
@@ -75,14 +73,10 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
       const newData = columns.value?.map((t) => t.colKey) || [];
       columnCheckboxKeys.value = newData;
       props.onColumnChange?.({ type: 'check', columns: newData });
-      // Vue3 ignore next linet
-      context.emit('column-change', { type: 'check', columns: newData });
     } else {
       const disabledColKeys = checkboxOptions.value.filter((t) => t.disabled).map((t) => t.value);
       columnCheckboxKeys.value = disabledColKeys;
       props.onColumnChange?.({ type: 'uncheck', columns: disabledColKeys });
-      // Vue3 ignore next linet
-      context.emit('column-change', { type: 'uncheck', columns: disabledColKeys });
     }
   };
 
@@ -95,22 +89,23 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
         const isCheckedAll = checkedLength === enabledColKeys.value.size;
         const isIndeterminate = checkedLength > 0 && checkedLength < enabledColKeys.value.size;
         const defaultNode = (
-          <div class={[`${classPrefix.value}-table__column-controller`, `${classPrefix.value}-table__column-controller--${widthMode}`]}>
+          <div
+            class={[
+              `${classPrefix.value}-table__column-controller`,
+              `${classPrefix.value}-table__column-controller--${widthMode}`,
+            ]}
+          >
             <div class={`${classPrefix.value}-table__column-controller-body`}>
               <p class={`${classPrefix.value}-table__column-controller-desc`}>请选择需要在表格中显示的数据列</p>
               <div class={`${classPrefix.value}-table__column-controller-block`}>
-                <Checkbox
-                  indeterminate={isIndeterminate}
-                  checked={isCheckedAll}
-                  onChange={handleClickAllShowColumns}
-                  {...(columnController.value?.checkboxProps || {})}
-                >
+                <Checkbox indeterminate={isIndeterminate} checked={isCheckedAll} onChange={handleClickAllShowColumns}>
                   全选
                 </Checkbox>
               </div>
               <div class={`${classPrefix.value}-table__column-controller-block`}>
                 <CheckboxGroup
                   options={checkboxOptions.value}
+                  {...(columnController.value?.checkboxProps || {})}
                   value={columnCheckboxKeys.value}
                   onChange={handleCheckChange}
                 />

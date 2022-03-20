@@ -2,24 +2,10 @@ import { defineComponent, SetupContext, computed, ref } from 'vue';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import enhancedTableProps from './enhanced-table-props';
-import PrimaryTable, { BASE_TABLE_ALL_EVENTS } from './primary-table';
+import PrimaryTable from './primary-table';
 import { TdEnhancedTableProps, PrimaryTableCol, TableRowData } from './type';
 import useTreeData from './hooks/useTreeData';
 import useTreeSelect from './hooks/useTreeSelect';
-import { TableListeners } from './base-table';
-
-const PRIMARY_B_EVENTS = [
-  'change',
-  'page-change',
-  'expand-change',
-  'filter-change',
-  'sort-change',
-  'data-change',
-  'drag-sort',
-  'async-loading-click',
-];
-
-const PRIMARY_ALL_EVENTS = BASE_TABLE_ALL_EVENTS.concat(PRIMARY_B_EVENTS);
 
 export default defineComponent({
   name: 'TEnhancedTable',
@@ -69,19 +55,6 @@ export default defineComponent({
     };
   },
 
-  methods: {
-    // support @row-click @page-change @row-hover .etc. events, Vue3 do not need this function
-    getListenser() {
-      const listenser: TableListeners = {};
-      PRIMARY_ALL_EVENTS.forEach((key) => {
-        listenser[key] = (...args: any) => {
-          this.$emit(key, ...args);
-        };
-      });
-      return listenser;
-    },
-  },
-
   render() {
     const props = {
       ...this.$props,
@@ -89,12 +62,8 @@ export default defineComponent({
       columns: this.tColumns,
       // 树形结构不允许本地数据分页
       disableDataPage: Boolean(this.tree && Object.keys(this.tree).length),
+      onSelectChange: this.onInnerSelectChange,
     };
-    // 事件，Vue3 do not need this.getListenser
-    const on: TableListeners = {
-      ...this.getListenser(),
-      'select-change': this.onInnerSelectChange,
-    };
-    return <PrimaryTable v-slots={this.$slots} props={props} on={on} {...this.$attrs} />;
+    return <PrimaryTable v-slots={this.$slots} {...props} {...this.$attrs} />;
   },
 });

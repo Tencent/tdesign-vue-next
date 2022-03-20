@@ -280,7 +280,7 @@ export default defineComponent({
       <Loading
         loading={!!(this.loading || customLoadingText)}
         text={customLoadingText ? () => customLoadingText : undefined}
-        props={this.loadingProps}
+        {...this.loadingProps}
         showOverlay
       >
         {tableContent}
@@ -296,7 +296,7 @@ export default defineComponent({
 
         {!!(this.isVirtual || this.headerAffixedTop) &&
           (this.headerAffixedTop ? (
-            <Affix offsetTop={0} props={this.headerAffixProps} onFixedChange={this.onFixedChange}>
+            <Affix offsetTop={0} {...this.headerAffixProps} onFixedChange={this.onFixedChange}>
               {affixedHeader}
             </Affix>
           ) : (

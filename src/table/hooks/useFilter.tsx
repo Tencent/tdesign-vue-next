@@ -1,4 +1,4 @@
-import { SetupContext, toRefs, ref, watch, computed } from 'vue';
+import { toRefs, ref, watch, computed } from 'vue';
 import useClassName from './useClassName';
 import TButton from '../../button';
 import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue } from '../type';
@@ -21,12 +21,10 @@ function filterEmptyData(data: FilterValue) {
   return newFilterValue;
 }
 
-export default function useFilter(props: TdPrimaryTableProps, context: SetupContext) {
+export default function useFilter(props: TdPrimaryTableProps) {
   const renderTNode = useTNodeDefault();
   const { filterValue } = toRefs(props);
   const { tableFilterClasses, isFocusClass } = useClassName();
-  // 记录筛选列是否处理下拉展开状态
-  const filterPopupVisible = ref<{ [key: string]: boolean }>({});
 
   // uncontroll and controll
   const [tFilterValue, setTFilterValue] = useDefaultValue(
@@ -34,7 +32,6 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
     props.defaultFilterValue,
     props.onFilterChange,
     'filterValue',
-    'filter-change',
   );
 
   // 过滤内部值
@@ -102,10 +99,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
 
   function emitFilterChange(filterValue: FilterValue, column?: PrimaryTableCol) {
     setTFilterValue(filterValue, { col: column });
-
     props.onChange?.({ filter: filterValue }, { trigger: 'filter' });
-    // Vue3 ignore next line
-    context.emit('change', { filter: filterValue }, { trigger: 'filter' });
   }
 
   function onReset(column: PrimaryTableCol) {
@@ -121,17 +115,14 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         '',
     };
     emitFilterChange(filterValue, column);
-    filterPopupVisible.value = { ...filterPopupVisible.value, [column.colKey]: false };
   }
 
   function onResetAll() {
     emitFilterChange({}, undefined);
-    filterPopupVisible.value = {};
   }
 
   function onConfirm(column: PrimaryTableCol) {
     emitFilterChange(innerFilterValue.value, column);
-    filterPopupVisible.value = { ...filterPopupVisible.value, [column.colKey]: false };
   }
 
   // 图标：内置图标，组件自定义图标，全局配置图标
@@ -143,11 +134,9 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
         innerFilterValue={innerFilterValue.value}
         tableFilterClasses={tableFilterClasses}
         isFocusClass={isFocusClass}
-        on={{
-          reset: onReset,
-          confirm: onConfirm,
-          'inner-filter-change': onInnerFilterChange,
-        }}
+        onReset={onReset}
+        onConfirm={onConfirm}
+        onInnerFilterChange={onInnerFilterChange}
       ></TableFilterController>
     );
   }

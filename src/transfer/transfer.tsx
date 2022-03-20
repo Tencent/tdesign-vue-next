@@ -131,7 +131,9 @@ export default defineComponent({
       return getTransferListOption<boolean>(this.disabled);
     },
     titleOption(): TransferListOptionBase<string | TNode> {
-      return getTransferListOption<string | TNode>(this.title);
+      // TODO：此处需分别处理 Array 和 TNode 内容
+      // @ts-ignore
+      return getTransferListOption<string>(this.title);
     },
     paginationOption(): TransferListOptionBase<TdPaginationProps> {
       return getTransferListOption<TdPaginationProps>(this.pagination);

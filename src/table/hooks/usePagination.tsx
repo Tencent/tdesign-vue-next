@@ -31,22 +31,16 @@ export default function usePagination(props: TdBaseTableProps, context: SetupCon
   });
 
   const renderPagination = () => {
-    if (!pagination.value) return null;
+    if (!props.pagination) return null;
     return (
       <div class={`${classPrefix.value}-table__pagination`}>
         <Pagination
-          {...{
-            props: pagination.value,
-            on: {
-              change: (pageInfo: PageInfo) => {
-                current.value = pageInfo.current;
-                pageSize.value = pageInfo.pageSize;
-                props.onPageChange?.(pageInfo, dataSource.value);
-                // Vue3 ignore this line
-                context.emit('page-change', pageInfo, dataSource.value);
-              },
-            },
+          onChange={(pageInfo: PageInfo) => {
+            current.value = pageInfo.current;
+            pageSize.value = pageInfo.pageSize;
+            props.onPageChange?.(pageInfo, dataSource.value);
           }}
+          {...props.pagination}
         />
       </div>
     );

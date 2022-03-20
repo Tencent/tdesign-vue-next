@@ -9844,64 +9844,103 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   
   <!-- 全局配置：空数据呈现，演示 -->
   <div
-    style="width: 100%;"
+    class="t-table t-size-m t-table--bordered"
+    defaultexpandedrowkeys=""
+    dragsort="drag-col"
+    expandicon="true"
+    expandonrowclick="false"
+    multiplesort="false"
+    sortonrowdraggable="false"
+    style="position: relative;"
   >
+    <!---->
+    <!---->
     <div
-      class="t-table t-table--bordered"
-      defaultexpandedrowkeys=""
-      dragsort="false"
-      expandedrowkeys=""
-      expandicon="true"
-      expandonrowclick="false"
-      multiplesort="false"
-      showcolumncontroller="false"
-      showcolumns="false"
-      showdragcol="false"
-      sortonrowdraggable="false"
+      class="t-table__content"
     >
-      <div
-        class="t-loading__parent"
+      <!---->
+      <table
+        class="t-table--layout-fixed"
       >
-        
-        <div
-          class="t-table__content"
+        <colgroup>
+          
+          <col />
+          <col />
+          <col />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
         >
-          <table
-            style="table-layout: fixed;"
-          >
+          
+          <tr>
             
-            <colgroup>
-              
-              <col />
-              <col />
-              <col />
-              
-            </colgroup>
-            <thead>
-              
-              <tr>
-                
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
+            <th
+              class="t-table__th-type"
+              data-colkey="type"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__cell--sortable"
                 >
                   <div
-                    class="t-table__cell--sortable"
+                    class="t-table__cell--title"
                   >
+                    <div>
+                      Type
+                    </div>
                     <div
-                      class="t-table__cell--title"
+                      class="t-table__filter-icon-wrap"
                     >
-                      <div>
-                        Type
-                      </div>
                       <div
                         class="t-table__cell--sort-trigger t-table__double-icons"
                       >
+                        
                         <div
-                          class="t-popup__reference"
+                          class="t-popup__reference t-table-sort-asc"
                           duration="3000"
-                          style="line-height: 0px; position: relative;"
+                          theme="default"
+                        >
+                          <transition-stub>
+                            <div
+                              aria-hidden="true"
+                              class="t-popup"
+                              role="tooltip"
+                              style="display: none;"
+                            >
+                              <div
+                                class="t-popup__content t-tooltip t-tooltip--default"
+                              >
+                                点击升序
+                                <!---->
+                              </div>
+                            </div>
+                          </transition-stub>
+                          
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                            >
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          
+                        </div>
+                        <div
+                          class="t-popup__reference t-table-sort-desc"
+                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -9920,158 +9959,197 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                             </div>
                           </transition-stub>
                           
-                          
-                          <svg
-                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-asc"
-                            fill="none"
-                            height="1em"
-                            style="font-size: 18px; transform: rotate(-180deg); top: -1px; left: 0px;"
-                            viewBox="0 0 16 16"
-                            width="1em"
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-desc"
                           >
-                            <path
-                              d="M11 6H5l3 4.5L11 6z"
-                              fill="currentColor"
-                              fill-opacity="0.9"
-                            />
-                          </svg>
-                          <svg
-                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-desc"
-                            fill="none"
-                            height="1em"
-                            style="font-size: 18px; left: 0px; bottom: -1px;"
-                            viewBox="0 0 16 16"
-                            width="1em"
-                          >
-                            <path
-                              d="M11 6H5l3 4.5L11 6z"
-                              fill="currentColor"
-                              fill-opacity="0.9"
-                            />
-                          </svg>
-                          
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                            >
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
                           
                         </div>
+                        
                       </div>
+                      <!---->
                     </div>
                   </div>
-                </td>
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
-                >
-                  Platform
-                </td>
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
-                >
-                  Property
-                </td>
-                
-              </tr>
-              
-            </thead>
-            <tbody
-              class="t-table__body"
+                </div>
+              </div>
+            </th>
+            <th
+              class="t-table__th-platform"
+              data-colkey="platform"
             >
-              
-              
-            </tbody>
-            <!---->
+              <div
+                class="t-table__th-cell-inner"
+              >
+                Platform
+              </div>
+            </th>
+            <th
+              class="t-table__th-property"
+              data-colkey="property"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                Property
+              </div>
+            </th>
             
-          </table>
-        </div>
-        
-        <div
-          class="t-table__empty"
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
         >
-          Empty Data
-        </div>
-        
-        
+          <tr
+            class="t-table__empty-row"
+          >
+            <td
+              colspan="3"
+            >
+              <div
+                class="t-table__empty"
+              >
+                Empty Data
+              </div>
+            </td>
+          </tr>
+        </tbody>
         <!---->
-      </div>
+      </table>
     </div>
+    <!---->
+    <!---->
   </div>
   <br />
   <br />
   <!-- 全局配置：自定义展开图标和排序图标，演示 -->
   <div
-    style="width: 100%;"
-  >
-    <div
-      class="t-table"
-      defaultexpandedrowkeys=""
-      dragsort="false"
-      expandedrow="h => {
+    class="t-table t-size-m"
+    defaultexpandedrowkeys=""
+    dragsort="drag-col"
+    expandedrow="h => {
       return (0, _vue.createVNode)(\\"div\\", null, [(0, _vue.createTextVNode)(\\"This is expanded row info\\")]);
     }"
-      expandedrowkeys=""
-      expandicon="true"
-      expandonrowclick="true"
-      multiplesort="false"
-      showcolumncontroller="false"
-      showcolumns="false"
-      showdragcol="false"
-      sortonrowdraggable="false"
+    expandicon="true"
+    expandonrowclick="true"
+    multiplesort="false"
+    sortonrowdraggable="false"
+    style="position: relative;"
+  >
+    <!---->
+    <!---->
+    <div
+      class="t-table__content"
     >
-      <div
-        class="t-loading__parent"
+      <!---->
+      <table
+        class="t-table--layout-fixed"
       >
-        
-        <div
-          class="t-table__content"
+        <colgroup>
+          
+          <col
+            style="width: 64px;"
+          />
+          <col />
+          <col />
+          <col />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
         >
-          <table
-            style="table-layout: fixed;"
-          >
+          
+          <tr>
             
-            <colgroup>
-              
-              <col
-                style="width: 48px;"
-              />
-              <col />
-              <col />
-              <col />
-              
-            </colgroup>
-            <thead>
-              
-              <tr>
-                
-                <td
-                  class="t-table__expandable-icon-cell"
-                  colspan="1"
-                  rowspan="1"
-                  style="overflow: hidden;"
-                >
-                  
-                </td>
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
+            <th
+              class="t-table__expandable-icon-cell t-table__th-__EXPAND_ROW_ICON_COLUMN__"
+              data-colkey="__EXPAND_ROW_ICON_COLUMN__"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <!---->
+              </div>
+            </th>
+            <th
+              class="t-table__th-type"
+              data-colkey="type"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__cell--sortable"
                 >
                   <div
-                    class="t-table__cell--sortable"
+                    class="t-table__cell--title"
                   >
+                    <div>
+                      Type
+                    </div>
                     <div
-                      class="t-table__cell--title"
+                      class="t-table__filter-icon-wrap"
                     >
-                      <div>
-                        Type
-                      </div>
                       <div
                         class="t-table__cell--sort-trigger t-table__double-icons"
                       >
+                        
                         <div
-                          class="t-popup__reference"
+                          class="t-popup__reference t-table-sort-asc"
                           duration="3000"
-                          style="line-height: 0px; position: relative;"
+                          theme="default"
+                        >
+                          <transition-stub>
+                            <div
+                              aria-hidden="true"
+                              class="t-popup"
+                              role="tooltip"
+                              style="display: none;"
+                            >
+                              <div
+                                class="t-popup__content t-tooltip t-tooltip--default"
+                              >
+                                点击升序
+                                <!---->
+                              </div>
+                            </div>
+                          </transition-stub>
+                          
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"
+                          >
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                            >
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          
+                        </div>
+                        <div
+                          class="t-popup__reference t-table-sort-desc"
+                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -10090,232 +10168,213 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                             </div>
                           </transition-stub>
                           
-                          
-                          <svg
-                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-asc"
-                            fill="none"
-                            height="1em"
-                            style="font-size: 18px; transform: rotate(-180deg); top: -1px; left: 0px;"
-                            viewBox="0 0 16 16"
-                            width="1em"
+                          <span
+                            class="t-icon-sort--default t-table__sort-icon t-table-sort-desc"
                           >
-                            <path
-                              d="M11 6H5l3 4.5L11 6z"
-                              fill="currentColor"
-                              fill-opacity="0.9"
-                            />
-                          </svg>
-                          <svg
-                            class="t-icon t-icon-caret-down-small t-table__sort-icon t-icon-sort--default t-table-sort-desc"
-                            fill="none"
-                            height="1em"
-                            style="font-size: 18px; left: 0px; bottom: -1px;"
-                            viewBox="0 0 16 16"
-                            width="1em"
-                          >
-                            <path
-                              d="M11 6H5l3 4.5L11 6z"
-                              fill="currentColor"
-                              fill-opacity="0.9"
-                            />
-                          </svg>
-                          
+                            <svg
+                              class="t-icon t-icon-chevron-down"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                            >
+                              <path
+                                d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
                           
                         </div>
+                        
                       </div>
+                      <!---->
                     </div>
                   </div>
-                </td>
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
-                >
-                  Platform
-                </td>
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
-                >
-                  Property
-                </td>
-                
-              </tr>
-              
-            </thead>
-            <tbody
-              class="t-table__body"
+                </div>
+              </div>
+            </th>
+            <th
+              class="t-table__th-platform"
+              data-colkey="platform"
             >
-              
-              <tr
-                class=""
-                draggable="false"
+              <div
+                class="t-table__th-cell-inner"
               >
-                
-                <td
-                  class="t-table__expandable-icon-cell"
-                  length="4"
-                  style="overflow: hidden;"
-                >
-                  <span
-                    class="t-table__expand-box"
-                  >
-                    <span
-                      style="transition: transform .2s; display: flex; align-items: center;"
-                    >
-                      <svg
-                        class="t-icon t-icon-chevron-right"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  Array
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  Vue(PC)
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  A
-                </td>
-                
-              </tr>
-              <tr
-                class=""
-                draggable="false"
+                Platform
+              </div>
+            </th>
+            <th
+              class="t-table__th-property"
+              data-colkey="property"
+            >
+              <div
+                class="t-table__th-cell-inner"
               >
-                
-                <td
-                  class="t-table__expandable-icon-cell"
-                  length="4"
-                  style="overflow: hidden;"
-                >
-                  <span
-                    class="t-table__expand-box"
-                  >
-                    <span
-                      style="transition: transform .2s; display: flex; align-items: center;"
-                    >
-                      <svg
-                        class="t-icon t-icon-chevron-right"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  String
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  React(PC)
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  B
-                </td>
-                
-              </tr>
-              <tr
-                class=""
-                draggable="false"
-              >
-                
-                <td
-                  class="t-table__expandable-icon-cell"
-                  length="4"
-                  style="overflow: hidden;"
-                >
-                  <span
-                    class="t-table__expand-box"
-                  >
-                    <span
-                      style="transition: transform .2s; display: flex; align-items: center;"
-                    >
-                      <svg
-                        class="t-icon t-icon-chevron-right"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  Object
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  Miniprogram
-                </td>
-                <td
-                  class=""
-                  length="4"
-                >
-                  C
-                </td>
-                
-              </tr>
-              
-            </tbody>
-            <!---->
+                Property
+              </div>
+            </th>
             
-          </table>
-        </div>
-        
-        
-        
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
+          <!---->
+          
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-table__expandable-icon-cell"
+            >
+              <span
+                class="t-table__expand-box t-table__row--collapsed"
+              >
+                <svg
+                  class="t-icon t-icon-chevron-right-circle"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+            </td>
+            <td
+              class=""
+            >
+              Array
+            </td>
+            <td
+              class=""
+            >
+              Vue(PC)
+            </td>
+            <td
+              class=""
+            >
+              A
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-table__expandable-icon-cell"
+            >
+              <span
+                class="t-table__expand-box t-table__row--collapsed"
+              >
+                <svg
+                  class="t-icon t-icon-chevron-right-circle"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+            </td>
+            <td
+              class=""
+            >
+              String
+            </td>
+            <td
+              class=""
+            >
+              React(PC)
+            </td>
+            <td
+              class=""
+            >
+              B
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="t-table__expandable-icon-cell"
+            >
+              <span
+                class="t-table__expand-box t-table__row--collapsed"
+              >
+                <svg
+                  class="t-icon t-icon-chevron-right-circle"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M6.2 5.2L9 8l-2.8 2.8.71.7 3.5-3.5-3.5-3.5-.7.7z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                  <path
+                    d="M8 15A7 7 0 118 1a7 7 0 010 14zm0-1A6 6 0 108 2a6 6 0 000 12z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+            </td>
+            <td
+              class=""
+            >
+              Object
+            </td>
+            <td
+              class=""
+            >
+              Miniprogram
+            </td>
+            <td
+              class=""
+            >
+              C
+            </td>
+            
+          </tr>
+          
+          <!---->
+          
+        </tbody>
         <!---->
-      </div>
+      </table>
     </div>
+    <!---->
+    <!---->
   </div>
   <br />
   <br />

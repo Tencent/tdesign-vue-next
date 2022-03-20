@@ -197,7 +197,7 @@ export default defineComponent({
           row,
           index: rowIndex,
           columns: this.columns,
-          tableWidth: this.tableContentWidth,
+          tableWidth: this.tableWidth,
           isWidthOverflow: this.isWidthOverflow,
         };
         const expandedContent = this.renderExpandedRow(p);

@@ -22,8 +22,6 @@ export default function useAsyncLoading(props: TdPrimaryTableProps, context: Set
   function onLoadClick() {
     if (typeof props.asyncLoading !== 'string') return;
     props.onAsyncLoadingClick?.({ status: props.asyncLoading });
-    // Vue3 ignore next line
-    context.emit('async-loading-click', { status: props.asyncLoading });
   }
 
   function renderAsyncLoading() {

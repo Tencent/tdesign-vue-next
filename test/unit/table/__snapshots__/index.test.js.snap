@@ -2,1108 +2,1147 @@
 
 exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height height = 100 1`] = `
 <div
-  style="width: 100%;"
+  class="t-table t-size-m"
+  defaultexpandedrowkeys=""
+  dragsort="drag-col"
+  expandicon="true"
+  expandonrowclick="false"
+  multiplesort="false"
+  sortonrowdraggable="false"
+  style="position: relative;"
 >
+  <!---->
+  <!---->
   <div
-    class="t-table t-table__header--fixed"
-    defaultexpandedrowkeys=""
-    dragsort="false"
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumncontroller="false"
-    showcolumns="false"
-    showdragcol="false"
-    sortonrowdraggable="false"
+    class="t-table__content"
+    style="height: 100px;"
   >
-    <div
-      class="t-loading__parent"
+    <!---->
+    <table
+      class="t-table--layout-fixed"
     >
-      
-      <div
-        class="t-table__content"
+      <colgroup>
+        
+        <col />
+        <col />
+        <col />
+        
+      </colgroup>
+      <thead
+        class="t-table__header"
       >
         
-        <div
-          class="t-table__header"
-          style="padding-right: 0px;"
-        >
-          <table
-            style="table-layout: fixed;"
+        <tr>
+          
+          <th
+            class="t-table__th-id"
+            data-colkey="id"
           >
-            <colgroup>
-              
-              <col />
-              <col />
-              <col />
-              
-            </colgroup>
-            <thead>
-              
-              <tr>
-                
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
-                >
-                  id
-                </td>
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
-                >
-                  类型
-                </td>
-                <td
-                  class=""
-                  colspan="1"
-                  rowspan="1"
-                >
-                  取值
-                </td>
-                
-              </tr>
-              
-            </thead>
-          </table>
-        </div>
-        <div
-          class="t-table__body"
-          style="height: 100px; position: relative;"
-        >
-          <!---->
-          <table
-            style="table-layout: fixed; transform: false;"
-          >
-            <colgroup>
-              
-              <col />
-              <col />
-              <col />
-              
-            </colgroup>
-            <tbody
-              class="t-table__body"
+            <div
+              class="t-table__th-cell-inner"
             >
-              
-              <tr
-                class=""
-                draggable="false"
-              >
-                
-                <td
-                  class=""
-                  length="3"
-                >
-                  1
-                </td>
-                <td
-                  class=""
-                  length="3"
-                >
-                  Number
-                </td>
-                <td
-                  class=""
-                  length="3"
-                >
-                  1
-                </td>
-                
-              </tr>
-              <tr
-                class=""
-                draggable="false"
-              >
-                
-                <td
-                  class=""
-                  length="3"
-                >
-                  2
-                </td>
-                <td
-                  class=""
-                  length="3"
-                >
-                  Number
-                </td>
-                <td
-                  class=""
-                  length="3"
-                >
-                  2
-                </td>
-                
-              </tr>
-              <tr
-                class=""
-                draggable="false"
-              >
-                
-                <td
-                  class=""
-                  length="3"
-                >
-                  3
-                </td>
-                <td
-                  class=""
-                  length="3"
-                >
-                  Number
-                </td>
-                <td
-                  class=""
-                  length="3"
-                >
-                  3
-                </td>
-                
-              </tr>
-              
-            </tbody>
-            <!---->
-          </table>
-        </div>
+              id
+            </div>
+          </th>
+          <th
+            class="t-table__th-type"
+            data-colkey="type"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              类型
+            </div>
+          </th>
+          <th
+            class="t-table__th-value"
+            data-colkey="value"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              取值
+            </div>
+          </th>
+          
+        </tr>
         
-      </div>
-      
-      
-      
+      </thead>
+      <tbody
+        class="t-table__body"
+      >
+        
+        <!---->
+        
+        <tr
+          class=""
+        >
+          
+          <td
+            class=""
+          >
+            1
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            1
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class=""
+          >
+            2
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            2
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class=""
+          >
+            3
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            3
+          </td>
+          
+        </tr>
+        
+        <!---->
+        
+      </tbody>
       <!---->
-    </div>
+    </table>
   </div>
+  <!---->
+  <!---->
 </div>
 `;
 
 exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "large", verticalAlign="top" 1`] = `
 <div
-  style="width: 100%;"
+  class="t-table t-size-l t-vertical-align-top"
+  defaultexpandedrowkeys=""
+  dragsort="drag-col"
+  expandicon="true"
+  expandonrowclick="false"
+  multiplesort="false"
+  sortonrowdraggable="false"
+  style="position: relative;"
 >
+  <!---->
+  <!---->
   <div
-    class="t-table t-size-l t-table-table--align-top"
-    defaultexpandedrowkeys=""
-    dragsort="false"
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumncontroller="false"
-    showcolumns="false"
-    showdragcol="false"
-    sortonrowdraggable="false"
+    class="t-table__content"
   >
-    <div
-      class="t-loading__parent"
+    <!---->
+    <table
+      class="t-table--layout-fixed"
     >
-      
-      <div
-        class="t-table__content"
+      <colgroup>
+        
+        
+      </colgroup>
+      <thead
+        class="t-table__header"
       >
-        <table
-          style="table-layout: fixed;"
+        
+        <tr>
+          
+          
+        </tr>
+        
+      </thead>
+      <tbody
+        class="t-table__body"
+      >
+        <tr
+          class="t-table__empty-row"
         >
-          
-          <colgroup>
-            
-            
-          </colgroup>
-          <thead>
-            
-            <tr>
-              
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="t-table__body"
+          <td
+            colspan="0"
           >
-            
-            
-          </tbody>
-          <!---->
-          
-        </table>
-      </div>
-      
-      <div
-        class="t-table__empty"
-      >
-        暂无数据
-      </div>
-      
-      
+            <div
+              class="t-table__empty"
+            >
+              暂无数据
+            </div>
+          </td>
+        </tr>
+      </tbody>
       <!---->
-    </div>
+    </table>
   </div>
+  <!---->
+  <!---->
 </div>
 `;
 
 exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "medium", verticalAlign="bottom" 1`] = `
 <div
-  style="width: 100%;"
+  class="t-table t-size-m t-vertical-align-bottom"
+  defaultexpandedrowkeys=""
+  dragsort="drag-col"
+  expandicon="true"
+  expandonrowclick="false"
+  multiplesort="false"
+  sortonrowdraggable="false"
+  style="position: relative;"
 >
+  <!---->
+  <!---->
   <div
-    class="t-table t-table-table--align-bottom"
-    defaultexpandedrowkeys=""
-    dragsort="false"
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumncontroller="false"
-    showcolumns="false"
-    showdragcol="false"
-    sortonrowdraggable="false"
+    class="t-table__content"
   >
-    <div
-      class="t-loading__parent"
+    <!---->
+    <table
+      class="t-table--layout-fixed"
     >
-      
-      <div
-        class="t-table__content"
+      <colgroup>
+        
+        
+      </colgroup>
+      <thead
+        class="t-table__header"
       >
-        <table
-          style="table-layout: fixed;"
+        
+        <tr>
+          
+          
+        </tr>
+        
+      </thead>
+      <tbody
+        class="t-table__body"
+      >
+        <tr
+          class="t-table__empty-row"
         >
-          
-          <colgroup>
-            
-            
-          </colgroup>
-          <thead>
-            
-            <tr>
-              
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="t-table__body"
+          <td
+            colspan="0"
           >
-            
-            
-          </tbody>
-          <!---->
-          
-        </table>
-      </div>
-      
-      <div
-        class="t-table__empty"
-      >
-        暂无数据
-      </div>
-      
-      
+            <div
+              class="t-table__empty"
+            >
+              暂无数据
+            </div>
+          </td>
+        </tr>
+      </tbody>
       <!---->
-    </div>
+    </table>
   </div>
+  <!---->
+  <!---->
 </div>
 `;
 
 exports[`Table :props :props.bordered, :props:hover, :props.stripe, :props.size, :props.verticalAlign, :props.height size = "small", verticalAlign="middle" 1`] = `
 <div
-  style="width: 100%;"
+  class="t-table t-size-s t-table--bordered t-table--striped t-table--hoverable"
+  defaultexpandedrowkeys=""
+  dragsort="drag-col"
+  expandicon="true"
+  expandonrowclick="false"
+  multiplesort="false"
+  sortonrowdraggable="false"
+  style="position: relative;"
 >
+  <!---->
+  <!---->
   <div
-    class="t-table t-size-s t-table--bordered t-table--striped t-table--hoverable"
-    defaultexpandedrowkeys=""
-    dragsort="false"
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumncontroller="false"
-    showcolumns="false"
-    showdragcol="false"
-    sortonrowdraggable="false"
+    class="t-table__content"
   >
-    <div
-      class="t-loading__parent"
+    <!---->
+    <table
+      class="t-table--layout-fixed"
     >
-      
-      <div
-        class="t-table__content"
+      <colgroup>
+        
+        <col />
+        <col />
+        <col />
+        
+      </colgroup>
+      <thead
+        class="t-table__header"
       >
-        <table
-          style="table-layout: fixed;"
+        
+        <tr>
+          
+          <th
+            class="t-table__th-id"
+            data-colkey="id"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              id
+            </div>
+          </th>
+          <th
+            class="t-table__th-type"
+            data-colkey="type"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              类型
+            </div>
+          </th>
+          <th
+            class="t-table__th-value"
+            data-colkey="value"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              取值
+            </div>
+          </th>
+          
+        </tr>
+        
+      </thead>
+      <tbody
+        class="t-table__body"
+      >
+        
+        <!---->
+        
+        <tr
+          class=""
         >
           
-          <colgroup>
-            
-            <col />
-            <col />
-            <col />
-            
-          </colgroup>
-          <thead>
-            
-            <tr>
-              
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-              >
-                id
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-              >
-                类型
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-              >
-                取值
-              </td>
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="t-table__body"
+          <td
+            class=""
           >
-            
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class=""
-                length="3"
-              >
-                1
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                1
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class=""
-                length="3"
-              >
-                2
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                2
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class=""
-                length="3"
-              >
-                3
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                3
-              </td>
-              
-            </tr>
-            
-          </tbody>
-          <!---->
+            1
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            1
+          </td>
           
-        </table>
-      </div>
-      
-      
-      
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class=""
+          >
+            2
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            2
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class=""
+          >
+            3
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            3
+          </td>
+          
+        </tr>
+        
+        <!---->
+        
+      </tbody>
       <!---->
-    </div>
+    </table>
   </div>
+  <!---->
+  <!---->
 </div>
 `;
 
 exports[`Table :props :props.columns \`columns\` is undefined 1`] = `
 <div
-  style="width: 100%;"
+  class="t-table t-size-m"
+  defaultexpandedrowkeys=""
+  dragsort="drag-col"
+  expandicon="true"
+  expandonrowclick="false"
+  multiplesort="false"
+  sortonrowdraggable="false"
+  style="position: relative;"
 >
+  <!---->
+  <!---->
   <div
-    class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="false"
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumncontroller="false"
-    showcolumns="false"
-    showdragcol="false"
-    sortonrowdraggable="false"
+    class="t-table__content"
   >
-    <div
-      class="t-loading__parent"
+    <!---->
+    <table
+      class="t-table--layout-fixed"
     >
-      
-      <div
-        class="t-table__content"
+      <colgroup>
+        
+        
+      </colgroup>
+      <thead
+        class="t-table__header"
       >
-        <table
-          style="table-layout: fixed;"
+        
+        <tr>
+          
+          
+        </tr>
+        
+      </thead>
+      <tbody
+        class="t-table__body"
+      >
+        <tr
+          class="t-table__empty-row"
         >
-          
-          <colgroup>
-            
-            
-          </colgroup>
-          <thead>
-            
-            <tr>
-              
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="t-table__body"
+          <td
+            colspan="0"
           >
-            
-            
-          </tbody>
-          <!---->
-          
-        </table>
-      </div>
-      
-      <div
-        class="t-table__empty"
-      >
-        暂无数据
-      </div>
-      
-      
+            <div
+              class="t-table__empty"
+            >
+              暂无数据
+            </div>
+          </td>
+        </tr>
+      </tbody>
       <!---->
-    </div>
+    </table>
   </div>
+  <!---->
+  <!---->
 </div>
 `;
 
 exports[`Table :props :props.columns \`columns\` with align, width, minWidth and ellipsis 1`] = `
 <div
-  style="width: 100%;"
+  class="t-table t-size-m"
+  defaultexpandedrowkeys=""
+  dragsort="drag-col"
+  expandicon="true"
+  expandonrowclick="false"
+  multiplesort="false"
+  sortonrowdraggable="false"
+  style="position: relative;"
 >
+  <!---->
+  <!---->
   <div
-    class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="false"
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumncontroller="false"
-    showcolumns="false"
-    showdragcol="false"
-    sortonrowdraggable="false"
+    class="t-table__content"
   >
-    <div
-      class="t-loading__parent"
+    <!---->
+    <table
+      class="t-table--layout-fixed"
     >
-      
-      <div
-        class="t-table__content"
+      <colgroup>
+        
+        <col
+          style="width: 100px;"
+        />
+        <col />
+        <col />
+        
+      </colgroup>
+      <thead
+        class="t-table__header"
       >
-        <table
-          style="table-layout: fixed;"
+        
+        <tr>
+          
+          <th
+            class="t-table__th-id"
+            data-colkey="id"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                id
+                
+              </div>
+            </div>
+          </th>
+          <th
+            class="t-table__th-type"
+            data-colkey="type"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              类型
+            </div>
+          </th>
+          <th
+            class="t-table__th-value"
+            data-colkey="value"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              取值
+            </div>
+          </th>
+          
+        </tr>
+        
+      </thead>
+      <tbody
+        class="t-table__body"
+      >
+        
+        <!---->
+        
+        <tr
+          class=""
         >
           
-          <colgroup>
-            
-            <col
-              style="width: 100px; min-width: 200px;"
-            />
-            <col />
-            <col />
-            
-          </colgroup>
-          <thead>
-            
-            <tr>
-              
-              <td
-                class="t-align-left t-text-ellipsis"
-                colspan="1"
-                rowspan="1"
-                style="overflow: hidden;"
-              >
-                id
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-              >
-                类型
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-              >
-                取值
-              </td>
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="t-table__body"
+          <td
+            class="t-table-td--ellipsis"
           >
-            
-            <tr
-              class=""
-              draggable="false"
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
             >
               
-              <td
-                class="t-align-left t-text-ellipsis"
-                length="3"
-                style="overflow: hidden;"
-              >
-                1
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                1
-              </td>
+              1
               
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-align-left t-text-ellipsis"
-                length="3"
-                style="overflow: hidden;"
-              >
-                2
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                2
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-align-left t-text-ellipsis"
-                length="3"
-                style="overflow: hidden;"
-              >
-                3
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                3
-              </td>
-              
-            </tr>
-            
-          </tbody>
-          <!---->
+            </div>
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            1
+          </td>
           
-        </table>
-      </div>
-      
-      
-      
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class="t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              2
+              
+            </div>
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            2
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class="t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              3
+              
+            </div>
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            3
+          </td>
+          
+        </tr>
+        
+        <!---->
+        
+      </tbody>
       <!---->
-    </div>
+    </table>
   </div>
+  <!---->
+  <!---->
 </div>
 `;
 
 exports[`Table :props :props.columns \`columns\` with children 1`] = `
 <div
-  style="width: 100%;"
+  class="t-table t-size-m t-table--multiple-header"
+  defaultexpandedrowkeys=""
+  dragsort="drag-col"
+  expandicon="true"
+  expandonrowclick="false"
+  multiplesort="false"
+  sortonrowdraggable="false"
+  style="position: relative;"
 >
+  <!---->
+  <!---->
   <div
-    class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="false"
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumncontroller="false"
-    showcolumns="false"
-    showdragcol="false"
-    sortonrowdraggable="false"
+    class="t-table__content"
   >
-    <div
-      class="t-loading__parent"
+    <!---->
+    <table
+      class="t-table--layout-fixed"
     >
-      
-      <div
-        class="t-table__content"
+      <colgroup>
+        
+        <col
+          style="width: 100px;"
+        />
+        <col
+          style="width: 100px;"
+        />
+        <col
+          style="width: 100px;"
+        />
+        <col
+          style="width: 100px;"
+        />
+        <col
+          style="width: 100px;"
+        />
+        <col
+          style="width: 100px;"
+        />
+        
+      </colgroup>
+      <thead
+        class="t-table__header t-table__header--multiple"
       >
-        <table
-          style="table-layout: fixed;"
+        
+        <tr>
+          
+          <th
+            class=""
+            colspan="4"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              汇总属性
+            </div>
+          </th>
+          <th
+            class=""
+            colspan="2"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              属性及说明
+            </div>
+          </th>
+          
+        </tr>
+        <tr>
+          
+          <th
+            class="test t-table__th-platform"
+            data-colkey="platform"
+            rowspan="2"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                平台
+                
+              </div>
+            </div>
+          </th>
+          <th
+            class=""
+            colspan="3"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              类型及默认值
+            </div>
+          </th>
+          <th
+            class="test2 t-table__th-property"
+            data-colkey="property"
+            rowspan="2"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                属性
+                
+              </div>
+            </div>
+          </th>
+          <th
+            class="row t-table__th-description"
+            data-colkey="description"
+            rowspan="2"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                说明
+                
+              </div>
+            </div>
+          </th>
+          
+        </tr>
+        <tr>
+          
+          <th
+            class="row t-table__header-th--bordered t-table__th-type"
+            data-colkey="type"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                类型
+                
+              </div>
+            </div>
+          </th>
+          <th
+            class="test4 t-table__th-default"
+            data-colkey="default"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                默认值
+                
+              </div>
+            </div>
+          </th>
+          <th
+            class="test3 t-table__th-needed"
+            data-colkey="needed"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                是否必传
+                
+              </div>
+            </div>
+          </th>
+          
+        </tr>
+        
+      </thead>
+      <tbody
+        class="t-table__body"
+      >
+        
+        <!---->
+        
+        <tr
+          class=""
         >
           
-          <colgroup>
-            
-            <col
-              style="width: 100px; min-width: 100px;"
-            />
-            <col
-              style="width: 100px; min-width: 100px;"
-            />
-            <col
-              style="width: 100px; min-width: 100px;"
-            />
-            <col
-              style="width: 100px; min-width: 100px;"
-            />
-            <col
-              style="width: 100px; min-width: 100px;"
-            />
-            <col
-              style="width: 100px; min-width: 100px;"
-            />
-            
-          </colgroup>
-          <thead>
-            
-            <tr>
-              
-              <td
-                class=""
-                colspan="4"
-                rowspan="1"
-              >
-                汇总属性
-              </td>
-              <td
-                class=""
-                colspan="2"
-                rowspan="1"
-              >
-                属性及说明
-              </td>
-              
-            </tr>
-            <tr>
-              
-              <td
-                class="t-align-left t-text-ellipsis test"
-                colspan="1"
-                rowspan="2"
-                style="overflow: hidden;"
-              >
-                平台
-              </td>
-              <td
-                class=""
-                colspan="3"
-                rowspan="1"
-              >
-                类型及默认值
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test2"
-                colspan="1"
-                rowspan="2"
-                style="overflow: hidden;"
-              >
-                属性
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis row"
-                colspan="1"
-                rowspan="2"
-                style="overflow: hidden;"
-              >
-                说明
-              </td>
-              
-            </tr>
-            <tr>
-              
-              <td
-                class="t-align-left t-text-ellipsis row"
-                colspan="1"
-                rowspan="1"
-                style="overflow: hidden;"
-              >
-                类型
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test4"
-                colspan="1"
-                rowspan="1"
-                style="overflow: hidden;"
-              >
-                默认值
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test3"
-                colspan="1"
-                rowspan="1"
-                style="overflow: hidden;"
-              >
-                是否必传
-              </td>
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="t-table__body"
+          <td
+            class="test t-table-td--ellipsis"
           >
-            
-            <tr
-              class=""
-              draggable="false"
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
             >
               
-              <td
-                class="t-align-left t-text-ellipsis test"
-                length="6"
-                style="overflow: hidden;"
-              >
-                公有
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis row"
-                length="6"
-                style="overflow: hidden;"
-              >
-                any[]
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test4"
-                length="6"
-                style="overflow: hidden;"
-              >
-                []
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test3"
-                length="6"
-                style="overflow: hidden;"
-              >
-                Y
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test2"
-                length="6"
-                style="overflow: hidden;"
-              >
-                data
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis row"
-                length="6"
-                style="overflow: hidden;"
-              >
-                数据源
-              </td>
+              公有
               
-            </tr>
-            <tr
-              class=""
-              draggable="false"
+            </div>
+          </td>
+          <td
+            class="row t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
             >
               
-              <td
-                class="t-align-left t-text-ellipsis test"
-                length="6"
-                style="overflow: hidden;"
-              >
-                公有
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis row"
-                length="6"
-                style="overflow: hidden;"
-              >
-                String
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test4"
-                length="6"
-                style="overflow: hidden;"
-              >
-                -1
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test3"
-                length="6"
-                style="overflow: hidden;"
-              >
-                Y
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis test2"
-                length="6"
-                style="overflow: hidden;"
-              >
-                rowkey
-              </td>
-              <td
-                class="t-align-left t-text-ellipsis row"
-                length="6"
-                style="overflow: hidden;"
-              >
-                指定rowkey
-              </td>
+              any[]
               
-            </tr>
-            
-          </tbody>
-          <!---->
+            </div>
+          </td>
+          <td
+            class="test4 t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              []
+              
+            </div>
+          </td>
+          <td
+            class="test3 t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              Y
+              
+            </div>
+          </td>
+          <td
+            class="test2 t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              data
+              
+            </div>
+          </td>
+          <td
+            class="row t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              数据源
+              
+            </div>
+          </td>
           
-        </table>
-      </div>
-      
-      
-      
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class="test t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              公有
+              
+            </div>
+          </td>
+          <td
+            class="row t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              String
+              
+            </div>
+          </td>
+          <td
+            class="test4 t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              -1
+              
+            </div>
+          </td>
+          <td
+            class="test3 t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              Y
+              
+            </div>
+          </td>
+          <td
+            class="test2 t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              rowkey
+              
+            </div>
+          </td>
+          <td
+            class="row t-table-td--ellipsis"
+          >
+            <div
+              class="t-table__ellipsis t-text-ellipsis"
+            >
+              
+              指定rowkey
+              
+            </div>
+          </td>
+          
+        </tr>
+        
+        <!---->
+        
+      </tbody>
       <!---->
-    </div>
+    </table>
   </div>
+  <!---->
+  <!---->
 </div>
 `;
 
 exports[`Table :props :props.columns \`columns\` with fixed column 1`] = `
 <div
-  style="width: 100%;"
+  class="t-table t-size-m t-table--column-fixed"
+  defaultexpandedrowkeys=""
+  dragsort="drag-col"
+  expandicon="true"
+  expandonrowclick="false"
+  multiplesort="false"
+  sortonrowdraggable="false"
+  style="position: relative;"
 >
+  <!---->
+  <!---->
   <div
-    class="t-table t-table__cell--fixed t-table--has-fixed"
-    defaultexpandedrowkeys=""
-    dragsort="false"
-    expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    showcolumncontroller="false"
-    showcolumns="false"
-    showdragcol="false"
-    sortonrowdraggable="false"
+    class="t-table__content"
   >
-    <div
-      class="t-loading__parent"
+    <!---->
+    <table
+      class="t-table--layout-fixed"
     >
-      
-      <div
-        class="t-table__content"
+      <colgroup>
+        
+        <col />
+        <col />
+        <col />
+        
+      </colgroup>
+      <thead
+        class="t-table__header"
       >
-        <table
-          style="table-layout: fixed;"
+        
+        <tr>
+          
+          <th
+            class="t-table__th-id"
+            data-colkey="id"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              id
+            </div>
+          </th>
+          <th
+            class="t-table__th-type"
+            data-colkey="type"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              类型
+            </div>
+          </th>
+          <th
+            class="t-table__th-value"
+            data-colkey="value"
+          >
+            <div
+              class="t-table__th-cell-inner"
+            >
+              取值
+            </div>
+          </th>
+          
+        </tr>
+        
+      </thead>
+      <tbody
+        class="t-table__body"
+      >
+        
+        <!---->
+        
+        <tr
+          class=""
         >
           
-          <colgroup>
-            
-            <col />
-            <col />
-            <col />
-            
-          </colgroup>
-          <thead>
-            
-            <tr>
-              
-              <td
-                class="t-table__cell--fixed-left"
-                colspan="1"
-                rowspan="1"
-                style="position: sticky; left: 0px;"
-              >
-                id
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-              >
-                类型
-              </td>
-              <td
-                class=""
-                colspan="1"
-                rowspan="1"
-              >
-                取值
-              </td>
-              
-            </tr>
-            
-          </thead>
-          <tbody
-            class="t-table__body"
+          <td
+            class=""
           >
-            
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-table__cell--fixed-left"
-                length="3"
-                style="position: sticky; left: 0px;"
-              >
-                1
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                1
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-table__cell--fixed-left"
-                length="3"
-                style="position: sticky; left: 0px;"
-              >
-                2
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                2
-              </td>
-              
-            </tr>
-            <tr
-              class=""
-              draggable="false"
-            >
-              
-              <td
-                class="t-table__cell--fixed-left"
-                length="3"
-                style="position: sticky; left: 0px;"
-              >
-                3
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                Number
-              </td>
-              <td
-                class=""
-                length="3"
-              >
-                3
-              </td>
-              
-            </tr>
-            
-          </tbody>
-          <!---->
+            1
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            1
+          </td>
           
-        </table>
-      </div>
-      
-      
-      
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class=""
+          >
+            2
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            2
+          </td>
+          
+        </tr>
+        <tr
+          class=""
+        >
+          
+          <td
+            class=""
+          >
+            3
+          </td>
+          <td
+            class=""
+          >
+            Number
+          </td>
+          <td
+            class=""
+          >
+            3
+          </td>
+          
+        </tr>
+        
+        <!---->
+        
+      </tbody>
       <!---->
-    </div>
+    </table>
   </div>
+  <!---->
+  <!---->
 </div>
 `;

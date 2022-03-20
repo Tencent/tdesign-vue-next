@@ -323,14 +323,8 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     // 表头滚动位置更新
     updateHeaderScroll(target);
     props.onScrollX?.({ e });
-    // Vue3 ignore next line
-    context.emit('scroll-x', { e });
     props.onScrollY?.({ e });
-    // Vue3 ignore next line
-    context.emit('scroll-y', { e });
     props.onScroll?.({ e });
-    // Vue3 ignore next line
-    context.emit('scroll', { e });
   };
 
   // 多级表头场景较为复杂：为了滚动的阴影效果，需要知道哪些列是边界列，左侧固定列的最后一列，右侧固定列的第一列，每一层表头都需要兼顾

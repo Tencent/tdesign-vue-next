@@ -79,22 +79,20 @@ export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: S
     return newData;
   }
 
-  function handleSortHeaderClick(col: PrimaryTableCol<TableRowData>) {
+  function handleSortHeaderClick(col: PrimaryTableCol<TableRowData>, p: { descending: boolean }) {
     let sortInfo: SortInfo | Array<SortInfo>;
     if (props.multipleSort) {
-      sortInfo = getMultipleNextSort(col);
+      sortInfo = getMultipleNextSort(col, p);
     } else {
-      sortInfo = getSingleNextSort(col);
+      const sort = tSortInfo.value instanceof Array ? tSortInfo.value[0] : tSortInfo.value;
+      sortInfo = getSingleNextSort(col, sort, p);
     }
     // 本地数据 data 排序，需同时抛出 data-change
     const newData = handleDataSort(sortInfo);
     const currentData = newData || tData.value;
     const currentDataSource = currentData;
     setTSortInfo(sortInfo, { currentDataSource, col });
-
     props.onChange?.({ sorter: sortInfo }, { currentData, trigger: 'sorter' });
-    // Vue3 ignore next line
-    emit('change', { sorter: sortInfo }, { currentData, col, trigger: 'sorter' });
   }
 
   function getSortOrder(descending: boolean) {
@@ -102,53 +100,43 @@ export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: S
     return descending ? 'desc' : 'asc';
   }
 
-  // 排序行为：降序 -> 升序 -> 取消排序。只有 sortType 包含的排序方式才能进行排序。
-  function getNextDescending(current: SortInfo, col: PrimaryTableCol): boolean {
-    const { descending } = current || {};
-    const { sortType = 'all' } = col;
-    if (descending === true && ['asc', 'all'].includes(sortType)) return false;
-    if (descending === undefined && ['desc', 'all'].includes(sortType)) return true;
-  }
-
   // 点击新排序字段，则默认按照降序排序；点击原字段，则排序字段不变仅切换排序方式
-  function getSingleNextSort(col: PrimaryTableCol): SortInfo {
-    const { colKey } = col;
-    const current = sortMap.value[colKey];
-    const next = getNextDescending(current, col);
-    if (next === undefined) return;
-    return { sortBy: colKey, descending: next };
+  function getSingleNextSort(col: PrimaryTableCol, sortInfo: SortInfo, p: { descending: boolean }): SortInfo {
+    // 排序字段和排序方式均相同，则取消排序
+    if (sortInfo && sortInfo.sortBy === col.colKey && sortInfo.descending === p.descending) {
+      return undefined;
+    }
+    return { sortBy: col.colKey, descending: p.descending };
   }
 
-  function getMultipleNextSort(col: PrimaryTableCol<TableRowData>): Array<SortInfo> {
+  function getMultipleNextSort(col: PrimaryTableCol<TableRowData>, p: { descending: boolean }): Array<SortInfo> {
     const sort = tSortInfo.value;
     if (!(sort instanceof Array)) return;
     const { colKey } = col;
     const result = [...sort];
     for (let i = 0, len = sort.length; i < len; i++) {
       if (sort[i].sortBy === colKey) {
-        const next = getSingleNextSort(col);
+        const next = getSingleNextSort(col, sort[i], p);
         next ? (result[i] = next) : result.splice(i, 1);
         return result;
       }
     }
-    result.push({ sortBy: colKey, descending: true });
+    result.push({ sortBy: colKey, descending: p.descending });
     return result;
   }
 
   function renderSortIcon({ col }: { col: PrimaryTableCol<TableRowData>; colIndex: number }) {
     if (!col.sorter) return null;
-    const nextSort = getSingleNextSort(col);
     const sorterButtonsProps = {
       sortType: col.sortType,
       sortOrder: getSortOrder(sortMap.value[col.colKey]?.descending),
-      nextSortOrder: getSortOrder(nextSort?.descending),
       sortIcon: props.sortIcon,
     };
     return (
       <SorterButton
-        scopedSlots={{ sortIcon: slots.sortIcon }}
-        props={sorterButtonsProps}
-        onClick={() => handleSortHeaderClick(col)}
+        v-slots={{ sortIcon: slots.sortIcon }}
+        {...sorterButtonsProps}
+        onSortIconClick={(_: MouseEvent, p: { descending: boolean }) => handleSortHeaderClick(col, p)}
       />
     );
   }

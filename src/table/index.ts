@@ -13,8 +13,8 @@ export const BaseTable: WithInstallType<typeof _BaseTable> = withInstall(_BaseTa
 export const PrimaryTable: WithInstallType<typeof _PrimaryTable> = withInstall(_PrimaryTable);
 export const EnhancedTable: WithInstallType<typeof _EnhancedTable> = withInstall(_EnhancedTable);
 
-const table = cloneDeep(_BaseTable);
+const table = cloneDeep(_PrimaryTable);
 table.name = 'TTable';
-export const Table: WithInstallType<typeof _BaseTable> = withInstall(table);
+export const Table: WithInstallType<typeof _PrimaryTable> = withInstall(table);
 
 export default Table;

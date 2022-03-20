@@ -50,7 +50,6 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
     const { row, rowIndex } = p;
     const currentId = get(row, props.rowKey || 'id');
     const expanded = tExpandedRowKeys.value.includes(currentId);
-    // TODO: GLOBLE_CONFIG expandIcon
     const icon = renderTNode('expandIcon', {
       defaultNode: t(global.value.expandIcon) || <ChevronRightCircleIcon />,
       params: { row, index: rowIndex },

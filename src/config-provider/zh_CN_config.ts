@@ -75,6 +75,11 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
     expandIcon: undefined,
     // 排序图标（使用降序图标）
     sortIcon: undefined,
+    loadingMoreText: '点击加载更多',
+    loadingText: '正在加载中，请稍后',
+    sortAscendingOperationText: '点击升序',
+    sortCancelOperationText: '点击取消排序',
+    sortDescendingOperationText: '点击降序',
   },
   select: {
     empty: '暂无数据',

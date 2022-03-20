@@ -2,7 +2,7 @@ import { computed, defineComponent, PropType } from 'vue';
 import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 import useClassName from './hooks/useClassName';
 import { SortType } from './type';
-import Tooltip from '../tooltip';
+import Tooltip, { TooltipProps } from '../tooltip';
 import { useConfig } from '../config-provider/useConfig';
 import { useTNodeDefault } from '../hooks/tnode';
 import { TNode } from '../common';
@@ -19,14 +19,11 @@ export default defineComponent({
       type: String,
       default: (): string => '',
     },
-    nextSortOrder: {
-      type: String,
-      required: false,
-    },
     sortIcon: Function as PropType<TNode>,
+    tooltipProps: Object as PropType<TooltipProps>,
   },
 
-  emits: ['click'],
+  emits: ['sort-icon-click'],
 
   setup(props, context) {
     const { tableSortClasses, negativeRoate180 } = useClassName();
@@ -37,8 +34,8 @@ export default defineComponent({
       props.sortType === 'all' ? ['asc', 'desc'] : [props.sortType],
     );
 
-    const onClick = (e: MouseEvent) => {
-      context.emit('click', e);
+    const onSortIconClick = (e: MouseEvent, direction: string) => {
+      context.emit('sort-icon-click', e, { descending: direction === 'desc' });
     };
 
     return {
@@ -47,7 +44,7 @@ export default defineComponent({
       tableSortClasses,
       negativeRoate180,
       allowSortTypes,
-      onClick,
+      onSortIconClick,
       renderTNode,
     };
   },
@@ -62,7 +59,11 @@ export default defineComponent({
         this.tableSortClasses.iconDirection[direction],
         { [this.negativeRoate180]: direction === 'asc' },
       ];
-      return <span class={sortClassName}>{icon}</span>;
+      return (
+        <span class={sortClassName} onClick={(e) => this.onSortIconClick(e, direction)}>
+          {icon}
+        </span>
+      );
     },
   },
 
@@ -72,23 +73,23 @@ export default defineComponent({
     const tooltips = {
       asc: this.global.sortAscendingOperationText,
       desc: this.global.sortDescendingOperationText,
-      undefined: this.global.sortCancelOperationText,
     };
-    const tips = tooltips[this.nextSortOrder];
     const sortButton = this.allowSortTypes.map((direction: string) => {
       const activeClass = direction === this.sortOrder ? tableSortClasses.iconActive : tableSortClasses.iconDefault;
-      return this.getSortIcon(direction, activeClass);
+      const cancelTips = this.global.sortCancelOperationText;
+      const tips = direction === this.sortOrder ? cancelTips : tooltips[direction];
+      return (
+        <Tooltip
+          content={tips}
+          placement="right"
+          {...this.tooltipProps}
+          showArrow={false}
+          class={this.tableSortClasses.iconDirection[direction]}
+        >
+          {this.getSortIcon(direction, activeClass)}
+        </Tooltip>
+      );
     });
-    return (
-      <div class={classes} onClick={this.onClick}>
-        {tips ? (
-          <Tooltip content={tips} showArrow={false}>
-            {sortButton}
-          </Tooltip>
-        ) : (
-          sortButton
-        )}
-      </div>
-    );
+    return <div class={classes}>{sortButton}</div>;
   },
 });

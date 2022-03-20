@@ -41,8 +41,7 @@ export default defineComponent({
 
   emits: ['inner-filter-change', 'reset', 'confirm'],
 
-  // eslint-disable-next-line
-  setup(props: TableFilterControllerProps) {
+  setup() {
     const renderTNode = useTNodeDefault();
     const { t, global } = useConfig('table');
     const filterPopupVisible = ref(false);
@@ -81,33 +80,21 @@ export default defineComponent({
         options: ['single', 'multiple'].includes(column.filter.type) ? column.filter?.list : undefined,
         ...(column.filter?.props || {}),
         value: this.innerFilterValue?.[column.colKey],
-      };
-      if (column.filter.type === 'single') {
-        props.onChange = (val: any) => {
-          this.$emit('inner-filter-change', val, column);
-        };
-      }
-      const on = {
-        change: (val: any) => {
+        onChange: (val: any) => {
           this.$emit('inner-filter-change', val, column);
         },
       };
-      const wrapperListeners: { click?: Function } = {};
-      if (column.filter.showConfirmAndReset) {
-        wrapperListeners.click = (e: MouseEvent) => e.stopPropagation();
-      }
       return (
-        <div class={this.tableFilterClasses.contentInner} on={wrapperListeners}>
+        <div class={this.tableFilterClasses.contentInner}>
           {column?.filter?.component ? (
             column?.filter?.component((v: any, b: any) => {
               const tProps = typeof b === 'object' && 'attrs' in b ? b.attrs : {};
               return h(v, {
                 props: { ...props, ...tProps },
-                on,
               });
             })
           ) : (
-            <component value={this.innerFilterValue?.[column.colKey]} props={{ ...props }} on={{ ...on }}></component>
+            <component value={this.innerFilterValue?.[column.colKey]} {...props}></component>
           )}
         </div>
       );
@@ -122,18 +109,26 @@ export default defineComponent({
             size="small"
             onClick={() => {
               this.$emit('reset', column);
+              this.filterPopupVisible = false;
             }}
           >
             重置
           </TButton>
-          <TButton theme="primary" size="small" onClick={() => this.$emit('confirm', column)}>
+          <TButton
+            theme="primary"
+            size="small"
+            onClick={() => {
+              this.$emit('confirm', column);
+              this.filterPopupVisible = false;
+            }}
+          >
             确认
           </TButton>
         </div>
       );
     };
 
-    const { column } = this;
+    const column = this.column as any;
     if (!column.filter || (column.filter && !Object.keys(column.filter).length)) return null;
     const defaultFilterIcon = this.t(this.global.filterIcon) || <FilterIcon />;
     return (
@@ -141,12 +136,10 @@ export default defineComponent({
         visible={this.filterPopupVisible}
         destroyOnClose
         trigger="click"
-        placement="bottom"
+        placement="bottom-right"
         showArrow
         overlayClassName={this.tableFilterClasses.popup}
-        on={{
-          'visible-change': (val: boolean) => this.onFilterPopupVisibleChange(val),
-        }}
+        onVisibleChange={(val: boolean) => this.onFilterPopupVisibleChange(val)}
         class={[this.tableFilterClasses.icon, { [this.isFocusClass]: !isEmpty(this.tFilterValue?.[column.colKey]) }]}
         content={() => (
           <div class={this.tableFilterClasses.popupContent}>
