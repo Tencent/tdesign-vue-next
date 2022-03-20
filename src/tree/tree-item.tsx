@@ -9,7 +9,7 @@ import TLoading from '../loading';
 import TreeNode from '../_common/js/tree/tree-node';
 import { getTNode } from './util';
 import { TypeEventState } from './interface';
-import { TREE_NODE_NAME, CLASS_NAMES } from './constants';
+import { useCLASSNAMES } from './constants';
 import { ClassName } from '../common';
 import useRipple from '../hooks/useRipple';
 
@@ -24,14 +24,16 @@ export const TreeItemProps = {
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TreeConfig>('tree')),
-  name: TREE_NODE_NAME,
+  name: 'TTreeNode',
   props: TreeItemProps,
   emits: ['click', 'change'],
   setup() {
     const label = ref<HTMLElement>();
     useRipple(label);
 
-    return { label };
+    const CLASS_NAMES = useCLASSNAMES();
+
+    return { label, CLASS_NAMES };
   },
   created() {
     if (this.node) {
@@ -47,11 +49,11 @@ export default defineComponent({
     getClassList(): ClassName {
       const { node } = this;
       const list = [];
-      list.push(CLASS_NAMES.treeNode);
+      list.push(this.CLASS_NAMES.treeNode);
       list.push({
-        [CLASS_NAMES.treeNodeOpen]: node.expanded,
-        [CLASS_NAMES.actived]: node.isActivable() ? node.actived : false,
-        [CLASS_NAMES.disabled]: node.isDisabled(),
+        [this.CLASS_NAMES.treeNodeOpen]: node.expanded,
+        [this.CLASS_NAMES.actived]: node.isActivable() ? node.actived : false,
+        [this.CLASS_NAMES.disabled]: node.isDisabled(),
       });
       return list;
     },
@@ -72,18 +74,18 @@ export default defineComponent({
           const lineClasses = [];
 
           // 每个节点绘制抵达上一层级的折线
-          lineClasses.push(CLASS_NAMES.line);
+          lineClasses.push(this.CLASS_NAMES.line);
 
           // 叶子节点，折线宽度延长，因为没有 icon 呈现
           // 任意节点，icon 不呈现时也是要延长折线宽度
           if (vmIsLeaf || !iconVisible) {
-            lineClasses.push(CLASS_NAMES.lineIsLeaf);
+            lineClasses.push(this.CLASS_NAMES.lineIsLeaf);
           }
 
           // 分支首节点，到上一节点的折线高度要缩短，让位给 icon 呈现
           // 如果 icon 隐藏了，则不必缩短折线高度
           if (vmIsFirst && iconVisible) {
-            lineClasses.push(CLASS_NAMES.lineIsFirst);
+            lineClasses.push(this.CLASS_NAMES.lineIsFirst);
           }
 
           // 如果节点的父节点，不是最后的节点
@@ -144,7 +146,11 @@ export default defineComponent({
       }
       iconNode = (
         <span
-          class={[CLASS_NAMES.treeIcon, CLASS_NAMES.folderIcon, isDefaultIcon ? CLASS_NAMES.treeIconDefault : '']}
+          class={[
+            this.CLASS_NAMES.treeIcon,
+            this.CLASS_NAMES.folderIcon,
+            isDefaultIcon ? this.CLASS_NAMES.treeIconDefault : '',
+          ]}
           trigger="expand"
           ignore="active"
         >
@@ -175,10 +181,10 @@ export default defineComponent({
       }
 
       const labelClasses = [
-        CLASS_NAMES.treeLabel,
-        CLASS_NAMES.treeLabelStrictly,
+        this.CLASS_NAMES.treeLabel,
+        this.CLASS_NAMES.treeLabelStrictly,
         {
-          [CLASS_NAMES.actived]: node.isActivable() ? node.actived : false,
+          [this.CLASS_NAMES.actived]: node.isActivable() ? node.actived : false,
         },
       ];
 
@@ -243,7 +249,7 @@ export default defineComponent({
       }
       if (opNode) {
         opNode = (
-          <span class={CLASS_NAMES.treeOperations} ignore="active,expand">
+          <span class={this.CLASS_NAMES.treeOperations} ignore="active,expand">
             {opNode}
           </span>
         );

@@ -146,8 +146,8 @@ export default defineComponent({
         />
       );
     },
-    confirmBtnClick() {
-      this.$emit('sure');
+    confirmBtnClick(e: MouseEvent) {
+      this.$emit('sure', e);
     },
     nowAction() {
       this.$emit('now-action');

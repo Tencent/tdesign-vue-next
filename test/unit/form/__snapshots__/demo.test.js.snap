@@ -3120,7 +3120,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                 >
                   <div
                     allowinput="0"
-                    class="t-input t-is-disabled t-is-readonly t-input--suffix"
+                    class="t-input t-is-disabled t-input--suffix"
                     modelvalue=""
                   >
                     <!---->
@@ -3129,7 +3129,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                       class="t-input__inner"
                       disabled=""
                       placeholder="请选择日期"
-                      readonly=""
                       type="text"
                     />
                     <!---->
