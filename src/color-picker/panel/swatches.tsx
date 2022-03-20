@@ -48,9 +48,7 @@ export default defineComponent({
     };
 
     const selectedColorIndex = computed(() => {
-      return props.colors.findIndex((color) => {
-        return Color.compare(color, props.color.css);
-      });
+      return props.colors.findIndex((color) => isEqualCurrentColor(color));
     });
 
     /**
