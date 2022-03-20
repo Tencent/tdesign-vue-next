@@ -1,8 +1,8 @@
-import { defineComponent, provide, ref, toRefs } from 'vue';
+import { defineComponent, toRefs } from 'vue';
 import useVModel from '../hooks/useVModel';
 import props from './props';
 import ColorPanel from './panel';
-import { TdColorPickerPopupProvide, TdColorPickerProvides, TdColorContext } from './interfaces';
+import { TdColorContext } from './interfaces';
 import { usePrefixClass } from '../index';
 
 export default defineComponent({
@@ -16,11 +16,6 @@ export default defineComponent({
   },
   setup(props) {
     const prefix = usePrefixClass();
-    provide<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP, {
-      visible: ref(false),
-      setVisible() {},
-    });
-
     const { value, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 

@@ -1,10 +1,9 @@
-import { computed, defineComponent, inject, nextTick, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
 import { SATURATION_PANEL_DEFAULT_HEIGHT, SATURATION_PANEL_DEFAULT_WIDTH } from '../const';
 import { Select as TSelect, Option as TOption } from '../../select';
 import Draggable, { Coordinate } from '../utils/draggable';
-import Color from '../utils/color';
-import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
 import { useBaseClassName } from '../hooks';
+import baseProps from './base-props';
 
 export default defineComponent({
   name: 'SaturationPanel',
@@ -12,29 +11,15 @@ export default defineComponent({
     TSelect,
     TOption,
   },
-  inject: [TdColorPickerProvides.USED_COLORS],
-  inheritAttrs: false,
   props: {
-    color: {
-      type: Object as PropType<Color>,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    onChange: {
-      type: Function,
-      default: () => {
-        return () => {};
-      },
-    },
+    ...baseProps,
   },
   setup(props) {
     const baseClassName = useBaseClassName();
-    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refPanel = ref<HTMLElement>(null);
     const refThumb = ref<HTMLElement>(null);
     const dragInstance = ref<Draggable>(null);
+    const isMoved = ref<Boolean>(false);
     const panelRect = reactive({
       width: SATURATION_PANEL_DEFAULT_WIDTH,
       height: SATURATION_PANEL_DEFAULT_HEIGHT,
@@ -63,7 +48,7 @@ export default defineComponent({
       };
     };
 
-    const handleDrag = (coordinate: Coordinate) => {
+    const handleDrag = (coordinate: Coordinate, isEnded?: boolean) => {
       if (props.disabled) {
         return;
       }
@@ -71,16 +56,18 @@ export default defineComponent({
       props.onChange({
         saturation: saturation / 100,
         value: value / 100,
+        addUsedColor: isEnded,
       });
+      isMoved.value = true;
     };
 
     const handleDragEnd = (coordinate: Coordinate) => {
-      if (props.disabled) {
+      if (props.disabled || !isMoved.value) {
         return;
       }
-      handleDrag(coordinate);
+      isMoved.value = false;
       nextTick(() => {
-        addColor(props.color.css);
+        handleDrag(coordinate, true);
       });
     };
 
@@ -95,8 +82,11 @@ export default defineComponent({
         start() {
           panelRect.width = refPanel.value.offsetWidth;
           panelRect.height = refPanel.value.offsetHeight;
+          isMoved.value = false;
         },
-        drag: handleDrag,
+        drag: (coordinate: Coordinate) => {
+          handleDrag(coordinate);
+        },
         end: handleDragEnd,
       });
     });

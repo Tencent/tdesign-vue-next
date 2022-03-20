@@ -1,12 +1,12 @@
-import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, reactive, ref, watch } from 'vue';
+import { defineComponent, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
 import { cloneDeep } from 'lodash';
 import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '../const';
-import Color, { genGradientPoint } from '../utils/color';
+import { genGradientPoint } from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
 import { InputNumber as TInputNumber } from '../../input-number';
-import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 import { useCommonClassName } from '../../config-provider';
+import baseProps from './base-props';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];
 
@@ -17,31 +17,19 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
-    color: {
-      type: Object as PropType<Color>,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    onChange: {
-      type: Function,
-      default: () => {
-        return () => {};
-      },
-    },
+    ...baseProps,
   },
   setup(props) {
     const baseClassName = useBaseClassName();
     const { STATUS } = useCommonClassName();
     const statusClassNames = STATUS.value;
-    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refSlider = ref<HTMLElement>(null);
     const sliderRect = reactive({
       left: 0,
       width: GRADIENT_SLIDER_DEFAULT_WIDTH,
     });
-    const isDragging = ref(false);
+    const isDragging = ref<Boolean>(false);
+    const isMoved = ref<Boolean>(false);
     const degree = ref(props.color.gradientDegree);
     const selectedId = ref(props.color.gradientSelectedId);
     const colors = ref<GradientColorPoint[]>(cloneDeep(props.color.gradientColors));
@@ -64,23 +52,23 @@ export default defineComponent({
       },
     );
 
-    const handleChange = (key: 'degree' | 'selectedId' | 'colors', payload: any) => {
+    const handleChange = (key: 'degree' | 'selectedId' | 'colors', payload: any, addUsedColor?: boolean) => {
       if (props.disabled) {
         return;
       }
       props.onChange({
         key,
         payload,
+        addUsedColor,
       });
     };
 
     const handleDegreeChange = (value: number) => {
-      if (props.disabled) {
+      if (props.disabled || value === props.color.gradientDegree) {
         return;
       }
       degree.value = value;
-      handleChange('degree', value);
-      addColor(props.color.linearGradient);
+      handleChange('degree', value, true);
     };
 
     const handleSelectedIdChange = (value: string) => {
@@ -91,14 +79,19 @@ export default defineComponent({
       handleChange('selectedId', value);
     };
 
-    const handleColorsChange = (value: GradientColorPoint[]) => {
+    const handleColorsChange = (value: GradientColorPoint[], isEnded?: boolean) => {
       if (props.disabled) {
         return;
       }
       colors.value = value;
-      handleChange('colors', value);
+      handleChange('colors', value, isEnded);
     };
 
+    /**
+     * 设置bar的位置
+     * @param left
+     * @returns
+     */
     const updateActiveThumbLeft = (left: number) => {
       const index = colors.value.findIndex((c) => c.id === selectedId.value);
       if (index === -1) {
@@ -115,6 +108,7 @@ export default defineComponent({
       handleColorsChange(colors.value);
     };
 
+    // 移动开始
     const handleStart = (id: string, e: MouseEvent) => {
       const rect = refSlider.value.getBoundingClientRect();
       sliderRect.left = rect.left;
@@ -122,6 +116,7 @@ export default defineComponent({
       if (isDragging.value || props.disabled) {
         return;
       }
+      isMoved.value = false;
       isDragging.value = true;
       e.preventDefault();
       e.stopPropagation();
@@ -133,14 +128,17 @@ export default defineComponent({
       window.addEventListener('contextmenu', handleEnd, false);
     };
 
+    // 移动中
     const handleMove = (e: MouseEvent) => {
       if (!isDragging.value || props.disabled) {
         return;
       }
       const left = e.clientX - sliderRect.left;
+      isMoved.value = true;
       updateActiveThumbLeft(left);
     };
 
+    // 移动结束
     const handleEnd = (e: MouseEvent) => {
       if (!isDragging.value) {
         return;
@@ -148,10 +146,13 @@ export default defineComponent({
       setTimeout(() => {
         isDragging.value = false;
       }, 0);
+      if (isMoved.value) {
+        handleColorsChange(colors.value, true);
+        isMoved.value = false;
+      }
       window.removeEventListener('mousemove', handleMove, false);
       window.removeEventListener('mouseup', handleEnd, false);
       window.removeEventListener('contextmenu', handleEnd, false);
-      addColor(props.color.linearGradient);
     };
 
     const handleKeyup = (e: KeyboardEvent) => {
@@ -169,9 +170,8 @@ export default defineComponent({
           pos = points[pos + 1] ? pos + 1 : points[pos - 1] ? pos - 1 : 0;
         }
         const current = points[pos];
-        handleColorsChange(points);
+        handleColorsChange(points, true);
         handleSelectedIdChange(current?.id);
-        addColor(props.color.linearGradient);
       }
     };
 
@@ -184,9 +184,8 @@ export default defineComponent({
       const percentLeft = (left / sliderRect.width) * 100;
       const newPoint = genGradientPoint(percentLeft, props.color.rgba);
       colors.value.push(newPoint);
-      handleColorsChange(colors.value);
+      handleColorsChange(colors.value, true);
       handleSelectedIdChange(newPoint.id);
-      addColor(props.color.linearGradient);
     };
 
     onMounted(() => {

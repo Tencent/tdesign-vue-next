@@ -71,7 +71,14 @@ export default defineComponent({
     return (
       <div className={`${baseClassName}__format`}>
         <div className={`${baseClassName}__format--item`}>
-          <t-select {...selectInputProps} v-model={this.formatModel} onChange={handleModeChange}>
+          <t-select
+            {...selectInputProps}
+            popupProps={{
+              overlayClassName: `${baseClassName}__select-options`,
+            }}
+            v-model={this.formatModel}
+            onChange={handleModeChange}
+          >
             {formats.map((item) => (
               <t-option key={item} value={item} label={upperCase(item)} style={{ fontSize: '12px' }} />
             ))}

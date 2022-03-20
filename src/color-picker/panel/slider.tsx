@@ -1,10 +1,9 @@
-import { computed, defineComponent, inject, nextTick, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
+import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
 import { SLIDER_DEFAULT_WIDTH } from '../const';
 import { Select as TSelect, Option as TOption } from '../../select';
 import Draggable, { Coordinate } from '../utils/draggable';
-import Color from '../utils/color';
-import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
 import { useBaseClassName } from '../hooks';
+import baseProps from './base-props';
 
 export default defineComponent({
   name: 'ColorSlider',
@@ -12,11 +11,8 @@ export default defineComponent({
     TSelect,
     TOption,
   },
-  inject: [TdColorPickerProvides.USED_COLORS],
   props: {
-    color: {
-      type: Object as PropType<Color>,
-    },
+    ...baseProps,
     className: {
       type: String,
       default: '',
@@ -32,23 +28,13 @@ export default defineComponent({
     railStyle: {
       type: Object as PropType<any>,
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    onChange: {
-      type: Function,
-      default: () => {
-        return () => {};
-      },
-    },
   },
   setup(props) {
     const baseClassName = useBaseClassName();
-    const { addColor } = inject<TdColorPickerUsedColorsProvide>(TdColorPickerProvides.USED_COLORS);
     const refPanel = ref<HTMLElement>(null);
     const refThumb = ref<HTMLElement>(null);
     const dragInstance = ref<Draggable>(null);
+    const isMoved = ref<Boolean>(false);
     const panelRect = reactive({
       width: SLIDER_DEFAULT_WIDTH,
     });
@@ -64,22 +50,23 @@ export default defineComponent({
       };
     });
 
-    const handleDrag = (coordinate: Coordinate) => {
+    const handleDrag = (coordinate: Coordinate, isEnded?: boolean) => {
       if (props.disabled) {
         return;
       }
       const { width } = panelRect;
       const { x } = coordinate;
       const value = Math.round((x / width) * props.maxValue * 100) / 100;
-      props.onChange(value);
+      isMoved.value = true;
+      props.onChange(value, isEnded);
     };
 
     const handleDragEnd = (coordinate: Coordinate) => {
-      if (props.disabled) {
+      if (props.disabled || !isMoved.value) {
         return;
       }
-      handleDrag(coordinate);
-      nextTick(() => addColor(props.color.css));
+      handleDrag(coordinate, true);
+      isMoved.value = false;
     };
 
     onMounted(() => {
@@ -88,8 +75,11 @@ export default defineComponent({
         start: () => {
           // pop模式下由于是隐藏显示，这个宽度让其每次点击的时候重新计算
           panelRect.width = refPanel.value.offsetWidth;
+          isMoved.value = false;
         },
-        drag: handleDrag,
+        drag: (coordinate: Coordinate) => {
+          handleDrag(coordinate);
+        },
         end: handleDragEnd,
       });
     });

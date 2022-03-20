@@ -188,6 +188,7 @@ const GLOBAL_CONFIG_ZH: GlobalConfigProvider = {
   colorPicker: {
     swatchColorTitle: '系统预设颜色',
     recentColorTitle: '最近使用颜色',
+    clearConfirmText: '确定清空最近使用的颜色吗？',
   },
 };
 

@@ -1,23 +1,21 @@
-import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, ref } from 'vue';
+import { computed, defineComponent, PropType } from 'vue';
 import { DeleteIcon } from 'tdesign-icons-vue-next';
 import { Select as TSelect, Option as TOption } from '../../select';
 import Color from '../utils/color';
-import { useClickOutsider } from '../utils/click-outsider';
-import { TdColorPickerProvides, TdColorPickerUsedColorsProvide } from '../interfaces';
 import { useBaseClassName } from '../hooks';
-import { useCommonClassName } from '../../config-provider';
+import { useCommonClassName, useConfig } from '../../config-provider';
+import baseProps from './base-props';
+import { Popconfirm as TPopconfim } from '../../popconfirm';
 
 export default defineComponent({
   name: 'SwatchesPanel',
   components: {
     TSelect,
     TOption,
+    TPopconfim,
   },
-  inject: [TdColorPickerProvides.USED_COLORS],
   props: {
-    color: {
-      type: Object as PropType<Color>,
-    },
+    ...baseProps,
     colors: {
       type: Array as PropType<string[]>,
       default: () => [] as PropType<string[]>,
@@ -30,10 +28,6 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
     onSetColor: {
       type: Function,
       default: () => {
@@ -43,81 +37,85 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
+    const { t, global } = useConfig('colorPicker');
     const { STATUS } = useCommonClassName();
     const statusClassNames = STATUS.value;
-    const { activeColor, removeColor, setActiveColor } = inject<TdColorPickerUsedColorsProvide>(
-      TdColorPickerProvides.USED_COLORS,
-    );
 
     const handleClick = (color: string) => props.onSetColor(color);
 
-    const isEqualCurrentColor = (color: string) => props.color.equals(color);
+    const isEqualCurrentColor = (color: string) => {
+      return Color.compare(color, props.color.css);
+    };
 
-    const colorItemEls = ref<HTMLElement[]>([]);
-
-    const colorItemRefs = (el: HTMLElement) => colorItemEls.value.push(el);
-
-    const { addClickOutsider, removeClickOutsider } = useClickOutsider();
-
-    onMounted(() => {
-      addClickOutsider(colorItemEls.value, () => {
-        setActiveColor('');
+    const selectedColorIndex = computed(() => {
+      return props.colors.findIndex((color) => {
+        return Color.compare(color, props.color.css);
       });
     });
 
-    onBeforeUnmount(() => {
-      removeClickOutsider();
-    });
+    /**
+     * 移除颜色
+     */
+    const handleRemoveColor = () => {
+      const colors = [...props.colors];
+      const selectedIndex = selectedColorIndex.value;
+      if (selectedIndex > -1) {
+        colors.splice(selectedIndex, 1);
+      } else {
+        colors.length = 0;
+      }
+      props.onChange(colors);
+    };
 
     return {
+      t,
+      global,
       baseClassName,
       statusClassNames,
-      activeColor,
-      colorItemRefs,
+      selectedColorIndex,
       handleClick,
       isEqualCurrentColor,
-      setActiveColor,
-      removeColor,
+      handleRemoveColor,
     };
   },
   render() {
-    const { baseClassName, statusClassNames, colors, activeColor, title, removable, disabled, colorItemRefs } = this;
+    const { baseClassName, statusClassNames, t, global, title, removable } = this;
     const swatchesClass = `${baseClassName}__swatches`;
+    const renderRemoveBtn = () => {
+      if (!removable) {
+        return null;
+      }
+      if (this.selectedColorIndex === -1) {
+        return (
+          <t-popconfirm theme="warning" content={t(global.clearConfirmText)} onConfirm={this.handleRemoveColor}>
+            <span role="button" class={`${baseClassName}__icon`}>
+              <DeleteIcon />
+            </span>
+          </t-popconfirm>
+        );
+      }
+      return (
+        <span role="button" class={`${baseClassName}__icon`} onClick={this.handleRemoveColor}>
+          <DeleteIcon />
+        </span>
+      );
+    };
+
     return (
       <div class={swatchesClass}>
         <h3 class={`${swatchesClass}--title`}>
           <span>{title}</span>
-          {removable ? (
-            <span
-              role="button"
-              class={[`${baseClassName}__icon`, !activeColor ? statusClassNames.disabled : '']}
-              onMouseup={(e) => e.stopPropagation()}
-              onClick={() => {
-                if (disabled) {
-                  return;
-                }
-                if (activeColor) {
-                  this.removeColor(activeColor);
-                  this.setActiveColor('');
-                }
-              }}
-            >
-              <DeleteIcon />
-            </span>
-          ) : null}
+          {renderRemoveBtn()}
         </h3>
         <ul class={[`${swatchesClass}--items`, 'narrow-scrollbar']}>
-          {colors.map((color) => {
+          {this.colors.map((color) => {
             return (
               <li
-                ref={colorItemRefs}
                 class={[
                   `${swatchesClass}--item`,
-                  activeColor === color && removable ? statusClassNames.active : '',
-                  this.isEqualCurrentColor(color) ? statusClassNames.current : '',
+                  this.isEqualCurrentColor(color) && removable ? statusClassNames.active : '',
                 ]}
                 key={color}
-                title={color}
                 onClick={() => {
                   if (this.disabled) {
                     return;

@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, defineComponent, onBeforeUnmount, onMounted, provide, ref, toRefs } from 'vue';
+import { ComponentPublicInstance, defineComponent, onBeforeUnmount, onMounted, ref, toRefs } from 'vue';
 import useVModel from '../hooks/useVModel';
 import { renderTNodeJSXDefault } from '../utils/render-tnode';
 import props from './props';
@@ -6,7 +6,7 @@ import { Popup as TPopup } from '../popup';
 import { useClickOutsider } from './utils/click-outsider';
 import ColorPanel from './panel';
 import DefaultTrigger from './trigger';
-import { TdColorPickerPopupProvide, TdColorPickerProvides, TdColorContext } from './interfaces';
+import { TdColorContext } from './interfaces';
 import { useBaseClassName } from './hooks';
 
 export default defineComponent({
@@ -24,11 +24,6 @@ export default defineComponent({
     const baseClassName = useBaseClassName();
     const visible = ref(false);
     const setVisible = (value: boolean) => (visible.value = value);
-    // 提供给 head组件中的closeBtn使用
-    provide<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP, {
-      visible,
-      setVisible,
-    });
 
     const { value: inputValue, modelValue } = toRefs(props);
     const [innerValue, setInnerValue] = useVModel(inputValue, modelValue, props.defaultValue, props.onChange);
@@ -51,6 +46,7 @@ export default defineComponent({
           {...props}
           disabled={props.disabled}
           value={innerValue.value}
+          togglePopup={setVisible}
           onChange={(value: string, context: TdColorContext) => setInnerValue(value, context)}
           ref="refColorPanel"
         />

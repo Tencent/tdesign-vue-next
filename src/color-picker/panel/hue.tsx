@@ -1,7 +1,7 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 import ColorSlider from './slider';
-import Color from '../utils/color';
 import { useBaseClassName } from '../hooks';
+import baseProps from './base-props';
 
 export default defineComponent({
   name: 'HueSlider',
@@ -10,19 +10,7 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: {
-    color: {
-      type: Object as PropType<Color>,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    onChange: {
-      type: Function,
-      default: () => {
-        return () => {};
-      },
-    },
+    ...baseProps,
   },
   setup() {
     const baseClassName = useBaseClassName();

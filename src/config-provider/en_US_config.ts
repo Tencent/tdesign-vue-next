@@ -144,6 +144,7 @@ const GLOBAL_CONFIG_EN: GlobalConfigProvider = {
   colorPicker: {
     swatchColorTitle: 'System Default',
     recentColorTitle: 'Recently Used',
+    clearConfirmText: 'Clear recently used colors?',
   },
 };
 

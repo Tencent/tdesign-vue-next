@@ -24,6 +24,24 @@ const hsv2hsva = (states: ColorStates): tinyColor.ColorFormats.HSVA => tinyColor
 const hsv2hsla = (states: ColorStates): tinyColor.ColorFormats.HSLA => tinyColor(states).toHsl();
 
 /**
+ * 将渐变对象转换成字符串
+ * @param object
+ * @returns
+ */
+const gradientColors2string = (object: GradientColors): string => {
+  const { points, degree } = object;
+  const colorsStop = points
+    .sort((pA, pB) => {
+      return pA.left - pB.left;
+    })
+    .map((p) => {
+      return `${p.color} ${Math.round(p.left * 100) / 100}%`;
+    });
+
+  return `linear-gradient(${degree}deg,${colorsStop.join(',')})`;
+};
+
+/**
  * 去除颜色的透明度
  * @param color
  * @returns
@@ -180,24 +198,12 @@ export class Color {
     return this.rgba;
   }
 
-  get cssWithAlpha() {
-    if (this.isGradient) {
-      return this.linearGradient;
-    }
-    return this.rgba;
-  }
-
   get linearGradient() {
     const { gradientColors, gradientDegree } = this;
-    const colorsStop = gradientColors
-      .sort((pA, pB) => {
-        return pA.left - pB.left;
-      })
-      .map((p) => {
-        return `${p.color} ${Math.round(p.left * 100) / 100}%`;
-      });
-
-    return `linear-gradient(${gradientDegree}deg,${colorsStop.join(',')})`;
+    return gradientColors2string({
+      points: gradientColors,
+      degree: gradientDegree,
+    });
   }
 
   get gradientColors() {
@@ -377,6 +383,26 @@ export class Color {
   }
 
   static isGradientColor = (input: string) => !!isGradientColor(input);
+
+  /**
+   * 比较两个颜色是否相同
+   * @param color1
+   * @param color2
+   * @returns
+   */
+  static compare = (color1: string, color2: string): boolean => {
+    const isGradientColor1 = Color.isGradientColor(color1);
+    const isGradientColor2 = Color.isGradientColor(color2);
+    if (isGradientColor1 && isGradientColor2) {
+      const gradientColor1 = gradientColors2string(parseGradientString(color1) as GradientColors);
+      const gradientColor2 = gradientColors2string(parseGradientString(color2) as GradientColors);
+      return gradientColor1 === gradientColor2;
+    }
+    if (!isGradientColor1 && !isGradientColor2) {
+      return tinyColor.equals(color1, color2);
+    }
+    return false;
+  };
 }
 
 const COLOR_OBJECT_OUTPUT_KEYS = [

@@ -75,6 +75,7 @@ placeholder | String | '请选择' | 选择器占位文本，示例：'select ti
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
+clearConfirmText | String | '确定清空最近使用的颜色吗？' | 清空颜色确认文案，示例：'确定清空最近使用的颜色吗？' | N
 recentColorTitle | String | '最近使用颜色' | 最近使用颜色区域标题文本，示例：'最近使用颜色' | N
 swatchColorTitle | String | '系统预设颜色' | 系统预设颜色区域标题文本，示例：'系统预设颜色' | N
 

@@ -37,6 +37,7 @@ export default defineComponent({
           min: 0,
           max: 100,
           format: (value: number) => `${value}%`,
+          flex: 1.15,
         });
       }
       return configs;
@@ -129,6 +130,7 @@ export default defineComponent({
               {config.type === 'input' ? (
                 <t-input
                   {...inputProps}
+                  align="center"
                   disabled={this.disabled}
                   v-model={this.modelValue[config.key]}
                   maxlength={this.format === 'HEX' ? 9 : undefined}
@@ -139,11 +141,13 @@ export default defineComponent({
               ) : (
                 <t-input-number
                   {...inputProps}
+                  align="center"
                   disabled={this.disabled}
                   v-model={this.modelValue[config.key]}
                   title={this.modelValue[config.key]}
                   min={config.min}
                   max={config.max}
+                  step={1}
                   format={config.format}
                   theme="normal"
                   onBlur={(v: number) => this.handleChange(config.key, v)}

@@ -1,9 +1,9 @@
-import { defineComponent, inject, PropType, ref, watch } from 'vue';
+import { defineComponent, PropType, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
 import props from '../props';
 import { COLOR_MODES } from '../const';
 import { RadioGroup as TRadioGroup, RadioButton as TRadioButton } from '../../radio';
-import { TdColorModes, TdColorPickerPopupProvide, TdColorPickerProvides } from '../interfaces';
+import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 
 export default defineComponent({
@@ -13,13 +13,14 @@ export default defineComponent({
     TRadioGroup,
     TRadioButton,
   },
-  inject: [TdColorPickerProvides.POPUP],
-  inheritAttrs: false,
   props: {
     ...props,
     mode: {
       type: String as PropType<TdColorModes>,
       default: 'color',
+    },
+    togglePopup: {
+      type: Function,
     },
     onModeChange: {
       type: Function,
@@ -30,9 +31,10 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
-    const { setVisible } = inject<TdColorPickerPopupProvide>(TdColorPickerProvides.POPUP);
     const modeValue = ref(props.mode);
-    const handleClosePopup = () => setVisible(false);
+    const handleClosePopup = () => {
+      props.togglePopup?.(false);
+    };
     const handleModeChange = (v: string) => props.onModeChange(v);
     watch(
       () => props.mode,

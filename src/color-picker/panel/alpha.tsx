@@ -26,8 +26,8 @@ export default defineComponent({
   },
   setup(props) {
     const baseClassName = useBaseClassName();
-    const handleChange = (v: number) => {
-      props.onChange(v / 100);
+    const handleChange = (v: number, isDragEnd?: boolean) => {
+      props.onChange(v / 100, isDragEnd);
     };
     const railStyle = computed(() => {
       return {

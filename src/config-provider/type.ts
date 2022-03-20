@@ -228,6 +228,11 @@ export interface CascaderConfig {
 
 export interface ColorPickerConfig {
   /**
+   * 清空颜色确认文案，示例：'确定清空最近使用的颜色吗？'
+   * @default '确定清空最近使用的颜色吗？'
+   */
+  clearConfirmText?: string;
+  /**
    * 最近使用颜色区域标题文本，示例：'最近使用颜色'
    * @default '最近使用颜色'
    */
