@@ -85,7 +85,8 @@ export default defineComponent({
       if (!removable) {
         return null;
       }
-      if (this.selectedColorIndex === -1) {
+      // 没有选中并且最近使用色个数大于1的时候confirm下
+      if (this.selectedColorIndex === -1 && this.colors.length > 1) {
         return (
           <t-popconfirm theme="warning" content={t(global.clearConfirmText)} onConfirm={this.handleRemoveColor}>
             <span role="button" class={`${baseClassName}__icon`}>

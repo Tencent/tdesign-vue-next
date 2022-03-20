@@ -1,4 +1,3 @@
-import { Ref } from 'vue';
 import { ColorObject, ColorPickerChangeTrigger } from '.';
 
 // color modes
