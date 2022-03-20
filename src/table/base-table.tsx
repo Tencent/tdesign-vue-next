@@ -199,18 +199,16 @@ export default defineComponent({
           style={{ ...this.tableElementStyles, width: `${this.tableWidth}px` }}
         >
           {colgroup}
-          {
-            <THead
-              v-slots={this.$slots}
-              isFixedHeader={this.isFixedHeader}
-              rowAndColFixedPosition={this.rowAndColFixedPosition}
-              isMultipleHeader={this.isMultipleHeader}
-              bordered={this.bordered}
-              spansAndLeafNodes={this.spansAndLeafNodes}
-              thList={this.thList}
-              thWidthList={this.thWidthList}
-            />
-          }
+          <THead
+            v-slots={this.$slots}
+            isFixedHeader={this.isFixedHeader}
+            rowAndColFixedPosition={this.rowAndColFixedPosition}
+            isMultipleHeader={this.isMultipleHeader}
+            bordered={this.bordered}
+            spansAndLeafNodes={this.spansAndLeafNodes}
+            thList={this.thList}
+            thWidthList={this.thWidthList}
+          />
         </table>
       </div>
     );

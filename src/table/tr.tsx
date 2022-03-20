@@ -72,6 +72,7 @@ export const TABLE_PROPS: TrPropsKeys[] = [
 ];
 
 export interface TrProps extends TrCommonProps {
+  rowKey: string;
   row: TableRowData;
   rowIndex: number;
   dataLength: number;
@@ -144,8 +145,8 @@ export default defineComponent({
       ),
     );
 
-    const trAttributes = computed(() =>
-      formatRowAttributes(props.rowAttributes, { row: props.row, rowIndex: props.rowIndex, type: 'body' }) || {}  ,
+    const trAttributes = computed(
+      () => formatRowAttributes(props.rowAttributes, { row: props.row, rowIndex: props.rowIndex, type: 'body' }) || {},
     );
 
     const classes = computed(() => {
@@ -264,7 +265,7 @@ export default defineComponent({
       return (
         <TEllipsis
           placement={placement}
-          attach={tableElement ? (() => tableElement) : undefined}
+          attach={tableElement ? () => tableElement : undefined}
           popupContent={content && (() => content)}
           popupProps={typeof col.ellipsis === 'object' ? col.ellipsis : undefined}
         >
