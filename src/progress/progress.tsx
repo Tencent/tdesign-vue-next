@@ -143,9 +143,9 @@ export default defineComponent({
         <div class={`${COMPONENT_NAME.value}__info`}>{renderTNodeJSX('label', getLabelContent())}</div>
       );
       // 进度大于 10 ，进度百分比显示在内部；进度百分比小于 10 进度显示在外部
-      const PLUMP_SEPERATE = 10;
-      const seperateClasses =
-        props.percentage > PLUMP_SEPERATE ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
+      const PLUMP_SEPARATE = 10;
+      const separateClasses =
+        props.percentage > PLUMP_SEPARATE ? `${COMPONENT_NAME.value}--over-ten` : `${COMPONENT_NAME.value}--under-ten`;
       return (
         <div class={COMPONENT_NAME.value}>
           {props.theme === PRO_THEME.LINE && (
@@ -160,15 +160,15 @@ export default defineComponent({
           {props.theme === PRO_THEME.PLUMP && (
             <div
               class={[
-                `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${seperateClasses}`,
+                `${COMPONENT_NAME.value}__bar ${COMPONENT_NAME.value}--plump ${separateClasses}`,
                 { [`${COMPONENT_NAME.value}--status--${statusStyle.value}`]: statusStyle.value },
               ]}
               style={trackBgStyle.value}
             >
               <div class={`${COMPONENT_NAME.value}__inner`} style={barStyle.value}>
-                {props.percentage > PLUMP_SEPERATE && labelContent}
+                {props.percentage > PLUMP_SEPARATE && labelContent}
               </div>
-              {props.percentage < PLUMP_SEPERATE && labelContent}
+              {props.percentage <= PLUMP_SEPARATE && labelContent}
             </div>
           )}
 
