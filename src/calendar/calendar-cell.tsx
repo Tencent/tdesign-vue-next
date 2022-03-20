@@ -6,7 +6,7 @@ import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 // 组件相关的自定义类型
 import { CalendarCell } from './type';
-import { renderTNodeJSXDefault, renderTNodeJSX } from '../utils/render-tnode';
+import { renderContent } from '../utils/render-tnode';
 
 const clickTypeEmitEventMap = {
   click: 'click',
@@ -92,8 +92,8 @@ export default defineComponent({
         <div class={`${this.COMPONENT_NAME}__table-body-cell-display`}>{valueDisplay}</div>
         <div class={`${this.COMPONENT_NAME}__table-body-cell-content`}>
           {allowSlot &&
-            renderTNodeJSX(this, 'cellAppend', {
-              params: item,
+            renderContent(this, 'cellAppend', undefined, {
+              params: { ...item },
             })}
         </div>
       </>
@@ -103,9 +103,9 @@ export default defineComponent({
         <td class={cellCls} onClick={clickCell} ondblclick={clickCell} oncontextmenu={clickCell}>
           {typeof this.cell === 'function'
             ? this.cell(item)
-            : renderTNodeJSXDefault(this, 'cell', {
+            : renderContent(this, 'cell', undefined, {
                 defaultNode: renderDefaultNode(),
-                params: item,
+                params: { ...item },
               })}
         </td>
       )

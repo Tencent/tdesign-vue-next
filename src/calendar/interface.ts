@@ -2,11 +2,8 @@ import dayjs from 'dayjs';
 
 import { CalendarValue, CalendarCell, WeekDay, TdCalendarProps } from './type';
 
-export * from './type';
-export type CalendarProps = TdCalendarProps;
-
 /**
- * 日历组件的data定义
+ * 日历组件的state定义
  */
 export interface CalendarData {
   // 当前高亮的日期\月份（目前写死为“今天”）
@@ -58,7 +55,7 @@ export interface CellColHeader {
  */
 export interface ModeOption {
   // 选项值
-  value: string;
+  value: TdCalendarProps['mode'];
   // 选项展示的文本
   label: string;
 }
@@ -75,9 +72,3 @@ export interface CellEventOption {
  * 单元格点击回调
  */
 export type CellClickEventCallback = (options: CellEventOption) => void;
-export interface TextConfigType {
-  showWeekend: string;
-  hideWeekend: string;
-  today: string;
-  thisMonth: string;
-}
