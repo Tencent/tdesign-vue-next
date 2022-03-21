@@ -140,12 +140,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-color-picker__format"
-                  togglepopup="(value) => {
-      /* istanbul ignore next */
-      cov_1k3x2cm6yd().f[2]++;
-      cov_1k3x2cm6yd().s[16]++;
-      return visible.value = value;
-    }"
                 >
                   <div
                     class="t-color-picker__format--item"
@@ -1056,12 +1050,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-color-picker__format"
-                  togglepopup="(value) => {
-      /* istanbul ignore next */
-      cov_1k3x2cm6yd().f[2]++;
-      cov_1k3x2cm6yd().s[16]++;
-      return visible.value = value;
-    }"
                 >
                   <div
                     class="t-color-picker__format--item"
@@ -2043,12 +2031,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-color-picker__format"
-                  togglepopup="(value) => {
-      /* istanbul ignore next */
-      cov_1k3x2cm6yd().f[2]++;
-      cov_1k3x2cm6yd().s[16]++;
-      return visible.value = value;
-    }"
                 >
                   <div
                     class="t-color-picker__format--item"
@@ -8531,12 +8513,6 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
               <!---->
               <div
                 class="t-color-picker__format"
-                togglepopup="(value) => {
-      /* istanbul ignore next */
-      cov_1k3x2cm6yd().f[2]++;
-      cov_1k3x2cm6yd().s[16]++;
-      return visible.value = value;
-    }"
               >
                 <div
                   class="t-color-picker__format--item"

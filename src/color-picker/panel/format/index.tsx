@@ -17,6 +17,7 @@ export default defineComponent({
     TOption,
     FormatInputs,
   },
+  inheritAttrs: false,
   props: {
     ...props,
     color: {

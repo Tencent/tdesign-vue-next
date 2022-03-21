@@ -15,6 +15,7 @@ export default defineComponent({
     TInput,
     TInputNumber,
   },
+  inheritAttrs: false,
   props: {
     ...props,
     color: {
