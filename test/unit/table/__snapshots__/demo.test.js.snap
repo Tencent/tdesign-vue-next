@@ -17392,7 +17392,9 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
         <col
           style="width: 200px;"
         />
-        <col />
+        <col
+          style="width: 180px;"
+        />
         
       </colgroup>
       <thead
@@ -17438,7 +17440,13 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
             <div
               class="t-table__th-cell-inner"
             >
-              邮箱
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                邮箱
+                
+              </div>
             </div>
           </th>
           
@@ -20233,7 +20241,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             style="width: 64px;"
           />
           <col
-            style="width: 50px;"
+            style="width: 20px;"
           />
           <col
             style="width: 250px;"
@@ -20393,6 +20401,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -20493,6 +20502,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -20592,6 +20602,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -20692,6 +20703,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -20791,6 +20803,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <div
                 class="t-table__tree-col"
+                style="padding-left: 1px;"
               >
                 <svg
                   class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21002,6 +21015,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <div
                   class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21194,6 +21208,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <div
                   class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21386,6 +21401,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <div
                   class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21578,6 +21594,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <div
                   class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21770,6 +21787,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                 
                 <div
                   class="t-table__tree-col t-table__tree-col--inline"
+                  style="padding-left: 1px;"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"

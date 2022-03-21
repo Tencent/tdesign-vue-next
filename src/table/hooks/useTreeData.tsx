@@ -56,11 +56,12 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     { immediate: true },
   );
 
-  function getTreeNodeStyle(level: number, ellipsis: boolean) {
+  function getTreeNodeStyle(level: number) {
     if (level === undefined) return;
     const indent = props.tree?.indent || 24;
+    // 默认 1px 是为了临界省略
     return {
-      paddingLeft: level ? `${level * indent}px` : undefined,
+      paddingLeft: `${level * indent || 1}px`,
     };
   }
 
@@ -87,7 +88,7 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     newCol.cell = (h, p) => {
       const cellInfo = renderCell({ ...p, col: { ...treeNodeCol.value } }, context.slots);
       const currentState = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey));
-      const colStyle = getTreeNodeStyle(currentState?.level, !!col.ellipsis);
+      const colStyle = getTreeNodeStyle(currentState?.level);
       const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };
       const childrenNodes = get(p.row, rowDataKeys.value.childrenKey);
       if (childrenNodes && childrenNodes instanceof Array) {

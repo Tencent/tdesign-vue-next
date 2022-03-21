@@ -39,6 +39,8 @@ const columns = [
   {
     colKey: 'email',
     title: '邮箱',
+    width: 180,
+    ellipsis: true,
   },
 ];
 
