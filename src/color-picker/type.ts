@@ -54,6 +54,11 @@ export interface TdColorPickerProps {
    */
   recentColors?: boolean | Array<string>;
   /**
+   * 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 null 则完全不显示“最近使用颜色”，非受控属性
+   * @default []
+   */
+  defaultRecentColors?: boolean | Array<string>;
+  /**
    * 透传 SelectInputProps 筛选器输入框组件全部属性
    */
   selectInputProps?: SelectInputProps;
@@ -84,9 +89,19 @@ export interface TdColorPickerProps {
    * 调色板控制器的值变化时触发，`context.color` 指调色板控制器的值
    */
   onPaletteBarChange?: (context: { color: ColorObject }) => void;
+  /**
+   * 最近使用颜色发生变化时触发。第一个参数 `value` 表示变化后的色值，`context.trigger` 表示触发颜色变化的来源
+   */
+  onRecentColorsChange?: (value: Array<string>, context: { trigger: RecentColorsChangeTrigger }) => void;
 }
 
-export type ColorPickerChangeTrigger = 'palette' | 'input';
+export type ColorPickerChangeTrigger =
+  | 'palette-saturation-brightness'
+  | 'palette-saturation'
+  | 'palette-brightness'
+  | 'palette-hue-bar'
+  | 'palette-alpha-bar'
+  | 'input';
 
 export interface ColorObject {
   alpha: number;
@@ -104,3 +119,13 @@ export interface ColorObject {
   isGradient: boolean;
   linearGradient?: string;
 }
+
+export type RecentColorsChangeTrigger =
+  | 'delete'
+  | 'clear'
+  | 'input'
+  | 'palette-saturation-brightness'
+  | 'palette-saturation'
+  | 'palette-brightness'
+  | 'palette-hue-bar'
+  | 'palette-alpha-bar';

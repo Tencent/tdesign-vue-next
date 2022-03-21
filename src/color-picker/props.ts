@@ -44,7 +44,12 @@ export default {
   /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 null 则完全不显示“最近使用颜色” */
   recentColors: {
     type: Array as PropType<TdColorPickerProps['recentColors']>,
-    default: (): TdColorPickerProps['recentColors'] => [],
+    default: undefined,
+  },
+  /** 最近使用的颜色。值为 [] 表示以组件内部的“最近使用颜色”为准，值长度大于 0 则以该值为准显示“最近使用颜色”。值为 null 则完全不显示“最近使用颜色”，非受控属性 */
+  defaultRecentColors: {
+    type: Array as PropType<TdColorPickerProps['defaultRecentColors']>,
+    default: (): TdColorPickerProps['defaultRecentColors'] => [],
   },
   /** 透传 SelectInputProps 筛选器输入框组件全部属性 */
   selectInputProps: {
@@ -72,4 +77,6 @@ export default {
   onChange: Function as PropType<TdColorPickerProps['onChange']>,
   /** 调色板控制器的值变化时触发，`context.color` 指调色板控制器的值 */
   onPaletteBarChange: Function as PropType<TdColorPickerProps['onPaletteBarChange']>,
+  /** 最近使用颜色发生变化时触发。第一个参数 `value` 表示变化后的色值，`context.trigger` 表示触发颜色变化的来源 */
+  onRecentColorsChange: Function as PropType<TdColorPickerProps['onRecentColorsChange']>,
 };

@@ -1,18 +1,19 @@
-import { computed, defineComponent, PropType } from 'vue';
-import { DeleteIcon } from 'tdesign-icons-vue-next';
+import { computed, defineComponent, PropType, ref } from 'vue';
+import { DeleteIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
 import { Select as TSelect, Option as TOption } from '../../select';
 import Color from '../utils/color';
 import { useBaseClassName } from '../hooks';
-import { useCommonClassName, useConfig } from '../../config-provider';
+import { useCommonClassName, useConfig, usePrefixClass } from '../../config-provider';
 import baseProps from './base-props';
-import { Popconfirm as TPopconfim } from '../../popconfirm';
+import { RecentColorsChangeTrigger } from '../type';
+import { Button as TButton, TdButtonProps } from '../../button';
 
 export default defineComponent({
   name: 'SwatchesPanel',
   components: {
     TSelect,
     TOption,
-    TPopconfim,
+    TButton,
   },
   props: {
     ...baseProps,
@@ -38,8 +39,14 @@ export default defineComponent({
   setup(props) {
     const baseClassName = useBaseClassName();
     const { t, global } = useConfig('colorPicker');
+    const { global: confirmGlobal } = useConfig('popconfirm');
+    const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
     const statusClassNames = STATUS.value;
+    const visiblePopConfirm = ref<boolean>(false);
+    const setVisiblePopConfirm = (visible: boolean) => {
+      visiblePopConfirm.value = visible;
+    };
 
     const handleClick = (color: string) => props.onSetColor(color);
 
@@ -54,7 +61,7 @@ export default defineComponent({
     /**
      * 移除颜色
      */
-    const handleRemoveColor = () => {
+    const handleRemoveColor = (trigger: RecentColorsChangeTrigger) => {
       const colors = [...props.colors];
       const selectedIndex = selectedColorIndex.value;
       if (selectedIndex > -1) {
@@ -62,39 +69,105 @@ export default defineComponent({
       } else {
         colors.length = 0;
       }
-      props.onChange(colors);
+      props.onChange(colors, trigger);
+      setVisiblePopConfirm(false);
     };
 
     return {
       t,
       global,
+      confirmGlobal,
+      classPrefix,
       baseClassName,
       statusClassNames,
       selectedColorIndex,
+      visiblePopConfirm,
+      setVisiblePopConfirm,
       handleClick,
       isEqualCurrentColor,
       handleRemoveColor,
     };
   },
   render() {
-    const { baseClassName, statusClassNames, t, global, title, removable } = this;
+    const {
+      baseClassName,
+      statusClassNames,
+      classPrefix,
+      visiblePopConfirm,
+      t,
+      global,
+      confirmGlobal,
+      title,
+      removable,
+    } = this;
     const swatchesClass = `${baseClassName}__swatches`;
+    const popupBaseClassName = `${classPrefix}-popup`;
+    const popConfirmBaseClassName = `${classPrefix}-popconfirm`;
+
+    const renderConfirm = () => {
+      return (
+        <div
+          class={popupBaseClassName}
+          style={{ display: visiblePopConfirm ? '' : 'none' }}
+          role="tooltip"
+          aria-hidden="false"
+          data-popper-placement="top"
+          onClick={(e: MouseEvent) => {
+            e.stopPropagation();
+          }}
+        >
+          <div
+            class={[`${popupBaseClassName}__content`, `${popupBaseClassName}content--arrow`, popConfirmBaseClassName]}
+          >
+            <div class={`${popConfirmBaseClassName}__content`}>
+              <div class={`${popConfirmBaseClassName}__body`}>
+                <ErrorCircleFilledIcon class={`${popConfirmBaseClassName}__icon--warning`} />
+                <div class={`${popConfirmBaseClassName}__inner`}>{t(global.clearConfirmText)}</div>
+              </div>
+              <div class={`${popConfirmBaseClassName}__buttons`}>
+                <t-button
+                  size="small"
+                  content={t((confirmGlobal.cancel as TdButtonProps).content)}
+                  theme="default"
+                  class={`${popConfirmBaseClassName}__cancel`}
+                  onClick={() => this.setVisiblePopConfirm(false)}
+                />
+                <t-button
+                  content={t((confirmGlobal.confirm as TdButtonProps).content)}
+                  size="small"
+                  theme="primary"
+                  class={`${popConfirmBaseClassName}__confirm`}
+                  onClick={() => this.handleRemoveColor('clear')}
+                />
+              </div>
+            </div>
+            <div class={`${popupBaseClassName}__arrow`}></div>
+          </div>
+        </div>
+      );
+    };
+
     const renderRemoveBtn = () => {
       if (!removable) {
         return null;
       }
-      // 没有选中并且最近使用色个数大于1的时候confirm下
-      if (this.selectedColorIndex === -1 && this.colors.length > 1) {
+      // 没有选中confirm下
+      if (this.selectedColorIndex === -1) {
         return (
-          <t-popconfirm theme="warning" content={t(global.clearConfirmText)} onConfirm={this.handleRemoveColor}>
-            <span role="button" class={`${baseClassName}__icon`}>
-              <DeleteIcon />
-            </span>
-          </t-popconfirm>
+          <div
+            role="button"
+            class={[`${baseClassName}__icon`, `${swatchesClass}--remove`]}
+            onClick={() => {
+              this.setVisiblePopConfirm(!visiblePopConfirm);
+            }}
+          >
+            <DeleteIcon />
+            {renderConfirm()}
+          </div>
         );
       }
       return (
-        <span role="button" class={`${baseClassName}__icon`} onClick={this.handleRemoveColor}>
+        <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleRemoveColor('delete')}>
           <DeleteIcon />
         </span>
       );
