@@ -98,11 +98,11 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   /**
    * 选中值
    */
-  value?: TreeSelectValue;
+  value?: TreeSelectValueType;
   /**
    * 选中值，非受控属性
    */
-  defaultValue?: TreeSelectValue;
+  defaultValue?: TreeSelectValueType;
   /**
    * 自定义选中项呈现方式
    */
@@ -115,11 +115,11 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   /**
    * 输入框失去焦点时触发
    */
-  onBlur?: (context: { value: TreeSelectValue; e: FocusEvent }) => void;
+  onBlur?: (context: { value: TreeSelectValueType; e: FocusEvent }) => void;
   /**
    * 节点选中状态变化时触发，context.node 表示当前变化的选项
    */
-  onChange?: (value: TreeSelectValue, context: { node: TreeNodeModel<DataOption> }) => void;
+  onChange?: (value: TreeSelectValueType, context: { node: TreeNodeModel<DataOption> }) => void;
   /**
    * 点击清除按钮时触发
    */
@@ -127,7 +127,7 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   /**
    * 输入框获得焦点时触发
    */
-  onFocus?: (context: { value: TreeSelectValue; e: FocusEvent }) => void;
+  onFocus?: (context: { value: TreeSelectValueType; e: FocusEvent }) => void;
   /**
    * 多选模式下，选中数据被移除时触发
    */
@@ -138,7 +138,7 @@ export interface TdTreeSelectProps<DataOption extends TreeOptionData = TreeOptio
   onSearch?: (filterWords: string) => void;
 }
 
-export type TreeSelectValue = string | number | object | Array<TreeSelectValue>;
+export type TreeSelectValueType = string | number | object | Array<TreeSelectValueType>;
 
 export interface RemoveOptions<T> {
   value: string | number | object;

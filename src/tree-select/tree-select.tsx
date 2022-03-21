@@ -1,4 +1,4 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, ref, reactive, computed, watch, onMounted, toRefs } from 'vue';
 import isArray from 'lodash/isArray';
 import isEmpty from 'lodash/isEmpty';
 import isNumber from 'lodash/isNumber';
@@ -7,501 +7,550 @@ import isBoolean from 'lodash/isBoolean';
 import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
 import isNil from 'lodash/isNil';
+
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import Loading from '../loading';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { TreeSelectConfig } from '../config-provider/config-receiver';
-import { renderTNodeJSX } from '../utils/render-tnode';
-
-import Popup, { PopupProps } from '../popup';
-import Tag from '../tag';
-import Tree, { TreeNodeModel, TreeNodeValue } from '../tree';
-import Input, { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
-import { emitEvent } from '../utils/event';
-
-import props from './props';
-
-import { TreeSelectValue } from './type';
-import { ClassName, TreeOptionData } from '../common';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import Tree, { TreeProps, TreeNodeModel, TreeNodeValue } from '../tree';
+import Popup, { PopupProps } from '../popup';
+import Input, { InputValue } from '../input';
+import Loading from '../loading';
+import Tag from '../tag';
 
 import { RemoveOptions, NodeOptions } from './interface';
+import { TreeSelectValueType } from './type';
+import { TreeOptionData } from '../common';
+import props from './props';
+
 // hooks
+import { usePrefixClass, useCommonClassName, useConfig } from '../config-provider';
 import { useFormDisabled } from '../form/hooks';
+import { useTNodeJSX } from '../hooks/tnode';
+import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<TreeSelectConfig>('treeSelect')),
   name: 'TTreeSelect',
-  components: {
-    Tree,
-  },
-  props: {
-    ...props,
-  },
-  emits: ['change', 'clear', 'focus', 'blur', 'remove', 'search'],
-  setup() {
-    const disabled = useFormDisabled();
+  props,
+  setup(props, { slots }) {
+    const renderTNodeJSX = useTNodeJSX();
     const classPrefix = usePrefixClass();
     const { STATUS, SIZE } = useCommonClassName();
-    return {
-      SIZE,
-      STATUS,
-      classPrefix,
-      disabled,
-    };
-  },
-  data() {
-    return {
-      visible: false,
-      isHover: false,
-      focusing: false,
-      defaultProps: {
-        trigger: 'click',
-        placement: 'bottom-left',
-        overlayClassName: '',
-        overlayStyle: (trigger) => ({
-          width: `${trigger.offsetWidth}px`,
-          border: '1px solid #dcdcdc',
-        }),
-      } as PopupProps,
-      filterText: '',
-      filterByText: null,
-      actived: [],
-      expanded: [],
-      nodeInfo: null,
-      treeKey: 0,
-    };
-  },
-  computed: {
-    classes(): ClassName {
+    const { global } = useConfig('treeSelect');
+
+    // ref
+    const tree = ref(null);
+    const input = ref(null);
+    const popup = ref(null);
+
+    // data
+    const formDisabled = useFormDisabled();
+    const visible = ref(false);
+    const isHover = ref(false);
+    const focusing = ref(false);
+    const defaultProps: PopupProps = reactive({
+      trigger: 'click',
+      placement: 'bottom-left',
+      overlayClassName: '',
+      overlayStyle: (trigger) => ({
+        width: `${trigger.offsetWidth}px`,
+      }),
+    });
+    const filterText = ref('');
+    const filterByText = ref(null);
+    const actived = ref([]);
+    const expanded = ref([]);
+    const nodeInfo = ref(null);
+    const treeKey = ref(0);
+
+    // model
+    const { value, modelValue } = toRefs(props);
+    const [treeSelectValue, setTreeSelectValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+
+    // watch
+    watch(
+      () => treeSelectValue.value,
+      async () => {
+        await changeNodeInfo();
+        if (!props.multiple) {
+          actived.value = nodeInfo.value ? [nodeInfo.value.value] : [];
+        }
+      },
+    );
+    watch(
+      () => props.data,
+      async () => {
+        await changeNodeInfo();
+        treeRerender();
+      },
+    );
+
+    // computed
+    const tDisabled = computed(() => {
+      return formDisabled.value || props.disabled;
+    });
+    const classes = computed(() => {
       return [
-        `${this.classPrefix}-select`,
-        `${this.classPrefix}-select-polyfill`,
+        `${classPrefix.value}-select`,
+        `${classPrefix.value}-select-polyfill`,
         {
-          [this.STATUS.disabled]: this.disabled,
-          [this.STATUS.active]: this.visible,
-          [this.SIZE[this.size]]: this.size,
-          [`${this.classPrefix}-has-prefix`]: this.prefixIconSlot,
-          [`${this.classPrefix}-select-selected`]: this.selectedSingle || !isEmpty(this.selectedMultiple),
+          [STATUS.value.disabled]: tDisabled.value,
+          [STATUS.value.active]: visible.value,
+          [SIZE.value[props.size]]: props.size,
+          [`${classPrefix.value}-has-prefix`]: prefixIconSlot.value,
+          [`${classPrefix.value}-select-selected`]: selectedSingle.value || !isEmpty(selectedMultiple.value),
         },
       ];
-    },
-    popupClass(): ClassName {
-      const { popupObject } = this;
-      return `${popupObject.overlayClassName} ${this.classPrefix}-select__dropdown narrow-scrollbar`;
-    },
-    isObjectValue(): boolean {
-      return this.valueType === 'object';
-    },
-    checked(): Array<TreeSelectValue> {
-      if (this.multiple) {
-        if (this.isObjectValue) {
-          return isArray(this.value) ? this.value.map((item) => (item as NodeOptions).value) : [];
+    });
+    const popupClass = computed(() => {
+      return `${popupObject.value.overlayClassName} ${classPrefix.value}-select__dropdown narrow-scrollbar`;
+    });
+    const isObjectValue = computed(() => {
+      return props.valueType === 'object';
+    });
+    const checked = computed((): Array<TreeNodeValue> => {
+      if (props.multiple) {
+        if (isObjectValue.value) {
+          return isArray(treeSelectValue.value) ? treeSelectValue.value.map((item) => (item as NodeOptions).value) : [];
         }
-        return isArray(this.value) ? this.value : [];
+        return isArray(treeSelectValue.value) ? treeSelectValue.value.map((item) => item as TreeNodeValue) : [];
       }
       return [];
-    },
-    showArrow(): boolean {
+    });
+    const showArrow = computed(() => {
       return (
-        !this.clearable ||
-        !this.isHover ||
-        this.disabled ||
-        (!this.multiple && !this.value && this.value !== 0) ||
-        (this.multiple && isArray(this.value) && isEmpty(this.value))
+        !props.clearable ||
+        !isHover.value ||
+        tDisabled.value ||
+        (!props.multiple && !treeSelectValue.value && treeSelectValue.value !== 0) ||
+        (props.multiple && isArray(treeSelectValue.value) && isEmpty(treeSelectValue.value))
       );
-    },
-    showLoading(): boolean {
-      return this.loading && !this.disabled;
-    },
-    showClose(): boolean {
+    });
+    const showLoading = computed(() => {
+      return props.loading && !tDisabled.value;
+    });
+    const showClose = computed(() => {
       return (
-        this.clearable &&
-        this.isHover &&
-        !this.disabled &&
-        ((!this.multiple && (!!this.value || this.value === 0)) ||
-          (this.multiple && !isEmpty(this.value as Array<TreeSelectValue>)))
+        props.clearable &&
+        isHover.value &&
+        !tDisabled.value &&
+        ((!props.multiple && (!!treeSelectValue.value || treeSelectValue.value === 0)) ||
+          (props.multiple && !isEmpty(treeSelectValue.value)))
       );
-    },
-    showPlaceholder(): boolean {
-      if (
-        !this.showFilter &&
-        ((isString(this.value) && this.value === '' && !this.selectedSingle) ||
-          (isArray(this.value) && isEmpty(this.value)) ||
-          isNil(this.value))
-      ) {
-        return true;
-      }
-      return false;
-    },
-    showFilter(): boolean {
-      if (this.disabled) {
+    });
+    const showPlaceholder = computed(() => {
+      return (
+        !showFilter.value &&
+        ((isString(treeSelectValue.value) && treeSelectValue.value === '' && !selectedSingle.value) ||
+          (isArray(treeSelectValue.value) && isEmpty(treeSelectValue.value)) ||
+          isNil(treeSelectValue.value))
+      );
+    });
+    const showFilter = computed(() => {
+      if (tDisabled.value) {
         return false;
       }
-      if (!this.multiple && this.selectedSingle && (this.filterable || isFunction(this.filter))) {
-        return this.visible;
+      if (!props.multiple && selectedSingle.value && (props.filterable || isFunction(props.filter))) {
+        return visible.value;
       }
-      return this.filterable || isFunction(this.filter);
-    },
-    showTree(): boolean {
-      return !this.loading;
-    },
-    popupObject(): PopupProps {
-      const propsObject = this.popupProps ? { ...this.defaultProps, ...(this.popupProps as any) } : this.defaultProps;
-      return propsObject;
-    },
-    selectedSingle(): string {
-      if (!this.multiple && (isString(this.value) || isNumber(this.value) || isObject(this.value))) {
-        if (this.nodeInfo) {
-          return this.nodeInfo.label;
+      return props.filterable || isFunction(props.filter);
+    });
+    const showTree = computed(() => {
+      return !props.loading;
+    });
+    const popupObject = computed(() => {
+      return props.popupProps ? { ...defaultProps, ...(props.popupProps as PopupProps) } : defaultProps;
+    });
+    const selectedSingle = computed(() => {
+      if (
+        !props.multiple &&
+        (isString(treeSelectValue.value) || isNumber(treeSelectValue.value) || isObject(treeSelectValue.value))
+      ) {
+        if (nodeInfo.value) {
+          return nodeInfo.value.label;
         }
-        return `${this.value}`;
+        return `${treeSelectValue.value}`;
       }
       return '';
-    },
-    selectedMultiple(): Array<TreeSelectValue> {
-      if (this.multiple && isArray(this.value) && !isEmpty(this.value)) {
-        return this.value;
+    });
+    const selectedMultiple = computed(() => {
+      if (props.multiple && isArray(treeSelectValue.value) && !isEmpty(treeSelectValue.value)) {
+        return treeSelectValue.value;
       }
       return [];
-    },
-    multiLimitDisabled() {
-      if (this.multiple && this.max && isArray(this.value) && this.max <= this.value.length) {
-        return true;
-      }
-      return false;
-    },
-    filterPlaceholder(): string {
-      if (this.multiple && isArray(this.value) && !isEmpty(this.value)) {
+    });
+    const multiLimitDisabled = computed(() => {
+      return (
+        props.multiple && !!props.max && isArray(treeSelectValue.value) && props.max <= treeSelectValue.value.length
+      );
+    });
+    const filterPlaceholder = computed(() => {
+      if (props.multiple && isArray(treeSelectValue.value) && !isEmpty(treeSelectValue.value)) {
         return '';
       }
-      if (!this.multiple && this.selectedSingle) {
-        return this.selectedSingle;
+      if (!props.multiple && selectedSingle.value) {
+        return selectedSingle.value;
       }
-      return this.placeholder;
-    },
-    loadingTextSlot(): VNode {
-      const useLocale = !this.loadingText && !this.$slots.loadingText;
+      return props.placeholder;
+    });
+    const loadingTextSlot = computed(() => {
+      const useLocale = !props.loadingText && !slots.loadingText;
       return useLocale ? (
-        <div class={`${this.classPrefix}-select__empty`}>{this.t(this.global.loadingText)}</div>
+        <div class={`${classPrefix.value}-select__empty`}>{global.value.loadingText}</div>
       ) : (
-        renderTNodeJSX(this, 'loadingText')
+        renderTNodeJSX('loadingText')
       );
-    },
-    emptySlot(): VNode {
-      const useLocale = !this.empty && !this.$slots.empty;
+    });
+    const emptySlot = computed(() => {
+      const useLocale = !props.empty && !slots.empty;
       return useLocale ? (
-        <div class={`${this.classPrefix}-select__empty`}>{this.t(this.global.empty)}</div>
+        <div class={`${classPrefix.value}-select__empty`}>{global.value.empty}</div>
       ) : (
-        renderTNodeJSX(this, 'empty')
+        renderTNodeJSX('empty')
       );
-    },
-    prefixIconSlot(): VNode {
-      return renderTNodeJSX(this, 'prefixIcon');
-    },
-    realLabel(): string {
-      const { treeProps } = this;
-      if (!isEmpty(treeProps) && !isEmpty((treeProps as any).keys)) {
-        return (treeProps as any).keys.label || 'label';
+    });
+    const prefixIconSlot = computed(() => {
+      return renderTNodeJSX('prefixIcon');
+    });
+    const realLabel = computed(() => {
+      if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
+        return (props.treeProps as TreeProps).keys.label || 'label';
       }
       return 'label';
-    },
-    realValue(): string {
-      const { treeProps } = this;
-      if (!isEmpty(treeProps) && !isEmpty((treeProps as any).keys)) {
-        return (treeProps as any).keys.value || 'value';
+    });
+    const realValue = computed(() => {
+      if (!isEmpty(props.treeProps) && !isEmpty((props.treeProps as TreeProps).keys)) {
+        return (props.treeProps as TreeProps).keys.value || 'value';
       }
       return 'value';
-    },
-    tagList(): Array<TreeSelectValue> {
-      if (this.nodeInfo && isArray(this.nodeInfo)) {
-        return this.nodeInfo.map((node) => node.label);
+    });
+    const tagList = computed(() => {
+      if (nodeInfo.value && isArray(nodeInfo.value)) {
+        return nodeInfo.value.map((node: NodeOptions) => node.label);
       }
-      return this.isObjectValue ? [] : this.selectedMultiple;
-    },
-  },
-  watch: {
-    async value() {
-      await this.changeNodeInfo();
-      if (!this.multiple) {
-        this.actived = this.nodeInfo ? [this.nodeInfo.value] : [];
+      return isObjectValue.value ? [] : selectedMultiple.value;
+    });
+
+    // timelifes
+    onMounted(async () => {
+      if (!treeSelectValue.value && props.defaultValue) {
+        await change(props.defaultValue, null);
       }
-    },
-    async data() {
-      await this.changeNodeInfo();
-      this.treeRerender();
-    },
-  },
-  async mounted() {
-    if (!this.value && this.defaultValue) {
-      await this.change(this.defaultValue, null);
-    }
-    if (this.isObjectValue) {
-      this.actived = isArray(this.value)
-        ? this.value.map((item) => (item as NodeOptions).value)
-        : [(this.value as NodeOptions).value];
-    } else {
-      this.actived = isArray(this.value) ? this.value : [this.value];
-    }
-    this.changeNodeInfo();
-  },
-  methods: {
-    async popupVisibleChange(visible: boolean) {
-      await (this.visible = visible);
-      if (this.showFilter && this.visible) {
-        const searchInput = this.$refs.input as HTMLElement;
-        searchInput?.focus();
-        this.focusing = true;
-      }
-    },
-    removeTag(index: number, data: TreeOptionData, e: MouseEvent) {
-      if (this.disabled) {
-        return;
-      }
-      this.remove({ value: this.value[index], data, e });
-      isArray(this.value) && this.value.splice(index, 1);
-      this.change(this.value, null);
-    },
-    change(value: TreeSelectValue, node: TreeNodeModel<TreeOptionData>) {
-      emitEvent(this, 'change', value, { node });
-      this.changeNodeInfo();
-    },
-    clear(e: MouseEvent) {
-      e.stopPropagation();
-      const defaultValue: TreeSelectValue = this.multiple ? [] : '';
-      this.change(defaultValue, null);
-      this.actived = [];
-      this.filterText = '';
-      emitEvent(this, 'clear', { e });
-    },
-    focus(e: FocusEvent) {
-      this.focusing = true;
-      emitEvent(this, 'focus', { value: this.value, e });
-    },
-    blur(e: FocusEvent) {
-      this.focusing = false;
-      this.filterText = '';
-      emitEvent(this, 'blur', { value: this.value, e });
-    },
-    remove(options: RemoveOptions<TreeOptionData>) {
-      emitEvent(this, 'remove', options);
-    },
-    search(filterWords: string) {
-      emitEvent(this, 'search', filterWords);
-    },
-    treeNodeChange(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent }) {
-      let current: TreeSelectValue = value;
-      if (this.isObjectValue) {
-        const { tree } = this.$refs;
-        current = value.map((nodeValue) => {
-          const node = (tree as any).getItem(nodeValue);
-          return { label: node.data[this.realLabel], value: node.data[this.realValue] };
-        });
-      }
-      this.change(current, context.node);
-      this.actived = value;
-    },
-    treeNodeActive(value: Array<TreeNodeValue>, context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent }) {
-      // 多选模式屏蔽 Active 事件
-      if (this.multiple) {
-        return;
-      }
-      let current: TreeSelectValue = value;
-      if (this.isObjectValue) {
-        const { tree } = this.$refs;
-        const nodeValue = isEmpty(value) ? '' : value[0];
-        const node = (tree as any).getItem(nodeValue);
-        current = { label: node.data[this.realLabel], value: node.data[this.realValue] };
+      if (isObjectValue.value) {
+        actived.value = isArray(treeSelectValue.value)
+          ? treeSelectValue.value.map((item) => (item as NodeOptions).value)
+          : [(treeSelectValue.value as NodeOptions).value];
       } else {
-        current = isEmpty(value) ? '' : value[0];
+        actived.value = isArray(treeSelectValue.value) ? treeSelectValue.value : [treeSelectValue.value];
       }
-      this.change(current, context.node);
-      this.actived = value;
-      this.visible = false;
-    },
-    treeNodeExpand(value: Array<TreeNodeValue>) {
-      this.expanded = value;
-    },
-    onInput() {
-      this.filterByText = (node: TreeNodeModel<TreeOptionData>) => {
-        if (isFunction(this.filter)) {
-          const filter: boolean | Promise<boolean> = this.filter(this.filterText, node);
+      changeNodeInfo();
+    });
+
+    // methods
+    const popupVisibleChange = async (state: boolean) => {
+      await (visible.value = state);
+      if (showFilter.value && visible.value) {
+        const searchInput = input.value as HTMLElement;
+        searchInput?.focus();
+        focusing.value = true;
+      }
+    };
+    const removeTag = (index: number, data: TreeOptionData, e?: MouseEvent) => {
+      if (tDisabled.value) {
+        return;
+      }
+      remove({ value: treeSelectValue.value[index], data, e });
+      isArray(treeSelectValue.value) && treeSelectValue.value.splice(index, 1);
+      change(treeSelectValue.value, null);
+    };
+    const change = (valueParam: TreeSelectValueType, node: TreeNodeModel<TreeOptionData>) => {
+      setTreeSelectValue(valueParam, { node });
+      changeNodeInfo();
+      props.onChange?.(valueParam, { node });
+    };
+    const clear = (e: MouseEvent) => {
+      e.stopPropagation();
+      const defaultValue: TreeSelectValueType = props.multiple ? [] : '';
+      change(defaultValue, null);
+      actived.value = [];
+      filterText.value = '';
+      props.onClear?.({ e });
+    };
+    const focus = (e: FocusEvent) => {
+      focusing.value = true;
+      props.onFocus?.({ value: treeSelectValue.value, e });
+    };
+    const blur = (e: FocusEvent) => {
+      focusing.value = false;
+      filterText.value = '';
+      props.onBlur?.({ value: treeSelectValue.value, e });
+    };
+    const remove = (options: RemoveOptions<TreeOptionData>) => {
+      props.onRemove?.(options);
+    };
+    const search = (filterWordsParam: string) => {
+      props.onSearch?.(filterWordsParam);
+    };
+    const treeNodeChange = (
+      valueParam: Array<TreeNodeValue>,
+      context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
+    ) => {
+      let current: TreeSelectValueType = valueParam;
+      if (isObjectValue.value) {
+        current = valueParam.map((nodeValue) => getTreeNode(props.data, nodeValue));
+      }
+      change(current, context.node);
+    };
+    const treeNodeActive = (
+      valueParam: Array<TreeNodeValue>,
+      context: { node: TreeNodeModel<TreeOptionData>; e: MouseEvent },
+    ) => {
+      // 多选模式屏蔽 Active 事件
+      if (props.multiple) {
+        return;
+      }
+      let current: TreeSelectValueType = valueParam;
+      if (isObjectValue.value) {
+        const nodeValue = isEmpty(valueParam) ? '' : valueParam[0];
+        current = getTreeNode(props.data, nodeValue);
+      } else {
+        current = isEmpty(valueParam) ? '' : valueParam[0];
+      }
+      change(current, context.node);
+      actived.value = valueParam;
+      visible.value = false;
+    };
+    const treeNodeExpand = (valueParam: Array<TreeNodeValue>) => {
+      expanded.value = valueParam;
+      filterByText.value = null;
+    };
+    const onInputChange = () => {
+      filterByText.value = (node: TreeNodeModel<TreeOptionData>) => {
+        if (isFunction(props.filter)) {
+          const filter: boolean | Promise<boolean> = props.filter(filterText.value, node);
           if (isBoolean(filter)) {
             return filter;
           }
         }
-        return node.data[this.realLabel].indexOf(this.filterText) >= 0;
+        return node.data[realLabel.value].indexOf(filterText.value) >= 0;
       };
-      this.search(this.filterText);
-    },
-    async changeNodeInfo() {
-      const { tree } = this.$refs;
-      await this.value;
+      search(filterText.value);
+    };
+    const changeNodeInfo = async () => {
+      await treeSelectValue.value;
 
-      if (tree && !this.multiple && this.value) {
-        const nodeValue = this.isObjectValue ? (this.value as NodeOptions).value : this.value;
-        // 数据源非空
-        if (!isEmpty(this.data)) {
-          const node = (tree as any).getItem(nodeValue);
-          this.nodeInfo = { label: node.data[this.realLabel], value: node.data[this.realValue] };
+      if (!props.multiple && treeSelectValue.value) {
+        changeSingleNodeInfo();
+      } else if (props.multiple && isArray(treeSelectValue.value)) {
+        changeMultipleNodeInfo();
+      } else {
+        nodeInfo.value = null;
+      }
+    };
+    const changeSingleNodeInfo = () => {
+      const nodeValue = isObjectValue.value ? (treeSelectValue.value as NodeOptions).value : treeSelectValue.value;
+      if (tree.value && (props.treeProps as TreeProps)?.load) {
+        if (!isEmpty(props.data)) {
+          const node = tree.value.getItem(nodeValue);
+          if (!node) return;
+          nodeInfo.value = { label: node.data[realLabel.value], value: node.data[realValue.value] };
         } else {
-          this.nodeInfo = { label: nodeValue, value: nodeValue };
+          nodeInfo.value = { label: nodeValue, value: nodeValue };
         }
-      } else if (tree && this.multiple && isArray(this.value)) {
-        this.nodeInfo = this.value.map((value) => {
-          const nodeValue = this.isObjectValue ? (value as NodeOptions).value : value;
-          // 数据源非空
-          if (!isEmpty(this.data)) {
-            const node = (tree as any).getItem(nodeValue);
-            return { label: node.data[this.realLabel], value: node.data[this.realValue] };
+      } else {
+        const node = getTreeNode(props.data, nodeValue);
+        if (!node) {
+          nodeInfo.value = { label: nodeValue, value: nodeValue };
+        } else {
+          nodeInfo.value = node;
+        }
+      }
+    };
+    const changeMultipleNodeInfo = () => {
+      nodeInfo.value = (treeSelectValue.value as Array<TreeSelectValueType>).map((value) => {
+        const nodeValue = isObjectValue.value ? (value as NodeOptions).value : value;
+        if (tree.value && (props.treeProps as TreeProps)?.load) {
+          if (!isEmpty(props.data)) {
+            const node = tree.value.getItem(nodeValue);
+            if (!node) return;
+            return { label: node.data[realLabel.value], value: node.data[realValue.value] };
           }
           return { label: nodeValue, value: nodeValue };
-        });
-      } else {
-        this.nodeInfo = null;
-      }
-    },
-    treeRerender() {
-      this.treeKey += 1;
-    },
-  },
-  render(): VNode {
-    const { treeProps, popupObject, classes, popupClass, treeKey } = this;
-    const iconStyle = { 'font-size': this.size };
-    const treeSlots = {
-      empty: () => <>{this.emptySlot}</>,
+        }
+        const node = getTreeNode(props.data, nodeValue);
+        if (!node) {
+          return { label: nodeValue, value: nodeValue };
+        }
+        return node;
+      });
     };
-    const treeItem = (
-      <tree
-        ref="tree"
-        v-show={this.showTree}
-        key={treeKey}
-        value={this.checked}
-        hover
-        expandAll
-        expandOnClickNode
-        data={this.data}
-        activable={!this.multiple}
-        checkable={this.multiple}
-        disabled={this.disabled || this.multiLimitDisabled}
-        empty={this.empty}
-        size={this.size}
-        filter={this.filterByText}
-        actived={this.actived}
-        expanded={this.expanded}
-        activeMultiple={this.multiple}
-        onChange={this.treeNodeChange}
-        onActive={this.treeNodeActive}
-        onExpand={this.treeNodeExpand}
-        v-slots={treeSlots}
-        {...treeProps}
-      />
-    );
-    const searchInput = (
-      <Input
-        ref="input"
-        v-show={this.showFilter}
-        v-model={this.filterText}
-        class={`${this.classPrefix}-select__input`}
-        size={this.size}
-        disabled={this.disabled}
-        placeholder={this.filterPlaceholder}
-        onInput={this.onInput}
-        onBlur={(value: InputValue, context: { e: FocusEvent }) => this.blur(context.e)}
-        onFocus={(value: InputValue, context: { e: FocusEvent }) => this.focus(context.e)}
-      />
-    );
-    const tagItem = this.tagList.map((label, index) => (
-      <Tag
-        v-show={this.minCollapsedNum <= 0 || index < this.minCollapsedNum}
-        key={index}
-        size={this.size}
-        closable={!this.disabled}
-        disabled={this.disabled}
-        onClose={(context: { e: MouseEvent }) => this.removeTag(index, null, context.e)}
-      >
-        {label}
-      </Tag>
-    ));
-    const selectedSingle =
-      this.valueDisplay || this.$slots.valueDisplay ? (
-        renderTNodeJSX(this, 'valueDisplay', {
-          params: { value: this.nodeInfo || { [this.realLabel]: '', [this.realValue]: '' } },
-        })
-      ) : (
-        <span title={this.selectedSingle} class={`${this.classPrefix}-select__single`}>
-          {this.selectedSingle}
-        </span>
-      );
-    const collapsedItem =
-      (this.collapsedItems || this.$slots.collapsedItems) &&
-      this.minCollapsedNum > 0 &&
-      this.tagList.length > this.minCollapsedNum ? (
-        renderTNodeJSX(this, 'collapsedItems', {
-          params: {
-            count: this.tagList.length - this.minCollapsedNum,
-            value: this.selectedMultiple,
-            collapsedSelectedItems: this.selectedMultiple.slice(this.minCollapsedNum),
-          },
-        })
-      ) : (
-        <Tag v-show={this.minCollapsedNum > 0 && this.tagList.length > this.minCollapsedNum} size={this.size}>
-          {`+${this.tagList.length - this.minCollapsedNum}`}
-        </Tag>
-      );
-    const slots = {
+    const getTreeNode = (data: Array<TreeOptionData>, targetValue: TreeSelectValueType): TreeSelectValueType | null => {
+      for (let i = 0, len = data.length; i < len; i++) {
+        if (data[i][realValue.value] === targetValue) {
+          return { label: data[i][realLabel.value], value: data[i][realValue.value] };
+        }
+        if (data[i]?.children) {
+          const result = getTreeNode(data[i]?.children, targetValue);
+          if (!isNil(result)) {
+            return result;
+          }
+        }
+      }
+      return null;
+    };
+    const treeRerender = () => {
+      treeKey.value += 1;
+    };
+
+    // dom
+    const iconStyle = { 'font-size': props.size };
+    const treeSlots = {
+      empty: () => <>{emptySlot.value}</>,
+    };
+    const popupSlots = {
       content: () => (
         <div>
-          <p v-show={this.showLoading} class={`${this.classPrefix}-select-loading-tips`}>
-            {this.loadingTextSlot}
+          <p
+            v-show={showLoading.value}
+            class={`${classPrefix.value}-select-loading-tips ${classPrefix.value}-select__right-icon-polyfill`}
+          >
+            {loadingTextSlot.value}
           </p>
-          {treeItem}
+          {treeItem()}
         </div>
       ),
     };
-    return (
-      <div ref="treeSelect" class={`${this.classPrefix}-select__wrap`}>
+    const treeItem = () => (
+      <Tree
+        ref={tree}
+        v-show={showTree.value}
+        key={treeKey.value}
+        value={[...checked.value]}
+        hover
+        data={props.data}
+        activable={!props.multiple}
+        checkable={props.multiple}
+        disabled={tDisabled.value || multiLimitDisabled.value}
+        empty={props.empty}
+        size={props.size}
+        filter={filterByText.value}
+        actived={actived.value}
+        expanded={expanded.value}
+        activeMultiple={props.multiple}
+        onChange={treeNodeChange}
+        onActive={treeNodeActive}
+        onExpand={treeNodeExpand}
+        expandOnClickNode
+        v-slots={treeSlots}
+        {...props.treeProps}
+      />
+    );
+    const searchInput = () => (
+      <Input
+        ref={input}
+        v-show={showFilter.value}
+        v-model={filterText.value}
+        class={`${classPrefix.value}-select__input`}
+        size={props.size}
+        disabled={tDisabled.value}
+        placeholder={filterPlaceholder.value}
+        onInput={onInputChange}
+        onBlur={(value: InputValue, context: { e: FocusEvent }) => blur(context.e)}
+        onFocus={(value: InputValue, context: { e: FocusEvent }) => focus(context.e)}
+      />
+    );
+    const tagItem = () =>
+      !isEmpty(tagList.value) && (props.valueDisplay || slots.valueDisplay)
+        ? renderTNodeJSX('valueDisplay', {
+            params: {
+              value: nodeInfo.value,
+              onClose: (index: number) => removeTag(index, null),
+            },
+          })
+        : tagList.value.map((label: string, index: number) => (
+            <Tag
+              v-show={props.minCollapsedNum <= 0 || index < props.minCollapsedNum}
+              key={index}
+              size={props.size}
+              closable={!tDisabled.value}
+              disabled={tDisabled.value}
+              maxWidth={300}
+              title={label}
+              onClose={(context: { e: MouseEvent }) => removeTag(index, null, context.e)}
+            >
+              {label}
+            </Tag>
+          ));
+    const selectedSingleItem = () =>
+      props.valueDisplay || slots.valueDisplay ? (
+        renderTNodeJSX('valueDisplay', {
+          params: { value: nodeInfo.value || { [realLabel.value]: '', [realValue.value]: '' } },
+        })
+      ) : (
+        <span title={selectedSingle.value} class={`${classPrefix.value}-select__single`}>
+          {selectedSingle.value}
+        </span>
+      );
+    const collapsedItem = () =>
+      (props.collapsedItems || slots.collapsedItems) &&
+      props.minCollapsedNum > 0 &&
+      tagList.value.length > props.minCollapsedNum ? (
+        renderTNodeJSX('collapsedItems', {
+          params: {
+            count: tagList.value.length - props.minCollapsedNum,
+            value: selectedMultiple.value,
+            collapsedSelectedItems: selectedMultiple.value.slice(props.minCollapsedNum),
+          },
+        })
+      ) : (
+        <Tag v-show={props.minCollapsedNum > 0 && tagList.value.length > props.minCollapsedNum} size={props.size}>
+          {`+${tagList.value.length - props.minCollapsedNum}`}
+        </Tag>
+      );
+    return () => (
+      <div ref="treeSelect" class={`${classPrefix.value}-select__wrap`}>
         <Popup
-          ref="popup"
-          class={`${this.classPrefix}-select__popup-reference`}
-          visible={this.visible}
-          disabled={this.disabled}
-          placement={popupObject.placement}
-          trigger={popupObject.trigger}
-          overlayStyle={popupObject.overlayStyle}
-          overlayClassName={popupClass}
-          onVisibleChange={this.popupVisibleChange}
+          ref={popup}
+          class={`${classPrefix.value}-select__popup-reference`}
+          visible={visible.value}
+          disabled={tDisabled.value}
+          placement={popupObject.value.placement}
+          trigger={popupObject.value.trigger}
+          overlayStyle={popupObject.value.overlayStyle}
+          overlayClassName={popupClass.value}
+          onVisibleChange={popupVisibleChange}
           expandAnimation={true}
-          v-slots={slots}
+          v-slots={popupSlots}
         >
-          <div class={classes} onmouseenter={() => (this.isHover = true)} onmouseleave={() => (this.isHover = false)}>
-            {this.prefixIconSlot && (
-              <span class={`${this.classPrefix}-select__left-icon`}>{this.prefixIconSlot[0]}</span>
+          <div
+            class={classes.value}
+            onmouseenter={() => (isHover.value = true)}
+            onmouseleave={() => (isHover.value = false)}
+          >
+            {prefixIconSlot.value && (
+              <span class={`${classPrefix.value}-select__left-icon`}>{prefixIconSlot.value[0]}</span>
             )}
-            <span v-show={this.showPlaceholder} class={`${this.classPrefix}-select__placeholder`}>
-              {this.placeholder || this.global.placeholder}{' '}
+            <span v-show={showPlaceholder.value} class={`${classPrefix.value}-select__placeholder`}>
+              {props.placeholder || global.value.placeholder}
             </span>
-            {tagItem}
-            {collapsedItem}
-            {!this.multiple && !this.showPlaceholder && !this.showFilter && selectedSingle}
-            {searchInput}
-            {this.showArrow && !this.showLoading && (
+            {tagItem()}
+            {collapsedItem()}
+            {!props.multiple && !showPlaceholder.value && !showFilter.value && selectedSingleItem()}
+            {searchInput()}
+            {showArrow.value && !showLoading.value && (
               <FakeArrow
-                overlayClassName={`${this.classPrefix}-select__right-icon ${this.classPrefix}-select__right-icon-polyfill`}
+                overlayClassName={`${classPrefix.value}-select__right-icon ${classPrefix.value}-select__right-icon-polyfill`}
                 overlayStyle={iconStyle}
-                isActive={this.visible && !this.disabled}
+                isActive={visible.value && !tDisabled.value}
               />
             )}
             <CloseCircleFilledIcon
-              v-show={this.showClose && !this.showLoading}
-              class={`${this.classPrefix}-select__right-icon ${this.classPrefix}-select__right-icon-polyfill ${this.classPrefix}-select__active-icon`}
-              size={this.size}
-              onClick={({ e }) => this.clear(e)}
+              v-show={showClose.value && !showLoading.value}
+              class={`${classPrefix.value}-select__right-icon ${classPrefix.value}-select__right-icon-polyfill ${classPrefix.value}-select__active-icon`}
+              size={props.size}
+              onClick={({ e }) => clear(e)}
             />
             <Loading
-              v-show={this.showLoading}
-              class={`${this.classPrefix}-select__loading-tips ${this.classPrefix}-select__right-icon-polyfill`}
+              v-show={showLoading.value}
+              class={`${classPrefix.value}-select__loading-tips ${classPrefix.value}-select__right-icon-polyfill`}
               size="small"
             />
           </div>
