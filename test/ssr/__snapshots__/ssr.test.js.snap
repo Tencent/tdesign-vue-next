@@ -8103,10 +8103,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
         <div class="t-color-picker__swatches-wrap">
           <div class="t-color-picker__swatches">
             <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
-              <div class="t-popup__reference">
-                <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                  <div class="t-popup__content t-popup__content--arrow t-popconfirm">
-                    <!--[-->
+              <div role="button" class="t-color-picker__icon t-color-picker__swatches--remove"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-delete" style="">
+                  <path fill="currentColor" d="M6 12V6h1v6H6zM9 6v6h1V6H9z" fill-opacity="0.9"></path>
+                  <path fill="currentColor" d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z" fill-opacity="0.9"></path>
+                </svg>
+                <div class="t-popup" style="display:none;" role="tooltip" aria-hidden="false" data-popper-placement="top">
+                  <div class="t-popup__content t-popupcontent--arrow t-popconfirm">
                     <div class="t-popconfirm__content">
                       <div class="t-popconfirm__body"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning" style="">
                           <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
@@ -8115,14 +8117,9 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                       </div>
                       <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">取消</span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm" type="button"><span class="t-button__text">确定</span></button></div>
                     </div>
-                    <!--]-->
                     <div class="t-popup__arrow"></div>
                   </div>
                 </div>
-                <!--[-->
-                <!--[--><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-delete" style=""><path fill="currentColor" d="M6 12V6h1v6H6zM9 6v6h1V6H9z" fill-opacity="0.9"></path><path fill="currentColor" d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z" fill-opacity="0.9"></path></svg></span>
-                <!--]-->
-                <!--]-->
               </div>
             </h3>
             <ul class="t-color-picker__swatches--items narrow-scrollbar">
