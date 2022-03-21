@@ -48,7 +48,10 @@ export default defineComponent({
     const root = ref();
     const isOverflow = ref(false);
 
-    const ellipsisClasses = computed(() => [`${classPrefix.value}-table__ellipsis`, `${classPrefix.value}-text-ellipsis`]);
+    const ellipsisClasses = computed(() => [
+      `${classPrefix.value}-table__ellipsis`,
+      `${classPrefix.value}-text-ellipsis`,
+    ]);
 
     // 鼠标 hover 的时候显示浮层
     const updateIsOverflow = () => {
@@ -89,8 +92,10 @@ export default defineComponent({
           zIndex={this.zIndex || 80}
           attach={this.attach}
           placement={this.placement}
-          { ...this.popupProps }
-        >{ellipsisContent}</TPopup>
+          {...this.popupProps}
+        >
+          {ellipsisContent}
+        </TPopup>
       );
     }
     return ellipsisContent;
