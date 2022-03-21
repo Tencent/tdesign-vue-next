@@ -61,13 +61,15 @@ export default defineComponent({
     /**
      * 移除颜色
      */
-    const handleRemoveColor = (trigger: RecentColorsChangeTrigger) => {
+    const handleRemoveColor = () => {
       const colors = [...props.colors];
       const selectedIndex = selectedColorIndex.value;
+      let trigger: RecentColorsChangeTrigger = 'delete';
       if (selectedIndex > -1) {
         colors.splice(selectedIndex, 1);
       } else {
         colors.length = 0;
+        trigger = 'clear';
       }
       props.onChange(colors, trigger);
       setVisiblePopConfirm(false);
@@ -104,6 +106,7 @@ export default defineComponent({
     const popupBaseClassName = `${classPrefix}-popup`;
     const popConfirmBaseClassName = `${classPrefix}-popconfirm`;
 
+    // 该方法暂时不用，后面交互讨论后再定
     const renderConfirm = () => {
       return (
         <div
@@ -137,7 +140,7 @@ export default defineComponent({
                   size="small"
                   theme="primary"
                   class={`${popConfirmBaseClassName}__confirm`}
-                  onClick={() => this.handleRemoveColor('clear')}
+                  onClick={() => this.handleRemoveColor()}
                 />
               </div>
             </div>
@@ -151,23 +154,22 @@ export default defineComponent({
       if (!removable) {
         return null;
       }
-      // 没有选中confirm下
-      if (this.selectedColorIndex === -1) {
-        return (
-          <div
-            role="button"
-            class={[`${baseClassName}__icon`, `${swatchesClass}--remove`]}
-            onClick={() => {
-              this.setVisiblePopConfirm(!visiblePopConfirm);
-            }}
-          >
-            <DeleteIcon />
-            {renderConfirm()}
-          </div>
-        );
-      }
+      // if (this.selectedColorIndex === -1) {
+      //   return (
+      //     <div
+      //       role="button"
+      //       class={[`${baseClassName}__icon`, `${swatchesClass}--remove`]}
+      //       onClick={() => {
+      //         this.setVisiblePopConfirm(!visiblePopConfirm);
+      //       }}
+      //     >
+      //       <DeleteIcon />
+      //       {renderConfirm()}
+      //     </div>
+      //   );
+      // }
       return (
-        <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleRemoveColor('delete')}>
+        <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleRemoveColor()}>
           <DeleteIcon />
         </span>
       );

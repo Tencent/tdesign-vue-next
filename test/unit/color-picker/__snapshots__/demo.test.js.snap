@@ -4994,8 +4994,8 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               <span>
                 最近使用颜色
               </span>
-              <div
-                class="t-color-picker__icon t-color-picker__swatches--remove"
+              <span
+                class="t-color-picker__icon"
                 role="button"
               >
                 <svg
@@ -5016,72 +5016,7 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                     fill-opacity="0.9"
                   />
                 </svg>
-                <div
-                  aria-hidden="false"
-                  class="t-popup"
-                  data-popper-placement="top"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-popupcontent--arrow t-popconfirm"
-                  >
-                    <div
-                      class="t-popconfirm__content"
-                    >
-                      <div
-                        class="t-popconfirm__body"
-                      >
-                        <svg
-                          class="t-icon t-icon-error-circle-filled t-popconfirm__icon--warning"
-                          fill="none"
-                          height="1em"
-                          viewBox="0 0 16 16"
-                          width="1em"
-                        >
-                          <path
-                            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z"
-                            fill="currentColor"
-                            fill-opacity="0.9"
-                          />
-                        </svg>
-                        <div
-                          class="t-popconfirm__inner"
-                        >
-                          确定清空最近使用的颜色吗？
-                        </div>
-                      </div>
-                      <div
-                        class="t-popconfirm__buttons"
-                      >
-                        <button
-                          class="t-button t-size-s t-button--variant-base t-button--theme-default t-popconfirm__cancel"
-                          type="button"
-                        >
-                          <span
-                            class="t-button__text"
-                          >
-                            取消
-                          </span>
-                        </button>
-                        <button
-                          class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
-                          type="button"
-                        >
-                          <span
-                            class="t-button__text"
-                          >
-                            确定
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="t-popup__arrow"
-                    />
-                  </div>
-                </div>
-              </div>
+              </span>
             </h3>
             <ul
               class="t-color-picker__swatches--items narrow-scrollbar"

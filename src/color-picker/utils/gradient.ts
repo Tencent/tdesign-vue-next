@@ -62,7 +62,7 @@ const generateRegExp = (): regExpLib => {
     rValue = /(?:[+-]?\d*\.?\d+)(?:%|[a-z]+)?/;
   const // ".9", "-5px", "100%".
     rKeyword = /[_a-z-][_a-z0-9-]*/;
-  const // "red", "transparent", "border-collapse".
+  const // "red", "transparent".
     rColor = combineRegExp(
       ['(?:', rColorHex, '|', '(?:rgb|hsl)', rDigits3, '|', '(?:rgba|hsla)', rDigits4, '|', rKeyword, ')'],
       '',
