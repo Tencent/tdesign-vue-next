@@ -26,7 +26,7 @@
       :filter-row="() => null"
       :header-affix-props="{ offsetTop: 0 }"
       :header-affixed-top="headerAffixedTop"
-      :scroll="virtualScroll ? { type: 'virtual', threshold: 2, rowHeight: 48, bufferSize: 30 } : undefined"
+      :scroll="virtualScroll ? { type: 'virtual', threshold: 2, rowHeight: 48, bufferSize: 10 } : undefined"
       @data-change="onDataChange"
       @filter-change="onFilterChange"
     ></t-table>
