@@ -83,6 +83,9 @@ export default {
   value: {
     type: [String, Number, Object, Array] as PropType<TdTreeSelectProps['value']>,
   },
+  modelValue: {
+    type: [String, Number, Object, Array] as PropType<TdTreeSelectProps['value']>,
+  },
   /** 选中值，非受控属性 */
   defaultValue: {
     type: [String, Number, Object, Array] as PropType<TdTreeSelectProps['defaultValue']>,
