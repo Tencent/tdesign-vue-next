@@ -38,11 +38,14 @@ for (let i = 0; i < 5; i++) {
 
 const columns = [
   {
-    align: 'center',
     width: '100',
-    className: 'row',
     colKey: 'index',
     title: '序号',
+    align: 'center',
+    className: 'custom-column-class-name',
+    attrs: {
+      'data-id': 'first-column',
+    },
   },
   {
     colKey: 'platform',

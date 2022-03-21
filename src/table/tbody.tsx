@@ -2,7 +2,7 @@ import { defineComponent, computed, PropType, SetupContext } from 'vue';
 import camelCase from 'lodash/camelCase';
 import get from 'lodash/get';
 import pick from 'lodash/pick';
-import TrElement, { TrProps, ROW_LISTENERS, TABLE_PROPS } from './tr';
+import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
 import { useConfig } from '../config-provider/useConfig';
 import { RowspanColspan, TableRowData, BaseTableCellParams } from './type';
 import { BaseTableProps } from './interface';
@@ -160,8 +160,9 @@ export default defineComponent({
     skipSpansMap = new Map<any, boolean>();
 
     this.data?.forEach((row, rowIndex) => {
-      const trProps: TrProps = {
+      const trProps = {
         ...pick(this.$props, TABLE_PROPS),
+        rowKey: this.rowKey || 'id',
         row,
         columns: this.columns,
         rowIndex,

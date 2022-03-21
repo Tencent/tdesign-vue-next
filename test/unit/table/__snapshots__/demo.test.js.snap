@@ -450,6 +450,600 @@ exports[`Table Table baseVue demo works fine 1`] = `
           <tr>
             
             <th
+              class="custom-column-class-name t-table__th-index t-align-center"
+              data-colkey="index"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                序号
+              </div>
+            </th>
+            <th
+              class="t-table__th-platform"
+              data-colkey="platform"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                平台
+              </div>
+            </th>
+            <th
+              class="t-table__th-type"
+              data-colkey="type"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                类型
+              </div>
+            </th>
+            <th
+              class="t-table__th-default"
+              data-colkey="default"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                默认值
+              </div>
+            </th>
+            <th
+              class="t-table__th-needed"
+              data-colkey="needed"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                是否必传
+              </div>
+            </th>
+            <th
+              class="t-table__th-detail.postion"
+              data-colkey="detail.postion"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  详情信息
+                  
+                </div>
+              </div>
+            </th>
+            
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
+          <!---->
+          
+          <tr
+            class=""
+          >
+            
+            <td
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
+            >
+              0
+            </td>
+            <td
+              class=""
+            >
+              共有
+            </td>
+            <td
+              class=""
+            >
+              String
+            </td>
+            <td
+              class=""
+            >
+              -
+            </td>
+            <td
+              class=""
+            >
+              是
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 0 个数据的嵌套信息值
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
+            >
+              1
+            </td>
+            <td
+              class=""
+            >
+              私有
+            </td>
+            <td
+              class=""
+            >
+              Number
+            </td>
+            <td
+              class=""
+            >
+              0
+            </td>
+            <td
+              class=""
+            >
+              否
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 1 个数据的嵌套信息值
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
+            >
+              2
+            </td>
+            <td
+              class=""
+            >
+              共有
+            </td>
+            <td
+              class=""
+            >
+              Array
+            </td>
+            <td
+              class=""
+            >
+              []
+            </td>
+            <td
+              class=""
+            >
+              否
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 2 个数据的嵌套信息值
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
+            >
+              3
+            </td>
+            <td
+              class=""
+            >
+              私有
+            </td>
+            <td
+              class=""
+            >
+              Object
+            </td>
+            <td
+              class=""
+            >
+              {}
+            </td>
+            <td
+              class=""
+            >
+              否
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 3 个数据的嵌套信息值
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
+            >
+              4
+            </td>
+            <td
+              class=""
+            >
+              共有
+            </td>
+            <td
+              class=""
+            >
+              String
+            </td>
+            <td
+              class=""
+            >
+              -
+            </td>
+            <td
+              class=""
+            >
+              是
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 4 个数据的嵌套信息值
+                
+              </div>
+            </td>
+            
+          </tr>
+          
+          <!---->
+          
+        </tbody>
+        <!---->
+      </table>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Table Table customCellVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-table t-size-m"
+    defaultexpandedrowkeys=""
+    dragsort="drag-col"
+    expandicon="true"
+    expandonrowclick="false"
+    multiplesort="false"
+    sortonrowdraggable="false"
+    style="position: relative;"
+  >
+    <!---->
+    <!---->
+    <div
+      class="t-table__content"
+    >
+      <!---->
+      <table
+        class="t-table--layout-fixed"
+      >
+        <colgroup>
+          
+          <col
+            style="width: 100px;"
+          />
+          <col
+            style="width: 236px;"
+          />
+          <col
+            style="width: 290px;"
+          />
+          <col
+            style="width: 235px;"
+          />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
+        >
+          
+          <tr>
+            
+            <th
+              class="t-table__th-type"
+              data-colkey="type"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                类型
+              </div>
+            </th>
+            <th
+              class="t-table__th-platform"
+              data-colkey="platform"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                平台
+              </div>
+            </th>
+            <th
+              class="t-table__th-property"
+              data-colkey="property"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                属性名
+              </div>
+            </th>
+            <th
+              class="t-table__th-description"
+              data-colkey="description"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                render
+              </div>
+            </th>
+            
+          </tr>
+          
+        </thead>
+        <tbody
+          class="t-table__body"
+        >
+          
+          <!---->
+          
+          <tr
+            class=""
+          >
+            
+            <td
+              class=""
+            >
+              
+              any[]
+              
+            </td>
+            <td
+              class=""
+            >
+              
+              <svg
+                class="t-icon t-icon-attach"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M12.13 3.86a2.02 2.02 0 00-2.85 0l-7.2 7.21-.71-.7 7.2-7.21a3.02 3.02 0 114.27 4.26L7 13.26a1.88 1.88 0 01-2.66-2.66L10 4.93l.71.7-5.67 5.68a.88.88 0 101.25 1.25l5.84-5.84c.79-.8.78-2.08-.01-2.86z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              <a
+                class="link"
+                href="#"
+              >
+                公有
+              </a>
+              （插槽自定义单元格） 
+              
+            </td>
+            <td
+              class=""
+            >
+              <div>
+                使用 cell 方法自定义单元格：
+                data
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              render 方法渲染单元格: 0-3
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class=""
+            >
+              
+              String
+              
+            </td>
+            <td
+              class=""
+            >
+              
+              <svg
+                class="t-icon t-icon-attach"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M12.13 3.86a2.02 2.02 0 00-2.85 0l-7.2 7.21-.71-.7 7.2-7.21a3.02 3.02 0 114.27 4.26L7 13.26a1.88 1.88 0 01-2.66-2.66L10 4.93l.71.7-5.67 5.68a.88.88 0 101.25 1.25l5.84-5.84c.79-.8.78-2.08-.01-2.86z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              <a
+                class="link"
+                href="#"
+              >
+                公有
+              </a>
+              （插槽自定义单元格） 
+              
+            </td>
+            <td
+              class=""
+            >
+              <div>
+                使用 cell 方法自定义单元格：
+                rowkey
+              </div>
+            </td>
+            <td
+              class=""
+            >
+              render 方法渲染单元格: 1-3
+            </td>
+            
+          </tr>
+          
+          <!---->
+          
+        </tbody>
+        <!---->
+      </table>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Table Table customColVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column-large"
+>
+  <!-- 按钮操作区域 -->
+  <!-- 设置哪些列允许自定义显示 :columnController="{ fields: ['platform', 'type', 'default']}" -->
+  <div
+    class="t-table t-size-m t-table--bordered t-table--striped"
+    columncontroller="[object Object]"
+    defaultexpandedrowkeys=""
+    dragsort="drag-col"
+    expandicon="true"
+    expandonrowclick="false"
+    multiplesort="false"
+    sortonrowdraggable="false"
+    style="position: relative;"
+  >
+    <div
+      class="t-table__top-content"
+    >
+      <div
+        class="t-table__column-controller"
+      >
+        <button
+          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-setting"
+              fill="none"
+              height="1em"
+              slot="icon"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+              <path
+                d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            列配置
+            
+          </span>
+        </button>
+      </div>
+    </div>
+    <!---->
+    <div
+      class="t-table__content"
+    >
+      <!---->
+      <table
+        class="t-table--layout-auto"
+      >
+        <colgroup>
+          
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+          <col />
+          
+        </colgroup>
+        <thead
+          class="t-table__header"
+        >
+          
+          <tr>
+            
+            <th
               class="row t-table__th-index t-align-center"
               data-colkey="index"
             >
@@ -748,8 +1342,11 @@ exports[`Table Table baseVue demo works fine 1`] = `
 </div>
 `;
 
-exports[`Table Table customCellVue demo works fine 1`] = `
-<div>
+exports[`Table Table customFooterVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column-large"
+>
+  <!-- rowClassName="tdesign-demo__row-custom-name" -->
   <div
     class="t-table t-size-m"
     defaultexpandedrowkeys=""
@@ -775,13 +1372,15 @@ exports[`Table Table customCellVue demo works fine 1`] = `
             style="width: 100px;"
           />
           <col
-            style="width: 236px;"
+            style="width: 100px;"
+          />
+          <col />
+          <col />
+          <col
+            style="width: 150px;"
           />
           <col
-            style="width: 290px;"
-          />
-          <col
-            style="width: 235px;"
+            style="width: 200px;"
           />
           
         </colgroup>
@@ -792,13 +1391,13 @@ exports[`Table Table customCellVue demo works fine 1`] = `
           <tr>
             
             <th
-              class="t-table__th-type"
-              data-colkey="type"
+              class="row t-table__th-index t-align-center"
+              data-colkey="index"
             >
               <div
                 class="t-table__th-cell-inner"
               >
-                类型
+                序号
               </div>
             </th>
             <th
@@ -812,23 +1411,49 @@ exports[`Table Table customCellVue demo works fine 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-property"
-              data-colkey="property"
+              class="t-table__th-type"
+              data-colkey="type"
             >
               <div
                 class="t-table__th-cell-inner"
               >
-                属性名
+                类型
               </div>
             </th>
             <th
-              class="t-table__th-description"
-              data-colkey="description"
+              class="t-table__th-default"
+              data-colkey="default"
             >
               <div
                 class="t-table__th-cell-inner"
               >
-                render
+                默认值
+              </div>
+            </th>
+            <th
+              class="t-table__th-required"
+              data-colkey="required"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                是否必传
+              </div>
+            </th>
+            <th
+              class="t-table__th-detail.postion"
+              data-colkey="detail.postion"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  详情信息
+                  
+                </div>
               </div>
             </th>
             
@@ -842,106 +1467,128 @@ exports[`Table Table customCellVue demo works fine 1`] = `
           <!---->
           
           <tr
-            class=""
+            class="t-tdesign__custom-body-tr"
           >
             
             <td
-              class=""
+              class="row t-align-center"
             >
-              
-              any[]
-              
+              0
             </td>
             <td
               class=""
             >
-              
-              <svg
-                class="t-icon t-icon-attach"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M12.13 3.86a2.02 2.02 0 00-2.85 0l-7.2 7.21-.71-.7 7.2-7.21a3.02 3.02 0 114.27 4.26L7 13.26a1.88 1.88 0 01-2.66-2.66L10 4.93l.71.7-5.67 5.68a.88.88 0 101.25 1.25l5.84-5.84c.79-.8.78-2.08-.01-2.86z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              <a
-                class="link"
-                href="#"
-              >
-                公有
-              </a>
-              （插槽自定义单元格） 
-              
+              共有
             </td>
             <td
               class=""
             >
-              <div>
-                使用 cell 方法自定义单元格：
-                data
+              String
+            </td>
+            <td
+              class=""
+            >
+              -
+            </td>
+            <td
+              class=""
+            >
+              是
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 0 个数据的嵌套信息值
+                
               </div>
-            </td>
-            <td
-              class=""
-            >
-              render 方法渲染单元格: 0-3
             </td>
             
           </tr>
           <tr
-            class=""
+            class="t-tdesign__custom-body-tr"
           >
             
             <td
-              class=""
+              class="row t-align-center"
             >
-              
-              String
-              
+              1
             </td>
             <td
               class=""
             >
-              
-              <svg
-                class="t-icon t-icon-attach"
-                fill="none"
-                height="1em"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M12.13 3.86a2.02 2.02 0 00-2.85 0l-7.2 7.21-.71-.7 7.2-7.21a3.02 3.02 0 114.27 4.26L7 13.26a1.88 1.88 0 01-2.66-2.66L10 4.93l.71.7-5.67 5.68a.88.88 0 101.25 1.25l5.84-5.84c.79-.8.78-2.08-.01-2.86z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
-              <a
-                class="link"
-                href="#"
-              >
-                公有
-              </a>
-              （插槽自定义单元格） 
-              
+              私有
             </td>
             <td
               class=""
             >
-              <div>
-                使用 cell 方法自定义单元格：
-                rowkey
+              Number
+            </td>
+            <td
+              class=""
+            >
+              0
+            </td>
+            <td
+              class=""
+            >
+              否
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 1 个数据的嵌套信息值
+                
               </div>
             </td>
+            
+          </tr>
+          <tr
+            class="t-tdesign__custom-body-tr"
+          >
+            
+            <td
+              class="row t-align-center"
+            >
+              2
+            </td>
             <td
               class=""
             >
-              render 方法渲染单元格: 1-3
+              共有
+            </td>
+            <td
+              class=""
+            >
+              Array
+            </td>
+            <td
+              class=""
+            >
+              []
+            </td>
+            <td
+              class=""
+            >
+              否
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 2 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -949,7 +1596,50 @@ exports[`Table Table customCellVue demo works fine 1`] = `
           <!---->
           
         </tbody>
-        <!---->
+        <tfoot
+          class="t-table__footer"
+        >
+          
+          <tr
+            class="t-tdesign__custom-footer-tr"
+          >
+            
+            <td>
+              <b
+                style="color: rgb(0, 82, 217);"
+              >
+                表尾
+              </b>
+            </td>
+            <td>
+              <span>
+                第 
+                1
+                 行
+              </span>
+            </td>
+            <td>
+              -
+            </td>
+            <td>
+              <span>
+                空
+              </span>
+            </td>
+            <td>
+              
+               插槽渲染表尾 
+              
+            </td>
+            <td>
+              <div>
+                渲染函数输出表尾信息
+              </div>
+            </td>
+            
+          </tr>
+          
+        </tfoot>
       </table>
     </div>
     <!---->
@@ -21511,5 +22201,121 @@ exports[`Table Table treeVue demo works fine 1`] = `
       :tree="{ indent: 12, childrenKey: 'list' }"
       @page-change="onPageChange"
     &gt;&lt;/t-enhanced-table&gt; -->
+</div>
+`;
+
+exports[`Table Table virtualScrollVue demo works fine 1`] = `
+<div
+  class="demo-container"
+>
+  <div
+    class="item"
+  >
+    <div
+      class="t-table t-size-m"
+      defaultexpandedrowkeys=""
+      dragsort="drag-col"
+      expandicon="true"
+      expandonrowclick="false"
+      multiplesort="false"
+      sortonrowdraggable="false"
+      style="position: relative;"
+    >
+      <!---->
+      <!---->
+      <div
+        class="t-table__content"
+        style="height: 200px;"
+      >
+        <div
+          class="t-table__virtual-scroll-cursor"
+          style="transform: translate(0, 48000px);"
+        />
+        <table
+          class="t-table--layout-fixed"
+        >
+          <colgroup>
+            
+            <col />
+            <col />
+            <col />
+            <col />
+            
+          </colgroup>
+          <thead
+            class="t-table__header"
+          >
+            
+            <tr>
+              
+              <th
+                class="t-table__th-id"
+                data-colkey="id"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  id
+                </div>
+              </th>
+              <th
+                class="t-table__th-instance"
+                data-colkey="instance"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  集群名称
+                </div>
+              </th>
+              <th
+                class="t-table__th-survivalTime"
+                data-colkey="survivalTime"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  存活时间(s)
+                </div>
+              </th>
+              <th
+                class="t-table__th-owner"
+                data-colkey="owner"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  管理员
+                </div>
+              </th>
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="t-table__body"
+            style="transform: translate(0, 0px);"
+          >
+            <tr
+              class="t-table__empty-row"
+            >
+              <td
+                colspan="4"
+              >
+                <div
+                  class="t-table__empty"
+                >
+                  暂无数据
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <!---->
+        </table>
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
 </div>
 `;
