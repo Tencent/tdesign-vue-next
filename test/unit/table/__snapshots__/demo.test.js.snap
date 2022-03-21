@@ -21001,7 +21001,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               >
                 
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21193,7 +21193,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               >
                 
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21385,7 +21385,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               >
                 
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21577,7 +21577,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               >
                 
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
@@ -21769,7 +21769,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
               >
                 
                 <div
-                  class="t-table__tree-col"
+                  class="t-table__tree-col t-table__tree-col--inline"
                 >
                   <svg
                     class="t-icon t-icon-add-rectangle t-table__tree-op-icon"

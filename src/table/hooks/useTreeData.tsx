@@ -57,9 +57,11 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
   );
 
   function getTreeNodeStyle(level: number, ellipsis: boolean) {
-    if (!level) return;
+    if (level === undefined) return;
     const indent = props.tree?.indent || 24;
-    return { paddingLeft: `${level * indent}px`, display: ellipsis ? 'inline' : undefined };
+    return {
+      paddingLeft: level ? `${level * indent}px` : undefined,
+    };
   }
 
   function toggleExpandData(p: PrimaryTableCellParams<TableRowData>) {
@@ -86,19 +88,24 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
       const cellInfo = renderCell({ ...p, col: { ...treeNodeCol.value } }, context.slots);
       const currentState = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey));
       const colStyle = getTreeNodeStyle(currentState?.level, !!col.ellipsis);
+      const classes = { [tableTreeClasses.inlineCol]: !!col.ellipsis };
       const childrenNodes = get(p.row, rowDataKeys.value.childrenKey);
       if (childrenNodes && childrenNodes instanceof Array) {
         const IconNode = store.value.treeDataMap.get(get(p.row, rowDataKeys.value.rowKey))?.expanded
           ? MinusRectangleIcon
           : AddRectangleIcon;
         return (
-          <div class={tableTreeClasses.col} style={colStyle}>
+          <div class={[tableTreeClasses.col, classes]} style={colStyle}>
             {!!childrenNodes.length && <IconNode class={tableTreeClasses.icon} onClick={() => toggleExpandData(p)} />}
             {cellInfo}
           </div>
         );
       }
-      return <div style={colStyle}>{cellInfo}</div>;
+      return (
+        <div style={colStyle} class={classes}>
+          {cellInfo}
+        </div>
+      );
     };
     // 树形节点会显示操作符号 [+] 和 [-]，但省略显示的浮层中不需要操作符
     if (newCol.ellipsis === true) {
