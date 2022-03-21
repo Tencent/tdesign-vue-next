@@ -33,6 +33,10 @@ describe('Progress', () => {
         });
         const lineClass = lineWrapper.element.querySelector('.t-progress__inner');
 
+        expect(lineClass !== undefined && lineClass !== null).toBe(true);
+        expect(lineWrapper.element).toMatchSnapshot();
+
+        // < 10% plump
         const plumpWrapper = mount({
           render() {
             return <Progress theme={'plump'}></Progress>;
@@ -40,11 +44,33 @@ describe('Progress', () => {
         });
         const plumpClass = plumpWrapper.element.querySelector('.t-progress__inner');
 
-        expect(lineClass !== undefined && lineClass !== null).toBe(true);
-        expect(lineWrapper.element).toMatchSnapshot();
-
         expect(plumpClass !== undefined && plumpClass !== null).toBe(true);
         expect(plumpWrapper.element).toMatchSnapshot();
+        expect(plumpWrapper.element.querySelector('.t-progress__info').innerHTML).toBe('0%');
+
+        // = 10% plump
+        const plump10Wrapper = mount({
+          render() {
+            return <Progress theme={'plump'} percentage={10}></Progress>;
+          },
+        });
+        const plump10Class = plump10Wrapper.element.querySelector('.t-progress__inner');
+
+        expect(plump10Class !== undefined && plump10Class !== null).toBe(true);
+        expect(plump10Wrapper.element).toMatchSnapshot();
+        expect(plump10Wrapper.element.querySelector('.t-progress__info').innerHTML).toBe('10%');
+
+        // > 10% plump
+        const plump11Wrapper = mount({
+          render() {
+            return <Progress theme={'plump'} percentage={11}></Progress>;
+          },
+        });
+        const plump11Class = plump11Wrapper.element.querySelector('.t-progress__inner');
+
+        expect(plump11Class !== undefined && plump11Class !== null).toBe(true);
+        expect(plump11Wrapper.element).toMatchSnapshot();
+        expect(plump11Class.querySelector('.t-progress__info').innerHTML).toBe('11%');
       });
       it(':theme circle progress has t-progress__circle-outer and t-progress__circle-inner class', () => {
         const wrapper = mount({
