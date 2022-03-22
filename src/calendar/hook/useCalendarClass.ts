@@ -65,3 +65,27 @@ export function useCalendarClass(props: TdCalendarProps, state: CalendarState) {
     tableBodyRow,
   };
 }
+
+export function useCalendarCellClass() {
+  const prefixClass = usePrefixClass(COMPONENT_NAME);
+
+  const tableBodyCell = computed<string[]>(() => {
+    return [`${prefixClass.value}__table-body-cell`];
+  });
+  const tableBodyCell4Now = computed<string>(() => {
+    return `${prefixClass.value}__table-body-cell--now`;
+  });
+  const tableBodyCellDisplay = computed<string[]>(() => {
+    return [`${prefixClass.value}__table-body-cell-display`];
+  });
+  const tableBodyCellCsontent = computed<string[]>(() => {
+    return [`${prefixClass.value}__table-body-cell-content`];
+  });
+
+  return {
+    tableBodyCell,
+    tableBodyCell4Now,
+    tableBodyCellDisplay,
+    tableBodyCellCsontent,
+  };
+}

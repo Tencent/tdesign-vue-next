@@ -4,6 +4,8 @@ import { emitEvent } from '../utils/event';
 
 import { usePrefixClass, useCommonClassName } from '../config-provider';
 
+import { useCalendarCellClass } from './hook';
+
 // 组件相关的自定义类型
 import { CalendarCell } from './type';
 import { renderContent } from '../utils/render-tnode';
@@ -36,8 +38,7 @@ export default defineComponent({
   },
   emits: ['click', 'dblclick', 'rightclick'],
   setup(props) {
-    const COMPONENT_NAME = usePrefixClass('calendar');
-    const classPrefix = usePrefixClass();
+    const cls = useCalendarCellClass();
     const { STATUS } = useCommonClassName();
 
     const valueDisplay = computed<string>(() => {
@@ -60,19 +61,18 @@ export default defineComponent({
       const isNow =
         mode === 'year' ? new Date().getMonth() === date.getMonth() : formattedDate === dayjs().format('YYYY-MM-DD');
       return [
-        `${COMPONENT_NAME.value}__table-body-cell`,
+        cls.tableBodyCell.value,
         {
           [STATUS.value.disabled]: disabled.value,
           [STATUS.value.checked]: isCurrent,
-          [`${COMPONENT_NAME.value}__table-body-cell--now`]: isNow,
+          [cls.tableBodyCell4Now.value]: isNow,
         },
       ];
     });
 
     return {
       STATUS,
-      COMPONENT_NAME,
-      classPrefix,
+      cls,
       cellCls,
       valueDisplay,
       allowSlot,
@@ -89,8 +89,8 @@ export default defineComponent({
 
     const renderDefaultNode = () => (
       <>
-        <div class={`${this.COMPONENT_NAME}__table-body-cell-display`}>{valueDisplay}</div>
-        <div class={`${this.COMPONENT_NAME}__table-body-cell-content`}>
+        <div class={this.cls.tableBodyCellDisplay.value}>{valueDisplay}</div>
+        <div class={this.cls.tableBodyCellCsontent.value}>
           {allowSlot &&
             renderContent(this, 'cellAppend', undefined, {
               params: { ...item },
