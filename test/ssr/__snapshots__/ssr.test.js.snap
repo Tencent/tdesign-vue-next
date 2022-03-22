@@ -50395,11 +50395,14 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/props.vue correc
       <div class="t-select t-select-polyfill t-size-m t-select-selected">
         <!----><span class="t-select__placeholder" style="display:none;">请选择</span>
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
+        <!--[-->
+        <!--]-->
+        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+2<!--]--><!----></span>
+        <!---->
+        <div class="t-input__wrap">
+          <div class="t-input t-select__input" modelvalue>
             <!---->
-            <!----><input class="t-input__inner" placeholder="shenzhen" type="text" value>
+            <!----><input class="t-input__inner" placeholder type="text" value>
             <!---->
             <!---->
             <!---->
@@ -50566,13 +50569,6 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
                   <!--]-->
                 </div>
                 <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
-                  <!--]-->
-                </div>
-              </div>
-              <!---->
-            </div>
-          </div>
           <!--]-->
           <!---->
         </div>
@@ -50696,11 +50692,9 @@ exports[`ssr snapshot test renders ./examples/upload/demos/base.vue correctly 1`
   </div>
   <!---->
   <!---->
-  <!---->
   <!----><small class="t-upload__tips t-size-s">上传文件大小在 5M 以内</small>
   <!---->
 </div>
-<!--]-->
 `;
 
 exports[`ssr snapshot test renders ./examples/upload/demos/custom-drag.vue correctly 1`] = `
