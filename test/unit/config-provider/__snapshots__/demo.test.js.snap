@@ -7359,7 +7359,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             
             <div>
               <p
-                class="t-select-loading-tips"
+                class="t-select-loading-tips t-select__right-icon-polyfill"
                 style="display: none;"
               >
                 <div
@@ -7406,7 +7406,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           see empty data in TreeSelect
-           
         </span>
         
         
@@ -7524,7 +7523,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             
             <div>
               <p
-                class="t-select-loading-tips"
+                class="t-select-loading-tips t-select__right-icon-polyfill"
               >
                 <div
                   class="t-select__empty"
@@ -7571,7 +7570,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           class="t-select__placeholder"
         >
           see loading text in TreeSelect
-           
         </span>
         
         
@@ -7655,7 +7653,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <div
     class="t-select__wrap"
-    modelvalue=""
     style="width: 400px;"
   >
     <div
@@ -7674,7 +7671,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             
             <div>
               <p
-                class="t-select-loading-tips"
+                class="t-select-loading-tips t-select__right-icon-polyfill"
                 style="display: none;"
               >
                 <div
@@ -7691,7 +7688,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                 <transition-group-stub>
                   
                   <div
-                    class="t-tree__item t-tree__item--open"
+                    class="t-tree__item"
                     data-level="0"
                     data-value="1"
                     style="--level: 0;"
@@ -7729,57 +7726,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                     
                   </div>
                   <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="1.1"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        1.1
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="1.2"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        1.2
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
+                    class="t-tree__item"
                     data-level="0"
                     data-value="2"
                     style="--level: 0;"
@@ -7816,56 +7763,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                     </span>
                     
                   </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="2.1"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        2.1
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="2.2"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        2.2
-                      </span>
-                    </span>
-                    
-                  </div>
                   
                 </transition-group-stub>
                 <!---->
@@ -7886,7 +7783,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           style="display: none;"
         >
           tree select
-           
         </span>
         
         
