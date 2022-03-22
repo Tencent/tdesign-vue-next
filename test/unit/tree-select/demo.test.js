@@ -6,11 +6,13 @@ import { mount } from '@vue/test-utils';
 import baseVue from '@/examples/tree-select/demos/base.vue';
 import lazyVue from '@/examples/tree-select/demos/lazy.vue';
 import prefixVue from '@/examples/tree-select/demos/prefix.vue';
+import valuedisplayVue from '@/examples/tree-select/demos/valuedisplay.vue';
 
 const mapper = {
   baseVue,
   lazyVue,
   prefixVue,
+  valuedisplayVue,
 };
 
 describe('TreeSelect', () => {

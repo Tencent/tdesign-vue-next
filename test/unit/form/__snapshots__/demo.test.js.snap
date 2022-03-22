@@ -1886,7 +1886,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                     
                     <div>
                       <p
-                        class="t-select-loading-tips"
+                        class="t-select-loading-tips t-select__right-icon-polyfill"
                         style="display: none;"
                       >
                         <div
@@ -1903,7 +1903,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                         <transition-group-stub>
                           
                           <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
+                            class="t-tree__item t-is-disabled"
                             data-level="0"
                             data-value="1"
                             style="--level: 0;"
@@ -1940,32 +1940,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                             
                           </div>
                           <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="1"
-                            data-value="300"
-                            style="--level: 1;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                南京市
-                              </span>
-                            </span>
-                            
-                          </div>
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
+                            class="t-tree__item t-is-disabled"
                             data-level="0"
                             data-value="2"
                             style="--level: 0;"
@@ -2002,32 +1977,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                             
                           </div>
                           <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="1"
-                            data-value="400"
-                            style="--level: 1;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                徐汇区
-                              </span>
-                            </span>
-                            
-                          </div>
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
+                            class="t-tree__item t-is-disabled"
                             data-level="0"
                             data-value="3"
                             style="--level: 0;"
@@ -2063,31 +2013,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                             </span>
                             
                           </div>
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="1"
-                            data-value="500"
-                            style="--level: 1;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                成都市
-                              </span>
-                            </span>
-                            
-                          </div>
                           
                         </transition-group-stub>
                         <!---->
@@ -2107,7 +2032,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                   class="t-select__placeholder"
                 >
                   请选择
-                   
                 </span>
                 
                 
