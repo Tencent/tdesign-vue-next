@@ -131,10 +131,10 @@ export default defineComponent({
 
     const handlePageChange = (type: string) => {
       const pageChangeMap = {
-        prevPage: () => toPage(current.value - 1),
-        nextPage: () => toPage(current.value + 1),
-        prevMorePage: () => toPage(current.value - props.foldedMaxPageBtn),
-        nextMorePage: () => toPage(current.value + props.foldedMaxPageBtn),
+        prevPage: () => toPage(innerCurrent.value - 1),
+        nextPage: () => toPage(innerCurrent.value + 1),
+        prevMorePage: () => toPage(innerCurrent.value - props.foldedMaxPageBtn),
+        nextMorePage: () => toPage(innerCurrent.value + props.foldedMaxPageBtn),
       };
 
       pageChangeMap[type]();
@@ -152,7 +152,7 @@ export default defineComponent({
 
       let isIndexChange = false;
 
-      if (current.value > pageCount) {
+      if (innerCurrent.value > pageCount) {
         isIndexChange = true;
       }
 
@@ -162,8 +162,8 @@ export default defineComponent({
        * @param {Number} index 当前页
        */
       const pageInfo = {
-        current: isIndexChange ? pageCount : current.value,
-        previous: current.value,
+        current: isIndexChange ? pageCount : innerCurrent.value,
+        previous: innerCurrent.value,
         pageSize,
       };
       props.onChange?.(pageInfo);
