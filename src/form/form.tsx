@@ -101,7 +101,7 @@ export default defineComponent({
         .filter((child) => this.isFunction(child.validate) && this.needValidate(child.name, fields))
         .map((child) => child.validate(trigger));
       const arr = await Promise.all(list);
-      const r = arr.reduce((r, err) => Object.assign(r || {}, err));
+      const r = arr.reduce((r, err) => Object.assign(r || {}, err), {});
       Object.keys(r).forEach((key) => {
         if (r[key] === true) {
           delete r[key];
