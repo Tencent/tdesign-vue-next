@@ -23,7 +23,6 @@ function getValidAttrs(obj: object): object {
 
 export default defineComponent({
   name: 'TTextarea',
-  inheritAttrs: false,
   props: { ...props },
   emits: ['update:modelValue'],
   setup(props, { attrs }) {
@@ -171,7 +170,9 @@ export default defineComponent({
         'narrow-scrollbar',
       ]);
 
-      const textareaNode = (
+      const tips = renderTNodeJSX('tips');
+
+      return (
         <div class={textareaClasses.value}>
           <textarea
             onInput={handleInput}
@@ -180,7 +181,6 @@ export default defineComponent({
             value={innerValue.value}
             style={textareaStyle.value}
             class={classes.value}
-            {...attrs}
             {...inputEvents}
             {...inputAttrs.value}
           ></textarea>
@@ -192,20 +192,11 @@ export default defineComponent({
               props.maxlength
             }`}</span>
           ) : null}
+          {tips && (
+            <div class={`${TEXTAREA_TIPS_CLASS.value} ${name.value}__tips--${props.status || 'normal'}`}>{tips}</div>
+          )}
         </div>
       );
-
-      const tips = renderTNodeJSX('tips');
-      if (tips) {
-        return (
-          <div class={TEXTAREA_WRAP_CLASS.value}>
-            {textareaNode}
-            <div class={`${TEXTAREA_TIPS_CLASS.value} ${name.value}__tips--${props.status || 'normal'}`}>{tips}</div>
-          </div>
-        );
-      }
-
-      return textareaNode;
     };
   },
 });

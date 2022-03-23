@@ -27,7 +27,6 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<InputConfig>('input')),
   name: 'TInput',
-  inheritAttrs: false,
   props: { ...props },
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
   setup() {
@@ -267,8 +266,6 @@ export default defineComponent({
       // eslint-disable-next-line @typescript-eslint/no-empty-function
     });
 
-    const wrapperAttrs = omit(this.$attrs, [...Object.keys(inputEvents), ...Object.keys(this.inputAttrs), 'input']);
-
     const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
 
     let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
@@ -313,7 +310,6 @@ export default defineComponent({
         onMouseenter={this.onInputMouseenter}
         onMouseleave={this.onInputMouseleave}
         onWheel={this.onHandleMousewheel}
-        {...wrapperAttrs}
       >
         {prefixIcon ? (
           <span class={[`${COMPONENT_NAME}__prefix`, `${COMPONENT_NAME}__prefix-icon`]}>{prefixIcon}</span>
