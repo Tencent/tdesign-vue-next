@@ -4162,12 +4162,13 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                         class="t-form-controls"
                                       >
                                         <div
+                                          allowinput="0"
                                           class="t-input__wrap"
+                                          input="function () { [native code] }"
+                                          modelvalue=""
                                         >
                                           <div
-                                            allowinput="0"
                                             class="t-input t-input--suffix"
-                                            modelvalue=""
                                           >
                                             <!---->
                                             <!---->

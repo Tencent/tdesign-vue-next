@@ -268,10 +268,10 @@ exports[`SelectInput SelectInput autowidthMultipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-input--suffix t-input--auto-width t-tag-input"
+        class="t-input t-input--prefix t-input--suffix t-input--auto-width"
       >
         <!---->
         <div
@@ -622,10 +622,10 @@ exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -933,10 +933,10 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -1160,10 +1160,10 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -1409,10 +1409,10 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -1692,10 +1692,10 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-tag-input"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -1805,10 +1805,10 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-tag-input"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -2142,10 +2142,10 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -2468,10 +2468,10 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
-        class="t-input t-input--prefix t-tag-input t-tag-input--break-line"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -3085,10 +3085,10 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
-        class="t-input t-input--prefix t-input--suffix t-tag-input t-tag-input--break-line"
+        class="t-input t-input--prefix t-input--suffix"
       >
         <!---->
         <div

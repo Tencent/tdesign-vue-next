@@ -6,10 +6,10 @@ exports[`TagInput TagInput autoWidthVue demo works fine 1`] = `
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-input--auto-width t-tag-input"
+      class="t-input t-input--prefix t-input--auto-width"
     >
       <!---->
       <div
@@ -84,10 +84,10 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -150,10 +150,10 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -221,10 +221,10 @@ exports[`TagInput TagInput baseVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -300,10 +300,10 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -356,10 +356,10 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
   </div>
   <!-- 方式一：使用渲染函数自定义折叠项 -->
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -434,10 +434,10 @@ exports[`TagInput TagInput collapsedVue demo works fine 1`] = `
   </div>
   <!-- 方式二：使用插槽自定义折叠项 -->
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -585,10 +585,10 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
 >
   <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -680,10 +680,10 @@ exports[`TagInput TagInput customTagVue demo works fine 1`] = `
   <br />
   <!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay -->
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -801,10 +801,10 @@ exports[`TagInput TagInput excessVue demo works fine 1`] = `
 >
   <!-- 标签数量超出时，滚动显示 -->
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -873,10 +873,10 @@ exports[`TagInput TagInput excessVue demo works fine 1`] = `
   </div>
   <!-- 标签数量超出时，换行显示 -->
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input t-tag-input--break-line"
   >
     <div
-      class="t-input t-input--prefix t-tag-input t-tag-input--break-line"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -951,10 +951,10 @@ exports[`TagInput TagInput maxVue demo works fine 1`] = `
   style="width: 100%;"
 >
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -983,10 +983,10 @@ exports[`TagInput TagInput sizeVue demo works fine 1`] = `
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-size-s t-input--prefix t-tag-input"
+      class="t-input t-size-s t-input--prefix"
     >
       <!---->
       <div
@@ -1049,10 +1049,10 @@ exports[`TagInput TagInput sizeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -1115,10 +1115,10 @@ exports[`TagInput TagInput sizeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-size-l t-input--prefix t-tag-input"
+      class="t-input t-size-l t-input--prefix"
     >
       <!---->
       <div
@@ -1195,10 +1195,10 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       禁用状态：
     </label>
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-disabled t-input--prefix t-tag-input"
+        class="t-input t-is-disabled t-input--prefix"
       >
         <!---->
         <div
@@ -1254,10 +1254,10 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       只读状态：
     </label>
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-tag-input"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -1317,10 +1317,10 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       成功状态：
     </label>
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-success t-input--prefix t-tag-input"
+        class="t-input t-is-success t-input--prefix"
       >
         <!---->
         <div
@@ -1415,10 +1415,10 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       告警状态：
     </label>
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-warning t-input--prefix t-tag-input"
+        class="t-input t-is-warning t-input--prefix"
       >
         <!---->
         <div
@@ -1513,10 +1513,10 @@ exports[`TagInput TagInput statusVue demo works fine 1`] = `
       错误状态：
     </label>
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-error t-input--prefix t-tag-input"
+        class="t-input t-is-error t-input--prefix"
       >
         <!---->
         <div
@@ -1613,10 +1613,10 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
   style="width: 80%;"
 >
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -1700,10 +1700,10 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -1787,10 +1787,10 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div
@@ -1874,10 +1874,10 @@ exports[`TagInput TagInput themeVue demo works fine 1`] = `
     <!---->
   </div>
   <div
-    class="t-input__wrap"
+    class="t-input__wrap t-tag-input"
   >
     <div
-      class="t-input t-input--prefix t-tag-input"
+      class="t-input t-input--prefix"
     >
       <!---->
       <div

@@ -3,10 +3,10 @@
 exports[`Input $attrs input attrs should pass to input element 1`] = `
 <div
   class="t-input__wrap"
+  maxlength="20"
 >
   <div
     class="t-input t-input--suffix"
-    maxlength="20"
   >
     <!---->
     <!---->
