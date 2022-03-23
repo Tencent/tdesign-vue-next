@@ -13,7 +13,12 @@
       placeholder="请选择"
     >
       <template #valueDisplay="{ value, onClose }">
-        <t-tag v-for="(item, index) in value" :key="index" closable :on-close="() => onClose(index)">
+        <t-tag
+          v-for="(item, index) in value"
+          :key="index"
+          closable
+          :on-close="() => onClose(item.value, { index, trigger: 'tag-remove' })"
+        >
           {{ item.label }}({{ item.value }})
         </t-tag>
       </template>

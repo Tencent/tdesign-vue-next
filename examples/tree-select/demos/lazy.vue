@@ -16,12 +16,12 @@ import { ref } from 'vue';
 
 const options = [
   {
-    label: '1',
+    label: 'A',
     value: '1',
     children: true,
   },
   {
-    label: '2',
+    label: 'B',
     value: '2',
     children: true,
   },
@@ -36,12 +36,12 @@ const loadFunc = (node) =>
       if (node.level < 2) {
         nodes = [
           {
-            label: `${node.label}.1`,
+            label: `${node.label}.A`,
             value: `${node.value}.1`,
             children: true,
           },
           {
-            label: `${node.label}.2`,
+            label: `${node.label}.B`,
             value: `${node.value}.2`,
             children: true,
           },
