@@ -90,7 +90,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         onFocus={(val, context) => {
           props.onFocus?.(value.value, { ...context, inputValue: val });
         }}
-        innerClass={{
+        inputClass={{
           [`${classPrefix.value}-input--focused`]: popupVisible,
         }}
       />

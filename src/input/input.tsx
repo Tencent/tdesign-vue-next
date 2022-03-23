@@ -290,7 +290,7 @@ export default defineComponent({
 
     const classes = [
       COMPONENT_NAME,
-      this.innerClass,
+      this.inputClass,
       {
         [SIZE[this.size]]: this.size !== 'medium',
         [STATUS.disabled]: this.disabled,

@@ -35,8 +35,8 @@ export default {
     type: Function as PropType<TdInputProps['format']>,
   },
   /** t-input 同级类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]` */
-  innerClass: {
-    type: [String, Object, Array] as PropType<TdInputProps['innerClass']>,
+  inputClass: {
+    type: [String, Object, Array] as PropType<TdInputProps['inputClass']>,
   },
   /** 左侧文本 */
   label: {

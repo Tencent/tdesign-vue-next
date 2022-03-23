@@ -44,7 +44,7 @@ export interface TdInputProps {
   /**
    * t-input 同级类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`
    */
-  innerClass?: ClassName;
+  inputClass?: ClassName;
   /**
    * 左侧文本
    */
