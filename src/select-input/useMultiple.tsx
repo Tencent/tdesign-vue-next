@@ -65,6 +65,9 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       inputValue: tInputValue.value || '',
       inputProps: {
         readonly: !props.allowInput || props.readonly,
+        innerClass: {
+          [`${classPrefix.value}-input--focused`]: p.popupVisible,
+        },
       },
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
     };
@@ -88,9 +91,6 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
         }}
         onFocus={(val, context) => {
           props.onFocus?.(props.value, { ...context, tagInputValue: val });
-        }}
-        innerClass={{
-          [`${classPrefix.value}-input--focused`]: p.popupVisible,
         }}
       />
     );

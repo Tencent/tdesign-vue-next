@@ -61,14 +61,6 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
     }
   };
 
-  watch(
-    [value],
-    () => {
-      inputValue.value = getInputValue(value.value, keys.value);
-    },
-    { immediate: true },
-  );
-
   const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
     const displayedValue = popupVisible && props.allowInput ? inputValue : getInputValue(value.value, keys.value);
