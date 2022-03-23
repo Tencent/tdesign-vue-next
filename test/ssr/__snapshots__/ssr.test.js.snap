@@ -36121,7 +36121,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`]
       <!---->
       <div class="t-table__content" style="height:200px;">
         <!---->
-        <table class="t-table--layout-fixed" style="width:;">
+        <table class="t-table--layout-fixed t-table--full-height" style="width:;">
           <colgroup>
             <!--[-->
             <col style="">
@@ -41181,7 +41181,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
       <!--[-->
       <div class="t-table__content" style="height:150px;">
         <!---->
-        <table class="t-table--layout-fixed" style="width:;">
+        <table class="t-table--layout-fixed t-table--full-height" style="width:;">
           <colgroup>
             <!--[-->
             <col style="width:100px;">
@@ -41279,7 +41279,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
       <!--[-->
       <div class="t-table__content" style="height:150px;">
         <!---->
-        <table class="t-table--layout-fixed" style="width:;">
+        <table class="t-table--layout-fixed t-table--full-height" style="width:;">
           <colgroup>
             <!--[-->
             <col style="width:100px;">
@@ -41381,7 +41381,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
       <!--[-->
       <div class="t-table__content" style="height:150px;">
         <!---->
-        <table class="t-table--layout-fixed" style="width:;">
+        <table class="t-table--layout-fixed t-table--full-height" style="width:;">
           <colgroup>
             <!--[-->
             <col style="width:100px;">
@@ -43634,7 +43634,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/virtual-scroll.vue cor
       <!---->
       <div class="t-table__content" style="height:200px;">
         <div class="t-table__virtual-scroll-cursor" style="transform:translate(0, 48000px);-ms-transform:translate(0, 48000px);-moz-transform:translate(0, 48000px);-webkit-transform:translate(0, 48000px);"></div>
-        <table class="t-table--layout-fixed" style="width:;">
+        <table class="t-table--layout-fixed t-table--full-height" style="width:;">
           <colgroup>
             <!--[-->
             <col style="">

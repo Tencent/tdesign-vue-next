@@ -7973,7 +7973,7 @@ exports[`Table Table lazyVue demo works fine 1`] = `
       >
         <!---->
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             
@@ -15114,7 +15114,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
       >
         <!---->
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             
@@ -15314,7 +15314,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
       >
         <!---->
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             
@@ -15524,7 +15524,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
       >
         <!---->
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             
@@ -22250,7 +22250,7 @@ exports[`Table Table virtualScrollVue demo works fine 1`] = `
           style="transform: translate(0, 48000px);"
         />
         <table
-          class="t-table--layout-fixed"
+          class="t-table--layout-fixed t-table--full-height"
         >
           <colgroup>
             
