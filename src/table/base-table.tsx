@@ -311,7 +311,7 @@ export default defineComponent({
         {this.showRightDivider && (
           <div
             class={this.tableBaseClass.scrollbarDivider}
-            style={{ right: `${this.scrollbarWidth}px`, height: `${this.tableContentRef.offsetHeight}px` }}
+            style={{ right: `${this.scrollbarWidth}px`, height: `${this.tableContentRef?.offsetHeight}px` }}
           ></div>
         )}
 

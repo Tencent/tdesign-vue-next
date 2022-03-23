@@ -9,6 +9,7 @@ import { ClassName, Styles } from '../common';
 import setStyle from '../utils/set-style';
 import { emitEvent } from '../utils/event';
 import { usePrefixClass, useCommonClassName } from '../config-provider';
+import useDestroyOnClose from '../hooks/useDestroyOnClose';
 
 const stop = (e: MouseEvent) => e.stopPropagation();
 
@@ -61,6 +62,7 @@ export default defineComponent({
   setup() {
     const COMPONENT_NAME = usePrefixClass('popup');
     const { STATUS } = useCommonClassName();
+    useDestroyOnClose();
     return {
       STATUS,
       COMPONENT_NAME,

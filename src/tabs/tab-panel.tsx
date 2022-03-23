@@ -2,17 +2,21 @@ import { defineComponent, getCurrentInstance } from 'vue';
 import props from './tab-panel-props';
 import { renderContent } from '../utils/render-tnode';
 import { usePrefixClass } from '../config-provider';
+import useDestroyOnClose from '../hooks/useDestroyOnClose';
 
 export default defineComponent({
   name: 'TTabPanel',
 
   props: { ...props },
+
   setup() {
     const COMPONENT_NAME = usePrefixClass('tab-panel');
+    useDestroyOnClose();
     return {
       COMPONENT_NAME,
     };
   },
+
   computed: {
     active(): boolean {
       const { value } = this.$parent as any;

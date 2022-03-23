@@ -1,10 +1,11 @@
-import { ref, reactive, watch, toRefs, SetupContext, onMounted, onUnmounted, computed } from 'vue';
+import { ref, reactive, watch, toRefs, SetupContext, onMounted, onUnmounted, computed, onUpdated, inject } from 'vue';
 import get from 'lodash/get';
 import log from '../../_common/js/log';
 import { ClassName, Styles } from '../../common';
 import { BaseTableCol, TdBaseTableProps } from '../type';
 import getScrollbarWidth from '../../_common/js/utils/getScrollbarWidth';
 import { on, off } from '../../utils/dom';
+import { TDisplayNoneElementRefresh } from '../../hooks/useDestroyOnClose';
 
 export interface ColumnStickyLeftAndRight {
   left: number[];
@@ -133,8 +134,9 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   const virtualScrollHeaderPos = ref<{ left: number; top: number }>({ left: 0, top: 0 });
   const tableWidth = ref(0);
   const thWidthList = ref<{ [colKey: string]: number }>({});
-
   const isFixedColumn = ref(false);
+
+  const displayNoneElementRefresh = inject(TDisplayNoneElementRefresh, ref(0));
 
   // 没有表头吸顶，没有虚拟滚动，则不需要表头宽度计算
   const notNeedThWidthList = computed(() => !(props.headerAffixedTop || props.scroll?.type === 'virtual'));
@@ -471,19 +473,22 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     }
     if (isFixedColumn.value || isFixedHeader.value) {
       updateFixedStatus();
-      updateColumnFixedShadow(tableContentRef.value);
+      updateFixedColumnHandler();
     }
   };
 
   const onResize = refreshTable;
 
+  // 父元素 display: none 的变化，子元素无法监听到，通过 provide/inject 方式处理组件更新
+  watch([displayNoneElementRefresh], () => {
+    if (!displayNoneElementRefresh) return;
+    requestAnimationFrame ? requestAnimationFrame(refreshTable) : refreshTable();
+  });
+
   onMounted(() => {
     const scrollWidth = getScrollbarWidth();
     scrollbarWidth.value = scrollWidth;
-    const timer = setTimeout(() => {
-      setTableWidth();
-      clearTimeout(timer);
-    });
+    setTableWidth();
     if (isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value) {
       on(window, 'resize', onResize);
     }
