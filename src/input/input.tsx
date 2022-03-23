@@ -290,6 +290,7 @@ export default defineComponent({
 
     const classes = [
       COMPONENT_NAME,
+      this.innerClass,
       {
         [SIZE[this.size]]: this.size !== 'medium',
         [STATUS.disabled]: this.disabled,
@@ -317,7 +318,7 @@ export default defineComponent({
         {labelContent}
         <input
           class={`${COMPONENT_NAME}__inner`}
-          {...{ ...this.inputAttrs }}
+          {...this.inputAttrs}
           {...inputEvents}
           ref="inputRef"
           value={this.inputValue}

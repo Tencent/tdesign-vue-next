@@ -4,7 +4,7 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { TNode, SizeEnum } from '../common';
+import { TNode, SizeEnum, ClassName } from '../common';
 
 export interface TdInputProps {
   /**
@@ -14,8 +14,9 @@ export interface TdInputProps {
   align?: 'left' | 'center' | 'right';
   /**
    * 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete)
+   * @default ''
    */
-  autocomplete?: 'on' | 'off';
+  autocomplete?: string;
   /**
    * 自动聚焦
    * @default false
@@ -40,6 +41,10 @@ export interface TdInputProps {
    * 【开发中】指定输入框展示值的格式
    */
   format?: (value: InputValue) => number | string;
+  /**
+   * t-input 同级类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]`
+   */
+  innerClass?: ClassName;
   /**
    * 左侧文本
    */
@@ -66,7 +71,7 @@ export interface TdInputProps {
    */
   prefixIcon?: TNode;
   /**
-   * 输入框是否只读
+   * 只读状态
    * @default false
    */
   readonly?: boolean;

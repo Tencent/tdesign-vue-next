@@ -19,11 +19,8 @@ export default {
   },
   /** 是否开启自动填充功能，HTML5 原生属性，[点击查看详情](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) */
   autocomplete: {
-    type: String as PropType<TdInputProps['autocomplete']>,
-    validator(val: TdInputProps['autocomplete']): boolean {
-      if (!val) return true;
-      return ['on', 'off'].includes(val);
-    },
+    type: String,
+    default: '',
   },
   /** 自动聚焦 */
   autofocus: Boolean,
@@ -36,6 +33,10 @@ export default {
   /** 【开发中】指定输入框展示值的格式 */
   format: {
     type: Function as PropType<TdInputProps['format']>,
+  },
+  /** t-input 同级类名，示例：'name1 name2 name3' 或 `['name1', 'name2']` 或 `[{ 'name1': true }]` */
+  innerClass: {
+    type: [String, Object, Array] as PropType<TdInputProps['innerClass']>,
   },
   /** 左侧文本 */
   label: {
@@ -63,7 +64,7 @@ export default {
   prefixIcon: {
     type: Function as PropType<TdInputProps['prefixIcon']>,
   },
-  /** 输入框是否只读 */
+  /** 只读状态 */
   readonly: Boolean,
   /** 输入框内容为空时，悬浮状态是否显示清空按钮，默认不显示 */
   showClearIconOnEmpty: Boolean,
