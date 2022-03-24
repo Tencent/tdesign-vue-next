@@ -1,0 +1,107 @@
+import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
+import { SLIDER_DEFAULT_WIDTH } from '../const';
+import { Select as TSelect, Option as TOption } from '../../select';
+import Draggable, { Coordinate } from '../utils/draggable';
+import { useBaseClassName } from '../hooks';
+import baseProps from './base-props';
+
+export default defineComponent({
+  name: 'ColorSlider',
+  components: {
+    TSelect,
+    TOption,
+  },
+  props: {
+    ...baseProps,
+    className: {
+      type: String,
+      default: '',
+    },
+    value: {
+      type: Number,
+      default: 0,
+    },
+    maxValue: {
+      type: Number,
+      default: 360,
+    },
+    railStyle: {
+      type: Object as PropType<any>,
+    },
+  },
+  setup(props) {
+    const baseClassName = useBaseClassName();
+    const refPanel = ref<HTMLElement>(null);
+    const refThumb = ref<HTMLElement>(null);
+    const dragInstance = ref<Draggable>(null);
+    const isMoved = ref<Boolean>(false);
+    const panelRect = reactive({
+      width: SLIDER_DEFAULT_WIDTH,
+    });
+    const styles = computed(() => {
+      const { width } = panelRect;
+      if (!width) {
+        return;
+      }
+      const left = Math.round((props.value / props.maxValue) * width);
+      return {
+        left: `${left}px`,
+        color: props.color.rgb,
+      };
+    });
+
+    const handleDrag = (coordinate: Coordinate, isEnded?: boolean) => {
+      if (props.disabled) {
+        return;
+      }
+      const { width } = panelRect;
+      const { x } = coordinate;
+      const value = Math.round((x / width) * props.maxValue * 100) / 100;
+      isMoved.value = true;
+      props.onChange(value, isEnded);
+    };
+
+    const handleDragEnd = (coordinate: Coordinate) => {
+      if (props.disabled || !isMoved.value) {
+        return;
+      }
+      handleDrag(coordinate, true);
+      isMoved.value = false;
+    };
+
+    onMounted(() => {
+      panelRect.width = refPanel.value.offsetWidth || SLIDER_DEFAULT_WIDTH;
+      dragInstance.value = new Draggable(refPanel.value, {
+        start: () => {
+          // pop模式下由于是隐藏显示，这个宽度让其每次点击的时候重新计算
+          panelRect.width = refPanel.value.offsetWidth;
+          isMoved.value = false;
+        },
+        drag: (coordinate: Coordinate) => {
+          handleDrag(coordinate);
+        },
+        end: handleDragEnd,
+      });
+    });
+
+    onBeforeUnmount(() => {
+      dragInstance.value.destroy();
+    });
+
+    return {
+      baseClassName,
+      refThumb,
+      refPanel,
+      styles,
+    };
+  },
+  render() {
+    const { baseClassName, className, railStyle, styles } = this;
+    return (
+      <div class={[`${baseClassName}__slider`, className]} ref="refPanel">
+        <div class={`${baseClassName}__rail`} style={railStyle}></div>
+        <span class={[`${baseClassName}__thumb`]} role="slider" tabindex={0} ref="refThumb" style={styles}></span>
+      </div>
+    );
+  },
+});
