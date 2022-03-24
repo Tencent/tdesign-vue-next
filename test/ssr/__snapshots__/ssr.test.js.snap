@@ -11625,7 +11625,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->Confirm<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->Confirm<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->Now<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -43905,7 +43905,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/base.vue correct
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -44104,7 +44104,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/base.vue correct
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -44309,7 +44309,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/clearable.vue co
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -44509,7 +44509,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/clearable.vue co
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -44713,7 +44713,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/disabled.vue cor
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -44912,7 +44912,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/format.vue corre
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -45117,7 +45117,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -45317,7 +45317,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -45453,7 +45453,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hm.vue correctly
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -45654,7 +45654,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hms.vue correctl
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -45859,7 +45859,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/keyboard.vue cor
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -46059,7 +46059,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/keyboard.vue cor
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -46566,7 +46566,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/show-steps.vue c
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -46697,7 +46697,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/step.vue correct
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -46896,7 +46896,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour.vue 
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
@@ -47095,7 +47095,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour-meri
             </div>
             <!---->
           </div>
-          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[--><!--]--></span></button></div>
+          <div class="t-time-picker__panel-section-footer"><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->确定<!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->此刻<!--]--></span></button></div>
         </div>
         <!--]-->
         <!---->
