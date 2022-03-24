@@ -1,4 +1,4 @@
-import { computed, inject } from 'vue';
+import { computed, inject, h } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import _mergeWith from 'lodash/mergeWith';
 import { defaultGlobalConfig, GlobalConfig } from './context';
@@ -48,7 +48,7 @@ export function useConfig<T extends keyof GlobalConfig>(componentName?: T) {
       return translated;
     }
     if (typeof pattern === 'function') {
-      return pattern(data);
+      return pattern(data ?? h);
     }
     return '';
   };

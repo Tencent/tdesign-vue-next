@@ -10,6 +10,8 @@ import { TNode } from '../common';
 type SortTypeEnums = Array<'desc' | 'asc'>;
 
 export default defineComponent({
+  name: 'TSorterButton',
+
   props: {
     sortType: {
       type: String as PropType<SortType>,
@@ -26,7 +28,7 @@ export default defineComponent({
   emits: ['sort-icon-click'],
 
   setup(props, context) {
-    const { tableSortClasses, negativeRoate180 } = useClassName();
+    const { tableSortClasses, negativeRotate180 } = useClassName();
     const renderTNode = useTNodeDefault();
     const { t, global } = useConfig('table');
 
@@ -42,7 +44,7 @@ export default defineComponent({
       t,
       global,
       tableSortClasses,
-      negativeRoate180,
+      negativeRotate180,
       allowSortTypes,
       onSortIconClick,
       renderTNode,
@@ -57,7 +59,7 @@ export default defineComponent({
         activeClass,
         this.tableSortClasses.sortIcon,
         this.tableSortClasses.iconDirection[direction],
-        { [this.negativeRoate180]: direction === 'asc' },
+        { [this.negativeRotate180]: direction === 'asc' },
       ];
       return (
         <span class={sortClassName} onClick={(e) => this.onSortIconClick(e, direction)}>

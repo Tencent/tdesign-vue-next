@@ -234,8 +234,9 @@ export default defineComponent({
 
     onBeforeUnmount(() => {
       if (props.isVirtual) {
-        const { $index } = props.row;
-        props.trs.delete($index);
+        const { trs, row } = props;
+        const { $index } = row;
+        trs.delete($index);
       }
     });
 

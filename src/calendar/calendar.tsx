@@ -50,12 +50,12 @@ const getDefaultControllerConfigData = (visible = true): Record<string, any> => 
   // 年份选择框组件相关设置
   year: {
     visible: true, // 是否显示
-    selecteProps: {}, // 用于透传props给该select组件
+    selectProps: {}, // 用于透传props给该select组件
   },
   // 年份选择框组件相关设置
   month: {
     visible: true, // 是否显示（“year”模式下本身是不显示该组件的）
-    selecteProps: {}, // 用于透传props给该select组件
+    selectProps: {}, // 用于透传props给该select组件
   },
   // 隐藏\显示周末按钮组件相关设置
   weekend: {
@@ -316,10 +316,10 @@ export default defineComponent({
       return this.checkControllerDisabled('mode', 'radioGroupProps');
     },
     isYearDisabled(): boolean {
-      return this.checkControllerDisabled('year', 'selecteProps');
+      return this.checkControllerDisabled('year', 'selectProps');
     },
     isMonthDisabled(): boolean {
-      return this.checkControllerDisabled('month', 'selecteProps');
+      return this.checkControllerDisabled('month', 'selectProps');
     },
     isWeekendToggleDisabled(): boolean {
       const p = this.isShowWeekend ? 'hideWeekendButtonProps' : 'showWeekendButtonProps';
@@ -483,7 +483,7 @@ export default defineComponent({
                   v-model={this.curSelectedYear}
                   size={this.controlSize}
                   disabled={this.isYearDisabled}
-                  {...this.controllerConfigData.year.selecteProps}
+                  {...this.controllerConfigData.year.selectProps}
                 >
                   {this.yearSelectOptionList.map((item) => (
                     <t-option key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
@@ -499,7 +499,7 @@ export default defineComponent({
                   v-model={this.curSelectedMonth}
                   size={this.controlSize}
                   disabled={this.isMonthDisabled}
-                  {...this.controllerConfigData.month.selecteProps}
+                  {...this.controllerConfigData.month.selectProps}
                 >
                   {this.monthSelectOptionList.map((item) => (
                     <t-option key={item.value} value={item.value} label={item.label} disabled={item.disabled}>

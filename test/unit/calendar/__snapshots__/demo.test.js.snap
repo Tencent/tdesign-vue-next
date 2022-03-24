@@ -7192,7 +7192,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                         style="display: none;"
                       >
                         <li
-                          class="t-select-option t-size-s t-select__create-option--special"
+                          class="t-select-option t-size-m t-select__create-option--special"
                           title=""
                         >
                           <span>
@@ -7202,7 +7202,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                       </ul>
                       <!---->
                       <li
-                        class="t-select__empty t-size-s"
+                        class="t-select__empty t-size-m"
                       >
                         暂无数据
                       </li>
@@ -7212,7 +7212,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                         
                         
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2010 年"
                         >
                           <span>
@@ -7222,7 +7222,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2011 年"
                         >
                           <span>
@@ -7232,7 +7232,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2012 年"
                         >
                           <span>
@@ -7242,7 +7242,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2013 年"
                         >
                           <span>
@@ -7252,7 +7252,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2014 年"
                         >
                           <span>
@@ -7262,7 +7262,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2015 年"
                         >
                           <span>
@@ -7272,7 +7272,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2016 年"
                         >
                           <span>
@@ -7282,7 +7282,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2017 年"
                         >
                           <span>
@@ -7292,7 +7292,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2018 年"
                         >
                           <span>
@@ -7302,7 +7302,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2019 年"
                         >
                           <span>
@@ -7312,7 +7312,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-is-selected t-size-s"
+                          class="t-select-option t-is-selected t-size-m"
                           title="2020 年"
                         >
                           <span>
@@ -7322,7 +7322,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2021 年"
                         >
                           <span>
@@ -7332,7 +7332,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2022 年"
                         >
                           <span>
@@ -7342,7 +7342,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2023 年"
                         >
                           <span>
@@ -7352,7 +7352,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2024 年"
                         >
                           <span>
@@ -7362,7 +7362,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2025 年"
                         >
                           <span>
@@ -7372,7 +7372,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2026 年"
                         >
                           <span>
@@ -7382,7 +7382,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2027 年"
                         >
                           <span>
@@ -7392,7 +7392,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2028 年"
                         >
                           <span>
@@ -7402,7 +7402,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2029 年"
                         >
                           <span>
@@ -7412,7 +7412,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2030 年"
                         >
                           <span>
@@ -7433,13 +7433,13 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
               </transition-stub>
               
               <div
-                class="t-select t-select-polyfill t-size-s"
+                class="t-select t-select-polyfill t-size-m"
               >
                 <!---->
                 <!---->
                 <!---->
                 <span
-                  class="t-tag t-tag--default t-tag--dark t-size-s"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->
@@ -7507,7 +7507,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                         style="display: none;"
                       >
                         <li
-                          class="t-select-option t-size-s t-select__create-option--special"
+                          class="t-select-option t-size-m t-select__create-option--special"
                           title=""
                         >
                           <span>
@@ -7517,7 +7517,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                       </ul>
                       <!---->
                       <li
-                        class="t-select__empty t-size-s"
+                        class="t-select__empty t-size-m"
                       >
                         暂无数据
                       </li>
@@ -7527,7 +7527,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                         
                         
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="1 月"
                         >
                           <span>
@@ -7537,7 +7537,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="2 月"
                         >
                           <span>
@@ -7547,7 +7547,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="3 月"
                         >
                           <span>
@@ -7557,7 +7557,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="4 月"
                         >
                           <span>
@@ -7567,7 +7567,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="5 月"
                         >
                           <span>
@@ -7577,7 +7577,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="6 月"
                         >
                           <span>
@@ -7587,7 +7587,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="7 月"
                         >
                           <span>
@@ -7597,7 +7597,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="8 月"
                         >
                           <span>
@@ -7607,7 +7607,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="9 月"
                         >
                           <span>
@@ -7617,7 +7617,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="10 月"
                         >
                           <span>
@@ -7627,7 +7627,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-size-s"
+                          class="t-select-option t-size-m"
                           title="11 月"
                         >
                           <span>
@@ -7637,7 +7637,7 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
                           </span>
                         </li>
                         <li
-                          class="t-select-option t-is-selected t-size-s"
+                          class="t-select-option t-is-selected t-size-m"
                           title="12 月"
                         >
                           <span>
@@ -7658,13 +7658,13 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
               </transition-stub>
               
               <div
-                class="t-select t-select-polyfill t-size-s"
+                class="t-select t-select-polyfill t-size-m"
               >
                 <!---->
                 <!---->
                 <!---->
                 <span
-                  class="t-tag t-tag--default t-tag--dark t-size-s"
+                  class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
                 >
                   <!---->

@@ -146,7 +146,7 @@ export default function useClassName() {
     },
 
     positiveRoate90: `${classPrefix.value}-positive-rotate-90`,
-    negativeRoate180: `${classPrefix.value}-negative-rotate-180`,
+    negativeRotate180: `${classPrefix.value}-negative-rotate-180`,
   };
 
   return classNames;
