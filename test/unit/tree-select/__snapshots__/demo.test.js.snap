@@ -126,7 +126,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -166,23 +166,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
         />
         <!---->
         <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -317,7 +301,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -357,23 +341,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
         />
         <!---->
         <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -508,7 +476,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <span
           class="t-input__prefix t-input__prefix-icon"
@@ -543,23 +511,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
         />
         <!---->
         <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -694,7 +646,7 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -719,23 +671,7 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
         />
         <!---->
         <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -884,10 +820,10 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-input--suffix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -924,23 +860,7 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
         />
         <!---->
         <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+        <!---->
       </div>
       <!---->
     </div>
