@@ -1,80 +1,83 @@
-import { defineComponent, ref, onMounted, nextTick, watch } from 'vue';
+import { defineComponent, ref, onMounted, nextTick, watch, computed, inject, Ref, toRefs } from 'vue';
 import { prefix } from '../config';
 import props from './collapse-panel-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import FakeArrow from '../common-components/fake-arrow';
+import { CollapseValue } from './type';
 
 const preName = `${prefix}-collapse-panel`;
 
 export default defineComponent({
   name: 'TCollapsePanel',
-  inject: {
-    collapse: {
-      default: undefined,
-    },
-  },
   props,
-  setup(props, ctx) {
-    const isActive = ref(false);
+  setup(props, context) {
+    const { header, value, disabled } = toRefs(props);
+    const { slots } = context;
+    const collapseValue: Ref<CollapseValue> = inject('collapseValue');
+    const updateCollapseValue: Function = inject('updateCollapseValue');
+    const defaultExpandAll: Ref<boolean> = inject('defaultExpandAll');
+    const disableAll: Ref<boolean> = inject('disableAll');
     const wrapDom = ref<HTMLElement>();
     const headDom = ref<HTMLElement>();
     const bodyDom = ref<HTMLElement>();
     const handleClick = () => {
-      isActive.value = !isActive.value;
-    };
-    const updatePanelState = () => {
-      if (!wrapDom.value) {
-        return;
+      if (!(disableAll.value || disabled.value)) {
+        updateCollapseValue(value.value);
       }
+    };
+    if (defaultExpandAll.value) {
+      updateCollapseValue(value.value);
+    }
+    const isActive = computed(() =>
+      collapseValue.value instanceof Array
+        ? collapseValue.value.includes(value.value)
+        : collapseValue.value === value.value,
+    );
+    watch(isActive, (activeVal) => updatePanelState(activeVal));
+    const updatePanelState = (isActive: boolean) => {
+      if (!wrapDom.value) return;
       const headHeight = headDom.value.getBoundingClientRect().height;
       const bodyHeight = bodyDom.value.getBoundingClientRect().height;
-      wrapDom.value.style.height = !isActive.value ? `${headHeight}px` : `${headHeight + bodyHeight}px`;
+      wrapDom.value.style.height = isActive ? `${headHeight + bodyHeight}px` : `${headHeight}px`;
     };
-    watch(isActive, () => {
-      nextTick(updatePanelState);
-    });
     onMounted(() => {
       nextTick(() => {
-        updatePanelState();
+        updatePanelState(isActive.value);
       });
     });
-    return {
-      handleClick,
-      wrapDom,
-      headDom,
-      bodyDom,
-      isActive,
-    };
-  },
-  methods: {
-    renderHeader() {
-      const { header } = this;
+    const renderHeader = () => {
       return (
-        <div ref="headDom" class={`${preName}__header`} onClick={this.handleClick}>
-          <FakeArrow isActive={this.expand} />
-          {header}
+        <div ref="headDom" class={`${preName}__header`} onClick={handleClick}>
+          <FakeArrow isActive={isActive.value} />
+          {header.value}
         </div>
       );
-    },
-    renderBody() {
-      if (this.$slots.default) {
-        const body = this.$slots.default();
+    };
+    const renderBody = () => {
+      if (slots?.default) {
+        const body = slots.default();
         return (
           <div ref="bodyDom" class={`${preName}__body`}>
             {body}
           </div>
         );
       }
-      return null;
-    },
+    };
+    return {
+      renderHeader,
+      renderBody,
+      wrapDom,
+      headDom,
+      bodyDom,
+    };
   },
   render() {
-    const rightIcon = renderTNodeJSX(this, 'headerRightContent');
+    const { renderHeader, renderBody } = this;
     return (
       <div class={preName}>
         <div ref="wrapDom" class={`${preName}__wrapper`}>
-          {this.renderHeader()}
-          {this.renderBody()}
+          {renderHeader()}
+          {renderBody()}
         </div>
       </div>
     );

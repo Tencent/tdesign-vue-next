@@ -63,6 +63,12 @@ export interface TdCollapsePanelProps {
    * 折叠面板内容
    */
   content?: string | TNode;
+
+  /**
+   * 折叠面板标识
+   */
+  value?: string | number;
+
   /**
    * 折叠面板内容，同 content
    */

@@ -12,6 +12,11 @@ export default {
   content: {
     type: [String, Function] as PropType<TdCollapsePanelProps['content']>,
   },
+  /** 折叠面板标识 */
+  value: {
+    type: [String, Number] as PropType<TdCollapsePanelProps['value']>,
+  },
+
   /** 折叠面板内容，同 content */
   default: {
     type: [String, Function] as PropType<TdCollapsePanelProps['default']>,
