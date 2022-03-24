@@ -1,4 +1,15 @@
-import { defineComponent, ref, onMounted, nextTick, watch, computed, inject, Ref, toRefs } from 'vue';
+import {
+  defineComponent,
+  ref,
+  onMounted,
+  nextTick,
+  watch,
+  computed,
+  inject,
+  Ref,
+  toRefs,
+  ComponentPublicInstance,
+} from 'vue';
 import { prefix } from '../config';
 import props from './collapse-panel-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -11,17 +22,24 @@ export default defineComponent({
   name: 'TCollapsePanel',
   props,
   setup(props, context) {
-    const { header, value, disabled } = toRefs(props);
-    const { slots } = context;
+    const { value, disabled } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
-    const defaultExpandAll: Ref<boolean> = inject('defaultExpandAll');
-    const disableAll: Ref<boolean> = inject('disableAll');
+    const {
+      defaultExpandAll,
+      disabled: disableAll,
+      expandIconPlacement,
+      expandOnRowClick,
+      expandIcon,
+    } = inject('collapseProps');
     const wrapDom = ref<HTMLElement>();
     const headDom = ref<HTMLElement>();
     const bodyDom = ref<HTMLElement>();
-    const handleClick = () => {
-      if (!(disableAll.value || disabled.value)) {
+    const handleClick = (e: MouseEvent) => {
+      const canExpand =
+        (expandOnRowClick.value && e.target === headDom.value) ||
+        (e.target as Element).getAttribute('name') === 'arrow';
+      if (canExpand && !(disableAll.value || disabled.value)) {
         updateCollapseValue(value.value);
       }
     };
@@ -45,26 +63,40 @@ export default defineComponent({
         updatePanelState(isActive.value);
       });
     });
-    const renderHeader = () => {
+    const renderIcon = (direction: string) => {
       return (
-        <div ref="headDom" class={`${preName}__header`} onClick={handleClick}>
-          <FakeArrow isActive={isActive.value} />
-          {header.value}
+        <FakeArrow
+          name="arrow"
+          isActive={isActive.value}
+          overlayClassName={`${preName}__icon ${preName}__icon--${direction}`}
+        />
+      );
+    };
+    const renderBlank = () => {
+      return <div class={`${preName}__header--blank`}></div>;
+    };
+    const renderHeader = (context: ComponentPublicInstance) => {
+      const cls = [`${preName}__header`, { [`${preName}__header-is-clickable`]: expandOnRowClick.value }];
+      return (
+        <div ref="headDom" class={cls} onClick={handleClick}>
+          {expandIcon.value && expandIconPlacement.value === 'left' ? renderIcon(expandIconPlacement.value) : null}
+          {renderTNodeJSX(context, 'header')}
+          {renderBlank()}
+          {renderTNodeJSX(context, 'headerRightContent')}
+          {expandIcon.value && expandIconPlacement.value === 'right' ? renderIcon(expandIconPlacement.value) : null}
         </div>
       );
     };
-    const renderBody = () => {
-      if (slots?.default) {
-        const body = slots.default();
-        return (
-          <div ref="bodyDom" class={`${preName}__body`}>
-            {body}
-          </div>
-        );
-      }
+    const renderBody = (context: ComponentPublicInstance) => {
+      return (
+        <div ref="bodyDom" class={`${preName}__body`}>
+          {renderTNodeJSX(context, 'default')}
+        </div>
+      );
     };
     return {
       renderHeader,
+      renderBlank,
       renderBody,
       wrapDom,
       headDom,
@@ -72,12 +104,12 @@ export default defineComponent({
     };
   },
   render() {
-    const { renderHeader, renderBody } = this;
+    const { renderBody, renderHeader } = this;
     return (
       <div class={preName}>
         <div ref="wrapDom" class={`${preName}__wrapper`}>
-          {renderHeader()}
-          {renderBody()}
+          {renderHeader(this)}
+          {renderBody(this)}
         </div>
       </div>
     );
