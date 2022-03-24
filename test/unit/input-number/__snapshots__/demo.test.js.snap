@@ -37,10 +37,10 @@ exports[`InputNumber InputNumber alignVue demo works fine 1`] = `
       </button>
       <div
         class="t-input__wrap"
+        unselectable="off"
       >
         <div
           class="t-input"
-          unselectable="off"
         >
           <!---->
           <!---->
@@ -110,10 +110,10 @@ exports[`InputNumber InputNumber alignVue demo works fine 1`] = `
       </button>
       <div
         class="t-input__wrap"
+        unselectable="off"
       >
         <div
           class="t-input t-align-center"
-          unselectable="off"
         >
           <!---->
           <!---->
@@ -183,10 +183,10 @@ exports[`InputNumber InputNumber alignVue demo works fine 1`] = `
       </button>
       <div
         class="t-input__wrap"
+        unselectable="off"
       >
         <div
           class="t-input t-align-right"
-          unselectable="off"
         >
           <!---->
           <!---->
@@ -237,10 +237,10 @@ exports[`InputNumber InputNumber alignVue demo works fine 1`] = `
       <!---->
       <div
         class="t-input__wrap"
+        unselectable="off"
       >
         <div
           class="t-input"
-          unselectable="off"
         >
           <!---->
           <!---->
@@ -264,10 +264,10 @@ exports[`InputNumber InputNumber alignVue demo works fine 1`] = `
       <!---->
       <div
         class="t-input__wrap"
+        unselectable="off"
       >
         <div
           class="t-input t-align-center"
-          unselectable="off"
         >
           <!---->
           <!---->
@@ -291,10 +291,10 @@ exports[`InputNumber InputNumber alignVue demo works fine 1`] = `
       <!---->
       <div
         class="t-input__wrap"
+        unselectable="off"
       >
         <div
           class="t-input t-align-right"
-          unselectable="off"
         >
           <!---->
           <!---->
@@ -347,10 +347,10 @@ exports[`InputNumber InputNumber autoWidthVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center t-input--auto-width"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -429,10 +429,10 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -506,10 +506,10 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -584,10 +584,10 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-is-disabled t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -662,10 +662,10 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -740,10 +740,10 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -818,10 +818,10 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -873,10 +873,10 @@ exports[`InputNumber InputNumber normalVue demo works fine 1`] = `
     <!---->
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -927,10 +927,10 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -1000,10 +1000,10 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -1072,10 +1072,10 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -1174,10 +1174,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-is-disabled t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -1275,10 +1275,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="on"
             >
               <div
                 class="t-input t-align-center t-is-readonly"
-                unselectable="on"
               >
                 <!---->
                 <!---->
@@ -1376,10 +1376,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -1476,10 +1476,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-is-success t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -1576,10 +1576,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-is-warning t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -1676,10 +1676,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-is-error t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -1776,10 +1776,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -1880,10 +1880,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-is-success t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -1984,10 +1984,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-is-warning t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -2088,10 +2088,10 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
             </button>
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input t-is-error t-align-center"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -2178,10 +2178,10 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->

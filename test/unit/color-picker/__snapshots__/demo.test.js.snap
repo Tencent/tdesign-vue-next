@@ -319,10 +319,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           <!---->
                           <div
                             class="t-input__wrap"
+                            unselectable="off"
                           >
                             <div
                               class="t-input t-align-center"
-                              unselectable="off"
                             >
                               <!---->
                               <!---->
@@ -352,10 +352,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           <!---->
                           <div
                             class="t-input__wrap"
+                            unselectable="off"
                           >
                             <div
                               class="t-input t-align-center"
-                              unselectable="off"
                             >
                               <!---->
                               <!---->
@@ -385,10 +385,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           <!---->
                           <div
                             class="t-input__wrap"
+                            unselectable="off"
                           >
                             <div
                               class="t-input t-align-center"
-                              unselectable="off"
                             >
                               <!---->
                               <!---->
@@ -930,10 +930,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
         >
           <div
             class="t-input__wrap"
+            modelvalue="#0052d9"
           >
             <div
               class="t-input t-input--prefix t-input--auto-width"
-              modelvalue="#0052d9"
             >
               <!---->
               <div
@@ -1229,10 +1229,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           <!---->
                           <div
                             class="t-input__wrap"
+                            unselectable="off"
                           >
                             <div
                               class="t-input t-align-center"
-                              unselectable="off"
                             >
                               <!---->
                               <!---->
@@ -1262,10 +1262,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           <!---->
                           <div
                             class="t-input__wrap"
+                            unselectable="off"
                           >
                             <div
                               class="t-input t-align-center"
-                              unselectable="off"
                             >
                               <!---->
                               <!---->
@@ -1295,10 +1295,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                           <!---->
                           <div
                             class="t-input__wrap"
+                            unselectable="off"
                           >
                             <div
                               class="t-input t-align-center"
-                              unselectable="off"
                             >
                               <!---->
                               <!---->
@@ -1840,10 +1840,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
         >
           <div
             class="t-input__wrap"
+            modelvalue="#0052d9"
           >
             <div
               class="t-input t-input--prefix t-input--auto-width"
-              modelvalue="#0052d9"
             >
               <!---->
               <div
@@ -1982,10 +1982,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       <!---->
                       <div
                         class="t-input__wrap"
+                        unselectable="off"
                       >
                         <div
                           class="t-input"
-                          unselectable="off"
                         >
                           <!---->
                           <!---->
@@ -2204,11 +2204,11 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input__wrap"
+                          modelvalue="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
+                          title="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
                         >
                           <div
                             class="t-input t-align-center"
-                            modelvalue="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
-                            title="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
                           >
                             <!---->
                             <!---->
@@ -2748,10 +2748,10 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
         >
           <div
             class="t-input__wrap"
+            modelvalue="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"
           >
             <div
               class="t-input t-input--prefix t-input--auto-width"
-              modelvalue="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"
             >
               <!---->
               <div
@@ -3085,10 +3085,10 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -3118,10 +3118,10 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -3151,10 +3151,10 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -3184,10 +3184,10 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -4002,10 +4002,10 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -4035,10 +4035,10 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -4068,10 +4068,10 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -4890,10 +4890,10 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -4923,10 +4923,10 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -4956,10 +4956,10 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -5904,10 +5904,10 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -5937,10 +5937,10 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -5970,10 +5970,10 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -6537,10 +6537,10 @@ exports[`ColorPicker ColorPicker statusDisabledVue demo works fine 1`] = `
       >
         <div
           class="t-input__wrap"
+          modelvalue="#0052d9"
         >
           <div
             class="t-input t-is-disabled t-input--prefix t-input--auto-width"
-            modelvalue="#0052d9"
           >
             <!---->
             <div
@@ -6863,10 +6863,10 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-is-disabled t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -6897,10 +6897,10 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-is-disabled t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -6931,10 +6931,10 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
                 <!---->
                 <div
                   class="t-input__wrap"
+                  unselectable="off"
                 >
                   <div
                     class="t-input t-is-disabled t-align-center"
-                    unselectable="off"
                   >
                     <!---->
                     <!---->
@@ -7754,10 +7754,10 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -7787,10 +7787,10 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -7820,10 +7820,10 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -8216,10 +8216,10 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -8249,10 +8249,10 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -8282,10 +8282,10 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
                   <!---->
                   <div
                     class="t-input__wrap"
+                    unselectable="off"
                   >
                     <div
                       class="t-input t-align-center"
-                      unselectable="off"
                     >
                       <!---->
                       <!---->
@@ -8627,10 +8627,10 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                         <!---->
                         <div
                           class="t-input__wrap"
+                          unselectable="off"
                         >
                           <div
                             class="t-input t-align-center"
-                            unselectable="off"
                           >
                             <!---->
                             <!---->
@@ -8660,10 +8660,10 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                         <!---->
                         <div
                           class="t-input__wrap"
+                          unselectable="off"
                         >
                           <div
                             class="t-input t-align-center"
-                            unselectable="off"
                           >
                             <!---->
                             <!---->
@@ -8693,10 +8693,10 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                         <!---->
                         <div
                           class="t-input__wrap"
+                          unselectable="off"
                         >
                           <div
                             class="t-input t-align-center"
-                            unselectable="off"
                           >
                             <!---->
                             <!---->
@@ -9238,10 +9238,10 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
       >
         <div
           class="t-input__wrap"
+          modelvalue="#0052d9"
         >
           <div
             class="t-input t-input--prefix t-input--auto-width"
-            modelvalue="#0052d9"
           >
             <!---->
             <div

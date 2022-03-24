@@ -241,6 +241,7 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
         onError,
         onProgress: handleProgress,
         onSuccess: handleSuccess,
+        method: props.method,
       });
     }
   };
