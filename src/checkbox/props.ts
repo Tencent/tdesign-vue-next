@@ -15,6 +15,10 @@ export default {
     type: Boolean,
     default: undefined,
   },
+  modelValue: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否选中，非受控属性 */
   defaultChecked: Boolean,
   /** 复选框内容，同 label */
@@ -43,13 +47,6 @@ export default {
   value: {
     type: [String, Number] as PropType<TdCheckboxProps['value']>,
   },
-  /** 复选框的值 */
-  modelValue: {
-    type: Boolean,
-    default: undefined,
-  },
-  needRipple: Boolean,
   /** 值变化时触发 */
   onChange: Function as PropType<TdCheckboxProps['onChange']>,
-  onUpdateModelValue: Function as PropType<TdCheckboxProps['onUpdateModelValue']>,
 };
