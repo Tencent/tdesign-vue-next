@@ -7423,7 +7423,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-input--suffix"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -7442,23 +7442,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         />
         <!---->
         <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+        <!---->
       </div>
       <!---->
     </div>
@@ -7547,21 +7531,33 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         <!---->
         <!---->
         <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
+          class="t-input__suffix t-input__suffix-icon"
         >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
+          <div
+            class="t-loading--center t-size-s t-loading"
           >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
+            <svg
+              class="t-loading__gradient t-icon-loading"
+              height="1em"
+              size="small"
+              version="1.1"
+              viewBox="0 0 14 14"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <foreignobject
+                height="12"
+                width="12"
+                x="1"
+                y="1"
+              >
+                <div
+                  class="t-loading__gradient-conic"
+                />
+              </foreignobject>
+            </svg>
+            <!---->
+          </div>
         </span>
       </div>
       <!---->
@@ -7695,7 +7691,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       class="t-input__wrap"
     >
       <div
-        class="t-input t-input--prefix t-input--suffix"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -7713,23 +7709,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         />
         <!---->
         <!---->
-        <span
-          class="t-input__suffix t-input__suffix-icon t-input__clear"
-        >
-          <svg
-            class="t-icon t-icon-close-circle-filled t-input__suffix-clear"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </span>
+        <!---->
       </div>
       <!---->
     </div>
