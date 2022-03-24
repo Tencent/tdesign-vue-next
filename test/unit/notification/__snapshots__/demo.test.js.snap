@@ -1092,10 +1092,10 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
   >
     <div
       class="t-input__wrap"
+      modelvalue=""
     >
       <div
         class="t-input"
-        modelvalue=""
       >
         <!---->
         <!---->
@@ -1112,10 +1112,10 @@ exports[`Notification Notification placementVue demo works fine 1`] = `
     </div>
     <div
       class="t-input__wrap"
+      modelvalue=""
     >
       <div
         class="t-input"
-        modelvalue=""
       >
         <!---->
         <!---->

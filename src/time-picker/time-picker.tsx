@@ -324,7 +324,6 @@ export default defineComponent({
             clearable={this.clearable}
             placeholder=" "
             value={this.time ? ' ' : undefined}
-            class={this.isShowPanel ? this.STATUS.focused : ''}
             v-slots={slots}
             ref="tInput"
             onFocus={this.handleTInputFocus}

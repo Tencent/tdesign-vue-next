@@ -2112,12 +2112,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -3713,12 +3714,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -4067,12 +4069,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -4706,12 +4709,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -5031,12 +5035,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -5612,12 +5617,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -6089,11 +6095,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
+            modelvalue=""
+            style="width: 400px;"
           >
             <div
               class="t-input"
-              modelvalue=""
-              style="width: 400px;"
             >
               <!---->
               <!---->
@@ -6137,11 +6143,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
+            modelvalue=""
+            style="width: 400px;"
           >
             <div
               class="t-input t-input--suffix"
-              modelvalue=""
-              style="width: 400px;"
             >
               <!---->
               <!---->
@@ -9187,10 +9193,10 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
       <!---->
       <div
         class="t-input__wrap"
+        unselectable="off"
       >
         <div
           class="t-input"
-          unselectable="off"
         >
           <!---->
           <!---->

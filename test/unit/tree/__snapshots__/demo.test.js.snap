@@ -3905,10 +3905,10 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
     </span>
     <div
       class="t-input__wrap"
+      modelvalue=""
     >
       <div
         class="t-input"
-        modelvalue=""
       >
         <!---->
         <!---->
@@ -7347,10 +7347,10 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
       </span>
       <div
         class="t-input__wrap"
+        modelvalue=""
       >
         <div
           class="t-input"
-          modelvalue=""
         >
           <!---->
           <!---->

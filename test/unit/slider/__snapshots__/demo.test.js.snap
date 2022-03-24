@@ -456,10 +456,10 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           </button>
           <div
             class="t-input__wrap"
+            unselectable="off"
           >
             <div
               class="t-input"
-              unselectable="off"
             >
               <!---->
               <!---->
@@ -636,10 +636,10 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           </button>
           <div
             class="t-input__wrap"
+            unselectable="off"
           >
             <div
               class="t-input"
-              unselectable="off"
             >
               <!---->
               <!---->
@@ -711,10 +711,10 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           </button>
           <div
             class="t-input__wrap"
+            unselectable="off"
           >
             <div
               class="t-input"
-              unselectable="off"
             >
               <!---->
               <!---->
@@ -860,10 +860,10 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           </button>
           <div
             class="t-input__wrap"
+            unselectable="off"
           >
             <div
               class="t-input"
-              unselectable="off"
             >
               <!---->
               <!---->
@@ -1039,10 +1039,10 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           </button>
           <div
             class="t-input__wrap"
+            unselectable="off"
           >
             <div
               class="t-input"
-              unselectable="off"
             >
               <!---->
               <!---->
@@ -1114,10 +1114,10 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           </button>
           <div
             class="t-input__wrap"
+            unselectable="off"
           >
             <div
               class="t-input"
-              unselectable="off"
             >
               <!---->
               <!---->

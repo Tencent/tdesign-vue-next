@@ -1,5 +1,402 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InputNumber InputNumber alignVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-column"
+>
+  <div
+    style="width: 20%;"
+  >
+    <div
+      class="t-input-number t-size-m t-input-number--row"
+      style="width: 120px;"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
+      >
+        
+        
+        <svg
+          class="t-icon t-icon-remove"
+          fill="none"
+          height="1em"
+          style="font-size: medium;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input"
+        >
+          <!---->
+          <!---->
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        
+        <svg
+          class="t-icon t-icon-add"
+          fill="none"
+          height="1em"
+          style="font-size: medium;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+        
+      </button>
+    </div>
+    <div
+      class="t-input-number t-size-m t-input-number--row"
+      style="width: 120px;"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
+      >
+        
+        
+        <svg
+          class="t-icon t-icon-remove"
+          fill="none"
+          height="1em"
+          style="font-size: medium;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center"
+        >
+          <!---->
+          <!---->
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        
+        <svg
+          class="t-icon t-icon-add"
+          fill="none"
+          height="1em"
+          style="font-size: medium;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+        
+      </button>
+    </div>
+    <div
+      class="t-input-number t-size-m t-input-number--row"
+      style="width: 120px;"
+    >
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+        type="button"
+      >
+        
+        
+        <svg
+          class="t-icon t-icon-remove"
+          fill="none"
+          height="1em"
+          style="font-size: medium;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M3.5 7.35h9v1.3h-9v-1.3z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+        
+      </button>
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-right"
+        >
+          <!---->
+          <!---->
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+        type="button"
+      >
+        
+        
+        <svg
+          class="t-icon t-icon-add"
+          fill="none"
+          height="1em"
+          style="font-size: medium;"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+        
+        
+        
+      </button>
+    </div>
+  </div>
+  <div
+    style="width: 20%;"
+  >
+    <div
+      class="t-input-number t-size-m t-input-number--normal"
+      style="width: 120px;"
+    >
+      <!---->
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input"
+        >
+          <!---->
+          <!---->
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <div
+      class="t-input-number t-size-m t-input-number--normal"
+      style="width: 120px;"
+    >
+      <!---->
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-center"
+        >
+          <!---->
+          <!---->
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <div
+      class="t-input-number t-size-m t-input-number--normal"
+      style="width: 120px;"
+    >
+      <!---->
+      <div
+        class="t-input__wrap"
+        unselectable="off"
+      >
+        <div
+          class="t-input t-align-right"
+        >
+          <!---->
+          <!---->
+          <input
+            class="t-input__inner"
+            placeholder="请输入"
+            type="text"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`InputNumber InputNumber autoWidthVue demo works fine 1`] = `
+<div>
+  <div
+    class="t-input-number t-size-m t-input-number--row t-input-number--auto-width"
+    modelvalue="3"
+  >
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-remove"
+        fill="none"
+        height="1em"
+        style="font-size: medium;"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M3.5 7.35h9v1.3h-9v-1.3z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      
+      
+      
+    </button>
+    <div
+      class="t-input__wrap"
+      unselectable="off"
+    >
+      <div
+        class="t-input t-align-center t-input--auto-width"
+      >
+        <!---->
+        <!---->
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          type="text"
+        />
+        <span
+          class="t-input__input-pre"
+        >
+          3
+        </span>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+      type="button"
+    >
+      
+      
+      <svg
+        class="t-icon t-icon-add"
+        fill="none"
+        height="1em"
+        style="font-size: medium;"
+        viewBox="0 0 16 16"
+        width="1em"
+      >
+        <path
+          d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+          fill="currentColor"
+          fill-opacity="0.9"
+        />
+      </svg>
+      
+      
+      
+    </button>
+  </div>
+</div>
+`;
+
 exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
 <div>
   <div
@@ -32,10 +429,10 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -109,10 +506,10 @@ exports[`InputNumber InputNumber defaultVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -187,10 +584,10 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-is-disabled t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -265,10 +662,10 @@ exports[`InputNumber InputNumber emptyVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -343,10 +740,10 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -421,10 +818,10 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -476,10 +873,10 @@ exports[`InputNumber InputNumber normalVue demo works fine 1`] = `
     <!---->
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -530,10 +927,10 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -603,10 +1000,10 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -675,10 +1072,10 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->
@@ -720,6 +1117,1035 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
 </div>
 `;
 
+exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
+<div>
+  <form
+    class="t-form"
+  >
+    
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          禁用
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-is-disabled t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-is-disabled t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  disabled=""
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase t-is-disabled"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          只读
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="on"
+            >
+              <div
+                class="t-input t-align-center t-is-readonly"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  readonly=""
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          正常
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          成功
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-is-success t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          警告
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-is-warning t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          错误
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-is-error t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          正常提示
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <div
+                class="t-input__tips t-input__tips--normal"
+              >
+                这是普通文本提示
+              </div>
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          成功提示
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-is-success t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <div
+                class="t-input__tips t-input__tips--success"
+              >
+                校验通过文本提示
+              </div>
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          警告提示
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-is-warning t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <div
+                class="t-input__tips t-input__tips--warning"
+              >
+                校验不通过文本提示
+              </div>
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-form__item t-form-item__"
+    >
+      <div
+        class="t-form__label t-form__label--right"
+        style="width: 100px;"
+      >
+        <label
+          for=""
+        >
+          错误提示
+        </label>
+      </div>
+      <div
+        class="t-form__controls"
+        style="margin-left: 100px;"
+      >
+        <div
+          class="t-form__controls-content"
+        >
+          
+          <div
+            class="t-input-number t-size-m t-input-number--row"
+            modelvalue="3"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-remove"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M3.5 7.35h9v1.3h-9v-1.3z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+            <div
+              class="t-input__wrap"
+              unselectable="off"
+            >
+              <div
+                class="t-input t-is-error t-align-center"
+              >
+                <!---->
+                <!---->
+                <input
+                  class="t-input__inner"
+                  placeholder="请输入"
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <div
+                class="t-input__tips t-input__tips--error"
+              >
+                校验存在严重问题文本提示
+              </div>
+            </div>
+            <button
+              class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
+              type="button"
+            >
+              
+              
+              <svg
+                class="t-icon t-icon-add"
+                fill="none"
+                height="1em"
+                style="font-size: medium;"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+              
+              
+            </button>
+          </div>
+          
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    
+  </form>
+</div>
+`;
+
 exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
 <div>
   <div
@@ -752,10 +2178,10 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
     </button>
     <div
       class="t-input__wrap"
+      unselectable="off"
     >
       <div
         class="t-input t-align-center"
-        unselectable="off"
       >
         <!---->
         <!---->

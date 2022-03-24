@@ -141,6 +141,11 @@ const GLOBAL_CONFIG_EN: GlobalConfigProvider = {
   input: {
     placeholder: '',
   },
+  colorPicker: {
+    swatchColorTitle: 'System Default',
+    recentColorTitle: 'Recently Used',
+    clearConfirmText: 'Clear recently used colors?',
+  },
 };
 
 export default GLOBAL_CONFIG_EN;
