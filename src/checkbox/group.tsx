@@ -1,42 +1,46 @@
-import { defineComponent, provide, computed, VNode, h, reactive, watchEffect, ref, toRefs, PropType } from 'vue';
+import { defineComponent, provide, VNode, computed, h, reactive, watchEffect, ref, toRefs, InjectionKey } from 'vue';
 import intersection from 'lodash/intersection';
 import Checkbox from './checkbox';
-import checkboxGroupProps from './checkbox-group-props';
-import { usePrefixClass } from '../config-provider';
 import props from './checkbox-group-props';
-import {
-  CheckboxOptionObj,
-  TdCheckboxProps,
-  CheckboxGroupValue,
-  CheckboxGroupChangeContext,
-  CheckboxGroupInjectionKey,
-} from './type';
+import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 
 // hooks
 import useVModel from '../hooks/useVModel';
-import { useConfig } from '../config-provider/useConfig';
+import { usePrefixClass } from '../config-provider';
+
+export const CheckboxGroupInjectionKey: InjectionKey<{
+  name: string;
+  isCheckAll: boolean;
+  checkedMap: { [key: string | number]: boolean };
+  maxExceeded: boolean;
+  disabled: boolean;
+  indeterminate: boolean;
+  handleCheckboxChange: (data: { checked: boolean; e: Event; option: TdCheckboxProps }) => void;
+  onCheckedChange: (p: { checked: boolean; checkAll: boolean; e: Event; option: TdCheckboxProps }) => void;
+}> = Symbol('CheckboxGroupProvide');
 
 export default defineComponent({
   name: 'TCheckboxGroup',
-  components: {
-    Checkbox,
-  },
   props,
 
-  setup(props, { emit, slots }) {
+  setup(props, { slots }) {
     /** 样式 */
-    const { classPrefix } = useConfig('classPrefix');
-    const name = `${classPrefix.value}-checkbox-group`;
+    const COMPONENT_NAME = usePrefixClass('checkbox-group');
 
     const { isArray } = Array;
     const { value, modelValue } = toRefs(props);
-    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange, emit, 'value');
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
-    // data
-    const checkedMap = ref<{ [key: string | number]: boolean }>({});
+    const checkedMap = computed(() => {
+      const map = {};
+      if (isArray(innerValue.value)) {
+        innerValue.value.forEach((item: string | number) => {
+          map[item] = true;
+        });
+      }
+      return map;
+    });
     const optionList = ref<Array<CheckboxOptionObj>>([]);
-
-    // computed
 
     const intersectionLen = computed<number>(() => {
       const values = optionList.value.map((item) => item.value);
@@ -60,17 +64,6 @@ export default defineComponent({
 
     const maxExceeded = computed<boolean>(() => props.max !== undefined && innerValue.value.length === props.max);
 
-    // watch
-    watchEffect(() => {
-      if (isArray(innerValue.value)) {
-        const map = {};
-        innerValue.value.forEach((item: string | number) => {
-          map[item] = true;
-        });
-        checkedMap.value = map;
-      }
-    });
-
     watchEffect(() => {
       if (!props.options) return [];
       optionList.value = props.options.map((item) => {
@@ -85,9 +78,6 @@ export default defineComponent({
       });
     });
 
-    // methods
-    const emitChange = (val: CheckboxGroupValue, context: CheckboxGroupChangeContext) => setInnerValue(val, context);
-
     const getAllCheckboxValue = (): CheckboxGroupValue => {
       const val = new Set<TdCheckboxProps['value']>();
       for (let i = 0, len = optionList.value.length; i < len; i++) {
@@ -101,7 +91,7 @@ export default defineComponent({
 
     const onCheckAllChange = (checked: boolean, context: { e: Event; source?: 't-checkbox' }) => {
       const value: CheckboxGroupValue = checked ? getAllCheckboxValue() : [];
-      emitChange(value, {
+      setInnerValue(value, {
         e: context.e,
         type: checked ? 'check' : 'uncheck',
         current: undefined,
@@ -118,7 +108,7 @@ export default defineComponent({
           const i = val.indexOf(currentValue);
           val.splice(i, 1);
         }
-        emitChange(val, {
+        setInnerValue(val, {
           e: data.e,
           current: data.option.value,
           type: data.checked ? 'check' : 'uncheck',
@@ -184,7 +174,7 @@ export default defineComponent({
         optionList.value = getOptionListBySlots(nodes);
         children = nodes;
       }
-      return <div class={name}>{children}</div>;
+      return <div class={COMPONENT_NAME.value}>{children}</div>;
     };
   },
 });

@@ -117,7 +117,6 @@ exports[`SelectInput SelectInput autowidthMultipleVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-borderless-multiple"
-            modelvalue=""
           >
             
             <label
@@ -471,7 +470,6 @@ exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-borderless-multiple"
-            modelvalue=""
           >
             
             <label
@@ -782,7 +780,6 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
-            modelvalue=""
           >
             
             <label
@@ -1009,7 +1006,6 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
-            modelvalue=""
           >
             
             <label
@@ -1258,7 +1254,6 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
-            modelvalue=""
           >
             
             <label
@@ -2015,7 +2010,6 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-excess-tags-display-type"
-            modelvalue=""
           >
             
             <label
@@ -2341,7 +2335,6 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-excess-tags-display-type"
-            modelvalue=""
           >
             
             <label
@@ -2852,7 +2845,6 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
   <div>
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
     >
       <input
         class="t-checkbox__former"
@@ -2871,7 +2863,6 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
     >
       <input
         class="t-checkbox__former"
@@ -2958,7 +2949,6 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-multiple"
-            modelvalue=""
           >
             
             <label

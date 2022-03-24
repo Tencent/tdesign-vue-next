@@ -937,7 +937,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group"
-            modelvalue=""
           >
             
             <label
@@ -1626,7 +1625,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
   >
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
       variant="default-filled"
     >
       <input
@@ -4114,7 +4112,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group"
-            modelvalue=""
           >
             
             <label
@@ -5075,7 +5072,6 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group"
-            modelvalue="1"
           >
             
             <label
@@ -5503,7 +5499,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group"
-            modelvalue="1"
           >
             
             <label
@@ -5976,7 +5971,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-checkbox-group"
-                    modelvalue="1"
                   >
                     
                     <label
@@ -6344,7 +6338,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-checkbox-group"
-                    modelvalue=""
                   >
                     
                     <label
@@ -6992,7 +6985,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group"
-            modelvalue=""
           >
             
             <label
@@ -8355,7 +8347,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group"
-            modelvalue=""
           >
             
             <label

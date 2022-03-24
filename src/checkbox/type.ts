@@ -4,7 +4,6 @@
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
  * */
 
-import { InjectionKey } from 'vue';
 import { TNode } from '../common';
 
 export interface TdCheckboxProps {
@@ -18,11 +17,6 @@ export interface TdCheckboxProps {
    * @default false
    */
   checked?: boolean;
-  /**
-   * 是否选中
-   * @default false
-   */
-   modelValue?: boolean;
   /**
    * 是否选中，非受控属性
    * @default false
@@ -63,7 +57,6 @@ export interface TdCheckboxProps {
    * 值变化时触发
    */
   onChange?: (checked: boolean, context: { e: Event }) => void;
-  onUpdateModelValue?: (checked: boolean, context: { e: Event }) => void;
 }
 
 export interface TdCheckboxGroupProps {
@@ -88,17 +81,12 @@ export interface TdCheckboxGroupProps {
   options?: Array<CheckboxOption>;
   /**
    * 选中值
-   * @default undefined
+   * @default []
    */
   value?: CheckboxGroupValue;
   /**
-   * 选中值
-   * @default undefined
-   */
-  modelValue?: CheckboxGroupValue;
-  /**
    * 选中值，非受控属性
-   * @default undefined
+   * @default []
    */
   defaultValue?: CheckboxGroupValue;
   /**
@@ -124,23 +112,3 @@ export interface CheckboxGroupChangeContext {
   current: CheckboxOption | TdCheckboxProps;
   type: 'check' | 'uncheck';
 }
-
-export const CheckboxGroupInjectionKey: InjectionKey<{
-      name: string
-      isCheckAll:boolean
-      checkedMap:{ [key: string | number]: boolean }
-      maxExceeded:boolean
-      disabled:boolean
-      indeterminate:boolean
-      handleCheckboxChange: (data: {
-        checked: boolean;
-        e: Event;
-        option: TdCheckboxProps;
-      }) => void
-      onCheckedChange: (p: {
-        checked: boolean;
-        checkAll: boolean;
-        e: Event;
-        option: TdCheckboxProps;
-      }) => void
-}> = Symbol();
