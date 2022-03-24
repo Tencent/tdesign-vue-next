@@ -37,6 +37,10 @@ export interface GlobalConfigProvider {
    */
   classPrefix?: string;
   /**
+   * 颜色选择器全局配置
+   */
+  colorPicker?: ColorPickerConfig;
+  /**
    * 日期选择器全局配置
    */
   datePicker?: DatePickerConfig;
@@ -220,6 +224,24 @@ export interface CascaderConfig {
    * @default '请选择'
    */
   placeholder?: string;
+}
+
+export interface ColorPickerConfig {
+  /**
+   * 清空颜色确认文案，示例：'确定清空最近使用的颜色吗？'
+   * @default '确定清空最近使用的颜色吗？'
+   */
+  clearConfirmText?: string;
+  /**
+   * 最近使用颜色区域标题文本，示例：'最近使用颜色'
+   * @default '最近使用颜色'
+   */
+  recentColorTitle?: string;
+  /**
+   * 系统预设颜色区域标题文本，示例：'系统预设颜色'
+   * @default '系统预设颜色'
+   */
+  swatchColorTitle?: string;
 }
 
 export interface TransferConfig {
@@ -695,5 +717,6 @@ export interface UploadTriggerUploadText {
   normal?: string;
   fileInput?: string;
   reupload?: string;
+  continueUpload: string;
   delete?: string;
 }

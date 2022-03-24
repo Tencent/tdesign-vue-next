@@ -12,6 +12,11 @@ export interface TdInputNumberProps {
    */
   align?: 'left' | 'center' | 'right';
   /**
+   * 宽度随内容自适应
+   * @default false
+   */
+  autoWidth?: boolean;
+  /**
    * [小数位数](https://en.wiktionary.org/wiki/decimal_place)
    */
   decimalPlaces?: number;
@@ -38,6 +43,11 @@ export interface TdInputNumberProps {
    * 占位符
    */
   placeholder?: string;
+  /**
+   * 只读状态
+   * @default false
+   */
+  readonly?: boolean;
   /**
    * 组件尺寸
    * @default medium
@@ -69,6 +79,10 @@ export interface TdInputNumberProps {
    * 值，非受控属性
    */
   defaultValue?: number;
+  /**
+   * 值
+   */
+  modelValue?: number;
   /**
    * 失去焦点时触发
    */

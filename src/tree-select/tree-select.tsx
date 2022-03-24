@@ -20,18 +20,15 @@ import Input, { InputValue } from '../input';
 import FakeArrow from '../common-components/fake-arrow';
 import { emitEvent } from '../utils/event';
 
-import CLASSNAMES from '../utils/classnames';
 import props from './props';
 
 import { TreeSelectValue } from './type';
 import { ClassName, TreeOptionData } from '../common';
-import { prefix } from '../config';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 import { RemoveOptions, NodeOptions } from './interface';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-
-const name = `${prefix}-tree-select`;
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TreeSelectConfig>('treeSelect')),
@@ -45,7 +42,12 @@ export default defineComponent({
   emits: ['change', 'clear', 'focus', 'blur', 'remove', 'search'],
   setup() {
     const disabled = useFormDisabled();
+    const classPrefix = usePrefixClass();
+    const { STATUS, SIZE } = useCommonClassName();
     return {
+      SIZE,
+      STATUS,
+      classPrefix,
       disabled,
     };
   },
@@ -74,19 +76,20 @@ export default defineComponent({
   computed: {
     classes(): ClassName {
       return [
-        `${prefix}-select`,
+        `${this.classPrefix}-select`,
+        `${this.classPrefix}-select-polyfill`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
-          [CLASSNAMES.STATUS.active]: this.visible,
-          [CLASSNAMES.SIZE[this.size]]: this.size,
-          [`${prefix}-has-prefix`]: this.prefixIconSlot,
-          [`${prefix}-select-selected`]: this.selectedSingle || !isEmpty(this.selectedMultiple),
+          [this.STATUS.disabled]: this.disabled,
+          [this.STATUS.active]: this.visible,
+          [this.SIZE[this.size]]: this.size,
+          [`${this.classPrefix}-has-prefix`]: this.prefixIconSlot,
+          [`${this.classPrefix}-select-selected`]: this.selectedSingle || !isEmpty(this.selectedMultiple),
         },
       ];
     },
     popupClass(): ClassName {
       const { popupObject } = this;
-      return `${popupObject.overlayClassName} ${prefix}-select__dropdown narrow-scrollbar`;
+      return `${popupObject.overlayClassName} ${this.classPrefix}-select__dropdown narrow-scrollbar`;
     },
     isObjectValue(): boolean {
       return this.valueType === 'object';
@@ -181,7 +184,7 @@ export default defineComponent({
     loadingTextSlot(): VNode {
       const useLocale = !this.loadingText && !this.$slots.loadingText;
       return useLocale ? (
-        <div class={`${prefix}-select__empty`}>{this.t(this.global.loadingText)}</div>
+        <div class={`${this.classPrefix}-select__empty`}>{this.t(this.global.loadingText)}</div>
       ) : (
         renderTNodeJSX(this, 'loadingText')
       );
@@ -189,7 +192,7 @@ export default defineComponent({
     emptySlot(): VNode {
       const useLocale = !this.empty && !this.$slots.empty;
       return useLocale ? (
-        <div class={`${prefix}-select__empty`}>{this.t(this.global.empty)}</div>
+        <div class={`${this.classPrefix}-select__empty`}>{this.t(this.global.empty)}</div>
       ) : (
         renderTNodeJSX(this, 'empty')
       );
@@ -400,7 +403,7 @@ export default defineComponent({
         ref="input"
         v-show={this.showFilter}
         v-model={this.filterText}
-        class={`${prefix}-select__input`}
+        class={`${this.classPrefix}-select__input`}
         size={this.size}
         disabled={this.disabled}
         placeholder={this.filterPlaceholder}
@@ -427,7 +430,7 @@ export default defineComponent({
           params: { value: this.nodeInfo || { [this.realLabel]: '', [this.realValue]: '' } },
         })
       ) : (
-        <span title={this.selectedSingle} class={`${prefix}-select__single`}>
+        <span title={this.selectedSingle} class={`${this.classPrefix}-select__single`}>
           {this.selectedSingle}
         </span>
       );
@@ -450,7 +453,7 @@ export default defineComponent({
     const slots = {
       content: () => (
         <div>
-          <p v-show={this.showLoading} class={`${prefix}-select-loading-tips`}>
+          <p v-show={this.showLoading} class={`${this.classPrefix}-select-loading-tips`}>
             {this.loadingTextSlot}
           </p>
           {treeItem}
@@ -458,10 +461,10 @@ export default defineComponent({
       ),
     };
     return (
-      <div ref="treeSelect" class={`${prefix}-select__wrap`}>
+      <div ref="treeSelect" class={`${this.classPrefix}-select__wrap`}>
         <Popup
           ref="popup"
-          class={`${prefix}-select__popup-reference`}
+          class={`${this.classPrefix}-select__popup-reference`}
           visible={this.visible}
           disabled={this.disabled}
           placement={popupObject.placement}
@@ -473,8 +476,10 @@ export default defineComponent({
           v-slots={slots}
         >
           <div class={classes} onmouseenter={() => (this.isHover = true)} onmouseleave={() => (this.isHover = false)}>
-            {this.prefixIconSlot && <span class={`${prefix}-select__left-icon`}>{this.prefixIconSlot[0]}</span>}
-            <span v-show={this.showPlaceholder} class={`${prefix}-select__placeholder`}>
+            {this.prefixIconSlot && (
+              <span class={`${this.classPrefix}-select__left-icon`}>{this.prefixIconSlot[0]}</span>
+            )}
+            <span v-show={this.showPlaceholder} class={`${this.classPrefix}-select__placeholder`}>
               {this.placeholder || this.global.placeholder}{' '}
             </span>
             {tagItem}
@@ -483,22 +488,20 @@ export default defineComponent({
             {searchInput}
             {this.showArrow && !this.showLoading && (
               <FakeArrow
-                overlayClassName={`${prefix}-select__right-icon`}
+                overlayClassName={`${this.classPrefix}-select__right-icon ${this.classPrefix}-select__right-icon-polyfill`}
                 overlayStyle={iconStyle}
                 isActive={this.visible && !this.disabled}
               />
             )}
             <CloseCircleFilledIcon
               v-show={this.showClose && !this.showLoading}
-              name="close"
-              class={`${prefix}-select__right-icon ${prefix}-select__right-icon-clear`}
+              class={`${this.classPrefix}-select__right-icon ${this.classPrefix}-select__right-icon-polyfill ${this.classPrefix}-select__active-icon`}
               size={this.size}
               onClick={({ e }) => this.clear(e)}
             />
             <Loading
               v-show={this.showLoading}
-              name="loading"
-              class={`${prefix}-select__right-icon ${prefix}-select__active-icon`}
+              class={`${this.classPrefix}-select__loading-tips ${this.classPrefix}-select__right-icon-polyfill`}
               size="small"
             />
           </div>

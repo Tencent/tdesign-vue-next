@@ -1,18 +1,22 @@
 import { computed, defineComponent, ref, SetupContext, toRefs } from 'vue';
 import Popup from '../popup';
-import { prefix } from '../config';
 import props from './props';
 import { TdSelectInputProps } from './type';
 
 import useSingle from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayStyle from './useOverlayStyle';
+import { usePrefixClass } from '../config-provider';
 
-const NAME_CLASS = `${prefix}-select-input`;
-const BASE_CLASS_BORDERLESS = `${prefix}-select-input--borderless`;
-const BASE_CLASS_MULTIPLE = `${prefix}-select-input--multiple`;
-const BASE_CLASS_POPUP_VISIBLE = `${prefix}-select-input--popup-visible`;
-const BASE_CLASS_EMPTY = `${prefix}-select-input--empty`;
+const useComponentClassName = () => {
+  return {
+    NAME_CLASS: usePrefixClass('select-input'),
+    BASE_CLASS_BORDERLESS: usePrefixClass('select-input--borderless'),
+    BASE_CLASS_MULTIPLE: usePrefixClass('select-input--multiple'),
+    BASE_CLASS_POPUP_VISIBLE: usePrefixClass('select-input--popup-visible'),
+    BASE_CLASS_EMPTY: usePrefixClass('select-input--empty'),
+  };
+};
 
 export default defineComponent({
   name: 'TSelectInput',
@@ -20,6 +24,10 @@ export default defineComponent({
   props: { ...props },
 
   setup(props: TdSelectInputProps, context: SetupContext) {
+    const { NAME_CLASS, BASE_CLASS_BORDERLESS, BASE_CLASS_MULTIPLE, BASE_CLASS_POPUP_VISIBLE, BASE_CLASS_EMPTY } =
+      useComponentClassName();
+    const classPrefix = usePrefixClass();
+
     const selectInputRef = ref();
     const selectInputWrapRef = ref();
     const { multiple, value, popupVisible, borderless } = toRefs(props);
@@ -28,16 +36,18 @@ export default defineComponent({
     const { tOverlayStyle, innerPopupVisible, onInnerPopupVisibleChange } = useOverlayStyle(props);
 
     const popupClasses = computed(() => [
-      NAME_CLASS,
+      NAME_CLASS.value,
       {
-        [BASE_CLASS_BORDERLESS]: borderless.value,
-        [BASE_CLASS_MULTIPLE]: multiple.value,
-        [BASE_CLASS_POPUP_VISIBLE]: popupVisible.value ?? innerPopupVisible.value,
-        [BASE_CLASS_EMPTY]: value.value instanceof Array ? !value.value.length : !value.value,
+        [BASE_CLASS_BORDERLESS.value]: borderless.value,
+        [BASE_CLASS_MULTIPLE.value]: multiple.value,
+        [BASE_CLASS_POPUP_VISIBLE.value]: popupVisible.value ?? innerPopupVisible.value,
+        [BASE_CLASS_EMPTY.value]: value.value instanceof Array ? !value.value.length : !value.value,
       },
     ]);
 
     return {
+      classPrefix,
+      NAME_CLASS,
       selectInputWrapRef,
       innerPopupVisible,
       commonInputProps,
@@ -81,9 +91,11 @@ export default defineComponent({
     if (!this.tips) return mainContent;
 
     return (
-      <div ref="selectInputWrapRef" class={`${prefix}-select-input__wrap`}>
+      <div ref="selectInputWrapRef" class={`${this.NAME_CLASS}__wrap`}>
         {mainContent}
-        <div class={`${prefix}-input__tips ${prefix}-input__tips--${this.status || 'normal'}`}>{this.tips}</div>
+        <div class={`${this.classPrefix}-input__tips ${this.classPrefix}-input__tips--${this.status || 'normal'}`}>
+          {this.tips}
+        </div>
       </div>
     );
   },

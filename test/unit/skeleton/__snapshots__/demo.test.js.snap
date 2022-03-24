@@ -508,7 +508,6 @@ exports[`Skeleton Skeleton baseVue demo works fine 1`] = `
 <div>
   <div
     class="t-switch t-size-m t-is-checked mb-20"
-    modelvalue="true"
   >
     <span
       class="t-switch__handle"

@@ -1,12 +1,12 @@
 import { defineComponent, ref } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import { TdTabsProps } from './type';
 import { emitEvent } from '../utils/event';
 import tabProps from './props';
 import tabPanelProps from './tab-panel-props';
 
 import useRipple from '../hooks/useRipple';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TTabNavItem',
@@ -34,21 +34,29 @@ export default defineComponent({
   setup() {
     const itemRef = ref<HTMLElement>();
     useRipple(itemRef);
+
+    const COMPONENT_NAME = usePrefixClass('tabs__nav-item');
+    const classPrefix = usePrefixClass();
+    const { STATUS, SIZE } = useCommonClassName();
     return {
+      SIZE,
+      STATUS,
+      COMPONENT_NAME,
       itemRef,
+      classPrefix,
     };
   },
   computed: {
     navItemClass(): {} {
       return {
-        [`${prefix}-tabs__nav-item`]: true,
-        [`${prefix}-tabs__nav--card`]: this.theme === 'card',
-        [`${prefix}-is-disabled`]: this.disabled,
-        [`${prefix}-is-active`]: this.active,
-        [`${prefix}-is-left`]: this.placement === 'left',
-        [`${prefix}-is-right`]: this.placement === 'right',
-        [`${prefix}-size-m`]: this.size === 'medium',
-        [`${prefix}-size-l`]: this.size === 'large',
+        [this.COMPONENT_NAME]: true,
+        [`${this.classPrefix}-tabs__nav--card`]: this.theme === 'card',
+        [this.STATUS.disabled]: this.disabled,
+        [this.STATUS.active]: this.active,
+        [`${this.classPrefix}-is-left`]: this.placement === 'left',
+        [`${this.classPrefix}-is-right`]: this.placement === 'right',
+        [this.SIZE.medium]: this.size === 'medium',
+        [this.SIZE.large]: this.size === 'large',
       };
     },
   },
@@ -64,7 +72,7 @@ export default defineComponent({
     renderCardItem() {
       return (
         <div class={this.navItemClass} onClick={this.onClickNav} ref="itemRef">
-          <span class={`${prefix}-tabs__nav-item-text-wrapper`}>{this.label}</span>
+          <span class={`${this.COMPONENT_NAME}-text-wrapper`}>{this.label}</span>
           {this.removable && !this.disabled ? <CloseIcon class="remove-btn" onClick={this.removeBtnClick} /> : null}
         </div>
       );
@@ -74,15 +82,15 @@ export default defineComponent({
         <div class={this.navItemClass} onClick={this.onClickNav}>
           <div
             class={[
-              `${prefix}-tabs__nav-item-wrapper`,
+              `${this.COMPONENT_NAME}-wrapper`,
               {
-                [`${prefix}-is-disabled`]: this.disabled,
-                [`${prefix}-is-active`]: this.active,
+                [this.STATUS.disabled]: this.disabled,
+                [this.STATUS.active]: this.active,
               },
             ]}
             ref="itemRef"
           >
-            <span class={`${prefix}-tabs__nav-item-text-wrapper`}>{this.label}</span>
+            <span class={`${this.COMPONENT_NAME}-text-wrapper`}>{this.label}</span>
           </div>
         </div>
       );

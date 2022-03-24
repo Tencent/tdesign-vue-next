@@ -20,36 +20,21 @@
     </header>
   </section>
 </template>
-
-<script>
-import { defineComponent, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import { UploadIcon } from 'tdesign-icons-vue-next';
 
-export default defineComponent({
-  components: {
-    UploadIcon,
-  },
-  setup() {
-    const files = ref([]);
+const files = ref([]);
 
-    const handleChange = (files) => {
-      console.log(files);
-    };
+const handleChange = (files) => {
+  console.log(files);
+};
 
-    const handlePreview = (file) => {
-      console.log(file);
-      window.open(file.thumbUrl);
-    };
-
-    return {
-      files,
-      handleChange,
-      handlePreview,
-    };
-  },
-});
+const handlePreview = (file) => {
+  console.log(file);
+  window.open(file.thumbUrl);
+};
 </script>
-
 <style lang="less" scoped>
 .describe {
   color: rgb(153, 153, 153);

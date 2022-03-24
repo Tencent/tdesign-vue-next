@@ -1,4 +1,4 @@
-import { computed, inject, reactive } from 'vue';
+import { computed, inject } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import _mergeWith from 'lodash/mergeWith';
 import { defaultGlobalConfig, GlobalConfig } from './context';

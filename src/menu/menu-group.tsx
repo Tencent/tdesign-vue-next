@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue';
-import { prefix } from '../config';
 import props from './menu-group-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { usePrefixClass } from '../config-provider';

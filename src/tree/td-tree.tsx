@@ -20,7 +20,7 @@ import {
   TypeTreeNodeModel,
   TypeTargetNode,
 } from './interface';
-import { CLASS_NAMES, FX } from './constants';
+import { useCLASSNAMES } from './constants';
 import { getMark, getNode, emitEvent } from './util';
 
 export default defineComponent({
@@ -28,6 +28,12 @@ export default defineComponent({
   name: 'TTree',
   components: { TransitionGroup },
   props,
+  setup() {
+    const CLASS_NAMES = useCLASSNAMES();
+    return {
+      CLASS_NAMES,
+    };
+  },
   data() {
     const { checkProps, empty, icon, label, line, operations } = this;
 
@@ -50,22 +56,22 @@ export default defineComponent({
   },
   computed: {
     classList(): ClassName {
-      const list: Array<string> = [CLASS_NAMES.tree];
+      const list: Array<string> = [this.CLASS_NAMES.tree];
       const { disabled, hover, transition, checkable, expandOnClickNode } = this;
       if (disabled) {
-        list.push(CLASS_NAMES.disabled);
+        list.push(this.CLASS_NAMES.disabled);
       }
       if (hover) {
-        list.push(CLASS_NAMES.treeHoverable);
+        list.push(this.CLASS_NAMES.treeHoverable);
       }
       if (checkable) {
-        list.push(CLASS_NAMES.treeCheckable);
+        list.push(this.CLASS_NAMES.treeCheckable);
       }
       if (transition) {
-        list.push(CLASS_NAMES.treeTransition);
+        list.push(this.CLASS_NAMES.treeTransition);
       }
       if (expandOnClickNode) {
-        list.push(CLASS_NAMES.treeBlockNode);
+        list.push(this.CLASS_NAMES.treeBlockNode);
       }
       return list;
     },
@@ -504,16 +510,18 @@ export default defineComponent({
     if (treeNodes.length <= 0) {
       const useLocale = !this.empty && !this.$slots.empty;
       emptyNode = (
-        <div class={CLASS_NAMES.treeEmpty}>{useLocale ? this.t(this.global.empty) : renderTNodeJSX(this, 'empty')}</div>
+        <div class={this.CLASS_NAMES.treeEmpty}>
+          {useLocale ? this.t(this.global.empty) : renderTNodeJSX(this, 'empty')}
+        </div>
       );
     }
 
     treeNodeList = (
       <transition-group
-        name={FX.treeNode}
+        name={this.CLASS_NAMES.treeNodeToggle}
         tag="div"
-        enter-active-class={CLASS_NAMES.treeNodeEnter}
-        leave-active-class={CLASS_NAMES.treeNodeLeave}
+        enter-active-class={this.CLASS_NAMES.treeNodeEnter}
+        leave-active-class={this.CLASS_NAMES.treeNodeLeave}
       >
         {treeNodes}
       </transition-group>

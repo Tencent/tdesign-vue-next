@@ -1,8 +1,6 @@
 import { defineComponent, Transition } from 'vue';
 import { createPopper, Placement } from '@popperjs/core';
 import ResizeSensor from 'css-element-queries/src/ResizeSensor';
-import config from '../config';
-import CLASSNAMES from '../utils/classnames';
 import { on, off, once, getAttach } from '../utils/dom';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
@@ -10,11 +8,9 @@ import { PopupVisibleChangeContext } from './type';
 import { ClassName, Styles } from '../common';
 import setStyle from '../utils/set-style';
 import { emitEvent } from '../utils/event';
-
-const { prefix } = config;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 const stop = (e: MouseEvent) => e.stopPropagation();
-const name = `${prefix}-popup`;
 
 const placementMap = {
   top: 'top',
@@ -60,12 +56,19 @@ export default defineComponent({
       type: Boolean,
     },
   },
+  emits: ['visible-change', 'enter', 'leave'],
 
-  emits: ['visible-change'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('popup');
+    const { STATUS } = useCommonClassName();
+    return {
+      STATUS,
+      COMPONENT_NAME,
+    };
+  },
 
   data() {
     return {
-      name,
       currentPlacement: '',
       popperElm: null,
       referenceElm: null,
@@ -80,10 +83,10 @@ export default defineComponent({
   computed: {
     overlayClasses(): ClassName {
       const base = [
-        `${name}__content`,
+        `${this.COMPONENT_NAME}__content`,
         {
-          [`${name}__content--arrow`]: this.showArrow,
-          [CLASSNAMES.STATUS.disabled]: this.disabled,
+          [`${this.COMPONENT_NAME}__content--arrow`]: this.showArrow,
+          [this.STATUS.disabled]: this.disabled,
         },
       ] as ClassName;
       return base.concat(this.overlayClassName);
@@ -320,23 +323,25 @@ export default defineComponent({
 
   render() {
     return (
-      <div class={`${name}__reference`}>
+      <div class={`${this.COMPONENT_NAME}__reference`}>
         <transition
-          name={this.expandAnimation ? `${name}--animation-expand` : `${name}--animation`}
+          name={this.expandAnimation ? `${this.COMPONENT_NAME}--animation-expand` : `${this.COMPONENT_NAME}--animation`}
           appear
           onAfterLeave={this.destroyPopper}
         >
           <div
-            class={name}
+            class={this.COMPONENT_NAME}
             ref="popper"
             v-show={!this.disabled && this.visible}
             role="tooltip"
             aria-hidden={this.disabled || !this.visible ? 'true' : 'false'}
             style={{ zIndex: this.zIndex }}
+            onMouseenter={(e) => this.$emit('enter', e)}
+            onMouseleave={(e) => this.$emit('leave', e)}
           >
             <div class={this.overlayClasses} ref="overlay">
               {renderTNodeJSX(this, 'content')}
-              {this.showArrow && <div class={`${name}__arrow`}></div>}
+              {this.showArrow && <div class={`${this.COMPONENT_NAME}__arrow`}></div>}
             </div>
           </div>
         </transition>

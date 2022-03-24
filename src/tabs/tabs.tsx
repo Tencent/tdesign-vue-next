@@ -1,16 +1,14 @@
 import { ComponentPublicInstance, defineComponent, VNode } from 'vue';
-import { prefix } from '../config';
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
 import props from './props';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
-
-const name = `${prefix}-tabs`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
-  name,
+  name: 'TTabs',
 
   components: {
     TTabPanel,
@@ -22,13 +20,21 @@ export default defineComponent({
   },
 
   emits: ['change', 'add', 'remove', 'update:value'],
+
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('tabs');
+    const classPrefix = usePrefixClass();
+    return {
+      classPrefix,
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       panels: [] as Array<InstanceType<typeof TTabPanel>>,
       listPanels: [],
     };
   },
-
   methods: {
     onAddTab(e: MouseEvent) {
       emitEvent<Parameters<TdTabsProps['onAdd']>>(this, 'add', { e });
@@ -84,8 +90,8 @@ export default defineComponent({
       return (
         <div
           class={{
-            [`${prefix}-tabs__header`]: true,
-            [`${prefix}-is-${this.placement}`]: true,
+            [`${this.classPrefix}-tabs__header`]: true,
+            [`${this.classPrefix}-is-${this.placement}`]: true,
           }}
         >
           <TTabNav {...tabNavProps} onChange={this.onChangeTab} onAdd={this.onAddTab} onRemove={this.onRemoveTab} />
@@ -98,7 +104,7 @@ export default defineComponent({
         return this.list.map((item) => <TTabPanel {...item} onRemove={this.onRemoveTab} />);
       }
       if (panels && panels.length) {
-        return <div class={[`${prefix}-tabs__content`]}>{panels}</div>;
+        return <div class={[`${this.classPrefix}-tabs__content`]}>{panels}</div>;
       }
       console.warn('Tdesign error: list or slots is empty');
     },
@@ -106,7 +112,7 @@ export default defineComponent({
 
   render() {
     return (
-      <div class={[`${prefix}-tabs`]}>
+      <div class={[this.COMPONENT_NAME]}>
         {this.placement !== 'bottom'
           ? [this.renderHeader(), this.renderContent()]
           : [this.renderContent(), this.renderHeader()]}

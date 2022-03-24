@@ -2310,7 +2310,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
     允许点击行之后展开/收起: 
     <div
       class="t-switch t-size-m t-is-checked"
-      modelvalue="true"
     >
       <span
         class="t-switch__handle"
@@ -4167,7 +4166,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                         >
                                           <div
                                             allowinput="0"
-                                            class="t-input t-is-readonly t-input--suffix"
+                                            class="t-input t-input--suffix"
                                             modelvalue=""
                                           >
                                             <!---->
@@ -4175,7 +4174,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                             <input
                                               class="t-input__inner"
                                               placeholder="请选择月份"
-                                              readonly=""
                                               type="text"
                                             />
                                             <!---->
@@ -19748,8 +19746,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
               >
                 <!---->
                 <!---->
-                
-                
+                <!---->
                 <span
                   class="t-tag t-tag--default t-tag--dark t-size-m"
                   style="display: none;"
@@ -20284,7 +20281,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                           
                           
                           <li
-                            class="t-select-option t-size-m"
+                            class="t-select-option t-is-selected t-size-m"
                             title="5 条/页"
                           >
                             <span>
@@ -20292,7 +20289,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                             </span>
                           </li>
                           <li
-                            class="t-select-option t-is-selected t-size-m"
+                            class="t-select-option t-size-m"
                             title="10 条/页"
                           >
                             <span>
@@ -20331,8 +20328,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                 >
                   <!---->
                   <!---->
-                  
-                  
+                  <!---->
                   <span
                     class="t-tag t-tag--default t-tag--dark t-size-m"
                     style="display: none;"
@@ -20345,9 +20341,9 @@ exports[`Table Table paginationVue demo works fine 1`] = `
                   </span>
                   <span
                     class="t-select__single"
-                    title="10"
+                    title="5"
                   >
-                    10
+                    5
                   </span>
                   <!---->
                   <svg
@@ -20392,14 +20388,13 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             <ul
               class="t-pagination__pager"
             >
-              <!---->
-              <!---->
-              
               <li
                 class="t-pagination__number"
               >
                 1
               </li>
+              <!---->
+              
               <li
                 class="t-pagination__number t-is-current"
               >
@@ -20420,14 +20415,29 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               >
                 5
               </li>
+              
+              <li
+                class="t-pagination__number t-pagination__number--more"
+              >
+                <svg
+                  class="t-icon t-icon-ellipsis"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </li>
               <li
                 class="t-pagination__number"
               >
-                6
+                12
               </li>
-              
-              <!---->
-              <!---->
             </ul>
             <div
               class="t-pagination__btn t-pagination__btn-next"

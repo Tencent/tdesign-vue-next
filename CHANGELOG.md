@@ -5,6 +5,76 @@ toc: false
 docClass: timeline
 ---
 
+## 0.10.2 `2022-03-18`
+
+
+### Bug Fixes
+
+* TimePicker: `close`、`open` 事件回调增加参数 ([pr #455](https://github.com/Tencent/tdesign-vue-next/pull/455)), ([@uyarn](https://github.com/uyarn))
+* DatePicker: 打开时间面板重置时间 ([pr #453](https://github.com/Tencent/tdesign-vue-next/pull/453)), ([@uyarn](https://github.com/uyarn))
+* Table: 修复 `table-cell` 点击告警。([pr #447](https://github.com/Tencent/tdesign-vue-next/pull/447)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Pagination: 修复分页组件 `pageSize` 默认值不正确导致的受控问题。([pr #444](https://github.com/Tencent/tdesign-vue-next/pull/444)), ([issue #440](https://github.com/Tencent/tdesign-vue-next/issues/440)), ([issue #456](https://github.com/Tencent/tdesign-vue-next/issues/456)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* UseRipple: 修复 `useRipple` 的告警 ([pr #439](https://github.com/Tencent/tdesign-vue-next/pull/439)), ([issue #435](https://github.com/Tencent/tdesign-vue-next/issues/435)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Menu:
+  * 当菜单项超出时，正常展示 `Popup` ([pr #438](https://github.com/Tencent/tdesign-vue-next/pull/427)), ([issue #86](https://github.com/Tencent/tdesign-vue-next/issues/86)),([@LeeJim](https://github.com/LeeJim))
+  * 修复在没 `overflow` 时，仍出现滚动条的问题 ([pr #315](https://github.com/Tencent/tdesign-common/pull/315)), ([@LeeJim](https://github.com/LeeJim))
+* InputNumber: 修复 `decimal` 计算错误 ([pr #433](https://github.com/Tencent/tdesign-vue-next/pull/433)), ([@uyarn](https://github.com/uyarn))
+* Notification: 使用 `transition-group` 优化完善 `notification` 回收时的动画效果 ([pr #429](https://github.com/Tencent/tdesign-vue-next/pull/429)), ([@qunbotop](https://github.com/qunbotop))
+* Upload:([pr #427](https://github.com/Tencent/tdesign-vue-next/pull/427)), ([@pengYYYYY](https://github.com/pengYYYYY))
+  * 修复不可上传时的点击状态。
+  * 修复 `onCancelUpload` 事件无效
+* Input:
+  * 修复组件 `keypress` 事件未触发 ([pr #433](https://github.com/Tencent/tdesign-vue-next/pull/433)), ([@uyarn](https://github.com/uyarn))
+  * 修复在 `readonly` 模式下的聚焦样式([pr #437](https://github.com/Tencent/tdesign-vue-next/pull/437)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* TagInput: ([pr #437](https://github.com/Tencent/tdesign-vue-next/pull/437)), ([@pengYYYYY](https://github.com/pengYYYYY))
+  * 修复 `breakline` 模式下的 `clearIcon` 样式重叠
+  * 修复 `autowidth` 模式下的 `padding` 不对称
+  * 修复超出滚动失效
+
+### Features
+
+* Switch: 使用 `compositionAPI` 重构 ([pr #434](https://github.com/Tencent/tdesign-vue-next/pull/434)), ([@zouhangwithsweet](https://github.com/zouhangwithsweet))
+* Notification: 使用 `compositionAPI` 重构 ([pr #429](https://github.com/Tencent/tdesign-vue-next/pull/429)), ([@qunbotop](https://github.com/qunbotop))
+* Textarea: 使用 `compositionAPI` 重构 ([pr #432](https://github.com/Tencent/tdesign-vue-next/pull/432)), ([@btea](https://github.com/btea))
+* Select: 支持单选 `valueDisplay` 插槽 ([pr #449](https://github.com/Tencent/tdesign-vue-next/pull/449)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Popup: 新增 `enter、leave` 事件，支持鼠标进入、移出的事件 ([pr #438](https://github.com/Tencent/tdesign-vue-next/pull/427)), ([@LeeJim](https://github.com/LeeJim))
+* Input: 新增 `autoWidth、align、tips` 的支持，统一 `InputNumber` 中的 `Input` 使用 `Input` 组件减少重复实现 ([pr #433](https://github.com/Tencent/tdesign-vue-next/pull/433)), ([@uyarn](https://github.com/uyarn))
+* Upload: ([pr #427](https://github.com/Tencent/tdesign-vue-next/pull/427)), ([@pengYYYYY](https://github.com/pengYYYYY))
+  * 使用 `compositionAPI` 重构 `upload` 组件。
+  * 增加合并上传
+  * 支持国际化配置
+
+## 0.10.1 `2022-03-14`
+
+
+### Bug Fixes
+
+* TreeSelect: 修复边框样式异常和右侧图标样式异常
+
+
+## 0.10.0 `2022-03-11`
+
+### BREAKING CHANGES
+
+* Input: `DOM` 结构调整，最外层调整为 `t-input__wrap`([pr #409](https://github.com/Tencent/tdesign-vue-next/pull/409)), ([@pengYYYYY](https://github.com/pengYYYYY))
+
+### Bug Fixes
+
+* Select:
+  * 修复单选下斜八度动画覆盖文字的错误 ([pr #421](https://github.com/Tencent/tdesign-vue-next/pull/421)), ([@uyarn](https://github.com/uyarn))
+  * 修复 `filterable` 属性导致高度变化 ([pr #430](https://github.com/Tencent/tdesign-vue-next/pull/430)), ([issue #423](https://github.com/Tencent/tdesign-vue-next/issues/423)), ([@pengYYYYY](https://github.com/pengYYYYY))
+  * 修复事件与双向绑定数据更新时机不一致问题 ([pr #421](https://github.com/Tencent/tdesign-vue-next/pull/421)), ([@uyarn](https://github.com/uyarn))
+* cascader: ([pr #422](https://github.com/Tencent/tdesign-vue-next/pull/422)), ([@pengYYYYY](https://github.com/pengYYYYY))
+  * 修复 `filterable` 属性导致 `hover` 样式异常的问题
+  * 修复可选任意一级缺少高亮状  ([issue #114](https://github.com/Tencent/tdesign-vue-next/issue/114))
+* DatePicker: 修复按需引入时，按钮展示问题 ([pr #425](https://github.com/Tencent/tdesign-vue-next/pull/425)), ([issue #419](https://github.com/Tencent/tdesign-vue-next/issues/419)), ([@BuptStEve](https://github.com/BuptStEve))
+* Tree: 修复数据无法更新问题 ([pr #406](https://github.com/Tencent/tdesign-vue-next/pull/406)), ([@pengYYYYY](https://github.com/pengYYYYY))
+
+### Features
+
+* Badge: 使用 `compositionAPI` 重构组件 ([pr #402](https://github.com/Tencent/tdesign-vue-next/pull/402)), ([issue #58](https://github.com/Tencent/tdesign-vue-next/pull/58)), ([@ChrisLee0211](https://github.com/ChrisLee0211 ))
+
+
 ## 0.9.4 `2022-03-04`
 
 ### Bug Fixes

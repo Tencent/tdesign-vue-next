@@ -57,7 +57,9 @@ export default defineComponent({
   },
   computed: {
     showClear(): boolean {
-      return (this.value && !this.disabled && this.clearable && this.isHover) || this.showClearIconOnEmpty;
+      return (
+        (this.value && !this.disabled && this.clearable && this.isHover && !this.readonly) || this.showClearIconOnEmpty
+      );
     },
     tPlaceholder(): string {
       return this.placeholder ?? this.t(this.global.placeholder);
@@ -194,7 +196,7 @@ export default defineComponent({
     },
     emitFocus(e: FocusEvent) {
       this.inputValue = this.value;
-      if (this.disabled) return;
+      if (this.disabled || this.readonly) return;
       this.focused = true;
       emitEvent(this, 'focus', this.value, { e });
     },
@@ -257,7 +259,7 @@ export default defineComponent({
       onBlur: this.formatAndEmitBlur,
       onKeydown: this.handleKeydown,
       onKeyup: this.handleKeyUp,
-      onKeypresss: this.handleKeypress,
+      onKeypress: this.handleKeypress,
       onPaste: this.onHandlePaste,
       onCompositionend: this.onHandleCompositionend,
       onCompositionstart: this.onHandleonCompositionstart,

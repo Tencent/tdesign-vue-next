@@ -1,5 +1,4 @@
 import { defineComponent, VNode } from 'vue';
-import { prefix } from '../config';
 import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
