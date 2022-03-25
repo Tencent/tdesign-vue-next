@@ -4,9 +4,42 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+## 0.11.0 `2022-03-25`
+
+### BREAKING CHANGES
+
+* Input: 外部传入 `class` 挂载至 `t-input__wrap`, 不再挂载到 `t-input` ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* textarea: 去除 `t-textarea__wrap` 层 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476)), ([@pengYYYYY](https://github.com/pengYYYYY))
+
+### Bug Fixes
+
+* Dialog: 修复 `dialog` 组件点击警告 ([pr #463](https://github.com/Tencent/tdesign-vue-next/pull/444)), ([issue #435](https://github.com/Tencent/tdesign-vue-next/issues/435))
+* Steps: 修复 `readonly` 状态下依然可以点击 ([pr #465](https://github.com/Tencent/tdesign-vue-next/pull/465)
+* Cascader:
+  * 修复动态改options为空数组不生效 ([pr #486](https://github.com/Tencent/tdesign-vue-next/pull/486))
+  * 修复可过滤状态下的下拉面板拉起闪烁  ([pr #483](https://github.com/Tencent/tdesign-vue-next/pull/444)), ([issue #477](https://github.com/Tencent/tdesign-vue-next/issues/477))
+  * 修复可过滤状态下的输入内容未被正常销毁  ([pr #483](https://github.com/Tencent/tdesign-vue-next/pull/444)), ([issue #478](https://github.com/Tencent/tdesign-vue-next/issues/478))
+* TimePicker:
+  * 修复此刻快捷标签文案配置 ([pr #483](https://github.com/Tencent/tdesign-vue-next/pull/483))
+  * `focused` 态样式修复 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476))
+* DatePicker: `focused` 态样式修复 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476))
+* Select: 修复 `popup` 属性透传问题 ([pr #483](https://github.com/Tencent/tdesign-vue-next/pull/483))
+* Upload: 修复 `method props` 失效 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476))
+* SelectInput: ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476))
+  * 修复在非输入状态下无 `focused` 态
+  * 修复在非输入状态下不能显示清除按钮
+  * 修复在 `single` 模式下 `inputValue` 的受控表现
+* Form: 修复空表单时候的 `reduce` 语法错误 ([pr #475](https://github.com/Tencent/tdesign-vue-next/pull/475))
+* Steps: 修复 `readonly` 状态下依然可以点击 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/465))
+* Progress: `theme` 为 `plump` 且 `percentage` 为 `10` 没有展示文案 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/467)), ([@uyarn](https://github.com/uyarn))
+
+### Features
+
+* ColorPicker:  新增 `ColorPicker` 颜色选择器组件, 请参照[官网](https://tdesign.tencent.com/vue-next/components/color-picker)使用,  ([pr #330](https://github.com/Tencent/tdesign-vue-next/pull/408)), ([@S-mohan](https://github.com/S-mohan))
+* Input: 增加 `inputClass`, 挂载 `class` 到 `t-input` ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476)), ([@pengYYYYY](https://github.com/pengYYYYY))
+* Checkbox: 使用 `compositionAPI` 重构 ([pr #476](https://github.com/Tencent/tdesign-vue-next/pull/476)), ([@whylost](https://github.com/whylost))
 
 ## 0.10.2 `2022-03-18`
-
 
 ### Bug Fixes
 
