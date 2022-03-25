@@ -9522,7 +9522,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 </span>
               </button>
               <button
-                class="t-button t-size-m t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
                 type="button"
               >
                 <span
@@ -9610,7 +9610,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 </span>
               </button>
               <button
-                class="t-button t-size-m t-button--variant-base t-button--theme-warning t-popconfirm__confirm"
+                class="t-button t-size-s t-button--variant-base t-button--theme-warning t-popconfirm__confirm"
                 type="button"
               >
                 <span
@@ -9698,7 +9698,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 </span>
               </button>
               <button
-                class="t-button t-size-m t-button--variant-base t-button--theme-danger t-popconfirm__confirm"
+                class="t-button t-size-s t-button--variant-base t-button--theme-danger t-popconfirm__confirm"
                 type="button"
               >
                 <span

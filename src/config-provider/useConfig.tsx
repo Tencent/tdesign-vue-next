@@ -1,7 +1,9 @@
 import { computed, inject } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import _mergeWith from 'lodash/mergeWith';
-import { defaultGlobalConfig, GlobalConfig } from './context';
+import { defaultGlobalConfig } from './context';
+
+type GlobalConfig = typeof defaultGlobalConfig;
 
 // deal with https://github.com/lodash/lodash/issues/1313
 export const merge = (defaultGlobalConfig: GlobalConfig, injectConfig: GlobalConfig) =>
