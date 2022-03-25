@@ -83,12 +83,16 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         v-slots={context.slots}
         onChange={onInnerInputChange}
         onClear={onInnerClear}
-        onBlur={(val, context) => {
+        onBlur={(val: InputValue, context: { e: MouseEvent }) => {
           props.onBlur?.(value.value, { ...context, inputValue: val });
           inputValue.value = getInputValue(value.value, keys.value);
         }}
+        onEnter={(val: InputValue, context: { e: KeyboardEvent }) => {
+          props.onEnter?.(value.value, { ...context, inputValue: val });
+        }}
         onFocus={(val, context) => {
           props.onFocus?.(value.value, { ...context, inputValue: val });
+          !popupVisible && setInputValue(getInputValue(value.value, keys.value), { ...context, trigger: 'input' }); // 聚焦时拿到value
         }}
         inputClass={{
           [`${classPrefix.value}-input--focused`]: popupVisible,
