@@ -1,4 +1,4 @@
-import { ColorObject, ColorPickerChangeTrigger } from '.';
+import { ColorObject, ColorPickerChangeTrigger } from './type';
 
 // color modes
 export type TdColorModes = 'monochrome' | 'linear-gradient';

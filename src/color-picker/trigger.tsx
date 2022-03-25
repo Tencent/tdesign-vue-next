@@ -2,7 +2,7 @@ import { defineComponent, PropType, ref, watch } from 'vue';
 import { Input as TInput } from '../input';
 import { InputNumber as TInputNumber } from '../input-number';
 import Color from './utils/color';
-import { TdColorPickerProps } from '.';
+import { TdColorPickerProps } from './type';
 import { useBaseClassName } from './hooks';
 
 export default defineComponent({
