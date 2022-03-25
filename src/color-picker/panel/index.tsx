@@ -16,7 +16,7 @@ import FormatPanel from './format';
 import SwatchesPanel from './swatches';
 import Color, { getColorObject } from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
-import { TdColorPickerProps, ColorPickerChangeTrigger, RecentColorsChangeTrigger } from '../index';
+import { TdColorPickerProps, ColorPickerChangeTrigger, RecentColorsChangeTrigger } from '../type';
 import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 import useVModel from '../../hooks/useVModel';
