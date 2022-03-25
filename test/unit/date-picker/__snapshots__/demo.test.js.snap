@@ -799,12 +799,13 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue="2021-11-10"
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue="2021-11-10"
           >
             <!---->
             <!---->
@@ -1640,12 +1641,13 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--prefix t-input--suffix"
-            modelvalue=""
           >
             <span
               class="t-input__prefix t-input__prefix-icon"
@@ -3304,12 +3306,13 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
           class="t-form-controls"
         >
           <div
+            allowinput="0"
             class="t-input__wrap"
+            input="function () { [native code] }"
+            modelvalue="2020-12-28 至 2020-12-28"
           >
             <div
-              allowinput="0"
               class="t-input t-input--suffix"
-              modelvalue="2020-12-28 至 2020-12-28"
             >
               <!---->
               <!---->
@@ -4165,12 +4168,13 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
           class="t-form-controls"
         >
           <div
+            allowinput="0"
             class="t-input__wrap"
+            input="function () { [native code] }"
+            modelvalue="2020-12-28"
           >
             <div
-              allowinput="0"
               class="t-input t-input--suffix"
-              modelvalue="2020-12-28"
             >
               <!---->
               <!---->
@@ -5800,12 +5804,13 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -7424,12 +7429,13 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -9030,12 +9036,13 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -10670,12 +10677,13 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -11554,12 +11562,13 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue="2021-05-01 11:30:20"
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue="2021-05-01 11:30:20"
           >
             <!---->
             <!---->
@@ -12401,12 +12410,13 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
           class="t-form-controls"
         >
           <div
+            allowinput="0"
             class="t-input__wrap"
+            input="function () { [native code] }"
+            modelvalue=""
           >
             <div
-              allowinput="0"
               class="t-input t-input--suffix"
-              modelvalue=""
             >
               <!---->
               <!---->
@@ -13239,12 +13249,13 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
           class="t-form-controls"
         >
           <div
+            allowinput="0"
             class="t-input__wrap"
+            input="function () { [native code] }"
+            modelvalue=""
           >
             <div
-              allowinput="0"
               class="t-input t-input--suffix"
-              modelvalue=""
             >
               <!---->
               <!---->
@@ -14077,12 +14088,13 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
           class="t-form-controls"
         >
           <div
+            allowinput="0"
             class="t-input__wrap"
+            input="function () { [native code] }"
+            modelvalue=""
           >
             <div
-              allowinput="0"
               class="t-input t-input--suffix"
-              modelvalue=""
             >
               <!---->
               <!---->
@@ -15681,12 +15693,13 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
           class="t-form-controls"
         >
           <div
+            allowinput="0"
             class="t-input__wrap"
+            input="function () { [native code] }"
+            modelvalue=""
           >
             <div
-              allowinput="0"
               class="t-input t-input--suffix"
-              modelvalue=""
             >
               <!---->
               <!---->
@@ -16519,12 +16532,13 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
           class="t-form-controls"
         >
           <div
+            allowinput="0"
             class="t-input__wrap"
+            input="function () { [native code] }"
+            modelvalue=""
           >
             <div
-              allowinput="0"
               class="t-input t-input--suffix"
-              modelvalue=""
             >
               <!---->
               <!---->
@@ -17360,12 +17374,13 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -17720,12 +17735,13 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -18051,12 +18067,13 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->

@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { usePrefixClass } from '../index';
+import { usePrefixClass } from '../config-provider';
 
 const BASE_COMPONENT_NAME = 'color-picker';
 

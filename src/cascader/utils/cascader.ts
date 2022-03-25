@@ -47,7 +47,10 @@ export const treeStoreExpendEffect = (
     if (val) {
       expandedMap.set(val, true);
       const node = treeStore.getNode(val);
-      if (!node) return;
+      if (!node) {
+        treeStore.refreshNodes();
+        return;
+      }
       node.getParents().forEach((tn: TreeNode) => {
         expandedMap.set(tn.value, true);
       });

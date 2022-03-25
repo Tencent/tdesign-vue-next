@@ -249,12 +249,12 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
           style="display: none;"
         >
           <div
-            class="t-input t-select__input"
-            modelvalue=""
+            class="t-input"
           >
             <!---->
             <!---->
@@ -481,12 +481,12 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
           style="display: none;"
         >
           <div
-            class="t-input t-select__input"
-            modelvalue=""
+            class="t-input"
           >
             <!---->
             <!---->
@@ -823,12 +823,12 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
           style="display: none;"
         >
           <div
-            class="t-input t-select__input"
-            modelvalue=""
+            class="t-input"
           >
             <!---->
             <!---->
