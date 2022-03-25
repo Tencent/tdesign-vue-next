@@ -1,14 +1,13 @@
 import { computed, defineComponent } from 'vue';
 import dayjs from 'dayjs';
-import { emitEvent } from '../utils/event';
 
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { useCommonClassName } from '../config-provider';
+import { useContent } from '../hooks/tnode';
 
 import { useCalendarCellClass } from './hook';
 
 // 组件相关的自定义类型
 import { CalendarCell } from './type';
-import { renderContent } from '../utils/render-tnode';
 
 const clickTypeEmitEventMap = {
   click: 'click',
@@ -36,8 +35,9 @@ export default defineComponent({
     global: Object,
     cell: [String, Function],
   },
-  emits: ['click', 'dblclick', 'rightclick'],
-  setup(props) {
+  emits: [...Object.values(clickTypeEmitEventMap)],
+  setup(props, { emit }) {
+    const renderContent = useContent();
     const cls = useCalendarCellClass();
     const { STATUS } = useCommonClassName();
 
@@ -69,46 +69,37 @@ export default defineComponent({
         },
       ];
     });
-
-    return {
-      STATUS,
-      cls,
-      cellCls,
-      valueDisplay,
-      allowSlot,
-      disabled,
-    };
-  },
-  render() {
-    const { item, cellCls, valueDisplay, allowSlot } = this;
-
     const clickCell = (e: MouseEvent): void => {
-      if (this.disabled) return;
-      emitEvent(this, clickTypeEmitEventMap[e.type], e);
+      if (disabled.value) return;
+      const emitName = clickTypeEmitEventMap[e.type];
+      emit(emitName, e);
     };
 
     const renderDefaultNode = () => (
       <>
-        <div class={this.cls.tableBodyCellDisplay.value}>{valueDisplay}</div>
-        <div class={this.cls.tableBodyCellCsontent.value}>
-          {allowSlot &&
-            renderContent(this, 'cellAppend', undefined, {
-              params: { ...item },
+        <div class={cls.tableBodyCellDisplay.value}>{valueDisplay.value}</div>
+        <div class={cls.tableBodyCellCsontent.value}>
+          {allowSlot.value &&
+            renderContent('cellAppend', undefined, {
+              params: { ...props.item },
             })}
         </div>
       </>
     );
-    return (
-      item && (
-        <td class={cellCls} onClick={clickCell} ondblclick={clickCell} oncontextmenu={clickCell}>
-          {typeof this.cell === 'function'
-            ? this.cell(item)
-            : renderContent(this, 'cell', undefined, {
-                defaultNode: renderDefaultNode(),
-                params: { ...item },
-              })}
-        </td>
-      )
-    );
+
+    return () => {
+      return (
+        props.item && (
+          <td class={cellCls.value} onClick={clickCell} ondblclick={clickCell} oncontextmenu={clickCell}>
+            {typeof props.cell === 'function'
+              ? props.cell({ ...props.item })
+              : renderContent('cell', undefined, {
+                  defaultNode: renderDefaultNode(),
+                  params: { ...props.item },
+                })}
+          </td>
+        )
+      );
+    };
   },
 });

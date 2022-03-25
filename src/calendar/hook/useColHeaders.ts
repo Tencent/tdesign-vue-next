@@ -1,11 +1,10 @@
 import { computed } from 'vue';
 
+import { CellColHeader, CalendarState } from '../interface';
 import { TdCalendarProps, WeekDay } from '../type';
 import { useConfig } from '../../config-provider';
 import { COMPONENT_NAME } from '../const';
-import { CellColHeader } from '../interface';
 import * as utils from '../utils';
-import { CalendarState } from './type';
 
 export function useColHeaders(props: TdCalendarProps, state: CalendarState) {
   const { t, global } = useConfig(COMPONENT_NAME);

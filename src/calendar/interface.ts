@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import { SizeEnum } from '../common';
 
 import { CalendarValue, CalendarCell, WeekDay, TdCalendarProps } from './type';
 
@@ -66,6 +67,19 @@ export interface ModeOption {
 export interface CellEventOption {
   cell: CalendarCell;
   e: MouseEvent;
+}
+
+/**
+ * 日历组件本身的状态管理
+ */
+export interface CalendarState {
+  realFirstDayOfWeek: number;
+  curDate: dayjs.Dayjs | null;
+  curSelectedYear: number | null;
+  curSelectedMonth: number | null;
+  curSelectedMode: string | null;
+  isShowWeekend: boolean;
+  controlSize: SizeEnum;
 }
 
 /**

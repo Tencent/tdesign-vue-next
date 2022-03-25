@@ -3,8 +3,8 @@ import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import props from './props';
 import * as utils from './utils';
-import { renderContent } from '../utils/render-tnode';
 import { useConfig } from '../config-provider';
+import { useContent } from '../hooks/tnode';
 import { useState, useCalendarClass, userController, useColHeaders } from './hook';
 
 // 组件的一些常量
@@ -25,7 +25,8 @@ import { CalendarRange, YearMonthOption, ModeOption, CellEventOption } from './i
 export default defineComponent({
   name: 'TCalendar',
   props: { ...props },
-  setup(props) {
+  setup(props, { slots }) {
+    const renderContent = useContent();
     const { t, global } = useConfig(COMPONENT_NAME);
     // 组件内部状态管理
     const { state, toCurrent, checkDayVisibled } = useState(props);
@@ -189,100 +190,24 @@ export default defineComponent({
       }),
     };
 
-    // 单元格数据
-    const cellsData = {
-      monthCellsData: computed<CalendarCell[][]>(() => {
-        const daysArr: CalendarCell[][] = utils.createMonthCellsData(
-          state.curSelectedYear,
-          state.curSelectedMonth,
-          state.realFirstDayOfWeek,
-          state.curDate,
-          props.format,
-        );
-        return daysArr;
-      }),
-      yearCellsData: computed<CalendarCell[][]>(() => {
-        const re: CalendarCell[][] = [];
-        const monthsArr: CalendarCell[] = utils.createYearCellsData(state.curSelectedYear, state.curDate, props.format);
-        const rowCount = Math.ceil(monthsArr.length / DEFAULT_YEAR_CELL_NUMINROW);
-        let index = 0;
-        for (let i = 1; i <= rowCount; i++) {
-          const row: CalendarCell[] = [];
-          for (let j = 1; j <= DEFAULT_YEAR_CELL_NUMINROW; j++) {
-            row.push(monthsArr[index]);
-            index += 1;
-          }
-          re.push(row);
-        }
-        return re;
-      }),
-    };
-
-    return {
-      global,
-      state,
-      cls,
-      controller,
-      cellColHeaders,
-      dateSelect,
-      modeSelect,
-      weekendBtn,
-      currentBtn,
-      cellsData,
-      t,
-      toCurrent,
-      checkDayVisibled,
-    };
-  },
-  render() {
-    const onWeekendToggleClick = (): void => {
-      this.state.isShowWeekend = !this.state.isShowWeekend;
-      this.controller.emitControllerChange();
-    };
-    const cellClickEmit = (eventPropsName: string, e: MouseEvent, cellData: CalendarCell): void => {
-      if (typeof this[eventPropsName] === 'function') {
-        const options: CellEventOption = {
-          cell: {
-            ...cellData,
-            ...this.controller.options,
-          },
-          e,
-        };
-        this[eventPropsName](options);
-      }
-    };
-    const clickCell = (e: MouseEvent, cellData: CalendarCell): void => {
-      this.state.curDate = dayjs(cellData.date);
-      cellClickEmit('onCellClick', e, cellData);
-    };
-    const doubleClickCell = (e: MouseEvent, cellData: CalendarCell): void => {
-      cellClickEmit('onCellDoubleClick', e, cellData);
-    };
-    const rightClickCell = (e: MouseEvent, cellData: CalendarCell): void => {
-      if (this.preventCellContextmenu) {
-        e.preventDefault();
-      }
-      cellClickEmit('onCellRightClick', e, cellData);
-    };
-
     const renderControl = () => {
       return (
-        <div class={this.cls.control.value}>
-          <div class={this.cls.title.value}>
-            {renderContent(this, 'head', undefined, {
-              params: { ...this.controller.options.value },
+        <div class={cls.control.value}>
+          <div class={cls.title.value}>
+            {renderContent('head', undefined, {
+              params: { ...controller.options.value },
             })}
           </div>
-          <div class={this.cls.controlSection.value}>
-            {this.dateSelect.isYearSelectVisible.value && (
-              <div class={this.cls.controlSectionCell.value}>
+          <div class={cls.controlSection.value}>
+            {dateSelect.isYearSelectVisible.value && (
+              <div class={cls.controlSectionCell.value}>
                 <TSelect
-                  v-model={this.state.curSelectedYear}
-                  size={this.state.controlSize}
-                  {...this.controller.configData.value.year.selecteProps}
-                  disabled={this.dateSelect.isYearSelectDisabled.value}
+                  v-model={state.curSelectedYear}
+                  size={state.controlSize}
+                  {...controller.configData.value.year.selecteProps}
+                  disabled={dateSelect.isYearSelectDisabled.value}
                 >
-                  {this.dateSelect.yearSelectOptionList.value.map((item) => (
+                  {dateSelect.yearSelectOptionList.value.map((item) => (
                     <TOption key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
                       {item.label}
                     </TOption>
@@ -290,15 +215,15 @@ export default defineComponent({
                 </TSelect>
               </div>
             )}
-            {this.dateSelect.isMonthSelectVisible.value && (
-              <div class={this.cls.controlSectionCell.value}>
+            {dateSelect.isMonthSelectVisible.value && (
+              <div class={cls.controlSectionCell.value}>
                 <TSelect
-                  v-model={this.state.curSelectedMonth}
-                  size={this.state.controlSize}
-                  {...this.controller.configData.value.month.selecteProps}
-                  disabled={this.dateSelect.isMonthSelectDisabled.value}
+                  v-model={state.curSelectedMonth}
+                  size={state.controlSize}
+                  {...controller.configData.value.month.selecteProps}
+                  disabled={dateSelect.isMonthSelectDisabled.value}
                 >
-                  {this.dateSelect.monthSelectOptionList.value.map((item) => (
+                  {dateSelect.monthSelectOptionList.value.map((item) => (
                     <TOption key={item.value} value={item.value} label={item.label} disabled={item.disabled}>
                       {item.label}
                     </TOption>
@@ -306,17 +231,17 @@ export default defineComponent({
                 </TSelect>
               </div>
             )}
-            {this.modeSelect.isVisible.value && (
-              <div class={this.cls.controlSectionCell.value} style="height: auto">
+            {modeSelect.isVisible.value && (
+              <div class={cls.controlSectionCell.value} style="height: auto">
                 <TRadioGroup
-                  v-model={this.state.curSelectedMode}
+                  v-model={state.curSelectedMode}
                   variant="default-filled"
-                  size={this.state.controlSize}
-                  {...this.controller.configData.value.mode.radioGroupProps}
-                  disabled={this.modeSelect.isDisabled.value}
-                  onChange={this.controller.emitControllerChange}
+                  size={state.controlSize}
+                  {...controller.configData.value.mode.radioGroupProps}
+                  disabled={modeSelect.isDisabled.value}
+                  onChange={controller.emitControllerChange}
                 >
-                  {this.modeSelect.optionList.value.map((item) => (
+                  {modeSelect.optionList.value.map((item) => (
                     <TRadioButton key={item.value} value={item.value}>
                       {item.label}
                     </TRadioButton>
@@ -324,31 +249,34 @@ export default defineComponent({
                 </TRadioGroup>
               </div>
             )}
-            {this.weekendBtn.isVisible.value && (
-              <div class={this.cls.controlSectionCell.value}>
+            {weekendBtn.isVisible.value && (
+              <div class={cls.controlSectionCell.value}>
                 <TCheckTag
-                  class={this.cls.controlTag.value}
-                  theme={this.state.isShowWeekend ? 'default' : 'primary'}
-                  size={this.state.controlSize}
-                  {...this.weekendBtn.vBind.value}
-                  disabled={this.weekendBtn.isDisabled.value}
-                  onClick={onWeekendToggleClick}
+                  class={cls.controlTag.value}
+                  theme={state.isShowWeekend ? 'default' : 'primary'}
+                  size={state.controlSize}
+                  {...weekendBtn.vBind.value}
+                  disabled={weekendBtn.isDisabled.value}
+                  onClick={() => {
+                    state.isShowWeekend = !state.isShowWeekend;
+                    controller.emitControllerChange();
+                  }}
                 >
-                  {this.weekendBtn.text.value}
+                  {weekendBtn.text.value}
                 </TCheckTag>
               </div>
             )}
-            {this.currentBtn.isVisible.value && (
-              <div class={this.cls.controlSectionCell.value}>
+            {currentBtn.isVisible.value && (
+              <div class={cls.controlSectionCell.value}>
                 <TButton
-                  size={this.state.controlSize}
-                  {...this.currentBtn.vBind.value}
-                  disabled={this.currentBtn.isDisabled.value}
+                  size={state.controlSize}
+                  {...currentBtn.vBind.value}
+                  disabled={currentBtn.isDisabled.value}
                   onClick={() => {
-                    this.toCurrent();
+                    toCurrent();
                   }}
                 >
-                  {this.currentBtn.text.value}
+                  {currentBtn.text.value}
                 </TButton>
               </div>
             )}
@@ -356,18 +284,55 @@ export default defineComponent({
         </div>
       );
     };
+
+    const cellClickEmit = (eventPropsName: string, e: MouseEvent, cellData: CalendarCell): void => {
+      if (typeof props[eventPropsName] === 'function') {
+        const options: CellEventOption = {
+          cell: {
+            ...cellData,
+            ...controller.options.value,
+          },
+          e,
+        };
+        props[eventPropsName](options);
+      }
+    };
+    const clickCell = (e: MouseEvent, cellData: CalendarCell): void => {
+      state.curDate = dayjs(cellData.date);
+      cellClickEmit('onCellClick', e, cellData);
+    };
+    const doubleClickCell = (e: MouseEvent, cellData: CalendarCell): void => {
+      cellClickEmit('onCellDoubleClick', e, cellData);
+    };
+    const rightClickCell = (e: MouseEvent, cellData: CalendarCell): void => {
+      if (props.preventCellContextmenu) {
+        e.preventDefault();
+      }
+      cellClickEmit('onCellRightClick', e, cellData);
+    };
+
+    const monthCellsData = computed<CalendarCell[][]>(() => {
+      const daysArr: CalendarCell[][] = utils.createMonthCellsData(
+        state.curSelectedYear,
+        state.curSelectedMonth,
+        state.realFirstDayOfWeek,
+        state.curDate,
+        props.format,
+      );
+      return daysArr;
+    });
     const renderMonthBody = () => {
       return (
-        <table class={this.cls.table.value}>
-          <thead class={this.cls.tableHead.value}>
-            <tr class={this.cls.tableHeadRow.value}>
-              {this.cellColHeaders.map(
+        <table class={cls.table.value}>
+          <thead class={cls.tableHead.value}>
+            <tr class={cls.tableHeadRow.value}>
+              {cellColHeaders.value.map(
                 (item, index) =>
-                  this.checkDayVisibled(item.num) && (
-                    <th class={this.cls.tableHeadCell.value}>
-                      {Array.isArray(this.week)
-                        ? this.week[index]
-                        : renderContent(this, 'week', undefined, {
+                  checkDayVisibled(item.num) && (
+                    <th class={cls.tableHeadCell.value}>
+                      {Array.isArray(props.week)
+                        ? props.week[index]
+                        : renderContent('week', undefined, {
                             defaultNode: <span>{item.display}</span>,
                             params: { day: item.num },
                           })}
@@ -377,25 +342,25 @@ export default defineComponent({
             </tr>
           </thead>
 
-          <tbody class={this.cls.tableBody.value}>
-            {this.cellsData.monthCellsData.value.map((week, weekIndex) => (
-              <tr class={this.cls.tableBodyRow.value}>
+          <tbody class={cls.tableBody.value}>
+            {monthCellsData.value.map((week, weekIndex) => (
+              <tr class={cls.tableBodyRow.value}>
                 {week.map(
                   (item, itemIndex) =>
-                    (this.state.isShowWeekend || item.day < 6) && (
+                    (state.isShowWeekend || item.day < 6) && (
                       <CalendarCellItem
                         key={`d-${weekIndex}-${itemIndex}`}
                         item={item}
-                        theme={this.theme}
-                        t={this.t}
-                        global={this.global}
-                        cell={this.cell}
-                        fillWithZero={this.fillWithZero}
+                        theme={props.theme}
+                        t={t}
+                        global={global.value}
+                        cell={props.cell}
+                        fillWithZero={props.fillWithZero}
                         onClick={(e: MouseEvent) => clickCell(e, item)}
                         onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
                         onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
                       >
-                        {{ ...this.$slots }}
+                        {{ ...slots }}
                       </CalendarCellItem>
                     ),
                 )}
@@ -405,26 +370,42 @@ export default defineComponent({
         </table>
       );
     };
+
+    const yearCellsData = computed<CalendarCell[][]>(() => {
+      const re: CalendarCell[][] = [];
+      const monthsArr: CalendarCell[] = utils.createYearCellsData(state.curSelectedYear, state.curDate, props.format);
+      const rowCount = Math.ceil(monthsArr.length / DEFAULT_YEAR_CELL_NUMINROW);
+      let index = 0;
+      for (let i = 1; i <= rowCount; i++) {
+        const row: CalendarCell[] = [];
+        for (let j = 1; j <= DEFAULT_YEAR_CELL_NUMINROW; j++) {
+          row.push(monthsArr[index]);
+          index += 1;
+        }
+        re.push(row);
+      }
+      return re;
+    });
     const renderYearBody = () => {
       return (
-        <table class={this.cls.table.value}>
-          <tbody class={this.cls.tableBody.value}>
-            {this.cellsData.yearCellsData.value.map((cell, cellIndex) => (
-              <tr class={this.cls.tableBodyRow.value}>
+        <table class={cls.table.value}>
+          <tbody class={cls.tableBody.value}>
+            {yearCellsData.value.map((cell, cellIndex) => (
+              <tr class={cls.tableBodyRow.value}>
                 {cell.map((item, itemIndex) => (
                   <CalendarCellItem
                     key={`m-${cellIndex}-${itemIndex}`}
                     item={item}
-                    theme={this.theme}
-                    t={this.t}
-                    global={this.global}
-                    cell={this.cell}
-                    fillWithZero={this.fillWithZero}
+                    theme={props.theme}
+                    t={t}
+                    global={global.value}
+                    cell={props.cell}
+                    fillWithZero={props.fillWithZero}
                     onClick={(e: MouseEvent) => clickCell(e, item)}
                     onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
                     onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
                   >
-                    {{ ...this.$slots }}
+                    {{ ...slots }}
                   </CalendarCellItem>
                 ))}
               </tr>
@@ -434,13 +415,13 @@ export default defineComponent({
       );
     };
 
-    return (
-      <div class={this.cls.body.value}>
-        {this.controller.visible.value && renderControl()}
-        <div class={this.cls.panel.value}>
-          {this.state.curSelectedMode === 'month' ? renderMonthBody() : renderYearBody()}
+    return () => {
+      return (
+        <div class={cls.body.value}>
+          {controller.visible.value && renderControl()}
+          <div class={cls.panel.value}>{state.curSelectedMode === 'month' ? renderMonthBody() : renderYearBody()}</div>
         </div>
-      </div>
-    );
+      );
+    };
   },
 });

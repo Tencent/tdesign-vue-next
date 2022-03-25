@@ -5,7 +5,7 @@ import { useConfig } from '../../config-provider';
 import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';
 import { TdCalendarProps } from '../type';
-import { CalendarState } from './type';
+import { CalendarState } from '../interface';
 
 export function useState(props: TdCalendarProps) {
   const { global } = useConfig(COMPONENT_NAME);

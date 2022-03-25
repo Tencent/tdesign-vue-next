@@ -1,9 +1,7 @@
 import { computed, nextTick } from 'vue';
 import dayjs from 'dayjs';
-
-import { CalendarState } from './type';
-
 import { COMPONENT_NAME } from '../const';
+import { CalendarState } from '../interface';
 import { TdCalendarProps, ControllerOptions } from '../type';
 import { useConfig } from '../../config-provider';
 
