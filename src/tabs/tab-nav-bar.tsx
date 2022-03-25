@@ -1,7 +1,9 @@
 import { defineComponent, PropType, computed, VNode, nextTick, ref, watch, onMounted } from 'vue';
-import { usePrefixClass } from '../config-provider';
 import { firstUpperCase } from '../utils/helper';
 import tabProps from './props';
+
+// hooks
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   props: {
