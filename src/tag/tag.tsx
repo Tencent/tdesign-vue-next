@@ -1,54 +1,50 @@
 import { computed, defineComponent, h, VNode } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { useEmitEvent } from '../hooks/event';
-import { useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 import CLASSNAMES from '../utils/classnames';
-import config from '../config';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
-import { ClassName } from '../common';
-
-const { prefix } = config;
-const name = `${prefix}-tag`;
 
 export default defineComponent({
   name: 'TTag',
   props,
-  emits: ['close', 'click'],
   setup(props) {
-    const emitEvent = useEmitEvent();
     const { global: tagGlobalConfig } = useConfig('tag');
-    const tagClass = computed<ClassName>(() => {
+    const COMPONENT_NAME = usePrefixClass('tag');
+
+    const tagClass = computed(() => {
       return [
-        `${name}`,
-        `${name}--${props.theme}`,
-        `${name}--${props.variant}`,
+        `${COMPONENT_NAME.value}`,
+        `${COMPONENT_NAME.value}--${props.theme}`,
+        `${COMPONENT_NAME.value}--${props.variant}`,
         {
-          [`${name}--ellipsis`]: props.maxWidth,
-          [`${name}--close`]: props.closable,
-          [`${name}--disabled`]: props.disabled,
+          [`${COMPONENT_NAME.value}--ellipsis`]: props.maxWidth,
+          [`${COMPONENT_NAME.value}--close`]: props.closable,
+          [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
         },
         CLASSNAMES.SIZE[props.size],
-        props.shape !== 'square' && `${name}--${props.shape}`,
+        props.shape !== 'square' && `${COMPONENT_NAME.value}--${props.shape}`,
       ];
     });
     const tagStyle = computed<Record<string, string>>(() => {
       return props.maxWidth ? { maxWidth: `${props.maxWidth}px` } : {};
     });
 
-    const handleClose: ({ e }: { e: MouseEvent }) => void = (e) => emitEvent('close', e);
-    const handleClick: (e: MouseEvent) => void = (e) => emitEvent('click', { e });
+    const handleClick = (e: MouseEvent) => {
+      props.onClick?.({ e });
+    };
 
     const getCloseIcon = () => {
       if (!props.closable) return null;
-      const iconClassName = `${prefix}-tag__icon-close`;
+      const iconClassName = `${COMPONENT_NAME.value}__icon-close`;
       if (tagGlobalConfig.value.closeIcon) {
         return h(tagGlobalConfig.value.closeIcon(h) as VNode, { class: iconClassName });
       }
-      return <CloseIcon onClick={handleClose} class={iconClassName} />;
+      return <CloseIcon onClick={({ e }: { e: MouseEvent }) => props.onClose?.({ e })} class={iconClassName} />;
     };
 
     return {
+      COMPONENT_NAME,
       tagClass,
       tagStyle,
       getCloseIcon,
@@ -67,7 +63,7 @@ export default defineComponent({
       <span class={this.tagClass} style={this.tagStyle} onClick={this.handleClick}>
         {icon}
         {this.maxWidth ? (
-          <span style={this.tagStyle} class={`${name}--text`}>
+          <span style={this.tagStyle} class={`${this.COMPONENT_NAME}--text`}>
             {tagContent}
           </span>
         ) : (

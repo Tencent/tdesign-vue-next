@@ -1,10 +1,8 @@
 import { defineComponent } from 'vue';
-import { prefix } from '../../config';
-
-const name = `${prefix}-date-picker-cell`;
+import { usePrefixClass } from '../../config-provider';
 
 export default defineComponent({
-  name,
+  name: 'TDatePickerCell',
   props: {
     text: [String, Number],
     value: Date,
@@ -20,8 +18,18 @@ export default defineComponent({
     onClick: Function,
     onMouseEnter: { type: Function },
   },
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('date-picker__cell');
+    const name = usePrefixClass('date-picker-cell');
+    return {
+      name,
+      COMPONENT_NAME,
+    };
+  },
   render() {
     const {
+      name,
+      COMPONENT_NAME,
       text,
       value,
       active,
@@ -39,22 +47,22 @@ export default defineComponent({
     const cellClass = [
       name,
       {
-        [`${prefix}-date-picker__cell--now`]: now,
-        [`${prefix}-date-picker__cell--active`]: active,
-        [`${prefix}-date-picker__cell--disabled`]: disabled,
-        [`${prefix}-date-picker__cell--highlight`]: highlight,
-        [`${prefix}-date-picker__cell--active-start`]: startOfRange,
-        [`${prefix}-date-picker__cell--active-end`]: endOfRange,
-        [`${prefix}-date-picker__cell--additional`]: additional,
-        [`${prefix}-date-picker__cell--first-day-of-month`]: firstDayOfMonth,
-        [`${prefix}-date-picker__cell--last-day-of-month`]: lastDayOfMonth,
+        [`${COMPONENT_NAME}--now`]: now,
+        [`${COMPONENT_NAME}--active`]: active,
+        [`${COMPONENT_NAME}--disabled`]: disabled,
+        [`${COMPONENT_NAME}--highlight`]: highlight,
+        [`${COMPONENT_NAME}--active-start`]: startOfRange,
+        [`${COMPONENT_NAME}--active-end`]: endOfRange,
+        [`${COMPONENT_NAME}--additional`]: additional,
+        [`${COMPONENT_NAME}--first-day-of-month`]: firstDayOfMonth,
+        [`${COMPONENT_NAME}--last-day-of-month`]: lastDayOfMonth,
       },
     ];
 
     return (
       <td class={cellClass}>
         <div
-          class={`${prefix}-date-picker__cell-wrapper`}
+          class={`${COMPONENT_NAME}-wrapper`}
           onClick={(e: MouseEvent) => {
             if (!disabled) {
               onClick(value, { e });
@@ -62,7 +70,7 @@ export default defineComponent({
           }}
           onMouseenter={() => onMouseEnter && onMouseEnter(value)}
         >
-          <span class={`${prefix}-date-picker__cell-text`}>{text}</span>
+          <span class={`${COMPONENT_NAME}-text`}>{text}</span>
         </div>
       </td>
     );

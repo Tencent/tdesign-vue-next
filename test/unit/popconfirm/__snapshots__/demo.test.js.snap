@@ -12,7 +12,6 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -106,7 +105,6 @@ exports[`Popconfirm Popconfirm baseVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -209,7 +207,6 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
     <!-- 使用 props 定义按钮内容 -->
     <div
       class="t-popup__reference"
-      modelvalue="false"
     >
       <transition-stub>
         <div
@@ -299,7 +296,6 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
     <!-- 通过透传按钮属性自定义按钮，cancelBtn 和 confirmBtn 值为 null 时表示不显示该按钮 -->
     <div
       class="t-popup__reference"
-      modelvalue="false"
     >
       <transition-stub>
         <div
@@ -389,7 +385,6 @@ exports[`Popconfirm Popconfirm buttonVue demo works fine 1`] = `
     <!-- 使用插槽定义按钮内容 -->
     <div
       class="t-popup__reference"
-      modelvalue="false"
     >
       <transition-stub>
         <div
@@ -501,7 +496,6 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -605,7 +599,6 @@ exports[`Popconfirm Popconfirm describeVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -720,7 +713,6 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -813,7 +805,6 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -906,7 +897,6 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -1005,7 +995,6 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -1095,7 +1084,6 @@ exports[`Popconfirm Popconfirm iconVue demo works fine 1`] = `
     >
       <div
         class="t-popup__reference"
-        modelvalue="false"
       >
         <transition-stub>
           <div
@@ -1202,7 +1190,6 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
   >
     <div
       class="t-popup__reference"
-      modelvalue="false"
     >
       <transition-stub>
         <div
@@ -1291,7 +1278,6 @@ exports[`Popconfirm Popconfirm inheritVue demo works fine 1`] = `
     </div>
     <div
       class="t-popup__reference"
-      modelvalue="false"
     >
       <transition-stub>
         <div

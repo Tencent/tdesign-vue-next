@@ -1,4 +1,4 @@
-import { defineComponent, h, ComponentPublicInstance } from 'vue';
+import { defineComponent, h } from 'vue';
 import {
   InfoCircleFilledIcon,
   CheckCircleFilledIcon,
@@ -8,13 +8,11 @@ import {
 } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
 
-import { prefix } from '../config';
 import { THEME_LIST } from './const';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
 import { emitEvent } from '../utils/event';
-
-const name = `${prefix}-message`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TMessage',
@@ -23,23 +21,31 @@ export default defineComponent({
 
   emits: ['duration-end', 'click-close-btn'],
 
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('message');
+    const classPrefix = usePrefixClass();
+    return {
+      classPrefix,
+      COMPONENT_NAME,
+    };
+  },
+
   data() {
     return {
       timer: null,
     };
   },
-
   computed: {
     classes(): Array<any> {
       const status = {};
       THEME_LIST.forEach((t) => {
-        status[`${prefix}-is-${t}`] = this.theme === t;
+        status[`${this.classPrefix}-is-${t}`] = this.theme === t;
       });
       return [
-        name,
+        this.COMPONENT_NAME,
         status,
         {
-          [`${prefix}-is-closable`]: this.closeBtn || this.$slots.closeBtn,
+          [`${this.classPrefix}-is-closable`]: this.closeBtn || this.$slots.closeBtn,
         },
       ];
     },
@@ -70,7 +76,7 @@ export default defineComponent({
     renderClose() {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${name}__close`} onClick={this.close}>
+        <span class={`${this.COMPONENT_NAME}__close`} onClick={this.close}>
           {renderTNodeJSX(this, 'closeBtn', defaultClose)}
         </span>
       );

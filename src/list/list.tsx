@@ -1,33 +1,31 @@
-import { defineComponent, VNodeChild, computed, ComponentPublicInstance, ref } from 'vue';
+import { defineComponent, VNodeChild, computed } from 'vue';
 import { useTNodeJSX } from '../hooks/tnode';
-import { useEmitEvent } from '../hooks/event';
 import TLoading from '../loading';
-import { prefix } from '../config';
 import props from './props';
+import { TdListProps } from './type';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
-import { ClassName } from '../common';
-
-const name = `${prefix}-list`;
+import { useConfig, usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TList',
   props: {
     ...props,
   },
-  emits: ['scroll', 'load-more'],
-  setup(props) {
-    const emitEvent = useEmitEvent();
+  setup(props: TdListProps) {
+    const { global } = useConfig('list');
+    const COMPONENT_NAME = usePrefixClass('list');
+
     const renderTNodeJSX = useTNodeJSX();
     /** 列表基础逻辑 start */
-    const listClass = computed<ClassName>(() => {
+    const listClass = computed(() => {
       return [
-        `${name}`,
+        `${COMPONENT_NAME.value}`,
         CLASSNAMES.SIZE[props.size],
         {
-          [`${name}--split`]: props.split,
-          [`${name}--stripe`]: props.stripe,
-          [`${name}--vertical-action`]: props.layout === 'vertical',
+          [`${COMPONENT_NAME.value}--split`]: props.split,
+          [`${COMPONENT_NAME.value}--stripe`]: props.stripe,
+          [`${COMPONENT_NAME.value}--vertical-action`]: props.layout === 'vertical',
         },
       ];
     });
@@ -35,9 +33,9 @@ export default defineComponent({
       const propsHeaderContent = renderTNodeJSX('header');
       const propsFooterContent = renderTNodeJSX('footer');
       return [
-        propsHeaderContent && <div class={`${name}__header`}>{propsHeaderContent}</div>,
-        <ul class={`${name}__inner`}>{renderTNodeJSX('default')}</ul>,
-        propsFooterContent && <div class={`${name}__footer`}>{propsFooterContent}</div>,
+        propsHeaderContent && <div class={`${COMPONENT_NAME.value}__header`}>{propsHeaderContent}</div>,
+        <ul class={`${COMPONENT_NAME.value}__inner`}>{renderTNodeJSX('default')}</ul>,
+        propsFooterContent && <div class={`${COMPONENT_NAME.value}__footer`}>{propsFooterContent}</div>,
       ];
     };
     /** 列表基础逻辑 end */
@@ -47,8 +45,8 @@ export default defineComponent({
     const handleScroll = (e: WheelEvent | Event) => {
       const listElement = e.target as HTMLElement;
       const { scrollTop, scrollHeight, clientHeight } = listElement;
-      emitEvent('scroll', {
-        $event: e,
+      props.onScroll?.({
+        e,
         scrollTop,
         scrollBottom: scrollHeight - clientHeight - scrollTop,
       });
@@ -58,8 +56,8 @@ export default defineComponent({
     /** loading加载相关逻辑 start */
     const loadingClass = computed(() => {
       return typeof props.asyncLoading === 'string' && ['loading', 'load-more'].includes(props.asyncLoading)
-        ? `${name}__load ${name}__load--${props.asyncLoading}`
-        : `${name}__load`;
+        ? `${COMPONENT_NAME.value}__load ${COMPONENT_NAME.value}__load--${props.asyncLoading}`
+        : `${COMPONENT_NAME.value}__load`;
     });
 
     const renderLoading = () => {
@@ -68,12 +66,12 @@ export default defineComponent({
           return (
             <div>
               <TLoading />
-              <span>正在加载中，请稍等</span>
+              <span>{global.value.loadingText}</span>
             </div>
           );
         }
         if (props.asyncLoading === LOAD_MORE) {
-          return <span>点击加载更多</span>;
+          return <span>{global.value.loadingMoreText}</span>;
         }
       }
       return renderTNodeJSX('asyncLoading');
@@ -81,10 +79,11 @@ export default defineComponent({
 
     const handleLoadMore = (e: MouseEvent) => {
       if (typeof props.asyncLoading === 'string' && props.asyncLoading !== LOAD_MORE) return;
-      emitEvent('load-more', { e });
+      props.onLoadMore?.({ e });
     };
     /** loading加载相关逻辑 end */
     return {
+      COMPONENT_NAME,
       listClass,
       loadingClass,
       renderLoading,

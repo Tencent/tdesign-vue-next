@@ -3,7 +3,6 @@
 exports[`Checkbox :props :checked 1`] = `
 <label
   class="t-checkbox t-is-checked"
-  modelvalue="false"
 >
   <input
     class="t-checkbox__former"
@@ -23,7 +22,6 @@ exports[`Checkbox :props :checked 1`] = `
 exports[`Checkbox :props :defaultChecked 1`] = `
 <label
   class="t-checkbox t-is-checked"
-  modelvalue="false"
 >
   <input
     class="t-checkbox__former"
@@ -43,7 +41,6 @@ exports[`Checkbox :props :defaultChecked 1`] = `
 exports[`Checkbox :props :disabled 1`] = `
 <label
   class="t-checkbox t-is-disabled"
-  modelvalue="false"
 >
   <input
     class="t-checkbox__former"
@@ -64,7 +61,6 @@ exports[`Checkbox :props :disabled 1`] = `
 exports[`Checkbox :props :indeterminate 1`] = `
 <label
   class="t-checkbox t-is-indeterminate"
-  modelvalue="false"
 >
   <input
     class="t-checkbox__former"
@@ -84,7 +80,6 @@ exports[`Checkbox :props :indeterminate 1`] = `
 exports[`Checkbox :props :name 1`] = `
 <label
   class="t-checkbox"
-  modelvalue="false"
 >
   <input
     class="t-checkbox__former"
@@ -106,12 +101,10 @@ exports[`Checkbox CheckboxGroup :props :checked 1`] = `
 <div
   checked="sz"
   class="t-checkbox-group"
-  modelvalue=""
 >
   
   <label
     class="t-checkbox"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -132,7 +125,6 @@ exports[`Checkbox CheckboxGroup :props :checked 1`] = `
   </label>
   <label
     class="t-checkbox t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -160,12 +152,10 @@ exports[`Checkbox CheckboxGroup :props :defaultChecked 1`] = `
 <div
   class="t-checkbox-group"
   defaultchecked="sz"
-  modelvalue=""
 >
   
   <label
     class="t-checkbox"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -186,7 +176,6 @@ exports[`Checkbox CheckboxGroup :props :defaultChecked 1`] = `
   </label>
   <label
     class="t-checkbox t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -213,16 +202,13 @@ exports[`Checkbox CheckboxGroup :props :defaultChecked 1`] = `
 exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
 <div
   class="t-checkbox-group"
-  modelvalue=""
 >
   
   <label
-    class="t-checkbox t-is-disabled"
-    modelvalue="false"
+    class="t-checkbox"
   >
     <input
       class="t-checkbox__former"
-      disabled=""
       name=""
       type="checkbox"
       value="bj"
@@ -239,12 +225,10 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox t-is-disabled"
-    modelvalue="false"
+    class="t-checkbox"
   >
     <input
       class="t-checkbox__former"
-      disabled=""
       name=""
       type="checkbox"
       value="gz"
@@ -262,7 +246,6 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
   </label>
   <label
     class="t-checkbox"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -288,15 +271,13 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
 exports[`Checkbox CheckboxGroup :props :max 1`] = `
 <div
   class="t-checkbox-group"
-  modelvalue=""
 >
   
   <label
-    class="t-checkbox t-is-disabled"
+    class="t-checkbox"
   >
     <input
       class="t-checkbox__former"
-      disabled=""
       name=""
       type="checkbox"
       value="bj"
@@ -359,12 +340,10 @@ exports[`Checkbox CheckboxGroup :props :max 1`] = `
 exports[`Checkbox CheckboxGroup :props :name 1`] = `
 <div
   class="t-checkbox-group"
-  modelvalue=""
 >
   
   <label
     class="t-checkbox"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -385,7 +364,6 @@ exports[`Checkbox CheckboxGroup :props :name 1`] = `
   </label>
   <label
     class="t-checkbox t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -412,7 +390,6 @@ exports[`Checkbox CheckboxGroup :props :name 1`] = `
 exports[`Checkbox CheckboxGroup :props :options 1`] = `
 <div
   class="t-checkbox-group"
-  modelvalue=""
 >
   
   <label

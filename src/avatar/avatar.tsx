@@ -1,19 +1,15 @@
 import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref } from 'vue';
-import { useEmitEvent } from '../hooks/event';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
 import props from './props';
+import { TdAvatarProps } from './type';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { Styles } from '../common';
-
-const name = `${prefix}-avatar`;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TAvatar',
   props,
-  emits: ['error'],
-  setup(props) {
-    const emitEvent = useEmitEvent();
+  setup(props: TdAvatarProps) {
+    const COMPONENT_NAME = usePrefixClass('avatar');
+    const { SIZE } = useCommonClassName();
     const avatarGroup = inject('avatarGroup', undefined);
     const avatar = ref<HTMLElement | null>(null);
     const avatarChild = ref<HTMLElement | null>(null);
@@ -23,9 +19,9 @@ export default defineComponent({
     const sizeValue = ref('');
     const scale = ref('');
 
-    const isCustomSize = computed(() => sizeValue.value && !CLASSNAMES.SIZE[sizeValue.value]);
+    const isCustomSize = computed(() => sizeValue.value && !SIZE.value[sizeValue.value]);
 
-    const customAvatarSize = computed<Styles>(() => {
+    const customAvatarSize = computed(() => {
       return isCustomSize.value
         ? {
             width: sizeValue.value,
@@ -34,7 +30,7 @@ export default defineComponent({
           }
         : {};
     });
-    const customImageSize = computed<Styles>(() => {
+    const customImageSize = computed(() => {
       return isCustomSize.value
         ? {
             height: sizeValue.value,
@@ -42,7 +38,7 @@ export default defineComponent({
           }
         : {};
     });
-    const customCharacterSize = computed<Styles>(() => {
+    const customCharacterSize = computed(() => {
       return {
         transform: scale.value,
       };
@@ -51,7 +47,7 @@ export default defineComponent({
     const handleImgLoadError = () => {
       const { hideOnLoadFailed } = props;
       isImgExist.value = !hideOnLoadFailed;
-      emitEvent('error');
+      props.onError?.();
     };
     // 设置字符头像大小自适应
     const setScaleParams = () => {
@@ -81,6 +77,8 @@ export default defineComponent({
     });
 
     return {
+      COMPONENT_NAME,
+      SIZE,
       avatar,
       avatarChild,
       isImgExist,
@@ -97,17 +95,18 @@ export default defineComponent({
   },
 
   render() {
+    const { COMPONENT_NAME, SIZE } = this;
     let content = renderContent(this, 'default', 'content');
     const icon = renderTNodeJSX(this, 'icon');
     const isIconOnly = icon && !content;
     const { shape, image, alt } = this.$props;
     const avatarClass = [
-      `${name}`,
-      CLASSNAMES.SIZE[this.sizeValue],
+      `${COMPONENT_NAME}`,
+      SIZE[this.sizeValue],
       {
-        [`${name}--circle`]: shape === 'circle',
-        [`${name}--round`]: shape === 'round',
-        [`${name}__icon`]: !!isIconOnly,
+        [`${COMPONENT_NAME}--circle`]: shape === 'circle',
+        [`${COMPONENT_NAME}--round`]: shape === 'round',
+        [`${COMPONENT_NAME}__icon`]: !!isIconOnly,
       },
     ];
     content = (

@@ -111,6 +111,7 @@ const onTagChange = (currentTags, context) => {
 .tdesign-demo__panel-options-excess-tags-display-type {
   width: 100%;
   padding: 4px 0;
+  display: inline-block;
 }
 .tdesign-demo__panel-options-excess-tags-display-type .t-checkbox {
   display: flex;

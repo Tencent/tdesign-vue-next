@@ -1,13 +1,11 @@
 import { defineComponent, VNode } from 'vue';
-import { prefix } from '../config';
 import Popup from '../popup/index';
 import DropdownMenu from './dropdown-menu';
 import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
-
-const name = `${prefix}-dropdown`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TDropdown',
@@ -23,6 +21,12 @@ export default defineComponent({
     ...props,
   },
   emits: ['click', 'visibleChange'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('dropdown');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   methods: {
     handleMenuClick(data: DropdownOption, context: { e: MouseEvent }) {
       if (this.hideAfterItemClick) {
@@ -41,7 +45,7 @@ export default defineComponent({
       disabled: this.disabled,
       placement: this.placement,
       trigger: this.trigger,
-      overlayClassName: [name, (this.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
+      overlayClassName: [this.COMPONENT_NAME, (this.popupProps as TdDropdownProps['popupProps'])?.overlayClassName],
     };
 
     return (

@@ -11,8 +11,16 @@ import { TNode } from '../common';
 
 export interface GlobalConfigProvider {
   /**
+   * 警告全局配置
+   */
+  alert?: AlertConfig;
+  /**
+   * 锚点全局配置
+   */
+  anchor?: AnchorConfig;
+  /**
    * 动画效果控制，`ripple`指波纹动画， `expand` 指展开动画，`fade` 指渐变动画
-   * @default { include: ['ripple','expand','fade'], exclude: [] }
+   * @default `{ include: ['ripple','expand','fade'], exclude: [] }`
    */
   animation?: Record<'include' | 'exclude', Array<AnimationType>>;
   /**
@@ -23,6 +31,15 @@ export interface GlobalConfigProvider {
    * 级联选择器全局配置
    */
   cascader?: CascaderConfig;
+  /**
+   * CSS 类名前缀
+   * @default t
+   */
+  classPrefix?: string;
+  /**
+   * 颜色选择器全局配置
+   */
+  colorPicker?: ColorPickerConfig;
   /**
    * 日期选择器全局配置
    */
@@ -207,6 +224,24 @@ export interface CascaderConfig {
    * @default '请选择'
    */
   placeholder?: string;
+}
+
+export interface ColorPickerConfig {
+  /**
+   * 清空颜色确认文案，示例：'确定清空最近使用的颜色吗？'
+   * @default '确定清空最近使用的颜色吗？'
+   */
+  clearConfirmText?: string;
+  /**
+   * 最近使用颜色区域标题文本，示例：'最近使用颜色'
+   * @default '最近使用颜色'
+   */
+  recentColorTitle?: string;
+  /**
+   * 系统预设颜色区域标题文本，示例：'系统预设颜色'
+   * @default '系统预设颜色'
+   */
+  swatchColorTitle?: string;
 }
 
 export interface TransferConfig {
@@ -414,16 +449,15 @@ export interface TableConfig {
    * 语言配置，'暂无数据' 描述文本
    * @default '暂无数据'
    */
-  empty?: string;
+  empty?: string | TNode;
   /**
-   * 展开和收起图标（配置传入收起图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件
+   * 展开和收起图标（配置传入收起图标即可），如果没有配置，组件会内置默认图标
    */
   expandIcon?: TNode;
   /**
-   * 语言配置，'输入关键词过滤' 描述文本
-   * @default '输入关键词过滤'
+   * 过滤图标，如果没有配置，组件会内置默认图标
    */
-  filterInputPlaceholder?: string;
+  filterIcon?: TNode;
   /**
    * 语言配置，'点击加载更多' 描述文本
    * @default '点击加载更多'
@@ -450,7 +484,7 @@ export interface TableConfig {
    */
   sortDescendingOperationText?: string;
   /**
-   * 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标。【注意】使用渲染函数输出图标组件
+   * 排序图标（配置传入降序图标即可），如果没有配置，组件会内置默认图标
    */
   sortIcon?: TNode;
 }
@@ -644,6 +678,32 @@ export interface StepsConfig {
   errorIcon?: TNode;
 }
 
+export interface AlertConfig {
+  /**
+   * 收起提示文本
+   * @default 收起
+   */
+  collapseText?: string;
+  /**
+   * 展开提示文本
+   * @default 展开更多
+   */
+  expandText?: string;
+}
+
+export interface AnchorConfig {
+  /**
+   * 复制成功文字
+   * @default 链接复制成功
+   */
+  copySuccessText?: string;
+  /**
+   * 复制提示文字
+   * @default 复制链接
+   */
+  copyText?: string;
+}
+
 export type AnimationType = 'ripple' | 'expand' | 'fade';
 
 export interface ConfigPresetDate {
@@ -657,5 +717,6 @@ export interface UploadTriggerUploadText {
   normal?: string;
   fileInput?: string;
   reupload?: string;
+  continueUpload: string;
   delete?: string;
 }

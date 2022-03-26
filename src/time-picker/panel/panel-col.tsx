@@ -4,19 +4,24 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import { panelColProps } from './props';
-import { COMPONENT_NAME, EPickerCols } from '../constant';
-
-import { prefix } from '../../config';
-
-const name = `${prefix}-time-picker-pane-col`;
+import { EPickerCols } from '../constant';
+import { usePrefixClass, useCommonClassName } from '../../config-provider';
 
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
-  name,
+  name: 'TTimePickerPanelCol',
   props: panelColProps(),
 
   emits: ['time-pick'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('time-picker');
+    const { STATUS } = useCommonClassName();
+    return {
+      COMPONENT_NAME,
+      STATUS,
+    };
+  },
   data() {
     return {
       splitValue: Object.create(null),
@@ -37,7 +42,7 @@ export default defineComponent({
       return [Number(this.value.get('hour')), Number(this.value.get('minute')), Number(this.value.get('second'))];
     },
     timeItemMargin() {
-      const maskDom = this.$el?.querySelector?.(`.${COMPONENT_NAME}__panel-body-active-mask > div`);
+      const maskDom = this.$el?.querySelector?.(`.${this.COMPONENT_NAME}__panel-body-active-mask > div`);
       return maskDom && parseInt(getComputedStyle(maskDom).margin, 10);
     },
   },
@@ -146,10 +151,10 @@ export default defineComponent({
           this.splitValue[col] = el;
         }
         const classNames = [
-          `${COMPONENT_NAME}__panel-body-scroll-item`,
+          `${this.COMPONENT_NAME}__panel-body-scroll-item`,
           {
-            [`${prefix}-is-disabled`]: !this.timeItemCanUsed(col, el),
-            [`${prefix}-is-current`]: isCurrent,
+            [this.STATUS.disabled]: !this.timeItemCanUsed(col, el),
+            [this.STATUS.current]: isCurrent,
           },
         ];
         return (
@@ -197,7 +202,7 @@ export default defineComponent({
     renderScroller(col: EPickerCols) {
       return (
         <ul
-          class={`${COMPONENT_NAME}__panel-body-scroll`}
+          class={`${this.COMPONENT_NAME}__panel-body-scroll`}
           ref={`${col}_scroller`}
           onScroll={debounce(() => this.handleScroll(col), 50)}
         >
@@ -264,7 +269,7 @@ export default defineComponent({
     },
     renderActiveMask() {
       return (
-        <div class={`${COMPONENT_NAME}__panel-body-active-mask`}>
+        <div class={`${this.COMPONENT_NAME}__panel-body-active-mask`}>
           {this.cols.map((_col, idx) => (
             <div key={idx} />
           ))}
@@ -274,7 +279,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class={`${COMPONENT_NAME}__panel-body`}>
+      <div class={`${this.COMPONENT_NAME}__panel-body`}>
         {this.renderActiveMask()}
         {this.renderScrollers()}
       </div>

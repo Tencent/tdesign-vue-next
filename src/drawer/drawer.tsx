@@ -1,10 +1,8 @@
 import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, DrawerConfig } from '../config-provider';
-import { useEmitEvent } from '../hooks/event';
+import { useConfig, usePrefixClass } from '../config-provider';
 import { addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
-import { prefix } from '../config';
 import { Button as TButton } from '../button';
 import props from './props';
 import { FooterButton, DrawerCloseContext } from './type';
@@ -13,9 +11,6 @@ import TransferDom from '../utils/transfer-dom';
 import { useAction } from '../dialog/hooks';
 
 type FooterButtonType = 'confirm' | 'cancel';
-
-const name = `${prefix}-drawer`;
-const lockClass = `${prefix}-drawer--lock`;
 
 export default defineComponent({
   name: 'TDrawer',
@@ -28,30 +23,20 @@ export default defineComponent({
   directives: {
     TransferDom,
   },
-
   props,
-
-  emits: [
-    'open',
-    'close',
-    'opened',
-    'closed',
-    'update:visible',
-    'overlay',
-    'close-btn',
-    'esc-keydown',
-    'confirm',
-    'cancel',
-  ],
-
-  setup(props) {
+  // TODO update:visible 是否是受控的
+  emits: ['update:visible'],
+  setup(props, context) {
     const { global } = useConfig('drawer');
-    const emitEvent = useEmitEvent();
+    const COMPONENT_NAME = usePrefixClass('drawer');
+
+    const LOCK_CLASS = usePrefixClass('drawer--lock');
+
     const confirmBtnAction = (e: MouseEvent) => {
-      emitEvent('confirm', e);
+      props.onConfirm?.({ e });
     };
     const cancelBtnAction = (e: MouseEvent) => {
-      emitEvent('cancel', e);
+      props.onCancel?.({ e });
       closeDrawer({ trigger: 'cancel', e });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
@@ -134,7 +119,12 @@ export default defineComponent({
       const theme = isCancel ? 'default' : 'primary';
       const isApiObject = typeof btnApi === 'object';
       return (
-        <t-button theme={theme} onClick={clickAction} props={isApiObject ? btnApi : {}} class={`${name}-${btnType}`}>
+        <t-button
+          theme={theme}
+          onClick={clickAction}
+          props={isApiObject ? btnApi : {}}
+          class={`${COMPONENT_NAME.value}-${btnType}`}
+        >
           {btnApi && typeof btnApi === 'object' ? btnApi.content : btnApi}
         </t-button>
       );
@@ -145,17 +135,17 @@ export default defineComponent({
     };
     // locale 全局配置，插槽，props，默认值，决定了按钮最终呈现
     const getDefaultFooter = () => {
-      // this.getConfirmBtn is a function of ActionMixin
+      // this.getConfirmBtn is a function of useAction
       const confirmBtn = getConfirmBtn({
         confirmBtn: props.confirmBtn,
         globalConfirm: global.value.confirm,
-        className: `${prefix}-drawer__confirm`,
+        className: `${COMPONENT_NAME.value}__confirm`,
       });
-      // this.getCancelBtn is a function of ActionMixin
+      // this.getCancelBtn is a function of useAction
       const cancelBtn = getCancelBtn({
         cancelBtn: props.cancelBtn,
         globalCancel: global.value.cancel,
-        className: `${prefix}-drawer__cancel`,
+        className: `${COMPONENT_NAME.value}__cancel`,
       });
       return (
         <div style={footerStyle.value}>
@@ -176,19 +166,19 @@ export default defineComponent({
       () => props.visible,
       (value: boolean) => {
         if (value && !props.showInAttachedElement) {
-          props.preventScrollThrough && addClass(document.body, lockClass);
+          props.preventScrollThrough && addClass(document.body, LOCK_CLASS.value);
         } else {
-          props.preventScrollThrough && removeClass(document.body, lockClass);
+          props.preventScrollThrough && removeClass(document.body, LOCK_CLASS.value);
         }
       },
       { immediate: true },
     );
     const handleCloseBtnClick = (e: MouseEvent) => {
-      emitEvent('close-btn', e);
+      props.onCloseBtnClick?.({ e });
       closeDrawer({ trigger: 'close-btn', e });
     };
     const handleWrapperClick = (e: MouseEvent) => {
-      emitEvent('overlay', e);
+      props.onOverlayClick?.({ e });
       if (props.closeOnOverlayClick) {
         closeDrawer({ trigger: 'overlay', e });
       }
@@ -196,13 +186,13 @@ export default defineComponent({
     const onKeyDown = (e: KeyboardEvent) => {
       // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
       if (props.closeOnEscKeydown && e.key === 'Escape') {
-        emitEvent('esc-keydown', e);
+        props.onEscKeydown?.({ e });
         closeDrawer({ trigger: 'esc', e });
       }
     };
     const closeDrawer = (params: DrawerCloseContext) => {
-      emitEvent('close', params);
-      emitEvent('update:visible', false);
+      props.onClose?.(params);
+      context.emit('update:visible', false);
     };
 
     onUpdated(() => {
@@ -210,6 +200,7 @@ export default defineComponent({
     });
 
     return {
+      COMPONENT_NAME,
       drawerEle,
       drawerClasses,
       wrapperStyles,
@@ -230,6 +221,7 @@ export default defineComponent({
   },
 
   render() {
+    const { COMPONENT_NAME } = this;
     if (this.destroyOnClose && !this.visible) return;
     const defaultCloseBtn = <close-icon class="t-submenu-icon"></close-icon>;
     const body = renderContent(this, 'body', 'default');
@@ -243,16 +235,18 @@ export default defineComponent({
         {...this.$attrs}
         ref="drawerEle"
       >
-        {this.showOverlay && <div class={`${name}__mask`} onClick={this.handleWrapperClick} />}
+        {this.showOverlay && <div class={`${COMPONENT_NAME}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wrapperClasses} style={this.wrapperStyles}>
-          {this.header && <div class={`${name}__header`}>{renderTNodeJSX(this, 'header')}</div>}
+          {this.header && <div class={`${COMPONENT_NAME}__header`}>{renderTNodeJSX(this, 'header')}</div>}
           {this.closeBtn && (
-            <div class={`${name}__close-btn`} onClick={this.handleCloseBtnClick}>
+            <div class={`${COMPONENT_NAME}__close-btn`} onClick={this.handleCloseBtnClick}>
               {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
             </div>
           )}
-          <div class={[`${name}__body`, 'narrow-scrollbar']}>{body}</div>
-          {this.footer && <div class={`${name}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>}
+          <div class={[`${COMPONENT_NAME}__body`, 'narrow-scrollbar']}>{body}</div>
+          {this.footer && (
+            <div class={`${COMPONENT_NAME}__footer`}>{renderTNodeJSX(this, 'footer', defaultFooter)}</div>
+          )}
         </div>
       </div>
     );

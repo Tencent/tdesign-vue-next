@@ -1,18 +1,13 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, Transition, watch } from 'vue';
 import { CloseIcon, InfoCircleFilledIcon, CheckCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { useEmitEvent } from '../hooks/event';
-import { prefix } from '../config';
 import TButton from '../button';
 import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
-import { useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
-
-const name = `${prefix}-dialog`;
-const lockClass = `${prefix}-dialog--lock`;
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -86,28 +81,20 @@ export default defineComponent({
 
   props,
 
-  emits: [
-    'esc-keydown',
-    'update:visible',
-    'overlay-click',
-    'close-btn-click',
-    'cancel',
-    'confirm',
-    'opened',
-    'closed',
-    'close',
-  ],
-  setup(props) {
-    const emitEvent = useEmitEvent();
+  emits: ['update:visible'],
+  setup(props: TdDialogProps, context) {
+    const COMPONENT_NAME = usePrefixClass('dialog');
+    const LOCK_CLASS = usePrefixClass('dialog--lock').value;
+    const classPrefix = usePrefixClass();
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
     const dialogEle = ref<HTMLElement | null>(null);
     const { global } = useConfig('dialog');
     const confirmBtnAction = (e: MouseEvent) => {
-      emitEvent<Parameters<TdDialogProps['onConfirm']>>('confirm', { e });
+      props.onConfirm?.({ e });
     };
     const cancelBtnAction = (e: MouseEvent) => {
-      emitEvent<Parameters<TdDialogProps['onCancel']>>('cancel', { e });
+      props.onCancel?.({ e });
       emitCloseEvent({
         trigger: 'cancel',
         e,
@@ -119,16 +106,19 @@ export default defineComponent({
     const isModal = computed(() => props.mode === 'modal');
     // 是否非模态对话框
     const isModeless = computed(() => props.mode === 'modeless');
-    const maskClass = computed(() => [`${name}__mask`, !props.showOverlay && `${prefix}-is-hidden`]);
+    const maskClass = computed(() => [
+      `${COMPONENT_NAME.value}__mask`,
+      !props.showOverlay && `${classPrefix.value}-is-hidden`,
+    ]);
     const dialogClass = computed(() => {
       const dialogClass = [
-        `${name}`,
-        `${name}--default`,
-        `${name}--${props.placement}`,
-        `${name}__modal-${props.theme}`,
+        `${COMPONENT_NAME.value}`,
+        `${COMPONENT_NAME.value}--default`,
+        `${COMPONENT_NAME.value}--${props.placement}`,
+        `${COMPONENT_NAME.value}__modal-${props.theme}`,
       ];
       if (['modeless', 'modal'].includes(props.mode)) {
-        dialogClass.push(`${name}--fixed`);
+        dialogClass.push(`${COMPONENT_NAME.value}--fixed`);
       }
       return dialogClass;
     });
@@ -151,6 +141,7 @@ export default defineComponent({
       }
       return { width: GetCSSValue(props.width), ...topStyle };
     });
+
     watch(
       () => props.visible,
       (value) => {
@@ -159,7 +150,7 @@ export default defineComponent({
             const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
             document.body.style.cssText = bodyCssText;
           }
-          !isModeless.value && addClass(document.body, lockClass);
+          !isModeless.value && addClass(document.body, LOCK_CLASS);
           nextTick(() => {
             if (mousePosition && dialogEle.value) {
               dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
@@ -169,7 +160,7 @@ export default defineComponent({
           });
         } else {
           document.body.style.cssText = '';
-          removeClass(document.body, lockClass);
+          removeClass(document.body, LOCK_CLASS);
         }
         addKeyboardEvent(value);
       },
@@ -184,7 +175,7 @@ export default defineComponent({
     };
     const keyboardEvent = (e: KeyboardEvent) => {
       if (e.code === 'Escape') {
-        emitEvent<Parameters<TdDialogProps['onEscKeydown']>>('esc-keydown', { e });
+        props.onEscKeydown?.({ e });
         // 根据closeOnEscKeydown判断按下ESC时是否触发close事件
         if (props.closeOnEscKeydown) {
           emitCloseEvent({
@@ -195,7 +186,7 @@ export default defineComponent({
       }
     };
     const overlayAction = (e: MouseEvent) => {
-      emitEvent<Parameters<TdDialogProps['onOverlayClick']>>('overlay-click', { e });
+      props.onOverlayClick?.({ e });
       // 根据closeOnClickOverlay判断点击蒙层时是否触发close事件
       if (props.closeOnOverlayClick) {
         emitCloseEvent({
@@ -204,8 +195,8 @@ export default defineComponent({
         });
       }
     };
-    const closeBtnAcion = (e: MouseEvent) => {
-      emitEvent<Parameters<TdDialogProps['onCloseBtnClick']>>('close-btn-click', { e });
+    const closeBtnAction = (e: MouseEvent) => {
+      props.onCloseBtnClick?.({ e });
       emitCloseEvent({
         trigger: 'close-btn',
         e,
@@ -214,17 +205,17 @@ export default defineComponent({
 
     // 打开弹窗动画结束时事件
     const afterEnter = () => {
-      emitEvent<Parameters<TdDialogProps['onOpened']>>('opened');
+      props.onOpened?.();
     };
     // 关闭弹窗动画结束时事件
     const afterLeave = () => {
-      emitEvent<Parameters<TdDialogProps['onClosed']>>('closed');
+      props.onClosed?.();
     };
 
-    const emitCloseEvent = (context: DialogCloseContext) => {
-      emitEvent<Parameters<TdDialogProps['onClose']>>('close', context);
+    const emitCloseEvent = (ctx: DialogCloseContext) => {
+      props.onClose?.(ctx);
       // 默认关闭弹窗
-      emitEvent('update:visible', false);
+      context.emit('update:visible', false);
     };
 
     // Vue在引入阶段对事件的处理还做了哪些初始化操作。Vue在实例上用一个_events属性存贮管理事件的派发和更新，
@@ -255,18 +246,19 @@ export default defineComponent({
           {getCancelBtn({
             cancelBtn: props.cancelBtn,
             globalCancel: global.value.cancel,
-            className: `${prefix}-dialog__cancel`,
+            className: `${COMPONENT_NAME.value}__cancel`,
           })}
           {getConfirmBtn({
             theme: props.theme,
             confirmBtn: props.confirmBtn,
             globalConfirm: global.value.confirm,
             globalConfirmBtnTheme: global.value.confirmBtnTheme,
-            className: `${prefix}-dialog__confirm`,
+            className: `${COMPONENT_NAME.value}__confirm`,
           })}
         </div>
       );
-      const bodyClassName = props.theme === 'default' ? `${name}__body` : `${name}__body__icon`;
+      const bodyClassName =
+        props.theme === 'default' ? `${COMPONENT_NAME.value}__body` : `${COMPONENT_NAME.value}__body__icon`;
       return (
         // /* 非模态形态下draggable为true才允许拖拽 */
         <div
@@ -276,17 +268,17 @@ export default defineComponent({
           v-draggable={isModeless.value && props.draggable}
           ref="dialogEle"
         >
-          <div class={`${name}__header`}>
+          <div class={`${COMPONENT_NAME.value}__header`}>
             {getIcon()}
             {renderTNodeJSX('header', defaultHeader)}
           </div>
           {props.closeBtn ? (
-            <span class={`${name}__close`} onClick={closeBtnAcion}>
+            <span class={`${COMPONENT_NAME.value}__close`} onClick={closeBtnAction}>
               {renderTNodeJSX('closeBtn', defaultCloseBtn)}
             </span>
           ) : null}
           <div class={bodyClassName}>{body}</div>
-          <div class={`${name}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
+          <div class={`${COMPONENT_NAME.value}__footer`}>{renderTNodeJSX('footer', defaultFooter)}</div>
         </div>
       );
     };
@@ -299,6 +291,7 @@ export default defineComponent({
     });
 
     return {
+      COMPONENT_NAME,
       scrollWidth,
       isModal,
       isModeless,
@@ -314,15 +307,16 @@ export default defineComponent({
     };
   },
   render() {
+    const { COMPONENT_NAME } = this;
     const maskView = this.isModal && <div key="mask" class={this.maskClass} onClick={this.overlayAction}></div>;
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };
-    const ctxClass = [`${name}__ctx`, { 't-dialog__ctx--fixed': this.mode === 'modal' }];
+    const ctxClass = [`${COMPONENT_NAME}__ctx`, { 't-dialog__ctx--fixed': this.mode === 'modal' }];
     return (
       <transition
         duration={300}
-        name={`${name}-zoom__vue`}
+        name={`${COMPONENT_NAME}-zoom__vue`}
         onAfterEnter={this.afterEnter}
         onAfterLeave={this.afterLeave}
       >

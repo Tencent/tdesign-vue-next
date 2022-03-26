@@ -2,21 +2,19 @@ import { defineComponent, VNode, ComponentPublicInstance, provide, toRefs } from
 import isEmpty from 'lodash/isEmpty';
 import isBoolean from 'lodash/isBoolean';
 import isArray from 'lodash/isArray';
-import { prefix } from '../config';
 import { FormValidateResult, TdFormProps, FormValidateParams, ValidateResultList } from './type';
 import props from './props';
-import { FORM_ITEM_CLASS_PREFIX, CLASS_NAMES, FORM_CONTROL_COMPONENTS } from './const';
+import { useCLASSNAMES, FORM_CONTROL_COMPONENTS } from './const';
 import FormItem from './form-item';
 import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
 import { FormDisabledProvider } from './hooks';
+import { usePrefixClass } from '../config-provider';
 
 export type FormItemInstance = InstanceType<typeof FormItem>;
 
 type Result = FormValidateResult<TdFormProps['data']>;
-
-const name = `${prefix}-form`;
 
 export default defineComponent({
   name: 'TForm',
@@ -32,9 +30,19 @@ export default defineComponent({
 
   setup(props) {
     const { disabled } = toRefs(props);
+    const COMPONENT_NAME = usePrefixClass('form');
+
     provide<FormDisabledProvider>('formDisabled', {
       disabled,
     });
+    const CLASS_NAMES = useCLASSNAMES();
+    const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
+
+    return {
+      CLASS_NAMES,
+      COMPONENT_NAME,
+      FORM_ITEM_CLASS_PREFIX,
+    };
   },
 
   data() {
@@ -46,9 +54,9 @@ export default defineComponent({
   computed: {
     formClass(): ClassName {
       return [
-        CLASS_NAMES.form,
+        this.CLASS_NAMES.form,
         {
-          [`${name}-inline`]: this.layout === 'inline',
+          [`${this.COMPONENT_NAME}-inline`]: this.layout === 'inline',
         },
       ];
     },
@@ -66,7 +74,7 @@ export default defineComponent({
       if (isBoolean(result)) return '';
       const [firstKey] = Object.keys(result);
       if (this.scrollToFirstError) {
-        this.scrollTo(`.${FORM_ITEM_CLASS_PREFIX + firstKey}`);
+        this.scrollTo(`.${this.FORM_ITEM_CLASS_PREFIX + firstKey}`);
       }
       const resArr = result[firstKey] as ValidateResultList;
       if (!isArray(resArr)) return '';
@@ -93,7 +101,7 @@ export default defineComponent({
         .filter((child) => this.isFunction(child.validate) && this.needValidate(child.name, fields))
         .map((child) => child.validate(trigger));
       const arr = await Promise.all(list);
-      const r = arr.reduce((r, err) => Object.assign(r || {}, err));
+      const r = arr.reduce((r, err) => Object.assign(r || {}, err), {});
       Object.keys(r).forEach((key) => {
         if (r[key] === true) {
           delete r[key];

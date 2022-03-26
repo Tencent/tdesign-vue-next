@@ -1,36 +1,36 @@
-import { defineComponent, computed } from 'vue';
-import { useEmitEvent } from '../hooks/event';
-import config from '../config';
+import { defineComponent, computed, toRefs } from 'vue';
 import props from './check-tag-props';
 import { renderContent } from '../utils/render-tnode';
 import CLASSNAMES from '../utils/classnames';
-
-const { prefix } = config;
-const name = `${prefix}-tag`;
+import { usePrefixClass } from '../config-provider';
+import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TCheckTag',
   props,
-  emits: ['click', 'change'],
   setup(props) {
-    const emitEvent = useEmitEvent();
+    const COMPONENT_NAME = usePrefixClass('tag');
+
+    const { checked, modelValue } = toRefs(props);
+    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+
     const tagClass = computed(() => {
       return [
-        `${name}`,
-        `${name}--check`,
-        `${name}--default`,
+        `${COMPONENT_NAME.value}`,
+        `${COMPONENT_NAME.value}--check`,
+        `${COMPONENT_NAME.value}--default`,
         CLASSNAMES.SIZE[props.size],
         {
-          [`${name}--checked`]: !props.disabled && props.checked,
-          [`${name}--disabled`]: props.disabled,
+          [`${COMPONENT_NAME.value}--checked`]: !props.disabled && innerChecked.value,
+          [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
         },
       ];
     });
 
     const handleClick = (e: MouseEvent) => {
       if (!props.disabled) {
-        emitEvent('click', { e });
-        emitEvent('change', !props.checked);
+        props.onClick?.({ e });
+        setInnerChecked(!innerChecked.value);
       }
     };
 

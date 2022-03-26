@@ -1,9 +1,8 @@
-import { defineComponent, VNode, ref, onMounted } from 'vue';
+import { defineComponent, VNode, ref } from 'vue';
 import get from 'lodash/get';
 import { renderContent } from '../utils/render-tnode';
 import { scrollSelectedIntoView } from '../utils/dom';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
+
 import props from './option-props';
 import { SelectOption } from './type';
 import Checkbox from '../checkbox/index';
@@ -12,8 +11,7 @@ import { ClassName } from '../common';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
-
-const selectName = `${prefix}-select`;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 export default defineComponent({
   name: 'TOption',
@@ -30,11 +28,16 @@ export default defineComponent({
   setup() {
     const disabled = useFormDisabled();
 
+    const selectName = usePrefixClass('select');
+    const { STATUS, SIZE } = useCommonClassName();
     const liRef = ref<HTMLElement>();
 
     useRipple(liRef);
 
     return {
+      STATUS,
+      SIZE,
+      selectName,
       disabled,
       liRef,
     };
@@ -69,12 +72,12 @@ export default defineComponent({
     },
     classes(): ClassName {
       return [
-        `${prefix}-select-option`,
+        `${this.selectName}-option`,
         {
-          [CLASSNAMES.STATUS.disabled]: this.disabled || this.multiLimitDisabled,
-          [CLASSNAMES.STATUS.selected]: this.selected,
-          [CLASSNAMES.SIZE[this.tSelect && this.tSelect.size]]: this.tSelect && this.tSelect.size,
-          [`${prefix}-select-option__hover`]: this.hovering,
+          [this.STATUS.disabled]: this.disabled || this.multiLimitDisabled,
+          [this.STATUS.selected]: this.selected,
+          [this.SIZE[this.tSelect && this.tSelect.size]]: this.tSelect && this.tSelect.size,
+          [`${this.selectName}-option__hover`]: this.hovering,
         },
       ];
     },
@@ -145,7 +148,7 @@ export default defineComponent({
         return false;
       }
       const parent = this.$el.parentNode as HTMLElement;
-      if (parent && parent.className.indexOf(`${selectName}__create-option`) !== -1) {
+      if (parent && parent.className.indexOf(`${this.selectName}__create-option`) !== -1) {
         this.tSelect && this.tSelect.createOption(this.value.toString());
       }
       this.tSelect && this.tSelect.onOptionClick(this.value, e);
@@ -176,7 +179,7 @@ export default defineComponent({
             {optionChild}
           </t-checkbox>
         ) : (
-          optionChild
+          <span>{optionChild}</span>
         )}
       </li>
     );

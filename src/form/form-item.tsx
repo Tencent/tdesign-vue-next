@@ -1,11 +1,10 @@
-import { defineComponent, VNode, nextTick, h, ComponentPublicInstance, Slot } from 'vue';
+import { defineComponent, VNode, nextTick, h, Slot } from 'vue';
 import { CheckCircleFilledIcon, ErrorCircleFilledIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import cloneDeep from 'lodash/cloneDeep';
 import lodashGet from 'lodash/get';
 import lodashSet from 'lodash/set';
 import isNil from 'lodash/isNil';
 import lodashTemplate from 'lodash/template';
-import { prefix } from '../config';
 import { validate } from './form-model';
 import {
   Data,
@@ -18,11 +17,13 @@ import {
   FormErrorMessage,
 } from './type';
 import props from './form-item-props';
-import { CLASS_NAMES, FORM_ITEM_CLASS_PREFIX } from './const';
+import { useCLASSNAMES } from './const';
 import Form, { FormItemInstance } from './form';
 import { ClassName, TNodeReturnValue, Styles } from '../common';
 import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { FormConfig } from '../config-provider/config-receiver';
+
+import { usePrefixClass } from '../config-provider';
 
 type IconConstructor = typeof ErrorCircleFilledIcon;
 
@@ -35,8 +36,6 @@ export const enum ValidateStatus {
   FAIL = 'fail',
 }
 
-const name = `${prefix}-form-item`;
-
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<FormConfig>('form')),
   name: 'TFormItem',
@@ -46,6 +45,16 @@ export default defineComponent({
   },
 
   props: { ...props },
+  setup() {
+    const FROM_LABEL = usePrefixClass('form__label');
+    const CLASS_NAMES = useCLASSNAMES();
+    const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
+    return {
+      CLASS_NAMES,
+      FROM_LABEL,
+      FORM_ITEM_CLASS_PREFIX,
+    };
+  },
 
   data() {
     return {
@@ -64,27 +73,28 @@ export default defineComponent({
   computed: {
     classes(): ClassName {
       return [
-        CLASS_NAMES.formItem,
-        FORM_ITEM_CLASS_PREFIX + this.name,
+        this.CLASS_NAMES.formItem,
+        this.FORM_ITEM_CLASS_PREFIX + this.name,
         {
-          [CLASS_NAMES.formItemWithHelp]: this.help,
-          [CLASS_NAMES.formItemWithExtra]: this.renderTipsInfo(),
+          [this.CLASS_NAMES.formItemWithHelp]: this.help,
+          [this.CLASS_NAMES.formItemWithExtra]: this.renderTipsInfo(),
         },
       ];
     },
     labelClasses() {
+      const { FROM_LABEL } = this;
       const parent = this.form;
       const labelAlign = isNil(this.labelAlign) ? parent?.labelAlign : this.labelAlign;
       const labelWidth = isNil(this.labelWidth) ? parent?.labelWidth : this.labelWidth;
 
       return [
-        CLASS_NAMES.label,
+        this.CLASS_NAMES.label,
         {
-          [`${prefix}-form__label--required`]: this.needRequiredMark,
-          [`${prefix}-form__label--colon`]: this.hasColon,
-          [`${prefix}-form__label--top`]: labelAlign === 'top' || !labelWidth,
-          [`${prefix}-form__label--left`]: labelAlign === 'left' && labelWidth,
-          [`${prefix}-form__label--right`]: labelAlign === 'right' && labelWidth,
+          [`${FROM_LABEL}--required`]: this.needRequiredMark,
+          [`${FROM_LABEL}--colon`]: this.hasColon,
+          [`${FROM_LABEL}--top`]: labelAlign === 'top' || !labelWidth,
+          [`${FROM_LABEL}--left`]: labelAlign === 'left' && labelWidth,
+          [`${FROM_LABEL}--right`]: labelAlign === 'right' && labelWidth,
         },
       ];
     },
@@ -92,11 +102,13 @@ export default defineComponent({
       const parent = this.form as FormInstance;
       if (!parent.showErrorMessage) return '';
       if (this.verifyStatus === ValidateStatus.SUCCESS) {
-        return this.successBorder ? [CLASS_NAMES.success, CLASS_NAMES.successBorder].join(' ') : CLASS_NAMES.success;
+        return this.successBorder
+          ? [this.CLASS_NAMES.success, this.CLASS_NAMES.successBorder].join(' ')
+          : this.CLASS_NAMES.success;
       }
       if (!this.errorList.length) return;
       const type = this.errorList[0].type || 'error';
-      return type === 'error' ? CLASS_NAMES.error : CLASS_NAMES.warning;
+      return type === 'error' ? this.CLASS_NAMES.error : this.CLASS_NAMES.warning;
     },
 
     disabled(): boolean {
@@ -105,7 +117,7 @@ export default defineComponent({
 
     contentClasses() {
       const getErrorClass: string = this.errorClasses;
-      return [CLASS_NAMES.controls, getErrorClass];
+      return [this.CLASS_NAMES.controls, getErrorClass];
     },
     contentStyle(): Styles {
       const parent = this.form;
@@ -241,20 +253,20 @@ export default defineComponent({
       const parent = this.form;
       let helpVNode: VNode;
       if (this.help) {
-        helpVNode = <div class={CLASS_NAMES.help}>{this.help}</div>;
+        helpVNode = <div class={this.CLASS_NAMES.help}>{this.help}</div>;
       }
       const list = this.errorList;
       if (parent.showErrorMessage && list && list[0] && list[0].message) {
-        return <p class={CLASS_NAMES.extra}>{list[0].message}</p>;
+        return <p class={this.CLASS_NAMES.extra}>{list[0].message}</p>;
       }
       if (this.successList.length) {
-        return <p class={CLASS_NAMES.extra}>{this.successList[0].message}</p>;
+        return <p class={this.CLASS_NAMES.extra}>{this.successList[0].message}</p>;
       }
       return helpVNode;
     },
     getDefaultIcon(): TNodeReturnValue {
       const resultIcon = (Icon: IconConstructor) => (
-        <span class={CLASS_NAMES.status}>
+        <span class={this.CLASS_NAMES.status}>
           <Icon />
         </span>
       );
@@ -278,7 +290,9 @@ export default defineComponent({
       slotStatusIcon: Slot,
       props?: TdFormItemProps,
     ): TNodeReturnValue {
-      const resultIcon = (otherContent?: TNodeReturnValue) => <span class={CLASS_NAMES.status}>{otherContent}</span>;
+      const resultIcon = (otherContent?: TNodeReturnValue) => (
+        <span class={this.CLASS_NAMES.status}>{otherContent}</span>
+      );
       if (statusIcon === true) {
         return this.getDefaultIcon();
       }
@@ -347,7 +361,7 @@ export default defineComponent({
       <div class={this.classes}>
         {this.getLabel()}
         <div class={this.contentClasses} style={this.contentStyle}>
-          <div class={CLASS_NAMES.controlsContent}>
+          <div class={this.CLASS_NAMES.controlsContent}>
             {this.$slots.default ? this.$slots.default() : null}
             {this.getSuffixIcon()}
           </div>

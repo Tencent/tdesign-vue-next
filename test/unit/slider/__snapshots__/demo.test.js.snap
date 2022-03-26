@@ -428,7 +428,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
         class="t-slider__input-container is-vertical"
       >
         <div
-          class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"
+          class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
@@ -455,13 +455,24 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             
           </button>
           <div
-            class="t-input"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
           </div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -597,7 +608,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
         class="t-slider__input-container is-vertical"
       >
         <div
-          class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"
+          class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
@@ -624,13 +635,24 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             
           </button>
           <div
-            class="t-input"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
           </div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -661,7 +683,7 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           class="t-slider__center-line"
         />
         <div
-          class="t-input-number t-size-m t-is-controls-right t-slider__input is-vertical"
+          class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input is-vertical"
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
@@ -688,13 +710,24 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             
           </button>
           <div
-            class="t-input"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
           </div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -799,7 +832,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
         class="t-slider__input-container"
       >
         <div
-          class="t-input-number t-size-m t-is-controls-right t-slider__input"
+          class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
@@ -826,13 +859,24 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             
           </button>
           <div
-            class="t-input"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
           </div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -967,7 +1011,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
         class="t-slider__input-container"
       >
         <div
-          class="t-input-number t-size-m t-is-controls-right t-slider__input"
+          class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
@@ -994,13 +1038,24 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             
           </button>
           <div
-            class="t-input"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
           </div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"
@@ -1031,7 +1086,7 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           class="t-slider__center-line"
         />
         <div
-          class="t-input-number t-size-m t-is-controls-right t-slider__input"
+          class="t-input-number t-size-m t-is-controls-right t-input-number--column t-slider__input"
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
@@ -1058,13 +1113,24 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             
           </button>
           <div
-            class="t-input"
+            class="t-input__wrap"
+            unselectable="off"
           >
-            <input
-              autocomplete="off"
-              class="t-input__inner"
-              placeholder=""
-            />
+            <div
+              class="t-input"
+            >
+              <!---->
+              <!---->
+              <input
+                class="t-input__inner"
+                placeholder=""
+                type="text"
+              />
+              <!---->
+              <!---->
+              <!---->
+            </div>
+            <!---->
           </div>
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__increase"

@@ -30,7 +30,9 @@ exports[`Select :props :bordered 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -53,7 +55,7 @@ exports[`Select :props :bordered 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -62,8 +64,7 @@ exports[`Select :props :bordered 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -77,7 +78,7 @@ exports[`Select :props :bordered 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -129,7 +130,9 @@ exports[`Select :props :clearable 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -152,7 +155,7 @@ exports[`Select :props :clearable 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -161,8 +164,7 @@ exports[`Select :props :clearable 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -176,7 +178,7 @@ exports[`Select :props :clearable 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -228,7 +230,9 @@ exports[`Select :props :creatable 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -251,7 +255,7 @@ exports[`Select :props :creatable 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -260,8 +264,7 @@ exports[`Select :props :creatable 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -275,7 +278,7 @@ exports[`Select :props :creatable 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -327,7 +330,9 @@ exports[`Select :props :disabled 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -350,7 +355,7 @@ exports[`Select :props :disabled 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-is-disabled t-size-m"
+      class="t-select t-select-polyfill t-is-disabled t-size-m"
     >
       <!---->
       <span
@@ -359,8 +364,7 @@ exports[`Select :props :disabled 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -374,7 +378,7 @@ exports[`Select :props :disabled 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -427,7 +431,9 @@ exports[`Select :props :labelInValue 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -450,7 +456,7 @@ exports[`Select :props :labelInValue 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -459,8 +465,7 @@ exports[`Select :props :labelInValue 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -474,7 +479,7 @@ exports[`Select :props :labelInValue 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -526,7 +531,9 @@ exports[`Select :props :loading 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <div
@@ -549,7 +556,7 @@ exports[`Select :props :loading 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -558,8 +565,7 @@ exports[`Select :props :loading 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -575,7 +581,7 @@ exports[`Select :props :loading 1`] = `
       <!---->
       <!---->
       <div
-        class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon"
+        class="t-loading--center t-size-s t-loading t-select__right-icon t-select__active-icon t-select__right-icon-polyfill"
       >
         <svg
           class="t-loading__gradient t-icon-loading"
@@ -637,7 +643,6 @@ exports[`Select :props :multiple 1`] = `
               >
                 <label
                   class="t-checkbox"
-                  modelvalue="false"
                 >
                   <input
                     class="t-checkbox__former"
@@ -676,7 +681,7 @@ exports[`Select :props :multiple 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -700,7 +705,7 @@ exports[`Select :props :multiple 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -752,7 +757,9 @@ exports[`Select :props :placeholder 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -775,7 +782,7 @@ exports[`Select :props :placeholder 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -784,8 +791,7 @@ exports[`Select :props :placeholder 1`] = `
          
         please select
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -799,7 +805,7 @@ exports[`Select :props :placeholder 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -852,7 +858,9 @@ exports[`Select :props :remote 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -875,7 +883,7 @@ exports[`Select :props :remote 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -884,8 +892,7 @@ exports[`Select :props :remote 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -899,7 +906,7 @@ exports[`Select :props :remote 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -951,7 +958,9 @@ exports[`Select :props :reserveKeyword 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -974,7 +983,7 @@ exports[`Select :props :reserveKeyword 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <span
@@ -983,8 +992,7 @@ exports[`Select :props :reserveKeyword 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -998,7 +1006,7 @@ exports[`Select :props :reserveKeyword 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1050,7 +1058,9 @@ exports[`Select :props :size 1`] = `
                 class="t-select-option t-size-l t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1073,7 +1083,7 @@ exports[`Select :props :size 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-l"
+      class="t-select t-select-polyfill t-size-l"
     >
       <!---->
       <span
@@ -1082,8 +1092,7 @@ exports[`Select :props :size 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-l"
         style="display: none;"
@@ -1097,7 +1106,7 @@ exports[`Select :props :size 1`] = `
       <!---->
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1150,7 +1159,9 @@ exports[`Select Option :props :disabled 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1167,7 +1178,9 @@ exports[`Select Option :props :disabled 1`] = `
                 class="t-select-option t-is-disabled t-is-selected t-size-m"
                 title="1"
               >
-                1
+                <span>
+                  1
+                </span>
               </li>
               
             </ul>
@@ -1180,12 +1193,11 @@ exports[`Select Option :props :disabled 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <!---->
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1204,7 +1216,7 @@ exports[`Select Option :props :disabled 1`] = `
       </span>
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1257,7 +1269,9 @@ exports[`Select Option :props :label 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1274,7 +1288,9 @@ exports[`Select Option :props :label 1`] = `
                 class="t-select-option t-is-selected t-size-m"
                 title="1"
               >
-                1
+                <span>
+                  1
+                </span>
               </li>
               
             </ul>
@@ -1287,12 +1303,11 @@ exports[`Select Option :props :label 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <!---->
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1311,7 +1326,7 @@ exports[`Select Option :props :label 1`] = `
       </span>
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1364,7 +1379,9 @@ exports[`Select Option :props :value 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1381,7 +1398,9 @@ exports[`Select Option :props :value 1`] = `
                 class="t-select-option t-is-selected t-size-m"
                 title="1"
               >
-                1
+                <span>
+                  1
+                </span>
               </li>
               
             </ul>
@@ -1394,12 +1413,11 @@ exports[`Select Option :props :value 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <!---->
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1418,7 +1436,7 @@ exports[`Select Option :props :value 1`] = `
       </span>
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"
@@ -1471,7 +1489,9 @@ exports[`Select OptionGroup :props :value 1`] = `
                 class="t-select-option t-size-m t-select__create-option--special"
                 title=""
               >
-                
+                <span>
+                  
+                </span>
               </li>
             </ul>
             <!---->
@@ -1498,7 +1518,9 @@ exports[`Select OptionGroup :props :value 1`] = `
                     class="t-select-option t-is-selected t-size-m"
                     title="1"
                   >
-                    1
+                    <span>
+                      1
+                    </span>
                   </li>
                   
                 </ul>
@@ -1517,7 +1539,9 @@ exports[`Select OptionGroup :props :value 1`] = `
                     class="t-select-option t-size-m"
                     title="a"
                   >
-                    a
+                    <span>
+                      a
+                    </span>
                   </li>
                   
                 </ul>
@@ -1533,12 +1557,11 @@ exports[`Select OptionGroup :props :value 1`] = `
     </transition-stub>
     
     <div
-      class="t-select t-size-m"
+      class="t-select t-select-polyfill t-size-m"
     >
       <!---->
       <!---->
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1557,7 +1580,7 @@ exports[`Select OptionGroup :props :value 1`] = `
       </span>
       <!---->
       <svg
-        class="t-fake-arrow t-select__right-icon"
+        class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
         fill="none"
         height="16"
         viewBox="0 0 16 16"

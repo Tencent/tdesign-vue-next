@@ -4,7 +4,6 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -40,7 +39,9 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                     class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -58,25 +59,33 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                     class="t-select-option t-is-selected t-size-m"
                     title="5 条/页"
                   >
-                    5 条/页
+                    <span>
+                      5 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="10 条/页"
                   >
-                    10 条/页
+                    <span>
+                      10 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="20 条/页"
                   >
-                    20 条/页
+                    <span>
+                      20 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="50 条/页"
                   >
-                    50 条/页
+                    <span>
+                      50 条/页
+                    </span>
                   </li>
                   
                   
@@ -90,12 +99,11 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -114,7 +122,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -232,7 +240,6 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
   <!-- 非受控用法，代码有效，勿删。 -->
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -268,7 +275,9 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                     class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -286,25 +295,33 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
                     class="t-select-option t-size-m"
                     title="5 条/页"
                   >
-                    5 条/页
+                    <span>
+                      5 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-is-selected t-size-m"
                     title="10 条/页"
                   >
-                    10 条/页
+                    <span>
+                      10 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="20 条/页"
                   >
-                    20 条/页
+                    <span>
+                      20 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="50 条/页"
                   >
-                    50 条/页
+                    <span>
+                      50 条/页
+                    </span>
                   </li>
                   
                   
@@ -318,12 +335,11 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -342,7 +358,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -437,7 +453,6 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -473,7 +488,9 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                     class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -491,25 +508,33 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
                     class="t-select-option t-size-m"
                     title="5 条/页"
                   >
-                    5 条/页
+                    <span>
+                      5 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="10 条/页"
                   >
-                    10 条/页
+                    <span>
+                      10 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-is-selected t-size-m"
                     title="20 条/页"
                   >
-                    20 条/页
+                    <span>
+                      20 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="50 条/页"
                   >
-                    50 条/页
+                    <span>
+                      50 条/页
+                    </span>
                   </li>
                   
                   
@@ -523,12 +548,11 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -547,7 +571,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -653,12 +677,24 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
       >
         <!---->
         <div
-          class="t-input"
+          class="t-input__wrap"
+          unselectable="off"
         >
-          <input
-            autocomplete="off"
-            class="t-input__inner"
-          />
+          <div
+            class="t-input"
+          >
+            <!---->
+            <!---->
+            <input
+              class="t-input__inner"
+              placeholder="请输入"
+              type="text"
+            />
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <!---->
         </div>
         <!---->
       </div>
@@ -672,7 +708,6 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-s"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -708,7 +743,9 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                     class="t-select-option t-size-s t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -726,25 +763,33 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
                     class="t-select-option t-is-selected t-size-s"
                     title="5 条/页"
                   >
-                    5 条/页
+                    <span>
+                      5 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="10 条/页"
                   >
-                    10 条/页
+                    <span>
+                      10 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="20 条/页"
                   >
-                    20 条/页
+                    <span>
+                      20 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="50 条/页"
                   >
-                    50 条/页
+                    <span>
+                      50 条/页
+                    </span>
                   </li>
                   
                   
@@ -758,12 +803,11 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-s"
+          class="t-select t-select-polyfill t-size-s"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-s"
             style="display: none;"
@@ -782,7 +826,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -901,7 +945,6 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="12"
   >
     <div
       class="t-pagination__total"
@@ -937,7 +980,9 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                     class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -955,25 +1000,33 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
                     class="t-select-option t-is-selected t-size-m"
                     title="5 条/页"
                   >
-                    5 条/页
+                    <span>
+                      5 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="10 条/页"
                   >
-                    10 条/页
+                    <span>
+                      10 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="20 条/页"
                   >
-                    20 条/页
+                    <span>
+                      20 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="50 条/页"
                   >
-                    50 条/页
+                    <span>
+                      50 条/页
+                    </span>
                   </li>
                   
                   
@@ -987,12 +1040,11 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -1011,7 +1063,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1151,7 +1203,6 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
     show-sizer=""
   >
     <div
@@ -1188,7 +1239,9 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                     class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -1206,25 +1259,33 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
                     class="t-select-option t-size-m"
                     title="每页 10 条"
                   >
-                    每页 10 条
+                    <span>
+                      每页 10 条
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-is-selected t-size-m"
                     title="每页 30 条"
                   >
-                    每页 30 条
+                    <span>
+                      每页 30 条
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="每页 50 条"
                   >
-                    每页 50 条
+                    <span>
+                      每页 50 条
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="每页 100 条"
                   >
-                    每页 100 条
+                    <span>
+                      每页 100 条
+                    </span>
                   </li>
                   
                   
@@ -1238,12 +1299,11 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -1262,7 +1322,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1381,7 +1441,6 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-s"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -1417,7 +1476,9 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                     class="t-select-option t-size-s t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -1435,25 +1496,33 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                     class="t-select-option t-is-selected t-size-s"
                     title="5 条/页"
                   >
-                    5 条/页
+                    <span>
+                      5 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="10 条/页"
                   >
-                    10 条/页
+                    <span>
+                      10 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="20 条/页"
                   >
-                    20 条/页
+                    <span>
+                      20 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="50 条/页"
                   >
-                    50 条/页
+                    <span>
+                      50 条/页
+                    </span>
                   </li>
                   
                   
@@ -1467,12 +1536,11 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-s"
+          class="t-select t-select-polyfill t-size-s"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-s"
             style="display: none;"
@@ -1491,7 +1559,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1558,7 +1626,9 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                     class="t-select-option t-size-s t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -1571,121 +1641,161 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
                     class="t-select-option t-is-selected t-size-s"
                     title="1/20"
                   >
-                    1/20
+                    <span>
+                      1/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="2/20"
                   >
-                    2/20
+                    <span>
+                      2/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="3/20"
                   >
-                    3/20
+                    <span>
+                      3/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="4/20"
                   >
-                    4/20
+                    <span>
+                      4/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="5/20"
                   >
-                    5/20
+                    <span>
+                      5/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="6/20"
                   >
-                    6/20
+                    <span>
+                      6/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="7/20"
                   >
-                    7/20
+                    <span>
+                      7/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="8/20"
                   >
-                    8/20
+                    <span>
+                      8/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="9/20"
                   >
-                    9/20
+                    <span>
+                      9/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="10/20"
                   >
-                    10/20
+                    <span>
+                      10/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="11/20"
                   >
-                    11/20
+                    <span>
+                      11/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="12/20"
                   >
-                    12/20
+                    <span>
+                      12/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="13/20"
                   >
-                    13/20
+                    <span>
+                      13/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="14/20"
                   >
-                    14/20
+                    <span>
+                      14/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="15/20"
                   >
-                    15/20
+                    <span>
+                      15/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="16/20"
                   >
-                    16/20
+                    <span>
+                      16/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="17/20"
                   >
-                    17/20
+                    <span>
+                      17/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="18/20"
                   >
-                    18/20
+                    <span>
+                      18/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="19/20"
                   >
-                    19/20
+                    <span>
+                      19/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-s"
                     title="20/20"
                   >
-                    20/20
+                    <span>
+                      20/20
+                    </span>
                   </li>
                   
                 </ul>
@@ -1698,12 +1808,11 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-s"
+          class="t-select t-select-polyfill t-size-s"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-s"
             style="display: none;"
@@ -1722,7 +1831,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1769,7 +1878,6 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="1"
   >
     <div
       class="t-pagination__total"
@@ -1805,7 +1913,9 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                     class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -1823,25 +1933,33 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                     class="t-select-option t-is-selected t-size-m"
                     title="5 条/页"
                   >
-                    5 条/页
+                    <span>
+                      5 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="10 条/页"
                   >
-                    10 条/页
+                    <span>
+                      10 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="20 条/页"
                   >
-                    20 条/页
+                    <span>
+                      20 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="50 条/页"
                   >
-                    50 条/页
+                    <span>
+                      50 条/页
+                    </span>
                   </li>
                   
                   
@@ -1855,12 +1973,11 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -1879,7 +1996,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -1946,7 +2063,9 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                     class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -1959,121 +2078,161 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
                     class="t-select-option t-is-selected t-size-m"
                     title="1/20"
                   >
-                    1/20
+                    <span>
+                      1/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="2/20"
                   >
-                    2/20
+                    <span>
+                      2/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="3/20"
                   >
-                    3/20
+                    <span>
+                      3/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="4/20"
                   >
-                    4/20
+                    <span>
+                      4/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="5/20"
                   >
-                    5/20
+                    <span>
+                      5/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="6/20"
                   >
-                    6/20
+                    <span>
+                      6/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="7/20"
                   >
-                    7/20
+                    <span>
+                      7/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="8/20"
                   >
-                    8/20
+                    <span>
+                      8/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="9/20"
                   >
-                    9/20
+                    <span>
+                      9/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="10/20"
                   >
-                    10/20
+                    <span>
+                      10/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="11/20"
                   >
-                    11/20
+                    <span>
+                      11/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="12/20"
                   >
-                    12/20
+                    <span>
+                      12/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="13/20"
                   >
-                    13/20
+                    <span>
+                      13/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="14/20"
                   >
-                    14/20
+                    <span>
+                      14/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="15/20"
                   >
-                    15/20
+                    <span>
+                      15/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="16/20"
                   >
-                    16/20
+                    <span>
+                      16/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="17/20"
                   >
-                    17/20
+                    <span>
+                      17/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="18/20"
                   >
-                    18/20
+                    <span>
+                      18/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="19/20"
                   >
-                    19/20
+                    <span>
+                      19/20
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="20/20"
                   >
-                    20/20
+                    <span>
+                      20/20
+                    </span>
                   </li>
                   
                 </ul>
@@ -2086,12 +2245,11 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -2110,7 +2268,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"
@@ -2157,7 +2315,6 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
 <div>
   <div
     class="t-pagination t-size-m"
-    modelvalue="12"
   >
     <div
       class="t-pagination__total"
@@ -2193,7 +2350,9 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                     class="t-select-option t-size-m t-select__create-option--special"
                     title=""
                   >
-                    
+                    <span>
+                      
+                    </span>
                   </li>
                 </ul>
                 <!---->
@@ -2211,25 +2370,33 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
                     class="t-select-option t-size-m"
                     title="5 条/页"
                   >
-                    5 条/页
+                    <span>
+                      5 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-is-selected t-size-m"
                     title="10 条/页"
                   >
-                    10 条/页
+                    <span>
+                      10 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="20 条/页"
                   >
-                    20 条/页
+                    <span>
+                      20 条/页
+                    </span>
                   </li>
                   <li
                     class="t-select-option t-size-m"
                     title="50 条/页"
                   >
-                    50 条/页
+                    <span>
+                      50 条/页
+                    </span>
                   </li>
                   
                   
@@ -2243,12 +2410,11 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
         </transition-stub>
         
         <div
-          class="t-select t-size-m"
+          class="t-select t-select-polyfill t-size-m"
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -2267,7 +2433,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
           </span>
           <!---->
           <svg
-            class="t-fake-arrow t-select__right-icon"
+            class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
             fill="none"
             height="16"
             viewBox="0 0 16 16"

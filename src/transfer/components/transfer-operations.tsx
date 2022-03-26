@@ -1,8 +1,8 @@
 import { defineComponent, createElementVNode, PropType } from 'vue';
 import { ChevronRightIcon, ChevronLeftIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../../config';
 import TButton from '../../button';
 import { TNode } from '../../common';
+import { usePrefixClass } from '../../config-provider';
 
 export default defineComponent({
   name: 'TTransferOperations',
@@ -27,6 +27,12 @@ export default defineComponent({
     },
   },
   emits: ['moveToRight', 'moveToLeft'],
+  setup() {
+    const classPrefix = usePrefixClass();
+    return {
+      classPrefix,
+    };
+  },
   methods: {
     moveToRight() {
       this.$emit('moveToRight');
@@ -81,7 +87,7 @@ export default defineComponent({
   render(h: any) {
     const { leftDisabled, rightDisabled } = this.$props;
     return (
-      <div class={`${prefix}-transfer__operations`}>
+      <div class={`${this.classPrefix}-transfer__operations`}>
         <t-button
           variant={rightDisabled ? 'outline' : 'base'}
           key={rightDisabled ? 'right-outline' : 'right-base'}

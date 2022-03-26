@@ -1,4 +1,5 @@
-import { TdUploadProps } from './type';
+import { TdUploadProps, UploadFile } from './type';
+
 import {
   XhrOptions,
   InnerProgressContext,
@@ -8,9 +9,6 @@ import {
   SuccessContext,
 } from '../_common/js/upload/types';
 
-export type UploadProps = TdUploadProps;
-export * from './type';
-
 export type {
   XhrOptions,
   HTMLInputEvent,
@@ -19,3 +17,16 @@ export type {
   UploadRemoveOptions,
   FlowRemoveContext,
 };
+
+export type UploadCtxType = {
+  uploadValue: TdUploadProps['files'];
+  setUploadValue: TdUploadProps['onChange'];
+  uploadInOneRequest: boolean;
+  canBatchUpload: boolean;
+  loadingFile: UploadFile;
+  toUploadFiles: UploadFile[];
+  errorMsg: string;
+};
+
+export type UploadProps = TdUploadProps;
+export * from './type';

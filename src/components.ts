@@ -34,6 +34,7 @@ export * from './textarea';
 export * from './transfer';
 export * from './time-picker';
 export * from './tree-select';
+export * from './color-picker';
 
 // 数据展示
 export * from './avatar';

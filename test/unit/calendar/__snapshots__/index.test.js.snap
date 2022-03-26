@@ -48,7 +48,9 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -66,169 +68,211 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                         class="t-select-option t-size-m"
                         title="2010 年"
                       >
-                        
-                        2010 年
-                        
+                        <span>
+                          
+                          2010 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2011 年"
                       >
-                        
-                        2011 年
-                        
+                        <span>
+                          
+                          2011 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2012 年"
                       >
-                        
-                        2012 年
-                        
+                        <span>
+                          
+                          2012 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2013 年"
                       >
-                        
-                        2013 年
-                        
+                        <span>
+                          
+                          2013 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2014 年"
                       >
-                        
-                        2014 年
-                        
+                        <span>
+                          
+                          2014 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2015 年"
                       >
-                        
-                        2015 年
-                        
+                        <span>
+                          
+                          2015 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2016 年"
                       >
-                        
-                        2016 年
-                        
+                        <span>
+                          
+                          2016 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2017 年"
                       >
-                        
-                        2017 年
-                        
+                        <span>
+                          
+                          2017 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2018 年"
                       >
-                        
-                        2018 年
-                        
+                        <span>
+                          
+                          2018 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2019 年"
                       >
-                        
-                        2019 年
-                        
+                        <span>
+                          
+                          2019 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="2020 年"
                       >
-                        
-                        2020 年
-                        
+                        <span>
+                          
+                          2020 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2021 年"
                       >
-                        
-                        2021 年
-                        
+                        <span>
+                          
+                          2021 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2022 年"
                       >
-                        
-                        2022 年
-                        
+                        <span>
+                          
+                          2022 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2023 年"
                       >
-                        
-                        2023 年
-                        
+                        <span>
+                          
+                          2023 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2024 年"
                       >
-                        
-                        2024 年
-                        
+                        <span>
+                          
+                          2024 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2025 年"
                       >
-                        
-                        2025 年
-                        
+                        <span>
+                          
+                          2025 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2026 年"
                       >
-                        
-                        2026 年
-                        
+                        <span>
+                          
+                          2026 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2027 年"
                       >
-                        
-                        2027 年
-                        
+                        <span>
+                          
+                          2027 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2028 年"
                       >
-                        
-                        2028 年
-                        
+                        <span>
+                          
+                          2028 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2029 年"
                       >
-                        
-                        2029 年
-                        
+                        <span>
+                          
+                          2029 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2030 年"
                       >
-                        
-                        2030 年
-                        
+                        <span>
+                          
+                          2030 年
+                          
+                        </span>
                       </li>
                       
                       
@@ -242,12 +286,11 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -266,7 +309,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -320,7 +363,9 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -338,97 +383,121 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
                         class="t-select-option t-size-m"
                         title="1 月"
                       >
-                        
-                        1 月
-                        
+                        <span>
+                          
+                          1 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2 月"
                       >
-                        
-                        2 月
-                        
+                        <span>
+                          
+                          2 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="3 月"
                       >
-                        
-                        3 月
-                        
+                        <span>
+                          
+                          3 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="4 月"
                       >
-                        
-                        4 月
-                        
+                        <span>
+                          
+                          4 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="5 月"
                       >
-                        
-                        5 月
-                        
+                        <span>
+                          
+                          5 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="6 月"
                       >
-                        
-                        6 月
-                        
+                        <span>
+                          
+                          6 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="7 月"
                       >
-                        
-                        7 月
-                        
+                        <span>
+                          
+                          7 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="8 月"
                       >
-                        
-                        8 月
-                        
+                        <span>
+                          
+                          8 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="9 月"
                       >
-                        
-                        9 月
-                        
+                        <span>
+                          
+                          9 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="10 月"
                       >
-                        
-                        10 月
-                        
+                        <span>
+                          
+                          10 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="11 月"
                       >
-                        
-                        11 月
-                        
+                        <span>
+                          
+                          11 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="12 月"
                       >
-                        
-                        12 月
-                        
+                        <span>
+                          
+                          12 月
+                          
+                        </span>
                       </li>
                       
                       
@@ -442,12 +511,11 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -466,7 +534,7 @@ exports[`Calendar :props :firstDayOfWeek 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -1411,7 +1479,9 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -1429,169 +1499,211 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                         class="t-select-option t-size-m"
                         title="2010 年"
                       >
-                        
-                        2010 年
-                        
+                        <span>
+                          
+                          2010 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2011 年"
                       >
-                        
-                        2011 年
-                        
+                        <span>
+                          
+                          2011 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2012 年"
                       >
-                        
-                        2012 年
-                        
+                        <span>
+                          
+                          2012 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2013 年"
                       >
-                        
-                        2013 年
-                        
+                        <span>
+                          
+                          2013 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2014 年"
                       >
-                        
-                        2014 年
-                        
+                        <span>
+                          
+                          2014 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2015 年"
                       >
-                        
-                        2015 年
-                        
+                        <span>
+                          
+                          2015 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2016 年"
                       >
-                        
-                        2016 年
-                        
+                        <span>
+                          
+                          2016 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2017 年"
                       >
-                        
-                        2017 年
-                        
+                        <span>
+                          
+                          2017 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2018 年"
                       >
-                        
-                        2018 年
-                        
+                        <span>
+                          
+                          2018 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2019 年"
                       >
-                        
-                        2019 年
-                        
+                        <span>
+                          
+                          2019 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="2020 年"
                       >
-                        
-                        2020 年
-                        
+                        <span>
+                          
+                          2020 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2021 年"
                       >
-                        
-                        2021 年
-                        
+                        <span>
+                          
+                          2021 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2022 年"
                       >
-                        
-                        2022 年
-                        
+                        <span>
+                          
+                          2022 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2023 年"
                       >
-                        
-                        2023 年
-                        
+                        <span>
+                          
+                          2023 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2024 年"
                       >
-                        
-                        2024 年
-                        
+                        <span>
+                          
+                          2024 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2025 年"
                       >
-                        
-                        2025 年
-                        
+                        <span>
+                          
+                          2025 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2026 年"
                       >
-                        
-                        2026 年
-                        
+                        <span>
+                          
+                          2026 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2027 年"
                       >
-                        
-                        2027 年
-                        
+                        <span>
+                          
+                          2027 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2028 年"
                       >
-                        
-                        2028 年
-                        
+                        <span>
+                          
+                          2028 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2029 年"
                       >
-                        
-                        2029 年
-                        
+                        <span>
+                          
+                          2029 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2030 年"
                       >
-                        
-                        2030 年
-                        
+                        <span>
+                          
+                          2030 年
+                          
+                        </span>
                       </li>
                       
                       
@@ -1605,12 +1717,11 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -1629,7 +1740,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -1683,7 +1794,9 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -1701,97 +1814,121 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
                         class="t-select-option t-size-m"
                         title="1 月"
                       >
-                        
-                        1 月
-                        
+                        <span>
+                          
+                          1 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2 月"
                       >
-                        
-                        2 月
-                        
+                        <span>
+                          
+                          2 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="3 月"
                       >
-                        
-                        3 月
-                        
+                        <span>
+                          
+                          3 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="4 月"
                       >
-                        
-                        4 月
-                        
+                        <span>
+                          
+                          4 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="5 月"
                       >
-                        
-                        5 月
-                        
+                        <span>
+                          
+                          5 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="6 月"
                       >
-                        
-                        6 月
-                        
+                        <span>
+                          
+                          6 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="7 月"
                       >
-                        
-                        7 月
-                        
+                        <span>
+                          
+                          7 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="8 月"
                       >
-                        
-                        8 月
-                        
+                        <span>
+                          
+                          8 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="9 月"
                       >
-                        
-                        9 月
-                        
+                        <span>
+                          
+                          9 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="10 月"
                       >
-                        
-                        10 月
-                        
+                        <span>
+                          
+                          10 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="11 月"
                       >
-                        
-                        11 月
-                        
+                        <span>
+                          
+                          11 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="12 月"
                       >
-                        
-                        12 月
-                        
+                        <span>
+                          
+                          12 月
+                          
+                        </span>
                       </li>
                       
                       
@@ -1805,12 +1942,11 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -1829,7 +1965,7 @@ exports[`Calendar :props :isShowWeekendDefault 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -2494,7 +2630,9 @@ exports[`Calendar :props :mode 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -2512,169 +2650,211 @@ exports[`Calendar :props :mode 1`] = `
                         class="t-select-option t-size-m"
                         title="2010 年"
                       >
-                        
-                        2010 年
-                        
+                        <span>
+                          
+                          2010 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2011 年"
                       >
-                        
-                        2011 年
-                        
+                        <span>
+                          
+                          2011 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2012 年"
                       >
-                        
-                        2012 年
-                        
+                        <span>
+                          
+                          2012 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2013 年"
                       >
-                        
-                        2013 年
-                        
+                        <span>
+                          
+                          2013 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2014 年"
                       >
-                        
-                        2014 年
-                        
+                        <span>
+                          
+                          2014 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2015 年"
                       >
-                        
-                        2015 年
-                        
+                        <span>
+                          
+                          2015 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2016 年"
                       >
-                        
-                        2016 年
-                        
+                        <span>
+                          
+                          2016 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2017 年"
                       >
-                        
-                        2017 年
-                        
+                        <span>
+                          
+                          2017 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2018 年"
                       >
-                        
-                        2018 年
-                        
+                        <span>
+                          
+                          2018 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2019 年"
                       >
-                        
-                        2019 年
-                        
+                        <span>
+                          
+                          2019 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="2020 年"
                       >
-                        
-                        2020 年
-                        
+                        <span>
+                          
+                          2020 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2021 年"
                       >
-                        
-                        2021 年
-                        
+                        <span>
+                          
+                          2021 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2022 年"
                       >
-                        
-                        2022 年
-                        
+                        <span>
+                          
+                          2022 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2023 年"
                       >
-                        
-                        2023 年
-                        
+                        <span>
+                          
+                          2023 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2024 年"
                       >
-                        
-                        2024 年
-                        
+                        <span>
+                          
+                          2024 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2025 年"
                       >
-                        
-                        2025 年
-                        
+                        <span>
+                          
+                          2025 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2026 年"
                       >
-                        
-                        2026 年
-                        
+                        <span>
+                          
+                          2026 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2027 年"
                       >
-                        
-                        2027 年
-                        
+                        <span>
+                          
+                          2027 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2028 年"
                       >
-                        
-                        2028 年
-                        
+                        <span>
+                          
+                          2028 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2029 年"
                       >
-                        
-                        2029 年
-                        
+                        <span>
+                          
+                          2029 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2030 年"
                       >
-                        
-                        2030 年
-                        
+                        <span>
+                          
+                          2030 年
+                          
+                        </span>
                       </li>
                       
                       
@@ -2688,12 +2868,11 @@ exports[`Calendar :props :mode 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -2712,7 +2891,7 @@ exports[`Calendar :props :mode 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -3101,7 +3280,9 @@ exports[`Calendar :props :range 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -3119,89 +3300,111 @@ exports[`Calendar :props :range 1`] = `
                         class="t-select-option t-size-m"
                         title="2018 年"
                       >
-                        
-                        2018 年
-                        
+                        <span>
+                          
+                          2018 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2019 年"
                       >
-                        
-                        2019 年
-                        
+                        <span>
+                          
+                          2019 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="2020 年"
                       >
-                        
-                        2020 年
-                        
+                        <span>
+                          
+                          2020 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2021 年"
                       >
-                        
-                        2021 年
-                        
+                        <span>
+                          
+                          2021 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2022 年"
                       >
-                        
-                        2022 年
-                        
+                        <span>
+                          
+                          2022 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2023 年"
                       >
-                        
-                        2023 年
-                        
+                        <span>
+                          
+                          2023 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2024 年"
                       >
-                        
-                        2024 年
-                        
+                        <span>
+                          
+                          2024 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2025 年"
                       >
-                        
-                        2025 年
-                        
+                        <span>
+                          
+                          2025 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2026 年"
                       >
-                        
-                        2026 年
-                        
+                        <span>
+                          
+                          2026 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2027 年"
                       >
-                        
-                        2027 年
-                        
+                        <span>
+                          
+                          2027 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-disabled t-size-m"
                         title="2028 年"
                       >
-                        
-                        2028 年
-                        
+                        <span>
+                          
+                          2028 年
+                          
+                        </span>
                       </li>
                       
                       
@@ -3215,12 +3418,11 @@ exports[`Calendar :props :range 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -3239,7 +3441,7 @@ exports[`Calendar :props :range 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -3293,7 +3495,9 @@ exports[`Calendar :props :range 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -3311,97 +3515,121 @@ exports[`Calendar :props :range 1`] = `
                         class="t-select-option t-size-m"
                         title="1 月"
                       >
-                        
-                        1 月
-                        
+                        <span>
+                          
+                          1 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2 月"
                       >
-                        
-                        2 月
-                        
+                        <span>
+                          
+                          2 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="3 月"
                       >
-                        
-                        3 月
-                        
+                        <span>
+                          
+                          3 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="4 月"
                       >
-                        
-                        4 月
-                        
+                        <span>
+                          
+                          4 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="5 月"
                       >
-                        
-                        5 月
-                        
+                        <span>
+                          
+                          5 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="6 月"
                       >
-                        
-                        6 月
-                        
+                        <span>
+                          
+                          6 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="7 月"
                       >
-                        
-                        7 月
-                        
+                        <span>
+                          
+                          7 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="8 月"
                       >
-                        
-                        8 月
-                        
+                        <span>
+                          
+                          8 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="9 月"
                       >
-                        
-                        9 月
-                        
+                        <span>
+                          
+                          9 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="10 月"
                       >
-                        
-                        10 月
-                        
+                        <span>
+                          
+                          10 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="11 月"
                       >
-                        
-                        11 月
-                        
+                        <span>
+                          
+                          11 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="12 月"
                       >
-                        
-                        12 月
-                        
+                        <span>
+                          
+                          12 月
+                          
+                        </span>
                       </li>
                       
                       
@@ -3415,12 +3643,11 @@ exports[`Calendar :props :range 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -3439,7 +3666,7 @@ exports[`Calendar :props :range 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4266,7 +4493,9 @@ exports[`Calendar :props :theme 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -4284,169 +4513,211 @@ exports[`Calendar :props :theme 1`] = `
                         class="t-select-option t-size-m"
                         title="2010 年"
                       >
-                        
-                        2010 年
-                        
+                        <span>
+                          
+                          2010 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2011 年"
                       >
-                        
-                        2011 年
-                        
+                        <span>
+                          
+                          2011 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2012 年"
                       >
-                        
-                        2012 年
-                        
+                        <span>
+                          
+                          2012 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2013 年"
                       >
-                        
-                        2013 年
-                        
+                        <span>
+                          
+                          2013 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2014 年"
                       >
-                        
-                        2014 年
-                        
+                        <span>
+                          
+                          2014 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2015 年"
                       >
-                        
-                        2015 年
-                        
+                        <span>
+                          
+                          2015 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2016 年"
                       >
-                        
-                        2016 年
-                        
+                        <span>
+                          
+                          2016 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2017 年"
                       >
-                        
-                        2017 年
-                        
+                        <span>
+                          
+                          2017 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2018 年"
                       >
-                        
-                        2018 年
-                        
+                        <span>
+                          
+                          2018 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2019 年"
                       >
-                        
-                        2019 年
-                        
+                        <span>
+                          
+                          2019 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="2020 年"
                       >
-                        
-                        2020 年
-                        
+                        <span>
+                          
+                          2020 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2021 年"
                       >
-                        
-                        2021 年
-                        
+                        <span>
+                          
+                          2021 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2022 年"
                       >
-                        
-                        2022 年
-                        
+                        <span>
+                          
+                          2022 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2023 年"
                       >
-                        
-                        2023 年
-                        
+                        <span>
+                          
+                          2023 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2024 年"
                       >
-                        
-                        2024 年
-                        
+                        <span>
+                          
+                          2024 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2025 年"
                       >
-                        
-                        2025 年
-                        
+                        <span>
+                          
+                          2025 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2026 年"
                       >
-                        
-                        2026 年
-                        
+                        <span>
+                          
+                          2026 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2027 年"
                       >
-                        
-                        2027 年
-                        
+                        <span>
+                          
+                          2027 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2028 年"
                       >
-                        
-                        2028 年
-                        
+                        <span>
+                          
+                          2028 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2029 年"
                       >
-                        
-                        2029 年
-                        
+                        <span>
+                          
+                          2029 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2030 年"
                       >
-                        
-                        2030 年
-                        
+                        <span>
+                          
+                          2030 年
+                          
+                        </span>
                       </li>
                       
                       
@@ -4460,12 +4731,11 @@ exports[`Calendar :props :theme 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -4484,7 +4754,7 @@ exports[`Calendar :props :theme 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -4538,7 +4808,9 @@ exports[`Calendar :props :theme 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -4556,97 +4828,121 @@ exports[`Calendar :props :theme 1`] = `
                         class="t-select-option t-size-m"
                         title="1 月"
                       >
-                        
-                        1 月
-                        
+                        <span>
+                          
+                          1 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2 月"
                       >
-                        
-                        2 月
-                        
+                        <span>
+                          
+                          2 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="3 月"
                       >
-                        
-                        3 月
-                        
+                        <span>
+                          
+                          3 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="4 月"
                       >
-                        
-                        4 月
-                        
+                        <span>
+                          
+                          4 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="5 月"
                       >
-                        
-                        5 月
-                        
+                        <span>
+                          
+                          5 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="6 月"
                       >
-                        
-                        6 月
-                        
+                        <span>
+                          
+                          6 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="7 月"
                       >
-                        
-                        7 月
-                        
+                        <span>
+                          
+                          7 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="8 月"
                       >
-                        
-                        8 月
-                        
+                        <span>
+                          
+                          8 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="9 月"
                       >
-                        
-                        9 月
-                        
+                        <span>
+                          
+                          9 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="10 月"
                       >
-                        
-                        10 月
-                        
+                        <span>
+                          
+                          10 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="11 月"
                       >
-                        
-                        11 月
-                        
+                        <span>
+                          
+                          11 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="12 月"
                       >
-                        
-                        12 月
-                        
+                        <span>
+                          
+                          12 月
+                          
+                        </span>
                       </li>
                       
                       
@@ -4660,12 +4956,11 @@ exports[`Calendar :props :theme 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -4684,7 +4979,7 @@ exports[`Calendar :props :theme 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5485,7 +5780,9 @@ exports[`Calendar :props :value 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -5503,169 +5800,211 @@ exports[`Calendar :props :value 1`] = `
                         class="t-select-option t-size-m"
                         title="1988 年"
                       >
-                        
-                        1988 年
-                        
+                        <span>
+                          
+                          1988 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1989 年"
                       >
-                        
-                        1989 年
-                        
+                        <span>
+                          
+                          1989 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1990 年"
                       >
-                        
-                        1990 年
-                        
+                        <span>
+                          
+                          1990 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1991 年"
                       >
-                        
-                        1991 年
-                        
+                        <span>
+                          
+                          1991 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1992 年"
                       >
-                        
-                        1992 年
-                        
+                        <span>
+                          
+                          1992 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1993 年"
                       >
-                        
-                        1993 年
-                        
+                        <span>
+                          
+                          1993 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1994 年"
                       >
-                        
-                        1994 年
-                        
+                        <span>
+                          
+                          1994 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1995 年"
                       >
-                        
-                        1995 年
-                        
+                        <span>
+                          
+                          1995 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1996 年"
                       >
-                        
-                        1996 年
-                        
+                        <span>
+                          
+                          1996 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1997 年"
                       >
-                        
-                        1997 年
-                        
+                        <span>
+                          
+                          1997 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="1998 年"
                       >
-                        
-                        1998 年
-                        
+                        <span>
+                          
+                          1998 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="1999 年"
                       >
-                        
-                        1999 年
-                        
+                        <span>
+                          
+                          1999 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2000 年"
                       >
-                        
-                        2000 年
-                        
+                        <span>
+                          
+                          2000 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2001 年"
                       >
-                        
-                        2001 年
-                        
+                        <span>
+                          
+                          2001 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2002 年"
                       >
-                        
-                        2002 年
-                        
+                        <span>
+                          
+                          2002 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2003 年"
                       >
-                        
-                        2003 年
-                        
+                        <span>
+                          
+                          2003 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2004 年"
                       >
-                        
-                        2004 年
-                        
+                        <span>
+                          
+                          2004 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2005 年"
                       >
-                        
-                        2005 年
-                        
+                        <span>
+                          
+                          2005 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2006 年"
                       >
-                        
-                        2006 年
-                        
+                        <span>
+                          
+                          2006 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2007 年"
                       >
-                        
-                        2007 年
-                        
+                        <span>
+                          
+                          2007 年
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2008 年"
                       >
-                        
-                        2008 年
-                        
+                        <span>
+                          
+                          2008 年
+                          
+                        </span>
                       </li>
                       
                       
@@ -5679,12 +6018,11 @@ exports[`Calendar :props :value 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -5703,7 +6041,7 @@ exports[`Calendar :props :value 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -5757,7 +6095,9 @@ exports[`Calendar :props :value 1`] = `
                         class="t-select-option t-size-m t-select__create-option--special"
                         title=""
                       >
-                        
+                        <span>
+                          
+                        </span>
                       </li>
                     </ul>
                     <!---->
@@ -5775,97 +6115,121 @@ exports[`Calendar :props :value 1`] = `
                         class="t-select-option t-size-m"
                         title="1 月"
                       >
-                        
-                        1 月
-                        
+                        <span>
+                          
+                          1 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="2 月"
                       >
-                        
-                        2 月
-                        
+                        <span>
+                          
+                          2 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="3 月"
                       >
-                        
-                        3 月
-                        
+                        <span>
+                          
+                          3 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="4 月"
                       >
-                        
-                        4 月
-                        
+                        <span>
+                          
+                          4 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="5 月"
                       >
-                        
-                        5 月
-                        
+                        <span>
+                          
+                          5 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="6 月"
                       >
-                        
-                        6 月
-                        
+                        <span>
+                          
+                          6 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="7 月"
                       >
-                        
-                        7 月
-                        
+                        <span>
+                          
+                          7 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="8 月"
                       >
-                        
-                        8 月
-                        
+                        <span>
+                          
+                          8 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="9 月"
                       >
-                        
-                        9 月
-                        
+                        <span>
+                          
+                          9 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="10 月"
                       >
-                        
-                        10 月
-                        
+                        <span>
+                          
+                          10 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-is-selected t-size-m"
                         title="11 月"
                       >
-                        
-                        11 月
-                        
+                        <span>
+                          
+                          11 月
+                          
+                        </span>
                       </li>
                       <li
                         class="t-select-option t-size-m"
                         title="12 月"
                       >
-                        
-                        12 月
-                        
+                        <span>
+                          
+                          12 月
+                          
+                        </span>
                       </li>
                       
                       
@@ -5879,12 +6243,11 @@ exports[`Calendar :props :value 1`] = `
             </transition-stub>
             
             <div
-              class="t-select t-size-m"
+              class="t-select t-select-polyfill t-size-m"
             >
               <!---->
               <!---->
-              
-              
+              <!---->
               <span
                 class="t-tag t-tag--default t-tag--dark t-size-m"
                 style="display: none;"
@@ -5903,7 +6266,7 @@ exports[`Calendar :props :value 1`] = `
               </span>
               <!---->
               <svg
-                class="t-fake-arrow t-select__right-icon"
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"

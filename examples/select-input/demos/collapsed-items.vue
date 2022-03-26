@@ -145,6 +145,7 @@ const renderCollapsedItems = (_, { collapsedTags }) => {
 .tdesign-demo__panel-options-collapsed-items {
   width: 100%;
   padding: 4px 0;
+  display: inline-block;
 }
 .tdesign-demo__panel-options-collapsed-items .t-checkbox {
   display: flex;

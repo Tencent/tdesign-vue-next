@@ -6,10 +6,12 @@ import { InputValue } from '../input';
 import TagInput, { TagInputValue, InputValueChangeContext } from '../tag-input';
 import Loading from '../loading';
 import useDefault from '../hooks/useDefaultValue';
+import { usePrefixClass } from '../config-provider';
 
 export interface RenderSelectMultipleParams {
   commonInputProps: SelectInputCommonProperties;
   onInnerClear: (context: { e: MouseEvent }) => void;
+  popupVisible: boolean;
 }
 
 const DEFAULT_KEYS = {
@@ -20,14 +22,15 @@ const DEFAULT_KEYS = {
 
 export default function useMultiple(props: TdSelectInputProps, context: SetupContext) {
   const { inputValue } = toRefs(props);
+  const classPrefix = usePrefixClass();
   const tagInputRef = ref();
   const [tInputValue, setTInputValue] = useDefault(
     inputValue,
     props.defaultInputValue,
     props.onInputChange,
-    context.emit,
     'inputValue',
   );
+
   const iKeys = computed<SelectInputKeys>(() => ({ ...DEFAULT_KEYS, ...props.keys }));
   const tags = computed<TagInputValue>(() => {
     if (!(props.value instanceof Array)) {
@@ -51,7 +54,6 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       ...p.commonInputProps,
       ...props.tagInputProps,
       tagProps: props.tagProps,
-      readonly: !props.allowInput,
       label: props.label,
       autoWidth: props.autoWidth,
       placeholder: tPlaceholder.value,
@@ -61,6 +63,12 @@ export default function useMultiple(props: TdSelectInputProps, context: SetupCon
       value: tags.value,
       valueDisplay: props.valueDisplay,
       inputValue: tInputValue.value || '',
+      inputProps: {
+        readonly: !props.allowInput || props.readonly,
+        inputClass: {
+          [`${classPrefix.value}-input--focused`]: p.popupVisible,
+        },
+      },
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
     };
 
