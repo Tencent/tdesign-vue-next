@@ -145,7 +145,7 @@ export default function useClassName() {
       header: `${classPrefix.value}-table__virtual-scroll-header`,
     },
 
-    positiveRoate90: `${classPrefix.value}-positive-rotate-90`,
+    positiveRotate90: `${classPrefix.value}-positive-rotate-90`,
     negativeRotate180: `${classPrefix.value}-negative-rotate-180`,
   };
 

@@ -2,12 +2,12 @@ import { SetupContext, computed, h } from 'vue';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
 import { TdBaseTableProps } from '../type';
-import { TableColums, getThRowspanAndColspan, getThList } from './useMultiHeader';
+import { TableColumns, getThRowspanAndColspan, getThList } from './useMultiHeader';
 import useClassName from './useClassName';
 import { TNodeReturnValue } from '../../common';
 
 // 渲染表头的通用方法
-export function renderTitle(slots: SetupContext['slots'], col: TableColums[0], index: number) {
+export function renderTitle(slots: SetupContext['slots'], col: TableColumns[0], index: number) {
   const params = { col, colIndex: index };
   if (isFunction(col.title)) {
     return col.title(h, params);

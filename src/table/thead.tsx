@@ -1,7 +1,7 @@
 import { defineComponent, computed, SetupContext, PropType } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { RowAndColFixedPosition, getColumnFixedStyles } from './hooks/useFixed';
-import { TableColums, ThRowspanAndColspan } from './hooks/useMultiHeader';
+import { TableColumns, ThRowspanAndColspan } from './hooks/useMultiHeader';
 import useClassName from './hooks/useClassName';
 import { useConfig } from '../config-provider/useConfig';
 import { BaseTableCol, TableRowData } from './type';
@@ -67,7 +67,7 @@ export default defineComponent({
       const thBorderMap = new Map<any, boolean>();
       const thRowspanAndColspan = this.spansAndLeafNodes.rowspanAndColspanMap;
       return this.thList.map((row, rowIndex) => {
-        const thRow = row.map((col: TableColums[0], index: number) => {
+        const thRow = row.map((col: TableColumns[0], index: number) => {
           const rospanAndColspan = thRowspanAndColspan.get(col);
           if (index === 0 && rospanAndColspan.rowspan > 1) {
             for (let j = rowIndex + 1; j < rowIndex + rospanAndColspan.rowspan; j++) {
