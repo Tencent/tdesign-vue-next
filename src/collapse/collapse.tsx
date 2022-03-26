@@ -1,19 +1,21 @@
-import { defineComponent, VNode, toRefs, provide } from 'vue';
-import useDefaultValue from '../hooks/useDefaultValue';
+import { defineComponent, VNode, toRefs, provide, computed } from 'vue';
 import { prefix } from '../config';
 import props from './props';
 import { CollapseValue } from './type';
 import { CollapseProps } from '.';
+import useVModel from '../hooks/useVModel';
 
 const preName = `${prefix}-collapse`;
+const BORDERLESS_CLASS = `${prefix}--border-less`;
 
 export default defineComponent({
   name: 'TCollapse',
   props,
   setup(props: CollapseProps, context) {
-    const { value, expandMutex } = toRefs(props);
-    const [collapseValue, setCollapseValue] = useDefaultValue(
+    const { value, expandMutex, borderless, modelValue } = toRefs(props);
+    const [collapseValue, setCollapseValue] = useVModel(
       value,
+      modelValue,
       props.defaultValue,
       props.onChange,
       context.emit,
@@ -31,12 +33,24 @@ export default defineComponent({
       }
       setCollapseValue(newValue);
     };
+    const classes = computed(() => {
+      return [
+        preName,
+        {
+          [BORDERLESS_CLASS]: !!borderless.value,
+        },
+      ];
+    });
     provide('collapseValue', collapseValue);
     provide('updateCollapseValue', updateCollapseValue);
     provide('collapseProps', toRefs(props));
+    return {
+      classes,
+    };
   },
   render(): VNode {
+    const { classes } = this;
     const nodes = this.$slots.default && this.$slots.default(null);
-    return <div class={preName}>{nodes}</div>;
+    return <div class={classes}>{nodes}</div>;
   },
 });

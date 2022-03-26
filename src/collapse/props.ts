@@ -29,6 +29,8 @@ export default {
   },
   /** 每个面板互斥展开，每次只展开一个面板 */
   expandMutex: Boolean,
+  /** 是否有嵌套折叠结构 */
+  isNested: Boolean,
   /** 是否允许点击整行标题展开面板 */
   expandOnRowClick: {
     type: Boolean,
@@ -37,6 +39,10 @@ export default {
   /** 展开的面板集合 */
   value: {
     type: [String, Number, Array] as PropType<TdCollapseProps['value']>,
+  },
+  /** 展开的面板集合 */
+  modelValue: {
+    type: [String, Number, Array] as PropType<TdCollapseProps['modelValue']>,
   },
   /** 展开的面板集合，非受控属性 */
   defaultValue: {

@@ -26,9 +26,10 @@ change | `(value: CollapseValue)` | 切换面板时触发，返回变化的值
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
+value | String / Number | - | 面板唯一标识 | Y
 content | String / Slot / Function | - | 折叠面板内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 default | String / Slot / Function | - | 折叠面板内容，同 content。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
-destroyOnCollapse | Boolean | false | 当前面板处理折叠状态时，是否销毁面板内容 | N
+<!-- destroyOnCollapse | Boolean | false | 当前面板处理折叠状态时，是否销毁面板内容 | N -->
 disabled | Boolean | undefined | 禁止当前面板展开，优先级大于 Collapse 的同名属性 | N
 expandIcon | Boolean / Slot / Function | - | 当前折叠面板展开图标，优先级大于 Collapse 的同名属性。TS 类型：`boolean | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 header | String / Slot / Function | - | 面板头内容。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N

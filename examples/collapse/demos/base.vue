@@ -1,68 +1,72 @@
 <template>
-  <div class="accordion-demo">
-    <!-- v-model:value="valueBase"  -->
-    <t-collapse :value="valueBase" title="基础型">
-      <t-collapse-panel v-for="(p, i) in panels" :key="i" :name="i" v-bind="p" :header="p.title">
-        {{ p.content }}
+  <div class="tdesign-collapse">
+    <t-collapse expand-icon default-value="1" is-nested @change="handlePanelChange">
+      <t-collapse-panel value="0" header="这是一个折叠标题">
+        这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+      </t-collapse-panel>
+      <t-collapse-panel value="1" header="设置默认展开项">
+        这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+      </t-collapse-panel>
+      <!-- <t-collapse-panel v-if="false" value="1">
+        <template #header>嵌套折叠面板</template>
+        <t-collapse expandIcon>
+          <t-collapse-panel header="这是子标题一" value="1.1">
+            这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+          </t-collapse-panel>
+          <t-collapse-panel header="这是子标题二" value="1.2">
+            这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+          </t-collapse-panel>
+          <t-collapse-panel header="这是子标题三" value="1.3">
+            这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+          </t-collapse-panel>
+        </t-collapse>
+      </t-collapse-panel> -->
+      <t-collapse-panel value="2">
+        <template #header>自定义面板内容</template>
+        <div class="tdesign-demo-block-column" style="width: 80%">
+          <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" />
+
+          <t-tag-input :value="tags2" label="Controlled: " clearable @change="onChange" />
+
+          <t-tag-input :default-value="tags3" label="UnControlled: " clearable />
+        </div>
+      </t-collapse-panel>
+      <t-collapse-panel value="3" header="这是一个折叠标题">
+        这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
     </t-collapse>
+    <div style="margin-top: 10px">当前展开项:{{ currentItem }}</div>
   </div>
 </template>
+<script setup>
+import { ref } from 'vue';
 
-<script>
-import { reactive, toRefs, defineComponent } from 'vue';
+const currentItem = ref(['1']);
+const tags1 = ref(['Vue', 'React']);
+const tags2 = ref(['Vue', 'React']);
+const tags3 = ref(['Vue', 'React']);
+const handlePanelChange = (val) => {
+  currentItem.value = val;
+};
 
-export default defineComponent({
-  setup() {
-    const panels = [
-      {
-        title: '基础面板',
-        name: '0',
-        content:
-          '一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字',
-      },
-      {
-        title: '基础面板',
-        name: '1',
-        content: ['一段很长很长的内容文字', '一段很长很长的内容文字', '一段很长很长的内容文字'],
-      },
-      {
-        title: '基础面板',
-        extra: '基础面板',
-        content: [
-          { label: '标题1', content: '预设文本' },
-          { label: '类目标题2', content: '预设文本' },
-          {
-            label: '很长很长很长的内容标题',
-            content: '一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字',
-          },
-        ],
-      },
-      {
-        title: '内容带标签 - 宽度固定',
-        extra: '预设文本',
-        labelWidth: 80,
-        content: [
-          { label: '标题1', content: '预设文本' },
-          {
-            label: '很长很长很长的内容标题',
-            content: '一段很长很长的内容文字一段很长很长的内容文字一段很长很长的内容文字',
-          },
-        ],
-      },
-    ];
-    const state = reactive({
-      valueBase: ['0', 3],
-      panels,
-    });
-    return {
-      ...toRefs(state),
-    };
-  },
-});
+const onTagInputEnter = (val, context) => {
+  console.log(val, context);
+};
+const onChange = (val, context) => {
+  console.log(val, context);
+  tags2.value = val;
+};
+const onPaste = (context) => {
+  console.log(context);
+};
 </script>
 <style lang="less">
 .accordion-demo {
   background-color: #f9f9f9;
+}
+.button-area {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 </style>

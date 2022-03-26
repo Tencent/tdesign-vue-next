@@ -1,15 +1,4 @@
-import {
-  defineComponent,
-  ref,
-  onMounted,
-  nextTick,
-  watch,
-  computed,
-  inject,
-  Ref,
-  toRefs,
-  ComponentPublicInstance,
-} from 'vue';
+import { defineComponent, ref, onMounted, watch, computed, inject, Ref, toRefs, ComponentPublicInstance } from 'vue';
 import { prefix } from '../config';
 import props from './collapse-panel-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
@@ -17,6 +6,8 @@ import FakeArrow from '../common-components/fake-arrow';
 import { CollapseValue } from './type';
 
 const preName = `${prefix}-collapse-panel`;
+const DISABLE_CLASS = `${prefix}-is-disabled`;
+const CLICKABLE_CLASS = `${prefix}-is-clickable`;
 
 export default defineComponent({
   name: 'TCollapsePanel',
@@ -31,15 +22,17 @@ export default defineComponent({
       expandIconPlacement,
       expandOnRowClick,
       expandIcon,
+      isNested,
     } = inject('collapseProps');
     const wrapDom = ref<HTMLElement>();
     const headDom = ref<HTMLElement>();
     const bodyDom = ref<HTMLElement>();
+    const isDisabled = computed(() => disabled.value || disableAll.value);
     const handleClick = (e: MouseEvent) => {
       const canExpand =
         (expandOnRowClick.value && e.target === headDom.value) ||
         (e.target as Element).getAttribute('name') === 'arrow';
-      if (canExpand && !(disableAll.value || disabled.value)) {
+      if (canExpand && !isDisabled.value) {
         updateCollapseValue(value.value);
       }
     };
@@ -59,8 +52,11 @@ export default defineComponent({
       wrapDom.value.style.height = isActive ? `${headHeight + bodyHeight}px` : `${headHeight}px`;
     };
     onMounted(() => {
-      nextTick(() => {
+      setTimeout(() => {
         updatePanelState(isActive.value);
+        if (isNested.value) {
+          watchInnerHeightChange();
+        }
       });
     });
     const renderIcon = (direction: string) => {
@@ -72,11 +68,29 @@ export default defineComponent({
         />
       );
     };
+    const watchInnerHeightChange = () => {
+      const mutationObserver = new MutationObserver(function (mutations) {
+        setTimeout(() => {
+          updatePanelState(isActive.value);
+        }, 200);
+      });
+      mutationObserver.observe(bodyDom.value, {
+        childList: true,
+        attributes: true,
+        characterData: true,
+        subtree: true,
+      });
+    };
     const renderBlank = () => {
       return <div class={`${preName}__header--blank`}></div>;
     };
     const renderHeader = (context: ComponentPublicInstance) => {
-      const cls = [`${preName}__header`, { [`${preName}__header-is-clickable`]: expandOnRowClick.value }];
+      const cls = [
+        `${preName}__header`,
+        {
+          [CLICKABLE_CLASS]: expandOnRowClick.value && !isDisabled.value,
+        },
+      ];
       return (
         <div ref="headDom" class={cls} onClick={handleClick}>
           {expandIcon.value && expandIconPlacement.value === 'left' ? renderIcon(expandIconPlacement.value) : null}
@@ -94,6 +108,9 @@ export default defineComponent({
         </div>
       );
     };
+    const classes = computed(() => {
+      return [preName, { [DISABLE_CLASS]: isDisabled.value }];
+    });
     return {
       renderHeader,
       renderBlank,
@@ -101,12 +118,14 @@ export default defineComponent({
       wrapDom,
       headDom,
       bodyDom,
+      classes,
     };
   },
   render() {
-    const { renderBody, renderHeader } = this;
+    const { renderBody, renderHeader, classes } = this;
+
     return (
-      <div class={preName}>
+      <div class={classes}>
         <div ref="wrapDom" class={`${preName}__wrapper`}>
           {renderHeader(this)}
           {renderBody(this)}
