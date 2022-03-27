@@ -50,11 +50,16 @@ const isLoading = ref(false);
 const pagination = reactive({
   current: 1,
   pageSize: 10,
+  // defaultCurrent: 1,
+  // defaultPageSize: 10,
   total: 0,
   showJumper: true,
+  onChange: (pageInfo) => {
+    console.log('pagination.onChange', pageInfo);
+  },
 });
 
-const fetchData = async (paginationInfo = pagination) => {
+const fetchData = async (paginationInfo) => {
   try {
     isLoading.value = true;
     const { current, pageSize } = paginationInfo;
@@ -85,7 +90,10 @@ const onPageChange = async (pageInfo) => {
 };
 
 onMounted(async () => {
-  await fetchData(pagination.value);
+  await fetchData({
+    current: pagination.current || pagination.defaultCurrent,
+    pageSize: pagination.pageSize || pagination.defaultPageSize,
+  });
 });
 
 const rowKey = 'property';
