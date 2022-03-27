@@ -1,6 +1,7 @@
 import { SetupContext, h, defineComponent, PropType } from 'vue';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
+import get from 'lodash/get';
 import { BaseTableCellParams, TableRowData, TdBaseTableProps } from './type';
 import { formatRowAttributes } from './utils';
 import { getColumnFixedStyles, RowAndColFixedPosition } from './hooks/useFixed';
@@ -33,14 +34,14 @@ export default defineComponent({
   setup(props: TFootProps, context: SetupContext) {
     const classnames = useClassName();
     const renderTFootCell = (p: BaseTableCellParams<TableRowData>) => {
-      const { col } = p;
+      const { col, row } = p;
       if (isFunction(col.foot)) {
         return col.foot(h, p);
       }
       if (isString(col.foot) && context.slots[col.foot]) {
         return context.slots[col.foot](p) || col.foot;
       }
-      return col.foot;
+      return col.foot || get(row, col.colKey);
     };
 
     return {

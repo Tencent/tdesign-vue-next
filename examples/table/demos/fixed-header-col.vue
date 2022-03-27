@@ -11,7 +11,7 @@
     <div><t-checkbox v-model="fixedTopAndBottomRows">是否冻结首尾两行</t-checkbox></div>
 
     <!-- 如果希望表格列宽自适应，设置 `table-layout: auto` 即可。需同时设置 table-content-width -->
-    <!-- fixedRows: [2, 2] 表示冻结表头的两行，和表尾的两行 -->
+    <!-- fixedRows: [2, 2] 表示冻结表格的头两行和尾两行 -->
     <!-- footData 可以是多行，均支持固定在底部 -->
     <t-table
       row-key="index"

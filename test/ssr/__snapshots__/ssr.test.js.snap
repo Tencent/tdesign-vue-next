@@ -33692,7 +33692,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
       <!--]-->
     </div><br><br><label class="t-checkbox t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示斑马纹 <!--]--></span></label><label class="t-checkbox t-is-checked" modelvalue="true"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示表格边框 <!--]--></span></label><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示悬浮效果 <!--]--></span></label><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 宽度自适应 <!--]--></span></label>
   </div>
-  <div class="t-table t-size-m t-table--bordered t-table--striped t-table--column-fixed" style="position:relative;" dragsort="drag-col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-size-m t-table--bordered t-table--striped" style="position:relative;" dragsort="drag-col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -33728,12 +33728,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
               <div class="t-table__th-cell-inner">是否必传</div>
             </th>
             <th data-colkey="detail.position" class="t-table__th-detail.position" style="">
-              <div class="t-table__th-cell-inner">
-                <div class="t-table__ellipsis t-text-ellipsis">
-                  <!--[-->详情信息
-                  <!--]-->
-                </div>
-              </div>
+              <div class="t-table__th-cell-inner">详情信息</div>
             </th>
             <!--]-->
           </tr>
@@ -33750,12 +33745,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">Number</td>
             <td class="" style="">0</td>
             <td class="" style="">否</td>
-            <td class="t-table-td--ellipsis" style="">
-              <div class="t-table__ellipsis t-text-ellipsis">
-                <!--[-->读取 5 个数据的嵌套信息值
-                <!--]-->
-              </div>
-            </td>
+            <td class="" style="">读取 5 个数据的嵌套信息值</td>
             <!--]-->
           </tr>
           <tr style="" class="">
@@ -33765,12 +33755,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">Array</td>
             <td class="" style="">[]</td>
             <td class="" style="">否</td>
-            <td class="t-table-td--ellipsis" style="">
-              <div class="t-table__ellipsis t-text-ellipsis">
-                <!--[-->读取 6 个数据的嵌套信息值
-                <!--]-->
-              </div>
-            </td>
+            <td class="" style="">读取 6 个数据的嵌套信息值</td>
             <!--]-->
           </tr>
           <tr style="" class="">
@@ -33780,12 +33765,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">Object</td>
             <td class="" style="">{}</td>
             <td class="" style="">否</td>
-            <td class="t-table-td--ellipsis" style="">
-              <div class="t-table__ellipsis t-text-ellipsis">
-                <!--[-->读取 7 个数据的嵌套信息值
-                <!--]-->
-              </div>
-            </td>
+            <td class="" style="">读取 7 个数据的嵌套信息值</td>
             <!--]-->
           </tr>
           <tr style="" class="">
@@ -33795,12 +33775,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">String</td>
             <td class="" style="">-</td>
             <td class="" style="">是</td>
-            <td class="t-table-td--ellipsis" style="">
-              <div class="t-table__ellipsis t-text-ellipsis">
-                <!--[-->读取 8 个数据的嵌套信息值
-                <!--]-->
-              </div>
-            </td>
+            <td class="" style="">读取 8 个数据的嵌套信息值</td>
             <!--]-->
           </tr>
           <tr style="" class="">
@@ -33810,12 +33785,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">Number</td>
             <td class="" style="">0</td>
             <td class="" style="">否</td>
-            <td class="t-table-td--ellipsis" style="">
-              <div class="t-table__ellipsis t-text-ellipsis">
-                <!--[-->读取 9 个数据的嵌套信息值
-                <!--]-->
-              </div>
-            </td>
+            <td class="" style="">读取 9 个数据的嵌套信息值</td>
             <!--]-->
           </tr>
           <!--]-->
@@ -34241,7 +34211,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-footer.vue corr
             <!--[-->
             <td class="" style=""><b style="color: rgb(0, 82, 217)">表尾</b></td>
             <td class="" style=""><span>第 1 行</span></td>
-            <td class="" style="">-</td>
+            <td class="" style="">全部类型</td>
             <td class="" style=""><span>空</span></td>
             <td class="" style="">
               <!--[--> 插槽渲染表尾
@@ -35899,7 +35869,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
     </div>
   </div>
   <div><label class="t-checkbox" modelvalue="false"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否冻结首尾两行<!--]--></span></label></div><!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。需同时设置 table-content-width -->
-  <!-- fixedRows: [2, 2] 表示冻结表头的两行，和表尾的两行 -->
+  <!-- fixedRows: [2, 2] 表示冻结表格的头两行和尾两行 -->
   <!-- footData 可以是多行，均支持固定在底部 -->
   <div class="t-table t-size-m t-table--bordered t-table--column-fixed" style="position:relative;" dragsort="drag-col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <!---->

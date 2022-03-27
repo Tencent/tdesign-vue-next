@@ -509,7 +509,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
     </label>
   </div>
   <div
-    class="t-table t-size-m t-table--bordered t-table--striped t-table--column-fixed"
+    class="t-table t-size-m t-table--bordered t-table--striped"
     defaultexpandedrowkeys=""
     dragsort="drag-col"
     expandicon="true"
@@ -602,13 +602,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                <div
-                  class="t-table__ellipsis t-text-ellipsis"
-                >
-                  
-                  详情信息
-                  
-                </div>
+                详情信息
               </div>
             </th>
             
@@ -652,15 +646,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
               否
             </td>
             <td
-              class="t-table-td--ellipsis"
+              class=""
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 5 个数据的嵌套信息值
-                
-              </div>
+              读取 5 个数据的嵌套信息值
             </td>
             
           </tr>
@@ -695,15 +683,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
               否
             </td>
             <td
-              class="t-table-td--ellipsis"
+              class=""
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 6 个数据的嵌套信息值
-                
-              </div>
+              读取 6 个数据的嵌套信息值
             </td>
             
           </tr>
@@ -738,15 +720,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
               否
             </td>
             <td
-              class="t-table-td--ellipsis"
+              class=""
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 7 个数据的嵌套信息值
-                
-              </div>
+              读取 7 个数据的嵌套信息值
             </td>
             
           </tr>
@@ -781,15 +757,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
               是
             </td>
             <td
-              class="t-table-td--ellipsis"
+              class=""
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 8 个数据的嵌套信息值
-                
-              </div>
+              读取 8 个数据的嵌套信息值
             </td>
             
           </tr>
@@ -824,15 +794,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
               否
             </td>
             <td
-              class="t-table-td--ellipsis"
+              class=""
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 9 个数据的嵌套信息值
-                
-              </div>
+              读取 9 个数据的嵌套信息值
             </td>
             
           </tr>
@@ -1936,7 +1900,7 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
               </span>
             </td>
             <td>
-              -
+              全部类型
             </td>
             <td>
               <span>
@@ -5946,7 +5910,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
       </label>
     </div>
     <!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。需同时设置 table-content-width -->
-    <!-- fixedRows: [2, 2] 表示冻结表头的两行，和表尾的两行 -->
+    <!-- fixedRows: [2, 2] 表示冻结表格的头两行和尾两行 -->
     <!-- footData 可以是多行，均支持固定在底部 -->
     <div
       class="t-table t-size-m t-table--bordered t-table--column-fixed"

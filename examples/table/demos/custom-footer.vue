@@ -23,7 +23,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 // 表尾有一行数据
-const footData = [{}];
+const footData = [{ type: '全部类型', description: '-' }];
 
 const columns = [
   {
@@ -43,7 +43,6 @@ const columns = [
   {
     colKey: 'type',
     title: '类型',
-    foot: '-',
   },
   {
     colKey: 'default',
