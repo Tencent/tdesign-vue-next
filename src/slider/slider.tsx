@@ -7,7 +7,7 @@ import { SliderValue } from './type';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '../config-provider/useConfig';
+import { useCommonClassName, usePrefixClass } from '../config-provider/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 
 // util
@@ -32,7 +32,7 @@ export default defineComponent({
   emits: ['change'],
   setup(props, ctx) {
     const disabled = useFormDisabled();
-    const { classPrefix: prefix } = useConfig('classPrefix');
+    // const { classPrefix: prefix } = useConfig('classPrefix');
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
     const name = COMPONENT_NAME.value;
