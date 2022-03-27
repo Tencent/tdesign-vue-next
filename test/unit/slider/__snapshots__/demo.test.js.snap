@@ -28,7 +28,49 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -94,7 +136,49 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -130,7 +214,49 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -205,7 +331,49 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
           <div
             class="t-slider__button-wrapper"
             disabled="true"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -274,7 +442,49 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
           <div
             class="t-slider__button-wrapper"
             disabled="true"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -311,7 +521,49 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
           <div
             class="t-slider__button-wrapper"
             disabled="true"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -385,7 +637,49 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
@@ -530,7 +824,49 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
@@ -566,7 +902,49 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
@@ -789,7 +1167,49 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -933,7 +1353,49 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -969,7 +1431,49 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -1192,7 +1696,49 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -1338,7 +1884,49 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -1374,7 +1962,49 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -1515,7 +2145,49 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -1640,7 +2312,49 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: -50%;"
             tabindex="0"
@@ -1738,7 +2452,49 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: -50%;"
             tabindex="0"
@@ -1774,7 +2530,49 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: -50%;"
             tabindex="0"
@@ -1878,7 +2676,49 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -1945,7 +2785,49 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -1981,7 +2863,49 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="left: 0%;"
             tabindex="0"
@@ -2056,7 +2980,49 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
@@ -2204,7 +3170,49 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
@@ -2240,7 +3248,49 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
@@ -2393,7 +3443,49 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
@@ -2461,7 +3553,49 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
           />
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
@@ -2497,7 +3631,49 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
           </div>
           <div
             class="t-slider__button-wrapper"
-            ontouchstart="function () { [native code] }"
+            ontouchstart="(event) => {
+      /* istanbul ignore next */
+      cov_53ku2mbbx().f[16]++;
+      cov_53ku2mbbx().s[90]++;
+
+      if (proxy.$parent.disabled) {
+        /* istanbul ignore next */
+        cov_53ku2mbbx().b[21][0]++;
+        cov_53ku2mbbx().s[91]++;
+        return;
+      } else
+      /* istanbul ignore next */
+      {
+        cov_53ku2mbbx().b[21][1]++;
+      }
+
+      cov_53ku2mbbx().s[92]++;
+      event.preventDefault();
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[93]++;
+      onDragStart(event);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[94]++;
+      window.addEventListener('mousemove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[95]++;
+      window.addEventListener('mouseup', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[96]++;
+      window.addEventListener('touchmove', onDragging);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[97]++;
+      window.addEventListener('touchend', onDragEnd);
+
+      /* istanbul ignore next */
+      cov_53ku2mbbx().s[98]++;
+      window.addEventListener('contextmenu', onDragEnd);
+    }"
             show-tooltip="true"
             style="bottom: 0%;"
             tabindex="0"
