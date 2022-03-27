@@ -48,7 +48,7 @@ for (let i = 0; i < 5; i++) {
     type: ['String', 'Number', 'Array', 'Object'][i % 4],
     default: ['-', '0', '[]', '{}'][i % 4],
     detail: {
-      postion: `读取 ${i} 个数据的嵌套信息值`,
+      position: `读取 ${i} 个数据的嵌套信息值`,
     },
     needed: i % 4 === 0 ? '是' : '否',
     description: '数据源',
@@ -86,7 +86,7 @@ const columns = computed(() => {
       width: 150,
     },
     {
-      colKey: 'detail.postion',
+      colKey: 'detail.position',
       title: '详情信息',
       width: 250,
     },

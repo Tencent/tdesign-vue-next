@@ -53,7 +53,7 @@ export default defineComponent({
       `${classPrefix.value}-text-ellipsis`,
     ]);
 
-    // 鼠标 hover 的时候显示浮层
+    // 当表格数据量大时，不希望默认渲染全量的 Popup，期望在用户 mouseenter 的时候再显示
     const updateIsOverflow = () => {
       if (!root.value) return;
       isOverflow.value = isNodeOverflow(root.value);

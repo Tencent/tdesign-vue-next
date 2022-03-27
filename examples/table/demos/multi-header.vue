@@ -44,7 +44,7 @@ for (let i = 0; i < 600; i++) {
     property: ['A', 'B', 'C'][i % 3],
     default: i,
     detail: {
-      postion: `读取 ${i} 个数据的嵌套信息值`,
+      position: `读取 ${i} 个数据的嵌套信息值`,
     },
     needed: i % 4 === 0 ? '是' : '否',
     type_default: '-',

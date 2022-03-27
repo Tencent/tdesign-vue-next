@@ -351,9 +351,86 @@ exports[`Table Table baseVue demo works fine 1`] = `
   class="tdesign-demo-block-column-large"
 >
   <!-- 按钮操作区域 -->
-  <div
-    style="margin: 16px;"
-  >
+  <div>
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+      modelvalue="medium"
+    >
+      
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="small"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          小尺寸
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="medium"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          中尺寸
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="large"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+          大尺寸
+          
+          
+        </span>
+      </label>
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
+      
+    </div>
+    <br />
+    <br />
     <label
       class="t-checkbox t-is-checked"
       modelvalue="true"
@@ -408,6 +485,25 @@ exports[`Table Table baseVue demo works fine 1`] = `
       >
         
          显示悬浮效果 
+        
+      </span>
+    </label>
+    <label
+      class="t-checkbox"
+      modelvalue="false"
+    >
+      <input
+        class="t-checkbox__former"
+        type="checkbox"
+      />
+      <span
+        class="t-checkbox__input"
+      />
+      <span
+        class="t-checkbox__label"
+      >
+        
+         宽度自适应 
         
       </span>
     </label>
@@ -500,8 +596,8 @@ exports[`Table Table baseVue demo works fine 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-detail.postion"
-              data-colkey="detail.postion"
+              class="t-table__th-detail.position"
+              data-colkey="detail.position"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -533,50 +629,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
-              0
-            </td>
-            <td
-              class=""
-            >
-              共有
-            </td>
-            <td
-              class=""
-            >
-              String
-            </td>
-            <td
-              class=""
-            >
-              -
-            </td>
-            <td
-              class=""
-            >
-              是
-            </td>
-            <td
-              class="t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                读取 0 个数据的嵌套信息值
-                
-              </div>
-            </td>
-            
-          </tr>
-          <tr
-            class=""
-          >
-            
-            <td
-              class="custom-column-class-name t-align-center"
-              data-id="first-column"
-            >
-              1
+              5
             </td>
             <td
               class=""
@@ -605,7 +658,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 
-                读取 1 个数据的嵌套信息值
+                读取 5 个数据的嵌套信息值
                 
               </div>
             </td>
@@ -619,7 +672,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
-              2
+              6
             </td>
             <td
               class=""
@@ -648,7 +701,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 
-                读取 2 个数据的嵌套信息值
+                读取 6 个数据的嵌套信息值
                 
               </div>
             </td>
@@ -662,7 +715,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
-              3
+              7
             </td>
             <td
               class=""
@@ -691,7 +744,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 
-                读取 3 个数据的嵌套信息值
+                读取 7 个数据的嵌套信息值
                 
               </div>
             </td>
@@ -705,7 +758,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
               class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
-              4
+              8
             </td>
             <td
               class=""
@@ -734,7 +787,50 @@ exports[`Table Table baseVue demo works fine 1`] = `
                 class="t-table__ellipsis t-text-ellipsis"
               >
                 
-                读取 4 个数据的嵌套信息值
+                读取 8 个数据的嵌套信息值
+                
+              </div>
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <td
+              class="custom-column-class-name t-align-center"
+              data-id="first-column"
+            >
+              9
+            </td>
+            <td
+              class=""
+            >
+              私有
+            </td>
+            <td
+              class=""
+            >
+              Number
+            </td>
+            <td
+              class=""
+            >
+              0
+            </td>
+            <td
+              class=""
+            >
+              否
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 9 个数据的嵌套信息值
                 
               </div>
             </td>
@@ -748,7 +844,228 @@ exports[`Table Table baseVue demo works fine 1`] = `
       </table>
     </div>
     <!---->
-    <!---->
+    <div
+      class="t-table__pagination"
+    >
+      <div
+        class="t-pagination t-size-m"
+      >
+        <div
+          class="t-pagination__total"
+        >
+          共 28 项数据
+        </div>
+        <div
+          class="t-select__wrap t-pagination__select"
+        >
+          <div
+            class="t-popup__reference t-select__popup-reference"
+          >
+            <transition-stub>
+              <div
+                aria-hidden="true"
+                class="t-popup"
+                role="tooltip"
+                style="display: none;"
+              >
+                <div
+                  class="t-popup__content t-select__dropdown narrow-scrollbar"
+                >
+                  
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
+                    <ul
+                      class="t-select__create-option t-select__list"
+                      style="display: none;"
+                    >
+                      <li
+                        class="t-select-option t-size-m t-select__create-option--special"
+                        title=""
+                      >
+                        <span>
+                          
+                        </span>
+                      </li>
+                    </ul>
+                    <!---->
+                    <li
+                      class="t-select__empty t-size-m"
+                    >
+                      暂无数据
+                    </li>
+                    <ul
+                      class="t-select__groups t-select__list"
+                    >
+                      
+                      
+                      <li
+                        class="t-select-option t-is-selected t-size-m"
+                        title="5 条/页"
+                      >
+                        <span>
+                          5 条/页
+                        </span>
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="10 条/页"
+                      >
+                        <span>
+                          10 条/页
+                        </span>
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="20 条/页"
+                      >
+                        <span>
+                          20 条/页
+                        </span>
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="50 条/页"
+                      >
+                        <span>
+                          50 条/页
+                        </span>
+                      </li>
+                      
+                      
+                    </ul>
+                    <!---->
+                  </div>
+                  
+                  <!---->
+                </div>
+              </div>
+            </transition-stub>
+            
+            <div
+              class="t-select t-select-polyfill t-size-m"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <span
+                class="t-tag t-tag--default t-tag--dark t-size-m"
+                style="display: none;"
+              >
+                <!---->
+                
+                +0
+                
+                <!---->
+              </span>
+              <span
+                class="t-select__single"
+                title="5"
+              >
+                5
+              </span>
+              <!---->
+              <svg
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+              <!---->
+              <!---->
+            </div>
+            
+          </div>
+        </div>
+        <div
+          class="t-pagination__btn t-pagination__btn-prev"
+          disabled="false"
+        >
+          <svg
+            class="t-icon t-icon-chevron-left"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </div>
+        <ul
+          class="t-pagination__pager"
+        >
+          <!---->
+          <!---->
+          
+          <li
+            class="t-pagination__number"
+          >
+            1
+          </li>
+          <li
+            class="t-pagination__number t-is-current"
+          >
+            2
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            3
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            4
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            5
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            6
+          </li>
+          
+          <!---->
+          <!---->
+        </ul>
+        <div
+          class="t-pagination__btn t-pagination__btn-next"
+          disabled="false"
+        >
+          <svg
+            class="t-icon t-icon-chevron-right"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </div>
+        <!---->
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -1094,8 +1411,8 @@ exports[`Table Table customColVue demo works fine 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-detail.postion"
-              data-colkey="detail.postion"
+              class="t-table__th-detail.position"
+              data-colkey="detail.position"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -1441,8 +1758,8 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-detail.postion"
-              data-colkey="detail.postion"
+              class="t-table__th-detail.position"
+              data-colkey="detail.position"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -5218,8 +5535,8 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-detail.postion"
-              data-colkey="detail.postion"
+              class="t-table__th-detail.position"
+              data-colkey="detail.position"
             >
               <div
                 class="t-table__th-cell-inner"
@@ -5726,8 +6043,8 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
                 </div>
               </th>
               <th
-                class="t-table__th-detail.postion"
-                data-colkey="detail.postion"
+                class="t-table__th-detail.position"
+                data-colkey="detail.position"
               >
                 <div
                   class="t-table__th-cell-inner"
@@ -7033,8 +7350,8 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-detail.postion"
-              data-colkey="detail.postion"
+              class="t-table__th-detail.position"
+              data-colkey="detail.position"
             >
               <div
                 class="t-table__th-cell-inner"
