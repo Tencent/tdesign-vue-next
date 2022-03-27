@@ -40,7 +40,11 @@ export type HorizontalAlignEnum = 'left' | 'center' | 'right';
 
 export type VerticalAlignEnum = 'top' | 'middle' | 'bottom';
 
-export type ClassName = { [className: string]: any } | ClassName[] | string;
+export type ClassNameObject = { [className: string]: any };
+
+export type ClassNameString = string;
+
+export type ClassName = ClassNameObject | ClassNameString | ClassNameObject[] | ClassNameString[];
 
 export type CSSSelector = string;
 
