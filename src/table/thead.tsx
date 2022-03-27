@@ -97,14 +97,14 @@ export default defineComponent({
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
           return (
-            <th data-colkey={col.colKey} class={thClasses} style={styles} {...rospanAndColspan}>
+            <th key={col.colKey} data-colkey={col.colKey} class={thClasses} style={styles} {...rospanAndColspan}>
               <div class={this.tableBaseClass.thCellInner}>
                 {col.ellipsis ? <TEllipsis>{innerTh}</TEllipsis> : innerTh}
               </div>
             </th>
           );
         });
-        return <tr>{thRow}</tr>;
+        return <tr key={rowIndex}>{thRow}</tr>;
       });
     };
 

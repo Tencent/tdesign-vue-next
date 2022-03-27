@@ -46,11 +46,12 @@ function getData(currentPage = 1) {
       type: ['String', 'Number', 'Array', 'Object'][i % 4],
       default: ['-', '0', '[]', '{}'][i % 4],
       detail: {
-        postion: `读取 ${i} 个数据的嵌套信息值`,
+        position: `读取 ${i} 个数据的嵌套信息值`,
       },
       needed: i % 4 === 0 ? '是' : '否',
       description: '数据源',
     };
+    // 第一行不设置子节点
     obj.list = new Array(2).fill(null).map((t, j) => {
       const secondIndex = 100 * j + (i + 1) * 10;
       const secondObj = {
@@ -68,6 +69,10 @@ function getData(currentPage = 1) {
       });
       return secondObj;
     });
+    // 第一行不设置子节点
+    if (i === 0) {
+      obj.list = [];
+    }
     data.push(obj);
   }
   return data;

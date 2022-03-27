@@ -191,7 +191,7 @@ export default defineComponent({
     const colgroup = (
       <colgroup>
         {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
-          <col style={{ width: formatCSSUnit(col.width) }}></col>
+          <col key={col.colKey} style={{ width: formatCSSUnit(col.width) }}></col>
         ))}
       </colgroup>
     );

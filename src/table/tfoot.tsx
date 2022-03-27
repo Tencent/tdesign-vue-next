@@ -61,7 +61,7 @@ export default defineComponent({
             ? this.rowClassName({ row, rowIndex, type: 'foot' })
             : this.rowClassName;
           return (
-            <tr {...trAttributes} class={customClasses}>
+            <tr key={rowIndex} {...trAttributes} class={customClasses}>
               {this.columns.map((col, colIndex) => {
                 const tdStyles = getColumnFixedStyles(
                   col,
@@ -70,7 +70,7 @@ export default defineComponent({
                   this.tableColFixedClasses,
                 );
                 return (
-                  <td class={tdStyles.classes} style={tdStyles.style}>
+                  <td key={col.colKey} class={tdStyles.classes} style={tdStyles.style}>
                     {this.renderTFootCell({
                       row,
                       rowIndex,

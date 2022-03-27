@@ -28,7 +28,7 @@ export interface TableBodyProps extends BaseTableProps {
   rowHeight: number;
   trs: Map<number, object>;
   bufferSize: number;
-  handleRowMounted: Function;
+  handleRowMounted: () => void;
 }
 
 // table 到 body 的相同属性
@@ -87,14 +87,14 @@ export default defineComponent({
     const { t, global } = useConfig('table');
     const { tableFullRowClasses, tableBaseClass } = useClassName();
 
-    const tbodyClases = computed(() => [tableBaseClass.body]);
+    const tbodyClasses = computed(() => [tableBaseClass.body]);
 
     return {
       t,
       global,
       renderTNode,
       tableFullRowClasses,
-      tbodyClases,
+      tbodyClasses,
       tableBaseClass,
     };
   },
@@ -218,7 +218,7 @@ export default defineComponent({
     };
 
     return (
-      <tbody class={this.tbodyClases} style={this.isVirtual && { ...posStyle }}>
+      <tbody class={this.tbodyClasses} style={this.isVirtual && { ...posStyle }}>
         {isEmpty ? renderEmpty(this.columns) : list}
       </tbody>
     );

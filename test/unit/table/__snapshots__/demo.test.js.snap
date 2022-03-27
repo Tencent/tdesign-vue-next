@@ -21017,24 +21017,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
                   class="t-table__tree-col t-table__tree-col--inline"
                   style="padding-left: 1px;"
                 >
-                  <svg
-                    class="t-icon t-icon-add-rectangle t-table__tree-op-icon"
-                    fill="none"
-                    height="1em"
-                    viewBox="0 0 16 16"
-                    width="1em"
-                  >
-                    <path
-                      d="M7.5 11V8.5H5v-1h2.5V5h1v2.5H11v1H8.5V11h-1z"
-                      fill="currentColor"
-                      fill-opacity="0.9"
-                    />
-                    <path
-                      d="M3 14a1 1 0 01-1-1V3a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H3zm0-1h10V3H3v10z"
-                      fill="currentColor"
-                      fill-opacity="0.9"
-                    />
-                  </svg>
+                  <!---->
                   我是 0_1 号（第 1 页）
                 </div>
                 
