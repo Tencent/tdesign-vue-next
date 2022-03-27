@@ -42234,7 +42234,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
             <th data-colkey="needed" class="t-table__th-needed" style="">
               <div class="t-table__th-cell-inner">是否必传</div>
             </th>
-            <th data-colkey="detail.postion" class="t-table__th-detail.postion" style="">
+            <th data-colkey="detail.position" class="t-table__th-detail.position" style="">
               <div class="t-table__th-cell-inner">
                 <div class="t-table__ellipsis t-text-ellipsis">
                   <!--[-->详情信息

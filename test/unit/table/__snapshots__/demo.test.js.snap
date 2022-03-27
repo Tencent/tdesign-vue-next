@@ -17801,8 +17801,8 @@ exports[`Table Table paginationVue demo works fine 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-detail.postion"
-              data-colkey="detail.postion"
+              class="t-table__th-detail.position"
+              data-colkey="detail.position"
             >
               <div
                 class="t-table__th-cell-inner"
