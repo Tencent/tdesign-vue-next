@@ -116,8 +116,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
            
           请选择云解决方案
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -267,8 +266,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
            
           请选择云产品
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -340,7 +338,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -371,7 +368,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -395,7 +391,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -419,7 +414,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -577,7 +571,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -608,7 +601,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -632,7 +624,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -656,7 +647,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -834,7 +824,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -865,7 +854,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -889,7 +877,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -913,7 +900,6 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -1149,8 +1135,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -1163,11 +1148,11 @@ exports[`Select Select creatableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
         >
           <div
-            class="t-input t-is-readonly t-select__input"
-            modelvalue=""
+            class="t-input t-is-readonly"
           >
             <!---->
             <!---->
@@ -1507,8 +1492,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
            
           请选择
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -1864,8 +1848,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
            
           请选择
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -1937,7 +1920,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -1968,7 +1950,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -1992,7 +1973,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2016,7 +1996,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2040,7 +2019,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2064,7 +2042,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2088,7 +2065,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2112,7 +2088,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2136,7 +2111,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2160,7 +2134,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2335,7 +2308,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2366,7 +2338,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2390,7 +2361,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2414,7 +2384,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2438,7 +2407,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2462,7 +2430,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2486,7 +2453,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2510,7 +2476,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2534,7 +2499,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2558,7 +2522,6 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2712,6 +2675,172 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
       
     </div>
   </div>
+  <br />
+  <br />
+  <div
+    class="t-select__wrap"
+    modelvalue="1"
+  >
+    <div
+      class="t-popup__reference t-select__popup-reference"
+    >
+      <transition-stub>
+        <div
+          aria-hidden="true"
+          class="t-popup"
+          role="tooltip"
+          style="display: none;"
+        >
+          <div
+            class="t-popup__content t-select__dropdown narrow-scrollbar"
+          >
+            
+            <div
+              class="t-select__dropdown-inner"
+            >
+              <!---->
+              <ul
+                class="t-select__create-option t-select__list"
+                style="display: none;"
+              >
+                <li
+                  class="t-select-option t-size-m t-select__create-option--special"
+                  title=""
+                >
+                  <span>
+                    
+                  </span>
+                </li>
+              </ul>
+              <!---->
+              <!---->
+              <ul
+                class="t-select__list"
+              >
+                
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  title="选项一"
+                >
+                  <span>
+                    选项一
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项二"
+                >
+                  <span>
+                    选项二
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项三"
+                >
+                  <span>
+                    选项三
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项四"
+                >
+                  <span>
+                    选项四
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项五"
+                >
+                  <span>
+                    选项五
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项六"
+                >
+                  <span>
+                    选项六
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项七"
+                >
+                  <span>
+                    选项七
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项八"
+                >
+                  <span>
+                    选项八
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  title="选项九"
+                >
+                  <span>
+                    选项九
+                  </span>
+                </li>
+                
+              </ul>
+              <!---->
+            </div>
+            
+            <!---->
+          </div>
+        </div>
+      </transition-stub>
+      
+      <div
+        class="t-select t-select-polyfill t-size-m"
+      >
+        <!---->
+        <!---->
+        <!---->
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+          style="display: none;"
+        >
+          <!---->
+          
+          +0
+          
+          <!---->
+        </span>
+        
+         单选自定义（选项一） 
+        
+        <!---->
+        <svg
+          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+  </div>
 </div>
 `;
 
@@ -2803,8 +2932,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
            
           -请选择-
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -2871,7 +2999,6 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2902,7 +3029,6 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2926,7 +3052,6 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -2950,7 +3075,6 @@ exports[`Select Select disabledVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -3136,8 +3260,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -3150,11 +3273,11 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
         >
           <div
-            class="t-input t-is-readonly t-select__input"
-            modelvalue=""
+            class="t-input t-is-readonly"
           >
             <!---->
             <!---->
@@ -3224,7 +3347,6 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -3255,7 +3377,6 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -3279,7 +3400,6 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -3303,7 +3423,6 @@ exports[`Select Select filterableVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -3350,11 +3469,11 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
         >
           <div
-            class="t-input t-is-readonly t-select__input"
-            modelvalue=""
+            class="t-input t-is-readonly"
           >
             <!---->
             <!---->
@@ -3576,8 +3695,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -3590,11 +3708,11 @@ exports[`Select Select groupVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
         >
           <div
-            class="t-input t-is-readonly t-select__input"
-            modelvalue=""
+            class="t-input t-is-readonly"
           >
             <!---->
             <!---->
@@ -3819,8 +3937,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -3833,11 +3950,11 @@ exports[`Select Select groupVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
         >
           <div
-            class="t-input t-is-readonly t-select__input"
-            modelvalue=""
+            class="t-input t-is-readonly"
           >
             <!---->
             <!---->
@@ -3960,8 +4077,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -4033,7 +4149,6 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4064,7 +4179,6 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4088,7 +4202,6 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4112,7 +4225,6 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4246,7 +4358,6 @@ exports[`Select Select maxVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4277,7 +4388,6 @@ exports[`Select Select maxVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4301,7 +4411,6 @@ exports[`Select Select maxVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4325,7 +4434,6 @@ exports[`Select Select maxVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4438,7 +4546,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4469,7 +4576,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4493,7 +4599,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4517,7 +4622,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4541,7 +4645,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-disabled"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4566,7 +4669,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4590,7 +4692,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4751,7 +4852,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4787,7 +4887,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4811,7 +4910,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4835,7 +4933,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4859,7 +4956,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4883,7 +4979,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -4907,7 +5002,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -5179,7 +5273,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -5210,7 +5303,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -5234,7 +5326,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -5258,7 +5349,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -5282,7 +5372,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-disabled"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -5307,7 +5396,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -5331,7 +5419,6 @@ exports[`Select Select multipleVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox t-is-checked"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -5598,8 +5685,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -5674,9 +5760,9 @@ exports[`Select Select panelVue demo works fine 1`] = `
                 >
                   <textarea
                     class="t-textarea__inner narrow-scrollbar"
-                    modelvalue=""
                     placeholder="请输入关键词搜索"
                   />
+                  <!---->
                   <!---->
                   <!---->
                 </div>
@@ -5761,8 +5847,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
            
           请选择云解决方案
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -5905,8 +5990,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
            
           请选择云产品
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -6026,8 +6110,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -6147,8 +6230,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -6288,8 +6370,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
            
           -请选择-
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -6409,8 +6490,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
       >
         <!---->
         <!---->
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -6423,11 +6503,11 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
         >
           <div
-            class="t-input t-is-readonly t-select__input"
-            modelvalue=""
+            class="t-input t-is-readonly"
           >
             <!---->
             <!---->
@@ -6497,7 +6577,6 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
                 >
                   <label
                     class="t-checkbox"
-                    modelvalue="false"
                   >
                     <input
                       class="t-checkbox__former"
@@ -6554,11 +6633,11 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
         >
           <div
-            class="t-input t-is-readonly t-select__input"
-            modelvalue=""
+            class="t-input t-is-readonly"
           >
             <!---->
             <!---->
@@ -6698,8 +6777,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
            
           请选择
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-s"
           style="display: none;"
@@ -6819,8 +6897,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
            
           请选择
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -6940,8 +7017,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
            
           请选择
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-l"
           style="display: none;"
@@ -7083,8 +7159,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
            
           请选择云解决方案
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -7219,8 +7294,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
            
           请选择云解决方案
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"
@@ -7318,8 +7392,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
            
           请选择云解决方案
         </span>
-        
-        
+        <!---->
         <span
           class="t-tag t-tag--default t-tag--dark t-size-m"
           style="display: none;"

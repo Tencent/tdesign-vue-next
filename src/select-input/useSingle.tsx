@@ -6,6 +6,8 @@ import { TdSelectInputProps } from './type';
 import Input, { InputValue } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../config-provider';
+import useDefaultValue from '../hooks/useDefaultValue';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -34,9 +36,15 @@ function getInputValue(value: TdSelectInputProps['value'], keys: TdSelectInputPr
 }
 
 export default function useSingle(props: TdSelectInputProps, context: SetupContext) {
-  const { value, keys } = toRefs(props);
+  const { value, keys, inputValue: propsInputValue } = toRefs(props);
+  const classPrefix = usePrefixClass();
   const inputRef = ref();
-  const inputValue = ref<string | number>('');
+  const [inputValue, setInputValue] = useDefaultValue(
+    propsInputValue,
+    props.defaultInputValue ?? '',
+    props.onInputChange,
+    'inputValue',
+  );
   const renderTNode = useTNodeJSX();
 
   const commonInputProps = computed<SelectInputCommonProperties>(() => pick(props, COMMON_PROPERTIES));
@@ -44,36 +52,29 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const onInnerClear = (context: { e: MouseEvent }) => {
     context?.e?.stopPropagation();
     props.onClear?.(context);
-    inputValue.value = '';
+    setInputValue('', { trigger: 'clear' });
   };
 
   const onInnerInputChange = (value: InputValue, context: { e: InputEvent | MouseEvent }) => {
     if (props.allowInput) {
-      inputValue.value = value;
-      props.onInputChange?.(value, { ...context, trigger: 'input' });
+      setInputValue(value, { ...context, trigger: 'input' });
     }
   };
 
-  watch(
-    [value],
-    () => {
-      inputValue.value = getInputValue(value.value, keys.value);
-    },
-    { immediate: true },
-  );
-
-  const renderSelectSingle = () => {
+  const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
+    const displayedValue = popupVisible && props.allowInput ? inputValue : getInputValue(value.value, keys.value);
     const prefixContent = [singleValueDisplay, renderTNode('label')];
     const inputProps = {
       ...commonInputProps.value,
       ...props.inputProps,
-      value: singleValueDisplay ? undefined : inputValue.value,
+      value: singleValueDisplay ? undefined : displayedValue,
       label: prefixContent.length ? () => prefixContent : undefined,
       autoWidth: props.autoWidth,
       readonly: !props.allowInput,
       placeholder: singleValueDisplay ? '' : props.placeholder,
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
+      showClearIconOnEmpty: Boolean(props.clearable && inputValue.value),
     };
     return (
       <Input
@@ -83,11 +84,14 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         onChange={onInnerInputChange}
         onClear={onInnerClear}
         onBlur={(val, context) => {
-          props.onBlur?.(value, { ...context, inputValue: val });
+          props.onBlur?.(value.value, { ...context, inputValue: val });
           inputValue.value = getInputValue(value.value, keys.value);
         }}
         onFocus={(val, context) => {
-          props.onFocus?.(value, { ...context, inputValue: val });
+          props.onFocus?.(value.value, { ...context, inputValue: val });
+        }}
+        inputClass={{
+          [`${classPrefix.value}-input--focused`]: popupVisible,
         }}
       />
     );

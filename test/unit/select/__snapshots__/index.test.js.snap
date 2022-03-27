@@ -64,8 +64,7 @@ exports[`Select :props :bordered 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -165,8 +164,7 @@ exports[`Select :props :clearable 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -266,8 +264,7 @@ exports[`Select :props :creatable 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -367,8 +364,7 @@ exports[`Select :props :disabled 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -469,8 +465,7 @@ exports[`Select :props :labelInValue 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -570,8 +565,7 @@ exports[`Select :props :loading 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -649,7 +643,6 @@ exports[`Select :props :multiple 1`] = `
               >
                 <label
                   class="t-checkbox"
-                  modelvalue="false"
                 >
                   <input
                     class="t-checkbox__former"
@@ -798,8 +791,7 @@ exports[`Select :props :placeholder 1`] = `
          
         please select
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -900,8 +892,7 @@ exports[`Select :props :remote 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1001,8 +992,7 @@ exports[`Select :props :reserveKeyword 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1102,8 +1092,7 @@ exports[`Select :props :size 1`] = `
          
         请选择
       </span>
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-l"
         style="display: none;"
@@ -1208,8 +1197,7 @@ exports[`Select Option :props :disabled 1`] = `
     >
       <!---->
       <!---->
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1319,8 +1307,7 @@ exports[`Select Option :props :label 1`] = `
     >
       <!---->
       <!---->
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1430,8 +1417,7 @@ exports[`Select Option :props :value 1`] = `
     >
       <!---->
       <!---->
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"
@@ -1575,8 +1561,7 @@ exports[`Select OptionGroup :props :value 1`] = `
     >
       <!---->
       <!---->
-      
-      
+      <!---->
       <span
         class="t-tag t-tag--default t-tag--dark t-size-m"
         style="display: none;"

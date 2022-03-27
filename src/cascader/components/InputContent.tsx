@@ -264,7 +264,7 @@ export default defineComponent({
           this.isHover = false;
         }}
         onClick={(e: MouseEvent) => {
-          e.preventDefault();
+          e.stopPropagation();
           innerContentClickEffect(cascaderContext);
         }}
       >

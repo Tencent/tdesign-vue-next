@@ -1,7 +1,6 @@
 import { defineComponent } from 'vue';
 import defaultConfig from './zh_CN_config';
 import { GlobalConfigProvider } from './type';
-import { prefix } from '../config';
 
 export type ValueOf<T> = T[keyof T];
 
@@ -14,11 +13,9 @@ export interface Placement {
   [propName: string]: string | number;
 }
 
-const name = `${prefix}-locale-receiver`;
-
 export default function getConfigReceiverMixins<C extends ComponentConfigType>(componentName: string) {
   return defineComponent({
-    name,
+    name: 'TLocalReceiver',
     inject: {
       globalConfig: {
         default: undefined,

@@ -8,7 +8,7 @@ import {
   EllipsisIcon,
 } from 'tdesign-icons-vue-next';
 import { TdPaginationProps } from '../pagination/type';
-import { useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import TInputNumber from '../input-number';
 import { Option, Select } from '../select';
@@ -34,11 +34,15 @@ export default defineComponent({
       'pageSize',
     );
 
-    const { t, global, classPrefix: prefix } = useConfig('pagination');
+    const { t, global } = useConfig('pagination');
+    const COMPONENT_NAME = usePrefixClass('pagination');
 
-    const name = computed(() => `${prefix.value}-pagination`);
-
-    const { pageCount, ...paginationClasses } = usePaginationClasses(props, innerCurrent, name);
+    const { pageCount, ...paginationClasses } = usePaginationClasses(
+      props,
+      innerCurrent,
+      innerPageSize,
+      COMPONENT_NAME,
+    );
 
     const { prevMore, isPrevMoreShow, curPageLeftCount, nextMore, isNextMoreShow, curPageRightCount } = useMoreAction(
       props,
@@ -116,7 +120,7 @@ export default defineComponent({
         const pageInfo = {
           current,
           previous: prev,
-          pageSize: props.pageSize,
+          pageSize: innerPageSize.value,
         };
         if (isTriggerChange !== false) {
           props.onChange?.(pageInfo);
@@ -127,10 +131,10 @@ export default defineComponent({
 
     const handlePageChange = (type: string) => {
       const pageChangeMap = {
-        prevPage: () => toPage(current.value - 1),
-        nextPage: () => toPage(current.value + 1),
-        prevMorePage: () => toPage(current.value - props.foldedMaxPageBtn),
-        nextMorePage: () => toPage(current.value + props.foldedMaxPageBtn),
+        prevPage: () => toPage(innerCurrent.value - 1),
+        nextPage: () => toPage(innerCurrent.value + 1),
+        prevMorePage: () => toPage(innerCurrent.value - props.foldedMaxPageBtn),
+        nextMorePage: () => toPage(innerCurrent.value + props.foldedMaxPageBtn),
       };
 
       pageChangeMap[type]();
@@ -148,7 +152,7 @@ export default defineComponent({
 
       let isIndexChange = false;
 
-      if (current.value > pageCount) {
+      if (innerCurrent.value > pageCount) {
         isIndexChange = true;
       }
 
@@ -158,8 +162,8 @@ export default defineComponent({
        * @param {Number} index 当前页
        */
       const pageInfo = {
-        current: isIndexChange ? pageCount : current.value,
-        previous: current.value,
+        current: isIndexChange ? pageCount : innerCurrent.value,
+        previous: innerCurrent.value,
         pageSize,
       };
       props.onChange?.(pageInfo);

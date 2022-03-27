@@ -103,8 +103,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -340,8 +339,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -554,8 +552,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -681,10 +678,10 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
         <!---->
         <div
           class="t-input__wrap"
+          unselectable="off"
         >
           <div
             class="t-input"
-            unselectable="off"
           >
             <!---->
             <!---->
@@ -810,8 +807,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-s"
             style="display: none;"
@@ -1048,8 +1044,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -1308,8 +1303,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -1546,8 +1540,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-s"
             style="display: none;"
@@ -1819,8 +1812,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-s"
             style="display: none;"
@@ -1985,8 +1977,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -2258,8 +2249,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"
@@ -2424,8 +2414,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
         >
           <!---->
           <!---->
-          
-          
+          <!---->
           <span
             class="t-tag t-tag--default t-tag--dark t-size-m"
             style="display: none;"

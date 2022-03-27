@@ -3,7 +3,7 @@
     <!-- 单选，使用 valueDisplay 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.valueDisplay -->
     <t-select-input :value="selectValue1" placeholder="Please Select" clearable @clear="onClear">
       <template #valueDisplay>
-        <span class="displaySpan">
+        <span v-if="selectValue1" class="displaySpan">
           <ControlPlatformIcon class="tdesign-demo-select-input__img" />
           {{ selectValue1.label }}
         </span>
@@ -20,7 +20,7 @@
     <br /><br />
 
     <!-- 多选，第一种方式：使用 tag 插槽定义选中的某一项的内容，也可使用同名渲染函数 props.tag -->
-    <t-select-input :value="selectValue2" placeholder="Please Select" multiple @tag-change="onTagChange2">
+    <t-select-input :value="selectValue2" clearable placeholder="Please Select" multiple @tag-change="onTagChange2">
       <template #tag="{ value }">
         <span class="displaySpan">
           <ControlPlatformIcon />

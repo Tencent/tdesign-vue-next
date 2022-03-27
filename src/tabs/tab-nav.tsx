@@ -1,13 +1,13 @@
 import { defineComponent, Transition } from 'vue';
 import debounce from 'lodash/debounce';
 import { ChevronLeftIcon, ChevronRightIcon, CloseIcon, AddIcon } from 'tdesign-icons-vue-next';
-import { prefix } from '../config';
 import TTabPanel from './tab-panel';
 import TTabNavItem from './tab-nav-item';
 import { emitEvent } from '../utils/event';
 import { firstUpperCase } from '../utils/helper';
 import { TdTabsProps, TdTabPanelProps as TabPanelProps } from './type';
 import tabProps from './props';
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 const getDomWidth = (dom: HTMLElement): number => dom?.offsetWidth || 0;
 
@@ -64,6 +64,17 @@ export default defineComponent({
     disabled: tabProps.disabled,
     addable: tabProps.addable,
   },
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('tabs');
+    const classPrefix = usePrefixClass();
+    const { STATUS, SIZE } = useCommonClassName();
+    return {
+      classPrefix,
+      STATUS,
+      SIZE,
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       scrollLeft: 0,
@@ -113,52 +124,52 @@ export default defineComponent({
     },
     iconBaseClass(): { [key: string]: boolean } {
       return {
-        [`${prefix}-tabs__btn`]: true,
-        [`${prefix}-size-m`]: this.size === 'medium',
-        [`${prefix}-size-l`]: this.size === 'large',
+        [`${this.COMPONENT_NAME}__btn`]: true,
+        [this.SIZE.medium]: this.size === 'medium',
+        [this.SIZE.large]: this.size === 'large',
       };
     },
     leftIconClass(): { [key: string]: boolean } {
       return {
-        [`${prefix}-tabs__btn--left`]: true,
+        [`${this.COMPONENT_NAME}__btn--left`]: true,
         ...this.iconBaseClass,
       };
     },
     rightIconClass(): { [key: string]: boolean } {
       return {
-        [`${prefix}-tabs__btn--right`]: true,
+        [`${this.COMPONENT_NAME}__btn--right`]: true,
         ...this.iconBaseClass,
       };
     },
     addIconClass(): { [key: string]: boolean } {
       return {
-        [`${prefix}-tabs__add-btn`]: true,
+        [`${this.COMPONENT_NAME}__add-btn`]: true,
         ...this.iconBaseClass,
       };
     },
     navContainerClass(): { [key: string]: boolean } {
       return {
-        [`${prefix}-tabs__nav-container`]: true,
-        [`${prefix}-tabs__nav--card`]: this.theme === 'card',
-        [`${prefix}-is-${this.placement}`]: true,
-        [`${prefix}-is-addable`]: this.theme === 'card' && this.addable,
+        [`${this.COMPONENT_NAME}__nav-container`]: true,
+        [`${this.COMPONENT_NAME}__nav--card`]: this.theme === 'card',
+        [`${this.classPrefix}-is-${this.placement}`]: true,
+        [`${this.classPrefix}-is-addable`]: this.theme === 'card' && this.addable,
       };
     },
     navScrollContainerClass(): { [key: string]: boolean } {
       return {
-        [`${prefix}-tabs__nav-scroll`]: true,
-        [`${prefix}-is-scrollable`]: this.canToLeft || this.canToRight,
+        [`${this.COMPONENT_NAME}__nav-scroll`]: true,
+        [`${this.classPrefix}-is-scrollable`]: this.canToLeft || this.canToRight,
       };
     },
     navsWrapClass(): Array<string | { [key: string]: boolean }> {
       return [
-        `${prefix}-tabs__nav-wrap`,
-        `${prefix}-is-smooth`,
-        { [`${prefix}-is-vertical`]: this.placement === 'left' || this.placement === 'right' },
+        `${this.COMPONENT_NAME}__nav-wrap`,
+        `${this.classPrefix}-is-smooth`,
+        { [`${this.classPrefix}-is-vertical`]: this.placement === 'left' || this.placement === 'right' },
       ];
     },
     navBarClass(): Array<string> {
-      return [`${prefix}-tabs__bar`, `${prefix}-is-${this.placement}`];
+      return [`${this.COMPONENT_NAME}__bar`, `${this.classPrefix}-is-${this.placement}`];
     },
     navsContainerStyle(): object {
       return this.addable ? { 'min-height': '48px' } : null;
@@ -402,7 +413,10 @@ export default defineComponent({
 
     renderArrows() {
       return [
-        <div ref="leftOperationsZone" class={[`${prefix}-tabs__operations`, `${prefix}-tabs__operations--left`]}>
+        <div
+          ref="leftOperationsZone"
+          class={[`${this.COMPONENT_NAME}__operations`, `${this.COMPONENT_NAME}__operations--left`]}
+        >
           <transition name="fade" mode="out-in" appear>
             {this.canToLeft ? (
               <div ref="leftIcon" class={this.leftIconClass} onClick={this.handleScrollToLeft}>
@@ -411,7 +425,10 @@ export default defineComponent({
             ) : null}
           </transition>
         </div>,
-        <div ref="rightOperationsZone" class={[`${prefix}-tabs__operations`, `${prefix}-tabs__operations--right`]}>
+        <div
+          ref="rightOperationsZone"
+          class={[`${this.COMPONENT_NAME}__operations`, `${this.COMPONENT_NAME}__operations--right`]}
+        >
           <transition name="fade" mode="out-in" appear>
             {this.canToRight ? (
               <div ref="rightIcon" class={this.rightIconClass} onClick={this.handleScrollToRight}>
@@ -447,7 +464,7 @@ export default defineComponent({
 
   render() {
     return (
-      <div ref="navsContainer" class={[`${prefix}-tabs__nav`]} style={this.navsContainerStyle}>
+      <div ref="navsContainer" class={[`${this.COMPONENT_NAME}__nav`]} style={this.navsContainerStyle}>
         {this.renderArrows()}
         {this.renderNavs()}
       </div>

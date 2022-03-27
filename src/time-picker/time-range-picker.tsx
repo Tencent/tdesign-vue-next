@@ -9,23 +9,21 @@ import mixins from '../utils/mixins';
 import getConfigReceiverMixins, { TimePickerConfig } from '../config-provider/config-receiver';
 import { TimeInputEvent, InputTime, TimePickerPanelInstance } from './interface';
 import TPopup, { PopupVisibleChangeContext } from '../popup';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
 import PickerPanel from './panel';
 import TInput from '../input';
 import InputItems from './input-items';
 import props from './time-range-picker-props';
 import { emitEvent } from '../utils/event';
 
-import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, COMPONENT_NAME, amFormat, pmFormat, AM } from './constant';
+import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, amFormat, pmFormat, AM } from './constant';
 
-const name = `${prefix}-time-picker`;
+import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
   ...mixins(getConfigReceiverMixins<TimePickerConfig>('timePicker')),
-  name: `${prefix}-time-range-picker`,
+  name: 'TTimeRangePicker',
 
   components: {
     PickerPanel,
@@ -38,6 +36,15 @@ export default defineComponent({
   props: { ...props },
 
   emits: ['input', 'click', 'blur', 'focus', 'change', 'close', 'open'],
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('time-picker');
+    const { SIZE, STATUS } = useCommonClassName();
+    return {
+      STATUS,
+      SIZE,
+      COMPONENT_NAME,
+    };
+  },
   data() {
     // 初始化数据
     return {
@@ -61,7 +68,7 @@ export default defineComponent({
       const isDefault = (this.inputTime as any).some(
         (item: InputTime) => !!item.hour && !!item.minute && !!item.second,
       );
-      return isDefault ? '' : `${name}__group-text`;
+      return isDefault ? '' : `${this.COMPONENT_NAME}__group-text`;
     },
   },
 
@@ -131,13 +138,13 @@ export default defineComponent({
     },
     // 面板展示隐藏
     panelVisibleChange(val: boolean, context?: PopupVisibleChangeContext) {
-      if (context) {
+      if (context.trigger) {
         const isClickDoc = context.trigger === 'document';
         this.isShowPanel = !isClickDoc;
-        emitEvent(this, isClickDoc ? 'close' : 'open');
+        emitEvent(this, isClickDoc ? 'close' : 'open', context);
       } else {
         this.isShowPanel = val;
-        emitEvent(this, val ? 'open' : 'close');
+        emitEvent(this, val ? 'open' : 'close', context);
       }
     },
     // 切换上下午
@@ -187,8 +194,8 @@ export default defineComponent({
       shouldUpdatePanel && panelRef.panelColUpdate();
     },
     // 确定按钮
-    makeSure() {
-      this.panelVisibleChange(false);
+    makeSure(e: MouseEvent) {
+      this.panelVisibleChange(false, { e });
     },
     // 设置输入框展示
     updateInputTime() {
@@ -250,11 +257,16 @@ export default defineComponent({
       emitEvent(this, 'change', values);
       isFunction(this.onChange) && this.onChange(values);
     },
+    handleTInputFocus() {
+      // TODO: 待改成select-input后删除
+      // hack 在input聚焦时马上blur 避免出现输入光标
+      (this.$refs.tInput as HTMLInputElement).blur();
+    },
     renderInput() {
       const classes = [
-        `${name}__group`,
+        `${this.COMPONENT_NAME}__group`,
         {
-          [`${prefix}-is-focused`]: this.isShowPanel,
+          [this.STATUS.focused]: this.isShowPanel,
         },
       ];
       return (
@@ -265,8 +277,9 @@ export default defineComponent({
             onClear={this.clear}
             clearable={this.clearable}
             placeholder=" "
-            readonly
             value={!isEqual(this.time, TIME_PICKER_EMPTY) ? ' ' : undefined}
+            ref="tInput"
+            onFocus={this.handleTInputFocus}
           >
             <time-icon slot="suffix-icon"></time-icon>
           </t-input>
@@ -294,7 +307,7 @@ export default defineComponent({
       $props: { size, disabled },
     } = this;
     // 样式类名
-    const classes = [name, CLASSNAMES.SIZE[size]];
+    const classes = [this.COMPONENT_NAME, this.SIZE[size]];
 
     const slots = {
       content: () => (
@@ -322,7 +335,7 @@ export default defineComponent({
         trigger="click"
         disabled={disabled}
         visible={this.isShowPanel}
-        overlayClassName={`${COMPONENT_NAME}__panel-container`}
+        overlayClassName={`${this.COMPONENT_NAME}__panel-container`}
         onVisibleChange={this.panelVisibleChange}
         expandAnimation={true}
         v-slots={slots}

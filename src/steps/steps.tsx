@@ -1,5 +1,4 @@
 import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
-import { prefix } from '../config';
 import props from './props';
 import TStepItem from './step-item';
 import { ClassName } from '../common';
@@ -8,8 +7,7 @@ import getConfigReceiverMixins, { StepsConfig } from '../config-provider/config-
 import { TdStepsProps, TdStepItemProps } from './type';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
-
-const name = `${prefix}-steps`;
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TSteps',
@@ -23,6 +21,12 @@ export default defineComponent({
     };
   },
   props: { ...props },
+  setup() {
+    const COMPONENT_NAME = usePrefixClass('steps');
+    return {
+      COMPONENT_NAME,
+    };
+  },
   data() {
     return {
       stepChildren: [],
@@ -36,11 +40,11 @@ export default defineComponent({
       }
       const layout = this.layout || this.direction || 'horizontal';
       return [
-        name,
-        `${name}--${layout}`,
-        `${name}--${this.handleTheme()}-anchor`,
+        this.COMPONENT_NAME,
+        `${this.COMPONENT_NAME}--${layout}`,
+        `${this.COMPONENT_NAME}--${this.handleTheme()}-anchor`,
         {
-          [`${name}--${this.sequence}`]: layout === 'vertical',
+          [`${this.COMPONENT_NAME}--${this.sequence}`]: layout === 'vertical',
         },
       ];
     },
@@ -116,6 +120,7 @@ export default defineComponent({
       this.stepChildren = this.stepChildren.filter((t) => t !== item);
     },
     handleChange(cur: TdStepsProps['current'], prev: TdStepsProps['current'], e: MouseEvent) {
+      if (this.readonly) return;
       emitEvent<Parameters<TdStepsProps['onChange']>>(this, 'change', cur, prev, { e });
     },
     renderContent() {

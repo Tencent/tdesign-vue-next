@@ -8,20 +8,11 @@
       multiple
       :auto-upload="false"
       :max="10"
-    />
+    ></t-upload>
   </div>
 </template>
+<script setup>
+import { ref } from 'vue';
 
-<script>
-import { defineComponent, ref } from 'vue';
-
-export default defineComponent({
-  setup() {
-    const files = ref([]);
-
-    return {
-      files,
-    };
-  },
-});
+const files = ref([]);
 </script>
