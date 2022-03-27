@@ -350,7 +350,7 @@ export default defineComponent({
       return (
         <div
           class={[
-            `${COMPONENT_NAME}__input-container`,
+            `${name}__input-container`,
             {
               'is-vertical': vertical.value,
             },
