@@ -28,7 +28,11 @@ export default {
   /** 选中值 */
   value: {
     type: Array as PropType<TdCheckboxGroupProps['value']>,
-    default: (): TdCheckboxGroupProps['value'] => [],
+    default: undefined,
+  },
+  modelValue: {
+    type: Array as PropType<TdCheckboxGroupProps['value']>,
+    default: undefined,
   },
   /** 选中值，非受控属性 */
   defaultValue: {

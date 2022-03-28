@@ -114,7 +114,7 @@ export default defineComponent({
           </t-button>
           {this.rangePicker || (
             <t-button theme="primary" variant="text" onClick={this.nowAction}>
-              {this.t(this.global.nowtime)}
+              {this.t(this.global.now)}
             </t-button>
           )}
         </div>

@@ -221,10 +221,10 @@ exports[`Input Input baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-input__wrap"
+    modelvalue="有默认值"
   >
     <div
       class="t-input"
-      modelvalue="有默认值"
     >
       <!---->
       <!---->
@@ -276,10 +276,10 @@ exports[`Input Input clearableVue demo works fine 1`] = `
 >
   <div
     class="t-input__wrap"
+    modelvalue="Hello TDesign"
   >
     <div
       class="t-input"
-      modelvalue="Hello TDesign"
     >
       <!---->
       <!---->
@@ -331,10 +331,10 @@ exports[`Input Input formatVue demo works fine 1`] = `
 >
   <div
     class="t-input__wrap"
+    modelvalue=""
   >
     <div
       class="t-input"
-      modelvalue=""
     >
       <!---->
       <!---->
@@ -364,10 +364,10 @@ exports[`Input Input groupVue demo works fine 1`] = `
       
       <div
         class="t-input__wrap"
+        style="width: 100px;"
       >
         <div
           class="t-input"
-          style="width: 100px;"
         >
           <!---->
           <!---->
@@ -503,10 +503,10 @@ exports[`Input Input groupVue demo works fine 1`] = `
       
       <div
         class="t-input__wrap"
+        style="width: 100px;"
       >
         <div
           class="t-input"
-          style="width: 100px;"
         >
           <!---->
           <!---->
@@ -528,10 +528,10 @@ exports[`Input Input groupVue demo works fine 1`] = `
       </span>
       <div
         class="t-input__wrap"
+        style="width: 100px;"
       >
         <div
           class="t-input"
-          style="width: 100px;"
         >
           <!---->
           <!---->
@@ -548,10 +548,10 @@ exports[`Input Input groupVue demo works fine 1`] = `
       </div>
       <div
         class="t-input__wrap"
+        style="width: 100px;"
       >
         <div
           class="t-input"
-          style="width: 100px;"
         >
           <!---->
           <!---->
@@ -568,10 +568,10 @@ exports[`Input Input groupVue demo works fine 1`] = `
       </div>
       <div
         class="t-input__wrap"
+        style="width: 100px;"
       >
         <div
           class="t-input"
-          style="width: 100px;"
         >
           <!---->
           <!---->
@@ -599,10 +599,10 @@ exports[`Input Input maxLengthCountVue demo works fine 1`] = `
 >
   <div
     class="t-input__wrap"
+    modelvalue=""
   >
     <div
       class="t-input t-input--suffix"
-      modelvalue=""
     >
       <!---->
       <!---->
@@ -1056,6 +1056,7 @@ exports[`Input Input textareaVue demo works fine 1`] = `
       class="t-textarea__inner narrow-scrollbar"
       placeholder="请输入内容"
     />
+    <!---->
     <!---->
     <!---->
   </div>

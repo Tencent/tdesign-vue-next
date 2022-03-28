@@ -3,13 +3,14 @@
 exports[`Textarea $attrs textarea attrs should pass to textarea element 1`] = `
 <div
   class="t-textarea"
+  maxlength="20"
 >
   <textarea
     class="t-textarea__inner narrow-scrollbar"
-    maxlength="20"
     name="description"
     placeholder="please text"
   />
+  <!---->
   <!---->
   <!---->
 </div>
@@ -23,6 +24,7 @@ exports[`Textarea :props :disabled 1`] = `
     class="t-textarea__inner t-is-disabled narrow-scrollbar"
     disabled=""
   />
+  <!---->
   <!---->
   <!---->
 </div>
@@ -42,6 +44,7 @@ exports[`Textarea :props :maxlength 1`] = `
   >
     0/10
   </span>
+  <!---->
 </div>
 `;
 
@@ -53,6 +56,7 @@ exports[`Textarea :props :readonly 1`] = `
     class="t-textarea__inner narrow-scrollbar"
     readonly=""
   />
+  <!---->
   <!---->
   <!---->
 </div>

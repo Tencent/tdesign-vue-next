@@ -754,6 +754,7 @@ export default defineComponent({
       <div ref="select" class={`${this.COMPONENT_NAME}__wrap`}>
         <Popup
           ref="popup"
+          {...popupObject}
           class={`${this.COMPONENT_NAME}__popup-reference`}
           visible={this.visible}
           placement={popupObject.placement}

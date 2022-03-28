@@ -433,7 +433,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
     <br />
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
     >
       <input
         class="t-checkbox__former"
@@ -452,7 +451,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
     >
       <input
         class="t-checkbox__former"
@@ -471,7 +469,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox"
-      modelvalue="false"
     >
       <input
         class="t-checkbox__former"
@@ -490,7 +487,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox"
-      modelvalue="false"
     >
       <input
         class="t-checkbox__former"
@@ -2126,7 +2122,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
     >
       <label
         class="t-checkbox"
-        modelvalue="false"
       >
         <input
           class="t-checkbox__former"
@@ -3270,7 +3265,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
   <div>
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
     >
       <input
         class="t-checkbox__former"
@@ -3289,7 +3283,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox"
-      modelvalue="false"
       style="margin-left: 32px;"
     >
       <input
@@ -3309,7 +3302,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox"
-      modelvalue="false"
       style="margin-left: 32px;"
     >
       <input
@@ -4100,7 +4092,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
   >
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
     >
       <input
         class="t-checkbox__former"
@@ -4344,7 +4335,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                 >
                                   <div
                                     class="t-checkbox-group"
-                                    modelvalue=""
                                   >
                                     
                                     <label
@@ -5020,12 +5010,13 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                         class="t-form-controls"
                                       >
                                         <div
+                                          allowinput="0"
                                           class="t-input__wrap"
+                                          input="function () { [native code] }"
+                                          modelvalue=""
                                         >
                                           <div
-                                            allowinput="0"
                                             class="t-input t-input--suffix"
-                                            modelvalue=""
                                           >
                                             <!---->
                                             <!---->
@@ -5421,7 +5412,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
     </div>
     <label
       class="t-checkbox"
-      modelvalue="false"
       style="margin-left: 16px; vertical-align: middle;"
     >
       <input
@@ -5927,7 +5917,6 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
     <div>
       <label
         class="t-checkbox"
-        modelvalue="false"
       >
         <input
           class="t-checkbox__former"
@@ -7244,7 +7233,6 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
   <div>
     <label
       class="t-checkbox"
-      modelvalue="false"
     >
       <input
         class="t-checkbox__former"
@@ -16489,7 +16477,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
     <div>
       <label
         class="t-checkbox t-is-checked"
-        modelvalue="true"
       >
         <input
           class="t-checkbox__former"
@@ -16509,7 +16496,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
       <!-- 只要有 maxHeight，就有固定表头，无论该值是否存在 -->
       <label
         class="t-checkbox t-is-checked"
-        modelvalue="true"
       >
         <input
           class="t-checkbox__former"
@@ -16529,7 +16515,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
       <!-- 为保证组件收益最大化，当数据量小于 \`100\` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 -->
       <label
         class="t-checkbox t-is-checked"
-        modelvalue="true"
       >
         <input
           class="t-checkbox__former"
@@ -16548,7 +16533,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
       </label>
       <label
         class="t-checkbox"
-        modelvalue="false"
       >
         <input
           class="t-checkbox__former"
@@ -16567,7 +16551,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
       </label>
       <label
         class="t-checkbox"
-        modelvalue="false"
       >
         <input
           class="t-checkbox__former"
@@ -16586,7 +16569,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
       </label>
       <label
         class="t-checkbox"
-        modelvalue="false"
       >
         <input
           class="t-checkbox__former"
@@ -17996,10 +17978,10 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
           <!---->
           <div
             class="t-input__wrap"
+            unselectable="off"
           >
             <div
               class="t-input"
-              unselectable="off"
             >
               <!---->
               <!---->
@@ -18640,10 +18622,10 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             <!---->
             <div
               class="t-input__wrap"
+              unselectable="off"
             >
               <div
                 class="t-input"
-                unselectable="off"
               >
                 <!---->
                 <!---->
@@ -18725,7 +18707,6 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
               >
                 <label
                   class="t-checkbox"
-                  modelvalue="false"
                 >
                   <input
                     class="t-checkbox__former"
@@ -18815,7 +18796,6 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -18885,7 +18865,6 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox t-is-disabled"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -18956,7 +18935,6 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -19026,7 +19004,6 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox t-is-disabled"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -19097,7 +19074,6 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -20595,7 +20571,6 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
               >
                 <label
                   class="t-checkbox"
-                  modelvalue="false"
                 >
                   <input
                     class="t-checkbox__former"
@@ -20697,7 +20672,6 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -20797,7 +20771,6 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox t-is-disabled"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -20898,7 +20871,6 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -20998,7 +20970,6 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox t-is-disabled"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
@@ -21099,7 +21070,6 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
             >
               <label
                 class="t-checkbox"
-                modelvalue="false"
               >
                 <input
                   class="t-checkbox__former"
