@@ -11812,7 +11812,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.v
             </svg>
             <div class="t-popconfirm__inner">Do you want to delete</div>
           </div>
-          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
+          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
         </div>
         <!--]-->
         <div class="t-popup__arrow"></div>
@@ -11833,7 +11833,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.v
             </svg>
             <div class="t-popconfirm__inner">Do you want to delete</div>
           </div>
-          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-warning t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
+          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-warning t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
         </div>
         <!--]-->
         <div class="t-popup__arrow"></div>
@@ -11854,7 +11854,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/popconfirm.v
             </svg>
             <div class="t-popconfirm__inner">Do you want to delete</div>
           </div>
-          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-danger t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
+          <div class="t-popconfirm__buttons"><button class="t-button t-size-s t-button--variant-outline t-button--theme-default t-popconfirm__cancel" type="button"><span class="t-button__text">Cancel</span></button><button class="t-button t-size-s t-button--variant-base t-button--theme-danger t-popconfirm__confirm" type="button"><span class="t-button__text">OK</span></button></div>
         </div>
         <!--]-->
         <div class="t-popup__arrow"></div>
@@ -45334,7 +45334,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hide-clear-butto
         </div>
         <!---->
       </div>
-      <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">请选择时间</span></div>
+      <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">选择时间</span></div>
     </div>
     <!--]-->
   </div>
@@ -45470,7 +45470,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/hm.vue correctly
         </div>
         <!---->
       </div>
-      <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">请选择时间</span></div>
+      <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">选择时间</span></div>
     </div>
     <!--]-->
   </div>
@@ -46583,7 +46583,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/show-steps.vue c
         </div>
         <!---->
       </div>
-      <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">请选择时间</span></div>
+      <div class="t-time-picker__input" size="medium"><span class="t-time-picker__input-placeholder">选择时间</span></div>
     </div>
     <!--]-->
   </div>
@@ -50839,20 +50839,20 @@ exports[`ssr snapshot test renders ./examples/upload/demos/file-flow-list.vue co
       <table class="t-upload__flow-table">
         <tr>
           <th>文件名</th>
-          <th>文件尺寸</th>
+          <th>文件大小</th>
           <th>状态</th>
           <th>操作</th>
         </tr>
         <tr>
           <td colspan="4">
-            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
+            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖拽到此区域</div>
           </td>
         </tr>
         <!--[-->
         <!--]-->
       </table>
       <!---->
-      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->点击上传<!--]--></span></button></div>
     </div>
     <!---->
     <!---->
@@ -50877,20 +50877,20 @@ exports[`ssr snapshot test renders ./examples/upload/demos/file-flow-list-batch-
       <table class="t-upload__flow-table">
         <tr>
           <th>文件名</th>
-          <th>文件尺寸</th>
+          <th>文件大小</th>
           <th>状态</th>
           <th>操作</th>
         </tr>
         <tr>
           <td colspan="4">
-            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
+            <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖拽到此区域</div>
           </td>
         </tr>
         <!--[-->
         <!--]-->
       </table>
       <!---->
-      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->点击上传<!--]--></span></button></div>
     </div>
     <!---->
     <!---->
@@ -51075,10 +51075,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/img-flow-list.vue cor
       </div>
       <!---->
       <div class="t-upload__flow-card-area">
-        <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖到此区域</div>
+        <div class="t-upload__flow-empty">点击上方“选择文件”或将文件拖拽到此区域</div>
         <!---->
       </div>
-      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->开始上传<!--]--></span></button></div>
+      <div class="t-upload__flow-bottom"><button class="t-button t-size-m t-button--variant-base t-button--theme-default t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->取消上传<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-primary t-is-disabled" type="button" disabled><span class="t-button__text"><!--[-->点击上传<!--]--></span></button></div>
     </div>
     <div class="t-dialog__ctx t-dialog__ctx--fixed t-upload__dialog" style="display:none;">
       <!--[-->
