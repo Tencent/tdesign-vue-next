@@ -33728,7 +33728,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
               <div class="t-table__th-cell-inner">是否必传</div>
             </th>
             <th data-colkey="detail.position" class="t-table__th-detail.position" style="">
-              <div class="t-table__th-cell-inner">详情信息</div>
+              <div class="t-table__th-cell-inner">
+                <div class="t-table__ellipsis t-text-ellipsis">
+                  <!--[-->详情信息
+                  <!--]-->
+                </div>
+              </div>
             </th>
             <!--]-->
           </tr>
@@ -33745,7 +33750,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">Number</td>
             <td class="" style="">0</td>
             <td class="" style="">否</td>
-            <td class="" style="">读取 5 个数据的嵌套信息值</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 5 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
             <!--]-->
           </tr>
           <tr style="" class="">
@@ -33755,7 +33765,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">Array</td>
             <td class="" style="">[]</td>
             <td class="" style="">否</td>
-            <td class="" style="">读取 6 个数据的嵌套信息值</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 6 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
             <!--]-->
           </tr>
           <tr style="" class="">
@@ -33765,7 +33780,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">Object</td>
             <td class="" style="">{}</td>
             <td class="" style="">否</td>
-            <td class="" style="">读取 7 个数据的嵌套信息值</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 7 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
             <!--]-->
           </tr>
           <tr style="" class="">
@@ -33775,7 +33795,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">String</td>
             <td class="" style="">-</td>
             <td class="" style="">是</td>
-            <td class="" style="">读取 8 个数据的嵌套信息值</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 8 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
             <!--]-->
           </tr>
           <tr style="" class="">
@@ -33785,7 +33810,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
             <td class="" style="">Number</td>
             <td class="" style="">0</td>
             <td class="" style="">否</td>
-            <td class="" style="">读取 9 个数据的嵌套信息值</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 9 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
             <!--]-->
           </tr>
           <!--]-->
@@ -42489,7 +42519,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
         <tr>
           <!--[-->
           <th data-colkey="name" class="t-table__th-name" style="">
-            <div class="t-table__th-cell-inner">UNKNOW_USER</div>
+            <div class="t-table__th-cell-inner">UNKNOWN_USER</div>
           </th>
           <th data-colkey="gender" class="t-table__th-gender" style="">
             <div class="t-table__th-cell-inner">性别</div>

@@ -82,25 +82,8 @@ const table = ref(null);
 const data = ref(getData());
 
 const setData1 = () => {
-  console.log('setData1');
-  data.value.unshift({
-    key: '我是 999 号',
-    platform: '私有',
-    type: 'Number',
-    default: 0,
-    needed: '否',
-    description: '全新数据源',
-    list: data.value[0].list,
-  });
-};
-
-// 使用实例方法 setData(key, newData) 重置单行数据
-const setData2 = () => {
-  table.value.setData('我是 110 号', {
-    ...data.value[0].list[1],
-    platform: 'New',
-    key: '我是 8888 号',
-  });
+  // 需要更新数据地址空间
+  data.value = getData();
 };
 
 const onEditClick = (row) => {

@@ -602,7 +602,13 @@ exports[`Table Table baseVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                详情信息
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  详情信息
+                  
+                </div>
               </div>
             </th>
             
@@ -646,9 +652,15 @@ exports[`Table Table baseVue demo works fine 1`] = `
               否
             </td>
             <td
-              class=""
+              class="t-table-td--ellipsis"
             >
-              读取 5 个数据的嵌套信息值
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 5 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -683,9 +695,15 @@ exports[`Table Table baseVue demo works fine 1`] = `
               否
             </td>
             <td
-              class=""
+              class="t-table-td--ellipsis"
             >
-              读取 6 个数据的嵌套信息值
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 6 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -720,9 +738,15 @@ exports[`Table Table baseVue demo works fine 1`] = `
               否
             </td>
             <td
-              class=""
+              class="t-table-td--ellipsis"
             >
-              读取 7 个数据的嵌套信息值
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 7 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -757,9 +781,15 @@ exports[`Table Table baseVue demo works fine 1`] = `
               是
             </td>
             <td
-              class=""
+              class="t-table-td--ellipsis"
             >
-              读取 8 个数据的嵌套信息值
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 8 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -794,9 +824,15 @@ exports[`Table Table baseVue demo works fine 1`] = `
               否
             </td>
             <td
-              class=""
+              class="t-table-td--ellipsis"
             >
-              读取 9 个数据的嵌套信息值
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 9 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -17691,7 +17727,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
             <div
               class="t-table__th-cell-inner"
             >
-              UNKNOW_USER
+              UNKNOWN_USER
             </div>
           </th>
           <th

@@ -85,7 +85,7 @@ const columns = [
      * 2.值类型为 Function 则自定义浮层显示内容；
      * 3.值类型为 Object，则自动透传属性到 Popup 组件。
      */
-    // ellipsis: true,
+    ellipsis: true,
 
     // 透传省略内容浮层 Popup 组件全部特性，示例代码有效，勿删！！！
     // ellipsis: { placement: 'bottom', destroyOnClose: false },

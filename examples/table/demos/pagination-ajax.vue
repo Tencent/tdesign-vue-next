@@ -20,7 +20,7 @@ const columns = [
     colKey: 'name',
     title: '姓名',
     render(h, { row: { name } }) {
-      return name ? `${name.first} ${name.last}` : 'UNKNOW_USER';
+      return name ? `${name.first} ${name.last}` : 'UNKNOWN_USER';
     },
   },
   {
@@ -96,5 +96,5 @@ onMounted(async () => {
   });
 });
 
-const rowKey = 'property';
+const rowKey = 'phone';
 </script>

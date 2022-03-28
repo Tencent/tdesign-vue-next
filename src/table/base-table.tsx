@@ -64,16 +64,18 @@ export default defineComponent({
       updateHeaderScroll,
     } = useFixed(props, context);
     const { isMultipleHeader, spansAndLeafNodes, thList } = useTableHeader(props);
-    const { dataSource, isPaginateData, renderPagination } = usePagination(props, context);
+    const { dataSource, isPaginateData, renderPagination } = usePagination(props);
 
     const dynamicBaseTableClasses = computed(() => [
       tableClasses.value,
-      { [tableBaseClass.headerFixed]: isFixedHeader.value },
-      { [tableBaseClass.columnFixed]: isFixedColumn.value },
-      { [tableBaseClass.widthOverflow]: isWidthOverflow.value },
-      { [tableBaseClass.multipleHeader]: isMultipleHeader.value },
-      { [tableColFixedClasses.leftShadow]: showColumnShadow.left },
-      { [tableColFixedClasses.rightShadow]: showColumnShadow.right },
+      {
+        [tableBaseClass.headerFixed]: isFixedHeader.value,
+        [tableBaseClass.columnFixed]: isFixedColumn.value,
+        [tableBaseClass.widthOverflow]: isWidthOverflow.value,
+        [tableBaseClass.multipleHeader]: isMultipleHeader.value,
+        [tableColFixedClasses.leftShadow]: showColumnShadow.left,
+        [tableColFixedClasses.rightShadow]: showColumnShadow.right,
+      },
     ]);
 
     const tableElmClasses = computed(() => [
@@ -283,8 +285,8 @@ export default defineComponent({
       <Loading
         loading={!!(this.loading || customLoadingText)}
         text={customLoadingText ? () => customLoadingText : undefined}
-        {...this.loadingProps}
         showOverlay
+        {...this.loadingProps}
       >
         {tableContent}
       </Loading>
