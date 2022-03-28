@@ -12,11 +12,6 @@ export default {
   content: {
     type: [String, Function] as PropType<TdCollapsePanelProps['content']>,
   },
-  /** 折叠面板标识 */
-  value: {
-    type: [String, Number] as PropType<TdCollapsePanelProps['value']>,
-  },
-
   /** 折叠面板内容，同 content */
   default: {
     type: [String, Function] as PropType<TdCollapsePanelProps['default']>,
@@ -39,5 +34,9 @@ export default {
   /** 面板头的右侧区域，一般用于呈现面板操作 */
   headerRightContent: {
     type: [String, Function] as PropType<TdCollapsePanelProps['headerRightContent']>,
+  },
+  /** 当前面板唯一标识，如果值为空则取当前面下标兜底作为唯一标识 */
+  value: {
+    type: [String, Number] as PropType<TdCollapsePanelProps['value']>,
   },
 };

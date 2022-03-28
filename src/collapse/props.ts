@@ -12,7 +12,7 @@ export default {
   borderless: Boolean,
   /** 默认是否展开全部 */
   defaultExpandAll: Boolean,
-  /** 是否禁用全部面板展开 */
+  /** 是否禁用面板展开/收起操作 */
   disabled: Boolean,
   /** 展开图标。值为 undefined 或 false 则不显示展开图标；值为 true 显示默认图标；值类型为函数，则表示完全自定义展开图标 */
   expandIcon: {
@@ -39,10 +39,11 @@ export default {
   /** 展开的面板集合 */
   value: {
     type: [String, Number, Array] as PropType<TdCollapseProps['value']>,
+    default: undefined,
   },
-  /** 展开的面板集合 */
   modelValue: {
-    type: [String, Number, Array] as PropType<TdCollapseProps['modelValue']>,
+    type: [String, Number, Array] as PropType<TdCollapseProps['value']>,
+    default: undefined,
   },
   /** 展开的面板集合，非受控属性 */
   defaultValue: {

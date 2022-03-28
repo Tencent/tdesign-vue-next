@@ -18,7 +18,7 @@ export interface TdCollapseProps {
    */
   defaultExpandAll?: boolean;
   /**
-   * 是否禁用全部面板展开
+   * 是否禁用面板展开/收起操作
    */
   disabled?: boolean;
   /**
@@ -68,12 +68,6 @@ export interface TdCollapsePanelProps {
    * 折叠面板内容
    */
   content?: string | TNode;
-
-  /**
-   * 折叠面板标识
-   */
-  value?: string | number;
-
   /**
    * 折叠面板内容，同 content
    */
@@ -99,6 +93,10 @@ export interface TdCollapsePanelProps {
    * 面板头的右侧区域，一般用于呈现面板操作
    */
   headerRightContent?: string | TNode;
+  /**
+   * 当前面板唯一标识，如果值为空则取当前面下标兜底作为唯一标识
+   */
+  value?: string | number;
 }
 
 export type CollapseValue = string | number | Array<CollapseValue>;
