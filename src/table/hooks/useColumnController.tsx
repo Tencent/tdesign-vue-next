@@ -10,6 +10,7 @@ import { useTNodeDefault } from '../../hooks/tnode';
 import { renderTitle } from './useTableHeader';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
 import { useConfig } from '../../config-provider/useConfig';
+import useDefaultValue from '../../hooks/useDefaultValue';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys: string[] = []) {
   for (let i = 0, len = columns.length; i < len; i++) {
@@ -26,7 +27,7 @@ export function getColumnKeys(columns: PrimaryTableCol[], keys: string[] = []) {
 export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
   const renderTNode = useTNodeDefault();
   const { classPrefix } = useConfig();
-  const { columns, columnController } = toRefs(props);
+  const { columns, columnController, displayColumns } = toRefs(props);
 
   const enabledColKeys = computed(() => {
     const arr = (columnController.value?.fields || [...new Set(getColumnKeys(columns.value))] || []).filter((v) => v);
@@ -36,7 +37,12 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   const keys = [...new Set(getColumnKeys(columns.value))];
 
   // 确认后的列配置
-  const displayColumnKeys = ref<CheckboxGroupValue>(keys);
+  const [tDisplayColumns, setTDisplayColumns] = useDefaultValue(
+    displayColumns,
+    props.defaultDisplayColumns || keys,
+    props.onDisplayColumnsChange,
+    'displayColumns',
+  );
   // 弹框内的多选
   const columnCheckboxKeys = ref<CheckboxGroupValue>(keys);
 
@@ -119,7 +125,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
       cancelBtn: '取消',
       width: 612,
       onConfirm: () => {
-        displayColumnKeys.value = [...columnCheckboxKeys.value];
+        setTDisplayColumns([...columnCheckboxKeys.value]);
         dialogInstance.hide();
       },
       onClose: () => {
@@ -141,7 +147,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   };
 
   return {
-    displayColumnKeys,
+    tDisplayColumns,
     columnCheckboxKeys,
     checkboxOptions,
     renderColumnController,

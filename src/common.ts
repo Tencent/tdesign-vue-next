@@ -14,7 +14,7 @@ export type TNode<T = undefined> = T extends undefined
   : (h: typeof import('vue').h, props: T) => TNodeReturnValue;
 
 export type AttachNodeReturnValue = HTMLElement | Element | Document;
-export type AttachNode = CSSSelector | (() => AttachNodeReturnValue);
+export type AttachNode = CSSSelector | ((triggerNode?: HTMLElement) => AttachNodeReturnValue);
 
 // 与滚动相关的容器类型，因为 document 上没有 scroll 相关属性, 因此排除document
 export type ScrollContainerElement = Window | HTMLElement;

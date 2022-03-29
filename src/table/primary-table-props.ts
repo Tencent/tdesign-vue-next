@@ -12,11 +12,11 @@ export default {
   asyncLoading: {
     type: [String, Function] as PropType<TdPrimaryTableProps['asyncLoading']>,
   },
-  /** 【开发中】自定义显示列控制器，值为空不会显示。<br />`columnController.fields` 表示只允许用户对数组里面的列进行显示或隐藏的控制，默认为全部字段。<br />`columnController.displayType` 是指字段呈现方式：`fixed-width` 表示固定宽度，每行固定数量，横向和纵向均对齐，`auto-width` 表示宽度随列标题数量自由显示，横向铺满，纵向不要求对齐，默认为 `auto-width`。<br />支持透传 CheckboxGroup 和 Dialog 组件等全部属性 */
+  /** 自定义显示列控制器，值为空不会显示。<br />`columnController.fields` 表示只允许用户对数组里面的列进行显示或隐藏的控制，默认为全部字段。<br />`columnController.displayType` 是指字段呈现方式：`fixed-width` 表示固定宽度，每行固定数量，横向和纵向均对齐，`auto-width` 表示宽度随列标题数量自由显示，横向铺满，纵向不要求对齐，默认为 `auto-width`。<br />支持透传 CheckboxGroup 和 Dialog 组件等全部属性 */
   columnController: {
     type: Object as PropType<TdPrimaryTableProps['columnController']>,
   },
-  /** 【开发中】自定义显示列控制器的内容呈现，可以填充任意内容 */
+  /** 【讨论中】自定义显示列控制器的内容呈现，可以填充任意内容 */
   columnControllerContent: {
     type: [String, Function] as PropType<TdPrimaryTableProps['columnControllerContent']>,
   },
@@ -24,6 +24,15 @@ export default {
   columns: {
     type: Array as PropType<TdPrimaryTableProps['columns']>,
     default: (): TdPrimaryTableProps['columns'] => [],
+  },
+  /** 列配置功能中，当前显示的列 */
+  displayColumns: {
+    type: Array as PropType<TdPrimaryTableProps['displayColumns']>,
+    default: undefined,
+  },
+  /** 列配置功能中，当前显示的列，非受控属性 */
+  defaultDisplayColumns: {
+    type: Array as PropType<TdPrimaryTableProps['defaultDisplayColumns']>,
   },
   /** 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`drag-col` 表示通过专门的 拖拽列 进行拖拽排序 */
   dragSort: {
@@ -102,13 +111,15 @@ export default {
   onAsyncLoadingClick: Function as PropType<TdPrimaryTableProps['onAsyncLoadingClick']>,
   /** 单元格点击时触发 */
   onCellClick: Function as PropType<TdPrimaryTableProps['onCellClick']>,
-  /** 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型 */
+  /** 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型，`currentData` 表示变化后的数据 */
   onChange: Function as PropType<TdPrimaryTableProps['onChange']>,
   /** 【开发中】列配置发生变化时触发。`context.columns` 表示已选中的列；`context.currentColumn` 表示本次变化操作的列，值不存在表示全选操作；`context.type` 表示当前操作属于选中列或是取消列 */
   onColumnChange: Function as PropType<TdPrimaryTableProps['onColumnChange']>,
-  /** 表格数据发生变化时触发，比如：本地排序方法 sorter */
+  /** 本地数据排序导致 `data` 变化时触发，第一个参数指变化后的数据，第二个参数 `context.trigger` 表示触发本次变化的来源 */
   onDataChange: Function as PropType<TdPrimaryTableProps['onDataChange']>,
-  /** 拖拽排序时触发 */
+  /** 列配置选中列发生变化时触发 */
+  onDisplayColumnsChange: Function as PropType<TdPrimaryTableProps['onDisplayColumnsChange']>,
+  /** 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据 */
   onDragSort: Function as PropType<TdPrimaryTableProps['onDragSort']>,
   /** 展开行发生变化时触发，泛型 T 指表格数据类型 */
   onExpandChange: Function as PropType<TdPrimaryTableProps['onExpandChange']>,

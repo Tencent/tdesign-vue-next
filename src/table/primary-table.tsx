@@ -27,7 +27,7 @@ export default defineComponent({
     const renderTNode = useTNodeJSX();
     const { columns } = toRefs(props);
     // 自定义列配置功能
-    const { displayColumnKeys, renderColumnController } = useColumnController(props, context);
+    const { tDisplayColumns, renderColumnController } = useColumnController(props, context);
     // 展开/收起行功能
     const { showExpandedRow, showExpandIconColumn, getExpandColumn, renderExpandedRow, onInnerExpandRowClick } =
       useRowExpand(props, context);
@@ -47,7 +47,7 @@ export default defineComponent({
       for (let i = 0, len = columns.length; i < len; i++) {
         let item = { ...columns[i] };
         // 自定义列显示控制
-        const isDisplayColumn = item.children?.length || displayColumnKeys.value?.includes(item.colKey);
+        const isDisplayColumn = item.children?.length || tDisplayColumns.value?.includes(item.colKey);
         if (!isDisplayColumn && props.columnController) continue;
         item = formatToRowSelectColumn(item);
         // 添加排序图标和过滤图标
