@@ -5730,7 +5730,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
     </div>
     <div
       class="t-tabs"
-      modelvalue="1"
       style="margin-left: 30px;"
     >
       

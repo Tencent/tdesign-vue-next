@@ -19384,7 +19384,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
         <!---->
       </div>
     </div>
-    <div class="t-tabs" modelvalue="1" style="margin-left:30px;border:1px solid var(--td-component-stroke);">
+    <div class="t-tabs" style="margin-left:30px;border:1px solid var(--td-component-stroke);">
       <!--[-->
       <div class="t-tabs__header t-is-top">
         <div class="t-tabs__nav" style="min-height:48px;">
@@ -42542,7 +42542,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/ban.vue correctly 1`] =
 
 exports[`ssr snapshot test renders ./examples/tabs/demos/base.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large">
-  <div class="t-tabs" modelvalue="1">
+  <div class="t-tabs">
     <!--[-->
     <div class="t-tabs__header t-is-top">
       <div class="t-tabs__nav" style="">
@@ -42588,7 +42588,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/base.vue correctly 1`] 
     </div>
     <!--]-->
   </div><!-- 方式二：使用 list 定义 Tab -->
-  <div class="t-tabs" modelvalue="1">
+  <div class="t-tabs">
     <!--[-->
     <div class="t-tabs__header t-is-top">
       <div class="t-tabs__nav" style="">
@@ -42642,7 +42642,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/combination.vue correct
       <!--]-->
     </div>
   </div>
-  <div class="t-tabs" modelvalue="1">
+  <div class="t-tabs">
     <!--[-->
     <div class="t-tabs__header t-is-top">
       <div class="t-tabs__nav" style="">
@@ -42761,7 +42761,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/combination.vue correct
 
 exports[`ssr snapshot test renders ./examples/tabs/demos/custom.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large" style="width:100%;">
-  <div class="t-tabs" modelvalue="first">
+  <div class="t-tabs">
     <!--[-->
     <div class="t-tabs__header t-is-top">
       <div class="t-tabs__nav" style="min-height:48px;">
@@ -42871,7 +42871,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/operation.vue correctly
   <div class="t-demo-tabs__desc">
     <p>可以动态增加选项卡，仅支持卡片型</p>
   </div>
-  <div class="t-tabs" modelvalue="first">
+  <div class="t-tabs">
     <!--[-->
     <div class="t-tabs__header t-is-top">
       <div class="t-tabs__nav" style="min-height:48px;">
@@ -43078,7 +43078,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/size.vue correctly 1`] 
 exports[`ssr snapshot test renders ./examples/tabs/demos/theme.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large">
   <div class="tdesign-demo-block-column">
-    <div class="t-tabs" modelvalue="first">
+    <div class="t-tabs">
       <!--[-->
       <div class="t-tabs__header t-is-top">
         <div class="t-tabs__nav" style="">
@@ -43124,7 +43124,7 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/theme.vue correctly 1`]
       </div>
       <!--]-->
     </div>
-    <div class="t-tabs" modelvalue="first">
+    <div class="t-tabs">
       <!--[-->
       <div class="t-tabs__header t-is-top">
         <div class="t-tabs__nav" style="">
