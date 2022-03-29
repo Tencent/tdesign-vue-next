@@ -7403,6 +7403,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
+<<<<<<< HEAD
         <div
           class="t-input__prefix"
         >
@@ -7410,26 +7411,17 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           <!---->
         </span>
         <!---->
+=======
+>>>>>>> ddfd0dde22e44b6932d60a3575281cf8d80b3470
         <div
-          class="t-input__wrap t-select__input"
-          modelvalue=""
-          style="display: none;"
+          class="t-input__prefix"
         >
-          <div
-            class="t-input"
-          >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="see empty data in TreeSelect"
-              type="text"
-            />
-            <!---->
-            <!---->
-            <!---->
-          </div>
+          
           <!---->
+<<<<<<< HEAD
+=======
+          <!---->
+>>>>>>> ddfd0dde22e44b6932d60a3575281cf8d80b3470
           
         </div>
         <input
@@ -7517,27 +7509,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           
           <!---->
-        </span>
-        <!---->
-        <div
-          class="t-input__wrap t-select__input"
-          modelvalue=""
-          style="display: none;"
-        >
-          <div
-            class="t-input"
-          >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="see loading text in TreeSelect"
-              type="text"
-            />
-            <!---->
-            <!---->
-            <!---->
-          </div>
           <!---->
           
         </div>
@@ -7577,6 +7548,48 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </svg>
             <!---->
           </div>
+<<<<<<< HEAD
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="see loading text in TreeSelect"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <span
+          class="t-input__suffix t-input__suffix-icon"
+        >
+          <div
+            class="t-loading--center t-size-s t-loading"
+          >
+            <svg
+              class="t-loading__gradient t-icon-loading"
+              height="1em"
+              size="small"
+              version="1.1"
+              viewBox="0 0 14 14"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <foreignobject
+                height="12"
+                width="12"
+                x="1"
+                y="1"
+              >
+                <div
+                  class="t-loading__gradient-conic"
+                />
+              </foreignobject>
+            </svg>
+            <!---->
+          </div>
+=======
+>>>>>>> ddfd0dde22e44b6932d60a3575281cf8d80b3470
         </span>
       </div>
       <!---->
@@ -7713,6 +7726,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         class="t-input t-input--prefix"
       >
         <!---->
+<<<<<<< HEAD
         <div
           class="t-input__prefix"
         >
@@ -7720,25 +7734,17 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           <!---->
         </span>
         <!---->
+=======
+>>>>>>> ddfd0dde22e44b6932d60a3575281cf8d80b3470
         <div
-          class="t-input__wrap t-select__input"
-          modelvalue=""
+          class="t-input__prefix"
         >
-          <div
-            class="t-input"
-          >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="tree select"
-              type="text"
-            />
-            <!---->
-            <!---->
-            <!---->
-          </div>
+          
           <!---->
+<<<<<<< HEAD
+=======
+          <!---->
+>>>>>>> ddfd0dde22e44b6932d60a3575281cf8d80b3470
           
         </div>
         <input

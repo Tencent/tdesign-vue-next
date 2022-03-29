@@ -2026,6 +2026,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                 class="t-input t-is-disabled t-is-readonly t-input--prefix"
               >
                 <!---->
+<<<<<<< HEAD
                 <div
                   class="t-input__prefix"
                 >
@@ -2033,27 +2034,17 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                   <!---->
                 </span>
                 <!---->
+=======
+>>>>>>> ddfd0dde22e44b6932d60a3575281cf8d80b3470
                 <div
-                  class="t-input__wrap t-select__input"
-                  modelvalue=""
-                  style="display: none;"
+                  class="t-input__prefix"
                 >
-                  <div
-                    class="t-input t-is-disabled"
-                  >
-                    <!---->
-                    <!---->
-                    <input
-                      class="t-input__inner"
-                      disabled=""
-                      placeholder=""
-                      type="text"
-                    />
-                    <!---->
-                    <!---->
-                    <!---->
-                  </div>
+                  
                   <!---->
+<<<<<<< HEAD
+=======
+                  <!---->
+>>>>>>> ddfd0dde22e44b6932d60a3575281cf8d80b3470
                   
                 </div>
                 <input

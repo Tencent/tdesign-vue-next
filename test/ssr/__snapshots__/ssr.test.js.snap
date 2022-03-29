@@ -11296,14 +11296,8 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     <div class="t-input__wrap">
       <div class="t-input t-is-readonly t-input--prefix">
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="see empty data in TreeSelect" type="text" value>
-            <!---->
-            <!---->
-            <!---->
-          </div>
+        <div class="t-input__prefix">
+          <!--[-->
           <!---->
           <!---->
           <!--]-->
@@ -11357,8 +11351,20 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <!--]-->
   </div><br><br>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true" style="width:400px;">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+        <!--[-->
         <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">loading...</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
             <div>
+              <div class="t-tree__item" data-value="1" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="font-size:18px;"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
+                <!--]-->
+              </div>
               <div class="t-tree__item" data-value="2" data-level="0" style="--level: 0;">
                 <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="font-size:18px;"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
                 <!--]-->
