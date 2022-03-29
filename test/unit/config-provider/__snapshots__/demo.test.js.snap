@@ -9448,7 +9448,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
           <!---->
           <input
             class="t-input__inner"
-            placeholder="请输入"
+            placeholder=""
             type="text"
           />
           <!---->
