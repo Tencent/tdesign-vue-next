@@ -11272,188 +11272,124 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
   </div><br><br><!-- 观察加载文本 -->
   <!-- <t-cascader placeholder="see loading text in Cascader" loading style="width: 400px;" /> -->
   <!-- <br><br> -->
-  <div class="t-select__wrap" style="width:400px;">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">loading...</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-              <div></div>
-              <div class="t-tree__empty">
-                <!--[-->
-                <!--[-->
-                <div class="t-select__empty">Empty Data</div>
-                <!--]-->
-                <!--]-->
-              </div>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="false" style="width:400px;">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
+        <!--[-->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">loading...</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div></div>
+            <div class="t-tree__empty">
+              <!--[--><span><div class="t-select__empty">Empty Data</div></span>
+              <!--]-->
             </div>
           </div>
-          <!--]-->
-          <!---->
         </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m">
-        <!----><span class="t-select__placeholder">see empty data in TreeSelect </span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!--]-->
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="see empty data in TreeSelect" type="text" value>
-            <!---->
-            <!---->
-            <!---->
-          </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
-        </div>
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder="see empty data in TreeSelect" type="text">
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div><br><br>
-  <div class="t-select__wrap" style="width:400px;">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips">
-            <div class="t-select__empty">loading...</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium" style="display:none;">
-              <div></div>
-              <div class="t-tree__empty">
-                <!--[-->
-                <!--[-->
-                <div class="t-select__empty">Empty Data</div>
-                <!--]-->
-                <!--]-->
-              </div>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="false" style="width:400px;">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
+        <!--[-->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill">
+          <div class="t-select__empty">loading...</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium" style="display:none;">
+            <div></div>
+            <div class="t-tree__empty">
+              <!--[--><span><div class="t-select__empty">Empty Data</div></span>
+              <!--]-->
             </div>
           </div>
-          <!--]-->
-          <!---->
         </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m">
-        <!----><span class="t-select__placeholder">see loading text in TreeSelect </span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!--]-->
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="see loading text in TreeSelect" type="text" value>
-            <!---->
-            <!---->
-            <!---->
-          </div>
-          <!---->
-        </div>
-        <!----><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
-        </div>
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-is-readonly t-input--prefix t-input--suffix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder="see loading text in TreeSelect" type="text">
+        <!---->
+        <!----><span class="t-input__suffix t-input__suffix-icon"><div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></span>
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div><br><br>
-  <div class="t-select__wrap" modelvalue style="width:400px;">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">loading...</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="1" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="font-size:18px;"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="1.1" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.1</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="1.2" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1.2</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="2" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="font-size:18px;"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="2.1" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2.1</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="2.2" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2.2</span></span>
-                  <!--]-->
-                </div>
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!--]-->
-          <!---->
-        </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m">
-        <!----><span class="t-select__placeholder" style="display:none;">tree select </span>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true" style="width:400px;">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
-        <!---->
-        <div class="t-input__wrap t-select__input" modelvalue>
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="tree select" type="text" value>
-            <!---->
-            <!---->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">loading...</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="1" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="font-size:18px;"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
+                <!--]-->
+              </div>
+              <div class="t-tree__item" data-value="2" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="font-size:18px;"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
+                <!--]-->
+              </div>
+            </div>
             <!---->
           </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
         </div>
+        <!--]-->
+        <!---->
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" placeholder="tree select" type="text">
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div><br><br>
   <div class="t-popup__reference t-time-picker t-size-m" modelvalue>
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
@@ -18346,79 +18282,53 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-select__wrap">
-            <div class="t-popup__reference t-select__popup-reference">
-              <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                <div class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar">
-                  <!--[-->
-                  <div>
-                    <p class="t-select-loading-tips" style="display:none;">
-                    <div class="t-select__empty">加载中</div>
-                    </p>
-                    <div class="t-tree t-is-disabled t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-                      <div>
-                        <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="1" data-level="0" style="--level: 0;">
-                          <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏</span></span>
-                          <!--]-->
-                        </div>
-                        <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="300" data-level="1" style="--level: 1;">
-                          <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">南京市</span></span>
-                          <!--]-->
-                        </div>
-                        <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="2" data-level="0" style="--level: 0;">
-                          <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">上海</span></span>
-                          <!--]-->
-                        </div>
-                        <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="400" data-level="1" style="--level: 1;">
-                          <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">徐汇区</span></span>
-                          <!--]-->
-                        </div>
-                        <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="3" data-level="0" style="--level: 0;">
-                          <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">四川</span></span>
-                          <!--]-->
-                        </div>
-                        <div class="t-tree__item t-tree__item--open t-is-disabled" data-value="500" data-level="1" style="--level: 1;">
-                          <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">成都市</span></span>
-                          <!--]-->
-                        </div>
-                      </div>
-                      <!---->
-                    </div>
-                  </div>
-                  <!--]-->
-                  <!---->
-                </div>
-              </div>
-              <!--[-->
-              <div class="t-select t-select-polyfill t-is-disabled t-size-m">
-                <!----><span class="t-select__placeholder">请选择 </span>
+          <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
                 <!--[-->
-                <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
-                <!---->
-                <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-                  <div class="t-input t-is-disabled">
-                    <!---->
-                    <!----><input class="t-input__inner" disabled placeholder type="text" value>
-                    <!---->
-                    <!---->
+                <div>
+                  <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+                  <div class="t-select__empty">加载中</div>
+                  </p>
+                  <div class="t-tree t-is-disabled t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+                    <div>
+                      <div class="t-tree__item t-is-disabled" data-value="1" data-level="0" style="--level: 0;">
+                        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏</span></span>
+                        <!--]-->
+                      </div>
+                      <div class="t-tree__item t-is-disabled" data-value="2" data-level="0" style="--level: 0;">
+                        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">上海</span></span>
+                        <!--]-->
+                      </div>
+                      <div class="t-tree__item t-is-disabled" data-value="3" data-level="0" style="--level: 0;">
+                        <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">四川</span></span>
+                        <!--]-->
+                      </div>
+                    </div>
                     <!---->
                   </div>
-                  <!---->
-                </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-                  <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-                </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-                  <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-                </svg>
-                <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-                    <foreignObject x="1" y="1" width="12" height="12">
-                      <div class="t-loading__gradient-conic"></div>
-                    </foreignObject>
-                  </svg>
-                  <!---->
                 </div>
+                <!--]-->
+                <!---->
               </div>
-              <!--]-->
             </div>
+            <!--[-->
+            <div class="t-input__wrap">
+              <div class="t-input t-is-disabled t-is-readonly t-input--prefix">
+                <!---->
+                <div class="t-input__prefix">
+                  <!--[-->
+                  <!---->
+                  <!---->
+                  <!--]-->
+                </div><input class="t-input__inner" disabled readonly placeholder type="text">
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+            <!--]-->
           </div>
           <!--]-->
           <!---->
@@ -49937,234 +49847,142 @@ exports[`ssr snapshot test renders ./examples/tree/demos/vmodel.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/base.vue correctly 1`] = `
 <div class="tdesign-tree-select-base">
-  <div class="t-select__wrap" modelvalue>
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangdong" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广州市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="shenzhen" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">深圳市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="nanjing" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">南京市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="suzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">苏州市</span></span>
-                  <!--]-->
-                </div>
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!--]-->
-          <!---->
-        </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m">
-        <!----><span class="t-select__placeholder">请选择 </span>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
-        <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="请选择" type="text" value>
-            <!---->
-            <!---->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
+                <!--]-->
+              </div>
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
+                <!--]-->
+              </div>
+            </div>
             <!---->
           </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
         </div>
+        <!--]-->
+        <!---->
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder="请选择" type="text">
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue correctly 1`] = `
 <div class="tdesign-tree-select-collapsed">
-  <div class="t-select__wrap demo-space">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangdong" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangzhou" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广州市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="shenzhen" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="shenzhen" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->深圳市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="nanjing" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="nanjing"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->南京市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="suzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="suzhou"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->苏州市<!--]--></span></label>
-                  <!--]-->
-                </div>
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty demo-space" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
+        <!--[-->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
+                <!--]-->
               </div>
-              <!---->
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
+                <!--]-->
+              </div>
             </div>
+            <!---->
           </div>
-          <!--]-->
-          <!---->
         </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m t-select-selected">
-        <!----><span class="t-select__placeholder" style="display:none;">请选择 </span>
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="display:none;"><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->+1<!--]--><!----></span>
+        <!--]-->
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder type="text" value>
-            <!---->
-            <!---->
-            <!---->
-          </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
-        </div>
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap t-tag-input">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m" style="max-width:300px;"><!----><span style="max-width:300px;" class="t-tag--text"><!--[--><!----><!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+            <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
+          </svg></span>
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder type="text" value>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
-  <div class="t-select__wrap">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangdong" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangzhou" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广州市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="shenzhen" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="shenzhen" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->深圳市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="nanjing" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="nanjing"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->南京市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="suzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="suzhou"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->苏州市<!--]--></span></label>
-                  <!--]-->
-                </div>
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
+        <!--[-->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
+                <!--]-->
               </div>
-              <!---->
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
+                <!--]-->
+              </div>
             </div>
+            <!---->
           </div>
-          <!--]-->
-          <!---->
         </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m t-select-selected">
-        <!----><span class="t-select__placeholder" style="display:none;">请选择 </span>
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="display:none;"><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
-        <!--]-->
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-size-m" style=""><!----><!--[-->更多...<!--]--><!----></span>
         <!--]-->
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder type="text" value>
-            <!---->
-            <!---->
-            <!---->
-          </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
-        </div>
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap t-tag-input">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m" style="max-width:300px;"><!----><span style="max-width:300px;" class="t-tag--text"><!--[--><!----><!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+            <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
+          </svg></span>
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder type="text" value>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
 </div>
 `;
@@ -50178,528 +49996,441 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/filterable.vue c
       <!--]-->
     </div>
   </div>
-  <div class="t-select__wrap" modelvalue="shenzhen">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangdong" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广州市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="shenzhen" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">深圳市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="nanjing" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">南京市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="suzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">苏州市</span></span>
-                  <!--]-->
-                </div>
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!--]-->
-          <!---->
-        </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m t-select-selected">
-        <!----><span class="t-select__placeholder" style="display:none;">请选择 </span>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="shenzhen" type="text" value>
-            <!---->
-            <!---->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
+                <!--]-->
+              </div>
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
+                <!--]-->
+              </div>
+            </div>
             <!---->
           </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
         </div>
+        <!--]-->
+        <!---->
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" placeholder="请选择" type="text">
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/lazy.vue correctly 1`] = `
 <div class="tdesign-tree-select-lazy">
-  <div class="t-select__wrap" modelvalue>
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item" data-value="1" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item" data-value="2" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
-                  <!--]-->
-                </div>
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!--]-->
-          <!---->
-        </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m">
-        <!----><span class="t-select__placeholder">请选择 </span>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
-        <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="请选择" type="text" value>
-            <!---->
-            <!---->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="1" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">1</span></span>
+                <!--]-->
+              </div>
+              <div class="t-tree__item" data-value="2" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">2</span></span>
+                <!--]-->
+              </div>
+            </div>
             <!---->
           </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
         </div>
+        <!--]-->
+        <!---->
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder="请选择" type="text">
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/multiple.vue correctly 1`] = `
 <div class="tdesign-tree-select-multiple">
-  <div class="t-select__wrap">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangdong" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangzhou" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广州市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="shenzhen" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="shenzhen" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->深圳市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="nanjing" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="nanjing"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->南京市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="suzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="suzhou"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->苏州市<!--]--></span></label>
-                  <!--]-->
-                </div>
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
+        <!--[-->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
+                <!--]-->
               </div>
-              <!---->
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
+                <!--]-->
+              </div>
             </div>
+            <!---->
           </div>
-          <!--]-->
-          <!---->
         </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m t-select-selected">
-        <!----><span class="t-select__placeholder" style="display:none;">请选择 </span>
-        <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->guangzhou<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->shenzhen<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+2<!--]--><!----></span>
+        <!--]-->
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder type="text" value>
-            <!---->
-            <!---->
-            <!---->
-          </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
-        </div>
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap t-tag-input">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m" style="max-width:300px;"><!----><span style="max-width:300px;" class="t-tag--text"><!--[--><!----><!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+            <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
+          </svg></span>
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder type="text" value>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/prefix.vue correctly 1`] = `
 <div class="tdesign-tree-select-prefix">
-  <div class="t-select__wrap" modelvalue>
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="group1" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">开发一组</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="zhao" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">小赵</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="qian" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">小钱</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="group2" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">开发二组</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="sun" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">小孙</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="li" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">小李</span></span>
-                  <!--]-->
-                </div>
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!--]-->
-          <!---->
-        </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m t-has-prefix"><span class="t-select__left-icon"><svg class="t-icon t-icon-browse" style="font-size:16;"><use href="#t-icon-browse"></use></svg></span><span class="t-select__placeholder">请输入 </span>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="false">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
-        <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
-            <!---->
-            <!---->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="group1" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">开发一组</span></span>
+                <!--]-->
+              </div>
+              <div class="t-tree__item" data-value="group2" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">开发二组</span></span>
+                <!--]-->
+              </div>
+            </div>
             <!---->
           </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
         </div>
+        <!--]-->
+        <!---->
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-is-readonly t-input--prefix"><span class="t-input__prefix t-input__prefix-icon"><!--[--><!--[--><!--[--><svg class="t-icon t-icon-browse" style="font-size:16;"><use href="#t-icon-browse"></use></svg><!--]--><!--]--><!--]--></span>
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder="请输入" type="text">
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/props.vue correctly 1`] = `
 <div class="tdesign-tree-select-base">
-  <div class="t-select__wrap" modelvalue="shenzhen">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangdong" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广州市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="shenzhen" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">深圳市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="nanjing" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">南京市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="suzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">苏州市</span></span>
-                  <!--]-->
-                </div>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
+        <!--[-->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
+                <!--]-->
               </div>
-              <!---->
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
+                <!--]-->
+              </div>
             </div>
+            <!---->
           </div>
+        </div>
+        <!--]-->
+        <!---->
+      </div>
+    </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder="请选择" type="text">
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/tree-select/demos/valuedisplay.vue correctly 1`] = `
+<div class="tdesign-tree-select-valuedisplay">
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
+        <!--[-->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
+                <!--]-->
+              </div>
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
+                <!--]-->
+              </div>
+            </div>
+            <!---->
+          </div>
+        </div>
+        <!--]-->
+        <!---->
+      </div>
+    </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!--[-->
+          <!--[-->
+          <!--[-->()
+          <!--]-->
+          <!--]-->
           <!--]-->
           <!---->
-        </div>
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder type="text">
+        <!---->
+        <!---->
+        <!---->
       </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m t-select-selected">
-        <!----><span class="t-select__placeholder" style="display:none;">请选择 </span>
+      <!---->
+    </div>
+    <!--]-->
+  </div>
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="shenzhen" class="t-select__single">shenzhen</span>
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="shenzhen" type="text" value>
-            <!---->
-            <!---->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
+                <!--]-->
+              </div>
+            </div>
             <!---->
           </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
         </div>
+        <!--]-->
+        <!---->
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap t-tag-input">
+      <div class="t-input t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!--[-->
+          <!--[-->
+          <!--[-->
+          <!--[-->
+          <!--]-->
+          <!--]-->
+          <!--]-->
+          <!--]-->
+          <!--]-->
+        </div><input class="t-input__inner" placeholder type="text" value>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue correctly 1`] = `
 <div class="tdesign-tree-select-base">
-  <div class="t-select__wrap">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangdong" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广州市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="shenzhen" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">深圳市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="nanjing" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">南京市</span></span>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="suzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">苏州市</span></span>
-                  <!--]-->
-                </div>
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!--]-->
-          <!---->
-        </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m t-select-selected">
-        <!----><span class="t-select__placeholder" style="display:none;">请选择 </span>
+  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="[object Object]" class="t-select__single">[object Object]</span>
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder="[object Object]" type="text" value>
-            <!---->
-            <!---->
-            <!---->
-          </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
-        </div>
-      </div>
-      <!--]-->
-    </div>
-  </div>
-  <div class="t-select__wrap tree-select-multiple">
-    <div class="t-popup__reference t-select__popup-reference">
-      <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-        <div class="t-popup__content t-select__dropdown narrow-scrollbar">
-          <!--[-->
-          <div>
-            <p class="t-select-loading-tips" style="display:none;">
-            <div class="t-select__empty">加载中</div>
-            </p>
-            <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
-              <div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangdong" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="guangzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangzhou" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广州市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="shenzhen" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="shenzhen" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->深圳市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="jiangsu" data-level="0" style="--level: 0;">
-                  <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="nanjing" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="nanjing"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->南京市<!--]--></span></label>
-                  <!--]-->
-                </div>
-                <div class="t-tree__item t-tree__item--open" data-value="suzhou" data-level="1" style="--level: 1;">
-                  <!--[--><span class="t-tree__icon t-folder-icon" trigger="expand" ignore="active"></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="suzhou"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->苏州市<!--]--></span></label>
-                  <!--]-->
-                </div>
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">广东省</span></span>
+                <!--]-->
               </div>
-              <!---->
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><span class="t-tree__label t-tree__label--strictly"><span style="position: relative">江苏省</span></span>
+                <!--]-->
+              </div>
             </div>
+            <!---->
           </div>
-          <!--]-->
-          <!---->
         </div>
-      </div>
-      <!--[-->
-      <div class="t-select t-select-polyfill t-size-m t-select-selected">
-        <!----><span class="t-select__placeholder" style="display:none;">请选择 </span>
-        <!--[-->
-        <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
+        <!--]-->
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue style="display:none;">
-          <div class="t-input">
-            <!---->
-            <!----><input class="t-input__inner" placeholder type="text" value>
-            <!---->
-            <!---->
+      </div>
+    </div>
+    <!--[-->
+    <div class="t-input__wrap">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[-->
+          <!---->
+          <!---->
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder="请选择" type="text">
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
+  </div>
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple" showclearicononempty="true">
+    <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+      <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
+        <!--[-->
+        <div>
+          <p class="t-select-loading-tips t-select__right-icon-polyfill" style="display:none;">
+          <div class="t-select__empty">加载中</div>
+          </p>
+          <div class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node" size="medium">
+            <div>
+              <div class="t-tree__item" data-value="guangdong" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="guangdong" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->广东省<!--]--></span></label>
+                <!--]-->
+              </div>
+              <div class="t-tree__item" data-value="jiangsu" data-level="0" style="--level: 0;">
+                <!--[--><span class="t-tree__icon t-folder-icon t-tree__icon--default" trigger="expand" ignore="active"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-right-small" style=""><path fill="currentColor" d="M6 5v6l4.5-3L6 5z" fill-opacity="0.9"></path></svg></span><label class="t-checkbox t-tree__label t-tree__label--strictly" ignore="expand,active"><input type="checkbox" class="t-checkbox__former" indeterminate="false" name="jiangsu"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->江苏省<!--]--></span></label>
+                <!--]-->
+              </div>
+            </div>
             <!---->
           </div>
-          <!---->
-        </div><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="font-size:medium;">
-          <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
-        </svg><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon" style="font-size:medium;display:none;">
-          <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z" fill-opacity="0.9"></path>
-        </svg>
-        <div class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill" style="display:none;"><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small">
-            <foreignObject x="1" y="1" width="12" height="12">
-              <div class="t-loading__gradient-conic"></div>
-            </foreignObject>
-          </svg>
-          <!---->
         </div>
+        <!--]-->
+        <!---->
       </div>
-      <!--]-->
     </div>
+    <!--[-->
+    <div class="t-input__wrap t-tag-input">
+      <div class="t-input t-is-readonly t-input--prefix">
+        <!---->
+        <div class="t-input__prefix">
+          <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m" style="max-width:300px;"><!----><span style="max-width:300px;" class="t-tag--text"><!--[--><!----><!--]--></span><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style="">
+            <path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path>
+          </svg></span>
+          <!--]-->
+        </div><input class="t-input__inner" readonly placeholder type="text" value>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!--]-->
   </div>
 </div>
 `;
