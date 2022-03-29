@@ -2112,12 +2112,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -3713,12 +3714,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -4067,12 +4069,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -4706,12 +4709,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -5031,12 +5035,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -5612,12 +5617,13 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
         class="t-form-controls"
       >
         <div
+          allowinput="0"
           class="t-input__wrap"
+          input="function () { [native code] }"
+          modelvalue=""
         >
           <div
-            allowinput="0"
             class="t-input t-input--suffix"
-            modelvalue=""
           >
             <!---->
             <!---->
@@ -6089,11 +6095,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
+            modelvalue=""
+            style="width: 400px;"
           >
             <div
               class="t-input"
-              modelvalue=""
-              style="width: 400px;"
             >
               <!---->
               <!---->
@@ -6137,11 +6143,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
+            modelvalue=""
+            style="width: 400px;"
           >
             <div
               class="t-input t-input--suffix"
-              modelvalue=""
-              style="width: 400px;"
             >
               <!---->
               <!---->
@@ -6200,7 +6206,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         <div>
           <label
             class="t-checkbox"
-            modelvalue="false"
           >
             <input
               class="t-checkbox__former"
@@ -6256,13 +6261,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         >
           <div
             class="t-checkbox-group"
-            modelvalue=""
           >
             
             
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6287,7 +6290,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6311,7 +6313,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6335,7 +6336,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6359,7 +6359,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6384,7 +6383,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6408,7 +6406,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6432,7 +6429,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6456,7 +6452,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6481,7 +6476,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6505,7 +6499,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6529,7 +6522,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6553,7 +6545,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6578,7 +6569,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6602,7 +6592,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6626,7 +6615,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6650,7 +6638,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-is-disabled t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6675,7 +6662,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6699,7 +6685,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6723,7 +6708,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             </label>
             <label
               class="t-checkbox t-transfer__list-item"
-              modelvalue="false"
               props="[object Object]"
             >
               <input
@@ -6826,7 +6810,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         <div>
           <label
             class="t-checkbox t-is-disabled"
-            modelvalue="false"
           >
             <input
               class="t-checkbox__former"
@@ -7439,12 +7422,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
           style="display: none;"
         >
           <div
-            class="t-input t-select__input"
-            modelvalue=""
+            class="t-input"
           >
             <!---->
             <!---->
@@ -7604,12 +7587,12 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
           style="display: none;"
         >
           <div
-            class="t-input t-select__input"
-            modelvalue=""
+            class="t-input"
           >
             <!---->
             <!---->
@@ -7919,11 +7902,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
         </span>
         <!---->
         <div
-          class="t-input__wrap"
+          class="t-input__wrap t-select__input"
+          modelvalue=""
         >
           <div
-            class="t-input t-select__input"
-            modelvalue=""
+            class="t-input"
           >
             <!---->
             <!---->
@@ -8756,7 +8739,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  Now
                   
                 </span>
               </button>
@@ -9456,16 +9439,16 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
       <!---->
       <div
         class="t-input__wrap"
+        unselectable="off"
       >
         <div
           class="t-input"
-          unselectable="off"
         >
           <!---->
           <!---->
           <input
             class="t-input__inner"
-            placeholder="请输入"
+            placeholder=""
             type="text"
           />
           <!---->
@@ -9539,7 +9522,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 </span>
               </button>
               <button
-                class="t-button t-size-m t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
+                class="t-button t-size-s t-button--variant-base t-button--theme-primary t-popconfirm__confirm"
                 type="button"
               >
                 <span
@@ -9627,7 +9610,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 </span>
               </button>
               <button
-                class="t-button t-size-m t-button--variant-base t-button--theme-warning t-popconfirm__confirm"
+                class="t-button t-size-s t-button--variant-base t-button--theme-warning t-popconfirm__confirm"
                 type="button"
               >
                 <span
@@ -9715,7 +9698,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
                 </span>
               </button>
               <button
-                class="t-button t-size-m t-button--variant-base t-button--theme-danger t-popconfirm__confirm"
+                class="t-button t-size-s t-button--variant-base t-button--theme-danger t-popconfirm__confirm"
                 type="button"
               >
                 <span

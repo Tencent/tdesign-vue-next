@@ -723,7 +723,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -772,7 +771,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -821,7 +819,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -858,7 +855,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -895,7 +891,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -944,7 +939,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -981,7 +975,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1018,7 +1011,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1067,7 +1059,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1116,7 +1107,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1153,7 +1143,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1190,7 +1179,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1239,7 +1227,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1276,7 +1263,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1313,7 +1299,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1362,7 +1347,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1399,7 +1383,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1436,7 +1419,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1589,7 +1571,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1638,7 +1619,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1687,7 +1667,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1724,7 +1703,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1761,7 +1739,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1810,7 +1787,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1859,7 +1835,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1908,7 +1883,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1945,7 +1919,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -1982,7 +1955,6 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2136,7 +2108,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2186,7 +2157,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2224,7 +2194,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2262,7 +2231,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2312,7 +2280,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2350,7 +2317,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2388,7 +2354,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2438,7 +2403,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2476,7 +2440,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2514,7 +2477,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2623,7 +2585,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2672,7 +2633,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2710,7 +2670,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2747,7 +2706,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2796,7 +2754,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2834,7 +2791,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2871,7 +2827,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2920,7 +2875,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2957,7 +2911,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-disabled t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -2995,7 +2948,6 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -3905,10 +3857,10 @@ exports[`Tree Tree filterVue demo works fine 1`] = `
     </span>
     <div
       class="t-input__wrap"
+      modelvalue=""
     >
       <div
         class="t-input"
-        modelvalue=""
       >
         <!---->
         <!---->
@@ -4414,7 +4366,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -4457,7 +4408,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -4500,7 +4450,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -4555,7 +4504,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -4598,7 +4546,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -4641,7 +4588,6 @@ exports[`Tree Tree labelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -4821,7 +4767,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -4870,7 +4815,6 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -7347,10 +7291,10 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
       </span>
       <div
         class="t-input__wrap"
+        modelvalue=""
       >
         <div
           class="t-input"
-          modelvalue=""
         >
           <!---->
           <!---->
@@ -7391,7 +7335,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -7483,7 +7426,6 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -7757,7 +7699,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -7851,7 +7792,6 @@ exports[`Tree Tree stateVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8080,7 +8020,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8129,7 +8068,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8178,7 +8116,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8215,7 +8152,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8252,7 +8188,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8301,7 +8236,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8350,7 +8284,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8399,7 +8332,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8436,7 +8368,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8473,7 +8404,6 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8626,7 +8556,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8675,7 +8604,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-indeterminate t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8724,7 +8652,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8761,7 +8688,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8798,7 +8724,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8847,7 +8772,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8896,7 +8820,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8945,7 +8868,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly t-is-active"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -8982,7 +8904,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"
@@ -9019,7 +8940,6 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
         <label
           class="t-checkbox t-tree__label t-tree__label--strictly"
           ignore="expand,active"
-          modelvalue="false"
         >
           <input
             class="t-checkbox__former"

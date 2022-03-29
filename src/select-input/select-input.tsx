@@ -83,8 +83,9 @@ export default defineComponent({
           ? this.renderSelectMultiple({
               commonInputProps: this.commonInputProps,
               onInnerClear: this.onInnerClear,
+              popupVisible: visibleProps.visible,
             })
-          : this.renderSelectSingle()}
+          : this.renderSelectSingle(visibleProps.visible)}
       </Popup>
     );
 

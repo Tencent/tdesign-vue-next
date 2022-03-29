@@ -1,7 +1,7 @@
 {
   "name": "tdesign-vue-next",
   "purename": "tdesign",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "title": "tdesign-vue-next",
   "description": "TDesign Component for vue-next",
   "keywords": [
@@ -74,10 +74,12 @@
     "@babel/runtime": "^7.14.8",
     "@popperjs/core": "^2.9.3",
     "@types/lodash": "^4.14.175",
+    "@types/tinycolor2": "^1.4.3",
     "@types/validator": "^13.6.3",
     "dayjs": "^1.9.7",
     "lodash": "^4.17.15",
     "tdesign-icons-vue-next": "~0.0.7",
+    "tinycolor2": "^1.4.2",
     "validator": "^13.5.1"
   },
   "peerDependencies": {

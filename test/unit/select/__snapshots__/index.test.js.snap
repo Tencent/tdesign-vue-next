@@ -643,7 +643,6 @@ exports[`Select :props :multiple 1`] = `
               >
                 <label
                   class="t-checkbox"
-                  modelvalue="false"
                 >
                   <input
                     class="t-checkbox__former"

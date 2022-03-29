@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import defaultConfig from './zh_CN_config';
+import { defaultGlobalConfig } from './context';
 import { GlobalConfigProvider } from './type';
 
 export type ValueOf<T> = T[keyof T];
@@ -24,7 +24,7 @@ export default function getConfigReceiverMixins<C extends ComponentConfigType>(c
 
     computed: {
       global(): C {
-        const defaultData = defaultConfig[componentName];
+        const defaultData = defaultGlobalConfig[componentName];
         if (this.globalConfig && this.globalConfig[componentName]) {
           return {
             ...defaultData,

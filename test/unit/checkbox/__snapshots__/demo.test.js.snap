@@ -4,7 +4,6 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
 <div>
   <label
     class="t-checkbox"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -23,7 +22,6 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -42,7 +40,6 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox t-is-checked"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -61,7 +58,6 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -81,7 +77,6 @@ exports[`Checkbox Checkbox baseVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox t-is-checked t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -107,7 +102,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
   <!-- 单个 Checkbox 受控模式 -->
   <label
     class="t-checkbox t-is-checked"
-    modelvalue="true"
   >
     <input
       class="t-checkbox__former"
@@ -126,7 +120,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox t-is-checked"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -145,7 +138,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
   </label>
   <label
     class="t-checkbox"
-    modelvalue="false"
   >
     <input
       class="t-checkbox__former"
@@ -168,7 +160,6 @@ exports[`Checkbox Checkbox controlledVue demo works fine 1`] = `
   <!-- 复选框框组受控模式 -->
   <div
     class="t-checkbox-group"
-    modelvalue=""
   >
     
     <label
@@ -265,7 +256,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   <div>
     <label
       class="t-checkbox t-is-indeterminate"
-      modelvalue="false"
     >
       <input
         class="t-checkbox__former"
@@ -285,7 +275,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   </div>
   <div
     class="t-checkbox-group"
-    modelvalue="选项一"
   >
     
     <label
@@ -358,12 +347,10 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   </div>
   <div
     class="t-checkbox-group"
-    modelvalue="选项一"
   >
     
     <label
       class="t-checkbox t-is-indeterminate"
-      modelvalue="false"
     >
       <input
         class="t-checkbox__former"
@@ -381,7 +368,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="false"
     >
       <input
         class="t-checkbox__former"
@@ -402,7 +388,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox"
-      modelvalue="false"
     >
       <input
         class="t-checkbox__former"
@@ -421,7 +406,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox"
-      modelvalue="false"
     >
       <input
         class="t-checkbox__former"
@@ -446,7 +430,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   </div>
   <div
     class="t-checkbox-group"
-    modelvalue="选项一,选项二,选项三"
   >
     
     <label
@@ -538,7 +521,6 @@ exports[`Checkbox Checkbox groupVue demo works fine 1`] = `
   </div>
   <div
     class="t-checkbox-group"
-    modelvalue=""
   >
     
     <label
@@ -642,7 +624,6 @@ exports[`Checkbox Checkbox linkVue demo works fine 1`] = `
     <!-- name 非必需 -->
     <div
       class="t-checkbox-group"
-      modelvalue="选项二"
     >
       
       <label

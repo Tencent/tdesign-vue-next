@@ -117,7 +117,6 @@ exports[`SelectInput SelectInput autowidthMultipleVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-borderless-multiple"
-            modelvalue=""
           >
             
             <label
@@ -268,10 +267,10 @@ exports[`SelectInput SelectInput autowidthMultipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-input--suffix t-input--auto-width t-tag-input"
+        class="t-input t-input--prefix t-input--suffix t-input--auto-width"
       >
         <!---->
         <div
@@ -471,7 +470,6 @@ exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-borderless-multiple"
-            modelvalue=""
           >
             
             <label
@@ -622,10 +620,10 @@ exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -782,7 +780,6 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
-            modelvalue=""
           >
             
             <label
@@ -933,10 +930,10 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -1009,7 +1006,6 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
-            modelvalue=""
           >
             
             <label
@@ -1160,10 +1156,10 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -1258,7 +1254,6 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-collapsed-items"
-            modelvalue=""
           >
             
             <label
@@ -1409,10 +1404,10 @@ exports[`SelectInput SelectInput collapsedItemsVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -1692,10 +1687,10 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-tag-input"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -1703,7 +1698,7 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
         >
           
           <span
-            class="t-tag t-tag--default t-tag--dark t-size-m"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -1729,10 +1724,22 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
             </span>
             
             
-            <!---->
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
           </span>
           <span
-            class="t-tag t-tag--default t-tag--dark t-size-m"
+            class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
           >
             <!---->
             
@@ -1758,7 +1765,19 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
             </span>
             
             
-            <!---->
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
           </span>
           
         </div>
@@ -1805,10 +1824,10 @@ exports[`SelectInput SelectInput customTagVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-is-readonly t-input--prefix t-tag-input"
+        class="t-input t-is-readonly t-input--prefix"
       >
         <!---->
         <div
@@ -1991,7 +2010,6 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-excess-tags-display-type"
-            modelvalue=""
           >
             
             <label
@@ -2142,10 +2160,10 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input"
     >
       <div
-        class="t-input t-input--prefix t-tag-input"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -2317,7 +2335,6 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-excess-tags-display-type"
-            modelvalue=""
           >
             
             <label
@@ -2468,10 +2485,10 @@ exports[`SelectInput SelectInput excessTagsDisplayTypeVue demo works fine 1`] = 
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
-        class="t-input t-input--prefix t-tag-input t-tag-input--break-line"
+        class="t-input t-input--prefix"
       >
         <!---->
         <div
@@ -2828,7 +2845,6 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
   <div>
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
     >
       <input
         class="t-checkbox__former"
@@ -2847,7 +2863,6 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
     </label>
     <label
       class="t-checkbox t-is-checked"
-      modelvalue="true"
     >
       <input
         class="t-checkbox__former"
@@ -2934,7 +2949,6 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
           
           <div
             class="t-checkbox-group tdesign-demo__panel-options-multiple"
-            modelvalue=""
           >
             
             <label
@@ -3085,10 +3099,10 @@ exports[`SelectInput SelectInput multipleVue demo works fine 1`] = `
     </transition-stub>
     
     <div
-      class="t-input__wrap"
+      class="t-input__wrap t-tag-input t-tag-input--break-line"
     >
       <div
-        class="t-input t-input--prefix t-input--suffix t-tag-input t-tag-input--break-line"
+        class="t-input t-input--prefix t-input--suffix"
       >
         <!---->
         <div

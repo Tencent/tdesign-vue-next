@@ -177,7 +177,6 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
 >
   <div
     class="t-tabs"
-    modelvalue="1"
   >
     
     <div
@@ -286,7 +285,6 @@ exports[`Tabs Tabs baseVue demo works fine 1`] = `
   <!-- 方式二：使用 list 定义 Tab -->
   <div
     class="t-tabs"
-    modelvalue="1"
   >
     
     <div
@@ -453,7 +451,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
   </div>
   <div
     class="t-tabs"
-    modelvalue="1"
   >
     
     <div
@@ -807,7 +804,6 @@ exports[`Tabs Tabs customVue demo works fine 1`] = `
 >
   <div
     class="t-tabs"
-    modelvalue="first"
   >
     
     <div
@@ -1148,7 +1144,6 @@ exports[`Tabs Tabs operationVue demo works fine 1`] = `
   </div>
   <div
     class="t-tabs"
-    modelvalue="first"
   >
     
     <div
@@ -1715,7 +1710,6 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
   >
     <div
       class="t-tabs"
-      modelvalue="first"
     >
       
       <div
@@ -1823,7 +1817,6 @@ exports[`Tabs Tabs themeVue demo works fine 1`] = `
     </div>
     <div
       class="t-tabs"
-      modelvalue="first"
     >
       
       <div

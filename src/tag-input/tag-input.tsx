@@ -26,7 +26,7 @@ export default defineComponent({
 
   props: { ...props },
 
-  setup(props: TdTagInputProps, context) {
+  setup(props: TdTagInputProps) {
     const { NAME_CLASS, CLEAR_CLASS, BREAK_LINE_CLASS } = useComponentClassName();
 
     const { inputValue } = toRefs(props);
@@ -129,12 +129,12 @@ export default defineComponent({
     return (
       <TInput
         ref="tagInputRef"
+        readonly={this.readonly}
         {...this.inputProps}
         value={this.tInputValue}
         onWheel={this.onWheel}
         autoWidth={this.autoWidth}
         size={this.size}
-        readonly={this.readonly}
         disabled={this.disabled}
         label={() => this.renderLabel({ displayNode, label })}
         class={this.classes}

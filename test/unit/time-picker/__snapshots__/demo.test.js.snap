@@ -803,7 +803,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -1696,7 +1696,7 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -2599,7 +2599,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -3495,7 +3495,7 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -4395,7 +4395,7 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -5253,7 +5253,7 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -6165,7 +6165,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -7061,7 +7061,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -7126,7 +7126,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
         <span
           class="t-time-picker__input-placeholder"
         >
-          请选择时间
+          选择时间
         </span>
       </div>
     </div>
@@ -7631,7 +7631,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -7696,7 +7696,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
         <span
           class="t-time-picker__input-placeholder"
         >
-          请选择时间
+          选择时间
         </span>
       </div>
     </div>
@@ -8508,7 +8508,7 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -9411,7 +9411,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -10304,7 +10304,7 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -12493,7 +12493,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -12558,7 +12558,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
         <span
           class="t-time-picker__input-placeholder"
         >
-          请选择时间
+          选择时间
         </span>
       </div>
     </div>
@@ -13020,7 +13020,7 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -13877,7 +13877,7 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>
@@ -14743,7 +14743,7 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
                   class="t-button__text"
                 >
                   
-                  
+                  此刻
                   
                 </span>
               </button>

@@ -14,6 +14,7 @@ exports[`Textarea Textarea baseVue demo works fine 1`] = `
     />
     <!---->
     <!---->
+    <!---->
   </div>
   <div
     class="t-textarea"
@@ -25,6 +26,7 @@ exports[`Textarea Textarea baseVue demo works fine 1`] = `
     />
     <!---->
     <!---->
+    <!---->
   </div>
   <div
     class="t-textarea"
@@ -34,6 +36,7 @@ exports[`Textarea Textarea baseVue demo works fine 1`] = `
       name="description"
       placeholder="请输入文案，高度可自适应，最小3行，最大5行；autosize={minRows: 3, maxRows: 5}"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -51,6 +54,7 @@ exports[`Textarea Textarea eventsVue demo works fine 1`] = `
       class="t-textarea__inner narrow-scrollbar"
       placeholder="请输入"
     />
+    <!---->
     <!---->
     <!---->
   </div>
@@ -73,6 +77,7 @@ exports[`Textarea Textarea maxlengthVue demo works fine 1`] = `
     >
       0/20
     </span>
+    <!---->
   </div>
   <br />
   <div
@@ -87,6 +92,7 @@ exports[`Textarea Textarea maxlengthVue demo works fine 1`] = `
     >
       0/20
     </span>
+    <!---->
     <!---->
   </div>
 </div>
@@ -105,6 +111,7 @@ exports[`Textarea Textarea typeVue demo works fine 1`] = `
     />
     <!---->
     <!---->
+    <!---->
   </div>
   <div
     class="t-textarea t-is-readonly"
@@ -115,19 +122,16 @@ exports[`Textarea Textarea typeVue demo works fine 1`] = `
     />
     <!---->
     <!---->
+    <!---->
   </div>
   <div
-    class="t-textarea__wrap"
+    class="t-textarea"
   >
-    <div
-      class="t-textarea"
-    >
-      <textarea
-        class="t-textarea__inner narrow-scrollbar"
-      />
-      <!---->
-      <!---->
-    </div>
+    <textarea
+      class="t-textarea__inner narrow-scrollbar"
+    />
+    <!---->
+    <!---->
     <div
       class="t-textarea__tips t-textarea__tips--normal"
     >
@@ -135,17 +139,13 @@ exports[`Textarea Textarea typeVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-textarea__wrap"
+    class="t-textarea"
   >
-    <div
-      class="t-textarea"
-    >
-      <textarea
-        class="t-textarea__inner t-is-success narrow-scrollbar"
-      />
-      <!---->
-      <!---->
-    </div>
+    <textarea
+      class="t-textarea__inner t-is-success narrow-scrollbar"
+    />
+    <!---->
+    <!---->
     <div
       class="t-textarea__tips t-textarea__tips--success"
     >
@@ -153,17 +153,13 @@ exports[`Textarea Textarea typeVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-textarea__wrap"
+    class="t-textarea"
   >
-    <div
-      class="t-textarea"
-    >
-      <textarea
-        class="t-textarea__inner t-is-warning narrow-scrollbar"
-      />
-      <!---->
-      <!---->
-    </div>
+    <textarea
+      class="t-textarea__inner t-is-warning narrow-scrollbar"
+    />
+    <!---->
+    <!---->
     <div
       class="t-textarea__tips t-textarea__tips--warning"
     >
@@ -171,17 +167,13 @@ exports[`Textarea Textarea typeVue demo works fine 1`] = `
     </div>
   </div>
   <div
-    class="t-textarea__wrap"
+    class="t-textarea"
   >
-    <div
-      class="t-textarea"
-    >
-      <textarea
-        class="t-textarea__inner t-is-error narrow-scrollbar"
-      />
-      <!---->
-      <!---->
-    </div>
+    <textarea
+      class="t-textarea__inner t-is-error narrow-scrollbar"
+    />
+    <!---->
+    <!---->
     <div
       class="t-textarea__tips t-textarea__tips--error"
     >

@@ -284,12 +284,13 @@ exports[`DatePicker :mode 1`] = `
       class="t-form-controls"
     >
       <div
+        allowinput="0"
         class="t-input__wrap"
+        input="function () { [native code] }"
+        modelvalue=""
       >
         <div
-          allowinput="0"
           class="t-input t-input--suffix"
-          modelvalue=""
         >
           <!---->
           <!---->
@@ -924,12 +925,13 @@ exports[`DatePicker :range 1`] = `
       class="t-form-controls"
     >
       <div
+        allowinput="0"
         class="t-input__wrap"
+        input="function () { [native code] }"
+        modelvalue="2018-08-01 至 2028-04-01"
       >
         <div
-          allowinput="0"
           class="t-input t-input--suffix"
-          modelvalue="2018-08-01 至 2028-04-01"
         >
           <!---->
           <!---->
@@ -1279,12 +1281,13 @@ exports[`DatePicker :value 1`] = `
       class="t-form-controls"
     >
       <div
+        allowinput="0"
         class="t-input__wrap"
+        input="function () { [native code] }"
+        modelvalue="1998-11-11"
       >
         <div
-          allowinput="0"
           class="t-input t-input--suffix"
-          modelvalue="1998-11-11"
         >
           <!---->
           <!---->
