@@ -11787,7 +11787,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
       <div class="t-input__wrap" unselectable="off">
         <div class="t-input">
           <!---->
-          <!----><input class="t-input__inner" placeholder="请输入" type="text" value="1">
+          <!----><input class="t-input__inner" placeholder type="text" value="1">
           <!---->
           <!---->
           <!---->
@@ -26057,7 +26057,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
         <div class="t-input__wrap" unselectable="off">
           <div class="t-input">
             <!---->
-            <!----><input class="t-input__inner" placeholder="请输入" type="text" value="1">
+            <!----><input class="t-input__inner" placeholder type="text" value="1">
             <!---->
             <!---->
             <!---->
