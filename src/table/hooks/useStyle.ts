@@ -18,7 +18,7 @@ export default function useStyle(props: TdBaseTableProps) {
   const tableClasses = computed<ClassName>(() => [
     tableBaseClass.table,
     {
-      [sizeClassNames[size.value]]: size.value,
+      [sizeClassNames[size.value]]: size.value !== 'medium',
       [tableBaseClass.bordered]: bordered.value,
       [tableBaseClass.striped]: stripe.value,
       [tableBaseClass.hover]: hover.value,

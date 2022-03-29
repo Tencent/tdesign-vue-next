@@ -1,10 +1,14 @@
 <template>
   <div>
-    <div class="table-operations" style="margin: 16px">
-      <t-button @click="setFilters"> 清除筛选条件 </t-button>
+    <div>
+      <t-radio-group v-model="align" variant="default-filled">
+        <t-radio-button value="left">左对齐</t-radio-button>
+        <t-radio-button value="center">居中对齐</t-radio-button>
+        <t-radio-button value="right">右对齐</t-radio-button>
+      </t-radio-group>
+      <t-button variant="text" style="margin-left: 36px" @click="setFilters">清除筛选条件</t-button>
       <span style="padding-left: 36px">已选筛选条件：{{ filterValue }}</span>
     </div>
-
     <div style="margin: 16px">
       <t-checkbox v-model="bordered">是否显示表格边框</t-checkbox>
     </div>
@@ -36,7 +40,7 @@
 </template>
 
 <script setup lang="jsx">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 
 const initData = new Array(5).fill(null).map((_, i) => ({
   key: String(i + 1),
@@ -52,10 +56,13 @@ const initData = new Array(5).fill(null).map((_, i) => ({
   createTime: ['2021-11-01', '2021-12-01', '2022-01-01', '2022-02-01', '2022-03-01'][i % 4],
 }));
 
-const columns = [
+const align = ref('left');
+
+const columns = computed(() => [
   {
     title: 'FirstName',
     colKey: 'firstName',
+    align: align.value,
     // 单选过滤配置
     filter: {
       type: 'single',
@@ -103,7 +110,7 @@ const columns = [
       component: () => <t-date-picker clearable />,
     },
   },
-];
+]);
 
 const filterValue = ref({});
 const data = ref([...initData]);

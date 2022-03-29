@@ -36,7 +36,7 @@ export default defineComponent({
     // 行选中功能
     const { formatToRowSelectColumn, tRowClassNames } = useRowSelect(props);
     // 过滤功能
-    const { hasEmptyCondition, renderFilterIcon, renderFirstFilterRow } = useFilter(props);
+    const { hasEmptyCondition, primaryTableRef, renderFilterIcon, renderFirstFilterRow } = useFilter(props);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
@@ -92,6 +92,7 @@ export default defineComponent({
       showExpandedRow,
       tRowClassNames,
       hasEmptyCondition,
+      primaryTableRef,
       renderTNode,
       renderColumnController,
       renderExpandedRow,
@@ -112,8 +113,8 @@ export default defineComponent({
       if (innerNode && propsNode) {
         return () => (
           <div>
-            {innerNode}
             {propsNode}
+            {innerNode}
           </div>
         );
       }
@@ -140,6 +141,6 @@ export default defineComponent({
     if (this.expandOnRowClick) {
       props.onRowClick = this.onInnerExpandRowClick;
     }
-    return <BaseTable v-slots={this.$slots} {...props} {...this.$attrs} />;
+    return <BaseTable ref="primaryTableRef" v-slots={this.$slots} {...props} {...this.$attrs} />;
   },
 });

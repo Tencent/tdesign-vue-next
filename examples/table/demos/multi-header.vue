@@ -4,7 +4,6 @@
     <!-- 按钮操作区域 -->
     <div>
       <t-checkbox v-model="bordered">显示表格边框</t-checkbox>
-      <!-- 只要有 maxHeight，就有固定表头，无论该值是否存在 -->
       <t-checkbox v-model="fixedHeader">显示固定表头</t-checkbox>
       <!-- 为保证组件收益最大化，当数据量小于 `100` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 -->
       <t-checkbox v-model="virtualScroll">虚拟滚动</t-checkbox>
@@ -21,7 +20,7 @@
       :v-model:sort="sortInfo"
       :columns="columns"
       :bordered="bordered"
-      :max-height="fixedHeader ? 380 : 1000"
+      :max-height="fixedHeader ? 380 : undefined"
       :column-controller="{ displayType: 'auto-width' }"
       :filter-row="() => null"
       :header-affix-props="{ offsetTop: 0 }"
@@ -35,9 +34,9 @@
 <script setup>
 import { computed, ref } from 'vue';
 
-const data = [];
+const initialData = [];
 for (let i = 0; i < 600; i++) {
-  data.push({
+  initialData.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
     type: ['String', 'Number', 'Array', 'Object'][i % 4],
@@ -143,11 +142,10 @@ function getColumns(fixedLeftCol, fixedRightCol) {
       children: [
         {
           align: 'left',
-          ellipsis: true,
           colKey: 'property',
           title: '属性',
           fixed: fixedRightCol && 'right',
-          width: 100,
+          width: 110,
           filter: {
             type: 'single',
             list: [
@@ -198,6 +196,7 @@ function getColumns(fixedLeftCol, fixedRightCol) {
   ];
 }
 
+const data = ref([...initialData]);
 const sortInfo = ref({});
 const bordered = ref(true);
 const fixedHeader = ref(true);
@@ -209,10 +208,10 @@ const virtualScroll = ref(true);
 const columns = computed(() => getColumns(fixedLeftCol.value, fixedRightCol.value));
 
 const onDataChange = (val) => {
-  this.data = val.concat();
+  data.value = val.concat();
 };
 
 const onFilterChange = (filterValue) => {
-  this.data = data.filter((t) => !filterValue.property || filterValue.property === t.property);
+  data.value = initialData.filter((t) => !filterValue.property || filterValue.property === t.property);
 };
 </script>

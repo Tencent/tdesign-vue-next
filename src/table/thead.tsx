@@ -1,4 +1,4 @@
-import { defineComponent, computed, SetupContext, PropType } from 'vue';
+import { defineComponent, computed, SetupContext, PropType, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { RowAndColFixedPosition, getColumnFixedStyles } from './hooks/useFixed';
 import { TableColumns, ThRowspanAndColspan } from './hooks/useMultiHeader';
@@ -38,6 +38,7 @@ export default defineComponent({
   },
 
   setup(props: TheadProps, { slots }: SetupContext) {
+    const theadRef = ref<HTMLHeadElement>();
     const classnames = useClassName();
     const { tableHeaderClasses, tableBaseClass } = classnames;
     const { classPrefix } = useConfig();
@@ -54,6 +55,7 @@ export default defineComponent({
       ...classnames,
       theadClasses,
       classPrefix,
+      theadRef,
       slots,
     };
   },
@@ -68,9 +70,9 @@ export default defineComponent({
       const thRowspanAndColspan = this.spansAndLeafNodes.rowspanAndColspanMap;
       return this.thList.map((row, rowIndex) => {
         const thRow = row.map((col: TableColumns[0], index: number) => {
-          const rospanAndColspan = thRowspanAndColspan.get(col);
-          if (index === 0 && rospanAndColspan.rowspan > 1) {
-            for (let j = rowIndex + 1; j < rowIndex + rospanAndColspan.rowspan; j++) {
+          const rowspanAndColspan = thRowspanAndColspan.get(col);
+          if (index === 0 && rowspanAndColspan.rowspan > 1) {
+            for (let j = rowIndex + 1; j < rowIndex + rowspanAndColspan.rowspan; j++) {
               thBorderMap.set(this.thList[j][0], true);
             }
           }
@@ -97,9 +99,13 @@ export default defineComponent({
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
           return (
-            <th key={col.colKey} data-colkey={col.colKey} class={thClasses} style={styles} {...rospanAndColspan}>
+            <th key={col.colKey} data-colkey={col.colKey} class={thClasses} style={styles} {...rowspanAndColspan}>
               <div class={this.tableBaseClass.thCellInner}>
-                {col.ellipsis ? <TEllipsis>{innerTh}</TEllipsis> : innerTh}
+                {col.ellipsis ? (
+                  <TEllipsis attach={this.theadRef ? () => this.theadRef : undefined}>{innerTh}</TEllipsis>
+                ) : (
+                  innerTh
+                )}
               </div>
             </th>
           );

@@ -1,15 +1,12 @@
 <template>
   <div>
-    <div style="margin-bottom: 10px">默认加载状态</div>
-    <t-table :data="data" :columns="columns" :row-key="rowKey" :size="size" :loading="true" height="150" />
-    <div style="margin-bottom: 10px">插槽定义加载状态</div>
-    <t-table :data="[]" :columns="columns" :row-key="rowKey" :size="size" :loading="true" height="150">
+    <t-table :data="data" :columns="columns" :row-key="rowKey" :size="size" :loading="true" />
+    <t-table :data="[]" :columns="columns" :row-key="rowKey" :size="size" :loading="true">
       <template #loading>
         <div class="t-table--loading-message">这里使用插槽自定义加载状态</div>
       </template>
     </t-table>
-    <div style="margin-bottom: 10px">渲染函数定义加载状态</div>
-    <t-table :data="[]" :columns="columns" :row-key="rowKey" :size="size" :loading="renderLoading" height="150" />
+    <t-table :data="[]" :columns="columns" :row-key="rowKey" :size="size" :loading="renderLoading" />
   </div>
 </template>
 <script setup lang="jsx">

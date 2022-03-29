@@ -287,6 +287,7 @@ export default defineComponent({
         {
           [this.tdEllipsisClass]: col.ellipsis,
           [this.tableBaseClass.tdLastRow]: rowIndex + cellSpans.rowspan === dataLength,
+          [this.tableBaseClass.tdFirstCol]: colIndex === 0,
           [this.tdAlignClasses[col.align]]: col.align && col.align !== 'left',
         },
       ];

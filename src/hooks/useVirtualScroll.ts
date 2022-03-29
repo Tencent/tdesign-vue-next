@@ -95,14 +95,14 @@ const useVirtualScroll = ({
     if (!anchorDom) {
       return; // 快速调整高度时，新的元素可能来不及加载，暂时跳过更新
     }
-    const anchorDomHeight = anchorDom.getBoundingClientRect().height; // 获取锚点元素的高
+    const anchorDomHeight = anchorDom?.getBoundingClientRect()?.height; // 获取锚点元素的高
     state.cachedScrollY[index] = container.value.scrollTop - offset; // 锚点元素scrollY= 容器滚动高度 - 锚点元素的offset
     state.cachedHeight[index] = anchorDomHeight;
 
     for (let i = index + 1; i <= state.visibleData[state.visibleData.length - 1].$index; i++) {
       // 计算锚点后面的元素scrollY
       const tr = trs.get(i);
-      const { height } = tr.getBoundingClientRect();
+      const { height } = tr?.getBoundingClientRect() || {};
       state.cachedHeight[i] = height;
       const scrollY = state.cachedScrollY[i - 1] + state.cachedHeight[i - 1]; // 当前元素的y 是前一个元素的y+前一个元素高度
       // state.cachedScrollY[i] = scrollY;
@@ -111,7 +111,7 @@ const useVirtualScroll = ({
 
     for (let i = index - 1; i >= state.visibleData[0].$index; i--) {
       const tr = trs.get(i);
-      const { height } = tr.getBoundingClientRect();
+      const { height } = tr?.getBoundingClientRect() || {};
       state.cachedHeight[i] = height;
       const scrollY = state.cachedScrollY[i + 1] - state.cachedHeight[i]; // 当前元素的y是下一个元素y - 当前元素高度
       // state.cachedScrollY[i] = scrollY;

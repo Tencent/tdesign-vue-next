@@ -9,6 +9,7 @@ export default function useClassName() {
       content: `${classPrefix.value}-table__content`,
       topContent: `${classPrefix.value}-table__top-content`,
       tdLastRow: `${classPrefix.value}-table__td-last-row`,
+      tdFirstCol: `${classPrefix.value}-table__td-first-col`,
       thCellInner: `${classPrefix.value}-table__th-cell-inner`,
       bordered: `${classPrefix.value}-table--bordered`,
       striped: `${classPrefix.value}-table--striped`,

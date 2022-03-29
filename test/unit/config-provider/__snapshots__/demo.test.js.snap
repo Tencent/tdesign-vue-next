@@ -9827,7 +9827,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   
   <!-- 全局配置：空数据呈现，演示 -->
   <div
-    class="t-table t-size-m t-table--bordered"
+    class="t-table t-table--bordered"
     defaultexpandedrowkeys=""
     dragsort="drag-col"
     expandicon="true"
@@ -10175,7 +10175,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <br />
   <!-- 全局配置：自定义展开图标和排序图标，演示 -->
   <div
-    class="t-table t-size-m"
+    class="t-table"
     defaultexpandedrowkeys=""
     dragsort="drag-col"
     expandedrow="h => {
@@ -10523,7 +10523,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell"
+              class="t-table__expandable-icon-cell t-table__td-first-col"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -10565,7 +10565,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell"
+              class="t-table__expandable-icon-cell t-table__td-first-col"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -10607,7 +10607,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell"
+              class="t-table__expandable-icon-cell t-table__td-first-col"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
