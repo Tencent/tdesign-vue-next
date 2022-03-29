@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, defineComponent, provide, computed, ComputedRef } from 'vue';
+import { ComponentPublicInstance, defineComponent, provide, computed, Ref, toRefs } from 'vue';
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
@@ -6,9 +6,10 @@ import props from './props';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../config-provider';
+import useVModel from '../hooks/useVModel';
 
 export interface InjectTabs {
-  value: ComputedRef<TabValue>;
+  value: Ref<TabValue>;
 }
 
 export default defineComponent({
@@ -26,14 +27,17 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
 
-    provide<InjectTabs>('tabs', { value: computed(() => props.value) });
+    const { value, modelValue } = toRefs(props);
+    const [tabValue, setTabValue] = useVModel(value, modelValue, props.defaultValue || '', props.onChange);
+
+    provide<InjectTabs>('tabs', { value: tabValue });
 
     // methods
     const onTabAdd = (context: { e: MouseEvent }) => {
       props.onAdd({ e: context.e });
     };
     const onTabChange = (value: TabValue) => {
-      props.onChange(value);
+      setTabValue(value);
     };
     const onTabRemove = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
       props.onRemove({ value, index, e });
@@ -70,7 +74,7 @@ export default defineComponent({
       });
       const tabNavProps = {
         theme: props.theme,
-        value: props.value,
+        value: tabValue.value,
         size: props.size,
         disabled: props.disabled,
         placement: props.placement,

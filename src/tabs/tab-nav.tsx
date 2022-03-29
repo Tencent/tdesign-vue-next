@@ -191,6 +191,7 @@ export default defineComponent({
         } else {
           label = panel.label || `选项卡${index + 1}`;
         }
+
         return (
           <TTabNavItem
             ref={setActiveTab}
