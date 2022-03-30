@@ -32,7 +32,22 @@ export default {
     default: false,
   },
   /** 是否显示卡片阴影，默认不显示 */
-  shadow: Boolean,
+  shadow: {
+    type: Boolean,
+    default: false,
+  },
+  hoverShadow: {
+    type: Boolean,
+    default: true,
+  },
+  /** 组件风格 */
+  theme: {
+    type: String as PropType<TdCardProps['theme']>,
+    default: 'info' as TdCardProps['theme'],
+    validator(val: TdCardProps['theme']): boolean {
+      return ['normal', 'poster1', 'poster2'].includes(val);
+    },
+  },
   /** 尺寸 */
   size: {
     type: String as PropType<TdCardProps['size']>,
@@ -44,5 +59,12 @@ export default {
   /** 卡片标题 */
   title: {
     type: [String, Function] as PropType<TdCardProps['title']>,
+  },
+  subtitle: {
+    type: [String, Function] as PropType<TdCardProps['subtitle']>,
+  },
+  headBordered: {
+    type: Boolean,
+    default: false,
   },
 };

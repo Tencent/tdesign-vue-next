@@ -41,7 +41,13 @@ export interface TdCardProps {
    */
   size?: 'medium' | 'small';
   /**
+   * 组件风格
+   * @default info
+   */
+  theme?: 'normal' | 'poster1' | 'poster2';
+  /**
    * 卡片标题
    */
   title?: string | TNode;
+  subtitle?: string | TNode;
 }
