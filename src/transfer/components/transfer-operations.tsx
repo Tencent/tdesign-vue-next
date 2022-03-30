@@ -59,7 +59,7 @@ export default defineComponent({
       return direction === 'left' ? getIconLeft : getIconRight;
     };
     // right:去右边，left:去左边
-    const _renderButton = (h: typeof createElementVNode, direction: 'left' | 'right') => {
+    const renderButton = (h: typeof createElementVNode, direction: 'left' | 'right') => {
       if (typeof slots.operation === 'function') {
         return slots.operation({
           direction,
@@ -89,7 +89,7 @@ export default defineComponent({
             onClick={moveToRight}
             icon={getIcon('right')}
           >
-            {_renderButton(h, 'right')}
+            {renderButton(h, 'right')}
           </t-button>
           <t-button
             variant={props.leftDisabled ? 'outline' : 'base'}
@@ -98,7 +98,7 @@ export default defineComponent({
             onClick={moveToLeft}
             icon={getIcon('left')}
           >
-            {_renderButton(h, 'left')}
+            {renderButton(h, 'left')}
           </t-button>
         </div>
       );

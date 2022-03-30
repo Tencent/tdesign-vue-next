@@ -1,4 +1,4 @@
-import { defineComponent, VNode, computed, toRefs } from 'vue';
+import { defineComponent, computed, toRefs, ref } from 'vue';
 import pick from 'lodash/pick';
 import TransferList from './components/transfer-list';
 import TransferOperations from './components/transfer-operations';
@@ -8,28 +8,16 @@ import {
   CheckedOptions,
   TransferValue,
   EmptyType,
-  TransferListOptionBase,
   TargetParams,
   SearchEvent,
   SearchOption,
-  TdTransferProps,
 } from './interface';
 
-import {
-  getTransferListOption,
-  emitEvent,
-  getDataValues,
-  getTransferData,
-  filterTransferData,
-  TRANSFER_NAME,
-} from './utils';
+import { getTransferListOption, getDataValues, getTransferData, filterTransferData, TRANSFER_NAME } from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins from '../config-provider/config-receiver';
 import props from './props';
 import { TNode } from '../common';
 import useVModel from '../hooks/useVModel';
-import useDefaultValue from '../hooks/useDefaultValue';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -39,7 +27,6 @@ const SOURCE = 'source';
 const TARGET = 'target';
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins('transfer')),
   name: TRANSFER_NAME,
   components: {
     TransferList,
@@ -48,20 +35,23 @@ export default defineComponent({
   props: {
     ...props,
   },
-  emits: [
-    'checkChange',
-    'change',
-    'scroll',
-    'search',
-    'page-change',
-    'update:checked',
-    'checked-change',
-    'update:value',
-  ],
   setup(props, { emit, slots }) {
     const disabled = useFormDisabled();
     const classPrefix = usePrefixClass();
     const { t, global } = useConfig('transfer');
+    const { value, modelValue } = toRefs(props);
+    const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+    const initChecked = computed(() => {
+      if (props.checked && props.checked.length) {
+        return props.checked;
+      }
+      if (props.defaultChecked && props.defaultChecked.length) {
+        return props.defaultChecked;
+      }
+      return [];
+    });
+    const checkedValueList = ref(initChecked.value);
+    const valueList = ref(innerValue.value || []);
 
     const isTreeMode = computed(() => {
       const treeSlot = slots.tree;
@@ -75,16 +65,16 @@ export default defineComponent({
       return getTransferData(props.data, props.keys, isTreeMode.value);
     });
     const sourceList = computed(() => {
-      return filterTransferData(transferData.value, props.value, false, isTreeMode.value);
+      return filterTransferData(transferData.value, valueList.value, false, isTreeMode.value);
     });
     const targetList = computed(() => {
-      return filterTransferData(transferData.value, props.value, true, isTreeMode.value);
+      return filterTransferData(transferData.value, valueList.value, true, isTreeMode.value);
     });
     // 被选中的value
     const checkedValue = computed(() => {
       return {
-        [SOURCE]: getDataValues(sourceList.value, props.checked, { isTreeMode: isTreeMode.value }),
-        [TARGET]: getDataValues(targetList.value, props.checked, { isTreeMode: isTreeMode.value }),
+        [SOURCE]: getDataValues(sourceList.value, checkedValueList.value, { isTreeMode: isTreeMode.value }),
+        [TARGET]: getDataValues(targetList.value, checkedValueList.value, { isTreeMode: isTreeMode.value }),
       };
     });
     const hasFooter = computed(() => {
@@ -132,26 +122,27 @@ export default defineComponent({
         type: listType,
       };
       // 支持v-model:checked
-      emit('update:checked', checked);
-      emit('checked-change', event);
+      props['onUpdate:checked']?.(checked);
+      props.onCheckedChange?.(event);
+      checkedValueList.value = checked;
     };
 
     const transferTo = (toDirection: TransferListType) => {
-      const oldTargetValue: Array<TransferValue> = JSON.parse(JSON.stringify(props.value));
+      const oldTargetValue: Array<TransferValue> = JSON.parse(JSON.stringify(valueList.value));
       let newTargetValue: Array<TransferValue>;
-      const _checkedValue = toDirection === TARGET ? checkedValue.value[SOURCE] : checkedValue.value[TARGET];
+      const selfCheckedValue = toDirection === TARGET ? checkedValue.value[SOURCE] : checkedValue.value[TARGET];
       // target->source
       if (toDirection === SOURCE) {
-        newTargetValue = oldTargetValue.filter((v) => !_checkedValue.includes(v));
+        newTargetValue = oldTargetValue.filter((v) => !selfCheckedValue.includes(v));
       } else if (props.targetSort === 'original') {
         // 按照原始顺序
-        newTargetValue = getDataValues(transferData.value, oldTargetValue.concat(_checkedValue), {
+        newTargetValue = getDataValues(transferData.value, oldTargetValue.concat(selfCheckedValue), {
           isTreeMode: isTreeMode.value,
         });
       } else if (props.targetSort === 'unshift') {
-        newTargetValue = _checkedValue.concat(oldTargetValue);
+        newTargetValue = selfCheckedValue.concat(oldTargetValue);
       } else {
-        newTargetValue = oldTargetValue.concat(_checkedValue);
+        newTargetValue = oldTargetValue.concat(selfCheckedValue);
       }
 
       // 清空checked。与toDirection相反
@@ -159,9 +150,10 @@ export default defineComponent({
 
       const params: TargetParams = {
         type: toDirection,
-        movedValue: _checkedValue,
+        movedValue: selfCheckedValue,
       };
-      emit('change', newTargetValue, params);
+      valueList.value = newTargetValue;
+      setInnerValue(newTargetValue, params);
     };
 
     // 点击移到右边按钮触发的函数
@@ -190,16 +182,13 @@ export default defineComponent({
         bottomDistance,
         type: listType,
       };
-      emit('scroll', event);
-      // emitEvent<Parameters<TdTransferProps['onScroll']>>(this, 'scroll', event);
+      props.onScroll?.(event);
     };
     const handleSearch = (e: SearchEvent) => {
-      emit('search', e);
-      // emitEvent<Parameters<TdTransferProps['onSearch']>>(this, 'search', e);
+      props.onSearch?.(e);
     };
     const handlePageChange = (pageInfo: PageInfo, listType: TransferListType) => {
-      emit('page-change', pageInfo, { type: listType });
-      // emitEvent<Parameters<TdTransferProps['onPageChange']>>(this, 'page-change', pageInfo, { type: listType });
+      props.onPageChange?.(pageInfo, { type: listType });
     };
     const renderTransferList = (listType: TransferListType) => {
       const scopedSlots = pick(slots, ['title', 'empty', 'footer', 'operation', 'transferItem', 'default', 'tree']);
