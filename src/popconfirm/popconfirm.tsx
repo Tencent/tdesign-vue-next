@@ -48,6 +48,7 @@ export default defineComponent({
         cancelBtn: props.cancelBtn,
         globalCancel: global.value.cancel,
         className: `${COMPONENT_NAME.value}__cancel`,
+        size: 'small',
       });
 
       const confirmBtn = getConfirmBtn({
@@ -56,6 +57,7 @@ export default defineComponent({
         globalConfirm: global.value.confirm,
         globalConfirmBtnTheme: global.value.confirmBtnTheme,
         className: `${COMPONENT_NAME.value}__confirm`,
+        size: 'small',
       });
 
       const renderIcon = () => {

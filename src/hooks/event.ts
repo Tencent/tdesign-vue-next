@@ -38,3 +38,15 @@ export function useListener(type: string, listener: () => void): void {
     window.removeEventListener(type, listener);
   });
 }
+
+export function useResize(listener: () => void, observer?: HTMLElement) {
+  useListener('resize', listener);
+
+  if (!window.ResizeObserver || !observer) return;
+  const resizeObserver = new window.ResizeObserver(listener);
+  resizeObserver.observe(observer);
+
+  onBeforeUnmount(() => {
+    resizeObserver.disconnect();
+  });
+}

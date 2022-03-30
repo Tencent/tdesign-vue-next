@@ -45,6 +45,8 @@ export interface TdTabsProps {
    * 激活的选项卡值，非受控属性
    */
   defaultValue?: TabValue;
+
+  modelValue?: TabValue;
   /**
    * 添加选项卡时触发
    */
