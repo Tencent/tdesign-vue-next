@@ -1,7 +1,11 @@
 import { defineComponent, Transition } from 'vue';
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '..';
 
 export default defineComponent({
   setup() {
+    const COMPONENT_NAME = usePrefixClass('slide-down');
+    const renderTNodeJSX = useTNodeJSX();
     const beforeEnter = (el: HTMLElement) => {
       el.dataset.oldPaddingTop = el.style.paddingTop;
       el.dataset.oldPaddingBottom = el.style.paddingBottom;
@@ -43,22 +47,20 @@ export default defineComponent({
       el.style.paddingTop = el.dataset.oldPaddingTop;
       el.style.paddingBottom = el.dataset.oldPaddingBottom;
     };
-    return { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave };
-  },
-  render() {
-    const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = this;
-    return (
-      <Transition
-        name="td-slide-down"
-        onBeforeEnter={beforeEnter}
-        onEnter={enter}
-        onAfterEnter={afterEnter}
-        onBeforeLeave={beforeLeave}
-        onLeave={leave}
-        onAfterLeave={afterLeave}
-      >
-        {this.$slots.default && this.$slots.default(null)}
-      </Transition>
-    );
+    return () => {
+      return (
+        <Transition
+          name={COMPONENT_NAME.value}
+          onBeforeEnter={beforeEnter}
+          onEnter={enter}
+          onAfterEnter={afterEnter}
+          onBeforeLeave={beforeLeave}
+          onLeave={leave}
+          onAfterLeave={afterLeave}
+        >
+          {renderTNodeJSX('default')}
+        </Transition>
+      );
+    };
   },
 });
