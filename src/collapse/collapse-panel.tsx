@@ -3,6 +3,7 @@ import { prefix } from '../config';
 import props from './collapse-panel-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import FakeArrow from '../common-components/fake-arrow';
+import SlideDown from './slide-down';
 import { CollapseValue } from './type';
 
 const preName = `${prefix}-collapse-panel`;
@@ -22,12 +23,20 @@ export default defineComponent({
       expandIconPlacement,
       expandOnRowClick,
       expandIcon,
-      isNested,
     } = inject('collapseProps');
-    const wrapDom = ref<HTMLElement>();
+    if (defaultExpandAll.value) {
+      updateCollapseValue(value.value);
+    }
     const headDom = ref<HTMLElement>();
-    const bodyDom = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
+    const isActive = computed(() =>
+      collapseValue.value instanceof Array
+        ? collapseValue.value.includes(value.value)
+        : collapseValue.value === value.value,
+    );
+    const classes = computed(() => {
+      return [preName, { [DISABLE_CLASS]: isDisabled.value }];
+    });
     const handleClick = (e: MouseEvent) => {
       const canExpand =
         (expandOnRowClick.value && e.target === headDom.value) ||
@@ -36,29 +45,6 @@ export default defineComponent({
         updateCollapseValue(value.value);
       }
     };
-    if (defaultExpandAll.value) {
-      updateCollapseValue(value.value);
-    }
-    const isActive = computed(() =>
-      collapseValue.value instanceof Array
-        ? collapseValue.value.includes(value.value)
-        : collapseValue.value === value.value,
-    );
-    watch(isActive, (activeVal) => updatePanelState(activeVal));
-    const updatePanelState = (isActive: boolean) => {
-      if (!wrapDom.value) return;
-      const headHeight = headDom.value.getBoundingClientRect().height;
-      const bodyHeight = bodyDom.value.getBoundingClientRect().height;
-      wrapDom.value.style.height = isActive ? `${headHeight + bodyHeight}px` : `${headHeight}px`;
-    };
-    onMounted(() => {
-      setTimeout(() => {
-        updatePanelState(isActive.value);
-        if (isNested.value) {
-          watchInnerHeightChange();
-        }
-      });
-    });
     const renderIcon = (direction: string) => {
       return (
         <FakeArrow
@@ -67,19 +53,6 @@ export default defineComponent({
           overlayClassName={`${preName}__icon ${preName}__icon--${direction}`}
         />
       );
-    };
-    const watchInnerHeightChange = () => {
-      const mutationObserver = new MutationObserver(function (mutations) {
-        setTimeout(() => {
-          updatePanelState(isActive.value);
-        }, 200);
-      });
-      mutationObserver.observe(bodyDom.value, {
-        childList: true,
-        attributes: true,
-        characterData: true,
-        subtree: true,
-      });
     };
     const renderBlank = () => {
       return <div class={`${preName}__header--blank`}></div>;
@@ -103,21 +76,16 @@ export default defineComponent({
     };
     const renderBody = (context: ComponentPublicInstance) => {
       return (
-        <div ref="bodyDom" class={`${preName}__body`}>
-          {renderTNodeJSX(context, 'default')}
+        <div v-show={isActive.value} class={`${preName}__body`}>
+          <div class={`${preName}__content`}>{renderTNodeJSX(context, 'default')}</div>
         </div>
       );
     };
-    const classes = computed(() => {
-      return [preName, { [DISABLE_CLASS]: isDisabled.value }];
-    });
     return {
       renderHeader,
       renderBlank,
       renderBody,
-      wrapDom,
       headDom,
-      bodyDom,
       classes,
     };
   },
@@ -126,9 +94,9 @@ export default defineComponent({
 
     return (
       <div class={classes}>
-        <div ref="wrapDom" class={`${preName}__wrapper`}>
+        <div class={`${preName}__wrapper`}>
           {renderHeader(this)}
-          {renderBody(this)}
+          <SlideDown>{renderBody(this)}</SlideDown>
         </div>
       </div>
     );

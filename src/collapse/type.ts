@@ -36,11 +36,6 @@ export interface TdCollapseProps {
    */
   expandMutex?: boolean;
   /**
-   * 是否有嵌套折叠结构
-   * @default false
-   * */
-  isNested?: boolean;
-  /**
    * 是否允许点击整行标题展开面板
    * @default true
    */

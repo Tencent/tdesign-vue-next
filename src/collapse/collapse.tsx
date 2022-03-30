@@ -13,14 +13,7 @@ export default defineComponent({
   props,
   setup(props: CollapseProps, context) {
     const { value, expandMutex, borderless, modelValue } = toRefs(props);
-    const [collapseValue, setCollapseValue] = useVModel(
-      value,
-      modelValue,
-      props.defaultValue,
-      props.onChange,
-      context.emit,
-      'value',
-    );
+    const [collapseValue, setCollapseValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const updateCollapseValue = (value: CollapseValue) => {
       let newValue: CollapseValue = [].concat(collapseValue.value || []);
       const index = newValue.indexOf(value);
@@ -51,6 +44,14 @@ export default defineComponent({
   render(): VNode {
     const { classes } = this;
     const nodes = this.$slots.default && this.$slots.default(null);
+    nodes.forEach((node, index) => {
+      const { props, type } = node;
+      if ((type as any)?.name === 'TCollapsePanel' && props?.value === undefined) {
+        if (props) {
+          props.value = index;
+        }
+      }
+    });
     return <div class={classes}>{nodes}</div>;
   },
 });

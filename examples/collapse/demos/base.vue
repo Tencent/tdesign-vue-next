@@ -1,27 +1,13 @@
 <template>
   <div class="tdesign-collapse">
-    <t-collapse expand-icon default-value="1" is-nested @change="handlePanelChange">
-      <t-collapse-panel value="0" header="这是一个折叠标题">
+    <t-collapse expand-icon default-value="1" @change="handlePanelChange">
+      <t-collapse-panel header="这是一个折叠标题">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
       <t-collapse-panel value="1" header="设置默认展开项">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
-      <!-- <t-collapse-panel v-if="false" value="1">
-        <template #header>嵌套折叠面板</template>
-        <t-collapse expandIcon>
-          <t-collapse-panel header="这是子标题一" value="1.1">
-            这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
-          </t-collapse-panel>
-          <t-collapse-panel header="这是子标题二" value="1.2">
-            这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
-          </t-collapse-panel>
-          <t-collapse-panel header="这是子标题三" value="1.3">
-            这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
-          </t-collapse-panel>
-        </t-collapse>
-      </t-collapse-panel> -->
-      <t-collapse-panel value="2">
+      <t-collapse-panel>
         <template #header>自定义面板内容</template>
         <div class="tdesign-demo-block-column" style="width: 80%">
           <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" />
@@ -31,8 +17,13 @@
           <t-tag-input :default-value="tags3" label="UnControlled: " clearable />
         </div>
       </t-collapse-panel>
-      <t-collapse-panel value="3" header="这是一个折叠标题">
-        这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+      <t-collapse-panel header="嵌套折叠面板">
+        <t-collapse expand-icon default-expand-all>
+          <t-collapse-panel header="子面板1"> 这是子面板1 </t-collapse-panel>
+          <t-collapse-panel header="子面板2"> 这是子面板2 </t-collapse-panel>
+          <t-collapse-panel header="子面板3"> 这是子面板3 </t-collapse-panel>
+          <t-collapse-panel header="子面板4"> 这是子面板4 </t-collapse-panel>
+        </t-collapse>
       </t-collapse-panel>
     </t-collapse>
     <div style="margin-top: 10px">当前展开项:{{ currentItem }}</div>

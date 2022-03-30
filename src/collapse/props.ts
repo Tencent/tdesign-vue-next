@@ -29,8 +29,6 @@ export default {
   },
   /** 每个面板互斥展开，每次只展开一个面板 */
   expandMutex: Boolean,
-  /** 是否有嵌套折叠结构 */
-  isNested: Boolean,
   /** 是否允许点击整行标题展开面板 */
   expandOnRowClick: {
     type: Boolean,
