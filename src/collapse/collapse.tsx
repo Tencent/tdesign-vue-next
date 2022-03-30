@@ -1,17 +1,18 @@
 import { defineComponent, VNode, toRefs, provide, computed } from 'vue';
 import { prefix } from '../config';
 import props from './props';
-import { CollapseValue } from './type';
-import { CollapseProps } from '.';
+import { CollapseValue, TdCollapseProps } from './type';
 import useVModel from '../hooks/useVModel';
-
-const preName = `${prefix}-collapse`;
-const BORDERLESS_CLASS = `${prefix}--border-less`;
+import { useTNodeJSX } from '../hooks/tnode';
+import { usePrefixClass } from '../config-provider';
 
 export default defineComponent({
   name: 'TCollapse',
   props,
-  setup(props: CollapseProps, context) {
+  setup(props: TdCollapseProps, context) {
+    const COMPONENT_NAME = usePrefixClass('collapse');
+    const BORDERLESS_CLASS = usePrefixClass('-border-less');
+    const renderTNodeJSX = useTNodeJSX();
     const { value, expandMutex, borderless, modelValue } = toRefs(props);
     const [collapseValue, setCollapseValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
     const updateCollapseValue = (value: CollapseValue) => {
@@ -28,30 +29,28 @@ export default defineComponent({
     };
     const classes = computed(() => {
       return [
-        preName,
+        COMPONENT_NAME.value,
         {
-          [BORDERLESS_CLASS]: !!borderless.value,
+          [BORDERLESS_CLASS.value]: !!borderless.value,
         },
       ];
     });
     provide('collapseValue', collapseValue);
     provide('updateCollapseValue', updateCollapseValue);
     provide('collapseProps', toRefs(props));
-    return {
-      classes,
-    };
-  },
-  render(): VNode {
-    const { classes } = this;
-    const nodes = this.$slots.default && this.$slots.default(null);
-    nodes.forEach((node, index) => {
-      const { props, type } = node;
-      if ((type as any)?.name === 'TCollapsePanel' && props?.value === undefined) {
-        if (props) {
-          props.value = index;
-        }
+    return () => {
+      const nodes = renderTNodeJSX('default');
+      if (Array.isArray(nodes)) {
+        nodes.forEach((node, index) => {
+          const { props, type } = node;
+          if ((type as any)?.name === 'TCollapsePanel' && props?.value === undefined) {
+            if (props) {
+              props.value = index;
+            }
+          }
+        });
       }
-    });
-    return <div class={classes}>{nodes}</div>;
+      return <div class={classes.value}>{nodes}</div>;
+    };
   },
 });

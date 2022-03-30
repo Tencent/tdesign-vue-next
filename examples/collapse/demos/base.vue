@@ -1,14 +1,13 @@
 <template>
   <div class="tdesign-collapse">
-    <t-collapse expand-icon default-value="1" @change="handlePanelChange">
+    <t-collapse expand-icon :default-value="1" @change="handlePanelChange">
       <t-collapse-panel header="这是一个折叠标题">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
-      <t-collapse-panel value="1" header="设置默认展开项">
+      <t-collapse-panel header="设置默认展开项">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
-      <t-collapse-panel>
-        <template #header>自定义面板内容</template>
+      <t-collapse-panel header="sdfadf">
         <div class="tdesign-demo-block-column" style="width: 80%">
           <t-tag-input v-model="tags1" clearable @paste="onPaste" @enter="onTagInputEnter" />
 
@@ -32,11 +31,12 @@
 <script setup>
 import { ref } from 'vue';
 
-const currentItem = ref(['1']);
+const currentItem = ref();
 const tags1 = ref(['Vue', 'React']);
 const tags2 = ref(['Vue', 'React']);
 const tags3 = ref(['Vue', 'React']);
 const handlePanelChange = (val) => {
+  console.log('val>>>>>>', val);
   currentItem.value = val;
 };
 
