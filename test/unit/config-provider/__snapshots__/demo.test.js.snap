@@ -721,590 +721,590 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
           class="t-calendar__table-body-row"
         >
           
-          <div
+          <td
             class="t-calendar__table-body-cell t-is-disabled"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                29
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              29
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell t-is-disabled"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                30
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              30
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                1
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              1
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                2
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              2
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                3
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              3
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                4
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              4
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                5
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              5
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
           
         </tr>
         <tr
           class="t-calendar__table-body-row"
         >
           
-          <div
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                6
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              6
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                7
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              7
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                8
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              8
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                9
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              9
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                10
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              10
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                11
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              11
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                12
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              12
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
           
         </tr>
         <tr
           class="t-calendar__table-body-row"
         >
           
-          <div
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                13
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              13
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                14
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              14
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                15
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              15
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                16
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              16
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                17
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              17
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                18
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              18
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                19
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              19
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
           
         </tr>
         <tr
           class="t-calendar__table-body-row"
         >
           
-          <div
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                20
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              20
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                21
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              21
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                22
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              22
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                23
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              23
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                24
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              24
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                25
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              25
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                26
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              26
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
           
         </tr>
         <tr
           class="t-calendar__table-body-row"
         >
           
-          <div
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                27
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              27
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell t-is-checked t-calendar__table-body-cell--now"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                28
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              28
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                29
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              29
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                30
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              30
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                31
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              31
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell t-is-disabled"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                1
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
-          <div
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              1
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
             class="t-calendar__table-body-cell t-is-disabled"
           >
-            <span>
-              <div
-                class="t-calendar__table-body-cell-display"
-              >
-                2
-              </div>
-              <div
-                class="t-calendar__table-body-cell-content"
-              >
-                <!---->
-              </div>
-            </span>
-          </div>
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              2
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
           
         </tr>
         
