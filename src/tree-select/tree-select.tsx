@@ -31,8 +31,8 @@ export default defineComponent({
     const { global } = useConfig('treeSelect');
 
     // ref
-    const tree = ref(null);
-    const selectInput = ref(null);
+    const treeRef = ref(null);
+    const selectInputRef = ref(null);
 
     // data
     const formDisabled = useFormDisabled();
@@ -314,9 +314,9 @@ export default defineComponent({
     };
     const getSingleNodeInfo = () => {
       const nodeValue = isObjectValue.value ? (treeSelectValue.value as INodeOptions).value : treeSelectValue.value;
-      if (tree.value && (props.treeProps as TreeProps)?.load) {
+      if (treeRef.value && (props.treeProps as TreeProps)?.load) {
         if (!isEmpty(props.data)) {
-          const node = tree.value.getItem(nodeValue);
+          const node = treeRef.value.getItem(nodeValue);
           if (!node) return;
           return { label: node.data[realLabel.value], value: node.data[realValue.value] };
         }
@@ -331,9 +331,9 @@ export default defineComponent({
     const getMultipleNodeInfo = () => {
       return (treeSelectValue.value as Array<TreeSelectValue>).map((value) => {
         const nodeValue = isObjectValue.value ? (value as INodeOptions).value : value;
-        if (tree.value && (props.treeProps as TreeProps)?.load) {
+        if (treeRef.value && (props.treeProps as TreeProps)?.load) {
           if (!isEmpty(props.data)) {
-            const node = tree.value.getItem(nodeValue);
+            const node = treeRef.value.getItem(nodeValue);
             if (!node) return;
             return { label: node.data[realLabel.value], value: node.data[realValue.value] };
           }
@@ -370,7 +370,7 @@ export default defineComponent({
     };
     const treeItem = () => (
       <Tree
-        ref={tree}
+        ref={treeRef}
         v-show={showTree.value}
         key={treeKey.value}
         value={[...checked.value]}
@@ -382,6 +382,7 @@ export default defineComponent({
         empty={props.empty}
         size={props.size}
         filter={filterByText.value}
+        icon={!filterByText.value}
         actived={actived.value}
         expanded={expanded.value}
         activeMultiple={props.multiple}
@@ -443,7 +444,7 @@ export default defineComponent({
 
     return () => (
       <SelectInput
-        ref={selectInput}
+        ref={selectInputRef}
         v-slots={SelectInputSlots}
         value={nodeInfo.value}
         multiple={props.multiple}
