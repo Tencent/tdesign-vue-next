@@ -33,11 +33,14 @@ autolabeler:
       - '/fix\/.+/'
     title:
       - '/fix/i'
+    body:
+      - '[x] 日常 bug 修复'
   - label: 'enhancement'
     branch:
       - '/feature\/.+/'
     body:
       - '/JIRA-[0-9]{1,4}/'
+      - '[x] 新特性提交'
 sort-by: title
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
