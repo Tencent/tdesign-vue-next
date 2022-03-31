@@ -49,6 +49,9 @@ export default {
   defaultValue: {
     type: [String, Number] as PropType<TdTabsProps['defaultValue']>,
   },
+  modelValue: {
+    type: [String, Number] as PropType<TdTabsProps['defaultValue']>,
+  },
   /** 添加选项卡时触发 */
   onAdd: Function as PropType<TdTabsProps['onAdd']>,
   /** 激活的选项卡发生变化时触发 */

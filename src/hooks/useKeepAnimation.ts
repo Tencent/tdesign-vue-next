@@ -1,4 +1,4 @@
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../config-provider';
 import { EAnimationType } from '../config-provider/context';
 
 const { expand, ripple, fade } = EAnimationType;

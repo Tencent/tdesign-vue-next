@@ -1,11 +1,16 @@
-import { ComponentPublicInstance, defineComponent, VNode } from 'vue';
+import { ComponentPublicInstance, defineComponent, provide, computed, Ref, toRefs } from 'vue';
 import TTabPanel from './tab-panel';
 import TTabNav from './tab-nav';
 import { TabValue, TdTabsProps } from './type';
 import props from './props';
-import { emitEvent } from '../utils/event';
-import { renderTNodeJSX } from '../utils/render-tnode';
+
+import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../config-provider';
+import useVModel from '../hooks/useVModel';
+
+export interface InjectTabs {
+  value: Ref<TabValue>;
+}
 
 export default defineComponent({
   name: 'TTabs',
@@ -15,43 +20,32 @@ export default defineComponent({
     TTabNav,
   },
 
-  props: {
-    ...props,
-  },
+  props,
 
-  emits: ['change', 'add', 'remove', 'update:value'],
-
-  setup() {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('tabs');
     const classPrefix = usePrefixClass();
-    return {
-      classPrefix,
-      COMPONENT_NAME,
+    const renderTNodeJSX = useTNodeJSX();
+
+    const { value, modelValue } = toRefs(props);
+    const [tabValue, setTabValue] = useVModel(value, modelValue, props.defaultValue || '', props.onChange);
+
+    provide<InjectTabs>('tabs', { value: tabValue });
+
+    // methods
+    const onTabAdd = (context: { e: MouseEvent }) => {
+      props.onAdd({ e: context.e });
     };
-  },
-  data() {
-    return {
-      panels: [] as Array<InstanceType<typeof TTabPanel>>,
-      listPanels: [],
+    const onTabChange = (value: TabValue) => {
+      setTabValue(value);
     };
-  },
-  methods: {
-    onAddTab(e: MouseEvent) {
-      emitEvent<Parameters<TdTabsProps['onAdd']>>(this, 'add', { e });
-    },
-    onChangeTab(value: TabValue) {
-      emitEvent<Parameters<TdTabsProps['onChange']>>(this, 'change', value);
-    },
-    onRemoveTab({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) {
-      const eventData = {
-        value,
-        index,
-        e,
-      };
-      emitEvent<Parameters<TdTabsProps['onRemove']>>(this, 'remove', eventData);
-    },
-    getSlotPanels() {
-      let content = renderTNodeJSX(this, 'default');
+    const onTabRemove = ({ e, value, index }: Parameters<TdTabsProps['onRemove']>[0]) => {
+      props.onRemove({ value, index, e });
+    };
+
+    // render
+    const getSlotPanels = () => {
+      let content = renderTNodeJSX('default');
       if (!content) return [];
       content = content
         .map((item: ComponentPublicInstance) => {
@@ -64,9 +58,9 @@ export default defineComponent({
         });
 
       return content;
-    },
-    renderHeader() {
-      const panels = (this.list?.length ? this.list : this.getSlotPanels()) || [];
+    };
+    const renderHeader = () => {
+      const panels = (props.list?.length ? props.list : getSlotPanels()) || [];
       const panelsData = panels.map((item: ComponentPublicInstance) => {
         const selfItem = item;
 
@@ -79,44 +73,42 @@ export default defineComponent({
         return selfItem;
       });
       const tabNavProps = {
-        theme: this.theme,
-        value: this.value,
-        size: this.size,
-        disabled: this.disabled,
-        placement: this.placement,
-        addable: this.addable,
+        theme: props.theme,
+        value: tabValue.value,
+        size: props.size,
+        disabled: props.disabled,
+        placement: props.placement,
+        addable: props.addable,
         panels: panelsData,
       };
       return (
         <div
           class={{
-            [`${this.classPrefix}-tabs__header`]: true,
-            [`${this.classPrefix}-is-${this.placement}`]: true,
+            [`${classPrefix.value}-tabs__header`]: true,
+            [`${classPrefix.value}-is-${props.placement}`]: true,
           }}
         >
-          <TTabNav {...tabNavProps} onChange={this.onChangeTab} onAdd={this.onAddTab} onRemove={this.onRemoveTab} />
+          <TTabNav {...tabNavProps} onChange={onTabChange} onAdd={onTabAdd} onRemove={onTabRemove} />
         </div>
       );
-    },
-    renderContent() {
-      const panels = this.getSlotPanels();
-      if (this.list?.length) {
-        return this.list.map((item) => <TTabPanel {...item} onRemove={this.onRemoveTab} />);
+    };
+    const renderContent = () => {
+      const panels = getSlotPanels();
+      if (props.list?.length) {
+        return props.list.map((item) => <TTabPanel {...item} onRemove={onTabRemove} />);
       }
       if (panels && panels.length) {
-        return <div class={[`${this.classPrefix}-tabs__content`]}>{panels}</div>;
+        return <div class={[`${classPrefix.value}-tabs__content`]}>{panels}</div>;
       }
       console.warn('Tdesign error: list or slots is empty');
-    },
-  },
+    };
 
-  render() {
-    return (
-      <div class={[this.COMPONENT_NAME]}>
-        {this.placement !== 'bottom'
-          ? [this.renderHeader(), this.renderContent()]
-          : [this.renderContent(), this.renderHeader()]}
-      </div>
-    );
+    return () => {
+      return (
+        <div class={[COMPONENT_NAME.value]}>
+          {props.placement !== 'bottom' ? [renderHeader(), renderContent()] : [renderContent(), renderHeader()]}
+        </div>
+      );
+    };
   },
 });
