@@ -1,6 +1,10 @@
-name-template: 'v$RESOLVED_VERSION 🌈'
-tag-template: 'v$RESOLVED_VERSION'
+name-template: '$RESOLVED_VERSION 🌈'
+tag-template: '$RESOLVED_VERSION'
 categories:
+  - title: '❗ Breaking Changes'
+    labels:
+      - 'breaking'
+      - 'breaking changes'
   - title: '🚀 Features'
     labels:
       - 'feature'
@@ -48,9 +52,10 @@ version-resolver:
     labels:
       - 'patch'
   default: patch
+header: |
+  # What's Changed
 template: |
-  ## What's Changed
-
   $CHANGES
 footer: | 
-  感谢 $CONTRIBUTORS 对 `$REPOSITORY` 本次版本发布的代码贡献。
+  特此感谢 `$REPOSITORY` 本次版本发布的代码贡献者： 
+  $CONTRIBUTORS。
