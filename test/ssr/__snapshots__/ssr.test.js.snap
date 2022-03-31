@@ -15126,7 +15126,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
   </div><br><br><!-- 观察加载文本 -->
   <!-- <t-cascader placeholder="see loading text in Cascader" loading style="width: 400px;" /> -->
   <!-- <br><br> -->
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="false" style="width:400px;">
+  <div class="t-popup__reference t-select-input t-select-input--empty" style="width:400px;">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -15164,7 +15164,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <!--]-->
   </div><br><br>
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="false" style="width:400px;">
+  <div class="t-popup__reference t-select-input t-select-input--empty" style="width:400px;">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -15201,7 +15201,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
     </div>
     <!--]-->
   </div><br><br>
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true" style="width:400px;">
+  <div class="t-popup__reference t-select-input t-select-input--empty" style="width:400px;">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -22136,7 +22136,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+          <div class="t-popup__reference t-select-input t-select-input--empty">
             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
               <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
                 <!--[-->
@@ -53701,7 +53701,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/vmodel.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/base.vue correctly 1`] = `
 <div class="tdesign-tree-select-base">
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -53750,7 +53750,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/base.vue correct
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue correctly 1`] = `
 <div class="tdesign-tree-select-collapsed">
-  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty demo-space" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty demo-space">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -53794,7 +53794,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
     </div>
     <!--]-->
   </div>
-  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -53850,7 +53850,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/filterable.vue c
       <!--]-->
     </div>
   </div>
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -53899,7 +53899,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/filterable.vue c
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/lazy.vue correctly 1`] = `
 <div class="tdesign-tree-select-lazy">
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -53948,7 +53948,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/lazy.vue correct
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/multiple.vue correctly 1`] = `
 <div class="tdesign-tree-select-multiple">
-  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -53997,7 +53997,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/multiple.vue cor
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/prefix.vue correctly 1`] = `
 <div class="tdesign-tree-select-prefix">
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="false">
+  <div class="t-popup__reference t-select-input t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -54045,7 +54045,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/prefix.vue corre
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/props.vue correctly 1`] = `
 <div class="tdesign-tree-select-base">
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -54094,7 +54094,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/props.vue correc
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/valuedisplay.vue correctly 1`] = `
 <div class="tdesign-tree-select-valuedisplay">
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -54143,7 +54143,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuedisplay.vue
     </div>
     <!--]-->
   </div>
-  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -54198,7 +54198,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuedisplay.vue
 
 exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue correctly 1`] = `
 <div class="tdesign-tree-select-base">
-  <div class="t-popup__reference t-select-input t-select-input--empty" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--empty">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
@@ -54242,7 +54242,7 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/valuetype.vue co
     </div>
     <!--]-->
   </div>
-  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple" showclearicononempty="true">
+  <div class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar">
         <!--[-->
