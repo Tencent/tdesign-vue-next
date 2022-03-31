@@ -408,7 +408,7 @@ exports[`Upload Upload fileFlowListBatchUploadVue demo works fine 1`] = `
             文件名
           </th>
           <th>
-            文件尺寸
+            文件大小
           </th>
           <th>
             状态
@@ -424,7 +424,7 @@ exports[`Upload Upload fileFlowListBatchUploadVue demo works fine 1`] = `
             <div
               class="t-upload__flow-empty"
             >
-              点击上方“选择文件”或将文件拖到此区域
+              点击上方“选择文件”或将文件拖拽到此区域
             </div>
           </td>
         </tr>
@@ -457,7 +457,7 @@ exports[`Upload Upload fileFlowListBatchUploadVue demo works fine 1`] = `
             class="t-button__text"
           >
             
-            开始上传
+            点击上传
             
           </span>
         </button>
@@ -525,7 +525,7 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
             文件名
           </th>
           <th>
-            文件尺寸
+            文件大小
           </th>
           <th>
             状态
@@ -541,7 +541,7 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
             <div
               class="t-upload__flow-empty"
             >
-              点击上方“选择文件”或将文件拖到此区域
+              点击上方“选择文件”或将文件拖拽到此区域
             </div>
           </td>
         </tr>
@@ -574,7 +574,7 @@ exports[`Upload Upload fileFlowListVue demo works fine 1`] = `
             class="t-button__text"
           >
             
-            开始上传
+            点击上传
             
           </span>
         </button>
@@ -1113,7 +1113,7 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
         <div
           class="t-upload__flow-empty"
         >
-          点击上方“选择文件”或将文件拖到此区域
+          点击上方“选择文件”或将文件拖拽到此区域
         </div>
         <!---->
       </div>
@@ -1142,7 +1142,7 @@ exports[`Upload Upload imgFlowListVue demo works fine 1`] = `
             class="t-button__text"
           >
             
-            开始上传
+            点击上传
             
           </span>
         </button>

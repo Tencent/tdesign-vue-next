@@ -7126,7 +7126,7 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
         <span
           class="t-time-picker__input-placeholder"
         >
-          请选择时间
+          选择时间
         </span>
       </div>
     </div>
@@ -7696,7 +7696,7 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
         <span
           class="t-time-picker__input-placeholder"
         >
-          请选择时间
+          选择时间
         </span>
       </div>
     </div>
@@ -12558,7 +12558,7 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
         <span
           class="t-time-picker__input-placeholder"
         >
-          请选择时间
+          选择时间
         </span>
       </div>
     </div>

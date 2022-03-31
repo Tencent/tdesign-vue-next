@@ -84,8 +84,10 @@ export default defineComponent({
     );
 
     const uploadText = computed(() => {
-      if (isUploading.value) return '上传中...';
-      return failedList.value && failedList.value.length ? '重新上传' : '开始上传';
+      if (isUploading.value) return `${global.value.progress.uploadingText}...`;
+      return failedList.value && failedList.value.length
+        ? global.value.triggerUploadText.reupload
+        : global.value.triggerUploadText.normal;
     });
 
     const handleDrop = (event: DragEvent) => {
@@ -137,7 +139,7 @@ export default defineComponent({
       const textMap = {
         success: global.value.progress.successText,
         fail: global.value.progress.failText,
-        progress: `${global.value.progress.uploadingText}${Math.min(file.percent, 99)}%`,
+        progress: `${global.value.progress.uploadingText} ${Math.min(file.percent, 99)}%`,
         waiting: global.value.progress.waitingText,
       };
       return {
