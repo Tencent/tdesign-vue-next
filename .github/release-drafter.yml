@@ -49,8 +49,8 @@ version-resolver:
       - 'patch'
   default: patch
 template: |
-  ## $COMPLETE What's Changed
+  ## What's Changed
 
   $CHANGES
 footer: | 
-  感谢 $footer 对 `$REPOSITORY` 本次版本发布的代码贡献。
+  感谢 $CONTRIBUTORS 对 `$REPOSITORY` 本次版本发布的代码贡献。
