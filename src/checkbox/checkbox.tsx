@@ -18,7 +18,6 @@ export default defineComponent({
   },
 
   setup(props) {
-    const formDisabled = useFormDisabled();
     const labelRef = ref<HTMLElement>();
     if (props.needRipple) {
       useRipple(labelRef);
@@ -28,6 +27,8 @@ export default defineComponent({
     const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
 
     const checkboxGroup = inject(CheckboxGroupInjectionKey, undefined);
+    const { disabled: GroupDisabled } = toRefs(props);
+    const formDisabled = useFormDisabled(GroupDisabled);
 
     const name = computed<string>(() => props.name || checkboxGroup?.name);
 
