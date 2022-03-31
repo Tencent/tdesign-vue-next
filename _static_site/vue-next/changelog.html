@@ -1,0 +1,742 @@
+<!DOCTYPE html><html lang="en" class="nprogress-busy"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更新日志 | TDesign</title>
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <link rel="mask-icon" href="/favicon.svg" color="#FFFFFF">
+    <!--[if IE]>
+    <style>
+      #app {
+        display: none;
+      }
+    </style>
+    <![endif]-->
+    <script type="module" crossorigin="" src="/assets/index.efe99fe6.js"></script>
+    <link rel="modulepreload" href="/assets/vendor.2b256725.js">
+    <link rel="stylesheet" href="/assets/vendor.0c511dbe.css">
+    <link rel="stylesheet" href="/assets/index.9b4a60ba.css">
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="modulepreload" as="script" crossorigin="" href="/assets/CHANGELOG.ee1ee009.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/prism-bash.4ba767c0.js"><script async="" id="horizon-tracker" type="text/javascript" src="https://horizon-assets.qq.com/analytics.js" data-account="tdesign"></script></head>
+  <body>
+    <!--[if IE]>
+      <h1 style="position: absolute; width: 100%; text-align:center; top: 45%">
+        建议使用 <a href="https://www.google.cn/chrome/">Chrome</a><
+      /h1>
+    <![endif]-->
+    <td-horizon data-account="tdesign"></td-horizon>
+    <td-aegis aegis-id="rDISNMyXgKnpdSRvul"></td-aegis>
+    <div id="app" data-v-app=""><td-doc-layout direction="row"><td-header slot="header" platform="web" framework="vue-next"><td-doc-search slot="search">
+        <style>.TDesign-doc-search {
+  position: relative;
+  width: 200px;
+  height: 32px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+}
+.TDesign-doc-search__icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  color: var(--text-secondary);
+}
+.TDesign-doc-search__inner {
+  width: 100%;
+  height: 100%;
+  padding: 4px 36px 4px 8px;
+  box-sizing: border-box;
+  color: var(--text-secondary);
+  border-radius: var(--border-radius);
+  line-height: 22px;
+  font-size: 14px;
+  border: 1px solid var(--component-border);
+  transition: all 0.2s linear;
+  outline: none;
+  background: transparent;
+}
+.TDesign-doc-search__inner::placeholder {
+  line-height: 22px;
+}
+.TDesign-doc-search__inner:hover {
+  border-color: var(--brand-main);
+}
+.TDesign-doc-search__inner:focus {
+  border-color: var(--brand-main);
+  box-shadow: 0 0 0 2px var(--brand-main-focus);
+}
+</style>
+        <style>/* https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css */
+/* Main dropdown wrapper */
+.algolia-autocomplete {
+  width: 100%;
+  height: 100%;
+}
+.algolia-autocomplete .ds-dropdown-menu {
+  width: 480px;
+  top: -6px;
+  border-radius: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  text-align: left;
+  height: auto;
+  position: relative;
+  border: 0;
+  z-index: 999;
+  max-width: 600px;
+  min-width: 500px;
+  box-shadow: var(--popup-box-shadow);
+  backdrop-filter: blur(10px);
+  background-color: var(--bg-color-container-transparent);
+}
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
+  position: relative;
+  z-index: 1000;
+  border-bottom: 1px solid var(--component-stroke);
+  padding: 8px;
+}
+.algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
+  position: relative;
+  border-radius: 6px;
+  overflow: auto;
+  border: 1px solid var(--component-border);
+}
+.algolia-autocomplete .ds-dropdown-menu * {
+  box-sizing: border-box;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion {
+  display: block;
+  position: relative;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+/* Main category (eg. Getting Started) */
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+  display: none;
+}
+/* Category (eg. Downloads) */
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+  float: left;
+  width: 30%;
+  text-align: right;
+  position: relative;
+  padding: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  word-wrap: break-word;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content {
+  display: block;
+  float: right;
+  width: 70%;
+  position: relative;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content .algolia-docsearch-suggestion--subcategory-inline {
+  display: none;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: var(--component-border);
+  left: -1px;
+}
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion.suggestion-layout-simple,
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
+  background: var(--bg-color-container-hover);
+  transition: all 0.2s linear;
+}
+/* Title (eg. Bootstrap CDN) */
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--title + .algolia-docsearch-suggestion--text {
+  margin-top: 4px;
+}
+/* Description description (eg. Bootstrap currently works...) */
+.algolia-autocomplete .algolia-docsearch-suggestion--text {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-secondary);
+}
+/* Highlighted text */
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: var(--brand-main);
+  background-color: var(--brand-main-light);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-main);
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results {
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 14px;
+}
+.algolia-autocomplete .algolia-docsearch-footer {
+  width: 134px;
+  height: 26px;
+  z-index: 2000;
+  margin: 4px 8px;
+  float: right;
+  font-size: 0;
+  line-height: 0;
+}
+.algolia-autocomplete .algolia-docsearch-footer--logo {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='168' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M78.988.938h16.594a2.968 2.968 0 0 1 2.966 2.966V20.5a2.967 2.967 0 0 1-2.966 2.964H78.988a2.967 2.967 0 0 1-2.966-2.964V3.897A2.961 2.961 0 0 1 78.988.938zm41.937 17.866c-4.386.02-4.386-3.54-4.386-4.106l-.007-13.336 2.675-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-10.846-2.18c.821 0 1.43-.047 1.855-.129v-2.719a6.334 6.334 0 0 0-1.574-.199 5.7 5.7 0 0 0-.897.069 2.699 2.699 0 0 0-.814.24c-.24.116-.439.28-.582.491-.15.212-.219.335-.219.656 0 .628.219.991.616 1.23s.938.362 1.615.362zm-.233-9.7c.883 0 1.629.109 2.231.328.602.218 1.088.525 1.444.915.363.396.609.922.76 1.483.157.56.232 1.175.232 1.85v6.874a32.5 32.5 0 0 1-1.868.314c-.834.123-1.772.185-2.813.185-.69 0-1.327-.069-1.895-.198a4.001 4.001 0 0 1-1.471-.636 3.085 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.803 0-.656.13-1.073.384-1.525a3.24 3.24 0 0 1 1.047-1.106c.445-.287.95-.492 1.532-.615a8.8 8.8 0 0 1 1.82-.185 8.404 8.404 0 0 1 1.972.24v-.438c0-.307-.035-.6-.11-.874a1.88 1.88 0 0 0-.384-.73 1.784 1.784 0 0 0-.724-.493 3.164 3.164 0 0 0-1.143-.205c-.616 0-1.177.075-1.69.164a7.735 7.735 0 0 0-1.26.307l-.321-2.192c.335-.117.834-.233 1.478-.349a10.98 10.98 0 0 1 2.073-.178zm52.842 9.626c.822 0 1.43-.048 1.854-.13V13.7a6.347 6.347 0 0 0-1.574-.199c-.294 0-.595.021-.896.069a2.7 2.7 0 0 0-.814.24 1.46 1.46 0 0 0-.582.491c-.15.212-.218.335-.218.656 0 .628.218.991.615 1.23.404.245.938.362 1.615.362zm-.226-9.694c.883 0 1.629.108 2.231.327.602.219 1.088.526 1.444.915.355.39.609.923.759 1.483a6.8 6.8 0 0 1 .233 1.852v6.873c-.41.088-1.034.19-1.868.314-.834.123-1.772.184-2.813.184-.69 0-1.327-.068-1.895-.198a4.001 4.001 0 0 1-1.471-.635 3.085 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.804 0-.656.13-1.073.384-1.524.26-.45.608-.82 1.047-1.107.445-.286.95-.491 1.532-.614a8.803 8.803 0 0 1 2.751-.13c.329.034.671.096 1.04.185v-.437a3.3 3.3 0 0 0-.109-.875 1.873 1.873 0 0 0-.384-.731 1.784 1.784 0 0 0-.724-.492 3.165 3.165 0 0 0-1.143-.205c-.616 0-1.177.075-1.69.164a7.75 7.75 0 0 0-1.26.307l-.321-2.193c.335-.116.834-.232 1.478-.348a11.633 11.633 0 0 1 2.073-.177zm-8.034-1.271a1.626 1.626 0 0 1-1.628-1.62c0-.895.725-1.62 1.628-1.62.904 0 1.63.725 1.63 1.62 0 .895-.733 1.62-1.63 1.62zm1.348 13.22h-2.689V7.27l2.69-.423v11.956zm-4.714 0c-4.386.02-4.386-3.54-4.386-4.107l-.008-13.336 2.676-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-8.698-5.903c0-1.156-.253-2.119-.746-2.788-.493-.677-1.183-1.01-2.067-1.01-.882 0-1.574.333-2.065 1.01-.493.676-.733 1.632-.733 2.788 0 1.168.246 1.953.74 2.63.492.683 1.183 1.018 2.066 1.018.882 0 1.574-.342 2.067-1.019.492-.683.738-1.46.738-2.63zm2.737-.007c0 .902-.13 1.584-.397 2.33a5.52 5.52 0 0 1-1.128 1.906 4.986 4.986 0 0 1-1.752 1.223c-.685.286-1.739.45-2.265.45-.528-.006-1.574-.157-2.252-.45a5.096 5.096 0 0 1-1.744-1.223c-.487-.527-.863-1.162-1.137-1.906a6.345 6.345 0 0 1-.41-2.33c0-.902.123-1.77.397-2.508a5.554 5.554 0 0 1 1.15-1.892 5.133 5.133 0 0 1 1.75-1.216c.679-.287 1.425-.423 2.232-.423.808 0 1.553.142 2.237.423a4.88 4.88 0 0 1 1.753 1.216 5.644 5.644 0 0 1 1.135 1.892c.287.738.431 1.606.431 2.508zm-20.138 0c0 1.12.246 2.363.738 2.882.493.52 1.13.78 1.91.78.424 0 .828-.062 1.204-.178.377-.116.677-.253.917-.417V9.33a10.476 10.476 0 0 0-1.766-.226c-.971-.028-1.71.37-2.23 1.004-.513.636-.773 1.75-.773 2.788zm7.438 5.274c0 1.824-.466 3.156-1.404 4.004-.936.846-2.367 1.27-4.296 1.27-.705 0-2.17-.137-3.34-.396l.431-2.118c.98.205 2.272.26 2.95.26 1.074 0 1.84-.219 2.299-.656.459-.437.684-1.086.684-1.948v-.437a8.07 8.07 0 0 1-1.047.397c-.43.13-.93.198-1.492.198-.739 0-1.41-.116-2.018-.349a4.206 4.206 0 0 1-1.567-1.025c-.431-.45-.774-1.017-1.013-1.694-.24-.677-.363-1.885-.363-2.773 0-.834.13-1.88.384-2.577.26-.696.629-1.298 1.129-1.796.493-.498 1.095-.881 1.8-1.162a6.605 6.605 0 0 1 2.428-.457c.87 0 1.67.109 2.45.24.78.129 1.444.265 1.985.415V18.17z' fill='%235468FF'/%3E%3Cpath d='M6.972 6.677v1.627c-.712-.446-1.52-.67-2.425-.67-.585 0-1.045.13-1.38.391a1.24 1.24 0 0 0-.502 1.03c0 .425.164.765.494 1.02.33.256.835.532 1.516.83.447.192.795.356 1.045.495.25.138.537.332.862.582.324.25.563.548.718.894.154.345.23.741.23 1.188 0 .947-.334 1.691-1.004 2.234-.67.542-1.537.814-2.601.814-1.18 0-2.16-.229-2.936-.686v-1.708c.84.628 1.814.942 2.92.942.585 0 1.048-.136 1.388-.407.34-.271.51-.646.51-1.125 0-.287-.1-.55-.302-.79-.203-.24-.42-.42-.655-.542-.234-.123-.585-.29-1.053-.503a61.27 61.27 0 0 1-.582-.271 13.67 13.67 0 0 1-.55-.287 4.275 4.275 0 0 1-.567-.351 6.92 6.92 0 0 1-.455-.4c-.18-.17-.31-.34-.39-.51-.08-.17-.155-.37-.224-.598a2.553 2.553 0 0 1-.104-.742c0-.915.333-1.638.998-2.17.664-.532 1.523-.798 2.576-.798.968 0 1.793.17 2.473.51zm7.468 5.696v-.287c-.022-.607-.187-1.088-.495-1.444-.309-.357-.75-.535-1.324-.535-.532 0-.99.194-1.373.583-.382.388-.622.949-.717 1.683h3.909zm1.005 2.792v1.404c-.596.34-1.383.51-2.362.51-1.255 0-2.255-.377-3-1.132-.744-.755-1.116-1.744-1.116-2.968 0-1.297.34-2.316 1.021-3.055.68-.74 1.548-1.11 2.6-1.11 1.033 0 1.852.323 2.458.966.606.644.91 1.572.91 2.784 0 .33-.033.676-.096 1.038h-5.314c.107.702.405 1.239.894 1.611.49.372 1.106.558 1.85.558.862 0 1.58-.202 2.155-.606zm6.605-1.77h-1.212c-.596 0-1.045.116-1.349.35-.303.234-.454.532-.454.894 0 .372.117.664.35.877.235.213.575.32 1.022.32.51 0 .912-.142 1.204-.424.293-.281.44-.651.44-1.108v-.91zm-4.068-2.554V9.325c.627-.361 1.457-.542 2.489-.542 2.116 0 3.175 1.026 3.175 3.08V17h-1.548v-.957c-.415.68-1.143 1.02-2.186 1.02-.766 0-1.38-.22-1.843-.661-.462-.442-.694-1.003-.694-1.684 0-.776.293-1.38.878-1.81.585-.431 1.404-.647 2.457-.647h1.34V11.8c0-.554-.133-.971-.399-1.253-.266-.282-.707-.423-1.324-.423a4.07 4.07 0 0 0-2.345.718zm9.333-1.93v1.42c.394-1 1.101-1.5 2.123-1.5.148 0 .313.016.494.048v1.531a1.885 1.885 0 0 0-.75-.143c-.542 0-.989.24-1.34.718-.351.479-.527 1.048-.527 1.707V17h-1.563V8.91h1.563zm5.01 4.084c.022.82.272 1.492.75 2.019.479.526 1.15.79 2.01.79.639 0 1.235-.176 1.788-.527v1.404c-.521.319-1.186.479-1.995.479-1.265 0-2.276-.4-3.031-1.197-.755-.798-1.133-1.792-1.133-2.984 0-1.16.38-2.151 1.14-2.975.761-.825 1.79-1.237 3.088-1.237.702 0 1.346.149 1.93.447v1.436a3.242 3.242 0 0 0-1.77-.495c-.84 0-1.513.266-2.019.798-.505.532-.758 1.213-.758 2.042zM40.24 5.72v4.579c.458-1 1.293-1.5 2.505-1.5.787 0 1.42.245 1.899.734.479.49.718 1.17.718 2.042V17h-1.564v-5.106c0-.553-.14-.98-.422-1.284-.282-.303-.652-.455-1.11-.455-.531 0-1.002.202-1.411.606-.41.405-.615 1.022-.615 1.851V17h-1.563V5.72h1.563zm14.966 10.02c.596 0 1.096-.253 1.5-.758.404-.506.606-1.157.606-1.955 0-.915-.202-1.62-.606-2.114-.404-.495-.92-.742-1.548-.742-.553 0-1.05.224-1.491.67-.442.447-.662 1.133-.662 2.058 0 .958.212 1.67.638 2.138.425.469.946.703 1.563.703zM53.004 5.72v4.42c.574-.894 1.388-1.341 2.44-1.341 1.022 0 1.857.383 2.506 1.149.649.766.973 1.781.973 3.047 0 1.138-.309 2.109-.925 2.912-.617.803-1.463 1.205-2.537 1.205-1.075 0-1.894-.447-2.457-1.34V17h-1.58V5.72h1.58zm9.908 11.104l-3.223-7.913h1.739l1.005 2.632 1.26 3.415c.096-.32.48-1.458 1.15-3.415l.909-2.632h1.66l-2.92 7.866c-.777 2.074-1.963 3.11-3.559 3.11a2.92 2.92 0 0 1-.734-.079v-1.34c.17.042.351.064.543.064 1.032 0 1.755-.57 2.17-1.708z' fill='%235D6494'/%3E%3Cpath d='M89.632 5.967v-.772a.978.978 0 0 0-.978-.977h-2.28a.978.978 0 0 0-.978.977v.793c0 .088.082.15.171.13a7.127 7.127 0 0 1 1.984-.28c.65 0 1.295.088 1.917.259.082.02.164-.04.164-.13m-6.248 1.01l-.39-.389a.977.977 0 0 0-1.382 0l-.465.465a.973.973 0 0 0 0 1.38l.383.383c.062.061.15.047.205-.014.226-.307.472-.601.746-.874.281-.28.568-.526.883-.751.068-.042.075-.137.02-.2m4.16 2.453v3.341c0 .096.104.165.192.117l2.97-1.537c.068-.034.089-.117.055-.184a3.695 3.695 0 0 0-3.08-1.866c-.068 0-.136.054-.136.13m0 8.048a4.489 4.489 0 0 1-4.49-4.482 4.488 4.488 0 0 1 4.49-4.482 4.488 4.488 0 0 1 4.489 4.482 4.484 4.484 0 0 1-4.49 4.482m0-10.85a6.363 6.363 0 1 0 0 12.729 6.37 6.37 0 0 0 6.372-6.368 6.358 6.358 0 0 0-6.371-6.36' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100%;
+  overflow: hidden;
+  text-indent: -9000px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+</style>
+        <div class="TDesign-doc-search">
+          <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input id="TDSearch" class="TDesign-doc-search__inner ds-input" placeholder="搜索" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-label="search input" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;system-ui&quot;, -apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ds-dataset-1"></div></span></span>
+          <span class="TDesign-doc-search__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M8.125 2.5C5.0184 2.5 2.5 5.0184 2.5 8.125C2.5 11.2316 5.0184 13.75 8.125 13.75C9.22568 13.75 10.2525 13.4339 11.1197 12.8874L15.8839 17.6517L16.7678 16.7678L12.1025 12.1025C13.1204 11.0846 13.75 9.6783 13.75 8.125C13.75 5.0184 11.2316 2.5 8.125 2.5ZM8.125 3.75C10.5412 3.75 12.5 5.70875 12.5 8.125C12.5 10.5412 10.5412 12.5 8.125 12.5C5.70875 12.5 3.75 10.5412 3.75 8.125C3.75 5.70875 5.70875 3.75 8.125 3.75Z"></path>
+</svg>
+</span>
+        </div>
+      </td-doc-search></td-header><td-doc-aside title="Vue Next for Web"><div class="t-select__wrap" id="historyVersion" slot="extra"><div class="t-popup__reference t-select__popup-reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-select__dropdown narrow-scrollbar"><div class="t-select__dropdown-inner"><!----><ul class="t-select__create-option t-select__list" style="display: none;"><li class="t-select-option t-size-m t-select__create-option--special" title=""></li></ul><!----><!----><ul class="t-select__list"><li class="t-select-option t-size-m" title="0.9.4">0.9.4</li><li class="t-select-option t-size-m" title="0.8.1">0.8.1</li><li class="t-select-option t-size-m" title="0.7.0">0.7.0</li><li class="t-select-option t-size-m" title="0.6.4">0.6.4</li></ul><!----></div><!----></div></div><div class="t-select t-size-m"><!----><!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display: none;"><!---->+0<!----></span><span title="0.9.4" class="t-select__single">0.9.4</span><!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg><!----><!----></div></div></div><div slot="__render_content__">
+      <aside class="TDesign-doc-aside">
+        <div class="TDesign-doc-aside-collapse">
+          <i class="icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3.99902 7.97265L27.9978 8.00026L28.0001 6.00026L4.00132 5.97266L3.99902 7.97265Z" fill="currentColor"></path>
+  <path d="M15.0002 17.0003H27.999V15.0003H15.0002V17.0003Z" fill="currentColor"></path>
+  <path d="M3.99902 25.9727L27.9978 26.0003L28.0001 24.0003L4.00132 23.9727L3.99902 25.9727Z" fill="currentColor"></path>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9335 15.1864C12.4668 15.5864 12.4668 16.3864 11.9335 16.7864L5.60017 21.5364C4.94094 22.0308 4.00017 21.5604 4.00017 20.7364L4.00017 11.2364C4.00017 10.4124 4.94094 9.94197 5.60017 10.4364L11.9335 15.1864ZM6.00017 13.2364L9.66684 15.9864L6.00017 18.7364L6.00017 13.2364Z" fill="currentColor"></path>
+</svg>
+</i>
+        </div>
+        <div class="TDesign-doc-sidenav">
+          <h2 class="TDesign-doc-aside__title">Vue Next for Web</h2>
+          <div class="TDesign-doc-aside__extra">
+            <slot name="extra"></slot>
+          </div>
+          
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">开始</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/getting-started">
+        快速开始
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/quick-start">
+        最佳实践
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link active" href="/vue-next/changelog">
+        更新日志
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/overview">
+        组件概览
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">全局配置</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/config">
+        全局特性配置
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/custom-theme">
+        自定义主题
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/dark-mode">
+        暗黑模式
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">基础</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/button">
+        Button 按钮
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/divider">
+        Divider 分割线
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/icon">
+        Icon 图标
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">布局</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/grid">
+        Grid 栅格
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/layout">
+        Layout 布局
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">导航</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/affix">
+        Affix 固钉
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/anchor">
+        Anchor 锚点
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/breadcrumb">
+        Breadcrumb 面包屑
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/dropdown">
+        Dropdown 下拉菜单
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/menu">
+        Menu 导航菜单
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/pagination">
+        Pagination 分页
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/steps">
+        Steps 步骤条
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tabs">
+        Tabs 选项卡
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">输入</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/cascader">
+        Cascader 级联组件
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/checkbox">
+        Checkbox 多选框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/date-picker">
+        DatePicker 日期选择器
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/form">
+        Form 表单
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/input">
+        Input 输入框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/input-number">
+        InputNumber 数字输入框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/radio">
+        Radio 单选框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/select">
+        Select 选择器
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/select-input">
+        SelectInput 筛选器输入框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/slider">
+        Slider 滑块
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/switch">
+        Switch 开关
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tag-input">
+        TagInput 标签输入框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/textarea">
+        Textarea 多行文本框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/transfer">
+        Transfer 穿梭框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/time-picker">
+        TimePicker 时间选择器
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tree-select">
+        TreeSelect 树选择
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/upload">
+        Upload 上传
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">数据展示</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/avatar">
+        Avatar 头像
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/badge">
+        Badge 徽标
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/calendar">
+        Calendar 日历
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/comment">
+        Comment 评论
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/list">
+        List 列表
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/loading">
+        Loading 加载
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/progress">
+        Progress 进度条
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/skeleton">
+        Skeleton  骨架屏
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/swiper">
+        Swiper 轮播框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/table">
+        Table 表格
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tag">
+        Tag 标签
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tooltip">
+        Tooltip 文字提示
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tree">
+        Tree 树
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">消息提醒</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/alert">
+        Alert 警告提醒
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/dialog">
+        Dialog 对话框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/drawer">
+        Drawer 抽屉
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/message">
+        Message 全局提示
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/notification">
+        Notification 消息通知
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/popconfirm">
+        Popconfirm 气泡确认框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/popup">
+        Popup 弹出层
+      </a>
+    </div>
+  </div>
+      </div>
+    
+        </div>
+      </aside>
+      <div class="TDesign-doc-aside-mask"></div>
+    </div></td-doc-aside><td-doc-content page-status="show" platform="web" style="visibility: visible;"><td-doc-header slot="doc-header" platform="web"><h1 id="__td_doc_title__">更新日志</h1></td-doc-header><div name="DOC" class="timeline"><h2 id="_0-9-4-2022-03-04">0.9.4 <code>2022-03-04</code> <a class="header-anchor" href="#_0-9-4-2022-03-04"></a></h2><h3 id="bug-fixes">Bug Fixes <a class="header-anchor" href="#bug-fixes"></a></h3><ul><li>修复在 <code>typescript</code> 严格模式下打包出错 (<a href="https://github.com/Tencent/tdesign-vue-next/issues/384" target="_blank" rel="noopener noreferrer">issue #384</a>)</li></ul><h2 id="_0-9-3-2022-03-04">0.9.3 <code>2022-03-04</code> <a class="header-anchor" href="#_0-9-3-2022-03-04"></a></h2><h3 id="bug-fixes-1">Bug Fixes <a class="header-anchor" href="#bug-fixes-1"></a></h3><ul><li>DatePicker: (<a href="https://github.com/Tencent/tdesign-vue-next/pull/376" target="_blank" rel="noopener noreferrer">pr #389</a>), (<a href="https://github.com/xiaosansiji" target="_blank" rel="noopener noreferrer">@xiaosansiji</a>) <ul><li>修复 <code>onPick</code> 事件配置无效</li><li>修复无法清除面板中已选值</li><li>修复点击年份或月份后，日期弹窗意外消失</li></ul></li><li>TagInput: (<a href="https://github.com/Tencent/tdesign-vue-next/pull/387" target="_blank" rel="noopener noreferrer">pr #387</a>) <ul><li>修复在有输入的值且无 <code>tag</code> 的情况下，不展示清除按钮。且点击后 <code>onClear</code> 方法未触发。</li><li>修复在 <code>auto-width</code> 模式下的交互问题</li></ul></li><li>Dialog: <ul><li>修复 <code>dialog plugin</code> 聚焦 <code>button</code> 通过键盘频繁触发 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/395" target="_blank" rel="noopener noreferrer">pr #395</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/394" target="_blank" rel="noopener noreferrer">issue #394</a>)</li><li>修复 <code>closeBtn</code> 为 <code>false</code> 的时候依然可以点击关闭区域关闭弹窗 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/392" target="_blank" rel="noopener noreferrer">pr #392</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/373" target="_blank" rel="noopener noreferrer">issue #373</a>)</li></ul></li><li>Table: 修复按需引用时，直接引用 <code>Table</code> 报错： (<a href="https://github.com/Tencent/tdesign-vue-next/pull/388" target="_blank" rel="noopener noreferrer">pr #388</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/374" target="_blank" rel="noopener noreferrer">issue #374</a>)</li><li>Select: 修复自定义创建 <code>option</code> 交互异常 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/397" target="_blank" rel="noopener noreferrer">pr #397</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/364" target="_blank" rel="noopener noreferrer">issue #364</a>)</li><li>Form: 修复表单 <code>submit</code> 事件中的 <code>firstError</code> 不正确 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/382" target="_blank" rel="noopener noreferrer">pr #397</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/382" target="_blank" rel="noopener noreferrer">issue #382</a>)</li><li>Cascader: 优化类名判断相关代码导致的性能问题 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/382" target="_blank" rel="noopener noreferrer">pr #397</a>)</li><li>Input: 修复 <code>onChange</code> 和 <code>on-change</code>事件 未生效 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/395" target="_blank" rel="noopener noreferrer">pr #395</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/393" target="_blank" rel="noopener noreferrer">issue #393</a>)</li><li>InputNumber: 修复在增加小数点位数的状态下，v-model绑定的value与展示的值不同 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/392" target="_blank" rel="noopener noreferrer">pr #392</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/390" target="_blank" rel="noopener noreferrer">issue #390</a>)</li><li>Breadcrumb: 修复 <code>disabled</code> 无效 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/391" target="_blank" rel="noopener noreferrer">pr #391</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/373" target="_blank" rel="noopener noreferrer">issue #373</a>)</li><li>Checkbox：修复 <code>value</code> 重复时，导致渲染 <code>key</code> 相同的报错 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/387" target="_blank" rel="noopener noreferrer">pr #387</a>),</li></ul><h3 id="features">Features <a class="header-anchor" href="#features"></a></h3><ul><li>SelectInput: 新增 <code>SelectInput</code> 筛选器组件, 请参照<a href="https://tdesign.tencent.com/vue-next/components/select-input" target="_blank" rel="noopener noreferrer">官网</a>使用, (<a href="https://github.com/Tencent/tdesign-vue-next/issues/330" target="_blank" rel="noopener noreferrer">pr #330</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>)</li><li>Input: 增加 <code>format</code> 属性 (<a href="https://github.com/Tencent/tdesign-vue-next/issues/387" target="_blank" rel="noopener noreferrer">pr #387</a>)</li><li>全局配置: 支持关闭斜八度波纹动画 (<a href="https://github.com/Tencent/tdesign-vue-next/issues/389" target="_blank" rel="noopener noreferrer">pr #389</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/204" target="_blank" rel="noopener noreferrer">issue 204</a>), (<a href="https://github.com/uyarn" target="_blank" rel="noopener noreferrer">@uyarn</a>)</li></ul><h2 id="_0-9-2-2022-02-26">0.9.2 <code>2022-02-26</code> <a class="header-anchor" href="#_0-9-2-2022-02-26"></a></h2><h3 id="bug-fixes-2">Bug Fixes <a class="header-anchor" href="#bug-fixes-2"></a></h3><ul><li>SelectInput: 修复 <code>src/select-input/interface.d.ts</code> 文件被 <code>tsc</code> 编译忽略导致的组件 <code>import interface</code> 错误</li></ul><h2 id="_0-9-1-2022-02-25">0.9.1 <code>2022-02-25</code> <a class="header-anchor" href="#_0-9-1-2022-02-25"></a></h2><h3 id="bug-fixes-3">Bug Fixes <a class="header-anchor" href="#bug-fixes-3"></a></h3><ul><li>修复构建产物 <code>typescript</code> 声明文件路径错误</li></ul><h2 id="_0-9-0-2022-02-25">0.9.0 <code>2022-02-25</code> <a class="header-anchor" href="#_0-9-0-2022-02-25"></a></h2><h3 id="breaking-changes">BREAKING CHANGES <a class="header-anchor" href="#breaking-changes"></a></h3><ul><li>Input: <code>input</code> 元素 <code>ref</code> 名称由 <code>refInputElem</code> 更为 <code>inputRef</code> (<a href="https://github.com/Tencent/tdesign-vue-next/pull/330" target="_blank" rel="noopener noreferrer">pr #330</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>)</li></ul><h3 id="bug-fixes-4">Bug Fixes <a class="header-anchor" href="#bug-fixes-4"></a></h3><ul><li>Slider: (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>) <ul><li>修复游标定位错乱 (<a href="https://github.com/Tencent/tdesign-common/pull/248" target="_blank" rel="noopener noreferrer">pr #248</a>)</li><li>修复 <code>marks</code> 属性不支持 <code>array</code> 数据结构(<a href="https://github.com/Tencent/tdesign-vue-next/pull/355" target="_blank" rel="noopener noreferrer">pr #355</a>)</li></ul></li><li>Input: 去除 <code>autocomplete</code> 默认值，保持浏览器默认值 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/330" target="_blank" rel="noopener noreferrer">pr #330</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>)</li><li>Upload: 修复文件数大于等于 <code>max</code> 时，上传按钮依然可以点击 (<a href="https://github.com/Tencent/tdesign-vue-next/issues/349" target="_blank" rel="noopener noreferrer">pr #351</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/349" target="_blank" rel="noopener noreferrer">issue #349</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li><li>Notification: 修复 <code>offset</code> 参数无效 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/349" target="_blank" rel="noopener noreferrer">pr #351</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/342" target="_blank" rel="noopener noreferrer">issue #342</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li><li>Table: 修复固定表头错位 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/352" target="_blank" rel="noopener noreferrer">pr #352</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/299" target="_blank" rel="noopener noreferrer">issue #299</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/325" target="_blank" rel="noopener noreferrer">issue #325</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/316" target="_blank" rel="noopener noreferrer">issue #316</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li><li>Button: 修复 <code>primary outline</code> 模式下边框展示异常的问题 (<a href="https://github.com/Tencent/tdesign-common/pull/238" target="_blank" rel="noopener noreferrer">pr #238</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li></ul><h3 id="features-1">Features <a class="header-anchor" href="#features-1"></a></h3><ul><li>TagInput: (<a href="https://github.com/Tencent/tdesign-vue-next/pull/330" target="_blank" rel="noopener noreferrer">pr #330</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>) <ul><li><code>valueDisplay</code> 新增参数 <code>onClose</code></li><li>新增特性 <code>autoWidth</code>, 宽度自适应</li></ul></li><li>Input: 新增特性 <code>autoWidth</code>, 宽度自适应 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/330" target="_blank" rel="noopener noreferrer">pr #330</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>)</li><li>Checkbox: <code>change</code> 事件新增参数，<code>context.current</code> 表示当前变化的数据项；<code>context.type</code> 表示引起选中数据变化的是选中或是取消选中 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/330" target="_blank" rel="noopener noreferrer">pr #330</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>)</li><li>通用方法 <code>renderTNodeJSX</code> 同时支持驼峰命名的插槽，和中划线命名的插槽 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/330" target="_blank" rel="noopener noreferrer">pr #330</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>)</li><li>使用 <code>compositionAPi</code> 重构国际化 <code>mixin</code> (<a href="https://github.com/Tencent/tdesign-vue-next/pull/356" target="_blank" rel="noopener noreferrer">pr #356</a>), (<a href="https://github.com/yc910920" target="_blank" rel="noopener noreferrer">@yc910920</a>)</li></ul><h2 id="_0-8-1-2022-02-18">0.8.1 <code>2022-02-18</code> <a class="header-anchor" href="#_0-8-1-2022-02-18"></a></h2><h3 id="bug-fixes-5">Bug Fixes <a class="header-anchor" href="#bug-fixes-5"></a></h3><ul><li>Form: (<a href="https://github.com/Tencent/tdesign-vue-next/pull/277" target="_blank" rel="noopener noreferrer">pr #277</a>) <ul><li>修复 <code>FormItem.statusIcon</code> 优先级没有大于 <code>Form.statusIcon</code> 的问题</li><li>修复 <code>FormItem.rules</code> 优先级没有大于 <code>Form.rules</code> 的问题</li></ul></li><li>Progress: 修复环状进度条小于 5% 时渲染错误 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/329" target="_blank" rel="noopener noreferrer">pr #329</a>), (<a href="https://github.com/uyarn" target="_blank" rel="noopener noreferrer">@uyarn</a>)</li><li>TimePicker: 修复部分鼠标滚动选择出现偏差 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/324" target="_blank" rel="noopener noreferrer">pr #324</a>), (<a href="https://github.com/uyarn" target="_blank" rel="noopener noreferrer">@uyarn</a>)</li><li>Input: 修复 <code>prefixIcon</code>, <code>suffixIcon</code> 对驼峰写法不支持 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/318" target="_blank" rel="noopener noreferrer">pr #318</a>)</li><li>Cascader 解决 <code>value</code> 类型为 <code>Number</code> 时，数据回填异常及 <code>clearable</code> 失效问题 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/ccf478be940daf95ea64667be96ccd27637f283a" target="_blank" rel="noopener noreferrer">ccf478b</a>)</li><li>Textarea: 修复 <code>value</code> 未定义时字数统计展示异常的问题 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/298" target="_blank" rel="noopener noreferrer">pr #298</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/387" target="_blank" rel="noopener noreferrer">issue #387</a>)</li><li>Loading: 修复存在 <code>attach</code> 时，当 <code>loading</code> 设置为 <code>false</code>，无法隐藏加载元素 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/315" target="_blank" rel="noopener noreferrer">pr #315</a>)</li><li>Dialog: 修复展开动画位置 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/312" target="_blank" rel="noopener noreferrer">pr #312</a>)</li></ul><h3 id="features-2">Features <a class="header-anchor" href="#features-2"></a></h3><ul><li>Form: (<a href="https://github.com/Tencent/tdesign-vue-next/pull/277" target="_blank" rel="noopener noreferrer">pr #277</a>) <ul><li>支持对象和数组嵌套的复杂数据校验，同时可以判断是数组的第几项校验不通过，</li><li>支持统一配置校验信息，无需每个字段的每个规则都单独配置 <code>message</code></li><li>支持表单 <code>disabled</code></li></ul></li><li>Popup: (<a href="https://github.com/Tencent/tdesign-vue/pull/313" target="_blank" rel="noopener noreferrer">pr #313</a>), (<a href="https://github.com/uyarn" target="_blank" rel="noopener noreferrer">@uyarn</a>) <ul><li>支持嵌套使用</li><li>去除额外 <code>reference</code> 包裹元素</li><li>弹窗展开动画优化</li><li><code>overlayStyle</code> 类型为 Function 时，增加 <code>popupElement</code> 作为第二个参数，表示浮层元素 DOM 节点</li><li>新增 <code>onScroll</code> 属性，响应下拉选项滚动事件</li></ul></li><li>TreeSelect: 增加 <code>t-select-warper</code> <code>class</code> (<a href="https://github.com/Tencent/tdesign-vue-next/pull/277" target="_blank" rel="noopener noreferrer">pr #277</a>)</li></ul><h2 id="_0-8-0-2022-01-28">0.8.0 <code>2022-01-28</code> <a class="header-anchor" href="#_0-8-0-2022-01-28"></a></h2><h3 id="breaking-changes-1">BREAKING CHANGES <a class="header-anchor" href="#breaking-changes-1"></a></h3><ul><li>Tag: <code>variant</code> 可选值修改为 <code>dark/light/outline/light-outline</code>, <code>plain</code> 已废弃 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/274" target="_blank" rel="noopener noreferrer">pr #274</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li></ul><h3 id="bug-fixes-6">Bug Fixes <a class="header-anchor" href="#bug-fixes-6"></a></h3><ul><li>Alert: 修复未正常展示关闭按钮 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/e8bd6ba50ce164f7976d9c28b04137c1ef5a0e05" target="_blank" rel="noopener noreferrer">e8bd6ba</a>)</li><li>Calendar: (<a href="https://github.com/PsTiu" target="_blank" rel="noopener noreferrer">@PsTiu</a>) <ul><li>修复日历组件 <code>monthChange</code> 事件在年只通过月份下拉框触发的问题 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/1b4e3a286f31ab979ddce19674afa9eb92996c46" target="_blank" rel="noopener noreferrer">1b4e3a2</a>)</li><li>修复日历控制区按钮 <code>hover</code> 样式 (<a href="https://github.com/Tencent/tdesign-common/pull/169" target="_blank" rel="noopener noreferrer">pr #169</a>)</li><li>修复全局配置 <code>calendar.controllerConfig</code> 不生效的问题 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/72c17717d6f783ed7324f2a4e56d446dda0980eb" target="_blank" rel="noopener noreferrer">72c1771</a>)</li></ul></li><li>InputNumber: 修复双向绑定设置成 <code>undefined</code> 实现清空, 下次激活输入框自动恢复上次的值 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/961a8a540276c42e14b066c2413183f93cdd068f" target="_blank" rel="noopener noreferrer">961a8a5</a>)</li><li>Select: 修复可过滤状态下, 需要双击背景才可关闭下拉框 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/31f0258ac67caf14dc7bb2610972f06307ccee96" target="_blank" rel="noopener noreferrer">31f0258</a>)</li><li>TreeSelect: <ul><li>修复可过滤状态下, 需要双击背景才可关闭下拉框 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/31f0258ac67caf14dc7bb2610972f06307ccee96" target="_blank" rel="noopener noreferrer">31f0258</a>)</li><li>修复在空状态时不显示 <code>placeholder</code>(<a href="https://github.com/Tencent/tdesign-vue-next/commit/8a44df9940a5705b103dfa543dd7b5f58065abee" target="_blank" rel="noopener noreferrer">8a44df9</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/271" target="_blank" rel="noopener noreferrer">#271</a>)</li></ul></li><li>Content: 修复 <code>Content</code> 内容无法响应式 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/7ebd28747f0cb3975b205ada5828e961b62b1d66" target="_blank" rel="noopener noreferrer">7ebd287</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/268" target="_blank" rel="noopener noreferrer">#268</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/255" target="_blank" rel="noopener noreferrer">#255</a>)</li><li>Slider: 修复双向绑定值失效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/c5541293d9c7258208c7240018fff964faa1a760" target="_blank" rel="noopener noreferrer">c554129</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/260" target="_blank" rel="noopener noreferrer">#260</a>), (<a href="https://github.com/backrunner" target="_blank" rel="noopener noreferrer">@backrunner</a>)</li><li>Table: 修复表头单元格合并显示异常 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/a121a0de2b5f28702b515d49e58a7cb467263be0" target="_blank" rel="noopener noreferrer">a121a0d</a>)</li><li>Tabs: 修复 <code>remove</code> 事件警告 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/2beac1ceefe16bf55e2babed4b4e9bcf488f3094" target="_blank" rel="noopener noreferrer">2beac1c</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/248" target="_blank" rel="noopener noreferrer">#248</a>)</li><li>Tag: 修复<code>click</code> 事件参数错误 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/e6ade96d0a607a57b41a13fc15694117871a9242" target="_blank" rel="noopener noreferrer">e6ade96</a>)</li><li>Breadcrumb: 修复面包屑 <code>item disabled</code> 状态样式, (<a href="https://github.com/Tencent/tdesign-common/pull/190" target="_blank" rel="noopener noreferrer">pr #190</a>), ( <a href="https://github.com/samhou1988" target="_blank" rel="noopener noreferrer">@samhou1988</a>)</li><li>Input: 修复输入框相关样式重复引入的问题 (<a href="https://github.com/Tencent/tdesign-common/pull/182" target="_blank" rel="noopener noreferrer">pr #182</a>), (<a href="https://github.com/xiaosansiji" target="_blank" rel="noopener noreferrer">@xiaosansiji</a>)</li><li>Select/Input/InputNumber/Switch: 背景色、边框样式等与设计不一致的, 统一修复 (<a href="https://github.com/Tencent/tdesign-common/pull/194" target="_blank" rel="noopener noreferrer">pr #194</a>), ( <a href="https://github.com/uyarn" target="_blank" rel="noopener noreferrer">@uyarn</a>)</li></ul><h3 id="features-3">Features <a class="header-anchor" href="#features-3"></a></h3><ul><li>InputNumber: 增加 <code>align</code> 属性 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/961a8a540276c42e14b066c2413183f93cdd068f" target="_blank" rel="noopener noreferrer">961a8a5</a>)</li><li>Button: 统一各类型按钮边框宽度 (<a href="https://github.com/Tencent/tdesign-common/pull/176" target="_blank" rel="noopener noreferrer">pr #176</a>), (<a href="https://github.com/BigLiao" target="_blank" rel="noopener noreferrer">@BigLiao</a>)</li></ul><h2 id="_0-7-0-2022-01-21">0.7.0 <code>2022-01-21</code> <a class="header-anchor" href="#_0-7-0-2022-01-21"></a></h2><h3 id="breaking-changes-2">BREAKING CHANGES <a class="header-anchor" href="#breaking-changes-2"></a></h3><ul><li>FormRule 的 <code>min</code> 和 <code>len</code> 根据一个中文等于两个字符的计算规则进行, 和 <code>max</code> 保持一致；<code>min</code> 和 <code>len</code> 在值为 Number 时, 进行数字大小的校验而非数字长度校验 (<a href="https://github.com/Tencent/tdesign-vue/pull/220" target="_blank" rel="noopener noreferrer">pr #220</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li></ul><h3 id="bug-fixes-7">Bug Fixes <a class="header-anchor" href="#bug-fixes-7"></a></h3><ul><li>Select: 修复下拉面板在远程搜索时的渲染出错 (<a href="https://github.com/Tencent/tdesign-vue-next/issues/235" target="_blank" rel="noopener noreferrer">issue #235</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/pull/237" target="_blank" rel="noopener noreferrer">pr #237</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li><li>Icon: 修复 ssr 渲染问题 (<a href="https://github.com/Tencent/tdesign-vue/pull/228" target="_blank" rel="noopener noreferrer">pr #228</a>), (<a href="https://github.com/uyarn" target="_blank" rel="noopener noreferrer">@uyarn</a>)</li><li>修复 <code>umd</code> 产物中未包括 <code>reset</code> 及 <code>css variables</code> 声明的问题 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/236" target="_blank" rel="noopener noreferrer">pr #236</a>), (<a href="https://github.com/xiaosansiji" target="_blank" rel="noopener noreferrer">@xiaosansiji</a>)</li></ul><h3 id="features-4">Features <a class="header-anchor" href="#features-4"></a></h3><ul><li>Skeleton: 新增 <code>Skeleton</code> 骨架屏组件, 请参照<a href="https://tdesign.tencent.com/vue-next/components/skeleton" target="_blank" rel="noopener noreferrer">官网</a>使用, (<a href="https://github.com/Tencent/tdesign-vue/pull/214" target="_blank" rel="noopener noreferrer">pr #214</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li><li>TagInput: 新增 <code>TagInput</code> 组件, 请参照<a href="https://tdesign.tencent.com/vue-next/components/skeleton" target="_blank" rel="noopener noreferrer">官网</a>使用, (<a href="https://github.com/Tencent/tdesign-vue-next/pull/131" target="_blank" rel="noopener noreferrer">pr #131</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>)</li><li>Select: 新增 <code>panelTopContent</code>, <code>panelBottomContent</code> 插槽 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/221" target="_blank" rel="noopener noreferrer">pr #221</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>),</li><li>Textarea: 新增属性 <code>status</code> 用于控制状态, <code>tips</code> 用于控制信息提示 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/246" target="_blank" rel="noopener noreferrer">pr 246</a>), (<a href="https://github.com/chaishi" target="_blank" rel="noopener noreferrer">@chaishi</a>)</li><li>Table: <ul><li>新增懒加载、虚拟滚动特性 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/155" target="_blank" rel="noopener noreferrer">pr #155</a>), (<a href="https://github.com/Louiszhai" target="_blank" rel="noopener noreferrer">@Louiszhai</a>)</li><li>新增 <code>onCellClick</code> 事件 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/247" target="_blank" rel="noopener noreferrer">pr #247</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li></ul></li></ul><h2 id="_0-6-4-2022-01-16">0.6.4 <code>2022-01-16</code> <a class="header-anchor" href="#_0-6-4-2022-01-16"></a></h2><h3 id="bug-fixes-8">Bug Fixes <a class="header-anchor" href="#bug-fixes-8"></a></h3><ul><li>Cascader: 修复 <code>input</code> 宽度处理和过滤状态下的输入框样式 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/3f054b7ade7cf062f2f39a0d31b6457abb66ebd2" target="_blank" rel="noopener noreferrer">3f054b7</a>)</li><li>Dropdown: 修复 <code>popupProps</code> 的 <code>overlayClass</code> 属性透传 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/98e83ce2323ab8cf578fff41f1b645bae785dea4" target="_blank" rel="noopener noreferrer">98e83ce</a>)</li><li>Swiper: 修复循环渲染无效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/a1dc97d8bdf5420552549a5ecde8f30941290062" target="_blank" rel="noopener noreferrer">a1dc97d</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/169" target="_blank" rel="noopener noreferrer">#169</a>)</li><li>Tabs: 修复 <code>change</code> 事件触发两次 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/1a6cbb20f94fda106fdd05c88f0436cb6420392d" target="_blank" rel="noopener noreferrer">1a6cbb2</a>)</li><li>Menu: 修复菜单事件触发两次 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/206/commits/f8b234c441d0741fce0b5b1bcac6e14b597235ff" target="_blank" rel="noopener noreferrer">f8b234c</a>)</li><li>Icon: 修复修改 <code>name</code> 无法重新渲染 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/178/commits/7708a560ed8dd9e934588188c95d9dfb2bedef2a" target="_blank" rel="noopener noreferrer">7708a56</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/41" target="_blank" rel="noopener noreferrer">#41</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/130" target="_blank" rel="noopener noreferrer">#130</a>)</li><li>Dialog: 修复 <code>closeOnEscKeydown</code> 事件 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/207/commits/72f5bcbe2173186f61481218b9e009c777e3448c" target="_blank" rel="noopener noreferrer">72f5bcb</a>), (<a href="https://github.com/vnues" target="_blank" rel="noopener noreferrer">@vnues</a>)</li><li>Drawer: 修复 <code>closeOnEscKeydown</code> 事件 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/207/commits/433de96d5ec7e72efe882375b81a1f9ca8a6b520" target="_blank" rel="noopener noreferrer">433de96</a>), (<a href="https://github.com/vnues" target="_blank" rel="noopener noreferrer">@vnues</a>)</li><li>Datepicker: 修复周起始为月最后一天时, 周显示错误 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/196" target="_blank" rel="noopener noreferrer">pr 117</a>), (<a href="https://github.com/xiaosansiji" target="_blank" rel="noopener noreferrer">@xiaosansiji</a>)</li><li>Select: 修复禁用状态下下拉 <code>icon</code> 展示样式, (<a href="https://github.com/Tencent/tdesign-common/pull/113" target="_blank" rel="noopener noreferrer">pr 113</a>), (<a href="https://github.com/pengYYYYY" target="_blank" rel="noopener noreferrer">@pengYYYYY</a>)</li><li>Tab: (<a href="https://github.com/vnues" target="_blank" rel="noopener noreferrer">@vnues</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/116" target="_blank" rel="noopener noreferrer">#116</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/115" target="_blank" rel="noopener noreferrer">#115</a>) <ul><li>修复关闭全部选项卡时, 无选项卡 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/148/commits/e3608b39d05c1e105a5b3eb48ffb8b13921d2d09" target="_blank" rel="noopener noreferrer">e3608b3</a>)</li><li>修复可滑动的选项卡中 点击左右切换会需要先点击选项卡才能点击切换 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/148/commits/a8bd20a59c9b5b7f56ecfc5eb3b18b2298b738af" target="_blank" rel="noopener noreferrer">a8bd20a</a>)</li></ul></li><li>Calendar: (<a href="https://github.com/Tencent/tdesign-vue-next/pull/163/commits/fde826ed62e17fd3e275824c8fa3c10a7e75afff" target="_blank" rel="noopener noreferrer">fde826e</a>), (<a href="https://github.com/PsTiu" target="_blank" rel="noopener noreferrer">@PsTiu</a>) <ul><li>修复单元格三个点击事件无效</li><li>修复 <code>controllerChange</code> 返回值不正确</li><li>修复点击了“隐藏周末”后切换为年模式会展示不出单元格</li></ul></li><li>Table: <ul><li>修复过滤功能不显示空数据元素 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/e52c4d842107cd9a0d05f3c5e260f4879a6b042e" target="_blank" rel="noopener noreferrer">e52c4d8</a>)</li><li>修复行拖不生效与拖拽动画 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/8673e875f3b83971097401b2bfead11a4f5bb668" target="_blank" rel="noopener noreferrer">8673e87</a>)</li><li>修复固定表头与内容没有对齐 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/0a161e8e27cec2024ecdbff4bd03d78664735c8f" target="_blank" rel="noopener noreferrer">0a161e8</a>)</li><li>修复异步拉取数据 <code>maxHeight</code> 不生效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/367c0dcdd4f54fc7a86c4b4f59104569e9372002" target="_blank" rel="noopener noreferrer">367c0dc</a>)</li><li>修复固定表头没有对齐 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/bbea4de85000651d29035ffb8cc3ca8db841b0d7" target="_blank" rel="noopener noreferrer">bbea4de</a>)</li></ul></li></ul><h3 id="features-5">Features <a class="header-anchor" href="#features-5"></a></h3><ul><li>Calendar: 增加 <code>monthChange</code> 事件 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/fde826ed62e17fd3e275824c8fa3c10a7e75afff" target="_blank" rel="noopener noreferrer">fde826e</a>), (<a href="https://github.com/PsTiu" target="_blank" rel="noopener noreferrer">@PsTiu</a>)</li><li>Avatar: 使用 <code>compositionApi</code> 重构组件逻辑 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/160/commits/1547cb90b6103841280f7ead98f0ae69763c9eb6" target="_blank" rel="noopener noreferrer">1547cb9</a>), (<a href="https://github.com/vnues" target="_blank" rel="noopener noreferrer">@vnues</a>)</li><li>Alert: (<a href="https://github.com/simpleAndElegant" target="_blank" rel="noopener noreferrer">@simpleAndElegant</a>) <ul><li>增加展开动画 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/159/commits/76ee15f338dfce59e3ad31fab2b332c256c5484d" target="_blank" rel="noopener noreferrer">76ee15f</a>)</li><li>使用 <code>compositionApi</code> 重构组件逻辑 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/159/commits/76ee15f338dfce59e3ad31fab2b332c256c5484d" target="_blank" rel="noopener noreferrer">4aec957</a>)</li></ul></li></ul><h2 id="_0-6-3-2022-01-06">0.6.3 <code>2022-01-06</code> <a class="header-anchor" href="#_0-6-3-2022-01-06"></a></h2><h3 id="bug-fixes-9">Bug Fixes <a class="header-anchor" href="#bug-fixes-9"></a></h3><ul><li>Menu: <ul><li>修复 <code>menu-item</code> 在不使用 <code>icon</code> 插槽的时候, 在左侧收回的时候多了一个数字 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/f80134917b20ce6400b013743628299c40db2f65" target="_blank" rel="noopener noreferrer">f801349</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/124" target="_blank" rel="noopener noreferrer">#124</a>), (<a href="https://github.com/LeeJim" target="_blank" rel="noopener noreferrer">@LeeJim</a>)</li><li>修复三级菜单无缩进效果(<a href="https://github.com/Tencent/tdesign-vue-next/commit/f6e6142ccf6eea353926c5743138cd7992aa5fff" target="_blank" rel="noopener noreferrer">f6e6142</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/118" target="_blank" rel="noopener noreferrer">#118</a>), (<a href="https://github.com/simpleAndElegant" target="_blank" rel="noopener noreferrer">@simpleAndElegant</a>)</li><li>修复禁用菜单未禁用点击 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/45db9574dc76590a1ce27e3aafdd3a040a844a7f" target="_blank" rel="noopener noreferrer">45db957</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/119" target="_blank" rel="noopener noreferrer">#119</a>), (<a href="https://github.com/simpleAndElegant" target="_blank" rel="noopener noreferrer">@simpleAndElegant</a>)</li><li>修复双层导航显示错误 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/99749ed4b0eaa57ccfef05a9fa920f36ba313f03" target="_blank" rel="noopener noreferrer">99749ed</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/75" target="_blank" rel="noopener noreferrer">#75</a>)</li><li>修复 <code>change</code> 事件两次触发 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/0b65c7a1852a3e03084a86226d82c7f8d5a70925" target="_blank" rel="noopener noreferrer">0b65c7a</a>)</li></ul></li><li>Popup: <ul><li>修复 <code>mousedown</code> 事件无效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/a1d330327b27288c362bfb5d6cb4953c764426a6" target="_blank" rel="noopener noreferrer">a1d3303</a>)</li><li>修复 <code>destory on close</code> 事件无效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/fde46e73c7c439101663c2c5591ed08ab9aca854" target="_blank" rel="noopener noreferrer">fde46e7</a>)</li></ul></li><li>Input: <ul><li>修复 <code>size</code> 属性无效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/db155b30fb009374308b2376d4a7dd7bf64338e8" target="_blank" rel="noopener noreferrer">db155b3</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/112" target="_blank" rel="noopener noreferrer">#112</a>)</li><li>修复点击清除 <code>icon</code> 后无法 <code>focus</code> (<a href="https://github.com/Tencent/tdesign-vue-next/commit/2c34e05cf183985ffd734e8bf14d77cbd07a041e" target="_blank" rel="noopener noreferrer">2c34e05</a>)</li></ul></li><li>Drawer: <ul><li>修复当抽屉打开时, <code>body</code> 有滚动条时可以滚动 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/8b9487825d338a78f9e027d7e5fa64b1a7f1bf7b" target="_blank" rel="noopener noreferrer">8b94878</a>), (<a href="https://github.com/caoML" target="_blank" rel="noopener noreferrer">@caoML</a>)</li><li>修复上方抽屉无动画效果, 并且显示卡顿 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/8b9487825d338a78f9e027d7e5fa64b1a7f1bf7b" target="_blank" rel="noopener noreferrer">52a4f37</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/79" target="_blank" rel="noopener noreferrer">#79</a>)</li></ul></li><li>Table: <ul><li>修复 <code>mouseenter</code> 和 <code>mouseleave</code> 事件无效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/52b6ac0a67bb8dab59edf4da5a689679ab5d9c92" target="_blank" rel="noopener noreferrer">52b6ac0</a>)</li><li>修复合并表格下的列宽度无效与错乱 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/02898ac8deb67ee054e3aa7cc80ca733efb5019a" target="_blank" rel="noopener noreferrer">02898ac</a>)</li></ul></li><li>Textarea: <ul><li>修复私有类名传入无效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/e9ad3c4003c830e8589ac41e5af3b42f4f71e305" target="_blank" rel="noopener noreferrer">e9ad3c4</a>)</li><li>修复在空状态下的加载无效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/797f8a7076f3bb209a41ab8c1fbbdc8ed8023b8b" target="_blank" rel="noopener noreferrer">797f8a7</a>)</li></ul></li><li>Dropdown: 修复使用 <code>slot</code> 时点击无法关闭 (<a href="https://github.com/Tencent/tdesign-common/pull/60/commits/52a4f37af5beb21d0bfe5e7291e6a03db1863b2f" target="_blank" rel="noopener noreferrer">e6f7cd1</a>)</li><li>DatePicker: 修复 <code>date-picker</code> 样式问题和选择面板无法点击 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/06994ab48b213f55606ed51bc87265f421011166" target="_blank" rel="noopener noreferrer">06994ab</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/30" target="_blank" rel="noopener noreferrer">#30</a>)</li><li>TreeSelect: 修复 <code>collapsedItem</code> 渲染异常 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/7539d675ee2075d878693367a97945c2fe5d5ea7" target="_blank" rel="noopener noreferrer">7539d67</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/36" target="_blank" rel="noopener noreferrer">#36</a>)</li><li>Breadcrumb: 修复点击后触发两次 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/abe1c1bf4e1c1f549029e2c5c1dc3f57aa41b15d" target="_blank" rel="noopener noreferrer">abe1c1b</a>)</li><li>Calendar: 修复月份与年份组件参数对象使用错误 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/a3284d5efd1c619ac90799d301071415d7628955" target="_blank" rel="noopener noreferrer">a3284d5</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/69" target="_blank" rel="noopener noreferrer">#69</a>), (<a href="https://github.com/Dreamcreative" target="_blank" rel="noopener noreferrer">@Dreamcreative</a>)</li><li>Pagination: 使用<code>InputNumber</code> 组件替代 <code>input</code>, 并内置跳转页码控制 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/86a2d09d0649b655b8ce9b8611f84bfc60a64b4a" target="_blank" rel="noopener noreferrer">86a2d09</a>)</li><li>Select: 修复点击清空后的触发下拉菜单展开 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/7340f8df87ef20ce44a34ee9c9e102192abd4262" target="_blank" rel="noopener noreferrer">7340f8d</a>)</li><li>Steps: 修复 <code>slot</code> 无法渲染 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/e84105013267ea4292c6b42c74d287f062294bfd" target="_blank" rel="noopener noreferrer">e841050</a>), (<a href="https://github.com/vnues" target="_blank" rel="noopener noreferrer">@vnues</a>)</li><li>Tabs: 修复循环创建下的结点渲染错误 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/07d79b6db603e16f63870cae15b2721b7d3ffc29" target="_blank" rel="noopener noreferrer">07d79b6</a>)</li><li>Upload: 修复上传文件后出现两个删除按钮 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/4296ebd908b6a615c8d9307d849c471906a205f9" target="_blank" rel="noopener noreferrer">4296ebd</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/120" target="_blank" rel="noopener noreferrer">#120</a>)</li></ul><h3 id="features-6">Features <a class="header-anchor" href="#features-6"></a></h3><ul><li>Cascader: <ul><li>增加 <code>value-type</code> (<a href="https://github.com/Tencent/tdesign-vue-next/commit/f7aaba26804610fb9c9daec69e7b58003bf311b6" target="_blank" rel="noopener noreferrer">f7aaba2</a>)</li><li>选择器宽度调整为继承外部宽度 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/41d4434ef9cc1a75453b2fc477c11f363b2d55f2" target="_blank" rel="noopener noreferrer">41d4434</a>)</li></ul></li><li>Input: <ul><li>增加左侧、右侧文本 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/db155b30fb009374308b2376d4a7dd7bf64338e8" target="_blank" rel="noopener noreferrer">db155b3</a>), (<a href="https://github.com/mokywu" target="_blank" rel="noopener noreferrer">@mokywu</a>)</li><li>增加 <code>placeholder</code> 全局配置 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/d72783641f4724cd16823ff5afe6de8f27933a9a" target="_blank" rel="noopener noreferrer">d727836</a>)</li></ul></li><li>Steps: 增加 <code>readonly</code> 配置 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/d1ba7aa0aeb26fb69f57a1e2d41535249a3cad8b" target="_blank" rel="noopener noreferrer">d1ba7aa</a>)</li><li>Radio: 支持 <code>allowUnCheck</code> (<a href="https://github.com/Tencent/tdesign-vue-next/commit/fa3acbf199d818fe95d9b4493e641da47ebe2de5" target="_blank" rel="noopener noreferrer">fa3acbf</a>)</li><li>Slider: 优化 <code>popup</code> 显示行为 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/076afded5e81ab6c09600dc2e0eb97ee05a68860" target="_blank" rel="noopener noreferrer">076afde</a>), (<a href="https://github.com/Tencent/tdesign-vue-next/issues/117" target="_blank" rel="noopener noreferrer">#117</a>), (<a href="https://github.com/vnues" target="_blank" rel="noopener noreferrer">@vnues</a>)</li></ul><h2 id="_0-6-0-2021-12-22">0.6.0 <code>2021-12-22</code> <a class="header-anchor" href="#_0-6-0-2021-12-22"></a></h2><h3 id="breaking-changes-3">BREAKING CHANGES <a class="header-anchor" href="#breaking-changes-3"></a></h3><ul><li><code>0.5.0</code> 升级至 <code>0.6.0</code> 版本 CSS BEM 规范改动列表 (<a href="https://github.com/Tencent/tdesign-vue-next/issues/32" target="_blank" rel="noopener noreferrer">#32</a>)</li></ul><h3 id="bug-fixes-10">Bug Fixes <a class="header-anchor" href="#bug-fixes-10"></a></h3><ul><li>Slider: 清除在 <code>inputNumber</code> 不展示的情况时的冗余外部 <code>dom</code> (<a href="https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6" target="_blank" rel="noopener noreferrer">4c14567</a>)</li><li>DatePicker <ul><li>修复区间选择在多个 <code>panel</code> 渲染异常 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6" target="_blank" rel="noopener noreferrer">31c0c04</a>)</li><li>修复区间选择选择年月时点击无效 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/31c0c0461507d75e8ff12b6a774d1195e4678dd6" target="_blank" rel="noopener noreferrer">31c0c04</a>)</li></ul></li><li>Input: 修复无 <code>placeholder</code> 默认值问题 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/1ff9ea0e59ee64eb8214355272d8caf3242e1068" target="_blank" rel="noopener noreferrer">1ff9ea0</a>)</li><li>Loading 修复 <code>loadingPlugin</code> 隐藏报错 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/6922d97647af431a755479f16951d8db6be8b38c" target="_blank" rel="noopener noreferrer">6922d97</a>)</li><li>Pagination: <ul><li>增加跳转输入框输入边界判断 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/b0787ce0258aff1aacda3b7549400eff225c70f2" target="_blank" rel="noopener noreferrer">b0787ce</a>)</li><li>参数受控修复(<a href="https://github.com/Tencent/tdesign-vue-next/pull/12/commits/3e418447bea5166ef1f458c333129c7b72602153" target="_blank" rel="noopener noreferrer">3e41844</a>)</li></ul></li><li>Table: 修复 <code>enhancedTable</code> 安装类型报错 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/98e564be6f3f414ffa5ab89768223799a73b2f89" target="_blank" rel="noopener noreferrer">98e564b</a>)</li><li>TreeSelect: <ul><li>修复在 <code>collapsedItems</code> 模式下的选项数量渲染错误 (<a href="https://github.com/Tencent/tdesign-vue-next/issues/36" target="_blank" rel="noopener noreferrer">#36</a>)(<a href="https://github.com/Tencent/tdesign-vue-next/pull/42/commits/86a2d09d0649b655b8ce9b8611f84bfc60a64b4a" target="_blank" rel="noopener noreferrer">86a2d09</a>)</li><li>修复点击关闭触发了下拉框 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/3324aaeb232eb31a7c41b1bf6adb4feb93c51442" target="_blank" rel="noopener noreferrer">3324aae</a>)</li></ul></li><li>Pagination: 可跳转的分页组件中使用 <code>input-number</code> 组件替换 <code>input</code>(<a href="https://github.com/Tencent/tdesign-vue-next/pull/42/commits/86a2d09d0649b655b8ce9b8611f84bfc60a64b4a" target="_blank" rel="noopener noreferrer">86a2d09</a>)</li><li>Textarea: 修复 <code>v-model</code> 无效, 处理滚动条样式 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/14/commits/3c3c9153f02cd60788c40802b6b35799012b417a" target="_blank" rel="noopener noreferrer">3c3c915</a>)</li><li>Drawer: 修复事件点击无效无效 (<a href="https://github.com/Tencent/tdesign-vue-next/issues/39" target="_blank" rel="noopener noreferrer">#39</a>) (<a href="https://github.com/Tencent/tdesign-vue-next/pull/14/commits/3c3c9153f02cd60788c40802b6b35799012b417a" target="_blank" rel="noopener noreferrer">3c3c915</a>)</li><li>TimePicker: 修复在 <code>HH:mm:ss format</code> 下渲染报错</li><li>Radio: 修复边界条件下的滚动 <code>bug</code> (<a href="https://github.com/Tencent/tdesign-vue-next/pull/12/commits/860adfc8d59f7ceaa4d55eeee7e6ab1922c0e71e" target="_blank" rel="noopener noreferrer">#860adfc</a>)</li><li>Chore: 替换组件名称变量, 支持 <code>webstorm</code> 代码提示。(<a href="https://github.com/Tencent/tdesign-vue-next/pull/7/commits/cdc2582325b332d29d2e96c58c4ae0646c5a0a02" target="_blank" rel="noopener noreferrer">#cdc2582</a>)</li></ul><h3 id="features-7">Features <a class="header-anchor" href="#features-7"></a></h3><ul><li>Checkbox: 新增 <code>checkbox</code> 插槽使用 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10" target="_blank" rel="noopener noreferrer">fe3171b</a>)</li><li>Table: 新增 <code>expandedRow</code> 插槽使用 (<a href="https://github.com/Tencent/tdesign-vue-next/commit/fe3171b306a66c43ab25c3c7b38c8ad124571c10" target="_blank" rel="noopener noreferrer">fe3171b</a>)</li><li>Select: 增加键盘事件(<a href="https://github.com/Tencent/tdesign-vue-next/pull/12/commits/18bb03240d6d7556c4e5d8e568f9d7fbf9a0cdc8" target="_blank" rel="noopener noreferrer">#39</a>)(<a href="https://github.com/Tencent/tdesign-vue-next/pull/12/commits/18bb03240d6d7556c4e5d8e568f9d7fbf9a0cdc8" target="_blank" rel="noopener noreferrer">18bb032</a>)</li><li>Upload: 提取公共 <code>XHR</code> (<a href="https://github.com/Tencent/tdesign-vue-next/pull/12/commits/82d1b0bd757d55d6723ae04b8649610cfa60b66b" target="_blank" rel="noopener noreferrer">#82d1b0b</a>)</li><li>DatePicker: 支持 <code>prefixIcon</code> 和 <code>suffixIcon</code> 插槽 (<a href="https://github.com/Tencent/tdesign-vue-next/pull/11/commits/1d534c6f29cdb8fc565858909e02b239a0f4887e" target="_blank" rel="noopener noreferrer">#1d534c6</a>)</li></ul><h2 id="_0-5-0-2021-12-08">0.5.0 <code>2021-12-08</code> <a class="header-anchor" href="#_0-5-0-2021-12-08"></a></h2><h3 id="breaking-changes-4">BREAKING CHANGES <a class="header-anchor" href="#breaking-changes-4"></a></h3><ul><li>从 0.5.0 版本开始, 将只在外网 <code>npm registry</code> 上发布, 请安装外网包 <a href="https://www.npmjs.com/package/tdesign-vue-next" target="_blank" rel="noopener noreferrer">tdesign-vue-next</a></li><li>LocalProvider 配置多语言方案已废弃, 请升级为 ConfigProvider。</li><li>Icon: <ul><li>独立为 <code>npm</code> 包 <code>tdesign-icons-vue-next</code>, 项目中有直接使用 <code>Icon</code> 请升级后安装此npm包。</li><li>新增 <code>CaretLeftSmallIcon</code> 等23个Icon, 移除 <code>ResourceListIcon</code>。 <a href="https://github.com/uyarn" target="_blank" rel="noopener noreferrer">@uyarn</a></li></ul></li></ul><h3 id="bug-fixes-11">Bug Fixes <a class="header-anchor" href="#bug-fixes-11"></a></h3><ul><li>Slider: 修复 <code>inputNumber</code> 逻辑, 优化 <code>Dom</code> 展示处理。</li><li>Dialog: 修复 <code>DialogPlugin</code> 非 <code>methods</code> 问题。</li><li>Menu: <ul><li>修复暗黑模式下菜单分组标题颜色使用错误的问题。</li><li>修复滚动条展示样式。</li></ul></li><li>Table: 修复 <code>expand icon</code> 旋转角度。</li><li>Cascader: <ul><li>修复 <code>filter</code> 文字高亮处理只处理第一个颜色的问题。</li><li>修复 <code>empty</code> 展示宽度过短的问题。</li><li>修复 <code>collapsedItems</code> 只实现了 <code>render function</code> 未实现插槽。</li></ul></li></ul><h3 id="features-8">Features <a class="header-anchor" href="#features-8"></a></h3><ul><li>Upload: <ul><li>自动上传模式删除非必要上传按钮。</li><li>输入框模式新增删除按钮。</li></ul></li><li>Textarea: 支持 <code>maxcharacter</code> 用于字符文本长度控制。</li><li>Checkbox: 全选功能支持插槽写法。</li><li>Cascader: 支持 <code>loading</code> 状态。</li><li>DatePicker: 支持 <code>firstDayOfWeek</code> API。</li></ul><h2 id="_0-4-4-2021-11-29">0.4.4 <code>2021-11-29</code> <a class="header-anchor" href="#_0-4-4-2021-11-29"></a></h2><h3 id="bug-fixes-12">Bug Fixes <a class="header-anchor" href="#bug-fixes-12"></a></h3><ul><li>Select: 修复直传 <code>options</code> 时 <code>filterable</code> 模式下有问题。</li><li>Steps: 修复 <code>layout</code> 问题。</li><li>Radio: 修复 <code>radio-group value</code> 不存在渲染问题。</li><li>Popup: 修复在嵌套使用时问题。</li><li>DialogPlugin: <ul><li>修复 <code>DialogPlugin</code> 为不可执行方法问题</li><li>修复插件方式使用时 <code>ClassName</code> 透传覆盖。</li></ul></li><li>MessagePlugin: 修复 <code>MessagePlugin</code> 为不可执行方法问题。</li><li>NotificationPlugin: 修复 <code>NotificationPlugin</code> 为不可执行方法问题。</li></ul><h3 id="features-9">Features <a class="header-anchor" href="#features-9"></a></h3><ul><li>Steps: 组件部分逻辑重构, <code>direction</code> 即将在下个版本废弃, 请改用 <code>layout</code> API, 可选项类型不变。</li><li>Tree: 支持 <code>disableCheck</code> 方法。</li><li>Menu: 支持子菜单 <code>disabled</code> 配置</li><li>Cascader: <code>checkStrictly=true</code> 时, 点击选项, 级联选择器不会收起；<code>collapsedItems</code> 支持 <code>function/slot</code> 自定义配置用法,</li><li>Upload: <ul><li>补充上传失败判定条件, <code>formatResponse</code> 返回值 <code>error</code> 为真, 则表示上传失败</li><li><code>progress</code> 事件参数新增 <code>type: 'real' | 'mock'</code>, 分别表示真实进度和模拟进度</li><li>如果接口和 <code>formatResponse</code> 都没有返回 <code>url</code>, 组件会默认填充一个图片预览地址</li><li><code>progress</code> 事件返回的进度不会超过 100</li><li>上传成功后执行 <code>formatResponse</code></li></ul></li></ul><h2 id="_0-4-3-2021-11-22">0.4.3 <code>2021-11-22</code> <a class="header-anchor" href="#_0-4-3-2021-11-22"></a></h2><h3 id="bug-fixes-13">Bug Fixes <a class="header-anchor" href="#bug-fixes-13"></a></h3><ul><li>Input：修复小键盘无法触发 <code>enter</code> 事件问题。</li><li>List: 修复 <code>API</code> 变动但 <code>props</code> 未变动的问题。</li><li>Loading：修复在 <code>safari</code> 的表现异常问题。</li><li>Select: 修复 <code>value</code> 参数校验问题。</li><li>Menu: <ul><li>部导航下拉菜单与双层导航激活样式效果丢失。</li><li>收起侧边导航, 展开收起子菜单, <code>expanded</code> 不同步。</li><li>动态获取的菜单内容选中后, 父级菜单没有 <code>t-is-active</code>。</li></ul></li><li>Grid: 优化 <code>gutter</code> 逻辑, 传入 <code>number</code> 类型不指定纵向间隔。</li><li>Table: <ul><li>修复 <code>rowClassName</code> 支持 <code>string</code>。</li><li>修复 <code>selected-row-keys</code> 外部传值无效问题。</li></ul></li><li>TimePicker: <ul><li>调整 <code>step</code> 的逻辑 改为首位都为 <code>0</code>, 处理。</li><li><code>clear</code> 事件处理冒泡。</li></ul></li></ul><h3 id="features-10">Features <a class="header-anchor" href="#features-10"></a></h3><ul><li>Avatar: 新增 <code>avatar</code> 组件。</li><li>Calendar：新增属性 <code>fillWithZero</code>, <code>ConfigProvider</code> 新增配置项 <code>fillWithZero</code>。</li></ul><h2 id="_0-4-2-2021-11-15">0.4.2 <code>2021-11-15</code> <a class="header-anchor" href="#_0-4-2-2021-11-15"></a></h2><h3 id="bug-fixes-14">Bug Fixes <a class="header-anchor" href="#bug-fixes-14"></a></h3><ul><li>DatePicker: 修复 <code>footer</code> 样式。</li><li>Tabs: <code>destroyOnHide</code> 逻辑修复。</li><li>Popconfirm: 修复在 <code>0.4.1</code> 版本无法使用的问题。</li><li>Upload: <ul><li>模拟进度触发进度条更新事件。</li><li>修复不可用状态下的样式问题。</li></ul></li><li>TreeSelect: 修复 <code>v-model</code> 绑定的 <code>bug</code>。</li><li>Popup: 修复 <code>popup arrow</code> 定位不跟随 <code>content</code> 内容问题。</li></ul><h3 id="features-11">Features <a class="header-anchor" href="#features-11"></a></h3><ul><li>Form: <ul><li>增加 <code>successBorder API</code>, 控制是否显示校验成功的边框。</li><li>增加 <code>requiredMark API</code>, 是否显示必填符号.</li></ul></li><li>Table: 新增 <code>tree</code> 属性, 支持在表格中展示树形结构。 <ul><li><code>tree.indent</code> 控制树结点缩进距离, 单位：<code>px</code>, 默认为 <code>24px</code>。</li><li><code>tree.treeNodeColumnIndex</code> 控制树结点在第几列渲染, 默认为 <code>0</code> , 第一列。</li><li><code>tree.childrenKey</code> 控制树形结构子节点字段, 默认为 <code>children</code>。</li><li><code>tree.checkStrictly</code> 控制树形结构的行选中（多选）, 父子行选中是否独立, 默认独立, 值为 <code>true</code></li><li><code>selectChange</code> 事件回调参数新增 <code>type</code>, 用以区分操作类型</li></ul></li><li>TreeSelect: 新增 <code>collapsedItems API</code> 的参数。</li><li>Select: 新增 <code>collapsedItems API</code> 的参数。</li></ul><h2 id="_0-4-1-2021-11-06">0.4.1 <code>2021-11-06</code> <a class="header-anchor" href="#_0-4-1-2021-11-06"></a></h2><h3 id="bug-fixes-15">Bug Fixes <a class="header-anchor" href="#bug-fixes-15"></a></h3><ul><li>DatePicker: <ul><li>修复 <code>v-model</code> 使用场景下 <code>value</code> 未同步的问题。</li><li>修复 <code>placeholder</code> 属性传入数组类型报错的问题。</li></ul></li><li>Table: <ul><li>修复 <code>size=small</code> 时展开按钮被隐藏的问题;内容超 <code>maxHeight</code> 时固定表头。</li><li>修复固定列样式。</li><li>修复 <code>expandIcon</code> 关闭后无法展开。</li></ul></li><li>Tag:修复 <code>icon api</code> 无法使用 <code>slot</code> 的问题。</li><li>Tabs:修复生产环境和测试环境表现不一致。</li><li>Popup:修复组件更新时定位的问题。</li><li>TS: 修复 <code>TNode</code> <code>类型定义, MessagePlugin</code> 类型定义。</li></ul><h3 id="features-12">Features <a class="header-anchor" href="#features-12"></a></h3><ul><li>Table: <ul><li>增加 <code>expandIcon</code> 插槽。</li><li>增加表格过滤自定义。</li></ul></li><li>全局配置: 增加 <code>drawer</code> 和 <code>dialog</code> 的全局配置。</li></ul><h2 id="_0-4-0-2021-10-29">0.4.0 <code>2021-10-29</code> <a class="header-anchor" href="#_0-4-0-2021-10-29"></a></h2><h3 id="breaking-changes-5">BREAKING CHANGES <a class="header-anchor" href="#breaking-changes-5"></a></h3><ul><li>Button: <code>shape</code> 默认值由 <code>square</code> 调整为 <code>rectangle</code>, 支持正方形按钮展示, 手动设置 <code>shape = square</code> 的小伙伴请删除设置, 没有设置过 <code>shape</code> 属性的可以忽略。</li></ul><h3 id="bug-fixes-16">Bug Fixes <a class="header-anchor" href="#bug-fixes-16"></a></h3><ul><li>Dropdown: 修复 <code>item</code> 为函数时的渲染错误。</li><li>Cascader：修复 <code>defaultValue</code> 监听变化的问题, 只消费一次。</li><li>Tag: 修复 <code>icon svg</code> 引用错误, 后续 <code>icon</code> 会迁移到独立包。</li><li>Calender：修复组件事件抛出问题。</li><li>Pagination：修复无法隐藏分页大小控制器。</li><li>DatePicker: 修复时间日期区间选择时选择时间问题。</li><li>InputNumber：修复 <code>descrease</code> 样式问题。</li><li>Upload: 修复图片预览 <code>icon</code> 无法点击。</li></ul><h3 id="features-13">Features <a class="header-anchor" href="#features-13"></a></h3><ul><li>Form: 优化 <code>FormItem</code> 提示文案展示效果。</li><li>Textarea: 透传外层属性。</li></ul><h2 id="_0-3-5-2021-10-25">0.3.5 <code>2021-10-25</code> <a class="header-anchor" href="#_0-3-5-2021-10-25"></a></h2><h3 id="bug-fixes-17">Bug Fixes <a class="header-anchor" href="#bug-fixes-17"></a></h3><ul><li>Breadcrumb: 修复 <code>Router</code> 注册后, <code>to</code> 属性无法跳转到正确页面。</li><li>Tab: 修复点击删除 <code>tab</code> 按钮报错。</li><li>ToolTip: 修复显示异常。</li></ul><h3 id="features-14">Features <a class="header-anchor" href="#features-14"></a></h3><ul><li>新增 <code>Comment</code> 组件。</li><li>Select: 增加 <code>collapsedItems</code> &amp;&amp; <code>minCollapsedNum</code> <code>API</code>。</li><li>Cascader: 增加 <code>collapsedItems</code> &amp;&amp; <code>minCollapsedNum</code> <code>API</code>。</li><li>TreeSelect: 增加 <code>collapsedItems</code> &amp;&amp; <code>minCollapsedNum</code> <code>API</code>。</li></ul><h2 id="_0-3-4-2021-10-14">0.3.4 <code>2021-10-14</code> <a class="header-anchor" href="#_0-3-4-2021-10-14"></a></h2><h3 id="bug-fixes-18">Bug Fixes <a class="header-anchor" href="#bug-fixes-18"></a></h3><ul><li>Steps 修复: <ul><li>带 <code>icon</code> 步骤条未显示 <code>icon</code>。</li><li>修复组件中的 <code>current</code> 属性值。</li></ul></li><li>Pagination: 修复 <code>change</code> 事件边界触发问题。</li><li>Form: <code>0.3.3</code> 版本 <code>rules</code> 校验规则失效。</li><li>Transfer: 处理 <code>disable</code> 选项可选的问题 &amp;&amp; 处理重复 <code>key</code> 的 <code>warning</code>。</li></ul><h3 id="features-15">Features <a class="header-anchor" href="#features-15"></a></h3><ul><li>增加 <code>cascader</code> 组件的 <code>load</code> 属性, <code>filterable</code> 属性。</li></ul><h2 id="_0-3-3-2021-09-29">0.3.3 <code>2021-09-29</code> <a class="header-anchor" href="#_0-3-3-2021-09-29"></a></h2><h3 id="bug-fixes-19">Bug Fixes <a class="header-anchor" href="#bug-fixes-19"></a></h3><ul><li>Upload 修复 <ul><li>组件 <code>method prop</code> 不生效 &amp;&amp; 优化 <code>dragger</code> 组件的 <code>slot</code> 性能告警。</li><li>修复 <code>format-response</code> 回掉函数不生效。</li></ul></li><li>Pagination: 修复组件事件不符合预期的问题 。</li><li>Table: 修复在表头是多级表头的情况下排序不生效。</li><li>Tree: 修复删除节点报错。</li><li>Tooltip: 修复 <code>slot</code> 用法下, <code>class</code> 属性未能正常响应变化的问题。</li><li>Dropdown: 修复 <code>overlayClassName</code> 属性设置无效的问题。</li><li>修复 <code>package.json</code>的 <code>peerDependencies</code> 锁定版本问题。</li><li>Select: 修复受控用法下取消勾选状态同步的问题。</li></ul><h3 id="features-16">Features <a class="header-anchor" href="#features-16"></a></h3><ul><li>优化打包流程 &amp; 支持按需引入组件 &amp; 支持自定义主题配置。</li><li>新增 <code>Slider</code> 组件。</li><li>Menu: 支持超过两级的菜单展示。</li><li>选中行增加类名 <code>t-table-row--selected</code>。</li><li><code>Upload</code> 新特性: <ul><li>新增取消上传事件 <code>cancel-upload</code>。</li><li>新增自定义上传方法 <code>requestMethod</code>。</li><li>新增 <code>showUploadProgress</code> 属性, 用于表示「是否显示上传进度」。</li><li>新增 <code>sizeLimit</code> 属性, 表示文件大小限制, 支持 <code>1000</code> 和 <code>{ size: 3, unit: 'MB', message: '文件过大' }</code> 等方式, 支持单位有 'B' | 'KB' | 'MB' | 'GB'。</li></ul></li><li><code>FormItem</code> 支持 <code>labelWidth、labelAlign</code> &amp; 调整 <code>labelWidth</code> 默认值为 <code>100px</code>。</li></ul><h2 id="_0-3-2-2021-09-22">0.3.2 <code>2021-09-22</code> <a class="header-anchor" href="#_0-3-2-2021-09-22"></a></h2><h3 id="bug-fixes-20">Bug Fixes <a class="header-anchor" href="#bug-fixes-20"></a></h3><ul><li>DatePicker: 组件增加日期范围的起始结束判断, 修复相关样式。</li><li>Table: 修复组件事件触发逻辑。</li><li>Pagination: 修复组件分页组件在页数小于等于 <code>1</code> 的时候不展示问题。</li><li>修复 <code>Affix</code> 与 <code>Anchor</code> 结合无法定位到对应 <code>tab</code> 。</li></ul><h3 id="features-17">Features <a class="header-anchor" href="#features-17"></a></h3><ul><li>Anchor: 增加自定义游标。</li></ul><h2 id="_0-3-1-2021-09-17">0.3.1 <code>2021-09-17</code> <a class="header-anchor" href="#_0-3-1-2021-09-17"></a></h2><h3 id="breaking-changes-6">BREAKING CHANGES <a class="header-anchor" href="#breaking-changes-6"></a></h3><ul><li>Transfer: 组件重构, API,修改了 <code>keysType</code> 的定义。</li><li>List: 组件 <code>asyncLoading</code> 缺陷修复 &amp; <code>avatar</code> 重命名为 <code>image</code>。</li></ul><h3 id="bug-fixes-21">Bug Fixes <a class="header-anchor" href="#bug-fixes-21"></a></h3><ul><li>Select: 修复关闭按钮失效。</li><li>List: 修复 <code>asyncLoading</code>逻辑缺陷。</li><li>Pagination: 修复受控属性问题。</li><li>Table: 修复加载状态, 修复异步加载, 修复分页数据绑定问题, 修复组件告警。</li></ul><h3 id="features-18">Features <a class="header-anchor" href="#features-18"></a></h3><ul><li>Upload: 新增 <code>Upload</code> 组件。</li><li>DatePicker:新增 <code>DatePicker</code> 组件。</li><li>Tree: 重构 <code>Tree</code> 组件, 同步特性与 <code>API</code>。</li><li>Transfer: 重构 <code>Transfer</code> 组件, 同步特性与 <code>API</code>。</li><li>Input: 实现 <code>autofocus</code> 属性。</li><li>Tooltip: 添加 <code>visible-change</code> 事件。</li><li>Dialog: 插槽支持透传 <code>style</code> 和 <code>className</code> 。</li><li>Table: 增加拖拽排序, 增加固定列动态变化。</li></ul><h2 id="_0-2-0-2021-09-10">0.2.0 <code>2021-09-10</code> <a class="header-anchor" href="#_0-2-0-2021-09-10"></a></h2><h3 id="breaking-changes-7">BREAKING CHANGES <a class="header-anchor" href="#breaking-changes-7"></a></h3><ul><li>Radio Button: 调整组件样式 &amp; 支持 <code>variant api</code> &amp; <code>buttonStyle api</code> 已废弃。</li><li>Form: 同步组件特性, 回调函数从 <code>result</code> 修改至 <code>validateResult</code>。</li></ul><h3 id="bug-fixes-22">Bug Fixes <a class="header-anchor" href="#bug-fixes-22"></a></h3><ul><li>Checkbox: 修复<code>class</code> 不透传问题。</li><li>Drawer: 修复组件 <code>header=false</code> 和 <code>closeBtn=false</code> 不生效问题。</li></ul><h3 id="features-19">Features <a class="header-anchor" href="#features-19"></a></h3><ul><li>Dropdown: 新增 <code>Dropdown</code> 组件。</li></ul><h2 id="_0-1-18-2021-09-08">0.1.18 <code>2021-09-08</code> <a class="header-anchor" href="#_0-1-18-2021-09-08"></a></h2><h3 id="bug-fixes-23">Bug Fixes <a class="header-anchor" href="#bug-fixes-23"></a></h3><ul><li>Select: 修复组件无边框场景下尺寸异常。</li><li>修复 <code>cascader common</code> 引用路径问题。</li><li>Popup: 修复展开动画向上延展问题。</li></ul><h3 id="features-20">Features <a class="header-anchor" href="#features-20"></a></h3><ul><li>Swiper: 新增 <code>Swiper</code> 组件。</li></ul><h2 id="_0-1-16-2021-09-03">0.1.16 <code>2021-09-03</code> <a class="header-anchor" href="#_0-1-16-2021-09-03"></a></h2><h3 id="bug-fixes-24">Bug Fixes <a class="header-anchor" href="#bug-fixes-24"></a></h3><ul><li>修复 <code>package.json</code> 中 <code>typings</code> 文件路径</li></ul><h3 id="features-21">Features <a class="header-anchor" href="#features-21"></a></h3><ul><li>TimePicker: 新增 <code>TimePicker</code> 组件。</li><li>TreeSelect: 新增 <code>TreeSelect</code> 组件。</li><li>Cascader: 新增 <code>Cascader</code> 组件。</li><li>切换 <code>eslint</code> 规则集到 <code>eslint-config-airbnb-base</code>。</li></ul><h3 id="performance-improvements">Performance Improvements <a class="header-anchor" href="#performance-improvements"></a></h3><ul><li>Select: 改进 <code>show</code> 规则, 提高多 <code>options</code> 下的 <code>dom</code> 性能。</li></ul><h2 id="_0-1-14-2021-09-01">0.1.14 <code>2021-09-01</code> <a class="header-anchor" href="#_0-1-14-2021-09-01"></a></h2><h3 id="bug-fixes-25">Bug Fixes <a class="header-anchor" href="#bug-fixes-25"></a></h3><ul><li><code>TypeScript</code> 修复引用路径问题。</li></ul><h2 id="_0-1-13-2021-08-31">0.1.13 <code>2021-08-31</code> <a class="header-anchor" href="#_0-1-13-2021-08-31"></a></h2><h3 id="bug-fixes-26">Bug Fixes <a class="header-anchor" href="#bug-fixes-26"></a></h3><ul><li>MenuItem: 修复组件 <code>to</code> 属性无法跳转问题。</li><li>Select: 修复 <code>close icon</code> 点击后冒泡问题。</li></ul><h3 id="features-22">Features <a class="header-anchor" href="#features-22"></a></h3><ul><li>Popup: 增加下拉动效特性。</li><li>ToolTip: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>Gride: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>Pagination: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>InputNumber: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li></ul><h2 id="_0-1-12-2021-08-27">0.1.12 <code>2021-08-27</code> <a class="header-anchor" href="#_0-1-12-2021-08-27"></a></h2><h3 id="bug-fixes-27">Bug Fixes <a class="header-anchor" href="#bug-fixes-27"></a></h3><ul><li>Select: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>Dialog: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>CheckBox: 修复 <code>Checked</code> 参数校验问题。</li><li>Tag：<code>UI</code> 样式修复。</li></ul><h3 id="features-23">Features <a class="header-anchor" href="#features-23"></a></h3><ul><li>Affix: 新增 <code>Affix</code> 组件。</li><li>Anchor: 新增 <code>Anchor</code> 组件。</li><li>Button: 新增斜八度点击动画。</li><li>Tree: 新增斜八度点击动画。</li><li>Select: 新增斜八度点击动画。</li><li>子仓库 <code>common</code> 迁移到 <code>_common</code>。</li></ul><h2 id="_0-1-11-2021-08-20">0.1.11 <code>2021-08-20</code> <a class="header-anchor" href="#_0-1-11-2021-08-20"></a></h2><h3 id="bug-fixes-28">Bug Fixes <a class="header-anchor" href="#bug-fixes-28"></a></h3><ul><li>修复导致vite无法热更新的问题</li></ul><h3 id="features-24">Features <a class="header-anchor" href="#features-24"></a></h3><ul><li>仓库开发环境及站点从 <code>webpack</code> 迁移至 <code>vite</code>。</li><li>Loading: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>Tabs: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>Steps: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>Breadcrumb: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>Menu: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li></ul><h2 id="_0-1-10-2021-08-13">0.1.10 <code>2021-08-13</code> <a class="header-anchor" href="#_0-1-10-2021-08-13"></a></h2><h3 id="bug-fixes-29">Bug Fixes <a class="header-anchor" href="#bug-fixes-29"></a></h3><ul><li>修复 <code>TypeScript</code> 引用路径问题, 迁移 <code>props</code> 至 <code>src</code> 下。</li></ul><h2 id="_0-1-9-2021-08-09">0.1.9 <code>2021-08-09</code> <a class="header-anchor" href="#_0-1-9-2021-08-09"></a></h2><h3 id="bug-fixes-30">Bug Fixes <a class="header-anchor" href="#bug-fixes-30"></a></h3><ul><li>Tabs: 修复 <code>panel</code> 无法实时更新的问题。</li><li>PopConfirm: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li><li>Popup: 重构组件, <code>UI</code> 与 <code>API</code> 特性同步。</li></ul><h3 id="features-25">Features <a class="header-anchor" href="#features-25"></a></h3><ul><li>Calendar: 新增 <code>Calendar</code> 组件。</li><li>Table: 新增 <code>Table</code>组件。。</li></ul><h2 id="_0-1-8-2021-07-01">0.1.8 <code>2021-07-01</code> <a class="header-anchor" href="#_0-1-8-2021-07-01"></a></h2><h3 id="features-26">Features <a class="header-anchor" href="#features-26"></a></h3><ul><li>Menu: 新增 <code>Menu</code> 组件。</li></ul><h2 id="_0-1-3-2021-06-08">0.1.3 <code>2021-06-08</code> <a class="header-anchor" href="#_0-1-3-2021-06-08"></a></h2><h3 id="features-27">Features <a class="header-anchor" href="#features-27"></a></h3><ul><li>Transfer: 新增 <code>Transfer</code> 组件。</li></ul><h2 id="_0-1-2-2021-05-20">0.1.2 <code>2021-05-20</code> <a class="header-anchor" href="#_0-1-2-2021-05-20"></a></h2><h3 id="features-28">Features <a class="header-anchor" href="#features-28"></a></h3><ul><li>Pagination: 新增 <code>Pagination</code>组件。</li></ul><h2 id="_0-1-0-2021-05-19">0.1.0 <code>2021-05-19</code> <a class="header-anchor" href="#_0-1-0-2021-05-19"></a></h2><h3 id="features-29">Features <a class="header-anchor" href="#features-29"></a></h3><ul><li>首个测试版发布。<code>Upload</code>、<code>Calendar</code>、<code>Menu</code>、<code>DatePicker</code>、<code>TimePicker</code>、<code>TextArea</code>、<code>Pagination</code>、<code>Transfer</code> 组件除外。</li></ul></div><div style="margin-top: 48px;"><td-doc-history time="1646620274500"></td-doc-history></div><td-doc-footer slot="doc-footer" platform="web"><div slot="__render_content__">
+      <div class="TDesign-doc-footer">
+        <div class="TDesign-doc-footer__inner">
+          <div class="TDesign-doc-footer__content">
+            
+              <div class="TDesign-doc-footer__content-block">
+                <p class="title">资源</p>
+                
+                  <a class="link" href="/source" target="_self">
+                    <span>设计资源</span>
+                  </a>
+                
+                  <a class="link" href="https://tdesign.tencent.com/starter/" target="_self">
+                    <span>TDesign Starter</span>
+                  </a>
+                
+              </div>
+            
+              <div class="TDesign-doc-footer__content-block">
+                <p class="title">腾讯设计</p>
+                
+                  <a class="link" href="https://codesign.qq.com/" target="_blank">
+                    <span>CoDesign</span>
+                  </a>
+                
+                  <a class="link" href="https://prowork.qq.com/" target="_blank">
+                    <span>ProWork</span>
+                  </a>
+                
+                  <a class="link" href="https://tdesign.tencent.com" target="_self">
+                    <span>TDesign</span>
+                  </a>
+                
+              </div>
+            
+              <div class="TDesign-doc-footer__content-block">
+                <p class="title">关于</p>
+                
+                  <a class="link" href="/about/introduce" target="_self">
+                    <span>关于我们</span>
+                  </a>
+                
+                  <a class="link" href="/about/contact" target="_self">
+                    <span>联系我们</span>
+                  </a>
+                
+                  <a class="link" href="//support.qq.com/products/293854" target="_blank">
+                    <span>意见反馈</span>
+                  </a>
+                
+              </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="TDesign-doc-footer__bottom">
+        <div class="TDesign-doc-footer__inner">
+          <p class="copyright">Copyright © 1998 - 2022 Tencent. All Rights Reserved. 腾讯公司 版权所有</p>
+          <div class="TDesign-doc-footer__logos">
+            <i class="logo"><svg width="169" height="34" viewBox="0 0 169 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50.6977 5.8872L48.0412 20.4756H46.233L47.2822 14.8947H46.0545C45.6415 16.9485 45.1615 18.8683 44.6927 20.4756H42.8845C43.4203 18.7232 43.9002 16.8257 44.3132 14.7608C45.0387 11.2672 45.608 7.91864 46.1103 4.84916H49.4588C50.4298 4.84916 50.7759 5.00543 50.6977 5.8872ZM48.1305 10.5416H46.9027C46.7353 11.4904 46.5567 12.4726 46.3781 13.399H47.5948L48.1305 10.5416ZM48.4654 6.36716H47.5724L47.1148 9.09062H48.3426L48.7891 6.71317C48.8449 6.42297 48.7444 6.36716 48.4654 6.36716ZM55.7428 18.3214H49.5816L49.336 16.9261H56.033L55.7428 18.3214ZM60.5312 12.2717L60.0624 13.8455C59.2652 13.6668 58.5082 13.3413 57.8301 12.8856L57.3948 14.7943H58.2765C58.9016 14.7943 59.3369 14.9059 59.203 15.6537C58.9909 17.0154 58.6672 18.8794 58.3658 20.4756H53.4993L53.1756 19.0804H56.6581C56.8367 18.2879 57.0264 17.3615 57.1604 16.6136C57.1604 16.3569 57.1604 16.2676 56.9036 16.2676H50.6977L51.2558 13.3544C50.7037 13.5968 50.1276 13.7801 49.5369 13.9013L49.9164 12.1154C51.036 11.819 52.069 11.2604 52.9301 10.4858H50.2624L50.5526 9.09062H53.9011C54.0409 8.82317 54.1639 8.54732 54.2695 8.26465H50.6977L50.9768 6.80247H52.2157L51.8139 4.68174H53.7002C53.823 5.39609 53.9681 6.06579 54.1244 6.83595H54.7383C54.9326 6.03014 55.0521 5.20814 55.0954 4.38037H56.9929C56.9377 5.1973 56.8107 6.00779 56.6134 6.80247H57.3948C57.6949 6.11083 57.9558 5.40279 58.1761 4.68174H60.0513C59.7914 5.40561 59.4895 6.11373 59.1472 6.80247H60.4642L60.1294 8.23117H56.2116C56.1 8.49905 55.9884 8.78925 55.8656 9.05713H60.7433L60.3973 10.4523H57.5845C58.3406 11.371 59.3814 12.0113 60.5424 12.2717H60.5312ZM55.5531 14.7943L55.8433 13.4995C55.8433 13.2539 55.8433 13.1646 55.5977 13.1646H52.2492L53.0863 13.7339L52.8743 14.8501L55.5531 14.7943ZM55.0508 10.4858C54.6613 10.9647 54.2237 11.4023 53.7449 11.7918H56.5576C56.2115 11.4011 55.9256 10.9609 55.7093 10.4858H55.0508Z" fill="currentColor"></path>
+  <path d="M65.3532 16.7144C66.0898 16.1787 66.9381 15.4978 67.7194 14.8727L67.2953 17.1944C65.815 18.3602 64.2643 19.4338 62.652 20.409L64.4602 10.6424H62.6185L62.8864 9.03516H66.7149L65.3532 16.7144ZM65.3532 8.1199L64.6834 4.3584H66.5475L67.3065 8.1199H65.3532ZM77.8878 6.03266C77.1511 10.129 76.3475 14.75 75.6554 18.8128H77.8878L77.2516 20.4759H73.3226C73.8584 17.373 74.3272 14.6607 74.7625 12.2944H71.9051L70.4764 20.4759H68.4896L69.9183 12.2944H67.4404L67.7418 10.7764H70.1527L70.8336 6.93676L72.5748 8.23152L72.1283 10.7764H75.0304C75.2759 9.32537 75.5103 8.01944 75.7224 6.90327C75.8117 6.43448 75.6108 6.38983 75.209 6.38983H68.5566L68.1994 4.81603H76.7381C77.8766 4.81603 78.0552 5.12856 77.8878 6.03266Z" fill="currentColor"></path>
+  <path d="M84.1831 13.9229L83.279 20.4748H79.8188L79.3389 18.901H81.5712L82.1516 14.6149L80.3992 15.1507L79.5956 13.6773C80.522 13.4318 81.4708 13.1639 82.4083 12.896L82.8883 9.36888H80.522L80.7564 7.79508H83.1227L83.5692 4.56934H85.4778L85.0313 7.79508H86.7726L86.5382 9.36888H84.8193L84.4063 12.2709C85.0871 12.0477 85.7569 11.8356 86.3596 11.6236L86.114 13.2532C85.5225 13.4987 84.8751 13.6885 84.1831 13.9229ZM92.5878 8.56524L92.2641 11.0543H94.8983C95.4899 11.0543 95.6127 11.2552 95.6127 11.6347C95.6249 12.1644 95.4685 12.6842 95.1662 13.1192C94.1971 14.4731 93.0733 15.7093 91.8177 16.8026C92.9405 18.0871 94.129 19.3128 95.3783 20.4748H92.532C91.7882 19.6921 91.0841 18.8725 90.4225 18.0192C89.3241 18.9177 88.1641 19.7383 86.9512 20.4748H83.9598C85.8541 19.3306 87.6633 18.0511 89.3733 16.6463C88.5808 15.5302 87.8106 14.414 87.1409 13.2978H89.2058C89.6784 14.0478 90.1926 14.7708 90.7461 15.4632C91.6784 14.663 92.5138 13.7565 93.2352 12.762C93.3022 12.6504 93.2352 12.6169 93.1571 12.6169H86.7168L86.9512 11.0766H90.2997L90.6234 8.58756H87.0963L87.3307 7.01376H90.802L91.1368 4.49121H93.1124L92.7776 7.01376H96.7288L96.5168 8.58756L92.5878 8.56524Z" fill="currentColor"></path>
+  <path d="M103.895 10.151C102.736 13.2402 101.321 16.2271 99.6643 19.0804H97.0859C99.0203 16.3072 100.61 13.3086 101.819 10.151H103.895ZM114.666 7.56146L114.42 9.29153H107.544L106.015 20.4979H103.85L105.39 9.24688H98.6932L98.9723 7.51682H105.669L106.105 4.38037H108.214L107.79 7.51682L114.666 7.56146ZM110.603 10.151C111.351 13.1739 112.26 16.1546 113.326 19.0804H110.971C110.402 17.4619 109.051 12.0931 108.661 10.151H110.603ZM110.837 7.33823C110.58 6.62388 110.301 5.57468 110.067 4.63709H111.786C112.082 5.55597 112.428 6.45773 112.824 7.33823H110.837Z" fill="currentColor"></path>
+  <path d="M123.997 13.4214H131.565L131.375 14.9059H128.54C127.324 16.0119 126.033 17.0337 124.678 17.9642C126.732 18.8013 129.064 19.6943 131.141 20.4867H126.486C125.191 19.9621 124.064 19.3706 122.892 18.9241C121.776 19.4487 120.503 20.0403 119.309 20.4867H114.621C116.731 19.7836 118.874 19.0357 120.827 18.1763L117.858 16.982C118.639 16.2788 119.376 15.5979 120.09 14.917H115.994L116.206 13.4325H121.597C122.01 13.0195 122.401 12.6066 122.78 12.1936H125.147C124.745 12.6289 124.365 13.0307 123.997 13.4214ZM119.276 12.3833H116.117C117.609 11.5364 119.001 10.5256 120.269 9.36966H122.725C121.658 10.4652 120.504 11.473 119.276 12.3833ZM132.179 7.51682L131.967 8.91203H125.537L125.091 11.8476H123.026L123.517 8.91203H117.032L117.233 7.51682H123.752L123.964 6.25554C122.1 6.33367 120.146 6.40064 118.383 6.43413L118.572 5.00543C123.037 4.91613 127.792 4.70406 131.319 4.38037L131.062 5.8872C129.701 5.98766 127.904 6.09928 125.95 6.18857L125.761 7.51682H132.179ZM122.546 14.9059C121.999 15.4751 121.497 16.022 120.995 16.4797C121.363 16.6471 122.01 16.9261 122.725 17.2164C123.834 16.5215 124.893 15.7494 125.895 14.9059H122.546ZM131.888 12.3833H129.21C128.328 11.5685 127.234 10.4412 126.274 9.36966H128.596C129.633 10.4386 130.732 11.445 131.888 12.3833Z" fill="currentColor"></path>
+  <path d="M145.238 20.4754C143.879 19.5623 142.575 18.571 141.331 17.5064C140.125 18.8248 138.626 19.8417 136.956 20.4754H132.714C135.438 19.5601 139.166 18.098 140.17 15.821C140.466 15.0772 140.676 14.302 140.795 13.5105H142.872C142.743 14.6743 142.415 15.8072 141.9 16.859H143.017C144.868 18.2462 146.844 19.457 148.921 20.4754H145.238ZM137.213 17.5734H135.081L136.052 10.7759H146.934C148.051 10.7759 148.352 11.1777 148.184 12.1711L147.448 17.5734H145.327L146.041 12.6176C146.041 12.439 146.041 12.3497 145.807 12.3497H137.916L137.213 17.5734ZM147.827 9.76016H136.8L137.536 4.67041H147.202C148.318 4.67041 148.508 5.02758 148.318 6.14376L147.827 9.76016ZM146.019 6.22189H139.322L139.054 8.231H145.952L146.198 6.51209C146.254 6.33351 146.22 6.22189 146.019 6.22189Z" fill="currentColor"></path>
+  <path d="M154.636 11.1441H151.712C153.853 9.16979 155.769 6.965 157.426 4.56982H163.498C164.157 4.56982 164.358 4.89351 164.614 5.42928C165.732 7.4117 166.969 9.32392 168.32 11.1552H165.664C164.701 9.62053 163.818 8.03718 163.018 6.41151C162.929 6.23292 162.784 6.19944 162.572 6.19944H158.632C157.393 7.91834 155.853 9.78235 154.636 11.1441ZM152.404 12.9523H167.048L166.78 14.6154H159.235C158.175 15.9953 157.035 17.311 155.819 18.5555H162.46C161.869 17.5509 161.277 16.4905 160.719 15.4413H162.951C163.965 17.1783 165.083 18.852 166.3 20.453H163.543L162.773 19.2028L162.215 20.319H151.723C153.561 18.5724 155.239 16.6634 156.734 14.6154H152.169L152.404 12.9523ZM156.623 9.03451H164.179L163.978 10.6641H156.422L156.623 9.03451Z" fill="currentColor"></path>
+  <path d="M46.6572 24.6613H45.2731L44.4137 29.539H43.398L44.2574 24.6613H42.8845L43.0296 23.8242H46.8358L46.6572 24.6613Z" fill="currentColor"></path>
+  <path d="M50.8654 26.1012C50.8748 26.2126 50.8748 26.3246 50.8654 26.436L50.7649 27.0276C50.6421 27.6973 50.3854 27.9317 49.7603 27.9317H48.0749V28.1661C48.0655 28.2775 48.0655 28.3895 48.0749 28.5009C48.0749 28.7577 48.2089 28.8246 48.6442 28.8246H50.1622L49.8496 29.5836H48.3875C47.4052 29.5836 47.0592 29.3381 47.0592 28.7242C47.0439 28.5496 47.0439 28.3741 47.0592 28.1996L47.3494 26.503C47.3882 26.148 47.5409 25.8151 47.7847 25.5542C48.1674 25.3046 48.6259 25.1979 49.0795 25.2529H49.5929C50.4412 25.2529 50.8654 25.465 50.8654 26.1012ZM49.9166 26.2463C49.9166 26.0565 49.805 26.0119 49.459 26.0119H48.9232C48.5772 26.0119 48.4098 26.0119 48.3316 26.503L48.2089 27.195H49.4925C49.7045 27.195 49.7827 27.1169 49.8162 26.916L49.8943 26.436C49.9114 26.3743 49.9189 26.3103 49.9166 26.2463Z" fill="currentColor"></path>
+  <path d="M56.0111 26.0797C55.9946 26.3876 55.9536 26.6937 55.8883 26.995L55.4418 29.5845H54.5043L54.9507 27.062C54.9953 26.8447 55.0251 26.6247 55.04 26.4034C55.04 26.169 54.9172 26.0797 54.415 26.0797H53.4662L52.8635 29.5845H51.9259L52.6737 25.3096H54.7275C55.6762 25.3096 56.0111 25.5216 56.0111 26.0797Z" fill="currentColor"></path>
+  <path d="M57.395 28.5899C57.4029 28.3201 57.4328 28.0513 57.4843 27.7863L57.6629 26.8041C57.6792 26.3677 57.8447 25.95 58.1317 25.6209C58.5105 25.3618 58.9712 25.2506 59.4265 25.3084H60.8217L60.5091 26.0674H59.393C59.2942 26.0537 59.1937 26.0605 59.0976 26.0874C59.0016 26.1143 58.9122 26.1606 58.8349 26.2236C58.7148 26.387 58.6415 26.5799 58.6228 26.7817L58.4442 27.7863C58.3992 27.9997 58.3693 28.216 58.3549 28.4337C58.3549 28.7574 58.5224 28.8243 59.0246 28.8243H60.3417L60.018 29.5833H58.7679C57.808 29.5833 57.395 29.3154 57.395 28.5899Z" fill="currentColor"></path>
+  <path d="M65.6547 26.1011C65.6641 26.2126 65.6641 26.3246 65.6547 26.436L65.5542 27.0276C65.4314 27.6973 65.1859 27.9317 64.5608 27.9317H62.8642V28.1661C62.8555 28.2775 62.8555 28.3895 62.8642 28.5009C62.8642 28.7576 62.9982 28.8246 63.4446 28.8246H64.8733L64.572 29.5836H63.1768C62.1945 29.5836 61.8485 29.338 61.8485 28.7241C61.8332 28.5496 61.8332 28.3741 61.8485 28.1995L62.1387 26.503C62.1765 26.1455 62.3338 25.8112 62.5852 25.5542C62.9629 25.3026 63.4186 25.1956 63.8688 25.2529H64.3822C65.2082 25.2529 65.6547 25.4649 65.6547 26.1011ZM64.7059 26.2462C64.7059 26.0565 64.5943 26.0118 64.2483 26.0118H63.7125C63.3665 26.0118 63.1991 26.0118 63.121 26.503L62.9982 27.195H64.2818C64.4938 27.195 64.572 27.1169 64.6055 26.9159L64.6836 26.436C64.7007 26.3743 64.7082 26.3103 64.7059 26.2462Z" fill="currentColor"></path>
+  <path d="M70.789 26.0797C70.7716 26.3869 70.7343 26.6926 70.6774 26.995L70.2198 29.5845H69.2822L69.7287 27.062C69.779 26.8457 69.8089 26.6252 69.818 26.4034C69.818 26.169 69.6952 26.0797 69.1929 26.0797H68.2553L67.6414 29.5845H66.7039L67.4405 25.3096H69.4943C70.4765 25.3096 70.789 25.5216 70.789 26.0797Z" fill="currentColor"></path>
+  <path d="M73.5348 27.7855C73.4759 28.0273 73.4385 28.2738 73.4232 28.5222C73.4232 28.8124 73.6129 28.8235 74.1041 28.8235H74.6175L74.2938 29.5825H73.7469C72.8986 29.5825 72.4745 29.3593 72.4745 28.7008C72.4923 28.393 72.5333 28.0871 72.5972 27.7855L72.8986 26.0666H72.3293L72.4745 25.3076H73.0214L73.2446 24.0352H74.1822L73.959 25.3076H75.1533L75.0193 26.0666H73.8362L73.5348 27.7855Z" fill="currentColor"></path>
+  <path d="M83.0671 24.6613H81.6496L80.8348 29.5837H79.8191L80.6339 24.6613H79.2386L79.3949 23.8242H83.1899L83.0671 24.6613Z" fill="currentColor"></path>
+  <path d="M87.2415 26.1011C87.2509 26.2126 87.2509 26.3246 87.2415 26.436L87.141 27.0276C87.0182 27.6973 86.7727 27.9317 86.1476 27.9317H84.451V28.1661C84.4423 28.2775 84.4423 28.3895 84.451 28.5009C84.451 28.7576 84.585 28.8246 85.0314 28.8246H86.4155L86.1141 29.5836H84.7635C83.7813 29.5836 83.4353 29.338 83.4353 28.7241C83.42 28.5496 83.42 28.3741 83.4353 28.1995L83.7255 26.503C83.7632 26.1455 83.9206 25.8112 84.172 25.5542C84.5497 25.3026 85.0054 25.1956 85.4556 25.2529H85.969C86.8173 25.2529 87.2415 25.4649 87.2415 26.1011ZM86.2927 26.2462C86.2927 26.0565 86.1811 26.0118 85.8351 26.0118H85.2993C84.9533 26.0118 84.7859 26.0118 84.7077 26.503L84.585 27.195H85.8686C86.0806 27.195 86.1588 27.1169 86.1923 26.9159L86.2704 26.436C86.2875 26.3743 86.295 26.3103 86.2927 26.2462Z" fill="currentColor"></path>
+  <path d="M88.3909 28.5908C88.4042 28.3208 88.4377 28.0522 88.4913 27.7872L88.6699 26.805C88.6816 26.3676 88.8477 25.9485 89.1387 25.6218C89.5166 25.3608 89.9781 25.2494 90.4335 25.3093H91.8287L91.505 26.0683H90.3888C90.29 26.0539 90.1893 26.0604 90.0932 26.0873C89.9971 26.1142 89.9077 26.161 89.8307 26.2246C89.7107 26.3879 89.6374 26.5808 89.6187 26.7826L89.4401 27.7872C89.3893 27.9996 89.3594 28.2164 89.3508 28.4346C89.3508 28.7583 89.507 28.8252 90.0093 28.8252H91.3264L91.0027 29.5842H89.7638C88.7927 29.5842 88.3909 29.3164 88.3909 28.5908Z" fill="currentColor"></path>
+  <path d="M96.8742 26.0796C96.8577 26.3875 96.8167 26.6935 96.7514 26.9949L96.2938 29.5844H95.345L95.7915 27.0618C95.8419 26.8456 95.8718 26.6251 95.8808 26.4033C95.8808 26.1689 95.7692 26.0796 95.2557 26.0796H94.307L93.6931 29.5844H92.7778L93.827 23.5459H94.7646L94.4521 25.2871H95.5683C96.5393 25.3095 96.8742 25.5215 96.8742 26.0796Z" fill="currentColor"></path>
+  <path d="M102.287 26.0797C102.265 26.3871 102.224 26.6927 102.165 26.995L101.707 29.5845H100.769L101.216 27.062C101.266 26.8457 101.296 26.6252 101.305 26.4034C101.305 26.169 101.182 26.0797 100.68 26.0797H99.7425L99.1286 29.5845H98.191L98.9389 25.3096H100.993C101.953 25.3096 102.287 25.5216 102.287 26.0797Z" fill="currentColor"></path>
+  <path d="M104.341 25.3091H105.279L104.531 29.584H103.604L104.341 25.3091ZM104.62 23.646H105.591L105.39 24.6617H104.43L104.62 23.646Z" fill="currentColor"></path>
+  <path d="M106.506 28.5905C106.52 28.3205 106.553 28.0519 106.607 27.7869L106.774 26.8046C106.794 26.3669 106.963 25.9491 107.254 25.6215C107.628 25.3602 108.086 25.2486 108.538 25.309H109.933L109.62 26.068H108.504C108.406 26.0536 108.305 26.0601 108.209 26.087C108.113 26.1139 108.023 26.1606 107.946 26.2242C107.826 26.3876 107.753 26.5805 107.734 26.7823L107.556 27.7869C107.503 27.9992 107.469 28.2159 107.455 28.4343C107.455 28.7579 107.623 28.8249 108.125 28.8249H109.442L109.118 29.5839H107.879C106.919 29.5839 106.506 29.316 106.506 28.5905Z" fill="currentColor"></path>
+  <path d="M114.777 26.0782C114.765 26.3292 114.735 26.5791 114.688 26.8261L114.197 29.583H111.965C111.474 29.583 110.994 29.4379 110.994 28.8463C111.005 28.6063 111.035 28.3674 111.083 28.132V27.8753C111.195 27.2949 111.362 27.0605 111.73 26.96C112.017 26.9018 112.309 26.8793 112.601 26.893H113.717C113.759 26.7246 113.785 26.5527 113.795 26.3796C113.795 26.1564 113.661 26.0782 113.237 26.0782H111.719L111.596 25.3192H113.55C114.454 25.3081 114.777 25.5425 114.777 26.0782ZM113.427 28.824L113.639 27.6185H112.456C112.154 27.6185 112.054 27.7078 112.009 27.9869V28.1431C112.009 28.3887 111.942 28.5785 111.942 28.6454C111.942 28.7124 112.032 28.824 112.221 28.824H113.427Z" fill="currentColor"></path>
+  <path d="M116.195 28.7469C116.206 28.4245 116.244 28.1035 116.307 27.787L117.054 23.5679H117.992L117.244 27.787C117.193 28.0299 117.16 28.2761 117.144 28.5237C117.144 28.8139 117.333 28.825 117.825 28.825H118.26L117.936 29.584H117.4C116.552 29.584 116.195 29.3831 116.195 28.7469Z" fill="currentColor"></path>
+  <path d="M122.323 28.4565C122.329 28.1453 122.363 27.8353 122.423 27.53L122.814 25.2977C122.825 25.0599 122.885 24.827 122.991 24.6138C123.096 24.4005 123.245 24.2115 123.428 24.0587C123.766 23.8652 124.156 23.7832 124.544 23.8243H126.43L126.084 24.6615H124.667C124.064 24.6615 123.952 24.907 123.818 25.6549L123.55 27.1617C123.474 27.5111 123.422 27.8654 123.394 28.2221C123.394 28.635 123.662 28.702 124.287 28.702H125.693L125.336 29.5391H123.874C122.769 29.5838 122.323 29.2936 122.323 28.4565Z" fill="currentColor"></path>
+  <path d="M127.19 28.6465C127.197 28.3766 127.227 28.1078 127.279 27.8428L127.48 26.7267C127.499 26.2908 127.664 25.874 127.949 25.5435C128.331 25.2939 128.79 25.1872 129.243 25.2421H129.768C130.717 25.2421 131.119 25.51 131.119 26.2355C131.105 26.5056 131.072 26.7742 131.018 27.0392L130.828 28.1553C130.806 28.5892 130.637 29.0027 130.348 29.3273C129.975 29.5887 129.517 29.7002 129.065 29.6399H128.54C127.58 29.6399 127.19 29.372 127.19 28.6465ZM129.132 28.8697C129.388 28.8697 129.567 28.8697 129.679 28.7246C129.794 28.5545 129.867 28.3593 129.891 28.1553L130.092 27.0392C130.135 26.8258 130.161 26.6093 130.17 26.3918C130.17 26.0681 130.002 26.0011 129.511 26.0011H129.188C129.09 25.9872 128.99 25.9928 128.894 26.0177C128.798 26.0426 128.708 26.0863 128.629 26.1462C128.5 26.313 128.426 26.5159 128.417 26.7267L128.216 27.8428C128.171 28.0562 128.142 28.2726 128.127 28.4902C128.127 28.8139 128.295 28.8697 128.786 28.8697H129.132Z" fill="currentColor"></path>
+  <path d="M138.742 26.0797C138.725 26.3876 138.684 26.6937 138.619 26.995L138.161 29.5845H137.224L137.67 27.062C137.722 26.8457 137.756 26.6254 137.771 26.4034C137.771 26.169 137.637 26.0797 137.146 26.0797H136.286L135.672 29.5845H134.735L135.349 26.0797H133.897L133.295 29.5845H132.357L133.105 25.3096H137.458C138.418 25.3096 138.742 25.5216 138.742 26.0797Z" fill="currentColor"></path>
+  <path d="M146.443 26.0797C146.431 26.3874 146.394 26.6935 146.332 26.995L145.863 29.5845H144.936L145.383 27.062C145.427 26.8447 145.457 26.6247 145.472 26.4034C145.472 26.169 145.349 26.0797 144.847 26.0797H143.988L143.34 29.5845H142.403L143.005 26.0797H141.566L140.952 29.5845H140.014L140.762 25.3096H145.126C146.12 25.3096 146.443 25.5216 146.443 26.0797Z" fill="currentColor"></path>
+  <path d="M148.508 25.3091H149.446L148.698 29.584H147.805L148.508 25.3091ZM148.798 23.646H149.758L149.58 24.6059H148.62L148.798 23.646Z" fill="currentColor"></path>
+  <path d="M152.024 27.7855C151.965 28.0273 151.928 28.2738 151.913 28.5222C151.913 28.8124 152.102 28.8235 152.593 28.8235H153.107L152.783 29.5825H152.27C151.433 29.5825 151.008 29.3593 151.008 28.7008C151.026 28.393 151.067 28.0871 151.131 27.7855L151.433 26.0666H150.863L150.997 25.3076H151.567L151.79 24.0352H152.727L152.504 25.3076H153.698L153.553 26.0666H152.37L152.024 27.7855Z" fill="currentColor"></path>
+  <path d="M155.842 27.7855C155.791 28.0284 155.757 28.2745 155.741 28.5222C155.741 28.8124 155.92 28.8235 156.411 28.8235H156.924L156.601 29.5825H156.054C155.205 29.5825 154.781 29.3593 154.781 28.7008C154.799 28.393 154.84 28.0871 154.904 27.7855L155.205 26.0666H154.647L154.781 25.3076H155.339L155.574 24.0352H156.5L156.277 25.3076H157.482L157.337 26.0666H156.143L155.842 27.7855Z" fill="currentColor"></path>
+  <path d="M162.226 26.101C162.236 26.2124 162.236 26.3245 162.226 26.4359L162.114 27.0275C161.992 27.6972 161.746 27.9316 161.121 27.9316H159.458V28.166C159.448 28.2774 159.448 28.3894 159.458 28.5008C159.458 28.7575 159.592 28.8245 160.027 28.8245H161.545L161.233 29.5835H159.849C158.866 29.5835 158.52 29.3379 158.52 28.724C158.51 28.5493 158.51 28.3742 158.52 28.1994L158.822 26.5029C158.851 26.1453 159.005 25.8095 159.257 25.5541C159.639 25.3027 160.098 25.1958 160.552 25.2527H161.054C161.802 25.2527 162.226 25.4648 162.226 26.101ZM161.288 26.2461C161.288 26.0564 161.177 26.0117 160.831 26.0117H160.295C159.949 26.0117 159.782 26.0117 159.692 26.5029L159.569 27.1949H160.853C161.065 27.1949 161.154 27.1167 161.177 26.9158L161.266 26.4359C161.278 26.3732 161.285 26.3098 161.288 26.2461Z" fill="currentColor"></path>
+  <path d="M167.17 26.1012C167.18 26.2126 167.18 26.3246 167.17 26.436L167.07 27.0276C166.947 27.6973 166.691 27.9317 166.065 27.9317H164.414V28.1661C164.404 28.2775 164.404 28.3895 164.414 28.5009C164.414 28.7577 164.547 28.8246 164.983 28.8246H166.501L166.188 29.5836H164.804C163.822 29.5836 163.476 29.3381 163.476 28.7242C163.479 28.548 163.498 28.3725 163.532 28.1996L163.822 26.503C163.861 26.148 164.013 25.8151 164.257 25.5542C164.64 25.3046 165.098 25.1979 165.552 25.2529H166.065C166.78 25.2529 167.17 25.465 167.17 26.1012ZM166.222 26.2463C166.222 26.0565 166.11 26.0119 165.764 26.0119H165.228C164.882 26.0119 164.715 26.0119 164.637 26.503L164.514 27.195H165.798C166.01 27.195 166.088 27.1169 166.121 26.916L166.199 26.436C166.217 26.3743 166.224 26.3103 166.222 26.2463Z" fill="currentColor"></path>
+  <path d="M33.4438 13.8888C33.3843 13.5911 33.3248 13.2935 33.2553 12.9959L33.1958 12.7776C33.1363 12.5494 33.0767 12.3212 33.0073 12.093L32.9478 11.9045C32.8684 11.6664 32.799 11.4382 32.7097 11.2001L32.6501 11.0513C32.5729 10.8186 32.4835 10.5901 32.3823 10.3667L23.1256 20.4667H26.4592L26.3005 20.8238L26.2211 20.9826C26.0155 21.4666 25.7734 21.9342 25.4968 22.3815C25.4569 22.4388 25.4204 22.4984 25.3877 22.5601L25.1793 22.8875C23.8216 24.9861 21.9405 26.6947 19.7215 27.845C17.5024 28.9953 15.0219 29.5476 12.5245 29.4474C10.027 29.3473 7.59868 28.5982 5.47884 27.2739C3.359 25.9496 1.62077 24.0959 0.435425 21.8953C0.439521 21.9316 0.439521 21.9682 0.435425 22.0045C0.554481 22.4013 0.693381 22.7982 0.842201 23.1851V23.2546C0.991022 23.6514 1.16961 24.0384 1.35811 24.4253L1.45733 24.6237C1.63591 24.9908 1.83434 25.348 2.04269 25.7051L2.17167 25.9036C2.38994 26.2607 2.61813 26.608 2.86616 26.9453C2.88693 26.98 2.91014 27.0132 2.93561 27.0445C3.18365 27.3719 3.43168 27.6993 3.69956 28.0367L3.79877 28.1557C4.07657 28.4732 4.36429 28.7709 4.66193 29.0685C4.72146 29.128 4.78099 29.1776 4.83059 29.2372C5.13816 29.5249 5.44572 29.8027 5.7632 30.0706L5.93187 30.1995C6.26919 30.4773 6.62636 30.7452 6.98353 31.0032C10.6964 33.5576 15.2711 34.5346 19.7036 33.7199C24.136 32.9052 28.0643 30.3653 30.6262 26.6576C31.9221 24.824 32.8389 22.75 33.3228 20.5574C33.8066 18.3647 33.8478 16.0975 33.4438 13.8888Z" fill="currentColor"></path>
+  <path d="M30.5072 7.05256V6.99303C30.3385 6.76484 30.16 6.54657 29.9814 6.31838C29.8028 6.09019 29.8325 6.12987 29.7631 6.04058C28.6422 4.73506 27.3351 3.60178 25.8838 2.67723C22.2316 0.336465 17.8204 -0.513599 13.5599 0.302329C9.2993 1.11826 5.51428 3.53796 2.9853 7.06248C1.06626 9.93676 0.126718 13.3539 0.306526 16.8053C0.566232 19.9909 2.03246 22.9571 4.40566 25.0979C6.77886 27.2388 9.87993 28.3927 13.0753 28.324C14.9161 28.3233 16.7356 27.931 18.413 27.1731C17.8495 27.2714 17.2786 27.3212 16.7066 27.3219C15.3082 27.3161 13.9255 27.0274 12.6416 26.4732C11.3577 25.9191 10.1992 25.111 9.23577 24.0975C8.38807 23.2127 7.71487 22.176 7.25149 21.0417C6.64995 19.6188 6.37461 18.0793 6.44569 16.5362C6.51676 14.993 6.93244 13.4853 7.66222 12.1237C8.392 10.7622 9.41736 9.58129 10.6631 8.66772C11.9088 7.75414 13.3432 7.13107 14.8612 6.84421C16.7984 6.48705 18.7977 6.70076 20.6156 7.45934C20.6156 7.45934 21.3895 7.80658 21.7565 8.00501H21.826L22.2625 8.26297L22.461 8.40187L22.7487 8.6003L23.0265 8.80864C23.0969 8.85603 23.1632 8.90912 23.2249 8.96739L23.5424 9.23526C23.5933 9.27296 23.6399 9.31622 23.6813 9.36424L23.969 9.63212L24.0385 9.71149C24.1674 9.84047 24.2964 9.96945 24.4155 10.1083C24.5345 10.2472 24.5345 10.2373 24.5841 10.3068L24.7826 10.5449C25.4846 11.4426 26.0374 12.4477 26.4196 13.5213L31.291 8.21336C31.0628 7.84627 30.785 7.43949 30.5072 7.05256Z" fill="currentColor"></path>
+</svg></i>
+            <a class="logo" href="https://cloud.tencent.com/" target="_blank"><svg width="105" height="28" viewBox="0 0 105 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_65_182)">
+    <path d="M82.8701 4.73254H71.4558V6.38476H74.8911V12.4065H70.9536V14.0573H74.8911V24.1623H76.708V14.0573H81.0532V23.945H84.4832V22.2914H82.8634L82.8701 4.73254ZM76.708 12.4065V6.38476H81.0532V12.4065H76.708Z" fill="currentColor"></path>
+    <path d="M60.2114 19.5378H51.2066V21.1901H60.2114V19.5378Z" fill="currentColor"></path>
+    <path d="M45.0702 16.4803C45.0702 19.4838 44.8272 21.7637 44.3278 23.7844C44.2751 23.9707 44.3278 24.0206 44.4304 24.0206H46.0866C46.5188 21.7971 46.7313 19.5365 46.7211 17.2714H49.0361V22.4008H47.3919C47.3123 22.4008 47.257 22.4521 47.2921 22.5668L47.7443 24.0517H50.6842V4.77441H45.0702V16.4803ZM46.7224 15.7933V11.8341H49.0361V15.7933H46.7224ZM49.0361 6.43338V10.348H46.7224V6.43338H49.0361Z" fill="currentColor"></path>
+    <path d="M60.85 11.4737H63.0678V9.98888H56.606C56.8095 9.48642 56.9866 8.97368 57.1365 8.45274H62.6615V6.96791H61.0416C61.3116 6.05001 61.6288 4.96607 61.6477 4.90398C61.6801 4.79329 61.6221 4.75145 61.5505 4.75145H60.1467L59.4947 6.96791H57.5037C57.69 6.1094 57.8506 5.15775 57.9977 4.08867C58.0153 3.96583 57.9491 3.94019 57.8627 3.94019H56.2686C56.1052 5.07541 55.9338 6.05406 55.7151 6.96791H54.7392L54.0872 4.75145H52.682C52.6105 4.75145 52.547 4.79329 52.5848 4.90398C52.6037 4.96607 52.9209 6.05001 53.1909 6.96791H51.6143V8.45274H55.2953C55.1238 8.9761 54.9218 9.48902 54.6906 9.98888H51.2093V11.4737H53.824C53.133 12.4726 52.2359 13.3118 51.1931 13.9345V15.6353C51.1931 15.7204 51.2606 15.8108 51.5306 15.6583C52.0629 15.3631 52.5768 15.0358 53.0694 14.6783H59.2207L59.168 16.9042H54.3086L54.3815 15.5732C54.382 15.5599 54.3798 15.5466 54.375 15.5341C54.3702 15.5217 54.3629 15.5104 54.3535 15.5009C54.3442 15.4914 54.333 15.4839 54.3206 15.4789C54.3082 15.474 54.2949 15.4716 54.2816 15.472H52.7319L52.5754 18.2891C52.5748 18.3026 52.577 18.316 52.5819 18.3285C52.5868 18.3411 52.5942 18.3525 52.6037 18.362C52.6133 18.3715 52.6246 18.3789 52.6372 18.3838C52.6497 18.3887 52.6632 18.3909 52.6766 18.3904H61.0551V22.4075H57.2756C57.1959 22.4075 57.1338 22.4602 57.177 22.5749L57.6292 24.0597H62.8693V16.9055H60.8176L60.8864 14.0141C61.5709 14.6491 62.328 15.2009 63.142 15.6583C63.412 15.8108 63.4781 15.7204 63.4781 15.6353V13.9304C62.4371 13.3081 61.541 12.4705 60.85 11.4737ZM58.8252 11.4737C59.1941 12.082 59.616 12.6566 60.0859 13.1907H54.6865C55.1417 12.6596 55.5428 12.0844 55.8839 11.4737H58.8252Z" fill="currentColor"></path>
+    <path d="M72.6072 18.3891L69.543 20.7109V9.97278H65.2991V11.7897H67.7396V22.0783L66.7637 22.8126L67.7599 24.13L72.7705 20.3329V18.4674C72.7707 18.4484 72.7655 18.4297 72.7554 18.4135C72.7454 18.3974 72.731 18.3844 72.7138 18.3762C72.6966 18.368 72.6775 18.3648 72.6586 18.3671C72.6397 18.3694 72.6219 18.377 72.6072 18.3891Z" fill="currentColor"></path>
+    <path d="M67.9786 8.34619H69.9642C69.9822 8.34637 70 8.34167 70.0156 8.33259C70.0311 8.32351 70.0439 8.31039 70.0527 8.29462C70.0614 8.27884 70.0657 8.26101 70.0651 8.24299C70.0645 8.22498 70.059 8.20747 70.0493 8.1923L67.5453 4.36682H65.5596C65.542 4.36677 65.5247 4.37131 65.5094 4.37999C65.4941 4.38867 65.4813 4.40119 65.4723 4.41632C65.4634 4.43145 65.4585 4.44865 65.4581 4.46625C65.4578 4.48384 65.4621 4.50122 65.4706 4.51666L67.9786 8.34619Z" fill="currentColor"></path>
+    <path d="M102.663 5.17407H88.3249V6.99097H102.663V5.17407Z" fill="currentColor"></path>
+    <path d="M93.5245 13.8562H104.682V12.0393H86.3055V13.8562H91.4039C90.351 16.6221 87.708 23.5603 87.6904 23.6102C87.6841 23.6253 87.6816 23.6417 87.6833 23.658C87.6849 23.6743 87.6907 23.6898 87.6999 23.7033C87.7092 23.7168 87.7218 23.7277 87.7364 23.735C87.751 23.7423 87.7672 23.7458 87.7836 23.7452H103.633C103.651 23.7453 103.667 23.741 103.682 23.7328C103.697 23.7246 103.71 23.7127 103.719 23.6983C103.728 23.6839 103.734 23.6674 103.735 23.6503C103.736 23.6333 103.733 23.6162 103.725 23.6008C103.708 23.5576 101.362 17.3915 101.362 17.3915H99.3882C99.3721 17.3916 99.3563 17.3956 99.342 17.4031C99.3277 17.4106 99.3155 17.4214 99.3062 17.4347C99.297 17.4479 99.291 17.4631 99.2889 17.479C99.2867 17.495 99.2884 17.5113 99.2937 17.5265C99.3194 17.5913 100.966 21.9283 100.966 21.9283H90.4563L93.5245 13.8562Z" fill="currentColor"></path>
+    <path d="M36.1274 12.7332C35.2963 11.8813 34.3031 11.2043 33.2063 10.742C32.1096 10.2798 30.9314 10.0416 29.7412 10.0416C27.572 10.0416 25.7038 10.788 24.0719 12.1163C23.3605 12.6954 22.6154 13.3879 21.6772 14.299C21.3654 14.6027 15.2182 20.5677 11.1808 24.4836C10.6192 24.4836 9.81201 24.4742 9.09524 24.4499C7.07856 24.3811 5.8556 23.6076 5.16042 22.9259C4.38377 22.1682 3.85042 21.1963 3.62842 20.1342C3.40641 19.0721 3.50581 17.9679 3.91393 16.9625C4.32205 15.9571 5.02039 15.0961 5.91988 14.4893C6.81938 13.8824 7.87925 13.5572 8.96431 13.5552C9.9092 13.5552 11.2078 13.8252 12.667 15.0401C13.3635 15.6178 14.9104 16.9785 15.5894 17.5899C15.6048 17.6053 15.6257 17.6139 15.6474 17.6139C15.6692 17.6139 15.69 17.6053 15.7055 17.5899L18.1028 15.2534C18.1127 15.2451 18.1207 15.2348 18.1262 15.2231C18.1316 15.2115 18.1345 15.1987 18.1345 15.1859C18.1345 15.173 18.1316 15.1602 18.1262 15.1486C18.1207 15.1369 18.1127 15.1266 18.1028 15.1184C16.9514 14.0776 15.3181 12.6211 14.3354 11.8895C13.3401 11.1273 12.1981 10.5791 10.981 10.2791H11.0188C11.3852 8.52687 12.2952 6.93492 13.6193 5.73007C14.9433 4.52523 16.6138 3.76894 18.3928 3.56895C20.1717 3.36896 21.9685 3.73547 23.527 4.61626C25.0855 5.49706 26.3263 6.84721 27.0726 8.47439C27.0785 8.49358 27.0917 8.5097 27.1094 8.51928C27.127 8.52887 27.1477 8.53116 27.1671 8.52569C28.2707 8.21981 29.4177 8.10073 30.5606 8.17337C30.6753 8.18147 30.7199 8.11668 30.6821 8.01274C29.7894 5.48899 28.08 3.3353 25.8248 1.89291C23.5697 0.450524 20.8977 -0.198078 18.2322 0.0498744C15.5667 0.297826 13.0602 1.42815 11.1097 3.26176C9.15931 5.09537 7.87652 7.52739 7.46462 10.1725H7.47272C5.84132 10.4504 4.31849 11.1739 3.07241 12.2629C1.82634 13.3519 0.905516 14.7642 0.411655 16.3437C-0.0822067 17.9232 -0.129889 19.6084 0.273874 21.2133C0.677638 22.8182 1.51713 24.2802 2.69964 25.438C4.05827 26.7686 5.81442 27.619 7.70084 27.8596C8.54769 27.9568 9.3997 28.0018 10.2521 27.9946C11.062 27.9946 26.5853 27.9946 27.2359 27.9946C28.5439 27.9946 29.3957 27.9946 30.3082 27.9258C32.4045 27.7732 34.3847 27.0038 35.987 25.4326C36.8304 24.6081 37.503 23.6256 37.9666 22.541C38.4301 21.4565 38.6754 20.2913 38.6884 19.112C38.7014 17.9326 38.482 16.7623 38.0425 15.6678C37.6031 14.5733 36.9523 13.5761 36.1274 12.7332ZM33.5303 22.9259C32.8419 23.6008 31.6135 24.3811 29.5955 24.4499C28.6627 24.4809 27.5707 24.485 27.0753 24.485H16.236L24.0098 16.9339C24.3675 16.587 25.172 15.8176 25.8645 15.1926C27.3885 13.8225 28.7586 13.5458 29.7277 13.5552C30.8127 13.5575 31.8724 13.8829 32.7717 14.4898C33.6709 15.0968 34.3691 15.9578 34.777 16.9631C35.185 17.9685 35.2843 19.0725 35.0622 20.1345C34.8402 21.1965 34.3069 22.1683 33.5303 22.9259Z" fill="currentColor"></path>
+  </g>
+  <defs>
+    <clipPath id="clip0_65_182">
+      <rect width="104.682" height="28" fill="currentColor"></rect>
+    </clipPath>
+  </defs>
+</svg></a>
+          </div>
+        </div>
+      </div>
+    </div></td-doc-footer></td-doc-content></td-doc-layout><div class="ReloadPrompt-container" data-v-8c08e3e6=""><!--v-if--><div class="ReloadPrompt-date" data-v-8c08e3e6="">{buildDate}</div></div></div>
+    
+  
+
+<script async="" id="__td_aegis__" type="text/javascript" src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script><div id="nprogress" style="transition: none 0s ease 0s; opacity: 1;"><div class="bar" role="bar" style="transform: translate3d(0%, 0px, 0px); transition: all 200ms ease 0s;"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div></div></body></html>

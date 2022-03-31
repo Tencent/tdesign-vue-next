@@ -1,0 +1,1817 @@
+<!DOCTYPE html><html lang="en" class="nprogress-busy"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TagInput 标签输入框 | TDesign</title>
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <link rel="mask-icon" href="/favicon.svg" color="#FFFFFF">
+    <!--[if IE]>
+    <style>
+      #app {
+        display: none;
+      }
+    </style>
+    <![endif]-->
+    <script type="module" crossorigin="" src="/assets/index.efe99fe6.js"></script>
+    <link rel="modulepreload" href="/assets/vendor.2b256725.js">
+    <link rel="stylesheet" href="/assets/vendor.0c511dbe.css">
+    <link rel="stylesheet" href="/assets/index.9b4a60ba.css">
+  <link rel="manifest" href="/manifest.webmanifest"><link rel="modulepreload" as="script" crossorigin="" href="/assets/tag-input.329135b3.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/prism-bash.4ba767c0.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/auto-width.1559b573.js"><link rel="stylesheet" href="/assets/auto-width.3f76123a.css"><script async="" id="horizon-tracker" type="text/javascript" src="https://horizon-assets.qq.com/analytics.js" data-account="tdesign"></script></head>
+  <body>
+    <!--[if IE]>
+      <h1 style="position: absolute; width: 100%; text-align:center; top: 45%">
+        建议使用 <a href="https://www.google.cn/chrome/">Chrome</a><
+      /h1>
+    <![endif]-->
+    <td-horizon data-account="tdesign"></td-horizon>
+    <td-aegis aegis-id="rDISNMyXgKnpdSRvul"></td-aegis>
+    <div id="app" data-v-app=""><td-doc-layout direction="row"><td-header slot="header" platform="web" framework="vue-next"><td-doc-search slot="search">
+        <style>.TDesign-doc-search {
+  position: relative;
+  width: 200px;
+  height: 32px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+}
+.TDesign-doc-search__icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  color: var(--text-secondary);
+}
+.TDesign-doc-search__inner {
+  width: 100%;
+  height: 100%;
+  padding: 4px 36px 4px 8px;
+  box-sizing: border-box;
+  color: var(--text-secondary);
+  border-radius: var(--border-radius);
+  line-height: 22px;
+  font-size: 14px;
+  border: 1px solid var(--component-border);
+  transition: all 0.2s linear;
+  outline: none;
+  background: transparent;
+}
+.TDesign-doc-search__inner::placeholder {
+  line-height: 22px;
+}
+.TDesign-doc-search__inner:hover {
+  border-color: var(--brand-main);
+}
+.TDesign-doc-search__inner:focus {
+  border-color: var(--brand-main);
+  box-shadow: 0 0 0 2px var(--brand-main-focus);
+}
+</style>
+        <style>/* https://cdn.jsdelivr.net/npm/docsearch.js@2.6.3/dist/cdn/docsearch.min.css */
+/* Main dropdown wrapper */
+.algolia-autocomplete {
+  width: 100%;
+  height: 100%;
+}
+.algolia-autocomplete .ds-dropdown-menu {
+  width: 480px;
+  top: -6px;
+  border-radius: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  text-align: left;
+  height: auto;
+  position: relative;
+  border: 0;
+  z-index: 999;
+  max-width: 600px;
+  min-width: 500px;
+  box-shadow: var(--popup-box-shadow);
+  backdrop-filter: blur(10px);
+  background-color: var(--bg-color-container-transparent);
+}
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestions {
+  position: relative;
+  z-index: 1000;
+  border-bottom: 1px solid var(--component-stroke);
+  padding: 8px;
+}
+.algolia-autocomplete .ds-dropdown-menu [class^="ds-dataset-"] {
+  position: relative;
+  border-radius: 6px;
+  overflow: auto;
+  border: 1px solid var(--component-border);
+}
+.algolia-autocomplete .ds-dropdown-menu * {
+  box-sizing: border-box;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion {
+  display: block;
+  position: relative;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+/* Main category (eg. Getting Started) */
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+  display: none;
+}
+/* Category (eg. Downloads) */
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+  float: left;
+  width: 30%;
+  text-align: right;
+  position: relative;
+  padding: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  word-wrap: break-word;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content {
+  display: block;
+  float: right;
+  width: 70%;
+  position: relative;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content .algolia-docsearch-suggestion--subcategory-inline {
+  display: none;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--content:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background: var(--component-border);
+  left: -1px;
+}
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion.suggestion-layout-simple,
+.algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
+  background: var(--bg-color-container-hover);
+  transition: all 0.2s linear;
+}
+/* Title (eg. Bootstrap CDN) */
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--title + .algolia-docsearch-suggestion--text {
+  margin-top: 4px;
+}
+/* Description description (eg. Bootstrap currently works...) */
+.algolia-autocomplete .algolia-docsearch-suggestion--text {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-secondary);
+}
+/* Highlighted text */
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: var(--brand-main);
+  background-color: var(--brand-main-light);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-main);
+}
+.algolia-autocomplete .algolia-docsearch-suggestion--no-results {
+  width: 100%;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 14px;
+}
+.algolia-autocomplete .algolia-docsearch-footer {
+  width: 134px;
+  height: 26px;
+  z-index: 2000;
+  margin: 4px 8px;
+  float: right;
+  font-size: 0;
+  line-height: 0;
+}
+.algolia-autocomplete .algolia-docsearch-footer--logo {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='168' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M78.988.938h16.594a2.968 2.968 0 0 1 2.966 2.966V20.5a2.967 2.967 0 0 1-2.966 2.964H78.988a2.967 2.967 0 0 1-2.966-2.964V3.897A2.961 2.961 0 0 1 78.988.938zm41.937 17.866c-4.386.02-4.386-3.54-4.386-4.106l-.007-13.336 2.675-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-10.846-2.18c.821 0 1.43-.047 1.855-.129v-2.719a6.334 6.334 0 0 0-1.574-.199 5.7 5.7 0 0 0-.897.069 2.699 2.699 0 0 0-.814.24c-.24.116-.439.28-.582.491-.15.212-.219.335-.219.656 0 .628.219.991.616 1.23s.938.362 1.615.362zm-.233-9.7c.883 0 1.629.109 2.231.328.602.218 1.088.525 1.444.915.363.396.609.922.76 1.483.157.56.232 1.175.232 1.85v6.874a32.5 32.5 0 0 1-1.868.314c-.834.123-1.772.185-2.813.185-.69 0-1.327-.069-1.895-.198a4.001 4.001 0 0 1-1.471-.636 3.085 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.803 0-.656.13-1.073.384-1.525a3.24 3.24 0 0 1 1.047-1.106c.445-.287.95-.492 1.532-.615a8.8 8.8 0 0 1 1.82-.185 8.404 8.404 0 0 1 1.972.24v-.438c0-.307-.035-.6-.11-.874a1.88 1.88 0 0 0-.384-.73 1.784 1.784 0 0 0-.724-.493 3.164 3.164 0 0 0-1.143-.205c-.616 0-1.177.075-1.69.164a7.735 7.735 0 0 0-1.26.307l-.321-2.192c.335-.117.834-.233 1.478-.349a10.98 10.98 0 0 1 2.073-.178zm52.842 9.626c.822 0 1.43-.048 1.854-.13V13.7a6.347 6.347 0 0 0-1.574-.199c-.294 0-.595.021-.896.069a2.7 2.7 0 0 0-.814.24 1.46 1.46 0 0 0-.582.491c-.15.212-.218.335-.218.656 0 .628.218.991.615 1.23.404.245.938.362 1.615.362zm-.226-9.694c.883 0 1.629.108 2.231.327.602.219 1.088.526 1.444.915.355.39.609.923.759 1.483a6.8 6.8 0 0 1 .233 1.852v6.873c-.41.088-1.034.19-1.868.314-.834.123-1.772.184-2.813.184-.69 0-1.327-.068-1.895-.198a4.001 4.001 0 0 1-1.471-.635 3.085 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.804 0-.656.13-1.073.384-1.524.26-.45.608-.82 1.047-1.107.445-.286.95-.491 1.532-.614a8.803 8.803 0 0 1 2.751-.13c.329.034.671.096 1.04.185v-.437a3.3 3.3 0 0 0-.109-.875 1.873 1.873 0 0 0-.384-.731 1.784 1.784 0 0 0-.724-.492 3.165 3.165 0 0 0-1.143-.205c-.616 0-1.177.075-1.69.164a7.75 7.75 0 0 0-1.26.307l-.321-2.193c.335-.116.834-.232 1.478-.348a11.633 11.633 0 0 1 2.073-.177zm-8.034-1.271a1.626 1.626 0 0 1-1.628-1.62c0-.895.725-1.62 1.628-1.62.904 0 1.63.725 1.63 1.62 0 .895-.733 1.62-1.63 1.62zm1.348 13.22h-2.689V7.27l2.69-.423v11.956zm-4.714 0c-4.386.02-4.386-3.54-4.386-4.107l-.008-13.336 2.676-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-8.698-5.903c0-1.156-.253-2.119-.746-2.788-.493-.677-1.183-1.01-2.067-1.01-.882 0-1.574.333-2.065 1.01-.493.676-.733 1.632-.733 2.788 0 1.168.246 1.953.74 2.63.492.683 1.183 1.018 2.066 1.018.882 0 1.574-.342 2.067-1.019.492-.683.738-1.46.738-2.63zm2.737-.007c0 .902-.13 1.584-.397 2.33a5.52 5.52 0 0 1-1.128 1.906 4.986 4.986 0 0 1-1.752 1.223c-.685.286-1.739.45-2.265.45-.528-.006-1.574-.157-2.252-.45a5.096 5.096 0 0 1-1.744-1.223c-.487-.527-.863-1.162-1.137-1.906a6.345 6.345 0 0 1-.41-2.33c0-.902.123-1.77.397-2.508a5.554 5.554 0 0 1 1.15-1.892 5.133 5.133 0 0 1 1.75-1.216c.679-.287 1.425-.423 2.232-.423.808 0 1.553.142 2.237.423a4.88 4.88 0 0 1 1.753 1.216 5.644 5.644 0 0 1 1.135 1.892c.287.738.431 1.606.431 2.508zm-20.138 0c0 1.12.246 2.363.738 2.882.493.52 1.13.78 1.91.78.424 0 .828-.062 1.204-.178.377-.116.677-.253.917-.417V9.33a10.476 10.476 0 0 0-1.766-.226c-.971-.028-1.71.37-2.23 1.004-.513.636-.773 1.75-.773 2.788zm7.438 5.274c0 1.824-.466 3.156-1.404 4.004-.936.846-2.367 1.27-4.296 1.27-.705 0-2.17-.137-3.34-.396l.431-2.118c.98.205 2.272.26 2.95.26 1.074 0 1.84-.219 2.299-.656.459-.437.684-1.086.684-1.948v-.437a8.07 8.07 0 0 1-1.047.397c-.43.13-.93.198-1.492.198-.739 0-1.41-.116-2.018-.349a4.206 4.206 0 0 1-1.567-1.025c-.431-.45-.774-1.017-1.013-1.694-.24-.677-.363-1.885-.363-2.773 0-.834.13-1.88.384-2.577.26-.696.629-1.298 1.129-1.796.493-.498 1.095-.881 1.8-1.162a6.605 6.605 0 0 1 2.428-.457c.87 0 1.67.109 2.45.24.78.129 1.444.265 1.985.415V18.17z' fill='%235468FF'/%3E%3Cpath d='M6.972 6.677v1.627c-.712-.446-1.52-.67-2.425-.67-.585 0-1.045.13-1.38.391a1.24 1.24 0 0 0-.502 1.03c0 .425.164.765.494 1.02.33.256.835.532 1.516.83.447.192.795.356 1.045.495.25.138.537.332.862.582.324.25.563.548.718.894.154.345.23.741.23 1.188 0 .947-.334 1.691-1.004 2.234-.67.542-1.537.814-2.601.814-1.18 0-2.16-.229-2.936-.686v-1.708c.84.628 1.814.942 2.92.942.585 0 1.048-.136 1.388-.407.34-.271.51-.646.51-1.125 0-.287-.1-.55-.302-.79-.203-.24-.42-.42-.655-.542-.234-.123-.585-.29-1.053-.503a61.27 61.27 0 0 1-.582-.271 13.67 13.67 0 0 1-.55-.287 4.275 4.275 0 0 1-.567-.351 6.92 6.92 0 0 1-.455-.4c-.18-.17-.31-.34-.39-.51-.08-.17-.155-.37-.224-.598a2.553 2.553 0 0 1-.104-.742c0-.915.333-1.638.998-2.17.664-.532 1.523-.798 2.576-.798.968 0 1.793.17 2.473.51zm7.468 5.696v-.287c-.022-.607-.187-1.088-.495-1.444-.309-.357-.75-.535-1.324-.535-.532 0-.99.194-1.373.583-.382.388-.622.949-.717 1.683h3.909zm1.005 2.792v1.404c-.596.34-1.383.51-2.362.51-1.255 0-2.255-.377-3-1.132-.744-.755-1.116-1.744-1.116-2.968 0-1.297.34-2.316 1.021-3.055.68-.74 1.548-1.11 2.6-1.11 1.033 0 1.852.323 2.458.966.606.644.91 1.572.91 2.784 0 .33-.033.676-.096 1.038h-5.314c.107.702.405 1.239.894 1.611.49.372 1.106.558 1.85.558.862 0 1.58-.202 2.155-.606zm6.605-1.77h-1.212c-.596 0-1.045.116-1.349.35-.303.234-.454.532-.454.894 0 .372.117.664.35.877.235.213.575.32 1.022.32.51 0 .912-.142 1.204-.424.293-.281.44-.651.44-1.108v-.91zm-4.068-2.554V9.325c.627-.361 1.457-.542 2.489-.542 2.116 0 3.175 1.026 3.175 3.08V17h-1.548v-.957c-.415.68-1.143 1.02-2.186 1.02-.766 0-1.38-.22-1.843-.661-.462-.442-.694-1.003-.694-1.684 0-.776.293-1.38.878-1.81.585-.431 1.404-.647 2.457-.647h1.34V11.8c0-.554-.133-.971-.399-1.253-.266-.282-.707-.423-1.324-.423a4.07 4.07 0 0 0-2.345.718zm9.333-1.93v1.42c.394-1 1.101-1.5 2.123-1.5.148 0 .313.016.494.048v1.531a1.885 1.885 0 0 0-.75-.143c-.542 0-.989.24-1.34.718-.351.479-.527 1.048-.527 1.707V17h-1.563V8.91h1.563zm5.01 4.084c.022.82.272 1.492.75 2.019.479.526 1.15.79 2.01.79.639 0 1.235-.176 1.788-.527v1.404c-.521.319-1.186.479-1.995.479-1.265 0-2.276-.4-3.031-1.197-.755-.798-1.133-1.792-1.133-2.984 0-1.16.38-2.151 1.14-2.975.761-.825 1.79-1.237 3.088-1.237.702 0 1.346.149 1.93.447v1.436a3.242 3.242 0 0 0-1.77-.495c-.84 0-1.513.266-2.019.798-.505.532-.758 1.213-.758 2.042zM40.24 5.72v4.579c.458-1 1.293-1.5 2.505-1.5.787 0 1.42.245 1.899.734.479.49.718 1.17.718 2.042V17h-1.564v-5.106c0-.553-.14-.98-.422-1.284-.282-.303-.652-.455-1.11-.455-.531 0-1.002.202-1.411.606-.41.405-.615 1.022-.615 1.851V17h-1.563V5.72h1.563zm14.966 10.02c.596 0 1.096-.253 1.5-.758.404-.506.606-1.157.606-1.955 0-.915-.202-1.62-.606-2.114-.404-.495-.92-.742-1.548-.742-.553 0-1.05.224-1.491.67-.442.447-.662 1.133-.662 2.058 0 .958.212 1.67.638 2.138.425.469.946.703 1.563.703zM53.004 5.72v4.42c.574-.894 1.388-1.341 2.44-1.341 1.022 0 1.857.383 2.506 1.149.649.766.973 1.781.973 3.047 0 1.138-.309 2.109-.925 2.912-.617.803-1.463 1.205-2.537 1.205-1.075 0-1.894-.447-2.457-1.34V17h-1.58V5.72h1.58zm9.908 11.104l-3.223-7.913h1.739l1.005 2.632 1.26 3.415c.096-.32.48-1.458 1.15-3.415l.909-2.632h1.66l-2.92 7.866c-.777 2.074-1.963 3.11-3.559 3.11a2.92 2.92 0 0 1-.734-.079v-1.34c.17.042.351.064.543.064 1.032 0 1.755-.57 2.17-1.708z' fill='%235D6494'/%3E%3Cpath d='M89.632 5.967v-.772a.978.978 0 0 0-.978-.977h-2.28a.978.978 0 0 0-.978.977v.793c0 .088.082.15.171.13a7.127 7.127 0 0 1 1.984-.28c.65 0 1.295.088 1.917.259.082.02.164-.04.164-.13m-6.248 1.01l-.39-.389a.977.977 0 0 0-1.382 0l-.465.465a.973.973 0 0 0 0 1.38l.383.383c.062.061.15.047.205-.014.226-.307.472-.601.746-.874.281-.28.568-.526.883-.751.068-.042.075-.137.02-.2m4.16 2.453v3.341c0 .096.104.165.192.117l2.97-1.537c.068-.034.089-.117.055-.184a3.695 3.695 0 0 0-3.08-1.866c-.068 0-.136.054-.136.13m0 8.048a4.489 4.489 0 0 1-4.49-4.482 4.488 4.488 0 0 1 4.49-4.482 4.488 4.488 0 0 1 4.489 4.482 4.484 4.484 0 0 1-4.49 4.482m0-10.85a6.363 6.363 0 1 0 0 12.729 6.37 6.37 0 0 0 6.372-6.368 6.358 6.358 0 0 0-6.371-6.36' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100%;
+  overflow: hidden;
+  text-indent: -9000px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+</style>
+        <div class="TDesign-doc-search">
+          <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr;"><input id="TDSearch" class="TDesign-doc-search__inner ds-input" placeholder="搜索" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-label="search input" aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;system-ui&quot;, -apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ds-dropdown-menu" role="listbox" id="algolia-autocomplete-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ds-dataset-1"></div></span></span>
+          <span class="TDesign-doc-search__icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M8.125 2.5C5.0184 2.5 2.5 5.0184 2.5 8.125C2.5 11.2316 5.0184 13.75 8.125 13.75C9.22568 13.75 10.2525 13.4339 11.1197 12.8874L15.8839 17.6517L16.7678 16.7678L12.1025 12.1025C13.1204 11.0846 13.75 9.6783 13.75 8.125C13.75 5.0184 11.2316 2.5 8.125 2.5ZM8.125 3.75C10.5412 3.75 12.5 5.70875 12.5 8.125C12.5 10.5412 10.5412 12.5 8.125 12.5C5.70875 12.5 3.75 10.5412 3.75 8.125C3.75 5.70875 5.70875 3.75 8.125 3.75Z"></path>
+</svg>
+</span>
+        </div>
+      </td-doc-search></td-header><td-doc-aside title="Vue Next for Web"><div class="t-select__wrap" id="historyVersion" slot="extra"><div class="t-popup__reference t-select__popup-reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-select__dropdown narrow-scrollbar"><div class="t-select__dropdown-inner"><!----><ul class="t-select__create-option t-select__list" style="display: none;"><li class="t-select-option t-size-m t-select__create-option--special" title=""></li></ul><!----><!----><ul class="t-select__list"><li class="t-select-option t-size-m" title="0.9.4">0.9.4</li><li class="t-select-option t-size-m" title="0.8.1">0.8.1</li><li class="t-select-option t-size-m" title="0.7.0">0.7.0</li><li class="t-select-option t-size-m" title="0.6.4">0.6.4</li></ul><!----></div><!----></div></div><div class="t-select t-size-m"><!----><!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display: none;"><!---->+0<!----></span><span title="0.9.4" class="t-select__single">0.9.4</span><!----><svg class="t-fake-arrow t-select__right-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path></svg><!----><!----></div></div></div><div slot="__render_content__">
+      <aside class="TDesign-doc-aside">
+        <div class="TDesign-doc-aside-collapse">
+          <i class="icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3.99902 7.97265L27.9978 8.00026L28.0001 6.00026L4.00132 5.97266L3.99902 7.97265Z" fill="currentColor"></path>
+  <path d="M15.0002 17.0003H27.999V15.0003H15.0002V17.0003Z" fill="currentColor"></path>
+  <path d="M3.99902 25.9727L27.9978 26.0003L28.0001 24.0003L4.00132 23.9727L3.99902 25.9727Z" fill="currentColor"></path>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9335 15.1864C12.4668 15.5864 12.4668 16.3864 11.9335 16.7864L5.60017 21.5364C4.94094 22.0308 4.00017 21.5604 4.00017 20.7364L4.00017 11.2364C4.00017 10.4124 4.94094 9.94197 5.60017 10.4364L11.9335 15.1864ZM6.00017 13.2364L9.66684 15.9864L6.00017 18.7364L6.00017 13.2364Z" fill="currentColor"></path>
+</svg>
+</i>
+        </div>
+        <div class="TDesign-doc-sidenav">
+          <h2 class="TDesign-doc-aside__title">Vue Next for Web</h2>
+          <div class="TDesign-doc-aside__extra">
+            <slot name="extra"></slot>
+          </div>
+          
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">开始</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/getting-started">
+        快速开始
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/quick-start">
+        最佳实践
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/changelog">
+        更新日志
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/overview">
+        组件概览
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">全局配置</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/config">
+        全局特性配置
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/custom-theme">
+        自定义主题
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/dark-mode">
+        暗黑模式
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">基础</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/button">
+        Button 按钮
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/divider">
+        Divider 分割线
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/icon">
+        Icon 图标
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">布局</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/grid">
+        Grid 栅格
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/layout">
+        Layout 布局
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">导航</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/affix">
+        Affix 固钉
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/anchor">
+        Anchor 锚点
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/breadcrumb">
+        Breadcrumb 面包屑
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/dropdown">
+        Dropdown 下拉菜单
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/menu">
+        Menu 导航菜单
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/pagination">
+        Pagination 分页
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/steps">
+        Steps 步骤条
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tabs">
+        Tabs 选项卡
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">输入</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/cascader">
+        Cascader 级联组件
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/checkbox">
+        Checkbox 多选框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/date-picker">
+        DatePicker 日期选择器
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/form">
+        Form 表单
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/input">
+        Input 输入框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/input-number">
+        InputNumber 数字输入框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/radio">
+        Radio 单选框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/select">
+        Select 选择器
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/select-input">
+        SelectInput 筛选器输入框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/slider">
+        Slider 滑块
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/switch">
+        Switch 开关
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link active" href="/vue-next/components/tag-input">
+        TagInput 标签输入框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/textarea">
+        Textarea 多行文本框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/transfer">
+        Transfer 穿梭框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/time-picker">
+        TimePicker 时间选择器
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tree-select">
+        TreeSelect 树选择
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/upload">
+        Upload 上传
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">数据展示</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/avatar">
+        Avatar 头像
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/badge">
+        Badge 徽标
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/calendar">
+        Calendar 日历
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/comment">
+        Comment 评论
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/list">
+        List 列表
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/loading">
+        Loading 加载
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/progress">
+        Progress 进度条
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/skeleton">
+        Skeleton  骨架屏
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/swiper">
+        Swiper 轮播框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/table">
+        Table 表格
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tag">
+        Tag 标签
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tooltip">
+        Tooltip 文字提示
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/tree">
+        Tree 树
+      </a>
+    </div>
+  </div>
+      </div>
+    
+      <div class="TDesign-doc-sidenav-group TDesign-doc-sidenav-group--deep0">
+        <span class="TDesign-doc-sidenav-group__title">消息提醒</span>
+        <div class="TDesign-doc-sidenav-group__children">
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/alert">
+        Alert 警告提醒
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/dialog">
+        Dialog 对话框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/drawer">
+        Drawer 抽屉
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/message">
+        Message 全局提示
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/notification">
+        Notification 消息通知
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/popconfirm">
+        Popconfirm 气泡确认框
+      </a>
+    </div>
+  
+    <div class="TDesign-doc-sidenav-item">
+      <a class="TDesign-doc-sidenav-link " href="/vue-next/components/popup">
+        Popup 弹出层
+      </a>
+    </div>
+  </div>
+      </div>
+    
+        </div>
+      </aside>
+      <div class="TDesign-doc-aside-mask"></div>
+    </div></td-doc-aside><td-doc-content page-status="show" platform="web" style="visibility: visible;"><td-doc-header slot="doc-header" component-name="tag-input" platform="web"><h1 id="__td_doc_title__">TagInput 标签输入框</h1></td-doc-header><td-doc-tabs tab="demo"></td-doc-tabs><div><div name="DEMO"><nav class="tdesign-toc_container"><ol class="tdesign-toc_list"><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#基础标签输入框">基础标签输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#标签数量超出的输入框">标签数量超出的输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#有数量限制的标签输入框">有数量限制的标签输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#不同尺寸的标签输入框">不同尺寸的标签输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#可折叠过多标签的标签输入框">可折叠过多标签的标签输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#可自定义标签的标签输入框">可自定义标签的标签输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#不同状态的标签输入框">不同状态的标签输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#不同主题的标签输入框">不同主题的标签输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#宽度自适应的标签输入框">宽度自适应的标签输入框</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#可拖拽调整顺序的标签输入框">可拖拽调整顺序的标签输入框</a></li></ol></nav><h3 id="基础标签输入框">基础标签输入框 <a class="header-anchor" href="#基础标签输入框"></a></h3><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-base tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags1&quot; clearable @paste=&quot;onPaste&quot; @enter=&quot;onTagInputEnter&quot; />
+
+    <t-tag-input :value=&quot;tags2&quot; label=&quot;Controlled: &quot; clearable @change=&quot;onChange&quot; />
+
+    <t-tag-input :default-value=&quot;tags3&quot; label=&quot;UnControlled: &quot; clearable />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags1 = ref(['Vue', 'React']);
+const tags2 = ref(['Vue', 'React']);
+const tags3 = ref(['Vue', 'React']);
+
+const onTagInputEnter = (val, context) => {
+  console.log(val, context);
+};
+const onChange = (val, context) => {
+  console.log(val, context);
+  tags2.value = val;
+};
+const onPaste = (context) => {
+  console.log(context);
+};
+</script>
+" demo-name="base" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags1&quot; clearable @paste=&quot;onPaste&quot; @enter=&quot;onTagInputEnter&quot; />
+
+    <t-tag-input :value=&quot;tags2&quot; label=&quot;Controlled: &quot; clearable @change=&quot;onChange&quot; />
+
+    <t-tag-input :default-value=&quot;tags3&quot; label=&quot;UnControlled: &quot; clearable />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags1 = ref(['Vue', 'React']);
+const tags2 = ref(['Vue', 'React']);
+const tags3 = ref(['Vue', 'React']);
+
+const onTagInputEnter = (val, context) => {
+  console.log(val, context);
+};
+const onChange = (val, context) => {
+  console.log(val, context);
+  tags2.value = val;
+};
+const onPaste = (context) => {
+  console.log(context);
+};
+</script>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div class="tdesign-demo-block-column" style="width: 80%;"><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><div class="t-tag-input__prefix">Controlled: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><div class="t-tag-input__prefix">UnControlled: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div></div></div></td-doc-demo></div><h3 id="标签数量超出的输入框">标签数量超出的输入框 <a class="header-anchor" href="#标签数量超出的输入框"></a></h3><p>使用 <code>excessTagsDisplayType</code> 控制标签超出时的呈现方式：横向滚动显示和换行显示，默认为横向滚动。</p><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-excess tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <!-- 标签数量超出时，滚动显示 -->
+    <t-tag-input v-model=&quot;tags&quot; label=&quot;Scroll: &quot; clearable />
+
+    <!-- 标签数量超出时，换行显示 -->
+    <t-tag-input v-model=&quot;tags&quot; label=&quot;BreakLine: &quot; excess-tags-display-type=&quot;break-line&quot; clearable />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags = ref(['Vue', 'React']);
+</script>
+" demo-name="excess" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <!-- 标签数量超出时，滚动显示 -->
+    <t-tag-input v-model=&quot;tags&quot; label=&quot;Scroll: &quot; clearable />
+
+    <!-- 标签数量超出时，换行显示 -->
+    <t-tag-input v-model=&quot;tags&quot; label=&quot;BreakLine: &quot; excess-tags-display-type=&quot;break-line&quot; clearable />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags = ref(['Vue', 'React']);
+</script>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div class="tdesign-demo-block-column" style="width: 80%;"><!-- 标签数量超出时，滚动显示 --><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><div class="t-tag-input__prefix">Scroll: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><!-- 标签数量超出时，换行显示 --><div class="t-input t-input--prefix t-tag-input t-tag-input--break-line"><!----><div class="t-input__prefix"><div class="t-tag-input__prefix">BreakLine: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div></div></div></td-doc-demo></div><h3 id="有数量限制的标签输入框">有数量限制的标签输入框 <a class="header-anchor" href="#有数量限制的标签输入框"></a></h3><p>使用 <code>max</code> 控制最大标签数量。</p><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-max tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div style=&quot;width: 100%&quot;>
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;最多只能输入 3 个标签&quot; :max=&quot;3&quot; @enter=&quot;onEnter&quot; />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { MessagePlugin } from 'tdesign-vue-next';
+
+const tags = ref([]);
+const onEnter = (value, { inputValue }) => {
+  if (value.length >= 3 &amp;&amp; inputValue) {
+    MessagePlugin.warning('最多只能输入 3 个标签!');
+  }
+};
+</script>
+" demo-name="max" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div style=&quot;width: 100%&quot;>
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;最多只能输入 3 个标签&quot; :max=&quot;3&quot; @enter=&quot;onEnter&quot; />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { MessagePlugin } from 'tdesign-vue-next';
+
+const tags = ref([]);
+const onEnter = (value, { inputValue }) => {
+  if (value.length >= 3 &amp;&amp; inputValue) {
+    MessagePlugin.warning('最多只能输入 3 个标签!');
+  }
+};
+</script>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div style="width: 100%;"><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"></div><input class="t-input__inner" placeholder="最多只能输入 3 个标签" type="text"><!----><!----><!----></div></div></div></td-doc-demo></div><h3 id="不同尺寸的标签输入框">不同尺寸的标签输入框 <a class="header-anchor" href="#不同尺寸的标签输入框"></a></h3><p>提供大、中（默认）、小三种不同尺寸的的标签输入框。</p><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-size tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags1&quot; size=&quot;small&quot; clearable />
+
+    <t-tag-input v-model=&quot;tags2&quot; clearable />
+
+    <t-tag-input v-model=&quot;tags3&quot; size=&quot;large&quot; clearable />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags1 = ref(['Vue', 'React']);
+const tags2 = ref(['Vue', 'React']);
+const tags3 = ref(['Vue', 'React']);
+</script>
+" demo-name="size" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags1&quot; size=&quot;small&quot; clearable />
+
+    <t-tag-input v-model=&quot;tags2&quot; clearable />
+
+    <t-tag-input v-model=&quot;tags3&quot; size=&quot;large&quot; clearable />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags1 = ref(['Vue', 'React']);
+const tags2 = ref(['Vue', 'React']);
+const tags3 = ref(['Vue', 'React']);
+</script>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div class="tdesign-demo-block-column" style="width: 80%;"><div class="t-input t-size-s t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-s"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-s"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input t-size-l t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-l"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-l"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div></div></div></td-doc-demo></div><h3 id="可折叠过多标签的标签输入框">可折叠过多标签的标签输入框 <a class="header-anchor" href="#可折叠过多标签的标签输入框"></a></h3><ul><li><code>mincollapsedNum</code> 用于控制超出这个数量的标签折叠省略显示。</li><li><code>collapsedItems</code> 用于自定义折叠标签呈现方式。</li></ul><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-collapsed tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags&quot; :min-collapsed-num=&quot;1&quot; />
+
+    <!-- 方式一：使用渲染函数自定义折叠项 -->
+    <t-tag-input v-model=&quot;tags&quot; :min-collapsed-num=&quot;2&quot; :collapsed-items=&quot;renderCollapsedItems&quot; />
+
+    <!-- 方式二：使用插槽自定义折叠项 -->
+    <t-tag-input v-model=&quot;tags&quot; :min-collapsed-num=&quot;3&quot;>
+      <template #collapsedItems=&quot;{ collapsedTags }&quot;>
+        <t-popup>
+          <t-tag>More({{ collapsedTags.length }})</t-tag>
+          <template #content>
+            <t-tag v-for=&quot;item in collapsedTags&quot; :key=&quot;item&quot; style=&quot;margin-right: 4px&quot;>
+              {{ item }}
+            </t-tag>
+          </template>
+        </t-popup>
+      </template>
+    </t-tag-input>
+  </div>
+</template>
+
+<script lang=&quot;jsx&quot;>
+import { defineComponent, ref } from 'vue';
+import { Tag } from 'tdesign-vue-next';
+
+export default defineComponent({
+  name: 'TTagInputCollapsed',
+  setup() {
+    const tags = ref(['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter']);
+    const renderCollapsedItems = (_, { collapsedTags }) => <Tag>更多({collapsedTags.length})</Tag>;
+    return { tags, renderCollapsedItems };
+  },
+});
+</script>
+" demo-name="collapsed" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags&quot; :min-collapsed-num=&quot;1&quot; />
+
+    <!-- 方式一：使用渲染函数自定义折叠项 -->
+    <t-tag-input v-model=&quot;tags&quot; :min-collapsed-num=&quot;2&quot; :collapsed-items=&quot;renderCollapsedItems&quot; />
+
+    <!-- 方式二：使用插槽自定义折叠项 -->
+    <t-tag-input v-model=&quot;tags&quot; :min-collapsed-num=&quot;3&quot;>
+      <template #collapsedItems=&quot;{ collapsedTags }&quot;>
+        <t-popup>
+          <t-tag>More({{ collapsedTags.length }})</t-tag>
+          <template #content>
+            <t-tag v-for=&quot;item in collapsedTags&quot; :key=&quot;item&quot; style=&quot;margin-right: 4px&quot;>
+              {{ item }}
+            </t-tag>
+          </template>
+        </t-popup>
+      </template>
+    </t-tag-input>
+  </div>
+</template>
+
+<script lang=&quot;jsx&quot;>
+import { defineComponent, ref } from 'vue';
+import { Tag } from 'tdesign-vue-next';
+
+export default defineComponent({
+  name: 'TTagInputCollapsed',
+  setup() {
+    const tags = ref(['Vue', 'React', 'Miniprogram', 'Angular', 'Flutter']);
+    const renderCollapsedItems = (_, { collapsedTags }) => <Tag>更多({collapsedTags.length})</Tag>;
+    return { tags, renderCollapsedItems };
+  },
+});
+</script>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div class="tdesign-demo-block-column" style="width: 80%;"><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m"><!---->+4<!----></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><!-- 方式一：使用渲染函数自定义折叠项 --><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m"><!---->更多(3)<!----></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><!-- 方式二：使用插槽自定义折叠项 --><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Miniprogram<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><div class="t-popup__reference"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content"><span class="t-tag t-tag--default t-tag--dark t-size-m" style="margin-right: 4px;"><!---->Angular<!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m" style="margin-right: 4px;"><!---->Flutter<!----></span><!----></div></div><span class="t-tag t-tag--default t-tag--dark t-size-m"><!---->More(2)<!----></span></div></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div></div></div></td-doc-demo></div><h3 id="可自定义标签的标签输入框">可自定义标签的标签输入框 <a class="header-anchor" href="#可自定义标签的标签输入框"></a></h3><ul><li><code>tag</code> 用于定义单个标签的内容</li><li><code>valueDispaly</code> 用于完全自定义全量标签内容</li></ul><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-custom-tag tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
+    <t-tag-input v-model=&quot;tags&quot; clearable :min-collapsed-num=&quot;2&quot;>
+      <template #tag=&quot;{ value }&quot;>
+        <img
+          src=&quot;https://tdesign.gtimg.com/site/avatar.jpg&quot;
+          style=&quot;max-width: 20px; max-height: 20px; border-radius: 50%&quot;
+        />
+        <span>&amp;nbsp;&amp;nbsp;{{ value }}</span>
+      </template>
+    </t-tag-input>
+
+    <br /><br />
+
+    <!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay -->
+    <t-tag-input v-model=&quot;tags&quot; clearable>
+      <template #valueDisplay=&quot;{ value, onClose }&quot;>
+        <t-tag
+          v-for=&quot;(item, index) in value&quot;
+          :key=&quot;item&quot;
+          closable
+          style=&quot;margin-right: 4px&quot;
+          @close=&quot;() => onClose(index)&quot;
+        >
+          <img
+            src=&quot;https://tdesign.gtimg.com/site/avatar.jpg&quot;
+            style=&quot;max-width: 20px; max-height: 20px; border-radius: 50%&quot;
+          />
+          <span>&amp;nbsp;&amp;nbsp;{{ item }}</span>
+        </t-tag>
+      </template>
+    </t-tag-input>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags = ref(['StudentA', 'StudentB', 'StudentC']);
+</script>
+" demo-name="custom-tag" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag -->
+    <t-tag-input v-model=&quot;tags&quot; clearable :min-collapsed-num=&quot;2&quot;>
+      <template #tag=&quot;{ value }&quot;>
+        <img
+          src=&quot;https://tdesign.gtimg.com/site/avatar.jpg&quot;
+          style=&quot;max-width: 20px; max-height: 20px; border-radius: 50%&quot;
+        />
+        <span>&amp;nbsp;&amp;nbsp;{{ value }}</span>
+      </template>
+    </t-tag-input>
+
+    <br /><br />
+
+    <!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay -->
+    <t-tag-input v-model=&quot;tags&quot; clearable>
+      <template #valueDisplay=&quot;{ value, onClose }&quot;>
+        <t-tag
+          v-for=&quot;(item, index) in value&quot;
+          :key=&quot;item&quot;
+          closable
+          style=&quot;margin-right: 4px&quot;
+          @close=&quot;() => onClose(index)&quot;
+        >
+          <img
+            src=&quot;https://tdesign.gtimg.com/site/avatar.jpg&quot;
+            style=&quot;max-width: 20px; max-height: 20px; border-radius: 50%&quot;
+          />
+          <span>&amp;nbsp;&amp;nbsp;{{ item }}</span>
+        </t-tag>
+      </template>
+    </t-tag-input>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags = ref(['StudentA', 'StudentB', 'StudentC']);
+</script>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div class="tdesign-demo-block-column" style="width: 80%;"><!-- 方式一：使用 tag 定义标签内部内容。也可以使用同名渲染函数 tag --><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!----><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width: 20px; max-height: 20px; border-radius: 50%;"><span>&nbsp;&nbsp;StudentA</span><svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!----><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width: 20px; max-height: 20px; border-radius: 50%;"><span>&nbsp;&nbsp;StudentB</span><svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-size-m"><!---->+1<!----></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><br><br><!-- 方式二：使用 valueDisplay 定义全部内容。也可以使用同名渲染函数 valueDisplay --><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right: 4px;"><!----><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width: 20px; max-height: 20px; border-radius: 50%;"><span>&nbsp;&nbsp;StudentA</span><svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right: 4px;"><!----><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width: 20px; max-height: 20px; border-radius: 50%;"><span>&nbsp;&nbsp;StudentB</span><svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style="margin-right: 4px;"><!----><img src="https://tdesign.gtimg.com/site/avatar.jpg" style="max-width: 20px; max-height: 20px; border-radius: 50%;"><span>&nbsp;&nbsp;StudentC</span><svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div></div></div></td-doc-demo></div><h3 id="不同状态的标签输入框">不同状态的标签输入框 <a class="header-anchor" href="#不同状态的标签输入框"></a></h3><p>标签输入框状态可分为：正常、只读、禁用、成功、告警、错误等，其中 成功、告警、错误 等状态一般用于表单验证。此特性继承至 Input 输入框组件。</p><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-status tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 100%&quot;>
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>禁用状态：</label>
+      <t-tag-input :value=&quot;tags1&quot; disabled />
+    </div>
+
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>只读状态：</label>
+      <t-tag-input :value=&quot;tags2&quot; tips=&quot;这是普通文本提示&quot; readonly />
+    </div>
+
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>成功状态：</label>
+      <t-tag-input v-model=&quot;tags3&quot; status=&quot;success&quot; tips=&quot;校验通过文本提示&quot; clearable />
+    </div>
+
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>告警状态：</label>
+      <t-tag-input v-model=&quot;tags4&quot; status=&quot;warning&quot; tips=&quot;校验不通过文本提示&quot; clearable />
+    </div>
+
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>错误状态：</label>
+      <t-tag-input v-model=&quot;tags5&quot; status=&quot;error&quot; tips=&quot;校验存在严重问题文本提示&quot; clearable />
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags1 = ref(['Vue', 'React', 'Miniprogram']);
+const tags2 = ref(['Vue', 'React', 'Miniprogram']);
+const tags3 = ref(['Vue', 'React', 'Miniprogram']);
+const tags4 = ref(['Vue', 'React', 'Miniprogram']);
+const tags5 = ref(['Vue', 'React', 'Miniprogram']);
+</script>
+
+<style lang=&quot;less&quot;>
+.t-tdesign-demo__tag-input {
+  display: flex;
+  align-items: baseline;
+  > label {
+    width: 100px;
+  }
+}
+</style>
+" demo-name="status" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 100%&quot;>
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>禁用状态：</label>
+      <t-tag-input :value=&quot;tags1&quot; disabled />
+    </div>
+
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>只读状态：</label>
+      <t-tag-input :value=&quot;tags2&quot; tips=&quot;这是普通文本提示&quot; readonly />
+    </div>
+
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>成功状态：</label>
+      <t-tag-input v-model=&quot;tags3&quot; status=&quot;success&quot; tips=&quot;校验通过文本提示&quot; clearable />
+    </div>
+
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>告警状态：</label>
+      <t-tag-input v-model=&quot;tags4&quot; status=&quot;warning&quot; tips=&quot;校验不通过文本提示&quot; clearable />
+    </div>
+
+    <div class=&quot;t-tdesign-demo__tag-input&quot;>
+      <label>错误状态：</label>
+      <t-tag-input v-model=&quot;tags5&quot; status=&quot;error&quot; tips=&quot;校验存在严重问题文本提示&quot; clearable />
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags1 = ref(['Vue', 'React', 'Miniprogram']);
+const tags2 = ref(['Vue', 'React', 'Miniprogram']);
+const tags3 = ref(['Vue', 'React', 'Miniprogram']);
+const tags4 = ref(['Vue', 'React', 'Miniprogram']);
+const tags5 = ref(['Vue', 'React', 'Miniprogram']);
+</script>
+
+<style lang=&quot;less&quot;>
+.t-tdesign-demo__tag-input {
+  display: flex;
+  align-items: baseline;
+  > label {
+    width: 100px;
+  }
+}
+</style>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div class="tdesign-demo-block-column" style="width: 100%;"><div class="t-tdesign-demo__tag-input"><label>禁用状态：</label><div class="t-input t-is-disabled t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"><!---->Vue<!----></span><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"><!---->React<!----></span><span class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"><!---->Miniprogram<!----></span></div><input class="t-input__inner" disabled="" placeholder="" type="text"><!----><!----><!----></div></div><div class="t-tdesign-demo__tag-input"><label>只读状态：</label><div class="t-input__wrap"><div class="t-input t-is-readonly t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-size-m"><!---->Vue<!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m"><!---->React<!----></span><span class="t-tag t-tag--default t-tag--dark t-size-m"><!---->Miniprogram<!----></span></div><input class="t-input__inner" readonly="" placeholder="" type="text"><!----><!----><!----></div><div class="t-input__tips t-input__tips--normal">这是普通文本提示</div></div></div><div class="t-tdesign-demo__tag-input"><label>成功状态：</label><div class="t-input__wrap"><div class="t-input t-is-success t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Miniprogram<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input__tips t-input__tips--success">校验通过文本提示</div></div></div><div class="t-tdesign-demo__tag-input"><label>告警状态：</label><div class="t-input__wrap"><div class="t-input t-is-warning t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Miniprogram<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input__tips t-input__tips--warning">校验不通过文本提示</div></div></div><div class="t-tdesign-demo__tag-input"><label>错误状态：</label><div class="t-input__wrap"><div class="t-input t-is-error t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Miniprogram<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input__tips t-input__tips--error">校验存在严重问题文本提示</div></div></div></div></div></td-doc-demo></div><h3 id="不同主题的标签输入框">不同主题的标签输入框 <a class="header-anchor" href="#不同主题的标签输入框"></a></h3><p>使用 <code>tagProps</code> 控制标签的所有属性，如：颜色设置。</p><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-theme tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;添加新标签&quot; :tag-props=&quot;{ theme: 'primary' }&quot; />
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;添加新标签&quot; :tag-props=&quot;{ theme: 'success' }&quot; />
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;添加新标签&quot; :tag-props=&quot;{ theme: 'warning' }&quot; />
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;添加新标签&quot; :tag-props=&quot;{ theme: 'danger' }&quot; />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags = ref(['Vue', 'React', 'Miniprogram']);
+</script>
+" demo-name="theme" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;添加新标签&quot; :tag-props=&quot;{ theme: 'primary' }&quot; />
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;添加新标签&quot; :tag-props=&quot;{ theme: 'success' }&quot; />
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;添加新标签&quot; :tag-props=&quot;{ theme: 'warning' }&quot; />
+    <t-tag-input v-model=&quot;tags&quot; placeholder=&quot;添加新标签&quot; :tag-props=&quot;{ theme: 'danger' }&quot; />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags = ref(['Vue', 'React', 'Miniprogram']);
+</script>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div class="tdesign-demo-block-column" style="width: 80%;"><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--primary t-tag--dark t-tag--close t-size-m"><!---->Miniprogram<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--success t-tag--dark t-tag--close t-size-m"><!---->Miniprogram<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--warning t-tag--dark t-tag--close t-size-m"><!---->Miniprogram<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div><div class="t-input t-input--prefix t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--danger t-tag--dark t-tag--close t-size-m"><!---->Miniprogram<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text"><!----><!----><!----></div></div></div></td-doc-demo></div><h3 id="宽度自适应的标签输入框">宽度自适应的标签输入框 <a class="header-anchor" href="#宽度自适应的标签输入框"></a></h3><div class="tdesign-demo-wrapper tdesign-demo-item--tag-input-auto-width tdesign-demo-item--tag-input"><td-doc-demo component-name="tag-input" code="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags&quot; auto-width clearable />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags = ref(['Vue', 'React']);
+</script>
+" demo-name="auto-width" language="markup" mode="auto"><div slot="action"><div class="t-popup__reference" duration="3000" theme="default"><div class="t-popup t-popup--animation-enter-active t-popup--animation-enter-to" role="tooltip" aria-hidden="true" style="display: none;"><div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">在 Stackblitz 中打开<div class="t-popup__arrow"></div></div></div><form method="post" action="https://stackblitz.com/run" target="_blank"><input type="hidden" name="project[files][src/demo.vue]" value="<template>
+  <div class=&quot;tdesign-demo-block-column&quot; style=&quot;width: 80%&quot;>
+    <t-tag-input v-model=&quot;tags&quot; auto-width clearable />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const tags = ref(['Vue', 'React']);
+</script>
+"><input type="hidden" name="project[files][src/index.css]" value="
+  /* 竖排展示 demo 行间距 16px */
+  .tdesign-demo-block-column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  /* 竖排展示 demo 行间距 32px */
+  .tdesign-demo-block-column-large {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+  }
+
+  /* 横排排展示 demo 列间距 16px */
+  .tdesign-demo-block-row {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+  }
+"><input type="hidden" name="project[files][src/main.js]" value="
+  import { createApp } from 'vue';
+  import TDesign from 'tdesign-vue-next';
+  import Demo from './demo.vue';
+
+  // 引入组件库全局样式资源
+  import 'tdesign-vue-next/es/style/index.css';
+  import './index.css';
+
+  const app = createApp(Demo);
+
+  app.use(TDesign).mount('#app');
+"><input type="hidden" name="project[files][index.html]" value="
+  <div id=&quot;app&quot;></div>
+  <script type=&quot;module&quot; src=&quot;/src/main.js&quot;></script>
+"><input type="hidden" name="project[files][package.json]" value="{
+  &quot;name&quot;: &quot;tdesign-vue-next-demo&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;serve&quot;: &quot;vite preview&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.2.26&quot;,
+    &quot;tdesign-vue-next&quot;: &quot;0.9.4&quot;,
+    &quot;tdesign-icons-vue-next&quot;: &quot;~0.0.7&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;vite&quot;: &quot;^2.7.7&quot;,
+    &quot;@vue/compiler-sfc&quot;: &quot;^3.2.26&quot;,
+    &quot;@vitejs/plugin-vue&quot;: &quot;^2.0.1&quot;,
+    &quot;@vitejs/plugin-vue-jsx&quot;: &quot;^1.3.3&quot;
+  }
+}"><input type="hidden" name="project[files][vite.config.js]" value="
+  import { defineConfig } from 'vite';
+  import vue from '@vitejs/plugin-vue';
+  import vueJsx from '@vitejs/plugin-vue-jsx';
+
+  export default defineConfig({
+    plugins: [vue(), vueJsx()],
+  });
+"><input type="hidden" name="project[files][.stackblitzrc]" value="
+  {
+    &quot;installDependencies&quot;: true,
+    &quot;startCommand&quot;: &quot;npm run dev&quot;
+  }
+"><input type="hidden" name="project[template]" value="node"><div class="action-online"><svg viewBox="0 0 28 28" height="20"><path fill="currentColor" d="M12.747 16.273h-7.46L18.925 1.5l-3.671 10.227h7.46L9.075 26.5l3.671-10.227z"></path></svg></div></form></div></div><div class="tdesign-demo-item__body"><div class="tdesign-demo-block-column" style="width: 80%;"><div class="t-input t-input--prefix t-input--auto-width t-tag-input"><!----><div class="t-input__prefix"><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->Vue<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"><!---->React<svg fill="none" viewBox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close"><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fillOpacity="0.9"></path></svg></span></div><input class="t-input__inner" placeholder="" type="text" style="width: 0px;"><span class="t-input__input-pre"></span><!----><!----></div></div></div></td-doc-demo></div><h3 id="可拖拽调整顺序的标签输入框">可拖拽调整顺序的标签输入框 <a class="header-anchor" href="#可拖拽调整顺序的标签输入框"></a></h3><h3>DEMO (🚧建设中）...</h3></div><td-contributors platform="web" framework="vue" component-name="tag-input"></td-contributors></div><div name="API" style="display: none;"><nav class="tdesign-toc_container"><ol class="tdesign-toc_list"><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#taginput-props">TagInput Props</a></li><li class="tdesign-toc_list_item"><a class="tdesign-toc_list_item_a" href="#taginput-events">TagInput Events</a></li></ol></nav><h3 id="taginput-props">TagInput Props <a class="header-anchor" href="#taginput-props"></a></h3><table><thead><tr><th>名称</th><th>类型</th><th>默认值</th><th>说明</th><th>必传</th></tr></thead><tbody><tr><td>autoWidth</td><td>Boolean</td><td>false</td><td>宽度随内容自适应</td><td>N</td></tr><tr><td>clearable</td><td>Boolean</td><td>false</td><td>是否可清空</td><td>N</td></tr><tr><td>collapsedItems</td><td>Slot / Function</td><td>-</td><td>标签过多的情况下，折叠项内容，默认为 <code>+N</code>。如果需要悬浮就显示其他内容，可以使用 collapsedItems 自定义。<code>value</code> 表示标签值，<code>collapsedTags</code> 表示折叠标签值，<code>count</code> 表示总标签数量。TS 类型：<code>TNode&lt;{ value: TagInputValue; collapsedTags: TagInputValue; count: number }&gt;</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>disabled</td><td>Boolean</td><td>false</td><td>是否禁用标签输入框</td><td>N</td></tr><tr><td>dragSort</td><td>Boolean</td><td>false</td><td>拖拽调整标签顺序</td><td>N</td></tr><tr><td>excessTagsDisplayType</td><td>String</td><td>scroll</td><td>标签超出时的呈现方式，有两种：横向滚动显示 和 换行显示。可选项：scroll/break-line</td><td>N</td></tr><tr><td>inputProps</td><td>Object</td><td>-</td><td>透传 Input 输入框组件全部属性。TS 类型：<code>InputProps</code>，<a href="./input?tab=api">Input API Documents</a>。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a></td><td>N</td></tr><tr><td>inputValue</td><td>String / Number</td><td>-</td><td>输入框的值。支持语法糖 <code>v-model:inputValue</code>。TS 类型：<code>InputValue</code></td><td>N</td></tr><tr><td>defaultInputValue</td><td>String / Number</td><td>-</td><td>输入框的值。非受控属性。TS 类型：<code>InputValue</code></td><td>N</td></tr><tr><td>label</td><td>String / Slot / Function</td><td>-</td><td>左侧文本。TS 类型：<code>string | TNode</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>max</td><td>Number</td><td>-</td><td>最大允许输入的标签数量</td><td>N</td></tr><tr><td>minCollapsedNum</td><td>Number</td><td>0</td><td>最小折叠数量，用于标签数量过多的情况下折叠选中项，超出该数值的选中项折叠。值为 0 则表示不折叠</td><td>N</td></tr><tr><td>placeholder</td><td>String</td><td>undefined</td><td>占位符</td><td>N</td></tr><tr><td>readonly</td><td>Boolean</td><td>false</td><td>是否只读，值为真会隐藏标签移除按钮和输入框</td><td>N</td></tr><tr><td>size</td><td>String</td><td>medium</td><td>尺寸。可选项：small/medium/large</td><td>N</td></tr><tr><td>status</td><td>String</td><td>-</td><td>输入框状态。可选项：success/warning/error</td><td>N</td></tr><tr><td>suffix</td><td>String / Slot / Function</td><td>-</td><td>后置图标前的后置内容。TS 类型：<code>string | TNode</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>suffixIcon</td><td>Slot / Function</td><td>-</td><td>组件后置图标。TS 类型：<code>TNode</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>tag</td><td>String / Slot / Function</td><td>-</td><td>自定义标签的内部内容，每一个标签的当前值。注意和 <code>valueDisplay</code> 区分，<code>valueDisplay</code> 是用来定义全部标签内容，而非某一个标签。TS 类型：<code>string | TNode&lt;{ value: string | number }&gt;</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>tagProps</td><td>Object</td><td>-</td><td>透传 Tag 组件全部属性。TS 类型：<code>TagProps</code>，<a href="./tag?tab=api">Tag API Documents</a>。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a></td><td>N</td></tr><tr><td>tips</td><td>String / Slot / Function</td><td>-</td><td>输入框下方提示文本，会根据不同的 <code>status</code> 呈现不同的样式。TS 类型：<code>string | TNode</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>value</td><td>Array</td><td>-</td><td>值。支持语法糖 <code>v-model</code> 或 <code>v-model:value</code>。TS 类型：<code>TagInputValue</code> <code>type TagInputValue = Array&lt;string | number&gt;</code>。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a></td><td>N</td></tr><tr><td>defaultValue</td><td>Array</td><td>-</td><td>值。非受控属性。TS 类型：<code>TagInputValue</code> <code>type TagInputValue = Array&lt;string | number&gt;</code>。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a></td><td>N</td></tr><tr><td>valueDisplay</td><td>String / Slot / Function</td><td>-</td><td>自定义值呈现的全部内容，参数为所有标签的值。TS 类型：<code>string | TNode&lt;{ value: TagInputValue; onClose: (index: number, item?: any) =&gt; void }&gt;</code>。<a href="https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts" target="_blank" rel="noopener noreferrer">通用类型定义</a></td><td>N</td></tr><tr><td>onBlur</td><td>Function</td><td></td><td>TS 类型：<code>(value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) =&gt; void</code><br>失去焦点时触发</td><td>N</td></tr><tr><td>onChange</td><td>Function</td><td></td><td>TS 类型：<code>(value: TagInputValue, context: TagInputChangeContext) =&gt; void</code><br>值变化时触发，参数 <code>context.trigger</code> 表示数据变化的触发来源；<code>context.index</code> 指当前变化项的下标；<code>context.item</code> 指当前变化项；<code>context.e</code> 表示事件参数。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a>。<br><code>interface TagInputChangeContext { trigger: TagInputTriggerSource; index?: number; item?: string | number; e?: MouseEvent | KeyboardEvent }</code><br><br><code>type TagInputTriggerSource = 'enter' | 'tag-remove' | 'backspace' | 'clear'</code><br></td><td>N</td></tr><tr><td>onClear</td><td>Function</td><td></td><td>TS 类型：<code>(context: { e: MouseEvent }) =&gt; void</code><br>清空按钮点击时触发</td><td>N</td></tr><tr><td>onDragSort</td><td>Function</td><td></td><td>TS 类型：<code>(context: { currentIndex: number; current: string | number; targetIndex: number; target: string | number }) =&gt; void</code><br>【开发中】拖拽排序时触发</td><td>N</td></tr><tr><td>onEnter</td><td>Function</td><td></td><td>TS 类型：<code>(value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue }) =&gt; void</code><br>按键按下 Enter 时触发</td><td>N</td></tr><tr><td>onFocus</td><td>Function</td><td></td><td>TS 类型：<code>(value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent }) =&gt; void</code><br>聚焦时触发</td><td>N</td></tr><tr><td>onInputChange</td><td>Function</td><td></td><td>TS 类型：<code>(value: InputValue, context?: InputValueChangeContext) =&gt; void</code><br>输入框值发生变化时触发，<code>context.trigger</code> 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、回车键触发等。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a>。<br><code>interface InputValueChangeContext { e?: InputEvent | MouseEvent | KeyboardEvent; trigger: 'input' | 'clear' | 'enter' }</code><br></td><td>N</td></tr><tr><td>onMouseenter</td><td>Function</td><td></td><td>TS 类型：<code>(context: { e: MouseEvent }) =&gt; void</code><br>进入输入框时触发</td><td>N</td></tr><tr><td>onMouseleave</td><td>Function</td><td></td><td>TS 类型：<code>(context: { e: MouseEvent }) =&gt; void</code><br>离开输入框时触发</td><td>N</td></tr><tr><td>onPaste</td><td>Function</td><td></td><td>TS 类型：<code>(context: { e: ClipboardEvent; pasteValue: string }) =&gt; void</code><br>粘贴事件，<code>pasteValue</code> 表示粘贴板的内容</td><td>N</td></tr><tr><td>onRemove</td><td>Function</td><td></td><td>TS 类型：<code>(context: TagInputRemoveContext) =&gt; void</code><br>移除单个标签时触发。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a>。<br><code>interface TagInputRemoveContext { value: TagInputValue; index: number; item: string | number; e?: MouseEvent | KeyboardEvent; trigger: TagInputRemoveTrigger }</code><br><br><code>type TagInputRemoveTrigger = 'tag-remove' | 'backspace'</code><br></td><td>N</td></tr></tbody></table><h3 id="taginput-events">TagInput Events <a class="header-anchor" href="#taginput-events"></a></h3><table><thead><tr><th>名称</th><th>参数</th><th>描述</th></tr></thead><tbody><tr><td>blur</td><td><code>(value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent })</code></td><td>失去焦点时触发</td></tr><tr><td>change</td><td><code>(value: TagInputValue, context: TagInputChangeContext)</code></td><td>值变化时触发，参数 <code>context.trigger</code> 表示数据变化的触发来源；<code>context.index</code> 指当前变化项的下标；<code>context.item</code> 指当前变化项；<code>context.e</code> 表示事件参数。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a>。<br><code>interface TagInputChangeContext { trigger: TagInputTriggerSource; index?: number; item?: string | number; e?: MouseEvent | KeyboardEvent }</code><br><br><code>type TagInputTriggerSource = 'enter' | 'tag-remove' | 'backspace' | 'clear'</code><br></td></tr><tr><td>clear</td><td><code>(context: { e: MouseEvent })</code></td><td>清空按钮点击时触发</td></tr><tr><td>drag-sort</td><td><code>(context: { currentIndex: number; current: string | number; targetIndex: number; target: string | number })</code></td><td>【开发中】拖拽排序时触发</td></tr><tr><td>enter</td><td><code>(value: TagInputValue, context: { e: KeyboardEvent; inputValue: InputValue })</code></td><td>按键按下 Enter 时触发</td></tr><tr><td>focus</td><td><code>(value: TagInputValue, context: { inputValue: InputValue; e: FocusEvent })</code></td><td>聚焦时触发</td></tr><tr><td>input-change</td><td><code>(value: InputValue, context?: InputValueChangeContext)</code></td><td>输入框值发生变化时触发，<code>context.trigger</code> 表示触发输入框值变化的来源：文本输入触发、清除按钮触发、回车键触发等。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a>。<br><code>interface InputValueChangeContext { e?: InputEvent | MouseEvent | KeyboardEvent; trigger: 'input' | 'clear' | 'enter' }</code><br></td></tr><tr><td>mouseenter</td><td><code>(context: { e: MouseEvent })</code></td><td>进入输入框时触发</td></tr><tr><td>mouseleave</td><td><code>(context: { e: MouseEvent })</code></td><td>离开输入框时触发</td></tr><tr><td>paste</td><td><code>(context: { e: ClipboardEvent; pasteValue: string })</code></td><td>粘贴事件，<code>pasteValue</code> 表示粘贴板的内容</td></tr><tr><td>remove</td><td><code>(context: TagInputRemoveContext)</code></td><td>移除单个标签时触发。<a href="https://github.com/Tencent/tdesign-vue-next/tree/develop/src/tag-input/type.ts" target="_blank" rel="noopener noreferrer">详细类型定义</a>。<br><code>interface TagInputRemoveContext { value: TagInputValue; index: number; item: string | number; e?: MouseEvent | KeyboardEvent; trigger: TagInputRemoveTrigger }</code><br><br><code>type TagInputRemoveTrigger = 'tag-remove' | 'backspace'</code><br></td></tr></tbody></table></div><div name="DESIGN" style="display: none;"><td-doc-empty type="design"></td-doc-empty></div><div style="margin-top: 48px;"><td-doc-history time="1646620274505"></td-doc-history></div><td-doc-footer slot="doc-footer" platform="web"><div slot="__render_content__">
+      <div class="TDesign-doc-footer">
+        <div class="TDesign-doc-footer__inner">
+          <div class="TDesign-doc-footer__content">
+            
+              <div class="TDesign-doc-footer__content-block">
+                <p class="title">资源</p>
+                
+                  <a class="link" href="/source" target="_self">
+                    <span>设计资源</span>
+                  </a>
+                
+                  <a class="link" href="https://tdesign.tencent.com/starter/" target="_self">
+                    <span>TDesign Starter</span>
+                  </a>
+                
+              </div>
+            
+              <div class="TDesign-doc-footer__content-block">
+                <p class="title">腾讯设计</p>
+                
+                  <a class="link" href="https://codesign.qq.com/" target="_blank">
+                    <span>CoDesign</span>
+                  </a>
+                
+                  <a class="link" href="https://prowork.qq.com/" target="_blank">
+                    <span>ProWork</span>
+                  </a>
+                
+                  <a class="link" href="https://tdesign.tencent.com" target="_self">
+                    <span>TDesign</span>
+                  </a>
+                
+              </div>
+            
+              <div class="TDesign-doc-footer__content-block">
+                <p class="title">关于</p>
+                
+                  <a class="link" href="/about/introduce" target="_self">
+                    <span>关于我们</span>
+                  </a>
+                
+                  <a class="link" href="/about/contact" target="_self">
+                    <span>联系我们</span>
+                  </a>
+                
+                  <a class="link" href="//support.qq.com/products/293854" target="_blank">
+                    <span>意见反馈</span>
+                  </a>
+                
+              </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="TDesign-doc-footer__bottom">
+        <div class="TDesign-doc-footer__inner">
+          <p class="copyright">Copyright © 1998 - 2022 Tencent. All Rights Reserved. 腾讯公司 版权所有</p>
+          <div class="TDesign-doc-footer__logos">
+            <i class="logo"><svg width="169" height="34" viewBox="0 0 169 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50.6977 5.8872L48.0412 20.4756H46.233L47.2822 14.8947H46.0545C45.6415 16.9485 45.1615 18.8683 44.6927 20.4756H42.8845C43.4203 18.7232 43.9002 16.8257 44.3132 14.7608C45.0387 11.2672 45.608 7.91864 46.1103 4.84916H49.4588C50.4298 4.84916 50.7759 5.00543 50.6977 5.8872ZM48.1305 10.5416H46.9027C46.7353 11.4904 46.5567 12.4726 46.3781 13.399H47.5948L48.1305 10.5416ZM48.4654 6.36716H47.5724L47.1148 9.09062H48.3426L48.7891 6.71317C48.8449 6.42297 48.7444 6.36716 48.4654 6.36716ZM55.7428 18.3214H49.5816L49.336 16.9261H56.033L55.7428 18.3214ZM60.5312 12.2717L60.0624 13.8455C59.2652 13.6668 58.5082 13.3413 57.8301 12.8856L57.3948 14.7943H58.2765C58.9016 14.7943 59.3369 14.9059 59.203 15.6537C58.9909 17.0154 58.6672 18.8794 58.3658 20.4756H53.4993L53.1756 19.0804H56.6581C56.8367 18.2879 57.0264 17.3615 57.1604 16.6136C57.1604 16.3569 57.1604 16.2676 56.9036 16.2676H50.6977L51.2558 13.3544C50.7037 13.5968 50.1276 13.7801 49.5369 13.9013L49.9164 12.1154C51.036 11.819 52.069 11.2604 52.9301 10.4858H50.2624L50.5526 9.09062H53.9011C54.0409 8.82317 54.1639 8.54732 54.2695 8.26465H50.6977L50.9768 6.80247H52.2157L51.8139 4.68174H53.7002C53.823 5.39609 53.9681 6.06579 54.1244 6.83595H54.7383C54.9326 6.03014 55.0521 5.20814 55.0954 4.38037H56.9929C56.9377 5.1973 56.8107 6.00779 56.6134 6.80247H57.3948C57.6949 6.11083 57.9558 5.40279 58.1761 4.68174H60.0513C59.7914 5.40561 59.4895 6.11373 59.1472 6.80247H60.4642L60.1294 8.23117H56.2116C56.1 8.49905 55.9884 8.78925 55.8656 9.05713H60.7433L60.3973 10.4523H57.5845C58.3406 11.371 59.3814 12.0113 60.5424 12.2717H60.5312ZM55.5531 14.7943L55.8433 13.4995C55.8433 13.2539 55.8433 13.1646 55.5977 13.1646H52.2492L53.0863 13.7339L52.8743 14.8501L55.5531 14.7943ZM55.0508 10.4858C54.6613 10.9647 54.2237 11.4023 53.7449 11.7918H56.5576C56.2115 11.4011 55.9256 10.9609 55.7093 10.4858H55.0508Z" fill="currentColor"></path>
+  <path d="M65.3532 16.7144C66.0898 16.1787 66.9381 15.4978 67.7194 14.8727L67.2953 17.1944C65.815 18.3602 64.2643 19.4338 62.652 20.409L64.4602 10.6424H62.6185L62.8864 9.03516H66.7149L65.3532 16.7144ZM65.3532 8.1199L64.6834 4.3584H66.5475L67.3065 8.1199H65.3532ZM77.8878 6.03266C77.1511 10.129 76.3475 14.75 75.6554 18.8128H77.8878L77.2516 20.4759H73.3226C73.8584 17.373 74.3272 14.6607 74.7625 12.2944H71.9051L70.4764 20.4759H68.4896L69.9183 12.2944H67.4404L67.7418 10.7764H70.1527L70.8336 6.93676L72.5748 8.23152L72.1283 10.7764H75.0304C75.2759 9.32537 75.5103 8.01944 75.7224 6.90327C75.8117 6.43448 75.6108 6.38983 75.209 6.38983H68.5566L68.1994 4.81603H76.7381C77.8766 4.81603 78.0552 5.12856 77.8878 6.03266Z" fill="currentColor"></path>
+  <path d="M84.1831 13.9229L83.279 20.4748H79.8188L79.3389 18.901H81.5712L82.1516 14.6149L80.3992 15.1507L79.5956 13.6773C80.522 13.4318 81.4708 13.1639 82.4083 12.896L82.8883 9.36888H80.522L80.7564 7.79508H83.1227L83.5692 4.56934H85.4778L85.0313 7.79508H86.7726L86.5382 9.36888H84.8193L84.4063 12.2709C85.0871 12.0477 85.7569 11.8356 86.3596 11.6236L86.114 13.2532C85.5225 13.4987 84.8751 13.6885 84.1831 13.9229ZM92.5878 8.56524L92.2641 11.0543H94.8983C95.4899 11.0543 95.6127 11.2552 95.6127 11.6347C95.6249 12.1644 95.4685 12.6842 95.1662 13.1192C94.1971 14.4731 93.0733 15.7093 91.8177 16.8026C92.9405 18.0871 94.129 19.3128 95.3783 20.4748H92.532C91.7882 19.6921 91.0841 18.8725 90.4225 18.0192C89.3241 18.9177 88.1641 19.7383 86.9512 20.4748H83.9598C85.8541 19.3306 87.6633 18.0511 89.3733 16.6463C88.5808 15.5302 87.8106 14.414 87.1409 13.2978H89.2058C89.6784 14.0478 90.1926 14.7708 90.7461 15.4632C91.6784 14.663 92.5138 13.7565 93.2352 12.762C93.3022 12.6504 93.2352 12.6169 93.1571 12.6169H86.7168L86.9512 11.0766H90.2997L90.6234 8.58756H87.0963L87.3307 7.01376H90.802L91.1368 4.49121H93.1124L92.7776 7.01376H96.7288L96.5168 8.58756L92.5878 8.56524Z" fill="currentColor"></path>
+  <path d="M103.895 10.151C102.736 13.2402 101.321 16.2271 99.6643 19.0804H97.0859C99.0203 16.3072 100.61 13.3086 101.819 10.151H103.895ZM114.666 7.56146L114.42 9.29153H107.544L106.015 20.4979H103.85L105.39 9.24688H98.6932L98.9723 7.51682H105.669L106.105 4.38037H108.214L107.79 7.51682L114.666 7.56146ZM110.603 10.151C111.351 13.1739 112.26 16.1546 113.326 19.0804H110.971C110.402 17.4619 109.051 12.0931 108.661 10.151H110.603ZM110.837 7.33823C110.58 6.62388 110.301 5.57468 110.067 4.63709H111.786C112.082 5.55597 112.428 6.45773 112.824 7.33823H110.837Z" fill="currentColor"></path>
+  <path d="M123.997 13.4214H131.565L131.375 14.9059H128.54C127.324 16.0119 126.033 17.0337 124.678 17.9642C126.732 18.8013 129.064 19.6943 131.141 20.4867H126.486C125.191 19.9621 124.064 19.3706 122.892 18.9241C121.776 19.4487 120.503 20.0403 119.309 20.4867H114.621C116.731 19.7836 118.874 19.0357 120.827 18.1763L117.858 16.982C118.639 16.2788 119.376 15.5979 120.09 14.917H115.994L116.206 13.4325H121.597C122.01 13.0195 122.401 12.6066 122.78 12.1936H125.147C124.745 12.6289 124.365 13.0307 123.997 13.4214ZM119.276 12.3833H116.117C117.609 11.5364 119.001 10.5256 120.269 9.36966H122.725C121.658 10.4652 120.504 11.473 119.276 12.3833ZM132.179 7.51682L131.967 8.91203H125.537L125.091 11.8476H123.026L123.517 8.91203H117.032L117.233 7.51682H123.752L123.964 6.25554C122.1 6.33367 120.146 6.40064 118.383 6.43413L118.572 5.00543C123.037 4.91613 127.792 4.70406 131.319 4.38037L131.062 5.8872C129.701 5.98766 127.904 6.09928 125.95 6.18857L125.761 7.51682H132.179ZM122.546 14.9059C121.999 15.4751 121.497 16.022 120.995 16.4797C121.363 16.6471 122.01 16.9261 122.725 17.2164C123.834 16.5215 124.893 15.7494 125.895 14.9059H122.546ZM131.888 12.3833H129.21C128.328 11.5685 127.234 10.4412 126.274 9.36966H128.596C129.633 10.4386 130.732 11.445 131.888 12.3833Z" fill="currentColor"></path>
+  <path d="M145.238 20.4754C143.879 19.5623 142.575 18.571 141.331 17.5064C140.125 18.8248 138.626 19.8417 136.956 20.4754H132.714C135.438 19.5601 139.166 18.098 140.17 15.821C140.466 15.0772 140.676 14.302 140.795 13.5105H142.872C142.743 14.6743 142.415 15.8072 141.9 16.859H143.017C144.868 18.2462 146.844 19.457 148.921 20.4754H145.238ZM137.213 17.5734H135.081L136.052 10.7759H146.934C148.051 10.7759 148.352 11.1777 148.184 12.1711L147.448 17.5734H145.327L146.041 12.6176C146.041 12.439 146.041 12.3497 145.807 12.3497H137.916L137.213 17.5734ZM147.827 9.76016H136.8L137.536 4.67041H147.202C148.318 4.67041 148.508 5.02758 148.318 6.14376L147.827 9.76016ZM146.019 6.22189H139.322L139.054 8.231H145.952L146.198 6.51209C146.254 6.33351 146.22 6.22189 146.019 6.22189Z" fill="currentColor"></path>
+  <path d="M154.636 11.1441H151.712C153.853 9.16979 155.769 6.965 157.426 4.56982H163.498C164.157 4.56982 164.358 4.89351 164.614 5.42928C165.732 7.4117 166.969 9.32392 168.32 11.1552H165.664C164.701 9.62053 163.818 8.03718 163.018 6.41151C162.929 6.23292 162.784 6.19944 162.572 6.19944H158.632C157.393 7.91834 155.853 9.78235 154.636 11.1441ZM152.404 12.9523H167.048L166.78 14.6154H159.235C158.175 15.9953 157.035 17.311 155.819 18.5555H162.46C161.869 17.5509 161.277 16.4905 160.719 15.4413H162.951C163.965 17.1783 165.083 18.852 166.3 20.453H163.543L162.773 19.2028L162.215 20.319H151.723C153.561 18.5724 155.239 16.6634 156.734 14.6154H152.169L152.404 12.9523ZM156.623 9.03451H164.179L163.978 10.6641H156.422L156.623 9.03451Z" fill="currentColor"></path>
+  <path d="M46.6572 24.6613H45.2731L44.4137 29.539H43.398L44.2574 24.6613H42.8845L43.0296 23.8242H46.8358L46.6572 24.6613Z" fill="currentColor"></path>
+  <path d="M50.8654 26.1012C50.8748 26.2126 50.8748 26.3246 50.8654 26.436L50.7649 27.0276C50.6421 27.6973 50.3854 27.9317 49.7603 27.9317H48.0749V28.1661C48.0655 28.2775 48.0655 28.3895 48.0749 28.5009C48.0749 28.7577 48.2089 28.8246 48.6442 28.8246H50.1622L49.8496 29.5836H48.3875C47.4052 29.5836 47.0592 29.3381 47.0592 28.7242C47.0439 28.5496 47.0439 28.3741 47.0592 28.1996L47.3494 26.503C47.3882 26.148 47.5409 25.8151 47.7847 25.5542C48.1674 25.3046 48.6259 25.1979 49.0795 25.2529H49.5929C50.4412 25.2529 50.8654 25.465 50.8654 26.1012ZM49.9166 26.2463C49.9166 26.0565 49.805 26.0119 49.459 26.0119H48.9232C48.5772 26.0119 48.4098 26.0119 48.3316 26.503L48.2089 27.195H49.4925C49.7045 27.195 49.7827 27.1169 49.8162 26.916L49.8943 26.436C49.9114 26.3743 49.9189 26.3103 49.9166 26.2463Z" fill="currentColor"></path>
+  <path d="M56.0111 26.0797C55.9946 26.3876 55.9536 26.6937 55.8883 26.995L55.4418 29.5845H54.5043L54.9507 27.062C54.9953 26.8447 55.0251 26.6247 55.04 26.4034C55.04 26.169 54.9172 26.0797 54.415 26.0797H53.4662L52.8635 29.5845H51.9259L52.6737 25.3096H54.7275C55.6762 25.3096 56.0111 25.5216 56.0111 26.0797Z" fill="currentColor"></path>
+  <path d="M57.395 28.5899C57.4029 28.3201 57.4328 28.0513 57.4843 27.7863L57.6629 26.8041C57.6792 26.3677 57.8447 25.95 58.1317 25.6209C58.5105 25.3618 58.9712 25.2506 59.4265 25.3084H60.8217L60.5091 26.0674H59.393C59.2942 26.0537 59.1937 26.0605 59.0976 26.0874C59.0016 26.1143 58.9122 26.1606 58.8349 26.2236C58.7148 26.387 58.6415 26.5799 58.6228 26.7817L58.4442 27.7863C58.3992 27.9997 58.3693 28.216 58.3549 28.4337C58.3549 28.7574 58.5224 28.8243 59.0246 28.8243H60.3417L60.018 29.5833H58.7679C57.808 29.5833 57.395 29.3154 57.395 28.5899Z" fill="currentColor"></path>
+  <path d="M65.6547 26.1011C65.6641 26.2126 65.6641 26.3246 65.6547 26.436L65.5542 27.0276C65.4314 27.6973 65.1859 27.9317 64.5608 27.9317H62.8642V28.1661C62.8555 28.2775 62.8555 28.3895 62.8642 28.5009C62.8642 28.7576 62.9982 28.8246 63.4446 28.8246H64.8733L64.572 29.5836H63.1768C62.1945 29.5836 61.8485 29.338 61.8485 28.7241C61.8332 28.5496 61.8332 28.3741 61.8485 28.1995L62.1387 26.503C62.1765 26.1455 62.3338 25.8112 62.5852 25.5542C62.9629 25.3026 63.4186 25.1956 63.8688 25.2529H64.3822C65.2082 25.2529 65.6547 25.4649 65.6547 26.1011ZM64.7059 26.2462C64.7059 26.0565 64.5943 26.0118 64.2483 26.0118H63.7125C63.3665 26.0118 63.1991 26.0118 63.121 26.503L62.9982 27.195H64.2818C64.4938 27.195 64.572 27.1169 64.6055 26.9159L64.6836 26.436C64.7007 26.3743 64.7082 26.3103 64.7059 26.2462Z" fill="currentColor"></path>
+  <path d="M70.789 26.0797C70.7716 26.3869 70.7343 26.6926 70.6774 26.995L70.2198 29.5845H69.2822L69.7287 27.062C69.779 26.8457 69.8089 26.6252 69.818 26.4034C69.818 26.169 69.6952 26.0797 69.1929 26.0797H68.2553L67.6414 29.5845H66.7039L67.4405 25.3096H69.4943C70.4765 25.3096 70.789 25.5216 70.789 26.0797Z" fill="currentColor"></path>
+  <path d="M73.5348 27.7855C73.4759 28.0273 73.4385 28.2738 73.4232 28.5222C73.4232 28.8124 73.6129 28.8235 74.1041 28.8235H74.6175L74.2938 29.5825H73.7469C72.8986 29.5825 72.4745 29.3593 72.4745 28.7008C72.4923 28.393 72.5333 28.0871 72.5972 27.7855L72.8986 26.0666H72.3293L72.4745 25.3076H73.0214L73.2446 24.0352H74.1822L73.959 25.3076H75.1533L75.0193 26.0666H73.8362L73.5348 27.7855Z" fill="currentColor"></path>
+  <path d="M83.0671 24.6613H81.6496L80.8348 29.5837H79.8191L80.6339 24.6613H79.2386L79.3949 23.8242H83.1899L83.0671 24.6613Z" fill="currentColor"></path>
+  <path d="M87.2415 26.1011C87.2509 26.2126 87.2509 26.3246 87.2415 26.436L87.141 27.0276C87.0182 27.6973 86.7727 27.9317 86.1476 27.9317H84.451V28.1661C84.4423 28.2775 84.4423 28.3895 84.451 28.5009C84.451 28.7576 84.585 28.8246 85.0314 28.8246H86.4155L86.1141 29.5836H84.7635C83.7813 29.5836 83.4353 29.338 83.4353 28.7241C83.42 28.5496 83.42 28.3741 83.4353 28.1995L83.7255 26.503C83.7632 26.1455 83.9206 25.8112 84.172 25.5542C84.5497 25.3026 85.0054 25.1956 85.4556 25.2529H85.969C86.8173 25.2529 87.2415 25.4649 87.2415 26.1011ZM86.2927 26.2462C86.2927 26.0565 86.1811 26.0118 85.8351 26.0118H85.2993C84.9533 26.0118 84.7859 26.0118 84.7077 26.503L84.585 27.195H85.8686C86.0806 27.195 86.1588 27.1169 86.1923 26.9159L86.2704 26.436C86.2875 26.3743 86.295 26.3103 86.2927 26.2462Z" fill="currentColor"></path>
+  <path d="M88.3909 28.5908C88.4042 28.3208 88.4377 28.0522 88.4913 27.7872L88.6699 26.805C88.6816 26.3676 88.8477 25.9485 89.1387 25.6218C89.5166 25.3608 89.9781 25.2494 90.4335 25.3093H91.8287L91.505 26.0683H90.3888C90.29 26.0539 90.1893 26.0604 90.0932 26.0873C89.9971 26.1142 89.9077 26.161 89.8307 26.2246C89.7107 26.3879 89.6374 26.5808 89.6187 26.7826L89.4401 27.7872C89.3893 27.9996 89.3594 28.2164 89.3508 28.4346C89.3508 28.7583 89.507 28.8252 90.0093 28.8252H91.3264L91.0027 29.5842H89.7638C88.7927 29.5842 88.3909 29.3164 88.3909 28.5908Z" fill="currentColor"></path>
+  <path d="M96.8742 26.0796C96.8577 26.3875 96.8167 26.6935 96.7514 26.9949L96.2938 29.5844H95.345L95.7915 27.0618C95.8419 26.8456 95.8718 26.6251 95.8808 26.4033C95.8808 26.1689 95.7692 26.0796 95.2557 26.0796H94.307L93.6931 29.5844H92.7778L93.827 23.5459H94.7646L94.4521 25.2871H95.5683C96.5393 25.3095 96.8742 25.5215 96.8742 26.0796Z" fill="currentColor"></path>
+  <path d="M102.287 26.0797C102.265 26.3871 102.224 26.6927 102.165 26.995L101.707 29.5845H100.769L101.216 27.062C101.266 26.8457 101.296 26.6252 101.305 26.4034C101.305 26.169 101.182 26.0797 100.68 26.0797H99.7425L99.1286 29.5845H98.191L98.9389 25.3096H100.993C101.953 25.3096 102.287 25.5216 102.287 26.0797Z" fill="currentColor"></path>
+  <path d="M104.341 25.3091H105.279L104.531 29.584H103.604L104.341 25.3091ZM104.62 23.646H105.591L105.39 24.6617H104.43L104.62 23.646Z" fill="currentColor"></path>
+  <path d="M106.506 28.5905C106.52 28.3205 106.553 28.0519 106.607 27.7869L106.774 26.8046C106.794 26.3669 106.963 25.9491 107.254 25.6215C107.628 25.3602 108.086 25.2486 108.538 25.309H109.933L109.62 26.068H108.504C108.406 26.0536 108.305 26.0601 108.209 26.087C108.113 26.1139 108.023 26.1606 107.946 26.2242C107.826 26.3876 107.753 26.5805 107.734 26.7823L107.556 27.7869C107.503 27.9992 107.469 28.2159 107.455 28.4343C107.455 28.7579 107.623 28.8249 108.125 28.8249H109.442L109.118 29.5839H107.879C106.919 29.5839 106.506 29.316 106.506 28.5905Z" fill="currentColor"></path>
+  <path d="M114.777 26.0782C114.765 26.3292 114.735 26.5791 114.688 26.8261L114.197 29.583H111.965C111.474 29.583 110.994 29.4379 110.994 28.8463C111.005 28.6063 111.035 28.3674 111.083 28.132V27.8753C111.195 27.2949 111.362 27.0605 111.73 26.96C112.017 26.9018 112.309 26.8793 112.601 26.893H113.717C113.759 26.7246 113.785 26.5527 113.795 26.3796C113.795 26.1564 113.661 26.0782 113.237 26.0782H111.719L111.596 25.3192H113.55C114.454 25.3081 114.777 25.5425 114.777 26.0782ZM113.427 28.824L113.639 27.6185H112.456C112.154 27.6185 112.054 27.7078 112.009 27.9869V28.1431C112.009 28.3887 111.942 28.5785 111.942 28.6454C111.942 28.7124 112.032 28.824 112.221 28.824H113.427Z" fill="currentColor"></path>
+  <path d="M116.195 28.7469C116.206 28.4245 116.244 28.1035 116.307 27.787L117.054 23.5679H117.992L117.244 27.787C117.193 28.0299 117.16 28.2761 117.144 28.5237C117.144 28.8139 117.333 28.825 117.825 28.825H118.26L117.936 29.584H117.4C116.552 29.584 116.195 29.3831 116.195 28.7469Z" fill="currentColor"></path>
+  <path d="M122.323 28.4565C122.329 28.1453 122.363 27.8353 122.423 27.53L122.814 25.2977C122.825 25.0599 122.885 24.827 122.991 24.6138C123.096 24.4005 123.245 24.2115 123.428 24.0587C123.766 23.8652 124.156 23.7832 124.544 23.8243H126.43L126.084 24.6615H124.667C124.064 24.6615 123.952 24.907 123.818 25.6549L123.55 27.1617C123.474 27.5111 123.422 27.8654 123.394 28.2221C123.394 28.635 123.662 28.702 124.287 28.702H125.693L125.336 29.5391H123.874C122.769 29.5838 122.323 29.2936 122.323 28.4565Z" fill="currentColor"></path>
+  <path d="M127.19 28.6465C127.197 28.3766 127.227 28.1078 127.279 27.8428L127.48 26.7267C127.499 26.2908 127.664 25.874 127.949 25.5435C128.331 25.2939 128.79 25.1872 129.243 25.2421H129.768C130.717 25.2421 131.119 25.51 131.119 26.2355C131.105 26.5056 131.072 26.7742 131.018 27.0392L130.828 28.1553C130.806 28.5892 130.637 29.0027 130.348 29.3273C129.975 29.5887 129.517 29.7002 129.065 29.6399H128.54C127.58 29.6399 127.19 29.372 127.19 28.6465ZM129.132 28.8697C129.388 28.8697 129.567 28.8697 129.679 28.7246C129.794 28.5545 129.867 28.3593 129.891 28.1553L130.092 27.0392C130.135 26.8258 130.161 26.6093 130.17 26.3918C130.17 26.0681 130.002 26.0011 129.511 26.0011H129.188C129.09 25.9872 128.99 25.9928 128.894 26.0177C128.798 26.0426 128.708 26.0863 128.629 26.1462C128.5 26.313 128.426 26.5159 128.417 26.7267L128.216 27.8428C128.171 28.0562 128.142 28.2726 128.127 28.4902C128.127 28.8139 128.295 28.8697 128.786 28.8697H129.132Z" fill="currentColor"></path>
+  <path d="M138.742 26.0797C138.725 26.3876 138.684 26.6937 138.619 26.995L138.161 29.5845H137.224L137.67 27.062C137.722 26.8457 137.756 26.6254 137.771 26.4034C137.771 26.169 137.637 26.0797 137.146 26.0797H136.286L135.672 29.5845H134.735L135.349 26.0797H133.897L133.295 29.5845H132.357L133.105 25.3096H137.458C138.418 25.3096 138.742 25.5216 138.742 26.0797Z" fill="currentColor"></path>
+  <path d="M146.443 26.0797C146.431 26.3874 146.394 26.6935 146.332 26.995L145.863 29.5845H144.936L145.383 27.062C145.427 26.8447 145.457 26.6247 145.472 26.4034C145.472 26.169 145.349 26.0797 144.847 26.0797H143.988L143.34 29.5845H142.403L143.005 26.0797H141.566L140.952 29.5845H140.014L140.762 25.3096H145.126C146.12 25.3096 146.443 25.5216 146.443 26.0797Z" fill="currentColor"></path>
+  <path d="M148.508 25.3091H149.446L148.698 29.584H147.805L148.508 25.3091ZM148.798 23.646H149.758L149.58 24.6059H148.62L148.798 23.646Z" fill="currentColor"></path>
+  <path d="M152.024 27.7855C151.965 28.0273 151.928 28.2738 151.913 28.5222C151.913 28.8124 152.102 28.8235 152.593 28.8235H153.107L152.783 29.5825H152.27C151.433 29.5825 151.008 29.3593 151.008 28.7008C151.026 28.393 151.067 28.0871 151.131 27.7855L151.433 26.0666H150.863L150.997 25.3076H151.567L151.79 24.0352H152.727L152.504 25.3076H153.698L153.553 26.0666H152.37L152.024 27.7855Z" fill="currentColor"></path>
+  <path d="M155.842 27.7855C155.791 28.0284 155.757 28.2745 155.741 28.5222C155.741 28.8124 155.92 28.8235 156.411 28.8235H156.924L156.601 29.5825H156.054C155.205 29.5825 154.781 29.3593 154.781 28.7008C154.799 28.393 154.84 28.0871 154.904 27.7855L155.205 26.0666H154.647L154.781 25.3076H155.339L155.574 24.0352H156.5L156.277 25.3076H157.482L157.337 26.0666H156.143L155.842 27.7855Z" fill="currentColor"></path>
+  <path d="M162.226 26.101C162.236 26.2124 162.236 26.3245 162.226 26.4359L162.114 27.0275C161.992 27.6972 161.746 27.9316 161.121 27.9316H159.458V28.166C159.448 28.2774 159.448 28.3894 159.458 28.5008C159.458 28.7575 159.592 28.8245 160.027 28.8245H161.545L161.233 29.5835H159.849C158.866 29.5835 158.52 29.3379 158.52 28.724C158.51 28.5493 158.51 28.3742 158.52 28.1994L158.822 26.5029C158.851 26.1453 159.005 25.8095 159.257 25.5541C159.639 25.3027 160.098 25.1958 160.552 25.2527H161.054C161.802 25.2527 162.226 25.4648 162.226 26.101ZM161.288 26.2461C161.288 26.0564 161.177 26.0117 160.831 26.0117H160.295C159.949 26.0117 159.782 26.0117 159.692 26.5029L159.569 27.1949H160.853C161.065 27.1949 161.154 27.1167 161.177 26.9158L161.266 26.4359C161.278 26.3732 161.285 26.3098 161.288 26.2461Z" fill="currentColor"></path>
+  <path d="M167.17 26.1012C167.18 26.2126 167.18 26.3246 167.17 26.436L167.07 27.0276C166.947 27.6973 166.691 27.9317 166.065 27.9317H164.414V28.1661C164.404 28.2775 164.404 28.3895 164.414 28.5009C164.414 28.7577 164.547 28.8246 164.983 28.8246H166.501L166.188 29.5836H164.804C163.822 29.5836 163.476 29.3381 163.476 28.7242C163.479 28.548 163.498 28.3725 163.532 28.1996L163.822 26.503C163.861 26.148 164.013 25.8151 164.257 25.5542C164.64 25.3046 165.098 25.1979 165.552 25.2529H166.065C166.78 25.2529 167.17 25.465 167.17 26.1012ZM166.222 26.2463C166.222 26.0565 166.11 26.0119 165.764 26.0119H165.228C164.882 26.0119 164.715 26.0119 164.637 26.503L164.514 27.195H165.798C166.01 27.195 166.088 27.1169 166.121 26.916L166.199 26.436C166.217 26.3743 166.224 26.3103 166.222 26.2463Z" fill="currentColor"></path>
+  <path d="M33.4438 13.8888C33.3843 13.5911 33.3248 13.2935 33.2553 12.9959L33.1958 12.7776C33.1363 12.5494 33.0767 12.3212 33.0073 12.093L32.9478 11.9045C32.8684 11.6664 32.799 11.4382 32.7097 11.2001L32.6501 11.0513C32.5729 10.8186 32.4835 10.5901 32.3823 10.3667L23.1256 20.4667H26.4592L26.3005 20.8238L26.2211 20.9826C26.0155 21.4666 25.7734 21.9342 25.4968 22.3815C25.4569 22.4388 25.4204 22.4984 25.3877 22.5601L25.1793 22.8875C23.8216 24.9861 21.9405 26.6947 19.7215 27.845C17.5024 28.9953 15.0219 29.5476 12.5245 29.4474C10.027 29.3473 7.59868 28.5982 5.47884 27.2739C3.359 25.9496 1.62077 24.0959 0.435425 21.8953C0.439521 21.9316 0.439521 21.9682 0.435425 22.0045C0.554481 22.4013 0.693381 22.7982 0.842201 23.1851V23.2546C0.991022 23.6514 1.16961 24.0384 1.35811 24.4253L1.45733 24.6237C1.63591 24.9908 1.83434 25.348 2.04269 25.7051L2.17167 25.9036C2.38994 26.2607 2.61813 26.608 2.86616 26.9453C2.88693 26.98 2.91014 27.0132 2.93561 27.0445C3.18365 27.3719 3.43168 27.6993 3.69956 28.0367L3.79877 28.1557C4.07657 28.4732 4.36429 28.7709 4.66193 29.0685C4.72146 29.128 4.78099 29.1776 4.83059 29.2372C5.13816 29.5249 5.44572 29.8027 5.7632 30.0706L5.93187 30.1995C6.26919 30.4773 6.62636 30.7452 6.98353 31.0032C10.6964 33.5576 15.2711 34.5346 19.7036 33.7199C24.136 32.9052 28.0643 30.3653 30.6262 26.6576C31.9221 24.824 32.8389 22.75 33.3228 20.5574C33.8066 18.3647 33.8478 16.0975 33.4438 13.8888Z" fill="currentColor"></path>
+  <path d="M30.5072 7.05256V6.99303C30.3385 6.76484 30.16 6.54657 29.9814 6.31838C29.8028 6.09019 29.8325 6.12987 29.7631 6.04058C28.6422 4.73506 27.3351 3.60178 25.8838 2.67723C22.2316 0.336465 17.8204 -0.513599 13.5599 0.302329C9.2993 1.11826 5.51428 3.53796 2.9853 7.06248C1.06626 9.93676 0.126718 13.3539 0.306526 16.8053C0.566232 19.9909 2.03246 22.9571 4.40566 25.0979C6.77886 27.2388 9.87993 28.3927 13.0753 28.324C14.9161 28.3233 16.7356 27.931 18.413 27.1731C17.8495 27.2714 17.2786 27.3212 16.7066 27.3219C15.3082 27.3161 13.9255 27.0274 12.6416 26.4732C11.3577 25.9191 10.1992 25.111 9.23577 24.0975C8.38807 23.2127 7.71487 22.176 7.25149 21.0417C6.64995 19.6188 6.37461 18.0793 6.44569 16.5362C6.51676 14.993 6.93244 13.4853 7.66222 12.1237C8.392 10.7622 9.41736 9.58129 10.6631 8.66772C11.9088 7.75414 13.3432 7.13107 14.8612 6.84421C16.7984 6.48705 18.7977 6.70076 20.6156 7.45934C20.6156 7.45934 21.3895 7.80658 21.7565 8.00501H21.826L22.2625 8.26297L22.461 8.40187L22.7487 8.6003L23.0265 8.80864C23.0969 8.85603 23.1632 8.90912 23.2249 8.96739L23.5424 9.23526C23.5933 9.27296 23.6399 9.31622 23.6813 9.36424L23.969 9.63212L24.0385 9.71149C24.1674 9.84047 24.2964 9.96945 24.4155 10.1083C24.5345 10.2472 24.5345 10.2373 24.5841 10.3068L24.7826 10.5449C25.4846 11.4426 26.0374 12.4477 26.4196 13.5213L31.291 8.21336C31.0628 7.84627 30.785 7.43949 30.5072 7.05256Z" fill="currentColor"></path>
+</svg></i>
+            <a class="logo" href="https://cloud.tencent.com/" target="_blank"><svg width="105" height="28" viewBox="0 0 105 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_65_182)">
+    <path d="M82.8701 4.73254H71.4558V6.38476H74.8911V12.4065H70.9536V14.0573H74.8911V24.1623H76.708V14.0573H81.0532V23.945H84.4832V22.2914H82.8634L82.8701 4.73254ZM76.708 12.4065V6.38476H81.0532V12.4065H76.708Z" fill="currentColor"></path>
+    <path d="M60.2114 19.5378H51.2066V21.1901H60.2114V19.5378Z" fill="currentColor"></path>
+    <path d="M45.0702 16.4803C45.0702 19.4838 44.8272 21.7637 44.3278 23.7844C44.2751 23.9707 44.3278 24.0206 44.4304 24.0206H46.0866C46.5188 21.7971 46.7313 19.5365 46.7211 17.2714H49.0361V22.4008H47.3919C47.3123 22.4008 47.257 22.4521 47.2921 22.5668L47.7443 24.0517H50.6842V4.77441H45.0702V16.4803ZM46.7224 15.7933V11.8341H49.0361V15.7933H46.7224ZM49.0361 6.43338V10.348H46.7224V6.43338H49.0361Z" fill="currentColor"></path>
+    <path d="M60.85 11.4737H63.0678V9.98888H56.606C56.8095 9.48642 56.9866 8.97368 57.1365 8.45274H62.6615V6.96791H61.0416C61.3116 6.05001 61.6288 4.96607 61.6477 4.90398C61.6801 4.79329 61.6221 4.75145 61.5505 4.75145H60.1467L59.4947 6.96791H57.5037C57.69 6.1094 57.8506 5.15775 57.9977 4.08867C58.0153 3.96583 57.9491 3.94019 57.8627 3.94019H56.2686C56.1052 5.07541 55.9338 6.05406 55.7151 6.96791H54.7392L54.0872 4.75145H52.682C52.6105 4.75145 52.547 4.79329 52.5848 4.90398C52.6037 4.96607 52.9209 6.05001 53.1909 6.96791H51.6143V8.45274H55.2953C55.1238 8.9761 54.9218 9.48902 54.6906 9.98888H51.2093V11.4737H53.824C53.133 12.4726 52.2359 13.3118 51.1931 13.9345V15.6353C51.1931 15.7204 51.2606 15.8108 51.5306 15.6583C52.0629 15.3631 52.5768 15.0358 53.0694 14.6783H59.2207L59.168 16.9042H54.3086L54.3815 15.5732C54.382 15.5599 54.3798 15.5466 54.375 15.5341C54.3702 15.5217 54.3629 15.5104 54.3535 15.5009C54.3442 15.4914 54.333 15.4839 54.3206 15.4789C54.3082 15.474 54.2949 15.4716 54.2816 15.472H52.7319L52.5754 18.2891C52.5748 18.3026 52.577 18.316 52.5819 18.3285C52.5868 18.3411 52.5942 18.3525 52.6037 18.362C52.6133 18.3715 52.6246 18.3789 52.6372 18.3838C52.6497 18.3887 52.6632 18.3909 52.6766 18.3904H61.0551V22.4075H57.2756C57.1959 22.4075 57.1338 22.4602 57.177 22.5749L57.6292 24.0597H62.8693V16.9055H60.8176L60.8864 14.0141C61.5709 14.6491 62.328 15.2009 63.142 15.6583C63.412 15.8108 63.4781 15.7204 63.4781 15.6353V13.9304C62.4371 13.3081 61.541 12.4705 60.85 11.4737ZM58.8252 11.4737C59.1941 12.082 59.616 12.6566 60.0859 13.1907H54.6865C55.1417 12.6596 55.5428 12.0844 55.8839 11.4737H58.8252Z" fill="currentColor"></path>
+    <path d="M72.6072 18.3891L69.543 20.7109V9.97278H65.2991V11.7897H67.7396V22.0783L66.7637 22.8126L67.7599 24.13L72.7705 20.3329V18.4674C72.7707 18.4484 72.7655 18.4297 72.7554 18.4135C72.7454 18.3974 72.731 18.3844 72.7138 18.3762C72.6966 18.368 72.6775 18.3648 72.6586 18.3671C72.6397 18.3694 72.6219 18.377 72.6072 18.3891Z" fill="currentColor"></path>
+    <path d="M67.9786 8.34619H69.9642C69.9822 8.34637 70 8.34167 70.0156 8.33259C70.0311 8.32351 70.0439 8.31039 70.0527 8.29462C70.0614 8.27884 70.0657 8.26101 70.0651 8.24299C70.0645 8.22498 70.059 8.20747 70.0493 8.1923L67.5453 4.36682H65.5596C65.542 4.36677 65.5247 4.37131 65.5094 4.37999C65.4941 4.38867 65.4813 4.40119 65.4723 4.41632C65.4634 4.43145 65.4585 4.44865 65.4581 4.46625C65.4578 4.48384 65.4621 4.50122 65.4706 4.51666L67.9786 8.34619Z" fill="currentColor"></path>
+    <path d="M102.663 5.17407H88.3249V6.99097H102.663V5.17407Z" fill="currentColor"></path>
+    <path d="M93.5245 13.8562H104.682V12.0393H86.3055V13.8562H91.4039C90.351 16.6221 87.708 23.5603 87.6904 23.6102C87.6841 23.6253 87.6816 23.6417 87.6833 23.658C87.6849 23.6743 87.6907 23.6898 87.6999 23.7033C87.7092 23.7168 87.7218 23.7277 87.7364 23.735C87.751 23.7423 87.7672 23.7458 87.7836 23.7452H103.633C103.651 23.7453 103.667 23.741 103.682 23.7328C103.697 23.7246 103.71 23.7127 103.719 23.6983C103.728 23.6839 103.734 23.6674 103.735 23.6503C103.736 23.6333 103.733 23.6162 103.725 23.6008C103.708 23.5576 101.362 17.3915 101.362 17.3915H99.3882C99.3721 17.3916 99.3563 17.3956 99.342 17.4031C99.3277 17.4106 99.3155 17.4214 99.3062 17.4347C99.297 17.4479 99.291 17.4631 99.2889 17.479C99.2867 17.495 99.2884 17.5113 99.2937 17.5265C99.3194 17.5913 100.966 21.9283 100.966 21.9283H90.4563L93.5245 13.8562Z" fill="currentColor"></path>
+    <path d="M36.1274 12.7332C35.2963 11.8813 34.3031 11.2043 33.2063 10.742C32.1096 10.2798 30.9314 10.0416 29.7412 10.0416C27.572 10.0416 25.7038 10.788 24.0719 12.1163C23.3605 12.6954 22.6154 13.3879 21.6772 14.299C21.3654 14.6027 15.2182 20.5677 11.1808 24.4836C10.6192 24.4836 9.81201 24.4742 9.09524 24.4499C7.07856 24.3811 5.8556 23.6076 5.16042 22.9259C4.38377 22.1682 3.85042 21.1963 3.62842 20.1342C3.40641 19.0721 3.50581 17.9679 3.91393 16.9625C4.32205 15.9571 5.02039 15.0961 5.91988 14.4893C6.81938 13.8824 7.87925 13.5572 8.96431 13.5552C9.9092 13.5552 11.2078 13.8252 12.667 15.0401C13.3635 15.6178 14.9104 16.9785 15.5894 17.5899C15.6048 17.6053 15.6257 17.6139 15.6474 17.6139C15.6692 17.6139 15.69 17.6053 15.7055 17.5899L18.1028 15.2534C18.1127 15.2451 18.1207 15.2348 18.1262 15.2231C18.1316 15.2115 18.1345 15.1987 18.1345 15.1859C18.1345 15.173 18.1316 15.1602 18.1262 15.1486C18.1207 15.1369 18.1127 15.1266 18.1028 15.1184C16.9514 14.0776 15.3181 12.6211 14.3354 11.8895C13.3401 11.1273 12.1981 10.5791 10.981 10.2791H11.0188C11.3852 8.52687 12.2952 6.93492 13.6193 5.73007C14.9433 4.52523 16.6138 3.76894 18.3928 3.56895C20.1717 3.36896 21.9685 3.73547 23.527 4.61626C25.0855 5.49706 26.3263 6.84721 27.0726 8.47439C27.0785 8.49358 27.0917 8.5097 27.1094 8.51928C27.127 8.52887 27.1477 8.53116 27.1671 8.52569C28.2707 8.21981 29.4177 8.10073 30.5606 8.17337C30.6753 8.18147 30.7199 8.11668 30.6821 8.01274C29.7894 5.48899 28.08 3.3353 25.8248 1.89291C23.5697 0.450524 20.8977 -0.198078 18.2322 0.0498744C15.5667 0.297826 13.0602 1.42815 11.1097 3.26176C9.15931 5.09537 7.87652 7.52739 7.46462 10.1725H7.47272C5.84132 10.4504 4.31849 11.1739 3.07241 12.2629C1.82634 13.3519 0.905516 14.7642 0.411655 16.3437C-0.0822067 17.9232 -0.129889 19.6084 0.273874 21.2133C0.677638 22.8182 1.51713 24.2802 2.69964 25.438C4.05827 26.7686 5.81442 27.619 7.70084 27.8596C8.54769 27.9568 9.3997 28.0018 10.2521 27.9946C11.062 27.9946 26.5853 27.9946 27.2359 27.9946C28.5439 27.9946 29.3957 27.9946 30.3082 27.9258C32.4045 27.7732 34.3847 27.0038 35.987 25.4326C36.8304 24.6081 37.503 23.6256 37.9666 22.541C38.4301 21.4565 38.6754 20.2913 38.6884 19.112C38.7014 17.9326 38.482 16.7623 38.0425 15.6678C37.6031 14.5733 36.9523 13.5761 36.1274 12.7332ZM33.5303 22.9259C32.8419 23.6008 31.6135 24.3811 29.5955 24.4499C28.6627 24.4809 27.5707 24.485 27.0753 24.485H16.236L24.0098 16.9339C24.3675 16.587 25.172 15.8176 25.8645 15.1926C27.3885 13.8225 28.7586 13.5458 29.7277 13.5552C30.8127 13.5575 31.8724 13.8829 32.7717 14.4898C33.6709 15.0968 34.3691 15.9578 34.777 16.9631C35.185 17.9685 35.2843 19.0725 35.0622 20.1345C34.8402 21.1965 34.3069 22.1683 33.5303 22.9259Z" fill="currentColor"></path>
+  </g>
+  <defs>
+    <clipPath id="clip0_65_182">
+      <rect width="104.682" height="28" fill="currentColor"></rect>
+    </clipPath>
+  </defs>
+</svg></a>
+          </div>
+        </div>
+      </div>
+    </div></td-doc-footer></td-doc-content></td-doc-layout><div class="ReloadPrompt-container" data-v-8c08e3e6=""><!--v-if--><div class="ReloadPrompt-date" data-v-8c08e3e6="">{buildDate}</div></div></div>
+    
+  
+
+<script async="" id="__td_aegis__" type="text/javascript" src="https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js"></script><div id="nprogress" style="transition: none 0s ease 0s; opacity: 1;"><div class="bar" role="bar" style="transform: translate3d(0%, 0px, 0px); transition: all 200ms ease 0s;"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div></div></body></html>
