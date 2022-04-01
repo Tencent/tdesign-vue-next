@@ -2,7 +2,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { compileUsage } from '../../src/_common/docs/compile';
 // import camelCase from 'camelcase';
 
 // import testCoverage from '../test-coverage';
@@ -67,11 +66,9 @@ export default function mdToVue(options) {
       import 'prismjs/components/prism-bash.js';
       ${demoDefsStr}
       ${demoCodesDefsStr}
-      ${mdSegment.usage.importStr}
 
       export default defineComponent({
         components: {
-          ${mdSegment.usage.installStr}
           ${demoInstallStr}
         },
 
@@ -156,25 +153,11 @@ function customRender({ source, file, md }) {
   const mdSegment = {
     ...pageData,
     componentName,
-    usage: { importStr: '', installStr: '' },
     docMd: '<td-doc-empty></td-doc-empty>',
     demoMd: '<td-doc-empty></td-doc-empty>',
     apiMd: '<td-doc-empty></td-doc-empty>',
     designMd: '<td-doc-empty></td-doc-empty>',
   };
-
-  // 渲染 live demo
-  if (pageData.usage && pageData.isComponent) {
-    const usageObj = compileUsage({
-      componentName,
-      usage: pageData.usage,
-      demoPath: path.resolve(__dirname, `../../examples/${componentName}/usage/index.vue`),
-    });
-    if (usageObj) {
-      mdSegment.usage = usageObj;
-      demoMd = `${usageObj.markdownStr} ${demoMd}`;
-    }
-  }
 
   if (pageData.isComponent) {
     mdSegment.demoMd = md.render.call(
