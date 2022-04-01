@@ -281,6 +281,7 @@ export default defineComponent({
       emitChange(point);
     };
 
+    /** 副作用监听 */
     watch(
       () => props.value,
       (newVal) => {
@@ -311,6 +312,7 @@ export default defineComponent({
       }
     });
 
+    /** 挂载&卸载 */
     onMounted(() => {
       init();
     });
@@ -318,6 +320,7 @@ export default defineComponent({
       window.removeEventListener('resize', resetSize);
     });
 
+    /** -------------------------- 渲染相关逻辑 start --------------------------  */
     const renderMask = useSliderMark(props.max, props.min, props.marks, vertical.value, COMPONENT_NAME.value);
 
     const renderInputNumber = useSliderInput(
@@ -354,60 +357,9 @@ export default defineComponent({
         </div>
       );
     };
+    /** -------------------------- 渲染相关逻辑 end --------------------------  */
 
-    const renderContent = () => {
-      const BUTTON_GROUP = props.inputNumberProps && renderInputButton();
-      const MASKS = renderMask(changeValue);
-      return (
-        <div class={containerClass.value} ref={sliderContainerRef}>
-          <div
-            class={sliderClass.value}
-            role="slider"
-            aria-valuemin={props.min}
-            aria-valuemax={props.max}
-            aria-orientation={props.layout}
-            aria-disabled={disabled.value}
-            tooltip-props={props.tooltipProps}
-          >
-            <div class={sliderRailClass.value} style={runwayStyle.value} onClick={onSliderClick} ref={sliderRef}>
-              <div class={`${COMPONENT_NAME.value}__track`} style={barStyle.value} />
-              <t-slider-button
-                vertical={vertical.value}
-                value={firstValue.value}
-                ref={firstButtonRef}
-                disabled={disabled.value}
-                tooltip-props={props.tooltipProps}
-                onInput={(v: number) => {
-                  firstValue.value = v;
-                }}
-              />
-              {props.range && (
-                <t-slider-button
-                  vertical={vertical.value}
-                  value={secondValue.value}
-                  ref={secondButtonRef}
-                  disabled={disabled.value}
-                  tooltip-props={props.tooltipProps}
-                  onInput={(v: number) => {
-                    secondValue.value = v;
-                  }}
-                />
-              )}
-              {sliderState.showSteps && (
-                <div>
-                  {steps.value.map((item, key) => (
-                    <div class={`${COMPONENT_NAME.value}__stop`} key={key} style={getStopStyle(item, vertical.value)} />
-                  ))}
-                </div>
-              )}
-              {MASKS}
-            </div>
-          </div>
-          {BUTTON_GROUP}
-        </div>
-      );
-    };
-
+    /** 父子共用状态&方法 */
     const toggleDragging = (toState: boolean) => {
       dragging.value = toState;
     };
@@ -426,14 +378,53 @@ export default defineComponent({
     });
     provide(sliderPropsInjectKey, provideCollect.value);
 
-    return {
-      STATUS,
-      COMPONENT_NAME,
-      disabled,
-      renderContent,
-    };
-  },
-  render(): VNode {
-    return this.renderContent();
+    return () => (
+      <div class={containerClass.value} ref={sliderContainerRef}>
+        <div
+          class={sliderClass.value}
+          role="slider"
+          aria-valuemin={props.min}
+          aria-valuemax={props.max}
+          aria-orientation={props.layout}
+          aria-disabled={disabled.value}
+          tooltip-props={props.tooltipProps}
+        >
+          <div class={sliderRailClass.value} style={runwayStyle.value} onClick={onSliderClick} ref={sliderRef}>
+            <div class={`${COMPONENT_NAME.value}__track`} style={barStyle.value} />
+            <t-slider-button
+              vertical={vertical.value}
+              value={firstValue.value}
+              ref={firstButtonRef}
+              disabled={disabled.value}
+              tooltip-props={props.tooltipProps}
+              onInput={(v: number) => {
+                firstValue.value = v;
+              }}
+            />
+            {props.range && (
+              <t-slider-button
+                vertical={vertical.value}
+                value={secondValue.value}
+                ref={secondButtonRef}
+                disabled={disabled.value}
+                tooltip-props={props.tooltipProps}
+                onInput={(v: number) => {
+                  secondValue.value = v;
+                }}
+              />
+            )}
+            {sliderState.showSteps && (
+              <div>
+                {steps.value.map((item, key) => (
+                  <div class={`${COMPONENT_NAME.value}__stop`} key={key} style={getStopStyle(item, vertical.value)} />
+                ))}
+              </div>
+            )}
+            {renderMask(changeValue)}
+          </div>
+        </div>
+        {props.inputNumberProps && renderInputButton()}
+      </div>
+    );
   },
 });
