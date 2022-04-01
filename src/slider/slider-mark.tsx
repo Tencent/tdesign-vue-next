@@ -20,16 +20,11 @@ export default defineComponent({
       e.stopPropagation();
       ctx.emit('change-value', props.point);
     };
-    const renderContent = () => {
-      return (
-        <div class={`${COMPONENT_NAME.value}-text`} onClick={changeValue}>
-          {props.mark}
-        </div>
-      );
-    };
-    return { renderContent };
-  },
-  render() {
-    return this.renderContent();
+
+    return () => (
+      <div class={`${COMPONENT_NAME.value}-text`} onClick={changeValue}>
+        {props.mark}
+      </div>
+    );
   },
 });

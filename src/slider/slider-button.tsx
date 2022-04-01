@@ -6,7 +6,7 @@ import {
   reactive,
   nextTick,
   watchEffect,
-  getCurrentInstance,
+  defineExpose,
   inject,
 } from 'vue';
 import TPopup from '../popup/index';
@@ -228,48 +228,43 @@ export default defineComponent({
     };
     /** --------------------- slide button 相关事件end ------------------- */
 
-    const renderContent = () => {
-      return (
-        <div
-          ref={buttonRef}
-          class={`${COMPONENT_NAME.value}-wrapper`}
-          style={wrapperStyle.value}
-          tabindex="0"
-          show-tooltip={showTooltip.value}
-          disabled={parentProps.disabled.value}
-          onmouseenter={handleMouseEnter}
-          onmouseleave={handleMouseLeave}
-          onmousedown={onButtonDown}
-          ontouchstart={onButtonDown}
-          onfocus={handleMouseEnter}
-          onblur={handleMouseLeave}
-          onKeydown={onNativeKeyDown}
-        >
-          <t-popup
-            visible={popupProps.visible}
-            ref={popupRef}
-            popper-class={props.popupClass}
-            disabled={!showTooltip.value}
-            content={String(props.value)}
-            placement={placement.value}
-            trigger={popupProps.trigger}
-            showArrow={popupProps.showArrow}
-            overlayStyle={popupProps.overlayStyle}
-            overlayClassName={popupProps.overlayClassName}
-            attach={popupProps.attach}
-          >
-            <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
-          </t-popup>
-        </div>
-      );
-    };
-    return {
-      renderContent,
+    /** 暴露设置按钮坐标方法供父组件调用 */
+    defineExpose({
       setPosition,
-    };
-  },
+    });
 
-  render() {
-    return this.renderContent();
+    return () => (
+      <div
+        ref={buttonRef}
+        class={`${COMPONENT_NAME.value}-wrapper`}
+        style={wrapperStyle.value}
+        tabindex="0"
+        show-tooltip={showTooltip.value}
+        disabled={parentProps.disabled.value}
+        onmouseenter={handleMouseEnter}
+        onmouseleave={handleMouseLeave}
+        onmousedown={onButtonDown}
+        ontouchstart={onButtonDown}
+        onfocus={handleMouseEnter}
+        onblur={handleMouseLeave}
+        onKeydown={onNativeKeyDown}
+      >
+        <t-popup
+          visible={popupProps.visible}
+          ref={popupRef}
+          popper-class={props.popupClass}
+          disabled={!showTooltip.value}
+          content={String(props.value)}
+          placement={placement.value}
+          trigger={popupProps.trigger}
+          showArrow={popupProps.showArrow}
+          overlayStyle={popupProps.overlayStyle}
+          overlayClassName={popupProps.overlayClassName}
+          attach={popupProps.attach}
+        >
+          <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
+        </t-popup>
+      </div>
+    );
   },
 });
