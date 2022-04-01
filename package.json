@@ -167,7 +167,7 @@
     "vue": "^3.2.26",
     "vue-jest": "^5.0.0-alpha.7",
     "vue-router": "^4.0.12",
-    "vue-tsc": "^0.31.2",
+    "vue-tsc": "^0.33.9",
     "workbox-precaching": "^6.4.1"
   },
   "config": {
