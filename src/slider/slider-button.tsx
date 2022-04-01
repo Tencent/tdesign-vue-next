@@ -1,6 +1,7 @@
 import { defineComponent, ComponentPublicInstance, ref, computed, reactive, nextTick, watchEffect, inject } from 'vue';
 import TPopup from '../popup/index';
-import { usePrefixClass } from '../config-provider';
+
+import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderPopup } from './hooks/useSliderPopup';
 import { sliderPropsInjectKey } from './util/contanst';
 
@@ -35,12 +36,10 @@ export default defineComponent({
       props.vertical,
     );
 
-    // const { proxy } = getCurrentInstance();
     const parentProps = inject(sliderPropsInjectKey);
     const buttonRef = ref();
 
     /** --------------------- slide button 相关状态start ------------------- */
-    // const prevValue = ref(props.value);
     const slideButtonProps = reactive({
       dragging: false,
       isClick: false,
@@ -61,13 +60,6 @@ export default defineComponent({
     const step = computed(() => {
       return parentProps.step;
     });
-
-    // const formatValue = computed(() => {
-    //   if (parentProps.formatpopup instanceof Function && parentProps.formatpopup(props.value)) {
-    //     return parentProps.formatpopup(props.value);
-    //   }
-    //   return props.value;
-    // });
 
     const wrapperStyle = computed(() => {
       return props.vertical ? { bottom: currentPos.value } : { left: currentPos.value };
@@ -100,10 +92,6 @@ export default defineComponent({
       nextTick(() => {
         popupRef.value && (popupRef.value as ComponentPublicInstance).updatePopper();
       });
-      // tips:prevValue貌似在原逻辑也是声明后没使用
-      // if (!slideButtonProps.dragging && props.value !== prevValue.value) {
-      //   prevValue.value = props.value;
-      // }
     };
 
     const handleMouseEnter = () => {
@@ -150,13 +138,6 @@ export default defineComponent({
       } else {
         diff = (event as MouseEvent).clientX - slideButtonProps.startX;
       }
-      // tips：this.clientX & this.clientY 没有找到有使用过的逻辑
-      // if (event.type === 'touchmove') {
-      //   const touch = (event as TouchEvent).touches;
-      //   const [clientY, clientX] = [touch[0].clientY, touch[0].clientX];
-      //   this.clientY = clientY;
-      //   this.clientX = clientX;
-      // }
       diff = (diff / parentSliderSize) * 100;
       slideButtonProps.newPos = slideButtonProps.startPos + diff;
       setPosition(slideButtonProps.newPos);
@@ -169,7 +150,6 @@ export default defineComponent({
           togglePopup(false);
           if (!slideButtonProps.isClick) {
             setPosition(slideButtonProps.newPos);
-            // this.$parent.emitChange(parseInt(this.newPos));
           }
         }, 0);
         window.removeEventListener('mousemove', onDragging);
@@ -203,7 +183,6 @@ export default defineComponent({
       }
       slideButtonProps.newPos = parseFloat(currentPos.value) + stepLength;
       setPosition(slideButtonProps.newPos);
-      // this.$parent.emitChange(parseInt(this.newPos));
     };
 
     const onNativeKeyDown = (e: KeyboardEvent) => {

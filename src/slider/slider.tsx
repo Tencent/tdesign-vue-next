@@ -17,7 +17,7 @@ import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { getStopStyle } from './util/common';
@@ -39,7 +39,6 @@ export default defineComponent({
     event: 'change',
   },
   props: { ...props },
-  emits: ['change'],
   setup(props, ctx) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');
@@ -139,7 +138,6 @@ export default defineComponent({
       });
       return Math.max.apply(null, precisions);
     });
-
     // 防止值越级
     const setValues = (value: SliderValue): SliderValue => {
       const [min, max] = [props.min, props.max];
@@ -185,8 +183,7 @@ export default defineComponent({
         }
       }
       const fixValue: SliderValue = setValues(changeValue);
-      ctx.emit('change', fixValue);
-      setSliderValue(fixValue, { ...ctx, trigger: 'change' });
+      setSliderValue(fixValue);
     };
 
     const resetSize = () => {
@@ -318,6 +315,7 @@ export default defineComponent({
     const renderMask = useSliderMark(props.max, props.min, props.marks, vertical.value, COMPONENT_NAME.value);
 
     const renderInputNumber = useSliderInput(
+      props.inputNumberProps,
       props.max,
       props.min,
       props.step,
