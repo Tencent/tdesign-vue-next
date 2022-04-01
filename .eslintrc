@@ -18,7 +18,9 @@
   "globals": {
     "cy": "readonly",
     "clipboardData": "readonly",
-    "PKG_VERSION": true
+    "PKG_VERSION": true,
+    "defineProps": "readonly",
+    "defineEmits": "readonly"
   },
   "parserOptions": {
     "parser": "@typescript-eslint/parser",
