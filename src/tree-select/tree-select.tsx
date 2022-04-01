@@ -150,13 +150,13 @@ export default defineComponent({
         props.collapsedItems ||
         slots.collapsedItems ||
         props.minCollapsedNum <= 0 ||
-        (treeSelectValue.value as Array<TreeSelectValue>).length <= props.minCollapsedNum;
+        selectedMultiple.value.length <= props.minCollapsedNum;
       return notUseLocale
         ? renderTNodeJSX('collapsedItems', {
             params: {
-              count: (treeSelectValue.value as Array<TreeSelectValue>).length - props.minCollapsedNum,
+              count: selectedMultiple.value.length - props.minCollapsedNum,
               value: selectedMultiple.value,
-              collapsedSelectedItems: (selectedMultiple.value as Array<TreeSelectValue>).slice(props.minCollapsedNum),
+              collapsedSelectedItems: selectedMultiple.value.slice(props.minCollapsedNum),
             },
           })
         : null;
@@ -427,12 +427,10 @@ export default defineComponent({
     };
     const inputProps = {
       size: props.size,
-      showClearIconOnEmpty: true,
     };
     const tagInputProps = {
       inputProps: {
         size: props.size,
-        showClearIconOnEmpty: true,
         onClear: clear,
       },
     };
@@ -451,7 +449,6 @@ export default defineComponent({
         loading={props.loading}
         disabled={tDisabled.value}
         clearable={props.clearable}
-        showClearIconOnEmpty={props.clearable}
         placeholder={props.placeholder}
         allowInput={showFilter.value}
         popupVisible={visible.value}

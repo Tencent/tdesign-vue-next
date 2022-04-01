@@ -7341,7 +7341,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <!-- &lt;br&gt;&lt;br&gt; -->
   <div
     class="t-popup__reference t-select-input t-select-input--empty"
-    showclearicononempty="false"
     style="width: 400px;"
   >
     <transition-stub>
@@ -7429,7 +7428,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <div
     class="t-popup__reference t-select-input t-select-input--empty"
-    showclearicononempty="false"
     style="width: 400px;"
   >
     <transition-stub>
@@ -7545,7 +7543,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   <div
     class="t-popup__reference t-select-input t-select-input--empty"
-    showclearicononempty="true"
     style="width: 400px;"
   >
     <transition-stub>
