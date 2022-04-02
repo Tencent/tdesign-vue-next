@@ -63,7 +63,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
 
   const renderSelectSingle = (popupVisible: boolean) => {
     const singleValueDisplay = renderTNode('valueDisplay');
-    const displayedValue = popupVisible && props.allowInput ? inputValue : getInputValue(value.value, keys.value);
+    const displayedValue = popupVisible && props.allowInput ? inputValue.value : getInputValue(value.value, keys.value);
     const prefixContent = [singleValueDisplay, renderTNode('label')];
     const inputProps = {
       ...commonInputProps.value,

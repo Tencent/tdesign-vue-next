@@ -1865,341 +1865,188 @@ exports[`Form Form disabledVue demo works fine 1`] = `
         >
           
           <div
-            class="t-select__wrap"
+            class="t-popup__reference t-select-input t-select-input--empty"
           >
-            <div
-              class="t-popup__reference t-select__popup-reference"
-            >
-              <transition-stub>
-                <div
-                  aria-hidden="true"
-                  class="t-popup"
-                  role="tooltip"
-                  style="display: none;"
-                >
-                  <div
-                    class="t-popup__content t-is-disabled t-select__dropdown narrow-scrollbar"
-                  >
-                    
-                    <div>
-                      <p
-                        class="t-select-loading-tips"
-                        style="display: none;"
-                      >
-                        <div
-                          class="t-select__empty"
-                        >
-                          加载中
-                        </div>
-                      </p>
-                      <div
-                        class="t-tree t-is-disabled t-tree--hoverable t-tree--transition t-tree--block-node"
-                        modelvalue=""
-                        size="medium"
-                      >
-                        <transition-group-stub>
-                          
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="0"
-                            data-value="1"
-                            style="--level: 0;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon t-tree__icon--default"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              <svg
-                                class="t-icon t-icon-caret-right-small"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M6 5v6l4.5-3L6 5z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                江苏
-                              </span>
-                            </span>
-                            
-                          </div>
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="1"
-                            data-value="300"
-                            style="--level: 1;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                南京市
-                              </span>
-                            </span>
-                            
-                          </div>
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="0"
-                            data-value="2"
-                            style="--level: 0;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon t-tree__icon--default"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              <svg
-                                class="t-icon t-icon-caret-right-small"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M6 5v6l4.5-3L6 5z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                上海
-                              </span>
-                            </span>
-                            
-                          </div>
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="1"
-                            data-value="400"
-                            style="--level: 1;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                徐汇区
-                              </span>
-                            </span>
-                            
-                          </div>
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="0"
-                            data-value="3"
-                            style="--level: 0;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon t-tree__icon--default"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              <svg
-                                class="t-icon t-icon-caret-right-small"
-                                fill="none"
-                                height="1em"
-                                viewBox="0 0 16 16"
-                                width="1em"
-                              >
-                                <path
-                                  d="M6 5v6l4.5-3L6 5z"
-                                  fill="currentColor"
-                                  fill-opacity="0.9"
-                                />
-                              </svg>
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                四川
-                              </span>
-                            </span>
-                            
-                          </div>
-                          <div
-                            class="t-tree__item t-tree__item--open t-is-disabled"
-                            data-level="1"
-                            data-value="500"
-                            style="--level: 1;"
-                          >
-                            
-                            <span
-                              class="t-tree__icon t-folder-icon"
-                              ignore="active"
-                              trigger="expand"
-                            >
-                              
-                            </span>
-                            <span
-                              class="t-tree__label t-tree__label--strictly"
-                            >
-                              <span
-                                style="position: relative;"
-                              >
-                                成都市
-                              </span>
-                            </span>
-                            
-                          </div>
-                          
-                        </transition-group-stub>
-                        <!---->
-                      </div>
-                    </div>
-                    
-                    <!---->
-                  </div>
-                </div>
-              </transition-stub>
-              
+            <transition-stub>
               <div
-                class="t-select t-select-polyfill t-is-disabled t-size-m"
+                aria-hidden="true"
+                class="t-popup"
+                role="tooltip"
+                style="display: none;"
               >
-                <!---->
-                <span
-                  class="t-select__placeholder"
-                >
-                  请选择
-                   
-                </span>
-                
-                
-                <span
-                  class="t-tag t-tag--default t-tag--dark t-size-m"
-                  style="display: none;"
-                >
-                  <!---->
-                  
-                  +0
-                  
-                  <!---->
-                </span>
-                <!---->
                 <div
-                  class="t-input__wrap t-select__input"
-                  modelvalue=""
-                  style="display: none;"
+                  class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
                 >
-                  <div
-                    class="t-input t-is-disabled"
-                  >
-                    <!---->
-                    <!---->
-                    <input
-                      class="t-input__inner"
-                      disabled=""
-                      placeholder=""
-                      type="text"
-                    />
-                    <!---->
-                    <!---->
-                    <!---->
-                  </div>
-                  <!---->
-                </div>
-                <svg
-                  class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-                  fill="none"
-                  height="16"
-                  style="font-size: medium;"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-                    stroke="black"
-                    stroke-opacity="0.9"
-                    stroke-width="1.3"
-                  />
-                </svg>
-                <svg
-                  class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon"
-                  fill="none"
-                  height="1em"
-                  style="font-size: medium; display: none;"
-                  viewBox="0 0 16 16"
-                  width="1em"
-                >
-                  <path
-                    d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-                <div
-                  class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill"
-                  style="display: none;"
-                >
-                  <svg
-                    class="t-loading__gradient t-icon-loading"
-                    height="1em"
-                    size="small"
-                    version="1.1"
-                    viewBox="0 0 14 14"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <foreignobject
-                      height="12"
-                      width="12"
-                      x="1"
-                      y="1"
+                  
+                  <div>
+                    <p
+                      class="t-select-loading-tips t-select__right-icon-polyfill"
+                      style="display: none;"
                     >
                       <div
-                        class="t-loading__gradient-conic"
-                      />
-                    </foreignobject>
-                  </svg>
+                        class="t-select__empty"
+                      >
+                        加载中
+                      </div>
+                    </p>
+                    <div
+                      class="t-tree t-is-disabled t-tree--hoverable t-tree--transition t-tree--block-node"
+                      modelvalue=""
+                      size="medium"
+                    >
+                      <transition-group-stub>
+                        
+                        <div
+                          class="t-tree__item t-is-disabled"
+                          data-level="0"
+                          data-value="1"
+                          style="--level: 0;"
+                        >
+                          
+                          <span
+                            class="t-tree__icon t-folder-icon t-tree__icon--default"
+                            ignore="active"
+                            trigger="expand"
+                          >
+                            <svg
+                              class="t-icon t-icon-caret-right-small"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                            >
+                              <path
+                                d="M6 5v6l4.5-3L6 5z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="t-tree__label t-tree__label--strictly"
+                          >
+                            <span
+                              style="position: relative;"
+                            >
+                              江苏
+                            </span>
+                          </span>
+                          
+                        </div>
+                        <div
+                          class="t-tree__item t-is-disabled"
+                          data-level="0"
+                          data-value="2"
+                          style="--level: 0;"
+                        >
+                          
+                          <span
+                            class="t-tree__icon t-folder-icon t-tree__icon--default"
+                            ignore="active"
+                            trigger="expand"
+                          >
+                            <svg
+                              class="t-icon t-icon-caret-right-small"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                            >
+                              <path
+                                d="M6 5v6l4.5-3L6 5z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="t-tree__label t-tree__label--strictly"
+                          >
+                            <span
+                              style="position: relative;"
+                            >
+                              上海
+                            </span>
+                          </span>
+                          
+                        </div>
+                        <div
+                          class="t-tree__item t-is-disabled"
+                          data-level="0"
+                          data-value="3"
+                          style="--level: 0;"
+                        >
+                          
+                          <span
+                            class="t-tree__icon t-folder-icon t-tree__icon--default"
+                            ignore="active"
+                            trigger="expand"
+                          >
+                            <svg
+                              class="t-icon t-icon-caret-right-small"
+                              fill="none"
+                              height="1em"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                            >
+                              <path
+                                d="M6 5v6l4.5-3L6 5z"
+                                fill="currentColor"
+                                fill-opacity="0.9"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            class="t-tree__label t-tree__label--strictly"
+                          >
+                            <span
+                              style="position: relative;"
+                            >
+                              四川
+                            </span>
+                          </span>
+                          
+                        </div>
+                        
+                      </transition-group-stub>
+                      <!---->
+                    </div>
+                  </div>
+                  
                   <!---->
                 </div>
               </div>
-              
+            </transition-stub>
+            
+            <div
+              class="t-input__wrap"
+            >
+              <div
+                class="t-input t-is-disabled t-is-readonly t-input--prefix"
+              >
+                <!---->
+                <div
+                  class="t-input__prefix"
+                >
+                  
+                  <!---->
+                  <!---->
+                  
+                </div>
+                <input
+                  class="t-input__inner"
+                  disabled=""
+                  placeholder=""
+                  readonly=""
+                  type="text"
+                />
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
             </div>
+            
           </div>
           
           <!---->
@@ -5730,7 +5577,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
     </div>
     <div
       class="t-tabs"
-      modelvalue="1"
       style="margin-left: 30px;"
     >
       
