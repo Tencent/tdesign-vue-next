@@ -190,10 +190,11 @@ export default defineComponent({
     const { rowAndColFixedPosition } = this;
     const data = this.isPaginateData ? this.dataSource : this.data;
 
+    const defaultColWidth = this.tableLayout === 'fixed' && this.isWidthOverflow ? '100px' : undefined;
     const colgroup = (
       <colgroup>
         {(this.spansAndLeafNodes?.leafColumns || this.columns).map((col) => (
-          <col key={col.colKey} style={{ width: formatCSSUnit(col.width) }}></col>
+          <col key={col.colKey} style={{ width: formatCSSUnit(col.width) || defaultColWidth }}></col>
         ))}
       </colgroup>
     );
@@ -269,6 +270,7 @@ export default defineComponent({
           <TBody v-slots={this.$slots} {...tableBodyProps} />
           <TFoot
             v-slots={this.$slots}
+            rowKey={this.rowKey}
             isFixedHeader={this.isFixedHeader}
             rowAndColFixedPosition={rowAndColFixedPosition}
             footData={this.footData}

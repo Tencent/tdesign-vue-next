@@ -1,5 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import get from 'lodash/get';
+import isObject from 'lodash/isObject';
 import { PrimaryTableCol, RowClassNameParams, TableRowData, TdBaseTableProps } from './type';
 import { ClassName, HTMLElementAttributes } from '../common';
 
@@ -53,7 +54,7 @@ export function formatRowClassNames(
   for (let i = 0, len = rowClassList.length; i < len; i++) {
     const rName = rowClassList[i];
     let tClass = isFunction(rName) ? rName(params) : rName;
-    if (typeof tClass === 'object') {
+    if (isObject(tClass) && !(tClass instanceof Array)) {
       // 根据下标设置行类名
       tClass[rowIndex] && (tClass = tClass[rowIndex]);
       // 根据行唯一标识设置行类名

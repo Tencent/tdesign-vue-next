@@ -47,6 +47,7 @@ export default defineComponent({
     const { classPrefix } = useConfig();
     const root = ref();
     const isOverflow = ref(false);
+    const visible = ref(false);
 
     const ellipsisClasses = computed(() => [
       `${classPrefix.value}-table__ellipsis`,
@@ -54,40 +55,39 @@ export default defineComponent({
     ]);
 
     // 当表格数据量大时，不希望默认渲染全量的 Popup，期望在用户 mouseenter 的时候再显示
-    const updateIsOverflow = () => {
+    const onTriggerMouseenter = () => {
       if (!root.value) return;
+      visible.value = true;
       isOverflow.value = isNodeOverflow(root.value);
     };
 
-    const onMouseleave = () => {
-      isOverflow.value = false;
+    const onTriggerMouseleave = () => {
+      visible.value = false;
     };
 
     return {
       root,
       isOverflow,
       ellipsisClasses,
-      updateIsOverflow,
-      onMouseleave,
+      visible,
+      onTriggerMouseenter,
+      onTriggerMouseleave,
     };
   },
 
   render() {
     const cellNode = renderContent(this, 'default', 'content');
     const ellipsisContent = (
-      <div
-        ref="root"
-        class={this.ellipsisClasses}
-        onMouseenter={this.updateIsOverflow}
-        onMouseleave={this.onMouseleave}
-      >
+      <div ref="root" class={this.ellipsisClasses}>
         {cellNode}
       </div>
     );
+    let content = null;
     if (this.isOverflow) {
-      return (
+      content = (
         <TPopup
           content={this.popupContent || (() => cellNode)}
+          visible={this.visible}
           destroyOnClose={true}
           zIndex={this.zIndex || 80}
           attach={this.attach}
@@ -97,7 +97,13 @@ export default defineComponent({
           {ellipsisContent}
         </TPopup>
       );
+    } else {
+      content = ellipsisContent;
     }
-    return ellipsisContent;
+    return (
+      <div onMouseenter={this.onTriggerMouseenter} onMouseleave={this.onTriggerMouseleave}>
+        {content}
+      </div>
+    );
   },
 });

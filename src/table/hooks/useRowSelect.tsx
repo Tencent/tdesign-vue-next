@@ -32,7 +32,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
   const selectColumn = computed(() => props.columns.find(({ type }) => ['multiple', 'single'].includes(type)));
   const canSelectedRows = computed(() => props.data.filter((row, rowIndex): boolean => !isDisabled(row, rowIndex)));
   // 选中的行，和所有可以选择的行，交集，用于计算 isSelectedAll 和 isIndeterminate
-  const inersectionKeys = computed(() =>
+  const intersectionKeys = computed(() =>
     intersection(
       tSelectedRowKeys.value,
       canSelectedRows.value.map((t) => get(t, props.rowKey || 'id')),
@@ -42,18 +42,16 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
   watch(
     [data, columns, rowClassName, tSelectedRowKeys],
     () => {
-      if (!selectColumn.value) {
-        tRowClassNames.value = rowClassName.value;
-        return;
-      }
-      const disabledRowFunc = selectColumn.value.disabled
-        ? (p: RowClassNameParams<TableRowData>): ClassName =>
-            selectColumn.value.disabled(p) ? tableSelectedClasses.disabled : ''
-        : undefined;
+      const disabledRowFunc = (p: RowClassNameParams<TableRowData>): ClassName =>
+        selectColumn.value.disabled(p) ? tableSelectedClasses.disabled : '';
+      const disabledRowClass = selectColumn.value?.disabled ? disabledRowFunc : undefined;
       const selected = new Set(tSelectedRowKeys.value);
-      const selectedRowClassFunc = ({ row }: RowClassNameParams<TableRowData>) =>
-        selected.has(get(row, props.rowKey || 'id')) ? tableSelectedClasses.selected : '';
-      tRowClassNames.value = [rowClassName.value, disabledRowFunc, selectedRowClassFunc].filter((v) => v);
+      const selectedRowClassFunc = ({ row }: RowClassNameParams<TableRowData>) => {
+        const rowId = get(row, props.rowKey || 'id');
+        return selected.has(rowId) ? tableSelectedClasses.selected : '';
+      };
+      const selectedRowClass = selected.size ? selectedRowClassFunc : undefined;
+      tRowClassNames.value = [rowClassName.value, disabledRowClass, selectedRowClass];
     },
     { immediate: true },
   );
@@ -64,10 +62,10 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
 
   function getSelectedHeader() {
     const isIndeterminate =
-      inersectionKeys.value.length > 0 && inersectionKeys.value.length < canSelectedRows.value.length;
+      intersectionKeys.value.length > 0 && intersectionKeys.value.length < canSelectedRows.value.length;
     return () => (
       <Checkbox
-        checked={inersectionKeys.value.length === canSelectedRows.value.length}
+        checked={intersectionKeys.value.length === canSelectedRows.value.length}
         indeterminate={isIndeterminate}
         disabled={!canSelectedRows.value.length}
         onChange={handleSelectAll}

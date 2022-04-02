@@ -43,7 +43,7 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     initialTreeDataMap(this.treeDataMap, dataSource, columns[0], keys);
   }
 
-  toggleExpandData(p: PrimaryTableCellParams<T>, dataSouce: T[], keys: KeysType) {
+  toggleExpandData(p: PrimaryTableCellParams<T>, dataSource: T[], keys: KeysType) {
     const rowValue = get(p.row, keys.rowKey);
     const r = this.treeDataMap.get(rowValue) || {
       row: p.row,
@@ -53,7 +53,7 @@ class TableTreeStore<T extends TableRowData = TableRowData> {
     r.rowIndex = p.rowIndex;
     r.expanded = !r.expanded;
     this.treeDataMap.set(rowValue, r);
-    return this.updateExpandRow(r, dataSouce, keys);
+    return this.updateExpandRow(r, dataSource, keys);
   }
 
   updateExpandRow(changeRow: TableRowState<T>, dataSource: T[], keys: KeysType) {

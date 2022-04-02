@@ -14,6 +14,7 @@ export default function useClassName() {
       bordered: `${classPrefix.value}-table--bordered`,
       striped: `${classPrefix.value}-table--striped`,
       hover: `${classPrefix.value}-table--hoverable`,
+      rowspanAndColspan: `${classPrefix.value}-table--rowspan-colspan`,
       empty: `${classPrefix.value}-table__empty`,
       emptyRow: `${classPrefix.value}-table__empty-row`,
       headerFixed: `${classPrefix.value}-table--header-fixed`,

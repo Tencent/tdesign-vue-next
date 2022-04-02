@@ -27,7 +27,7 @@ export default function usePagination(props: TdBaseTableProps) {
 
   // 受控情况，只有 pagination.current 或者 pagination.pageSize 变化，才对数据进行排序
   watch(
-    () => [pagination.value?.current, pagination.value?.pageSize, data, disableDataPage],
+    () => [pagination.value?.current, pagination.value?.pageSize, data.value.length, disableDataPage],
     () => {
       if (!pagination.value || !pagination.value.current) return;
       updateDataSourceAndPaginate(pagination.value.current, pagination.value.pageSize);

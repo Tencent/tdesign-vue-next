@@ -3,11 +3,12 @@ import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
 import get from 'lodash/get';
 import { BaseTableCellParams, TableRowData, TdBaseTableProps } from './type';
-import { formatRowAttributes } from './utils';
+import { formatRowAttributes, formatRowClassNames } from './utils';
 import { getColumnFixedStyles, RowAndColFixedPosition } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 
 export interface TFootProps {
+  rowKey: string;
   // 是否固定表头
   isFixedHeader: boolean;
   // 固定列 left/right 具体值
@@ -22,6 +23,7 @@ export default defineComponent({
   name: 'TFoot',
 
   props: {
+    rowKey: String,
     isFixedHeader: Boolean,
     rowAndColFixedPosition: Map as PropType<TFootProps['rowAndColFixedPosition']>,
     footData: Array as PropType<TFootProps['footData']>,
@@ -58,9 +60,11 @@ export default defineComponent({
         {this.footData.map((row, rowIndex) => {
           const trAttributes = formatRowAttributes(this.rowAttributes, { row, rowIndex, type: 'foot' });
           // 自定义行类名
-          const customClasses = isFunction(this.rowClassName)
-            ? this.rowClassName({ row, rowIndex, type: 'foot' })
-            : this.rowClassName;
+          const customClasses = formatRowClassNames(
+            this.rowClassName,
+            { row, rowIndex, type: 'foot' },
+            this.rowKey || 'id',
+          );
           return (
             <tr key={rowIndex} {...trAttributes} class={customClasses}>
               {this.columns.map((col, colIndex) => {
