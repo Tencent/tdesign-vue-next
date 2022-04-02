@@ -1866,7 +1866,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-popup__reference t-select-input t-select-input--empty"
-            showclearicononempty="true"
           >
             <transition-stub>
               <div
