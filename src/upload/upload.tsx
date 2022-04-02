@@ -64,7 +64,7 @@ export default defineComponent({
     const { handleChange, multipleUpload, triggerUpload, cancelUpload, handleDragChange, upload, inputRef } =
       useActions(props, uploadCtx, disabled);
 
-    expose(triggerUpload);
+    expose({ triggerUpload });
 
     // input 节点
     const renderInput = () => {
