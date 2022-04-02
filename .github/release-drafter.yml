@@ -9,7 +9,7 @@ categories:
     labels:
       - 'feature'
       - 'enhancement'
-  - title: '🐛 Bug Fixes'
+  - title: '🐞 Bug Fixes'
     labels:
       - 'fix'
       - 'bugfix'
@@ -20,6 +20,8 @@ categories:
       - 'dependencies'
 exclude-labels:
   - 'skip-changelog'
+  - 'chore'
+  - 'test'
 sort-by: title
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
