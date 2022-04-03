@@ -20,7 +20,7 @@ import useVModel from '../hooks/useVModel';
 export default defineComponent({
   name: 'TUpload',
   props,
-  setup(props) {
+  setup(props, { expose }) {
     const renderTNodeContent = useContent();
     const { classPrefix: prefix, global } = useConfig('upload');
     const UPLOAD_NAME = usePrefixClass('upload');
@@ -63,6 +63,8 @@ export default defineComponent({
     // 上传相关动作
     const { handleChange, multipleUpload, triggerUpload, cancelUpload, handleDragChange, upload, inputRef } =
       useActions(props, uploadCtx, disabled);
+
+    expose({ triggerUpload });
 
     // input 节点
     const renderInput = () => {

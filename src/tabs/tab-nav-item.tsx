@@ -1,10 +1,9 @@
-import { defineComponent, ref } from 'vue';
+import { computed, defineComponent, ref, PropType } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { TdTabsProps } from './type';
-import { emitEvent } from '../utils/event';
 import tabProps from './props';
 import tabPanelProps from './tab-panel-props';
 
+// hooks
 import useRipple from '../hooks/useRipple';
 import { usePrefixClass, useCommonClassName } from '../config-provider';
 
@@ -28,75 +27,69 @@ export default defineComponent({
     disabled: tabPanelProps.disabled,
     removable: tabPanelProps.removable,
     value: tabPanelProps.value,
+    onClick: Function as PropType<Function>,
+    onRemove: Function as PropType<Function>,
   },
 
-  emits: ['click', 'remove'],
-  setup() {
+  setup(props) {
     const itemRef = ref<HTMLElement>();
     useRipple(itemRef);
 
     const COMPONENT_NAME = usePrefixClass('tabs__nav-item');
     const classPrefix = usePrefixClass();
     const { STATUS, SIZE } = useCommonClassName();
-    return {
-      SIZE,
-      STATUS,
-      COMPONENT_NAME,
-      itemRef,
-      classPrefix,
-    };
-  },
-  computed: {
-    navItemClass(): {} {
-      return {
-        [this.COMPONENT_NAME]: true,
-        [`${this.classPrefix}-tabs__nav--card`]: this.theme === 'card',
-        [this.STATUS.disabled]: this.disabled,
-        [this.STATUS.active]: this.active,
-        [`${this.classPrefix}-is-left`]: this.placement === 'left',
-        [`${this.classPrefix}-is-right`]: this.placement === 'right',
-        [this.SIZE.medium]: this.size === 'medium',
-        [this.SIZE.large]: this.size === 'large',
-      };
-    },
-  },
-  methods: {
-    removeBtnClick({ e }: { e: MouseEvent }): void {
+
+    const removeBtnClick = ({ e }: { e: MouseEvent }) => {
       e.stopPropagation();
-      emitEvent<Parameters<TdTabsProps['onRemove']>>(this, 'remove', { e, value: this.value, index: this.index });
-    },
-    onClickNav(e: MouseEvent) {
-      if (this.disabled) return;
-      emitEvent<Parameters<(e: MouseEvent) => void>>(this, 'click', e);
-    },
-    renderCardItem() {
+      props.onRemove({ e, value: props.value, index: props.index });
+    };
+    const onClickNav = (e: MouseEvent) => {
+      if (props.disabled) return;
+      props.onClick(e);
+    };
+
+    const navItemClass = computed(() => {
+      return {
+        [COMPONENT_NAME.value]: true,
+        [`${classPrefix.value}-tabs__nav--card`]: props.theme === 'card',
+        [STATUS.value.disabled]: props.disabled,
+        [STATUS.value.active]: props.active,
+        [`${classPrefix.value}-is-left`]: props.placement === 'left',
+        [`${classPrefix.value}-is-right`]: props.placement === 'right',
+        [SIZE.value.medium]: props.size === 'medium',
+        [SIZE.value.large]: props.size === 'large',
+      };
+    });
+
+    const renderCardItem = () => {
       return (
-        <div class={this.navItemClass} onClick={this.onClickNav} ref="itemRef">
-          <span class={`${this.COMPONENT_NAME}-text-wrapper`}>{this.label}</span>
-          {this.removable && !this.disabled ? <CloseIcon class="remove-btn" onClick={this.removeBtnClick} /> : null}
+        <div class={navItemClass.value} onClick={onClickNav} ref={itemRef}>
+          <span class={`${COMPONENT_NAME.value}-text-wrapper`}>{props.label}</span>
+          {props.removable && !props.disabled ? <CloseIcon class="remove-btn" onClick={removeBtnClick} /> : null}
         </div>
       );
-    },
-    renderNormalItem() {
+    };
+    const renderNormalItem = () => {
       return (
-        <div class={this.navItemClass} onClick={this.onClickNav}>
+        <div class={navItemClass.value} onClick={onClickNav}>
           <div
             class={[
-              `${this.COMPONENT_NAME}-wrapper`,
+              `${COMPONENT_NAME.value}-wrapper`,
               {
-                [this.STATUS.disabled]: this.disabled,
-                [this.STATUS.active]: this.active,
+                [STATUS.value.disabled]: props.disabled,
+                [STATUS.value.active]: props.active,
               },
             ]}
-            ref="itemRef"
+            ref={itemRef}
           >
-            <span class={`${this.COMPONENT_NAME}-text-wrapper`}>{this.label}</span>
+            <span class={`${COMPONENT_NAME.value}-text-wrapper`}>{props.label}</span>
           </div>
         </div>
       );
-    },
-  },
-  render() {
-    return this.theme === 'card' ? this.renderCardItem() : this.renderNormalItem();
+    };
+
+    return () => {
+      return props.theme === 'card' ? renderCardItem() : renderNormalItem();
+    };
   },
 });

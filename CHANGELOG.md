@@ -4,6 +4,26 @@ spline: explain
 toc: false
 docClass: timeline
 ---
+
+## 0.11.1 `2022-04-02`
+
+### 🚀  Features
+
+- 重构 TreeSelect 为 Composition-api [@Godlike-meteor](https://github.com/Godlike-meteor) [(#508)](https://github.com/Tencent/tdesign-vue-next/pull/508)
+- 重构 日历组件 为 Composition-api [@PsTiu](https://github.com/PsTiu) [(#472)](https://github.com/Tencent/tdesign-vue-next/pull/472)
+- 国际化配置迁移至common，相关代码优化 [@pengYYYYY](https://github.com/pengYYYYY) [(#492)](https://github.com/Tencent/tdesign-vue-next/pull/492)
+
+### 🐞  Bug Fixes
+
+- 重构 Tabs 为 Composition-api [@LeeJim](https://github.com/LeeJim) (#490)
+- 修复 Upload triggerupload 方法未导出 [@pengYYYYY](https://github.com/pengYYYYY) [(#515)](https://github.com/Tencent/tdesign-vue-next/pull/515)
+- 修复 InputNumber 未注册 input 组件 [@pengYYYYY](https://github.com/pengYYYYY) [(#514)](https://github.com/Tencent/tdesign-vue-next/pull/514)
+- 修复 CheckboxGroup disabled 属性无效 [@pengYYYYY](https://github.com/pengYYYYY) [(#514)](https://github.com/Tencent/tdesign-vue-next/pull/514)
+- 修复 Input 的 type 传入无效 [@pengYYYYY](https://github.com/pengYYYYY) [(#516)](https://github.com/Tencent/tdesign-vue-next/pull/516)
+- 修复 SelectInput Demo样式 [@pengYYYYY](https://github.com/pengYYYYY) [(#500)](https://github.com/Tencent/tdesign-vue-next/pull/500) 
+- 修复 Pagination 跳转页输入框展示了额外 placeholder 默认内容 [@xiaosansiji](https://github.com/xiaosansiji) [(#507)](https://github.com/Tencent/tdesign-vue-next/pull/507)
+
+
 ## 0.11.0 `2022-03-25`
 
 ### BREAKING CHANGES
