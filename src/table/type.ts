@@ -57,12 +57,12 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
-   * 【开发中】表头吸顶
+   * 表头吸顶
    * @default false
    */
   headerAffixedTop?: boolean;
   /**
-   * 【开发中】表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
+   * 表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性
    */
   headerAffixProps?: AffixProps;
   /**
@@ -247,7 +247,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   title?: string | TNode<{ col: BaseTableCol; colIndex: number }>;
   /**
-   * 列宽
+   * 列宽，可以作为最小宽度使用。当列宽总和小于 `table` 元素时，浏览器根据宽度设置情况自动分配宽度；当列宽总和大于 `table` 元素，表现为定宽。可以同时调整 `table` 元素的宽度来达到自己想要的效果
    */
   width?: string | number;
 }
@@ -367,7 +367,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onChange?: (data: TableChangeData, context: TableChangeContext<T>) => void;
   /**
-   * 【开发中】列配置发生变化时触发。`context.columns` 表示已选中的列；`context.currentColumn` 表示本次变化操作的列，值不存在表示全选操作；`context.type` 表示当前操作属于选中列或是取消列
+   * 确认操作之前列配置发生变化时触发。`context.columns` 表示已选中的列；`context.currentColumn` 表示本次变化操作的列，值不存在表示全选操作；`context.type` 表示当前操作属于选中列或是取消列
    */
   onColumnChange?: (context: PrimaryTableColumnChange<T>) => void;
   /**
@@ -375,7 +375,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onDataChange?: (data: Array<T>, context: TableDataChangeContext) => void;
   /**
-   * 列配置选中列发生变化时触发
+   * 确认列配置时触发
    */
   onDisplayColumnsChange?: (value: CheckboxGroupValue) => void;
   /**
@@ -474,6 +474,10 @@ export interface EnhancedTableInstanceFunctions<T extends TableRowData = TableRo
    * 树形结构中，用于更新行数据。泛型 `T` 表示行数据类型
    */
   setData: (key: TableRowValue, newRowData: T) => void;
+  /**
+   * 展开或收起树形行
+   */
+  toggleExpandData: (p: { row: T; rowIndex: number }) => void;
 }
 
 export interface TableRowState<T extends TableRowData = TableRowData> {
@@ -678,6 +682,7 @@ export interface PrimaryTableColumnChange<T> {
   columns?: CheckboxGroupValue;
   currentColumn?: PrimaryTableCol<T>;
   type?: 'check' | 'uncheck';
+  e?: Event;
 }
 
 export interface TableDataChangeContext {

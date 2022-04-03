@@ -10523,7 +10523,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -10565,7 +10565,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -10607,7 +10607,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"

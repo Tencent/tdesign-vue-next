@@ -185,7 +185,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Eric
             </td>
@@ -206,7 +206,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Gilberta
             </td>
@@ -227,7 +227,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Heriberto
             </td>
@@ -248,7 +248,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Lazarus
             </td>
@@ -269,7 +269,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Zandra
             </td>
@@ -622,7 +622,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
           >
             
             <td
-              class="custom-column-class-name t-table__td-first-col t-align-center"
+              class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
               5
@@ -665,7 +665,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
           >
             
             <td
-              class="custom-column-class-name t-table__td-first-col t-align-center"
+              class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
               6
@@ -708,7 +708,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
           >
             
             <td
-              class="custom-column-class-name t-table__td-first-col t-align-center"
+              class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
               7
@@ -751,7 +751,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
           >
             
             <td
-              class="custom-column-class-name t-table__td-first-col t-align-center"
+              class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
               8
@@ -794,7 +794,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
           >
             
             <td
-              class="custom-column-class-name t-table__td-first-col t-align-center"
+              class="custom-column-class-name t-align-center"
               data-id="first-column"
             >
               9
@@ -1067,7 +1067,9 @@ exports[`Table Table baseVue demo works fine 1`] = `
 `;
 
 exports[`Table Table customCellVue demo works fine 1`] = `
-<div>
+<div
+  style="width: 100%;"
+>
   <div
     class="t-table"
     defaultexpandedrowkeys=""
@@ -1089,18 +1091,10 @@ exports[`Table Table customCellVue demo works fine 1`] = `
       >
         <colgroup>
           
-          <col
-            style="width: 100px;"
-          />
-          <col
-            style="width: 236px;"
-          />
-          <col
-            style="width: 290px;"
-          />
-          <col
-            style="width: 235px;"
-          />
+          <col />
+          <col />
+          <col />
+          <col />
           
         </colgroup>
         <thead
@@ -1164,7 +1158,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               
               any[]
@@ -1216,7 +1210,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               
               String
@@ -1437,7 +1431,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               0
             </td>
@@ -1479,7 +1473,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               1
             </td>
@@ -1521,7 +1515,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               2
             </td>
@@ -1563,7 +1557,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               3
             </td>
@@ -1605,7 +1599,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               4
             </td>
@@ -1784,7 +1778,7 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               0
             </td>
@@ -1826,7 +1820,7 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               1
             </td>
@@ -1868,7 +1862,7 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               2
             </td>
@@ -2059,7 +2053,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               标题是用插槽自定义
             </td>
@@ -2080,7 +2074,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               插槽名称为 title 的值
             </td>
@@ -2433,7 +2427,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest1
               </td>
@@ -2460,7 +2454,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest2
               </td>
@@ -2487,7 +2481,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest3
               </td>
@@ -2514,7 +2508,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest4
               </td>
@@ -2654,7 +2648,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest1
               </td>
@@ -2686,7 +2680,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest2
               </td>
@@ -2718,7 +2712,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest3
               </td>
@@ -2750,7 +2744,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest4
               </td>
@@ -3522,7 +3516,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -3627,7 +3621,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -3732,7 +3726,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -3837,7 +3831,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -3942,7 +3936,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -5173,7 +5167,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Eric
             </td>
@@ -5199,7 +5193,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Gilberta
             </td>
@@ -5225,7 +5219,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Heriberto
             </td>
@@ -5251,7 +5245,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Lazarus
             </td>
@@ -5277,7 +5271,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               Eric
             </td>
@@ -5654,7 +5648,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col t-align-center"
+              class="t-align-center"
             >
               0
             </td>
@@ -5706,7 +5700,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col t-align-center"
+              class="t-align-center"
             >
               1
             </td>
@@ -5758,7 +5752,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col t-align-center"
+              class="t-align-center"
             >
               2
             </td>
@@ -5810,7 +5804,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col t-align-center"
+              class="t-align-center"
             >
               3
             </td>
@@ -5862,7 +5856,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col t-align-center"
+              class="t-align-center"
             >
               4
             </td>
@@ -6161,7 +6155,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 0
               </td>
@@ -6213,7 +6207,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 1
               </td>
@@ -6265,7 +6259,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 2
               </td>
@@ -6317,7 +6311,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 3
               </td>
@@ -6369,7 +6363,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 4
               </td>
@@ -6421,7 +6415,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 5
               </td>
@@ -6473,7 +6467,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 6
               </td>
@@ -6525,7 +6519,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 7
               </td>
@@ -6577,7 +6571,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 8
               </td>
@@ -6629,7 +6623,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 9
               </td>
@@ -6681,7 +6675,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 10
               </td>
@@ -6733,7 +6727,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 11
               </td>
@@ -6785,7 +6779,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 12
               </td>
@@ -6837,7 +6831,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 13
               </td>
@@ -6889,7 +6883,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 14
               </td>
@@ -6941,7 +6935,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 15
               </td>
@@ -6993,7 +6987,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 16
               </td>
@@ -7045,7 +7039,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 17
               </td>
@@ -7097,7 +7091,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 18
               </td>
@@ -7149,7 +7143,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col t-align-center"
+                class="t-align-center"
               >
                 19
               </td>
@@ -7204,7 +7198,9 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             class="t-table__footer"
           >
             
-            <tr>
+            <tr
+              class=""
+            >
               
               <td>
                 总述
@@ -7453,7 +7449,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -7495,7 +7491,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -7537,7 +7533,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -7579,7 +7575,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -7621,7 +7617,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -7663,7 +7659,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -7705,7 +7701,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -7747,7 +7743,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -7789,7 +7785,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -7831,7 +7827,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -7873,7 +7869,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -7915,7 +7911,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -7957,7 +7953,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -7999,7 +7995,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -8041,7 +8037,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -8083,7 +8079,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -8125,7 +8121,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -8167,7 +8163,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -8209,7 +8205,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               共有
             </td>
@@ -8251,7 +8247,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               私有
             </td>
@@ -8296,7 +8292,9 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           class="t-table__footer"
         >
           
-          <tr>
+          <tr
+            class=""
+          >
             
             <td>
               汇总
@@ -8335,6 +8333,21 @@ exports[`Table Table lazyVue demo works fine 1`] = `
   <div
     class="item"
   >
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      style="margin-top: 10px;"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+         列表恢复初始状态 
+        
+      </span>
+    </button>
+    <br />
+    <br />
     <div
       class="t-table"
       defaultexpandedrowkeys=""
@@ -8424,7 +8437,7 @@ exports[`Table Table lazyVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 1
               </td>
@@ -15448,19 +15461,6 @@ exports[`Table Table lazyVue demo works fine 1`] = `
       <!---->
       <!---->
     </div>
-    <button
-      class="t-button t-size-m t-button--variant-base t-button--theme-default"
-      style="margin-top: 10px;"
-      type="button"
-    >
-      <span
-        class="t-button__text"
-      >
-        
-         列表恢复初始状态 
-        
-      </span>
-    </button>
   </div>
 </div>
 `;
@@ -16073,7 +16073,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
 exports[`Table Table mergeCellsVue demo works fine 1`] = `
 <div>
   <div
-    class="t-table t-size-s t-table--bordered"
+    class="t-table t-size-s t-table--bordered t-table--rowspan-colspan"
     defaultexpandedrowkeys=""
     dragsort="drag-col"
     expandicon="true"
@@ -17565,7 +17565,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest1
               </td>
@@ -17599,7 +17599,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest2
               </td>
@@ -17633,7 +17633,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest3
               </td>
@@ -17667,7 +17667,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
             >
               
               <td
-                class="t-table__td-first-col"
+                class=""
               >
                 JQTest4
               </td>
@@ -18190,7 +18190,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               5
             </td>
@@ -18237,7 +18237,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               6
             </td>
@@ -18284,7 +18284,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               7
             </td>
@@ -18331,7 +18331,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               8
             </td>
@@ -18378,7 +18378,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           >
             
             <td
-              class="row t-table__td-first-col t-align-center"
+              class="row t-align-center"
             >
               9
             </td>
@@ -18842,7 +18842,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-checkbox"
@@ -18911,7 +18911,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-checkbox t-is-disabled"
@@ -18981,7 +18981,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-checkbox"
@@ -19050,7 +19050,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-checkbox t-is-disabled"
@@ -19120,7 +19120,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-checkbox"
@@ -19324,7 +19324,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-radio"
@@ -19395,7 +19395,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-radio t-is-disabled"
@@ -19467,7 +19467,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-radio t-is-checked"
@@ -19538,7 +19538,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-radio t-is-disabled"
@@ -19610,7 +19610,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               <label
                 class="t-radio"
@@ -19797,7 +19797,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               JQTest1
             </td>
@@ -19846,7 +19846,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               JQTest2
             </td>
@@ -19895,7 +19895,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               JQTest3
             </td>
@@ -19944,7 +19944,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               JQTest4
             </td>
@@ -20322,7 +20322,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               JQTest1
             </td>
@@ -20356,7 +20356,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               JQTest2
             </td>
@@ -20390,7 +20390,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               JQTest3
             </td>
@@ -20424,7 +20424,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__td-first-col"
+              class=""
             >
               JQTest4
             </td>
@@ -20692,7 +20692,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -20791,7 +20791,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -20891,7 +20891,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -20990,7 +20990,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -21090,7 +21090,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table__expandable-icon-cell t-table__td-first-col"
+              class="t-table__expandable-icon-cell"
             >
               <span
                 class="t-table__expand-box t-table__row--collapsed"
@@ -21212,6 +21212,19 @@ exports[`Table Table treeVue demo works fine 1`] = `
         
       </span>
     </button>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-default"
+      style="margin-left: 16px;"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        展开/收起可见行
+        
+      </span>
+    </button>
   </div>
   <br />
   <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
@@ -21246,7 +21259,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           <col />
           <col />
           <col
-            style="width: 288px;"
+            style="width: 286px;"
           />
           
         </colgroup>
@@ -21333,7 +21346,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table-td--ellipsis t-table__td-first-col"
+              class="t-table-td--ellipsis"
             >
               <div
                 class="t-table__ellipsis t-text-ellipsis"
@@ -21509,7 +21522,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table-td--ellipsis t-table__td-first-col"
+              class="t-table-td--ellipsis"
             >
               <div
                 class="t-table__ellipsis t-text-ellipsis"
@@ -21702,7 +21715,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table-td--ellipsis t-table__td-first-col"
+              class="t-table-td--ellipsis"
             >
               <div
                 class="t-table__ellipsis t-text-ellipsis"
@@ -21895,7 +21908,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table-td--ellipsis t-table__td-first-col"
+              class="t-table-td--ellipsis"
             >
               <div
                 class="t-table__ellipsis t-text-ellipsis"
@@ -22088,7 +22101,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           >
             
             <td
-              class="t-table-td--ellipsis t-table__td-first-col"
+              class="t-table-td--ellipsis"
             >
               <div
                 class="t-table__ellipsis t-text-ellipsis"

@@ -2,6 +2,7 @@
   <div>
     <div>
       <t-button theme="default" @click="setData1">重置数据</t-button>
+      <t-button theme="default" style="margin-left: 16px" @click="onRowToggle">展开/收起可见行</t-button>
     </div>
     <br />
     <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
@@ -141,7 +142,7 @@ const columns = [
   },
   {
     colKey: 'operate',
-    width: 288,
+    width: 286,
     title: '操作',
     align: 'center',
     // 增、删、改、查 等操作
@@ -182,10 +183,26 @@ const onPageChange = (pageInfo) => {
   pagination.pageSize = pageInfo.pageSize;
   data.value = getData(pageInfo.current);
 };
+
+const onRowToggle = () => {
+  const rowIds = [
+    '我是 1_1 号（第 1 页）',
+    '我是 2_1 号（第 1 页）',
+    '我是 3_1 号（第 1 页）',
+    '我是 4_1 号（第 1 页）',
+  ];
+  rowIds.forEach((id) => {
+    // getData 参数为行唯一标识，lodash.get(row, rowKey)
+    const rowData = table.value.getData(id);
+    table.value.toggleExpandData(rowData);
+    // 或者
+    // this.$refs.table.toggleExpandData({ rowIndex: rowData.rowIndex, row: rowData.row });
+  });
+};
 </script>
 
-<style scoped>
-.tdesign-table-demo__table-operations div {
-  display: inline-block;
+<style>
+.tdesign-table-demo__table-operations .t-button {
+  padding: 0 8px;
 }
 </style>

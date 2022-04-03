@@ -65,7 +65,11 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     };
   }
 
-  function toggleExpandData(p: PrimaryTableCellParams<TableRowData>) {
+  /**
+   * 组件实例方法，展开或收起某一行
+   * @param p 行数据
+   */
+  function toggleExpandData(p: { row: TableRowData; rowIndex: number }) {
     dataSource.value = store.value.toggleExpandData(p, dataSource.value, rowDataKeys.value);
   }
 
@@ -164,5 +168,6 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
     remove,
     appendTo,
     formatTreeColum,
+    toggleExpandData,
   };
 }

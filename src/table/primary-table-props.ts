@@ -113,11 +113,11 @@ export default {
   onCellClick: Function as PropType<TdPrimaryTableProps['onCellClick']>,
   /** 分页、排序、过滤等内容变化时触发，泛型 T 指表格数据类型，`currentData` 表示变化后的数据 */
   onChange: Function as PropType<TdPrimaryTableProps['onChange']>,
-  /** 【开发中】列配置发生变化时触发。`context.columns` 表示已选中的列；`context.currentColumn` 表示本次变化操作的列，值不存在表示全选操作；`context.type` 表示当前操作属于选中列或是取消列 */
+  /** 确认操作之前列配置发生变化时触发。`context.columns` 表示已选中的列；`context.currentColumn` 表示本次变化操作的列，值不存在表示全选操作；`context.type` 表示当前操作属于选中列或是取消列 */
   onColumnChange: Function as PropType<TdPrimaryTableProps['onColumnChange']>,
   /** 本地数据排序导致 `data` 变化时触发，第一个参数指变化后的数据，第二个参数 `context.trigger` 表示触发本次变化的来源 */
   onDataChange: Function as PropType<TdPrimaryTableProps['onDataChange']>,
-  /** 列配置选中列发生变化时触发 */
+  /** 确认列配置时触发 */
   onDisplayColumnsChange: Function as PropType<TdPrimaryTableProps['onDisplayColumnsChange']>,
   /** 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据 */
   onDragSort: Function as PropType<TdPrimaryTableProps['onDragSort']>,

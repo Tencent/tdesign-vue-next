@@ -40,9 +40,9 @@ export default {
     type: Array as PropType<TdBaseTableProps['footData']>,
     default: (): TdBaseTableProps['footData'] => [],
   },
-  /** 【开发中】表头吸顶 */
+  /** 表头吸顶 */
   headerAffixedTop: Boolean,
-  /** 【开发中】表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性 */
+  /** 表头吸顶基于 Affix 组件开发，透传全部 Affix 组件属性 */
   headerAffixProps: {
     type: Object as PropType<TdBaseTableProps['headerAffixProps']>,
   },

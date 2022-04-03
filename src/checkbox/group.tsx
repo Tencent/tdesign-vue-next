@@ -95,6 +95,7 @@ export default defineComponent({
         e: context.e,
         type: checked ? 'check' : 'uncheck',
         current: undefined,
+        option: undefined,
       });
     };
 
@@ -111,6 +112,7 @@ export default defineComponent({
         setInnerValue(val, {
           e: data.e,
           current: data.option.value,
+          option: data.option,
           type: data.checked ? 'check' : 'uncheck',
         });
       } else {

@@ -1,8 +1,8 @@
 <template>
   <div class="demo-container">
     <div class="item">
+      <t-button theme="default" style="margin-top: 10px" @click="reset"> 列表恢复初始状态 </t-button><br /><br />
       <t-table row-key="id" :columns="columns" :data="data" :height="200" :scroll="{ type: 'lazy', bufferSize: 10 }" />
-      <t-button theme="default" style="margin-top: 10px" @click="reset"> 列表恢复初始状态 </t-button>
     </div>
   </div>
 </template>
