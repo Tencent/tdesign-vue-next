@@ -6,6 +6,7 @@ export default function useClassName() {
     tableBaseClass: {
       table: `${classPrefix.value}-table`,
       body: `${classPrefix.value}-table__body`,
+      overflowVisible: `${classPrefix.value}-table--overflow-visible`,
       content: `${classPrefix.value}-table__content`,
       topContent: `${classPrefix.value}-table__top-content`,
       tdLastRow: `${classPrefix.value}-table__td-last-row`,
@@ -140,6 +141,14 @@ export default function useClassName() {
       col: `${classPrefix.value}-table__tree-col`,
       inlineCol: `${classPrefix.value}-table__tree-col--inline`,
       icon: `${classPrefix.value}-table__tree-op-icon`,
+    },
+
+    // 拖拽功能类名
+    tableDraggableClasses: {
+      rowDraggable: `${classPrefix.value}-table--row-draggable`,
+      colDraggable: `${classPrefix.value}-table--col-draggable`,
+      handle: `${classPrefix.value}-table__handle-draggable`,
+      ghost: `${classPrefix.value}-table__col--draggable-ghost`,
     },
 
     virtualScrollClasses: {

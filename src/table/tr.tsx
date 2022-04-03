@@ -70,7 +70,7 @@ export interface TrProps extends TrCommonProps {
   rowHeight: number;
   trs: Map<number, object>;
   bufferSize: number;
-  tableElm: HTMLDivElement;
+  tableElm: any;
 }
 
 export const ROW_LISTENERS = ['click', 'dblclick', 'mouseover', 'mousedown', 'mouseenter', 'mouseleave', 'mouseup'];
@@ -111,7 +111,7 @@ export default defineComponent({
     trs: Map as PropType<TrProps['trs']>,
     bufferSize: Number,
     isVirtual: Boolean,
-    tableElm: HTMLDivElement as PropType<TrProps['tableElm']>,
+    tableElm: {},
   },
 
   emits: ['row-mounted'],
@@ -247,7 +247,7 @@ export default defineComponent({
       // 前两列左对齐显示
       const placement = colIndex < 2 ? 'top-left' : 'top-right';
       const content = isFunction(col.ellipsis) ? col.ellipsis(h, cellParams) : undefined;
-      const tableElement = this.tableElm;
+      const tableElement = this.tableElm as HTMLDivElement;
       return (
         <TEllipsis
           placement={placement}

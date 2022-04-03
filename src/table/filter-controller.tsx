@@ -26,7 +26,8 @@ export interface TableFilterControllerProps {
   };
   isFocusClass: string;
   column: PrimaryTableCol;
-  primaryTableElement: HTMLDivElement;
+  primaryTableElement: any;
+  onVisibleChange: (val: boolean) => void;
 }
 
 export default defineComponent({
@@ -39,11 +40,12 @@ export default defineComponent({
     tableFilterClasses: Object as PropType<TableFilterControllerProps['tableFilterClasses']>,
     isFocusClass: String,
     primaryTableElement: {},
+    onVisibleChange: Function as PropType<TableFilterControllerProps['onVisibleChange']>,
   },
 
   emits: ['inner-filter-change', 'reset', 'confirm'],
 
-  setup() {
+  setup(props: TableFilterControllerProps) {
     const triggerElementRef = ref<HTMLDivElement>(null);
     const renderTNode = useTNodeDefault();
     const { t, global } = useConfig('table');
@@ -51,6 +53,7 @@ export default defineComponent({
 
     const onFilterPopupVisibleChange = (visible: boolean) => {
       filterPopupVisible.value = visible;
+      props.onVisibleChange?.(visible);
     };
 
     return {
