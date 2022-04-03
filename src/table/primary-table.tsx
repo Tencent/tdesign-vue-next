@@ -64,7 +64,7 @@ export default defineComponent({
 
     // 如果想给 TR 添加类名，请在这里补充，不要透传更多额外 Props 到 BaseTable
     const tRowClassNames = computed(() => {
-      const tClassNames = [props.rowClassName, selectedRowClassNames];
+      const tClassNames = [props.rowClassName, selectedRowClassNames.value];
       return tClassNames.filter((v) => v);
     });
 

@@ -1,7 +1,6 @@
 // 表格 行拖拽 + 列拖拽功能
 
 import { SetupContext, computed, toRefs, ref, watch } from 'vue';
-// @ts-ignore sortablejs do not have ts version yet.
 import { SortableEvent } from 'sortablejs';
 import get from 'lodash/get';
 import { TdPrimaryTableProps } from '../type';
@@ -66,17 +65,13 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
         context.emit('drag-sort', params);
       },
     };
-    // 注册拖拽事件
-    const rowOptions = {
-      ...baseOptions,
-    };
 
     const colOptions = {
       handle: `.${handle}`,
       ...baseOptions,
     };
     if (isRowDraggable.value) {
-      dragInstance.value = setSortableConfig(dragContainer, rowOptions);
+      dragInstance.value = setSortableConfig(dragContainer, { ...baseOptions });
     } else {
       dragInstance.value = setSortableConfig(dragContainer, colOptions);
     }

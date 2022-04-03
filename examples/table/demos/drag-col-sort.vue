@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="jsx" setup>
 import { ref } from 'vue';
 import { MoveIcon } from 'tdesign-icons-vue-next';
 

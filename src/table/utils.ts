@@ -1,7 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import get from 'lodash/get';
 import isObject from 'lodash/isObject';
-// @ts-ignore sortablejs do not have ts version yet.
 import Sortable, { SortableOptions } from 'sortablejs';
 import { PrimaryTableCol, RowClassNameParams, TableRowData, TdBaseTableProps } from './type';
 import { ClassName, HTMLElementAttributes } from '../common';

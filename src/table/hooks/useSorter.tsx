@@ -54,7 +54,7 @@ export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: S
     const isEmptyArraySort = !sort || (sort instanceof Array && !sort.length);
     const isEmptyObjectSort = !(sort instanceof Array) && !sort?.sortBy;
     if (isEmptyArraySort || isEmptyObjectSort) {
-      setTData(originalData.value);
+      setTData(originalData.value, { trigger: 'sort' });
       return originalData.value;
     }
     const formatedSort = sort instanceof Array ? sort : [sort];
@@ -75,7 +75,7 @@ export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: S
     });
     // Data 变化返回的是数据引用，为避免死循环，特此检测排序数据前后是否相同，如果相同则不再触发事件
     if (JSON.stringify(newData) === JSON.stringify(tData.value)) return;
-    setTData(newData);
+    setTData(newData, { trigger: 'sort' });
     return newData;
   }
 

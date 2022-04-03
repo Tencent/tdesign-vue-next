@@ -117,8 +117,14 @@ export default defineComponent({
   emits: ['row-mounted'],
 
   setup(props: TrProps, context: SetupContext) {
-    const { tdEllipsisClass, tableBaseClass, tableColFixedClasses, tableRowFixedClasses, tdAlignClasses } =
-      useClassName();
+    const {
+      tdEllipsisClass,
+      tableBaseClass,
+      tableColFixedClasses,
+      tableRowFixedClasses,
+      tdAlignClasses,
+      tableDraggableClasses,
+    } = useClassName();
     const trStyles = computed(() =>
       getRowFixedStyles(
         get(props.row, props.rowKey || 'id'),
@@ -231,6 +237,7 @@ export default defineComponent({
       tdEllipsisClass,
       tableBaseClass,
       tdAlignClasses,
+      tableDraggableClasses,
       trStyles,
       classes,
       trAttributes,
@@ -274,6 +281,8 @@ export default defineComponent({
           [this.tableBaseClass.tdLastRow]: rowIndex + cellSpans.rowspan === dataLength,
           [this.tableBaseClass.tdFirstCol]: colIndex === 0 && this.rowspanAndColspan,
           [this.tdAlignClasses[col.align]]: col.align && col.align !== 'left',
+          // 标记可拖拽列
+          [this.tableDraggableClasses.handle]: col.colKey === 'drag',
         },
       ];
       const onClick = (e: MouseEvent) => {
