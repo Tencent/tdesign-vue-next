@@ -105,7 +105,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
     asyncloading="loading"
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -507,7 +507,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
   <div
     class="t-table t-table--bordered t-table--striped"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -1073,7 +1073,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -1280,7 +1280,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
     class="t-table t-table--bordered t-table--striped"
     columncontroller="[object Object]"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -1657,7 +1657,7 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -1960,7 +1960,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -2144,7 +2144,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
     <div
       class="t-table"
       defaultexpandedrowkeys=""
-      dragsort="drag-col"
+      dragsort="col"
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
@@ -2555,7 +2555,7 @@ exports[`Table Table dragColSortVue demo works fine 1`] = `
     <div
       class="t-table t-table--col-draggable"
       defaultexpandedrowkeys=""
-      dragsort="drag-col"
+      dragsort="col"
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
@@ -3112,7 +3112,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -3236,7 +3236,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -3366,7 +3366,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -3640,7 +3640,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandedrow="(h, {
       row
     }) => (0, _vue.createVNode)(\\"div\\", {
@@ -4517,7 +4517,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
   <div
     class="t-table t-table--bordered"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     filtervalue="[object Object]"
@@ -5825,7 +5825,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
   <div
     class="t-table t-table--bordered t-table--column-fixed"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -6331,7 +6331,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
     <div
       class="t-table t-table--bordered t-table--column-fixed"
       defaultexpandedrowkeys=""
-      dragsort="drag-col"
+      dragsort="col"
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
@@ -7651,7 +7651,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
   <div
     class="t-table t-table--bordered"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -8673,7 +8673,7 @@ exports[`Table Table lazyVue demo works fine 1`] = `
     <div
       class="t-table"
       defaultexpandedrowkeys=""
-      dragsort="drag-col"
+      dragsort="col"
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"
@@ -15792,7 +15792,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
   <div
     class="t-table t-size-s"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -15986,7 +15986,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
   <div
     class="t-table t-size-s"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -16190,7 +16190,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
   <div
     class="t-table t-size-s"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -16397,7 +16397,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
   <div
     class="t-table t-size-s t-table--bordered t-table--rowspan-colspan"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -16445,13 +16445,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                <div
-                  class="t-table__ellipsis t-text-ellipsis"
-                >
-                  
-                  平台
-                  
-                </div>
+                平台
               </div>
             </th>
             <th
@@ -16461,13 +16455,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                <div
-                  class="t-table__ellipsis t-text-ellipsis"
-                >
-                  
-                  类型
-                  
-                </div>
+                类型
               </div>
             </th>
             <th
@@ -16477,13 +16465,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                <div
-                  class="t-table__ellipsis t-text-ellipsis"
-                >
-                  
-                  默认值
-                  
-                </div>
+                默认值
               </div>
             </th>
             <th
@@ -16493,13 +16475,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                <div
-                  class="t-table__ellipsis t-text-ellipsis"
-                >
-                  
-                  是否必传
-                  
-                </div>
+                是否必传
               </div>
             </th>
             <th
@@ -16509,13 +16485,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
               <div
                 class="t-table__th-cell-inner"
               >
-                <div
-                  class="t-table__ellipsis t-text-ellipsis"
-                >
-                  
-                  说明
-                  
-                </div>
+                说明
               </div>
             </th>
             
@@ -16533,49 +16503,26 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
           >
             
             <td
-              class="test t-table-td--ellipsis t-table__td-first-col"
+              class="test t-table__td-first-col"
+              rowspan="2"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                公有
-                
-              </div>
+              公有
             </td>
             <td
-              class="row t-table-td--ellipsis"
+              class="row"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                Array&lt;any&gt;
-                
-              </div>
+              Array&lt;any&gt;
             </td>
             <td
-              class="test4 t-table-td--ellipsis"
+              class="test4"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                []
-                
-              </div>
+              []
             </td>
             <td
-              class="test3 t-table-td--ellipsis"
+              class="test3"
               colspan="2"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                Y
-                
-              </div>
+              Y
             </td>
             <!---->
             
@@ -16584,52 +16531,24 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
             class=""
           >
             
+            <!---->
             <td
-              class="test t-table-td--ellipsis t-table__td-first-col"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                私有
-                
-              </div>
-            </td>
-            <td
-              class="row t-table-td--ellipsis"
+              class="row"
               colspan="2"
               rowspan="2"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                String/""
-                
-              </div>
+              String
             </td>
             <!---->
             <td
-              class="test3 t-table-td--ellipsis"
+              class="test3"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                Y
-                
-              </div>
+              Y
             </td>
             <td
-              class="row t-table-td--ellipsis"
+              class="row"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                描述
-                
-              </div>
+              描述
             </td>
             
           </tr>
@@ -16638,39 +16557,49 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
           >
             
             <td
-              class="test t-table-td--ellipsis t-table__td-first-col"
+              class="test t-table__td-first-col"
+              rowspan="2"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                私有
-                
-              </div>
+              公有
             </td>
             <!---->
             <!---->
             <td
-              class="test3 t-table-td--ellipsis"
+              class="test3"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                Y
-                
-              </div>
+              Y
             </td>
             <td
-              class="row t-table-td--ellipsis"
+              class="row"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                复杂类型
-                
-              </div>
+              复杂类型
+            </td>
+            
+          </tr>
+          <tr
+            class=""
+          >
+            
+            <!---->
+            <td
+              class="row"
+            >
+              Boolean
+            </td>
+            <td
+              class="test4"
+            >
+              false
+            </td>
+            <td
+              class="test3"
+            >
+              Y
+            </td>
+            <td
+              class="row"
+            >
+              标识符
             </td>
             
           </tr>
@@ -16679,112 +16608,28 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
           >
             
             <td
-              class="test t-table-td--ellipsis t-table__td-first-col"
+              class="test t-table__td-last-row t-table__td-first-col"
+              rowspan="2"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                公有
-                
-              </div>
+              公有
             </td>
             <td
-              class="row t-table-td--ellipsis"
+              class="row"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                Boolean
-                
-              </div>
+              Array&lt;any&gt;
             </td>
             <td
-              class="test4 t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                false
-                
-              </div>
-            </td>
-            <td
-              class="test3 t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                N
-                
-              </div>
-            </td>
-            <td
-              class="row t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                标识符
-                
-              </div>
-            </td>
-            
-          </tr>
-          <tr
-            class=""
-          >
-            
-            <td
-              class="test t-table-td--ellipsis t-table__td-first-col"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                公有
-                
-              </div>
-            </td>
-            <td
-              class="row t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                Number
-                
-              </div>
-            </td>
-            <td
-              class="test4 t-table-td--ellipsis t-table__td-last-row"
+              class="test4 t-table__td-last-row"
               colspan="2"
               rowspan="2"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                -1 / N
-                
-              </div>
+              -1
             </td>
             <!---->
             <td
-              class="row t-table-td--ellipsis"
+              class="row"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                位置
-                
-              </div>
+              数据源
             </td>
             
           </tr>
@@ -16792,40 +16637,18 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
             class=""
           >
             
+            <!---->
             <td
-              class="test t-table-td--ellipsis t-table__td-first-col"
+              class="row"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                私有
-                
-              </div>
-            </td>
-            <td
-              class="row t-table-td--ellipsis"
-            >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                Number
-                
-              </div>
+              String
             </td>
             <!---->
             <!---->
             <td
-              class="row t-table-td--ellipsis"
+              class="row"
             >
-              <div
-                class="t-table__ellipsis t-text-ellipsis"
-              >
-                
-                Number 类型
-                
-              </div>
+              描述
             </td>
             
           </tr>
@@ -16970,7 +16793,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
       class="t-table t-table--bordered t-table--multiple-header"
       columncontroller="[object Object]"
       defaultexpandedrowkeys=""
-      dragsort="drag-col"
+      dragsort="col"
       expandicon="true"
       expandonrowclick="false"
       filterrow="function () { return null; }"
@@ -17591,7 +17414,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
     <div
       class="t-table"
       defaultexpandedrowkeys=""
-      dragsort="drag-col"
+      dragsort="col"
       expandicon="true"
       expandonrowclick="false"
       multiplesort="true"
@@ -18036,7 +17859,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
 <div
   class="t-table t-table--bordered t-table--striped"
   defaultexpandedrowkeys=""
-  dragsort="drag-col"
+  dragsort="col"
   expandicon="true"
   expandonrowclick="false"
   multiplesort="false"
@@ -18382,7 +18205,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -19029,7 +18852,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -19526,7 +19349,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -20016,7 +19839,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -20348,7 +20171,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
   <div
     class="t-table t-table--bordered"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -20878,7 +20701,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandedrow="(h, {
       row
     }) => (0, _vue.createVNode)(\\"div\\", null, [(0, _vue.createTextVNode)(\\"\\\\u8FD9\\\\u662F\\\\u5C55\\\\u5F00\\\\u9879\\\\u6570\\\\u636E\\\\uFF0C\\"), row.key])"
@@ -21555,7 +21378,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
   <div
     class="t-table"
     defaultexpandedrowkeys=""
-    dragsort="drag-col"
+    dragsort="col"
     expandicon="true"
     expandonrowclick="false"
     multiplesort="false"
@@ -22887,7 +22710,7 @@ exports[`Table Table virtualScrollVue demo works fine 1`] = `
     <div
       class="t-table"
       defaultexpandedrowkeys=""
-      dragsort="drag-col"
+      dragsort="col"
       expandicon="true"
       expandonrowclick="false"
       multiplesort="false"

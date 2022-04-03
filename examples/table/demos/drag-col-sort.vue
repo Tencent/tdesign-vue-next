@@ -3,7 +3,7 @@
     <div class="item">
       <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
 
-      <t-table row-key="id" :columns="columns" :data="data" drag-sort="drag-col" @drag-sort="onDragSort">
+      <t-table row-key="id" :columns="columns" :data="data" drag-sort="col" @drag-sort="onDragSort">
         <template #status="{ row }">
           <p class="status" :class="['', 'warning', 'unhealth'][row.status]">
             {{ ['健康', '警告', '异常'][row.status] }}

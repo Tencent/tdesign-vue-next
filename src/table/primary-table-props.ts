@@ -34,13 +34,13 @@ export default {
   defaultDisplayColumns: {
     type: Array as PropType<TdPrimaryTableProps['defaultDisplayColumns']>,
   },
-  /** 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`drag-col` 表示通过专门的 拖拽列 进行拖拽排序 */
+  /** 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`col` 表示通过专门的 拖拽列 进行拖拽排序。`drag-col` 已废弃，请勿使用 */
   dragSort: {
     type: String as PropType<TdPrimaryTableProps['dragSort']>,
-    default: 'drag-col' as TdPrimaryTableProps['dragSort'],
+    default: 'col' as TdPrimaryTableProps['dragSort'],
     validator(val: TdPrimaryTableProps['dragSort']): boolean {
       if (!val) return true;
-      return ['row', 'drag-col'].includes(val);
+      return ['row', 'col', 'drag-col'].includes(val);
     },
   },
   /** 展开行内容，泛型 T 指表格数据类型 */
@@ -105,7 +105,7 @@ export default {
   sortIcon: {
     type: Function as PropType<TdPrimaryTableProps['sortIcon']>,
   },
-  /** 已废弃。允许表格行拖拽时排序 */
+  /** 已废弃。允许表格行拖拽时排序。请更为使用 `dragSort="row"` */
   sortOnRowDraggable: Boolean,
   /** 异步加载区域被点击时触发 */
   onAsyncLoadingClick: Function as PropType<TdPrimaryTableProps['onAsyncLoadingClick']>,
