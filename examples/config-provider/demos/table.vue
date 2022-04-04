@@ -19,7 +19,7 @@
 <script setup lang="jsx">
 import { ChevronRightIcon, CaretDownSmallIcon } from 'tdesign-icons-vue-next';
 import merge from 'lodash/merge';
-import enConfig from 'tdesign-vue-next/config-provider/en_US_config';
+import enConfig from 'tdesign-vue-next/locale/en_US';
 
 const columns = [
   {

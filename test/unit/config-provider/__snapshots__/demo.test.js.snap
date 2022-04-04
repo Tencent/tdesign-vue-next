@@ -9604,7 +9604,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                ascending sort
+                                click to sort ascending
                                 <!---->
                               </div>
                             </div>
@@ -9645,7 +9645,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                descending sort
+                                click to sort descending
                                 <!---->
                               </div>
                             </div>
@@ -9727,7 +9727,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                ascending sort
+                                click to sort ascending
                                 <!---->
                               </div>
                             </div>
@@ -9768,7 +9768,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                descending sort
+                                click to sort descending
                                 <!---->
                               </div>
                             </div>
@@ -9968,7 +9968,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                ascending sort
+                                click to sort ascending
                                 <!---->
                               </div>
                             </div>
@@ -10009,7 +10009,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                descending sort
+                                click to sort descending
                                 <!---->
                               </div>
                             </div>
@@ -10091,7 +10091,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                ascending sort
+                                click to sort ascending
                                 <!---->
                               </div>
                             </div>
@@ -10132,7 +10132,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                descending sort
+                                click to sort descending
                                 <!---->
                               </div>
                             </div>

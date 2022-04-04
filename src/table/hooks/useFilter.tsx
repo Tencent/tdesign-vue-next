@@ -5,6 +5,7 @@ import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue } from 
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
+import { useConfig } from '../../config-provider';
 
 // 筛选条件不为空，才需要显示筛选结果行
 function filterEmptyData(data: FilterValue) {
@@ -23,6 +24,7 @@ function filterEmptyData(data: FilterValue) {
 
 export default function useFilter(props: TdPrimaryTableProps) {
   const primaryTableRef = ref(null);
+  const { t, global } = useConfig('table');
   const renderTNode = useTNodeDefault();
   const { filterValue } = toRefs(props);
   const { tableFilterClasses, isFocusClass } = useClassName();
@@ -52,10 +54,16 @@ export default function useFilter(props: TdPrimaryTableProps) {
     if (hasEmptyCondition.value) return null;
     const defaultNode = (
       <div class={tableFilterClasses.result}>
-        <span>搜索 “{getFilterResultContent()}”，</span>
-        <span>找到 {props.pagination?.total || props.data?.length} 条结果</span>
+        <span>
+          {/* 搜索 “{getFilterResultContent()}”， */}
+          {/* 找到 {props.pagination?.total || props.data?.length} 条结果 */}
+          {t(global.value.searchResultText, {
+            result: getFilterResultContent(),
+            count: props.pagination?.total || props.data?.length,
+          })}
+        </span>
         <TButton theme="primary" variant="text" onClick={onResetAll}>
-          清空筛选
+          {global.value.clearFilterResultButtonText}
         </TButton>
       </div>
     );

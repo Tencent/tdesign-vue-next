@@ -521,6 +521,36 @@ export interface StepsConfig {
 
 export interface TableConfig {
   /**
+   * 语言配置，'取消' 描述文本
+   * @default '取消'
+   */
+  cancelText?: string;
+  /**
+   * 语言配置，过滤功能中，'清空筛选' 描述文本
+   * @default '清空筛选'
+   */
+  clearFilterResultButtonText?: string;
+  /**
+   * 语言配置，列配置功能中，'列配置' 按钮描述文本
+   * @default '列配置'
+   */
+  columnConfigButtonText?: string;
+  /**
+   * 语言配置，'请选择需要在表格中显示的数据列' 描述文本，列配置功能中弹框顶部描述
+   * @default '请选择需要在表格中显示的数据列'
+   */
+  columnConfigDescriptionText?: string;
+  /**
+   * 语言配置，'表格列配置' 描述文本，列配置功能中弹框的标题
+   * @default '表格列配置'
+   */
+  columnConfigTitleText?: string;
+  /**
+   * 语言配置，'确认' 描述文本
+   * @default '确认'
+   */
+  confirmText?: string;
+  /**
    * 语言配置，'暂无数据' 描述文本
    * @default '暂无数据'
    */
@@ -543,6 +573,21 @@ export interface TableConfig {
    * @default '正在加载中，请稍后'
    */
   loadingText?: string;
+  /**
+   * 语言配置，'重置' 描述文本
+   * @default '重置'
+   */
+  resetText?: string;
+  /**
+   * 语言配置，过滤功能中，过滤条件和结果描述文本
+   * @default '搜索“{result}”，找到 {count} 条结果'
+   */
+  searchResultText?: string;
+  /**
+   * 语言配置，'全选' 描述文本
+   * @default '全部'
+   */
+  selectAllText?: string;
   /**
    * 语言配置，'点击升序' 描述文本
    * @default '点击升序'

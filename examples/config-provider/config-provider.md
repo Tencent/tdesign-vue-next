@@ -7,7 +7,7 @@
 -- | -- | -- | -- | --
 alert | Object | - | 警告全局配置。TS 类型：`AlertConfig` | N
 anchor | Object | - | 锚点全局配置。TS 类型：`AnchorConfig` | N
-animation | Object | `{ include: ['ripple','expand','fade'], exclude: [] }` | 动画效果控制，`ripple`指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。TS 类型：`Record<'include'|'exclude', Array<AnimationType>> ` `type AnimationType = 'ripple' | 'expand' | 'fade'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
+animation | Object | `{ include: ['ripple','expand','fade'], exclude: [] }` | 动画效果控制，`ripple`指波纹动画， `expand` 指展开动画，`fade` 指渐变动画。TS 类型：`Record<'include'|'exclude', Array<AnimationType>>` `type AnimationType = 'ripple' | 'expand' | 'fade'`。[详细类型定义](https://github.com/Tencent/tdesign-vue-next/tree/develop/src/config-provider/type.ts) | N
 calendar | Object | - | 日历组件全局配置。TS 类型：`CalendarConfig` | N
 cascader | Object | - | 级联选择器全局配置。TS 类型：`CascaderConfig` | N
 classPrefix | String | t | CSS 类名前缀 | N
@@ -194,11 +194,20 @@ errorIcon | Slot / Function | - | 错误步骤图标，【注意】使用渲染�
 
 名称 | 类型 | 默认值 | 说明 | 必传
 -- | -- | -- | -- | --
+cancelText | String | '取消' | 语言配置，'取消' 描述文本 | N
+clearFilterResultButtonText | String | '清空筛选' | 语言配置，过滤功能中，'清空筛选' 描述文本 | N
+columnConfigButtonText | String | '列配置' | 语言配置，列配置功能中，'列配置' 按钮描述文本 | N
+columnConfigDescriptionText | String | '请选择需要在表格中显示的数据列' | 语言配置，'请选择需要在表格中显示的数据列' 描述文本，列配置功能中弹框顶部描述 | N
+columnConfigTitleText | String | '表格列配置' | 语言配置，'表格列配置' 描述文本，列配置功能中弹框的标题 | N
+confirmText | String | '确认' | 语言配置，'确认' 描述文本 | N
 empty | String / Slot / Function | '暂无数据' | 语言配置，'暂无数据' 描述文本。TS 类型：`string | TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 expandIcon | Slot / Function | undefined | 展开和收起图标（配置传入收起图标即可），如果没有配置，组件会内置默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 filterIcon | Slot / Function | undefined | 过滤图标，如果没有配置，组件会内置默认图标。TS 类型：`TNode`。[通用类型定义](https://github.com/Tencent/tdesign-vue-next/blob/develop/src/common.ts) | N
 loadingMoreText | String | '点击加载更多' | 语言配置，'点击加载更多' 描述文本 | N
 loadingText | String | '正在加载中，请稍后' | 语言配置，'正在加载中，请稍后' 描述文本 | N
+resetText | String | '重置' | 语言配置，'重置' 描述文本 | N
+searchResultText | String | '搜索“{result}”，找到 {count} 条结果' | 语言配置，过滤功能中，过滤条件和结果描述文本 | N
+selectAllText | String | '全部' | 语言配置，'全选' 描述文本 | N
 sortAscendingOperationText | String | '点击升序' | 语言配置，'点击升序' 描述文本 | N
 sortCancelOperationText | String | '点击取消排序' | 语言配置，'点击取消排序' 描述文本 | N
 sortDescendingOperationText | String | '点击降序' | 语言配置，'点击降序' 描述文本 | N

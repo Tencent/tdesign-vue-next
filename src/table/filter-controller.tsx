@@ -119,7 +119,7 @@ export default defineComponent({
               this.filterPopupVisible = false;
             }}
           >
-            重置
+            {this.global.resetText}
           </TButton>
           <TButton
             theme="primary"
@@ -129,7 +129,7 @@ export default defineComponent({
               this.filterPopupVisible = false;
             }}
           >
-            确认
+            {this.global.confirmText}
           </TButton>
         </div>
       );

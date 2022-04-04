@@ -28,7 +28,6 @@ export default function useAsyncLoading(props: TdPrimaryTableProps, context: Set
     const asyncLoadingNode = renderTNode('asyncLoading');
     if (isString(asyncLoadingNode)) {
       const { asyncLoading } = props;
-      // TODO: GLOBLE_CONFIG
       const loadingText = {
         'load-more': global.value.loadingMoreText,
         loading: global.value.loadingText,
