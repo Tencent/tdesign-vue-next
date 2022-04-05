@@ -62,6 +62,8 @@ export function formatRowClassNames(
       // 根据行唯一标识设置行类名
       const rowId = get(row, rowKey || 'id');
       tClass[rowId] && (tClass = tClass[rowId]);
+    } else if (tClass instanceof Array) {
+      tClass = formatRowClassNames(tClass, params, rowKey);
     }
     customClasses = customClasses.concat(tClass);
   }

@@ -19791,7 +19791,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             
           </tr>
           <tr
-            class=""
+            class="t-table__row--disabled"
           >
             
             <td
@@ -19863,7 +19863,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             
           </tr>
           <tr
-            class=""
+            class="t-table__row--selected"
           >
             
             <td
@@ -19934,7 +19934,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             
           </tr>
           <tr
-            class=""
+            class="t-table__row--disabled"
           >
             
             <td

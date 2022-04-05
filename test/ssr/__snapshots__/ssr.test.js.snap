@@ -46973,7 +46973,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
             </td>
             <!--]-->
           </tr>
-          <tr style="" class="">
+          <tr style="" class="t-table__row--disabled">
             <!--[-->
             <td class="" style=""><label class="t-radio t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" disabled name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
             <td class="" style="">JQTest2</td>
@@ -46991,7 +46991,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
             </td>
             <!--]-->
           </tr>
-          <tr style="" class="">
+          <tr style="" class="t-table__row--selected">
             <!--[-->
             <td class="" style=""><label class="t-radio t-is-checked" modelvalue="false"><input type="radio" class="t-radio__former" checked name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
             <td class="" style="">JQTest3</td>
@@ -47009,7 +47009,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
             </td>
             <!--]-->
           </tr>
-          <tr style="" class="">
+          <tr style="" class="t-table__row--disabled">
             <!--[-->
             <td class="" style=""><label class="t-radio t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" disabled name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
             <td class="" style="">JQTest4</td>

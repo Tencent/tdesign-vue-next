@@ -147,7 +147,7 @@ export default defineComponent({
         { row: props.row, rowIndex: props.rowIndex, type: 'body' },
         props.rowKey || 'id',
       );
-      return [trStyles.value?.classes, customClasses];
+      return [trStyles.value?.classes, customClasses].filter((v) => v);
     });
 
     const getTrListeners = (row: TableRowData, rowIndex: number) => {
