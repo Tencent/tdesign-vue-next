@@ -14824,6 +14824,16 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/dialog.vue c
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/config-provider/demos/global.vue correctly 1`] = `
+<div>
+  <!--[-->
+  <div>使用<code>t-config-provider</code>包裹业务功能的最外层组件，点击下方图标查看示例代码</div><br>
+  <div>英文语言包引入路径：<code>import enConfig from &#39;tdesign-vue-next/locale/en_US&#39;;</code></div><br>
+  <div>中文语言包引入路径：<code>import enConfig from &#39;tdesign-vue-next/locale/zh_CN&#39;;</code></div>
+  <!--]-->
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue correctly 1`] = `
 <div class="tdesign-demo-item--locale-provider-base">
   <!--[-->
@@ -15804,6 +15814,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
     </div>
     <!---->
     <!---->
+    <!---->
   </div><br><br><!-- 全局配置：自定义展开图标和排序图标，演示 -->
   <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="true" multiplesort="false" sortonrowdraggable="false">
     <!---->
@@ -15957,6 +15968,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div><br><br>
@@ -37448,6 +37460,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -37595,6 +37608,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <div class="t-table__pagination">
       <div class="t-pagination t-size-m">
@@ -37753,6 +37767,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -37760,10 +37775,252 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correc
 exports[`ssr snapshot test renders ./examples/table/demos/custom-col.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large">
   <!-- 按钮操作区域 -->
-  <!-- 设置哪些列允许自定义显示 :columnController="{ fields: ['platform', 'type', 'default']}" -->
+  <div><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->显示列配置弹窗<!--]--></span></button></div><!-- 1. defaultDisplayColumns = ['platform'] 设置默认显示哪些列，仅第一次有效 -->
+  <!-- 2. displayColumns 动态设置显示哪些列，受控属性，支持 displayColumns.sync 语法糖 -->
+  <!-- 3. onDisplayColumnsChange 当前显示列发生变化时触发 -->
+  <!-- 受控用法，示例代码有效，勿删  -->
+  <div class="t-table t-table--striped" style="position:relative;" columncontrollervisible="false" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+    <!---->
+    <!---->
+    <div class="t-table__content" style="">
+      <!---->
+      <table class="t-table--layout-auto" style="width:;">
+        <colgroup>
+          <!--[-->
+          <col style="">
+          <col style="">
+          <col style="">
+          <col style="">
+          <col style="">
+          <col style="">
+          <!--]-->
+        </colgroup>
+        <thead class="t-table__header">
+          <!--[-->
+          <tr>
+            <!--[-->
+            <th data-colkey="index" class="row t-table__th-index t-align-center" style="">
+              <div class="t-table__th-cell-inner">序号</div>
+            </th>
+            <th data-colkey="platform" class="t-table__th-platform" style="">
+              <div class="t-table__th-cell-inner">平台</div>
+            </th>
+            <th data-colkey="type" class="t-table__th-type" style="">
+              <div class="t-table__th-cell-inner">类型</div>
+            </th>
+            <th data-colkey="default" class="t-table__th-default" style="">
+              <div class="t-table__th-cell-inner">默认值</div>
+            </th>
+            <th data-colkey="needed" class="t-table__th-needed" style="">
+              <div class="t-table__th-cell-inner">是否必传</div>
+            </th>
+            <th data-colkey="detail.position" class="t-table__th-detail.position" style="">
+              <div class="t-table__th-cell-inner">
+                <div class="t-table__ellipsis t-text-ellipsis">
+                  <!--[-->详情信息
+                  <!--]-->
+                </div>
+              </div>
+            </th>
+            <!--]-->
+          </tr>
+          <!--]-->
+        </thead>
+        <tbody class="t-table__body" style="">
+          <!--[-->
+          <!---->
+          <!--[-->
+          <tr style="" class="">
+            <!--[-->
+            <td class="row t-align-center" style="">0</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">String</td>
+            <td class="" style="">-</td>
+            <td class="" style="">是</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 0 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="row t-align-center" style="">1</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Number</td>
+            <td class="" style="">0</td>
+            <td class="" style="">否</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 1 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="row t-align-center" style="">2</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">Array</td>
+            <td class="" style="">[]</td>
+            <td class="" style="">否</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 2 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="row t-align-center" style="">3</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Object</td>
+            <td class="" style="">{}</td>
+            <td class="" style="">否</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 3 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="row t-align-center" style="">4</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">String</td>
+            <td class="" style="">-</td>
+            <td class="" style="">是</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 4 个数据的嵌套信息值
+                <!--]-->
+              </div>
+            </td>
+            <!--]-->
+          </tr>
+          <!--]-->
+          <!---->
+          <!--]-->
+        </tbody>
+        <!---->
+      </table>
+    </div>
+    <!---->
+    <!---->
+    <div class="t-table__pagination">
+      <div class="t-pagination t-size-m">
+        <div class="t-pagination__total">共 100 项数据</div>
+        <div class="t-select__wrap t-pagination__select">
+          <div class="t-popup__reference t-select__popup-reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+                <!--[-->
+                <div class="t-select__dropdown-inner">
+                  <!---->
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
+                    <li class="t-select-option t-size-m t-select__create-option--special" title><span></span></li>
+                  </ul>
+                  <!---->
+                  <li class="t-select__empty t-size-m">暂无数据</li>
+                  <ul class="t-select__groups t-select__list">
+                    <!--[-->
+                    <!--[-->
+                    <li class="t-select-option t-is-selected t-size-m" title="5 条/页"><span>5 条/页</span></li>
+                    <li class="t-select-option t-size-m" title="10 条/页"><span>10 条/页</span></li>
+                    <li class="t-select-option t-size-m" title="20 条/页"><span>20 条/页</span></li>
+                    <li class="t-select-option t-size-m" title="50 条/页"><span>50 条/页</span></li>
+                    <!--]-->
+                    <!--]-->
+                  </ul>
+                  <!---->
+                </div>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-select t-select-polyfill t-size-m">
+              <!---->
+              <!---->
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
+              <!---->
+              <!---->
+            </div>
+            <!--]-->
+          </div>
+        </div>
+        <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
+            <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
+          </svg></div>
+        <ul class="t-pagination__pager">
+          <li class="t-pagination__number t-is-current">1</li>
+          <!---->
+          <!--[-->
+          <li class="t-pagination__number">2</li>
+          <li class="t-pagination__number">3</li>
+          <li class="t-pagination__number">4</li>
+          <li class="t-pagination__number">5</li>
+          <!--]-->
+          <li class="t-pagination__number t-pagination__number--more"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-ellipsis" style="">
+              <path fill="currentColor" d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z" fill-opacity="0.9"></path>
+            </svg></li>
+          <li class="t-pagination__number">20</li>
+        </ul>
+        <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
+            <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
+          </svg></div>
+        <!---->
+      </div>
+    </div>
+  </div><!-- 非受控用法，示例代码有效，勿删 -->
+  <!-- <t-table
+      row-key="index"
+      :data="data"
+      :columns="columns"
+      :column-controller="{ displayType: 'fixed-width', fields: ['platform', 'type', 'default'] }"
+      table-layout="auto"
+      stripe
+      bordered
+      @column-change="onColumnChange"
+    ></t-table> -->
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/table/demos/custom-col-button.vue correctly 1`] = `
+<div class="tdesign-demo-block-column-large">
+  <!-- 按钮操作区域 -->
+  <div>
+    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="top-right">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="top-left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左上角<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="top-right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右上角<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="bottom-left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左下角<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="bottom-right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右下角<!--]--><!--]--></span></label>
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+      <!--]-->
+    </div><br><br><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否显示边框<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->自定义列配置按钮<!--]--></span></label>
+  </div><!-- 1. defaultDisplayColumns = ['platform'] 设置默认显示哪些列，仅第一次有效 -->
+  <!-- 2. displayColumns 动态设置显示哪些列，受控属性，支持 displayColumns.sync 语法糖 -->
+  <!-- 3. onDisplayColumnsChange 当前显示列发生变化时触发 -->
+  <!-- 4. 如果希望顶部内容 和 列配置按钮 保持在同一行，可将内容放在 topContent，并调整按钮父元素宽度(CSS) -->
+  <!-- 受控用法，示例代码有效，勿删  -->
   <div class="t-table t-table--bordered t-table--striped" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <div class="t-table__top-content">
-      <div class="t-table__column-controller"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-setting" style="" slot="icon"><path fill="currentColor" d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z" fill-opacity="0.9"></path></svg>列配置<!--]--></span></button></div>
+      <div class="t-table__column-controller-trigger t-align-top-right"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button">
+          <!--[-->
+          <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-setting" style="">
+            <path fill="currentColor" d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z" fill-opacity="0.9"></path>
+            <path fill="currentColor" d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z" fill-opacity="0.9"></path>
+          </svg>
+          <!--]--><span class="t-button__text">列配置</span>
+          <!--]-->
+        </button></div>
     </div>
     <!---->
     <div class="t-table__content" style="">
@@ -37898,7 +38155,85 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col.vue correct
     </div>
     <!---->
     <!---->
-  </div>
+    <div class="t-table__pagination">
+      <div class="t-pagination t-size-m">
+        <div class="t-pagination__total">共 100 项数据</div>
+        <div class="t-select__wrap t-pagination__select">
+          <div class="t-popup__reference t-select__popup-reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-select__dropdown narrow-scrollbar">
+                <!--[-->
+                <div class="t-select__dropdown-inner">
+                  <!---->
+                  <ul class="t-select__create-option t-select__list" style="display:none;">
+                    <li class="t-select-option t-size-m t-select__create-option--special" title><span></span></li>
+                  </ul>
+                  <!---->
+                  <li class="t-select__empty t-size-m">暂无数据</li>
+                  <ul class="t-select__groups t-select__list">
+                    <!--[-->
+                    <!--[-->
+                    <li class="t-select-option t-is-selected t-size-m" title="5 条/页"><span>5 条/页</span></li>
+                    <li class="t-select-option t-size-m" title="10 条/页"><span>10 条/页</span></li>
+                    <li class="t-select-option t-size-m" title="20 条/页"><span>20 条/页</span></li>
+                    <li class="t-select-option t-size-m" title="50 条/页"><span>50 条/页</span></li>
+                    <!--]-->
+                    <!--]-->
+                  </ul>
+                  <!---->
+                </div>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <div class="t-select t-select-polyfill t-size-m">
+              <!---->
+              <!---->
+              <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span><span title="5" class="t-select__single">5</span>
+              <!----><svg class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="">
+                <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+              </svg>
+              <!---->
+              <!---->
+            </div>
+            <!--]-->
+          </div>
+        </div>
+        <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
+            <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
+          </svg></div>
+        <ul class="t-pagination__pager">
+          <li class="t-pagination__number t-is-current">1</li>
+          <!---->
+          <!--[-->
+          <li class="t-pagination__number">2</li>
+          <li class="t-pagination__number">3</li>
+          <li class="t-pagination__number">4</li>
+          <li class="t-pagination__number">5</li>
+          <!--]-->
+          <li class="t-pagination__number t-pagination__number--more"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-ellipsis" style="">
+              <path fill="currentColor" d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z" fill-opacity="0.9"></path>
+            </svg></li>
+          <li class="t-pagination__number">20</li>
+        </ul>
+        <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
+            <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
+          </svg></div>
+        <!---->
+      </div>
+    </div>
+  </div><!-- 非受控用法，示例代码有效，勿删 -->
+  <!-- <t-table
+      row-key="index"
+      :data="data"
+      :columns="columns"
+      :column-controller="{ displayType: 'fixed-width', fields: ['platform', 'type', 'default'] }"
+      table-layout="auto"
+      stripe
+      bordered
+      @column-change="onColumnChange"
+    ></t-table> -->
 </div>
 `;
 
@@ -38028,6 +38363,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-footer.vue corr
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -38094,6 +38430,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue corr
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -38254,6 +38591,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -38374,6 +38712,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-col-sort.vue corr
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -38478,6 +38817,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctl
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -38539,6 +38879,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
     </div>
     <!---->
     <!---->
+    <!---->
   </div><br><br>
   <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <!---->
@@ -38597,6 +38938,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
     </div>
     <!---->
     <!---->
+    <!---->
   </div><br><br>
   <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <!---->
@@ -38650,6 +38992,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -38871,6 +39214,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div><!-- !! 也可以使用具名插槽 \`expandedRow\` 自定义展开行内容 !! -->
@@ -39225,6 +39569,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -39388,6 +39733,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -39777,6 +40123,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue corre
         </tfoot>
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -40175,6 +40522,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
         </tfoot>
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -45235,6 +45583,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`]
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -45338,6 +45687,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
   <div class="t-table t-size-s" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <!---->
@@ -45439,6 +45789,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
   <div class="t-table t-size-s" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <!---->
@@ -45536,6 +45887,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         </div>
       </div>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -45649,6 +46001,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correc
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -45662,7 +46015,15 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
   <!-- 多级表头中，如果要使用固定列功能，则必须设置 colKey 和 fixed -->
   <div class="t-table t-table--bordered t-table--multiple-header" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <div class="t-table__top-content">
-      <div class="t-table__column-controller"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-setting" style="" slot="icon"><path fill="currentColor" d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z" fill-opacity="0.9"></path><path fill="currentColor" d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z" fill-opacity="0.9"></path></svg>列配置<!--]--></span></button></div>
+      <div class="t-table__column-controller-trigger t-align-top-right"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button">
+          <!--[-->
+          <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-setting" style="">
+            <path fill="currentColor" d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z" fill-opacity="0.9"></path>
+            <path fill="currentColor" d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z" fill-opacity="0.9"></path>
+          </svg>
+          <!--]--><span class="t-button__text">列配置</span>
+          <!--]-->
+        </button></div>
     </div>
     <!---->
     <div class="t-table__content" style="max-height:380px;">
@@ -45839,6 +46200,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 <!--]-->
@@ -46013,6 +46375,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -46163,6 +46526,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
       </table>
     </div>
     <!---->
+    <!---->
     <div class="t-table__pagination">
       <div class="t-pagination t-size-m">
         <div class="t-pagination__total">共 60 项数据</div>
@@ -46298,6 +46662,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
       <!---->
     </table>
   </div>
+  <!---->
   <!---->
   <div class="t-table__pagination">
     <div class="t-pagination t-size-m">
@@ -46531,6 +46896,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-multiple.vue co
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -46688,6 +47054,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -46813,6 +47180,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue corre
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -46998,6 +47366,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -47303,6 +47672,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
       </table>
     </div>
     <!---->
+    <!---->
     <div class="t-table__pagination">
       <div class="t-pagination t-size-m">
         <div class="t-pagination__total">共 100 项数据</div>
@@ -47543,6 +47913,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -47594,6 +47965,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/virtual-scroll.vue cor
           <!---->
         </table>
       </div>
+      <!---->
       <!---->
       <!---->
     </div>

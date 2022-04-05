@@ -10,6 +10,10 @@ import { PropType } from 'vue';
 export default {
   /** 是否显示表格边框 */
   bordered: Boolean,
+  /** 表格底部内容，可以用于自定义列设置等 */
+  bottomContent: {
+    type: [String, Function] as PropType<TdBaseTableProps['bottomContent']>,
+  },
   /** 列配置，泛型 T 指表格数据类型 */
   columns: {
     type: Array as PropType<TdBaseTableProps['columns']>,
@@ -120,7 +124,7 @@ export default {
       return ['auto', 'fixed'].includes(val);
     },
   },
-  /** 表格顶部内容，可以用于自定义列设置等 */
+  /** 表格顶部内容，可以用于自定义列设置、顶部查询条件等 */
   topContent: {
     type: [String, Function] as PropType<TdBaseTableProps['topContent']>,
   },

@@ -2,25 +2,35 @@
   <div class="tdesign-demo-block-column-large">
     <!-- 按钮操作区域 -->
     <div>
-      <t-button @click="columnControllerVisible = true">显示列配置弹窗</t-button>
+      <t-radio-group v-model="placement" variant="default-filled">
+        <t-radio-button value="top-left">左上角</t-radio-button>
+        <t-radio-button value="top-right">右上角</t-radio-button>
+        <t-radio-button value="bottom-left">左下角</t-radio-button>
+        <t-radio-button value="bottom-right">右下角</t-radio-button>
+      </t-radio-group>
+      <br /><br />
+      <t-checkbox v-model="bordered">是否显示边框</t-checkbox>
+      <t-checkbox v-model="customText">自定义列配置按钮</t-checkbox>
     </div>
 
     <!-- 1. defaultDisplayColumns = ['platform'] 设置默认显示哪些列，仅第一次有效 -->
     <!-- 2. displayColumns 动态设置显示哪些列，受控属性，支持 displayColumns.sync 语法糖 -->
     <!-- 3. onDisplayColumnsChange 当前显示列发生变化时触发 -->
+    <!-- 4. 如果希望顶部内容 和 列配置按钮 保持在同一行，可将内容放在 topContent，并调整按钮父元素宽度(CSS) -->
     <!-- 受控用法，示例代码有效，勿删  -->
     <t-table
       v-model:displayColumns="displayColumns"
-      v-model:columnControllerVisible="columnControllerVisible"
       row-key="index"
       :data="data"
       :columns="columns"
       :column-controller="{
+        placement,
         fields: ['platform', 'type', 'default'],
         dialogProps: { preventScrollThrough: true },
-        hideTriggerButton: true,
+        buttonProps: customText ? { content: '显示列控制', theme: 'primary', variant: 'base' } : undefined,
       }"
       :pagination="{ defaultPageSize: 5, defaultCurrent: 1, total: 100 }"
+      :bordered="bordered"
       table-layout="auto"
       stripe
       @column-change="onColumnChange"
@@ -42,6 +52,10 @@
 <script setup lang="jsx">
 import { ref } from 'vue';
 
+const placement = ref('top-right');
+const bordered = ref(true);
+const customText = ref(false);
+
 const initialData = [];
 for (let i = 0; i < 100; i++) {
   initialData.push({
@@ -61,8 +75,6 @@ const data = ref([...initialData]);
 
 const staticColumn = ['index', 'needed', 'detail.position'];
 const displayColumns = ref(staticColumn.concat(['platform', 'type', 'default']));
-
-const columnControllerVisible = ref(false);
 
 const columns = [
   {

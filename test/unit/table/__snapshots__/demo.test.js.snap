@@ -342,6 +342,7 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -840,6 +841,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
       </table>
     </div>
     <!---->
+    <!---->
     <div
       class="t-table__pagination"
     >
@@ -1266,6 +1268,7 @@ exports[`Table Table customCellVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -1275,11 +1278,30 @@ exports[`Table Table customColVue demo works fine 1`] = `
   class="tdesign-demo-block-column-large"
 >
   <!-- 按钮操作区域 -->
-  <!-- 设置哪些列允许自定义显示 :columnController="{ fields: ['platform', 'type', 'default']}" -->
+  <div>
+    <button
+      class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+      type="button"
+    >
+      <span
+        class="t-button__text"
+      >
+        
+        显示列配置弹窗
+        
+      </span>
+    </button>
+  </div>
+  <!-- 1. defaultDisplayColumns = ['platform'] 设置默认显示哪些列，仅第一次有效 -->
+  <!-- 2. displayColumns 动态设置显示哪些列，受控属性，支持 displayColumns.sync 语法糖 -->
+  <!-- 3. onDisplayColumnsChange 当前显示列发生变化时触发 -->
+  <!-- 受控用法，示例代码有效，勿删  -->
   <div
-    class="t-table t-table--bordered t-table--striped"
+    class="t-table t-table--striped"
     columncontroller="[object Object]"
+    columncontrollervisible="false"
     defaultexpandedrowkeys=""
+    displaycolumns="index,needed,detail.position,platform,type,default"
     dragsort="col"
     expandicon="true"
     expandonrowclick="false"
@@ -1287,45 +1309,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
     sortonrowdraggable="false"
     style="position: relative;"
   >
-    <div
-      class="t-table__top-content"
-    >
-      <div
-        class="t-table__column-controller"
-      >
-        <button
-          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          type="button"
-        >
-          <span
-            class="t-button__text"
-          >
-            
-            <svg
-              class="t-icon t-icon-setting"
-              fill="none"
-              height="1em"
-              slot="icon"
-              viewBox="0 0 16 16"
-              width="1em"
-            >
-              <path
-                d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-              <path
-                d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z"
-                fill="currentColor"
-                fill-opacity="0.9"
-              />
-            </svg>
-            列配置
-            
-          </span>
-        </button>
-      </div>
-    </div>
+    <!---->
     <!---->
     <div
       class="t-table__content"
@@ -1645,7 +1629,254 @@ exports[`Table Table customColVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <div
+      class="t-table__pagination"
+    >
+      <div
+        class="t-pagination t-size-m"
+      >
+        <div
+          class="t-pagination__total"
+        >
+          共 100 项数据
+        </div>
+        <div
+          class="t-select__wrap t-pagination__select"
+        >
+          <div
+            class="t-popup__reference t-select__popup-reference"
+          >
+            <transition-stub>
+              <div
+                aria-hidden="true"
+                class="t-popup"
+                role="tooltip"
+                style="display: none;"
+              >
+                <div
+                  class="t-popup__content t-select__dropdown narrow-scrollbar"
+                >
+                  
+                  <div
+                    class="t-select__dropdown-inner"
+                  >
+                    <!---->
+                    <ul
+                      class="t-select__create-option t-select__list"
+                      style="display: none;"
+                    >
+                      <li
+                        class="t-select-option t-size-m t-select__create-option--special"
+                        title=""
+                      >
+                        <span>
+                          
+                        </span>
+                      </li>
+                    </ul>
+                    <!---->
+                    <li
+                      class="t-select__empty t-size-m"
+                    >
+                      暂无数据
+                    </li>
+                    <ul
+                      class="t-select__groups t-select__list"
+                    >
+                      
+                      
+                      <li
+                        class="t-select-option t-is-selected t-size-m"
+                        title="5 条/页"
+                      >
+                        <span>
+                          5 条/页
+                        </span>
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="10 条/页"
+                      >
+                        <span>
+                          10 条/页
+                        </span>
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="20 条/页"
+                      >
+                        <span>
+                          20 条/页
+                        </span>
+                      </li>
+                      <li
+                        class="t-select-option t-size-m"
+                        title="50 条/页"
+                      >
+                        <span>
+                          50 条/页
+                        </span>
+                      </li>
+                      
+                      
+                    </ul>
+                    <!---->
+                  </div>
+                  
+                  <!---->
+                </div>
+              </div>
+            </transition-stub>
+            
+            <div
+              class="t-select t-select-polyfill t-size-m"
+            >
+              <!---->
+              <!---->
+              <!---->
+              <span
+                class="t-tag t-tag--default t-tag--dark t-size-m"
+                style="display: none;"
+              >
+                <!---->
+                
+                +0
+                
+                <!---->
+              </span>
+              <span
+                class="t-select__single"
+                title="5"
+              >
+                5
+              </span>
+              <!---->
+              <svg
+                class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                  stroke="black"
+                  stroke-opacity="0.9"
+                  stroke-width="1.3"
+                />
+              </svg>
+              <!---->
+              <!---->
+            </div>
+            
+          </div>
+        </div>
+        <div
+          class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
+          disabled="true"
+        >
+          <svg
+            class="t-icon t-icon-chevron-left"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </div>
+        <ul
+          class="t-pagination__pager"
+        >
+          <li
+            class="t-pagination__number t-is-current"
+          >
+            1
+          </li>
+          <!---->
+          
+          <li
+            class="t-pagination__number"
+          >
+            2
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            3
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            4
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            5
+          </li>
+          
+          <li
+            class="t-pagination__number t-pagination__number--more"
+          >
+            <svg
+              class="t-icon t-icon-ellipsis"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M3 9a1 1 0 110-2 1 1 0 010 2zM7 8a1 1 0 102 0 1 1 0 00-2 0zM12 8a1 1 0 102 0 1 1 0 00-2 0z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </li>
+          <li
+            class="t-pagination__number"
+          >
+            20
+          </li>
+        </ul>
+        <div
+          class="t-pagination__btn t-pagination__btn-next"
+          disabled="false"
+        >
+          <svg
+            class="t-icon t-icon-chevron-right"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </div>
+        <!---->
+      </div>
+    </div>
   </div>
+  <!-- 非受控用法，示例代码有效，勿删 -->
+  <!-- &lt;t-table
+      row-key="index"
+      :data="data"
+      :columns="columns"
+      :column-controller="{ displayType: 'fixed-width', fields: ['platform', 'type', 'default'] }"
+      table-layout="auto"
+      stripe
+      bordered
+      @column-change="onColumnChange"
+    &gt;&lt;/t-table&gt; -->
 </div>
 `;
 
@@ -1951,6 +2182,7 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -2097,6 +2329,7 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -2539,6 +2772,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -2857,6 +3091,7 @@ exports[`Table Table dragColSortVue demo works fine 1`] = `
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -3102,6 +3337,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -3228,6 +3464,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -3360,6 +3597,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
   <br />
   <br />
@@ -3486,6 +3724,7 @@ exports[`Table Table emptyVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -4365,6 +4604,7 @@ exports[`Table Table expandableVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -5623,6 +5863,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -6232,6 +6473,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -7556,6 +7798,7 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
   
@@ -8642,6 +8885,7 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
         </tfoot>
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -15782,6 +16026,7 @@ exports[`Table Table lazyVue demo works fine 1`] = `
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -15980,6 +16225,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         <!---->
       </div>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -16186,6 +16432,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
   <div
     class="t-table t-size-s"
@@ -16386,6 +16633,7 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         </div>
       </div>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -16661,6 +16909,7 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -16806,38 +17055,39 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
         class="t-table__top-content"
       >
         <div
-          class="t-table__column-controller"
+          class="t-table__column-controller-trigger t-align-top-right"
         >
           <button
             class="t-button t-size-m t-button--variant-outline t-button--theme-default"
             type="button"
           >
+            
+            
+            <svg
+              class="t-icon t-icon-setting"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+              <path
+                d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
             <span
               class="t-button__text"
             >
-              
-              <svg
-                class="t-icon t-icon-setting"
-                fill="none"
-                height="1em"
-                slot="icon"
-                viewBox="0 0 16 16"
-                width="1em"
-              >
-                <path
-                  d="M11 8a3 3 0 11-6 0 3 3 0 016 0zm-1 0a2 2 0 10-4 0 2 2 0 004 0z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-                <path
-                  d="M8 1.25l6.06 3.38v6.75L8 14.75l-6.06-3.38V4.63L8 1.25zM2.94 5.21v5.58L8 13.6l5.06-2.82V5.2L8 2.4 2.94 5.21z"
-                  fill="currentColor"
-                  fill-opacity="0.9"
-                />
-              </svg>
               列配置
-              
             </span>
+            
           </button>
         </div>
       </div>
@@ -17392,6 +17642,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
   
@@ -17850,6 +18101,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
       </div>
       <!---->
       <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -17967,6 +18219,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
       <!---->
     </table>
   </div>
+  <!---->
   <!---->
   <div
     class="t-table__pagination"
@@ -18572,6 +18825,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <div
       class="t-table__pagination"
@@ -19338,6 +19592,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -19830,6 +20085,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -20140,6 +20396,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -20605,6 +20862,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -21336,6 +21594,7 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
@@ -22442,6 +22701,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
       </table>
     </div>
     <!---->
+    <!---->
     <div
       class="t-table__pagination"
     >
@@ -22809,6 +23069,7 @@ exports[`Table Table virtualScrollVue demo works fine 1`] = `
           <!---->
         </table>
       </div>
+      <!---->
       <!---->
       <!---->
     </div>

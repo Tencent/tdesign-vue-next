@@ -9878,6 +9878,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
     </div>
     <!---->
     <!---->
+    <!---->
   </div>
   <br />
   <br />
@@ -10359,6 +10360,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
   </div>
