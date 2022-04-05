@@ -64,6 +64,7 @@ export default defineComponent({
     columns: Array as PropType<TableBodyProps['columns']>,
     rowAndColFixedPosition: Map as PropType<TableBodyProps['rowAndColFixedPosition']>,
     showColumnShadow: Object as PropType<TableBodyProps['showColumnShadow']>,
+    // eslint-disable-next-line
     tableElm: {},
     tableWidth: Number,
     isWidthOverflow: Boolean,

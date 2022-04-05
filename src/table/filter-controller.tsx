@@ -26,6 +26,7 @@ export interface TableFilterControllerProps {
   };
   isFocusClass: string;
   column: PrimaryTableCol;
+  // HTMLElement
   primaryTableElement: any;
   onVisibleChange: (val: boolean) => void;
 }
@@ -39,6 +40,7 @@ export default defineComponent({
     innerFilterValue: Object as PropType<TableFilterControllerProps['innerFilterValue']>,
     tableFilterClasses: Object as PropType<TableFilterControllerProps['tableFilterClasses']>,
     isFocusClass: String,
+    // eslint-disable-next-line
     primaryTableElement: {},
     onVisibleChange: Function as PropType<TableFilterControllerProps['onVisibleChange']>,
   },

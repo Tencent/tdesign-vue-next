@@ -111,6 +111,7 @@ export default defineComponent({
     trs: Map as PropType<TrProps['trs']>,
     bufferSize: Number,
     isVirtual: Boolean,
+    // eslint-disable-next-line
     tableElm: {},
   },
 
