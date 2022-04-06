@@ -1,6 +1,13 @@
 <template>
   <div>
-    <t-cascader v-model="value" :options="options" clearable size="medium" placeholder="请选择" @change="onChange" />
+    <t-cascader-new
+      v-model="value"
+      :options="options"
+      clearable
+      size="medium"
+      placeholder="请选择"
+      @change="onChange"
+    />
   </div>
 </template>
 
