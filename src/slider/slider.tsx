@@ -210,6 +210,9 @@ export default defineComponent({
         this.init();
       }
     },
+    inputNumberProps() {
+      this.setInputProps();
+    },
   },
   mounted() {
     this.init();
@@ -244,6 +247,7 @@ export default defineComponent({
       }
       this.$el.setAttribute('aria-valuetext', valuetext);
       this.resetSize();
+      this.setInputProps();
       window.addEventListener('resize', this.resetSize);
     },
     valueChanged(): boolean {
