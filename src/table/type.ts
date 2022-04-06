@@ -571,7 +571,7 @@ export interface TableScroll {
    */
   isFixedRowHeight?: boolean;
   /**
-   * 表格的行高，不会给`<tr>`元素添加样式高度，仅作为滚动时的行高参考。<br />`scroll.type` 为 `lazy` 时，`rowHeight` 用于给未渲染的行节点指定一个初始高度，该属性默认会设置为表格第一行的行高（滚动加载行数量 = 滚动距离 / rowHeight）。<br />`scroll.type` 为 `virtual` 时，`rowHeight` 用于估算每行的大致高度，从而决定应该渲染哪些行，请尽量将该属性设置为表格每行平均高度，从而使得表格滚动过程更加平滑
+   * 表格的行高，不会给`<tr>`元素添加样式高度，仅作为滚动时的行高参考。一般情况不需要设置该属性。如果设置，可尽量将该属性设置为表格每行平均高度，从而使得表格滚动过程更加平滑
    */
   rowHeight?: number;
   /**

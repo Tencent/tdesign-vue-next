@@ -3,6 +3,7 @@ import { usePrefixClass } from '../../config-provider/useConfig';
 export default function useClassName() {
   const classPrefix = usePrefixClass();
   const classNames = {
+    classPrefix,
     tableBaseClass: {
       table: `${classPrefix.value}-table`,
       body: `${classPrefix.value}-table__body`,

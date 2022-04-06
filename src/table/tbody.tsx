@@ -20,14 +20,14 @@ export interface TableBodyProps extends BaseTableProps {
   tableElm: any;
   tableWidth: number;
   isWidthOverflow: boolean;
-
-  // 以下内容为虚拟滚动所需参数
   translateY: number;
   scrollType: string;
   isVirtual: boolean;
   rowHeight: number;
   trs: Map<number, object>;
   bufferSize: number;
+  // HTMLDivElement
+  tableContentElm: any;
   handleRowMounted: () => void;
 }
 
@@ -42,6 +42,7 @@ export const extendTableProps = [
   'firstFullRow',
   'lastFullRow',
   'rowspanAndColspan',
+  'scroll',
   'onCellClick',
   'onPageChange',
   'onRowClick',
@@ -75,6 +76,8 @@ export default defineComponent({
     rowHeight: Number,
     trs: Map as PropType<TableBodyProps['trs']>,
     bufferSize: Number,
+    // eslint-disable-next-line
+    tableContentElm: {},
     handleRowMounted: Function as PropType<TableBodyProps['handleRowMounted']>,
     renderExpandedRow: Function as PropType<TableBodyProps['renderExpandedRow']>,
     firstFullRow: [String, Function] as PropType<TableBodyProps['firstFullRow']>,
@@ -178,6 +181,7 @@ export default defineComponent({
         trs: this.trs,
         bufferSize: this.bufferSize,
         tableElm: this.tableElm,
+        tableContentElm: this.tableContentElm,
       };
       if (this.onCellClick) {
         trProps.onCellClick = this.onCellClick;
