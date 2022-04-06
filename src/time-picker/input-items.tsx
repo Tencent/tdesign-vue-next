@@ -4,7 +4,7 @@ import { emitEvent } from '../utils/event';
 
 import { amFormat, KeyboardDirection, EMPTY_VALUE, MERIDIEM_LIST } from './constant';
 
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks';
 
 export default defineComponent({
   name: 'TTimePickerInputItems',

@@ -3,7 +3,7 @@ import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import props from './props';
 import * as utils from './utils';
-import { useConfig } from '../config-provider';
+import { useConfig } from '../hooks';
 import { useContent } from '../hooks/tnode';
 import { useState, useCalendarClass, userController, useColHeaders } from './hook';
 

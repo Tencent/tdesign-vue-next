@@ -5,7 +5,7 @@ import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks';
 import { CheckboxGroupInjectionKey } from './group';
 
 export default defineComponent({

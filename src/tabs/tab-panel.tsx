@@ -1,6 +1,6 @@
 import { defineComponent, inject } from 'vue';
 import props from './tab-panel-props';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 import { useContent } from '../hooks/tnode';
 

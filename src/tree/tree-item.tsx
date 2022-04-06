@@ -10,7 +10,7 @@ import { TypeEventState } from './interface';
 import { useCLASSNAMES } from './constants';
 import { ClassName } from '../common';
 import useRipple from '../hooks/useRipple';
-import { useConfig } from '../config-provider';
+import { useConfig } from '../hooks';
 
 export const TreeItemProps = {
   node: {

@@ -2,7 +2,7 @@ import { defineComponent } from 'vue';
 import { RoundIcon, ChevronLeftIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import TButton from '../../button/button';
-import { useConfig, usePrefixClass } from '../../config-provider';
+import { useConfig, usePrefixClass } from '../../hooks';
 
 export default defineComponent({
   name: 'TDatePickerHeader',

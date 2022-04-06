@@ -15,7 +15,7 @@ import { emitEvent } from '../utils/event';
 
 import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, amFormat, pmFormat, AM } from './constant';
 
-import { useConfig, usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks';
 
 dayjs.extend(customParseFormat);
 

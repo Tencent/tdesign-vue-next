@@ -1,6 +1,6 @@
 import { ref, onMounted, onUnmounted, Ref } from 'vue';
 import useKeepAnimation from './useKeepAnimation';
-import { usePrefixClass } from '../config-provider/useConfig';
+import { usePrefixClass } from './useConfig';
 import setStyle from '../utils/set-style';
 
 const period = 200;

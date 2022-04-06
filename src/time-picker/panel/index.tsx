@@ -7,7 +7,7 @@ import { EPickerCols } from '../constant';
 import { panelProps } from './props';
 import PanelCol from './panel-col';
 import TButton from '../../button/button';
-import { useConfig, usePrefixClass, useCommonClassName } from '../../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../../hooks';
 
 dayjs.extend(customParseFormat);
 

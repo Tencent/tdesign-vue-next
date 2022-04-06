@@ -5,7 +5,7 @@ import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';

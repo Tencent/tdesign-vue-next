@@ -4,7 +4,7 @@ import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import props from './step-item-props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, SlotReturnValue } from '../common';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks';
 
 export default defineComponent({
   name: 'TStepItem',

@@ -8,7 +8,7 @@ import props from './props';
 import { UploadRemoveOptions } from './interface';
 
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks';
 
 // props
 export default defineComponent({

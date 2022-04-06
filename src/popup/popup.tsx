@@ -8,7 +8,7 @@ import { PopupVisibleChangeContext } from './type';
 import { ClassName, Styles } from '../common';
 import setStyle from '../utils/set-style';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks';
 import useDestroyOnClose from '../hooks/useDestroyOnClose';
 
 const stop = (e: MouseEvent) => e.stopPropagation();

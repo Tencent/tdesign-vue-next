@@ -20,7 +20,7 @@ import { emitEvent } from '../utils/event';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks';
 
 export type OptionInstance = InstanceType<typeof Option>;
 

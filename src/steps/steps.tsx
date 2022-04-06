@@ -5,7 +5,7 @@ import { ClassName } from '../common';
 import { TdStepsProps, TdStepItemProps } from './type';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks';
 
 export default defineComponent({
   name: 'TSteps',

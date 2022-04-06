@@ -14,7 +14,7 @@ import { getLeefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
 import { renderTNodeJSXDefault } from '../../utils/render-tnode';
 
-import { usePrefixClass } from '../../config-provider';
+import { usePrefixClass } from '../../hooks';
 
 export default defineComponent({
   name: 'TTransferList',

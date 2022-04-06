@@ -21,7 +21,7 @@ import { useCLASSNAMES } from './const';
 import Form, { FormItemInstance } from './form';
 import { ClassName, TNodeReturnValue, Styles } from '../common';
 
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks';
 
 type IconConstructor = typeof ErrorCircleFilledIcon;
 

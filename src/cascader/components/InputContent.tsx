@@ -32,7 +32,7 @@ import { TreeNode, InputContentProps } from '../interface';
 import CascaderProps from '../props';
 
 // hooks
-import { useConfig, usePrefixClass } from '../../config-provider';
+import { useConfig, usePrefixClass } from '../../hooks';
 
 export default defineComponent({
   name: `${name}-input-content`,

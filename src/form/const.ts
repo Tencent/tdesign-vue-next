@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks';
 
 // 允许 Form 统一控制的表单
 export const FORM_CONTROL_COMPONENTS = [
