@@ -1,14 +1,4 @@
-import {
-  defineComponent,
-  ComponentPublicInstance,
-  ref,
-  computed,
-  reactive,
-  nextTick,
-  watchEffect,
-  defineExpose,
-  inject,
-} from 'vue';
+import { defineComponent, ComponentPublicInstance, ref, computed, reactive, nextTick, watchEffect, inject } from 'vue';
 import TPopup from '../popup/index';
 import { usePrefixClass } from '../config-provider';
 import { useSliderPopup } from './hooks/useSliderPopup';
@@ -229,7 +219,7 @@ export default defineComponent({
     /** --------------------- slide button 相关事件end ------------------- */
 
     /** 暴露设置按钮坐标方法供父组件调用 */
-    defineExpose({
+    ctx.expose({
       setPosition,
     });
 
@@ -244,7 +234,7 @@ export default defineComponent({
         onmouseenter={handleMouseEnter}
         onmouseleave={handleMouseLeave}
         onmousedown={onButtonDown}
-        ontouchstart={onButtonDown}
+        onTouchstart={onButtonDown}
         onfocus={handleMouseEnter}
         onblur={handleMouseLeave}
         onKeydown={onNativeKeyDown}
