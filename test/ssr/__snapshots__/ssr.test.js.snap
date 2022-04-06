@@ -39575,17 +39575,17 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
 `;
 
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue correctly 1`] = `
-<div class="tdesign-demo-block-column">
+<div class="tdesign-demo-block-column" style="width:100%;">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="1">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定两列 <!--]--><!--]--></span></label>
+    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="2">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定两列 <!--]--><!--]--></span></label>
       <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
       <!--]-->
     </div>
   </div>
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="2">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定两列 <!--]--><!--]--></span></label>
+    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="1">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定两列 <!--]--><!--]--></span></label>
       <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
       <!--]-->
     </div>
@@ -39609,10 +39609,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
           <col style="width:100px;">
           <col style="width:150px;">
           <col style="width:150px;">
-          <col style="width:250px;">
           <col style="width:100px;">
           <col style="width:150px;">
           <col style="width:100px;">
+          <col style="width:120px;">
           <!--]-->
         </colgroup>
         <thead class="t-table__header">
@@ -39631,9 +39631,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <th data-colkey="default" class="t-table__th-default" style="">
               <div class="t-table__th-cell-inner">默认值</div>
             </th>
-            <th data-colkey="detail.position" class="t-table__th-detail.position" style="">
-              <div class="t-table__th-cell-inner">详情信息</div>
-            </th>
             <th data-colkey="description" class="t-table__th-description" style="">
               <div class="t-table__th-cell-inner">说明</div>
             </th>
@@ -39642,6 +39639,14 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             </th>
             <th data-colkey="operation" class="t-table__th-operation" style="">
               <div class="t-table__th-cell-inner">操作</div>
+            </th>
+            <th data-colkey="detail.position" class="t-table__th-detail.position" style="">
+              <div class="t-table__th-cell-inner">
+                <div class="t-table__ellipsis t-text-ellipsis">
+                  <!--[-->详情信息
+                  <!--]-->
+                </div>
+              </div>
             </th>
             <!--]-->
           </tr>
@@ -39657,12 +39662,17 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">共有</td>
             <td class="" style="">String</td>
             <td class="" style="">-</td>
-            <td class="" style="">读取 0 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">是</td>
             <td class="" style="">
               <!--[--><a class="link">删除</a>
               <!--]-->
+            </td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 0 个数据的嵌套信息值
+                <!--]-->
+              </div>
             </td>
             <!--]-->
           </tr>
@@ -39672,12 +39682,17 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">私有</td>
             <td class="" style="">Number</td>
             <td class="" style="">0</td>
-            <td class="" style="">读取 1 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">否</td>
             <td class="" style="">
               <!--[--><a class="link">删除</a>
               <!--]-->
+            </td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 1 个数据的嵌套信息值
+                <!--]-->
+              </div>
             </td>
             <!--]-->
           </tr>
@@ -39687,12 +39702,17 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">共有</td>
             <td class="" style="">Array</td>
             <td class="" style="">[]</td>
-            <td class="" style="">读取 2 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">否</td>
             <td class="" style="">
               <!--[--><a class="link">删除</a>
               <!--]-->
+            </td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 2 个数据的嵌套信息值
+                <!--]-->
+              </div>
             </td>
             <!--]-->
           </tr>
@@ -39702,12 +39722,17 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">私有</td>
             <td class="" style="">Object</td>
             <td class="" style="">{}</td>
-            <td class="" style="">读取 3 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">否</td>
             <td class="" style="">
               <!--[--><a class="link">删除</a>
               <!--]-->
+            </td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 3 个数据的嵌套信息值
+                <!--]-->
+              </div>
             </td>
             <!--]-->
           </tr>
@@ -39717,12 +39742,17 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">共有</td>
             <td class="" style="">String</td>
             <td class="" style="">-</td>
-            <td class="" style="">读取 4 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">是</td>
             <td class="" style="">
               <!--[--><a class="link">删除</a>
               <!--]-->
+            </td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->读取 4 个数据的嵌套信息值
+                <!--]-->
+              </div>
             </td>
             <!--]-->
           </tr>

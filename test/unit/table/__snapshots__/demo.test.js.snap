@@ -5871,15 +5871,16 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
 exports[`Table Table fixedColumnVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-column"
+  style="width: 100%;"
 >
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="1"
+      modelvalue="2"
     >
       
       <label
-        class="t-radio-button t-is-checked"
+        class="t-radio-button"
       >
         <input
           class="t-radio-button__former"
@@ -5901,7 +5902,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
         </span>
       </label>
       <label
-        class="t-radio-button"
+        class="t-radio-button t-is-checked"
       >
         <input
           class="t-radio-button__former"
@@ -5932,11 +5933,11 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="2"
+      modelvalue="1"
     >
       
       <label
-        class="t-radio-button"
+        class="t-radio-button t-is-checked"
       >
         <input
           class="t-radio-button__former"
@@ -5958,7 +5959,7 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
         </span>
       </label>
       <label
-        class="t-radio-button t-is-checked"
+        class="t-radio-button"
       >
         <input
           class="t-radio-button__former"
@@ -6097,9 +6098,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             style="width: 150px;"
           />
           <col
-            style="width: 250px;"
-          />
-          <col
             style="width: 100px;"
           />
           <col
@@ -6107,6 +6105,9 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           />
           <col
             style="width: 100px;"
+          />
+          <col
+            style="width: 120px;"
           />
           
         </colgroup>
@@ -6157,16 +6158,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               </div>
             </th>
             <th
-              class="t-table__th-detail.position"
-              data-colkey="detail.position"
-            >
-              <div
-                class="t-table__th-cell-inner"
-              >
-                详情信息
-              </div>
-            </th>
-            <th
               class="t-table__th-description"
               data-colkey="description"
             >
@@ -6194,6 +6185,22 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
                 class="t-table__th-cell-inner"
               >
                 操作
+              </div>
+            </th>
+            <th
+              class="t-table__th-detail.position"
+              data-colkey="detail.position"
+            >
+              <div
+                class="t-table__th-cell-inner"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  详情信息
+                  
+                </div>
               </div>
             </th>
             
@@ -6233,11 +6240,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             <td
               class=""
             >
-              读取 0 个数据的嵌套信息值
-            </td>
-            <td
-              class=""
-            >
               数据源
             </td>
             <td
@@ -6255,6 +6257,17 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
                 删除
               </a>
               
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 0 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -6285,11 +6298,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             <td
               class=""
             >
-              读取 1 个数据的嵌套信息值
-            </td>
-            <td
-              class=""
-            >
               数据源
             </td>
             <td
@@ -6307,6 +6315,17 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
                 删除
               </a>
               
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 1 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -6337,11 +6356,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             <td
               class=""
             >
-              读取 2 个数据的嵌套信息值
-            </td>
-            <td
-              class=""
-            >
               数据源
             </td>
             <td
@@ -6359,6 +6373,17 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
                 删除
               </a>
               
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 2 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -6389,11 +6414,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             <td
               class=""
             >
-              读取 3 个数据的嵌套信息值
-            </td>
-            <td
-              class=""
-            >
               数据源
             </td>
             <td
@@ -6411,6 +6431,17 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
                 删除
               </a>
               
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 3 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>
@@ -6441,11 +6472,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             <td
               class=""
             >
-              读取 4 个数据的嵌套信息值
-            </td>
-            <td
-              class=""
-            >
               数据源
             </td>
             <td
@@ -6463,6 +6489,17 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
                 删除
               </a>
               
+            </td>
+            <td
+              class="t-table-td--ellipsis"
+            >
+              <div
+                class="t-table__ellipsis t-text-ellipsis"
+              >
+                
+                读取 4 个数据的嵌套信息值
+                
+              </div>
             </td>
             
           </tr>

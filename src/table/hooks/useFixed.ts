@@ -488,7 +488,10 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
   onMounted(() => {
     const scrollWidth = getScrollbarWidth();
     scrollbarWidth.value = scrollWidth;
-    updateTableWidth();
+    const timer = setTimeout(() => {
+      updateTableWidth();
+      clearTimeout(timer);
+    });
     if (isFixedColumn.value || isFixedHeader.value || !notNeedThWidthList.value) {
       on(window, 'resize', onResize);
     }

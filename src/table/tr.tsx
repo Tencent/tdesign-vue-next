@@ -116,6 +116,7 @@ export default defineComponent({
     isVirtual: Boolean,
     // eslint-disable-next-line
     tableElm: {},
+    // eslint-disable-next-line
     tableContentElm: {},
   },
 

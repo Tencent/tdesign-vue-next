@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-demo-block-column">
+  <div class="tdesign-demo-block-column" style="width: 100%">
     <div>
       <t-radio-group v-model="leftFixedColumn" variant="default-filled">
         <t-radio-button :value="1"> 左侧固定一列 </t-radio-button>
@@ -55,8 +55,8 @@ for (let i = 0; i < 5; i++) {
   });
 }
 
-const leftFixedColumn = ref(1);
-const rightFixedColumn = ref(2);
+const leftFixedColumn = ref(2);
+const rightFixedColumn = ref(1);
 const tableLayout = ref('fixed');
 const emptyData = ref(false);
 
@@ -86,11 +86,6 @@ const columns = computed(() => {
       width: 150,
     },
     {
-      colKey: 'detail.position',
-      title: '详情信息',
-      width: 250,
-    },
-    {
       colKey: 'description',
       title: '说明',
       width: 100,
@@ -99,14 +94,21 @@ const columns = computed(() => {
       colKey: 'needed',
       title: '是否必传',
       width: 150,
-      fixed: rightFixedColumn.value >= 2 ? 'right' : undefined,
     },
     {
       colKey: 'operation',
       title: '操作',
       width: 100,
-      fixed: 'right',
       cell: 'operation',
+      fixed: rightFixedColumn.value >= 2 ? 'right' : undefined,
+    },
+    {
+      colKey: 'detail.position',
+      title: '详情信息',
+      width: 120,
+      fixed: 'right',
+      // 允许自定义浮层 Popup 全部属性
+      ellipsis: { placement: 'bottom-right' },
     },
   ];
 });
