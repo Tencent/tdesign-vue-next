@@ -28,7 +28,7 @@ const hsv2hsla = (states: ColorStates): tinyColor.ColorFormats.HSLA => tinyColor
  * @param object
  * @returns
  */
-const gradientColors2string = (object: GradientColors): string => {
+export const gradientColors2string = (object: GradientColors): string => {
   const { points, degree } = object;
   const colorsStop = points
     .sort((pA, pB) => {
@@ -382,6 +382,11 @@ export class Color {
     return color.toRgbString();
   }
 
+  /**
+   * 是否是渐变色
+   * @param input
+   * @returns
+   */
   static isGradientColor = (input: string) => !!isGradientColor(input);
 
   /**
