@@ -8,17 +8,13 @@ import {
   onBeforeUnmount,
   onMounted,
   watch,
-  readonly,
+  toRefs,
 } from 'vue';
-import cloneDeep from 'lodash/cloneDeep';
-import { emitEvent } from '../utils/event';
-import { ClassName, TNode } from '../common';
 import props from './props';
 import InputNumber from '../input-number/index';
 import TSliderMark from './slider-mark';
 import TSliderButton from './slider-button';
-import { SliderValue, TdSliderProps } from './type';
-import log from '../_common/js/log/log';
+import { SliderValue } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass, useCommonClassName } from '../config-provider';
@@ -26,12 +22,8 @@ import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { getStopStyle } from './util/common';
 import { sliderPropsInjectKey } from './util/contanst';
+import useVModel from '../hooks/useVModel';
 
-interface MarkItem {
-  point: number;
-  position: number;
-  mark: string | number | TNode<{ value: number }>;
-}
 interface SliderButtonType {
   setPosition: (param: number) => {};
 }
@@ -52,6 +44,8 @@ export default defineComponent({
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
+    const { value, modelValue } = toRefs(props) as any;
+    const [sliderValue, setSliderValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
 
     const sliderContainerRef = ref<HTMLDivElement>();
     const sliderRef = ref<HTMLDivElement>();
@@ -192,6 +186,7 @@ export default defineComponent({
       }
       const fixValue: SliderValue = setValues(changeValue);
       ctx.emit('change', fixValue);
+      setSliderValue(fixValue, { ...ctx, trigger: 'change' });
     };
 
     const resetSize = () => {
@@ -203,11 +198,10 @@ export default defineComponent({
     // 初始化传入的value
     const init = () => {
       let valuetext: string | number;
-
       if (props.range) {
-        if (Array.isArray(props.value)) {
-          firstValue.value = Math.max(props.min || 0, props.value[0]);
-          secondValue.value = Math.min(props.max || 100, props.value[1]);
+        if (Array.isArray(sliderValue.value)) {
+          firstValue.value = Math.max(props.min || 0, sliderValue.value[0]);
+          secondValue.value = Math.min(props.max || 100, sliderValue.value[1]);
         } else {
           firstValue.value = props.min || 0;
           secondValue.value = props.max || 100;
@@ -215,10 +209,10 @@ export default defineComponent({
         sliderState.prevValue = [firstValue.value, secondValue.value];
         valuetext = `${firstValue.value}-${secondValue.value}`;
       } else {
-        if (typeof props.value !== 'number') {
+        if (typeof sliderValue.value !== 'number') {
           firstValue.value = props.min;
         } else {
-          firstValue.value = Math.min(props.max, Math.max(props.min, props.value as number));
+          firstValue.value = Math.min(props.max, Math.max(props.min, sliderValue.value as number));
         }
         sliderState.prevValue = firstValue.value;
         valuetext = String(firstValue.value);
@@ -283,7 +277,7 @@ export default defineComponent({
 
     /** 副作用监听 */
     watch(
-      () => props.value,
+      () => sliderValue.value,
       (newVal) => {
         if (dragging.value === true) return;
         if (Array.isArray(newVal) && props.range) {

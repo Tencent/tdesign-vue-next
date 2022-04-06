@@ -35898,7 +35898,7 @@ exports[`ssr snapshot test renders ./examples/skeleton/demos/theme.vue correctly
 exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12">
+    <div class="t-slider__container">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -35961,7 +35961,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider t-is-disabled" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="true">
         <div class="t-slider__rail disabled" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -36024,7 +36024,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctl
 exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider t-slider--with-input" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail show-input" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -36170,7 +36170,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
 exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="number-vertical-block">
-    <div class="t-slider__container is-vertical" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container is-vertical" show-tooltip="true">
       <div class="t-slider is-vertical t-slider--with-input t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical">
         <div class="t-slider__rail show-input" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -36316,7 +36316,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
 exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -36416,7 +36416,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
     </div>
   </div>
   <div class="block">
-    <div class="t-slider__container" modelvalue="10" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -36462,7 +36462,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
 exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="10" aria-valuemax="30" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:-50%;left:0%;"></div>
@@ -36551,7 +36551,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue corre
 exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -36614,7 +36614,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="vertical-block">
-    <div class="t-slider__container is-vertical" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container is-vertical" show-tooltip="true">
       <div class="t-slider is-vertical t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical">
         <div class="t-slider__rail" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -36677,7 +36677,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctl
 exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="vertical-marks-block">
-    <div class="t-slider__container is-vertical" modelvalue="12" vertical show-tooltip="true">
+    <div class="t-slider__container is-vertical" vertical show-tooltip="true">
       <div class="t-slider is-vertical t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical">
         <div class="t-slider__rail" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
