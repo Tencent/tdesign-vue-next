@@ -78,6 +78,7 @@
     "@types/validator": "^13.6.3",
     "dayjs": "^1.9.7",
     "lodash": "^4.17.15",
+    "sortablejs": "^1.15.0",
     "tdesign-icons-vue-next": "~0.0.7",
     "tinycolor2": "^1.4.2",
     "validator": "^13.5.1"
@@ -101,6 +102,7 @@
     "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-url": "^6.0.0",
     "@types/raf": "^3.4.0",
+    "@types/sortablejs": "^1.10.7",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "@vitejs/plugin-vue": "^2.0.1",

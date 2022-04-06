@@ -1,79 +1,90 @@
 <template>
   <div>
-    <!-- 第一列展开树结点，缩进为 24px -->
-    <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
-    <t-enhanced-table ref="table" row-key="key" :data="data" :columns="columns" :tree="{ childrenKey: 'list' }" />
-
-    <br />
     <div>
-      <t-button theme="default" @click="setData1">设置为全新的数据</t-button>&nbsp;&nbsp;
-      <t-button theme="default" @click="setData2">单独设置某行数据</t-button>
+      <t-button theme="default" @click="setData1">重置数据</t-button>
+      <t-button theme="default" style="margin-left: 16px" @click="onRowToggle">展开/收起可见行</t-button>
     </div>
-    <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
-    <!-- indent 定义缩进距离；treeNodeColumnIndex 定义第几列作为树结点展开列 -->
-    <!-- 如果子结点字段不是 'children'，可以使用 childrenKey 定义字段别名，如 `:tree="{ childrenKey: 'list' }"` -->
-    <!-- <t-table
-      rowKey="key"
+    <br />
+    <!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
+    <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
+    <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
+    <t-enhanced-table
+      ref="table"
+      row-key="key"
       :data="data"
       :columns="columns"
-      :tree="{ indent: 12, treeNodeColumnIndex: 1 }"
-    ></t-table> -->
+      :tree="{ childrenKey: 'list', treeNodeColumnIndex: 1 }"
+      :pagination="pagination"
+      @page-change="onPageChange"
+    ></t-enhanced-table>
+
+    <!-- 第二列展开树结点，缩进为 12px，示例代码有效，勿删 -->
+    <!-- indent 定义缩进距离 -->
+    <!-- 如果子结点字段不是 'children'，可以使用 childrenKey 定义字段别名，如 `:tree="{ childrenKey: 'list' }"` -->
+    <!-- <t-enhanced-table
+      ref="table"
+      rowKey="key"
+      :pagination="defaultPagination"
+      :data="data"
+      :columns="columns"
+      :tree="{ indent: 12, childrenKey: 'list' }"
+      @page-change="onPageChange"
+    ></t-enhanced-table> -->
   </div>
 </template>
 <script setup lang="jsx">
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import { EnhancedTable as TEnhancedTable, MessagePlugin } from 'tdesign-vue-next';
 
-const initData = [];
-for (let i = 0; i < 5; i++) {
-  const obj = {
-    key: `我是 ${i} 号`,
-    platform: i % 2 === 0 ? '共有' : '私有',
-    type: ['String', 'Number', 'Array', 'Object'][i % 4],
-    default: ['-', '0', '[]', '{}'][i % 4],
-    detail: {
-      postion: `读取 ${i} 个数据的嵌套信息值`,
-    },
-    needed: i % 4 === 0 ? '是' : '否',
-    description: '数据源',
-  };
-  obj.list = new Array(2).fill(null).map((t, j) => {
-    const secondIndex = 100 * j + (i + 1) * 10;
-    const secondObj = {
-      ...obj,
-      key: `我是 ${secondIndex} 号`,
+function getData(currentPage = 1) {
+  const data = [];
+  const pageInfo = `第 ${currentPage} 页`;
+  for (let i = 0; i < 5; i++) {
+    const obj = {
+      id: i,
+      key: `我是 ${i}_${currentPage} 号（${pageInfo}）`,
+      platform: i % 2 === 0 ? '共有' : '私有',
+      type: ['String', 'Number', 'Array', 'Object'][i % 4],
+      default: ['-', '0', '[]', '{}'][i % 4],
+      detail: {
+        position: `读取 ${i} 个数据的嵌套信息值`,
+      },
+      needed: i % 4 === 0 ? '是' : '否',
+      description: '数据源',
     };
-    secondObj.list = new Array(3).fill(null).map((m, n) => ({
-      ...obj,
-      key: `我是 ${secondIndex * 1000 + 100 * m + (n + 1) * 10} 号`,
-    }));
-    return secondObj;
-  });
-  initData.push(obj);
+    // 第一行不设置子节点
+    obj.list = new Array(2).fill(null).map((t, j) => {
+      const secondIndex = 100 * j + (i + 1) * 10;
+      const secondObj = {
+        ...obj,
+        id: secondIndex,
+        key: `我是 ${secondIndex}_${currentPage} 号（${pageInfo}）`,
+      };
+      secondObj.list = new Array(3).fill(null).map((m, n) => {
+        const thirdIndex = secondIndex * 1000 + 100 * m + (n + 1) * 10;
+        return {
+          ...obj,
+          id: thirdIndex,
+          key: `我是 ${thirdIndex}_${currentPage} 号（${pageInfo}）`,
+        };
+      });
+      return secondObj;
+    });
+    // 第一行不设置子节点
+    if (i === 0) {
+      obj.list = [];
+    }
+    data.push(obj);
+  }
+  return data;
 }
+
 const table = ref(null);
-const data = ref(initData);
+const data = ref(getData());
 
 const setData1 = () => {
-  console.log('setData1');
-  data.value.unshift({
-    key: '我是 999 号',
-    platform: '私有',
-    type: 'Number',
-    default: 0,
-    needed: '否',
-    description: '全新数据源',
-    list: data.value[0].list,
-  });
-};
-
-// 使用实例方法 setData(key, newData) 重置单行数据
-const setData2 = () => {
-  table.value.setData('我是 110 号', {
-    ...data.value[0].list[1],
-    platform: 'New',
-    key: '我是 8888 号',
-  });
+  // 需要更新数据地址空间
+  data.value = getData();
 };
 
 const onEditClick = (row) => {
@@ -111,10 +122,15 @@ const appendTo = (row) => {
 
 const columns = [
   {
-    width: '200',
-    className: 'row',
-    colKey: 'key',
+    colKey: 'id',
     title: '编号',
+    ellipsis: true,
+  },
+  {
+    width: 220,
+    colKey: 'key',
+    title: '名称',
+    ellipsis: true,
   },
   {
     colKey: 'platform',
@@ -126,7 +142,7 @@ const columns = [
   },
   {
     colKey: 'operate',
-    width: 350,
+    width: 286,
     title: '操作',
     align: 'center',
     // 增、删、改、查 等操作
@@ -149,11 +165,43 @@ const columns = [
     ),
   },
 ];
+
+const pagination = reactive({
+  current: 1,
+  pageSize: 10,
+  total: 100,
+});
+
+const defaultPagination = {
+  defaultCurrent: 1,
+  defaultPageSize: 10,
+  total: 100,
+};
+
+const onPageChange = (pageInfo) => {
+  pagination.current = pageInfo.current;
+  pagination.pageSize = pageInfo.pageSize;
+  data.value = getData(pageInfo.current);
+};
+
+const onRowToggle = () => {
+  const rowIds = [
+    '我是 1_1 号（第 1 页）',
+    '我是 2_1 号（第 1 页）',
+    '我是 3_1 号（第 1 页）',
+    '我是 4_1 号（第 1 页）',
+  ];
+  rowIds.forEach((id) => {
+    // getData 参数为行唯一标识，lodash.get(row, rowKey)
+    const rowData = table.value.getData(id);
+    table.value.toggleExpandData(rowData);
+    // 或者
+    // this.$refs.table.toggleExpandData({ rowIndex: rowData.rowIndex, row: rowData.row });
+  });
+};
 </script>
-<style scoped>
-.tdesign-table-demo__table-operations div {
-  display: inline-block;
-}
+
+<style>
 .tdesign-table-demo__table-operations .t-button {
   padding: 0 8px;
 }

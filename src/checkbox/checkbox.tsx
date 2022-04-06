@@ -1,8 +1,6 @@
 import { defineComponent, ref, toRefs, computed, inject } from 'vue';
 import props from './props';
 import { ClassName } from '../common';
-
-// hooks
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
