@@ -24,14 +24,12 @@ import {
   TRANSFER_NAME,
 } from './utils';
 import { PageInfo, TdPaginationProps } from '../pagination/type';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins from '../config-provider/config-receiver';
 import props from './props';
 import { TNode } from '../common';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 
 const SOURCE = 'source';
 const TARGET = 'target';
@@ -42,7 +40,6 @@ type DataType = {
 };
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins('transfer')),
   name: TRANSFER_NAME,
   components: {
     TransferList,
@@ -64,7 +61,10 @@ export default defineComponent({
   setup() {
     const disabled = useFormDisabled();
     const classPrefix = usePrefixClass();
+    const { global, t } = useConfig('transfer');
     return {
+      t,
+      global,
       classPrefix,
       disabled,
     };

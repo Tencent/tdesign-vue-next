@@ -5,8 +5,6 @@ import isFunction from 'lodash/isFunction';
 import isEqual from 'lodash/isEqual';
 import { TimeIcon } from 'tdesign-icons-vue-next';
 
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { TimePickerConfig } from '../config-provider/config-receiver';
 import { TimeInputEvent, InputTime, TimePickerPanelInstance } from './interface';
 import TPopup, { PopupVisibleChangeContext } from '../popup';
 import PickerPanel from './panel';
@@ -17,12 +15,11 @@ import { emitEvent } from '../utils/event';
 
 import { EPickerCols, TIME_PICKER_EMPTY, EMPTY_VALUE, amFormat, pmFormat, AM } from './constant';
 
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../config-provider';
 
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<TimePickerConfig>('timePicker')),
   name: 'TTimeRangePicker',
 
   components: {
@@ -39,7 +36,9 @@ export default defineComponent({
   setup() {
     const COMPONENT_NAME = usePrefixClass('time-picker');
     const { SIZE, STATUS } = useCommonClassName();
+    const { global } = useConfig('timePicker');
     return {
+      global,
       STATUS,
       SIZE,
       COMPONENT_NAME,

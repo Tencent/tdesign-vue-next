@@ -20,10 +20,8 @@ import props from './form-item-props';
 import { useCLASSNAMES } from './const';
 import Form, { FormItemInstance } from './form';
 import { ClassName, TNodeReturnValue, Styles } from '../common';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { FormConfig } from '../config-provider/config-receiver';
 
-import { usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../config-provider';
 
 type IconConstructor = typeof ErrorCircleFilledIcon;
 
@@ -37,7 +35,6 @@ export const enum ValidateStatus {
 }
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<FormConfig>('form')),
   name: 'TFormItem',
 
   inject: {
@@ -49,7 +46,9 @@ export default defineComponent({
     const FROM_LABEL = usePrefixClass('form__label');
     const CLASS_NAMES = useCLASSNAMES();
     const FORM_ITEM_CLASS_PREFIX = usePrefixClass('form-item__');
+    const { global } = useConfig('form');
     return {
+      global,
       CLASS_NAMES,
       FROM_LABEL,
       FORM_ITEM_CLASS_PREFIX,
