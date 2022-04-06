@@ -1,5 +1,13 @@
 import { PLACEMENT_LIST } from './const';
 
+interface Keyframe {
+  composite?: CompositeOperationOrAuto;
+  easing?: string;
+  offset?: number | null;
+  [property: string]: string | number | null | undefined;
+}
+type CompositeOperationOrAuto = 'accumulate' | 'add' | 'auto' | 'replace';
+
 const ANIMATION_OPTION = {
   duration: 200,
   easing: 'linear',
