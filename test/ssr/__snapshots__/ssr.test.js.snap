@@ -10329,7 +10329,17 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
               </div>
               <!--[-->
               <div class="t-color-picker__swatches-wrap">
-                <!---->
+                <div class="t-color-picker__swatches">
+                  <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+                    <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+                      <!---->
+                    </div>
+                  </h3>
+                  <ul class="t-color-picker__swatches--items narrow-scrollbar">
+                    <!--[-->
+                    <!--]-->
+                  </ul>
+                </div>
                 <div class="t-color-picker__swatches">
                   <h3 class="t-color-picker__swatches--title"><span>系统预设颜色</span>
                     <!---->
@@ -10607,7 +10617,17 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
               </div>
               <!--[-->
               <div class="t-color-picker__swatches-wrap">
-                <!---->
+                <div class="t-color-picker__swatches">
+                  <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+                    <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+                      <!---->
+                    </div>
+                  </h3>
+                  <ul class="t-color-picker__swatches--items narrow-scrollbar">
+                    <!--[-->
+                    <!--]-->
+                  </ul>
+                </div>
                 <div class="t-color-picker__swatches">
                   <h3 class="t-color-picker__swatches--title"><span>系统预设颜色</span>
                     <!---->
@@ -10779,7 +10799,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
               <div class="t-color-picker__gradient">
                 <div class="t-color-picker__gradient-slider">
                   <div class="t-color-picker__slider t-color-picker--bg-alpha" tabindex="0">
-                    <ul class="gradient-thumbs" style="background:linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%);">
+                    <ul class="gradient-thumbs" style="background:linear-gradient(90deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%);">
                       <!--[-->
                       <li class="t-color-picker__thumb gradient-thumbs__item t-is-active" title="rgb(79, 172, 254) 0%" style="color:rgb(79, 172, 254);left:0%;"><span class="gradient-thumbs__item-inner t-color-picker--bg-alpha"></span></li>
                       <li class="t-color-picker__thumb gradient-thumbs__item" title="rgb(0, 242, 254) 100%" style="color:rgb(0, 242, 254);left:100%;"><span class="gradient-thumbs__item-inner t-color-picker--bg-alpha"></span></li>
@@ -10803,6 +10823,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                     <!---->
                   </div>
                 </div>
+                <div class="t-color-picker__gradient-preview t-color-picker--bg-alpha"><span class="preview-inner" style="background:linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%);"></span></div>
               </div>
               <div class="t-color-picker__saturation" style="background:hsl(208.11428571428573, 100%, 50%);"><span class="t-color-picker__thumb" role="slider" tabindex="0" style="color:rgb(79, 172, 254);left:171px;top:1px;"></span></div>
               <div class="t-color-picker__slider t-color-picker__hue">
@@ -10877,7 +10898,17 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
               </div>
               <!--[-->
               <div class="t-color-picker__swatches-wrap">
-                <!---->
+                <div class="t-color-picker__swatches">
+                  <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+                    <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+                      <!---->
+                    </div>
+                  </h3>
+                  <ul class="t-color-picker__swatches--items narrow-scrollbar">
+                    <!--[-->
+                    <!--]-->
+                  </ul>
+                </div>
                 <div class="t-color-picker__swatches">
                   <h3 class="t-color-picker__swatches--title"><span>系统预设颜色</span>
                     <!---->
@@ -11182,7 +11213,17 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
       </div>
       <!--[-->
       <div class="t-color-picker__swatches-wrap">
-        <!---->
+        <div class="t-color-picker__swatches">
+          <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+            <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+              <!---->
+            </div>
+          </h3>
+          <ul class="t-color-picker__swatches--items narrow-scrollbar">
+            <!--[-->
+            <!--]-->
+          </ul>
+        </div>
         <div class="t-color-picker__swatches">
           <h3 class="t-color-picker__swatches--title"><span>系统预设颜色</span>
             <!---->
@@ -11445,7 +11486,17 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
       </div>
       <!--[-->
       <div class="t-color-picker__swatches-wrap">
-        <!---->
+        <div class="t-color-picker__swatches">
+          <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+            <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+              <!---->
+            </div>
+          </h3>
+          <ul class="t-color-picker__swatches--items narrow-scrollbar">
+            <!--[-->
+            <!--]-->
+          </ul>
+        </div>
         <div class="t-color-picker__swatches">
           <h3 class="t-color-picker__swatches--title"><span>系统预设颜色</span>
             <!---->
@@ -11711,7 +11762,9 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
         <!--[-->
         <div class="t-color-picker__swatches-wrap">
           <div class="t-color-picker__swatches">
-            <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-delete" style=""><path fill="currentColor" d="M6 12V6h1v6H6zM9 6v6h1V6H9z" fill-opacity="0.9"></path><path fill="currentColor" d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z" fill-opacity="0.9"></path></svg></span></h3>
+            <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+              <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-delete" style=""><path fill="currentColor" d="M6 12V6h1v6H6zM9 6v6h1V6H9z" fill-opacity="0.9"></path><path fill="currentColor" d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z" fill-opacity="0.9"></path></svg></span></div>
+            </h3>
             <ul class="t-color-picker__swatches--items narrow-scrollbar">
               <!--[-->
               <li class="t-color-picker__swatches--item">
@@ -12297,7 +12350,17 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
       </div>
       <!--[-->
       <div class="t-color-picker__swatches-wrap">
-        <!---->
+        <div class="t-color-picker__swatches">
+          <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+            <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+              <!---->
+            </div>
+          </h3>
+          <ul class="t-color-picker__swatches--items narrow-scrollbar">
+            <!--[-->
+            <!--]-->
+          </ul>
+        </div>
         <div class="t-color-picker__swatches">
           <h3 class="t-color-picker__swatches--title"><span>系统预设颜色</span>
             <!---->
@@ -12562,7 +12625,17 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
         </div>
         <!--[-->
         <div class="t-color-picker__swatches-wrap">
-          <!---->
+          <div class="t-color-picker__swatches">
+            <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+              <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+                <!---->
+              </div>
+            </h3>
+            <ul class="t-color-picker__swatches--items narrow-scrollbar">
+              <!--[-->
+              <!--]-->
+            </ul>
+          </div>
           <div class="t-color-picker__swatches">
             <h3 class="t-color-picker__swatches--title"><span>系统预设颜色</span>
               <!---->
@@ -12716,7 +12789,22 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
             </div>
           </div>
         </div>
-        <!---->
+        <!--[-->
+        <div class="t-color-picker__swatches-wrap">
+          <div class="t-color-picker__swatches">
+            <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+              <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+                <!---->
+              </div>
+            </h3>
+            <ul class="t-color-picker__swatches--items narrow-scrollbar">
+              <!--[-->
+              <!--]-->
+            </ul>
+          </div>
+          <!---->
+        </div>
+        <!--]-->
       </div>
     </div>
   </div>
@@ -12851,7 +12939,17 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
             </div>
             <!--[-->
             <div class="t-color-picker__swatches-wrap">
-              <!---->
+              <div class="t-color-picker__swatches">
+                <h3 class="t-color-picker__swatches--title"><span>最近使用颜色</span>
+                  <div class="t-color-picker__swatches--actions"><span role="button" class="t-color-picker__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-add" style=""><path fill="currentColor" d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z" fill-opacity="0.9"></path></svg></span>
+                    <!---->
+                  </div>
+                </h3>
+                <ul class="t-color-picker__swatches--items narrow-scrollbar">
+                  <!--[-->
+                  <!--]-->
+                </ul>
+              </div>
               <div class="t-color-picker__swatches">
                 <h3 class="t-color-picker__swatches--title"><span>系统预设颜色</span>
                   <!---->
