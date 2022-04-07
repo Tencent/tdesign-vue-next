@@ -28,6 +28,7 @@ export default defineComponent({
   setup(props, { attrs, emit }) {
     const { checked, modelValue } = toRefs(props);
     const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const radioChecked = computed(() => (radioGroup ? props.value === radioGroup.value : innerChecked.value));
 
     const radioGroup = inject(RadioGroupInjectionKey, undefined);
 
@@ -42,7 +43,7 @@ export default defineComponent({
     };
     const handleClick = (e: Event) => {
       emit('click', e);
-      if (!innerChecked.value || !props.allowUncheck) return;
+      if (!radioChecked.value || !props.allowUncheck) return;
       if (radioGroup) {
         radioGroup.setValue(undefined, { e });
       } else {
@@ -73,7 +74,7 @@ export default defineComponent({
     // attribute
     const inputProps = computed(() => ({
       name: radioGroup ? radioGroup.name : props.name,
-      checked: radioGroup ? props.value === radioGroup.value : innerChecked.value,
+      checked: radioChecked.value,
       disabled: disabled.value,
       value: props.value,
     }));
