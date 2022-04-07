@@ -12,7 +12,7 @@
 import { compile } from 'vue/dist/vue.esm-bundler.js';
 
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
+const renderCode = `<t-upload action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo" __pointerProps__ />`;
 
 const renderComp = (data) => {
   return data?.usageCode ? compile(data.usageCode) : null;

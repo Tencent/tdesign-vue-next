@@ -12,7 +12,9 @@
 import { compile } from 'vue/dist/vue.esm-bundler.js';
 
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
+const renderCode = `<t-tooltip content="这是Tooltip内容" __pointerProps__>
+            <t-button>hover me</t-button>
+          </t-tooltip>`;
 
 const renderComp = (data) => {
   return data?.usageCode ? compile(data.usageCode) : null;

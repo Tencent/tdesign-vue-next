@@ -12,7 +12,12 @@
 import { compile } from 'vue/dist/vue.esm-bundler.js';
 
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
+const renderCode = `
+        <t-transfer data="{new Array(20).fill({
+          value: 100*Math.random().toFixed(2),
+          label: '内容' + 100*Math.random().toFixed(2),
+          disabled: Math.random() > 0.5
+        })}" __pointerProps__ />`;
 
 const renderComp = (data) => {
   return data?.usageCode ? compile(data.usageCode) : null;

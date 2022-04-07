@@ -1,0 +1,45 @@
+[
+  {
+    "name": "destroyOnClose",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "showArrow",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "primary",
+        "value": "primary"
+      },
+      {
+        "label": "success",
+        "value": "success"
+      },
+      {
+        "label": "danger",
+        "value": "danger"
+      },
+      {
+        "label": "warning",
+        "value": "warning"
+      },
+      {
+        "label": "light",
+        "value": "light"
+      }
+    ]
+  }
+]

@@ -12,7 +12,13 @@
 import { compile } from 'vue/dist/vue.esm-bundler.js';
 
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
+const renderCode = `
+          <t-select __pointerProps__>
+            <t-select-option key="apple" label="Apple" value="apple" />
+            <t-select-option key="orange" value="orange">Orange</t-select-option>
+            <t-select-option key="banana" label="Banana" value="banana" />
+          </t-select>
+        `;
 
 const renderComp = (data) => {
   return data?.usageCode ? compile(data.usageCode) : null;

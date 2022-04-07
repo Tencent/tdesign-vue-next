@@ -1,0 +1,51 @@
+[
+  {
+    "name": "columnControllerVisible",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "dragSort",
+    "type": "enum",
+    "defaultValue": "col",
+    "options": [
+      {
+        "label": "row",
+        "value": "row"
+      },
+      {
+        "label": "col",
+        "value": "col"
+      },
+      {
+        "label": "drag-col",
+        "value": "drag-col"
+      }
+    ]
+  },
+  {
+    "name": "expandIcon",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "expandOnRowClick",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "multipleSort",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "sortOnRowDraggable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

@@ -1,0 +1,39 @@
+[
+  {
+    "name": "loading",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "text",
+    "options": [
+      {
+        "label": "text",
+        "value": "text"
+      },
+      {
+        "label": "avatar",
+        "value": "avatar"
+      },
+      {
+        "label": "paragraph",
+        "value": "paragraph"
+      },
+      {
+        "label": "avatar-text",
+        "value": "avatar-text"
+      },
+      {
+        "label": "tab",
+        "value": "tab"
+      },
+      {
+        "label": "article",
+        "value": "article"
+      }
+    ]
+  }
+]

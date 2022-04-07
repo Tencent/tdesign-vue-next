@@ -12,7 +12,11 @@
 import { compile } from 'vue/dist/vue.esm-bundler.js';
 
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
+const renderCode = `
+            <t-pop-confirm content="确认删除吗" __pointerProps__>
+              <t-button>删除</t-button>
+            </t-pop-confirm>
+        `;
 
 const renderComp = (data) => {
   return data?.usageCode ? compile(data.usageCode) : null;

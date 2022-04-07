@@ -1,11 +1,19 @@
 <template>
-  <td-doc-usage ref="usageRef" :code="props.code">
-    <slot />
+  <td-doc-usage ref="usageRef" :code="usageCode">
+    <slot :usageCode="usageCode" />
   </td-doc-usage>
 </template>
 
 <script setup lang="jsx">
-import { ref, onMounted } from 'vue';
+import { ref, compile, onMounted, computed } from 'vue';
+
+const stringifyProp = (name, value) => {
+  if (value === true) return name; // 为 true 只展示 name
+  if (value === defaultProps.value[name]) return ''; // 为默认值不展示
+  if (value === undefined) return ''; // 为 undefined 不展示
+  if (typeof value === 'string') return `${name}="${value}"`;
+  return `:${name}="${value}"`;
+};
 
 const props = defineProps({
   code: String,
@@ -23,8 +31,26 @@ const emit = defineEmits(['ConfigChange']);
 
 function onConfigChange(e) {
   const { name, value } = e.detail;
-  const changedPropsStr = `:${name}="${value}"`;
-
-  emit('ConfigChange', e, changedPropsStr);
+  changedProps.value[name] = value; // 改变
 }
+
+const defaultProps = ref(
+  props.configList.reduce((prev, curr) => {
+    if (curr.defaultValue !== undefined) Object.assign(prev, { [curr.name]: curr.defaultValue });
+    return prev;
+  }, {}),
+);
+
+const changedProps = ref({});
+
+const usageCode = computed(() => {
+  const propsStrs = Object.keys(changedProps.value)
+    .map((name) => `${stringifyProp(name, changedProps.value[name])}`)
+    .filter(Boolean);
+  const tureCode = props.code.replace(/\s*__pointerProps__/g, () =>
+    propsStrs.length ? `\n  ${propsStrs.join('\n  ')}\n` : '',
+  );
+  console.log(tureCode);
+  return tureCode;
+});
 </script>
