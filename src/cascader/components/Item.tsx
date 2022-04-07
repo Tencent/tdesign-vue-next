@@ -17,7 +17,7 @@ import TLoading from '../../loading';
 // type
 import { ClassName } from '../../common';
 import { ContextType, CascaderContextType, CascaderItemPropsType, TreeNodeValue, TreeNode } from '../interface';
-import { usePrefixClass, useConfig } from '../../config-provider';
+import { usePrefixClass, useConfig } from '../../hooks/useConfig';
 
 export default defineComponent({
   name: 'TCascaderItem',

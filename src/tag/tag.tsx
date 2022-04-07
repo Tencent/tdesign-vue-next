@@ -1,6 +1,6 @@
 import { computed, defineComponent, h, VNode } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';

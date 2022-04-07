@@ -14,7 +14,7 @@ import { DialogPlugin } from '../../dialog/plugin';
 import { useTNodeDefault } from '../../hooks/tnode';
 import { renderTitle } from './useTableHeader';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
-import { useConfig } from '../../config-provider/useConfig';
+import { useConfig } from '../../hooks/useConfig';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';

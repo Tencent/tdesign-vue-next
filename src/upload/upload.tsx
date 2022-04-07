@@ -13,7 +13,7 @@ import { UploadCtxType } from './interface';
 
 import { useFormDisabled } from '../form/hooks';
 import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions, useBatchUpload } from './hooks';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';
 

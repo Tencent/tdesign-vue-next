@@ -2,19 +2,16 @@ import { defineComponent, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-import mixins from '../../utils/mixins';
-import getConfigReceiverMixins, { TimePickerConfig } from '../../config-provider/config-receiver';
 import { TimePickerPanelColInstance } from '../interface';
 import { EPickerCols } from '../constant';
 import { panelProps } from './props';
 import PanelCol from './panel-col';
 import TButton from '../../button/button';
-import { usePrefixClass, useCommonClassName } from '../../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
 
 dayjs.extend(customParseFormat);
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<TimePickerConfig>('timePicker')),
   name: 'TimePickerPanel',
   components: {
     PanelCol,
@@ -27,7 +24,10 @@ export default defineComponent({
     const COMPONENT_NAME = usePrefixClass('time-picker');
     const COMPONENT_NAME_PANEL = usePrefixClass('time-picker__panel');
     const { STATUS } = useCommonClassName();
+    const { t, global } = useConfig('timePicker');
     return {
+      t,
+      global,
       COMPONENT_NAME_PANEL,
       COMPONENT_NAME,
       STATUS,

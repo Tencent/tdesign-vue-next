@@ -10,7 +10,7 @@ import { emitEvent } from '../utils/event';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 type InputNumberEvent = {
   onInput?: (e: InputEvent) => void;

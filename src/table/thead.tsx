@@ -3,7 +3,7 @@ import isFunction from 'lodash/isFunction';
 import { RowAndColFixedPosition, getColumnFixedStyles } from './hooks/useFixed';
 import { TableColumns, ThRowspanAndColspan } from './hooks/useMultiHeader';
 import useClassName from './hooks/useClassName';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../hooks/useConfig';
 import { BaseTableCol, TableRowData } from './type';
 import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';

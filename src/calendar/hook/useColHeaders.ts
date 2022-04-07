@@ -2,7 +2,7 @@ import { computed } from 'vue';
 
 import { CellColHeader, CalendarState } from '../interface';
 import { TdCalendarProps, WeekDay } from '../type';
-import { useConfig } from '../../config-provider';
+import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
 import * as utils from '../utils';
 
