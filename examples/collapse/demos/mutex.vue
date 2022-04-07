@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-collapse">
-    <t-collapse v-model="currentItem" expand-icon expand-mutex @Change="handlePanelChange">
+    <t-collapse v-model="currentItem" expand-mutex @Change="handlePanelChange">
       <t-collapse-panel value="0" header="这是一个折叠标题">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>

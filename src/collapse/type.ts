@@ -23,6 +23,7 @@ export interface TdCollapseProps {
   disabled?: boolean;
   /**
    * 展开图标。值为 undefined 或 false 则不显示展开图标；值为 true 显示默认图标；值类型为函数，则表示完全自定义展开图标
+   * @default true
    */
   expandIcon?: boolean | TNode;
   /**
@@ -78,6 +79,7 @@ export interface TdCollapsePanelProps {
   disabled?: boolean;
   /**
    * 当前折叠面板展开图标，优先级大于 Collapse 的同名属性
+   * @default true
    */
   expandIcon?: boolean | TNode;
   /**
@@ -94,4 +96,6 @@ export interface TdCollapsePanelProps {
   value?: string | number;
 }
 
-export type CollapseValue = string | number | Array<CollapseValue>;
+export type CollapseValue = Array<string | number>;
+
+export type CollapsePanelValue = string | number;

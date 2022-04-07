@@ -1,6 +1,6 @@
 <template>
   <div class="tdesign-collapse">
-    <t-collapse expand-icon @Change="handlePanelChange">
+    <t-collapse @Change="handlePanelChange">
       <t-collapse-panel value="0" header="这是一个折叠标题可以设置右侧操作区域" :disabled="disable0">
         <template #headerRightContent>
           <t-checkbox v-model="disable0">禁用</t-checkbox>

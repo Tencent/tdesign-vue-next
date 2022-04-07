@@ -1,20 +1,21 @@
-import { defineComponent, ref, computed, inject, Ref, toRefs } from 'vue';
+import { defineComponent, ref, computed, inject, Ref, toRefs, Transition } from 'vue';
 import props from './collapse-panel-props';
 import FakeArrow from '../common-components/fake-arrow';
-import SlideDown from './slide-down';
-import { CollapseValue } from './type';
+import { CollapseValue, TdCollapsePanelProps } from './type';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../config-provider';
+import useCollapseAnimation from './useCollapseAnimation';
 
 export default defineComponent({
   name: 'TCollapsePanel',
   props,
-  setup(props, context) {
+  setup(props: TdCollapsePanelProps, context) {
     const renderTNodeJSX = useTNodeJSX();
-    const COMPONENT_NAME = usePrefixClass('collapse-panel');
-    const DISABLE_CLASS = usePrefixClass('is-disabled');
-    const CLICKABLE_CLASS = usePrefixClass('is-clickable');
-    const { value, disabled } = toRefs(props);
+    const componentName = usePrefixClass('collapse-panel');
+    const disableClass = usePrefixClass('is-disabled');
+    const clickableClass = usePrefixClass('is-clickable');
+    const transitionClass = usePrefixClass('slide-down');
+    const { value, disabled, destroyOnCollapse } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
     const {
@@ -27,6 +28,7 @@ export default defineComponent({
     if (defaultExpandAll.value) {
       updateCollapseValue(value.value);
     }
+    const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
     const headRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
     const isActive = computed(() =>
@@ -35,7 +37,7 @@ export default defineComponent({
         : collapseValue.value === value.value,
     );
     const classes = computed(() => {
-      return [COMPONENT_NAME.value, { [DISABLE_CLASS.value]: isDisabled.value }];
+      return [componentName.value, { [disableClass.value]: isDisabled.value }];
     });
     const handleClick = (e: MouseEvent) => {
       const canExpand =
@@ -50,18 +52,18 @@ export default defineComponent({
         <FakeArrow
           name="arrow"
           isActive={isActive.value}
-          overlayClassName={`${COMPONENT_NAME.value}__icon ${COMPONENT_NAME.value}__icon--${direction}`}
+          overlayClassName={`${componentName.value}__icon ${componentName.value}__icon--${direction}`}
         />
       );
     };
     const renderBlank = () => {
-      return <div class={`${COMPONENT_NAME.value}__header--blank`}></div>;
+      return <div class={`${componentName.value}__header--blank`}></div>;
     };
     const renderHeader = () => {
       const cls = [
-        `${COMPONENT_NAME.value}__header`,
+        `${componentName.value}__header`,
         {
-          [CLICKABLE_CLASS.value]: expandOnRowClick.value && !isDisabled.value,
+          [clickableClass.value]: expandOnRowClick.value && !isDisabled.value,
         },
       ];
       return (
@@ -74,19 +76,39 @@ export default defineComponent({
         </div>
       );
     };
-    const renderBody = () => {
+    const renderBodyByNormal = () => {
       return (
-        <div v-show={isActive.value} class={`${COMPONENT_NAME.value}__body`}>
-          <div class={`${COMPONENT_NAME.value}__content`}>{renderTNodeJSX('default')}</div>
+        <div v-show={isActive.value} class={`${componentName.value}__body`}>
+          <div class={`${componentName.value}__content`}>{renderTNodeJSX('default')}</div>
         </div>
       );
+    };
+    const renderBodyDestroyOnCollapse = () => {
+      return isActive.value ? (
+        <div class={`${componentName.value}__body`}>
+          <div class={`${componentName.value}__content`}>{renderTNodeJSX('default')}</div>
+        </div>
+      ) : null;
+    };
+    const renderBody = () => {
+      return destroyOnCollapse.value ? renderBodyDestroyOnCollapse() : renderBodyByNormal();
     };
     return () => {
       return (
         <div class={classes.value}>
-          <div class={`${COMPONENT_NAME.value}__wrapper`}>
+          <div class={`${componentName.value}__wrapper`}>
             {renderHeader()}
-            <SlideDown>{renderBody()}</SlideDown>
+            <Transition
+              name={transitionClass.value}
+              onBeforeEnter={beforeEnter}
+              onEnter={enter}
+              onAfterEnter={afterEnter}
+              onBeforeLeave={beforeLeave}
+              onLeave={leave}
+              onAfterLeave={afterLeave}
+            >
+              {renderBody()}
+            </Transition>
           </div>
         </div>
       );

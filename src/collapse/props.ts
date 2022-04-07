@@ -17,6 +17,7 @@ export default {
   /** 展开图标。值为 undefined 或 false 则不显示展开图标；值为 true 显示默认图标；值类型为函数，则表示完全自定义展开图标 */
   expandIcon: {
     type: [Boolean, Function] as PropType<TdCollapseProps['expandIcon']>,
+    default: true,
   },
   /** 展开图标的位置，左侧或右侧 */
   expandIconPlacement: {
@@ -36,16 +37,16 @@ export default {
   },
   /** 展开的面板集合 */
   value: {
-    type: [String, Number, Array] as PropType<TdCollapseProps['value']>,
+    type: Array as PropType<TdCollapseProps['value']>,
     default: undefined,
   },
   modelValue: {
-    type: [String, Number, Array] as PropType<TdCollapseProps['value']>,
+    type: Array as PropType<TdCollapseProps['value']>,
     default: undefined,
   },
   /** 展开的面板集合，非受控属性 */
   defaultValue: {
-    type: [String, Number, Array] as PropType<TdCollapseProps['defaultValue']>,
+    type: Array as PropType<TdCollapseProps['defaultValue']>,
   },
   /** 切换面板时触发，返回变化的值 */
   onChange: Function as PropType<TdCollapseProps['onChange']>,

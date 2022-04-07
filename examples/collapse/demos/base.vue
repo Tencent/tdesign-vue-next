@@ -1,10 +1,10 @@
 <template>
   <div class="tdesign-collapse">
-    <t-collapse expand-icon :default-value="1" @change="handlePanelChange">
+    <t-collapse :default-value="[1]" @change="handlePanelChange">
       <t-collapse-panel header="这是一个折叠标题">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
-      <t-collapse-panel header="设置默认展开项">
+      <t-collapse-panel destroy-on-collapse header="设置默认展开项">
         这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
       </t-collapse-panel>
       <t-collapse-panel header="自定义折叠面板内容">
@@ -17,7 +17,7 @@
         </div>
       </t-collapse-panel>
       <t-collapse-panel header="嵌套折叠面板">
-        <t-collapse expand-icon default-expand-all>
+        <t-collapse default-expand-all>
           <t-collapse-panel header="子面板1"> 这是子面板1 </t-collapse-panel>
           <t-collapse-panel header="子面板2"> 这是子面板2 </t-collapse-panel>
           <t-collapse-panel header="子面板3"> 这是子面板3 </t-collapse-panel>

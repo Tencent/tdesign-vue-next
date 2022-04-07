@@ -1,7 +1,6 @@
-import { defineComponent, VNode, toRefs, provide, computed } from 'vue';
-import { prefix } from '../config';
+import { defineComponent, toRefs, provide, computed } from 'vue';
 import props from './props';
-import { CollapseValue, TdCollapseProps } from './type';
+import { CollapseValue, TdCollapseProps, CollapsePanelValue } from './type';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../config-provider';
@@ -10,12 +9,12 @@ export default defineComponent({
   name: 'TCollapse',
   props,
   setup(props: TdCollapseProps, context) {
-    const COMPONENT_NAME = usePrefixClass('collapse');
-    const BORDERLESS_CLASS = usePrefixClass('-border-less');
+    const componentName = usePrefixClass('collapse');
+    const borderlessClass = usePrefixClass('-border-less');
     const renderTNodeJSX = useTNodeJSX();
     const { value, expandMutex, borderless, modelValue } = toRefs(props);
     const [collapseValue, setCollapseValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-    const updateCollapseValue = (value: CollapseValue) => {
+    const updateCollapseValue = (value: CollapsePanelValue) => {
       let newValue: CollapseValue = [].concat(collapseValue.value || []);
       const index = newValue.indexOf(value);
       if (index >= 0) {
@@ -29,9 +28,9 @@ export default defineComponent({
     };
     const classes = computed(() => {
       return [
-        COMPONENT_NAME.value,
+        componentName.value,
         {
-          [BORDERLESS_CLASS.value]: !!borderless.value,
+          [borderlessClass.value]: !!borderless.value,
         },
       ];
     });
