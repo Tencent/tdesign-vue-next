@@ -12,7 +12,7 @@
 import { compile } from 'vue/dist/vue.esm-bundler.js';
 
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
+const renderCode = `<t-notification duration="0" title="标题名称" content="这是一条消息通知" __pointerProps__ />)`;
 
 const renderComp = (data) => {
   return data?.usageCode ? compile(data.usageCode) : null;

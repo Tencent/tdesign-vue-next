@@ -1,0 +1,45 @@
+[
+  {
+    "name": "allowInput",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "clearable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "hideDisabledTime",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
+  }
+]

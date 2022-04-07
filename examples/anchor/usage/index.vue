@@ -12,7 +12,11 @@
 import { compile } from 'vue/dist/vue.esm-bundler.js';
 
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
+const renderCode = `<t-anchor __pointerProps__>
+  <t-anchor-item href="#锚点一" title="基础锚点" />
+  <t-anchor-item href="#锚点二" title="多级锚点" />
+  <t-anchor-item href="#锚点三" title="指定容器锚点" />
+</t-anchor>`;
 
 const renderComp = (data) => {
   return data?.usageCode ? compile(data.usageCode) : null;

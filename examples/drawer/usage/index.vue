@@ -12,7 +12,12 @@
 import { compile } from 'vue/dist/vue.esm-bundler.js';
 
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
+const renderCode = `<div>
+            <Button onClick={() => setVisible(true)}>Open Drawer</Button>
+            <Drawer __pointerProps__ visible={visible}>
+              <p>This is a Drawer</p>
+            </Drawer>
+          </div>`;
 
 const renderComp = (data) => {
   return data?.usageCode ? compile(data.usageCode) : null;

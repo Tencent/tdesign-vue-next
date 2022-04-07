@@ -1,0 +1,73 @@
+[
+  {
+    "name": "closeBtn",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "enableAlpha",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "format",
+    "type": "enum",
+    "defaultValue": "RGB",
+    "options": [
+      {
+        "label": "RGB",
+        "value": "RGB"
+      },
+      {
+        "label": "RGBA",
+        "value": "RGBA"
+      },
+      {
+        "label": "HSL",
+        "value": "HSL"
+      },
+      {
+        "label": "HSLA",
+        "value": "HSLA"
+      },
+      {
+        "label": "HSB",
+        "value": "HSB"
+      },
+      {
+        "label": "HSV",
+        "value": "HSV"
+      },
+      {
+        "label": "HSVA",
+        "value": "HSVA"
+      },
+      {
+        "label": "HEX",
+        "value": "HEX"
+      },
+      {
+        "label": "CMYK",
+        "value": "CMYK"
+      },
+      {
+        "label": "CSS",
+        "value": "CSS"
+      }
+    ]
+  },
+  {
+    "name": "multiple",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

@@ -1,0 +1,129 @@
+[
+  {
+    "name": "closeBtn",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "closeOnEscKeydown",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "closeOnOverlayClick",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "destroyOnClose",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "draggable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "footer",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "header",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "mode",
+    "type": "enum",
+    "defaultValue": "modal",
+    "options": [
+      {
+        "label": "modal",
+        "value": "modal"
+      },
+      {
+        "label": "modeless",
+        "value": "modeless"
+      },
+      {
+        "label": "normal",
+        "value": "normal"
+      }
+    ]
+  },
+  {
+    "name": "placement",
+    "type": "enum",
+    "defaultValue": "top",
+    "options": [
+      {
+        "label": "top",
+        "value": "top"
+      },
+      {
+        "label": "center",
+        "value": "center"
+      }
+    ]
+  },
+  {
+    "name": "preventScrollThrough",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "showInAttachedElement",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showOverlay",
+    "type": "Boolean",
+    "defaultValue": true,
+    "options": []
+  },
+  {
+    "name": "theme",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "info",
+        "value": "info"
+      },
+      {
+        "label": "warning",
+        "value": "warning"
+      },
+      {
+        "label": "danger",
+        "value": "danger"
+      },
+      {
+        "label": "success",
+        "value": "success"
+      }
+    ]
+  },
+  {
+    "name": "visible",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

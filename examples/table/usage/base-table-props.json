@@ -1,0 +1,91 @@
+[
+  {
+    "name": "bordered",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disableDataPage",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "headerAffixedTop",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "hover",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "loading",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
+  },
+  {
+    "name": "stripe",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "tableLayout",
+    "type": "enum",
+    "defaultValue": "fixed",
+    "options": [
+      {
+        "label": "auto",
+        "value": "auto"
+      },
+      {
+        "label": "fixed",
+        "value": "fixed"
+      }
+    ]
+  },
+  {
+    "name": "verticalAlign",
+    "type": "enum",
+    "defaultValue": "middle",
+    "options": [
+      {
+        "label": "top",
+        "value": "top"
+      },
+      {
+        "label": "middle",
+        "value": "middle"
+      },
+      {
+        "label": "bottom",
+        "value": "bottom"
+      }
+    ]
+  }
+]
