@@ -60,7 +60,7 @@ export default defineComponent({
       baseCls.push(`${COMPONENT_NAME.value}__shadow-hover`);
     }
     if (props.headBordered) {
-      headerCls.push(`${COMPONENT_NAME.value}__title-bordered`);
+      headerCls.push(`${COMPONENT_NAME.value}__title--bordered`);
     }
 
     const handleImgLoadError = () => {
