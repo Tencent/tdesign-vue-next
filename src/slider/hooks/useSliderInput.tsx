@@ -1,7 +1,12 @@
-import { computed, reactive, ComputedRef } from 'vue';
+import { computed, reactive, ComputedRef, watch } from 'vue';
+import { TdSliderProps } from '..';
 import InputNumber, { InputNumberProps } from '../../input-number/index';
 
+/**
+ * 聚合管理inputNumber渲染逻辑
+ */
 export const useSliderInput = (
+  inputNumberProps: boolean | TdSliderProps['inputNumberProps'],
   max: number,
   min: number,
   step: number,
@@ -11,11 +16,34 @@ export const useSliderInput = (
 ) => {
   const name = prefixName;
 
-  const sliderInputState = reactive({
-    inputDecimalPlaces: 0,
-    inputFormat: null,
-    inputPlaceholder: '',
-    inputTheme: 'column' as InputNumberProps['theme'],
+  /** 根据传入属性缓存计算inputNumber props */
+  const sliderInputState = computed(() => {
+    const initialState = {
+      inputDecimalPlaces: 0,
+      inputFormat: null as InputNumberProps['format'],
+      inputPlaceholder: '',
+      inputTheme: 'column' as InputNumberProps['theme'],
+    };
+    if (typeof inputNumberProps !== 'boolean') {
+      const inputNumbeConfig = inputNumberProps as TdSliderProps['inputNumberProps'];
+      const inputDecimalPlaces = inputNumbeConfig.decimalPlaces;
+      const inputFormat = inputNumbeConfig.format;
+      const inputPlaceholder = inputNumbeConfig.placeholder;
+      const inputTheme = inputNumbeConfig.theme;
+      if (typeof inputDecimalPlaces === 'number' && !Number.isNaN(inputDecimalPlaces)) {
+        initialState.inputDecimalPlaces = inputDecimalPlaces;
+      }
+      if (inputPlaceholder) {
+        initialState.inputPlaceholder = inputPlaceholder;
+      }
+      if (typeof inputFormat === 'function') {
+        initialState.inputFormat = inputFormat;
+      }
+      if (['column', 'row', 'normal'].includes(inputTheme)) {
+        initialState.inputTheme = inputTheme;
+      }
+    }
+    return initialState;
   });
 
   const sliderNumberClass = computed(() => {
@@ -37,10 +65,10 @@ export const useSliderInput = (
         disabled={disabled.value}
         min={min}
         max={max}
-        decimalPlaces={sliderInputState.inputDecimalPlaces}
-        format={sliderInputState.inputFormat}
-        placeholder={sliderInputState.inputPlaceholder}
-        theme={sliderInputState.inputTheme}
+        decimalPlaces={sliderInputState.value.inputDecimalPlaces}
+        format={sliderInputState.value.inputFormat}
+        placeholder={sliderInputState.value.inputPlaceholder}
+        theme={sliderInputState.value.inputTheme}
       />
     );
   };
