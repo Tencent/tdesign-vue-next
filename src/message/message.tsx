@@ -13,6 +13,7 @@ import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
 import { emitEvent } from '../utils/event';
 import { usePrefixClass } from '../hooks';
+import { fadeIn, fadeOut } from './animation';
 
 export default defineComponent({
   name: 'TMessage',
