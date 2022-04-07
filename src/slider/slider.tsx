@@ -139,7 +139,6 @@ export default defineComponent({
       });
       return Math.max.apply(null, precisions);
     });
-
     // 防止值越级
     const setValues = (value: SliderValue): SliderValue => {
       const [min, max] = [props.min, props.max];
