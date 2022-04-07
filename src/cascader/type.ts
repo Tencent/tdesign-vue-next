@@ -113,6 +113,11 @@ export interface TdCascaderProps<CascaderOption extends TreeOptionData = TreeOpt
    * 选中项的值
    * @default []
    */
+  modelValue?: CascaderValue<CascaderOption>;
+  /**
+   * 选中项的值
+   * @default []
+   */
   value?: CascaderValue<CascaderOption>;
   /**
    * 选中项的值，非受控属性
