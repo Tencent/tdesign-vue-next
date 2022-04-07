@@ -318,6 +318,7 @@ export default defineComponent({
     const renderMask = useSliderMark(props.max, props.min, props.marks, vertical.value, COMPONENT_NAME.value);
 
     const renderInputNumber = useSliderInput(
+      props.inputNumberProps,
       props.max,
       props.min,
       props.step,
