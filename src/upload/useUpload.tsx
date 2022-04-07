@@ -5,7 +5,7 @@ import without from 'lodash/without';
 import { TdUploadProps, UploadFile, RequestMethodResponse, SizeLimitObj } from './type';
 import { SuccessContext, InnerProgressContext, UploadCtxType } from './interface';
 
-import { useConfig } from '../config-provider';
+import { useConfig } from '../hooks/useConfig';
 
 import { isOverSizeLimit } from './util';
 import xhr from '../_common/js/upload/xhr';

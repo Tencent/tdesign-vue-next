@@ -2,8 +2,6 @@ import { defineComponent, PropType } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import CLASSNAMES from '../../utils/classnames';
-import getConfigReceiverMixins, { CascaderConfig } from '../../config-provider/config-receiver';
-import mixins from '../../utils/mixins';
 import { renderTNodeJSX } from '../../utils/render-tnode';
 
 // component
@@ -34,11 +32,9 @@ import { TreeNode, InputContentProps } from '../interface';
 import CascaderProps from '../props';
 
 // hooks
-import { usePrefixClass } from '../../config-provider';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<CascaderConfig>('cascader')),
-
   name: `${name}-input-content`,
   components: {
     Tag,
@@ -59,7 +55,9 @@ export default defineComponent({
   setup() {
     const COMPONENT_NAME = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();
+    const { global } = useConfig('cascader');
     return {
+      global,
       COMPONENT_NAME,
       classPrefix,
     };
@@ -121,9 +119,7 @@ export default defineComponent({
       const content = !showPlaceholder ? (
         this.InnerContent()
       ) : (
-        <span class={`${this.classPrefix}-cascader__placeholder`}>
-          {placeholder || this.t(this.global.placeholder)}
-        </span>
+        <span class={`${this.classPrefix}-cascader__placeholder`}>{placeholder || this.global.placeholder}</span>
       );
       return content;
     },
@@ -205,7 +201,7 @@ export default defineComponent({
       const filterContent = () => (
         <Input
           size={size}
-          placeholder={inputPlaceholder || placeholder || this.t(this.locale.placeholderText)}
+          placeholder={inputPlaceholder || placeholder || this.global.placeholder}
           value={inputVal}
           onChange={(value: string) => {
             setInputVal(value);

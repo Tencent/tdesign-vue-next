@@ -10,7 +10,7 @@ import { FormResetEvent, FormSubmitEvent, ClassName } from '../common';
 import { emitEvent } from '../utils/event';
 
 import { FormDisabledProvider } from './hooks';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export type FormItemInstance = InstanceType<typeof FormItem>;
 

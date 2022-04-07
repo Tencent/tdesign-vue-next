@@ -7,8 +7,6 @@ import { CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
 
 import { renderTNodeJSX } from '../utils/render-tnode';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { SelectConfig } from '../config-provider/config-receiver';
 import TInput from '../input/index';
 import Tag from '../tag/index';
 import FakeArrow from '../common-components/fake-arrow';
@@ -19,10 +17,10 @@ import props from './props';
 import { SelectOption, TdOptionProps, SelectValue, TdSelectProps, SelectOptionGroup } from './type';
 import { ClassName } from '../common';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export type OptionInstance = InstanceType<typeof Option>;
 
@@ -38,7 +36,6 @@ const DEFAULT_MAX_OVERLAY_WIDTH = 500;
 const DEFAULT_SCROLLY_WIDTH = 8;
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<SelectConfig>('select')),
   name: 'TSelect',
   components: {
     CloseCircleFilledIcon,
@@ -73,6 +70,7 @@ export default defineComponent({
     const classPrefix = usePrefixClass('');
     const listName = usePrefixClass('select__list');
     const { STATUS, SIZE } = useCommonClassName();
+    const { global, t } = useConfig('select');
     return {
       STATUS,
       SIZE,
@@ -80,6 +78,8 @@ export default defineComponent({
       listName,
       COMPONENT_NAME,
       disabled,
+      global,
+      t,
     };
   },
   data() {

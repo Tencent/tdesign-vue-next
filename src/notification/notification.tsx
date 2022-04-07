@@ -4,7 +4,7 @@ import isFunction from 'lodash/isFunction';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 import props from './props';
 import { TdNotificationProps } from './type';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TNotification',

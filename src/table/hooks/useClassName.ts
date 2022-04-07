@@ -1,4 +1,4 @@
-import { usePrefixClass } from '../../config-provider/useConfig';
+import { usePrefixClass } from '../../hooks/useConfig';
 
 export default function useClassName() {
   const classPrefix = usePrefixClass();

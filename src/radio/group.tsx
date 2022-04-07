@@ -6,7 +6,7 @@ import { RadioOptionObj, RadioOption, RadioValue } from './type';
 import Radio from './radio';
 import { TNodeReturnValue } from '../common';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TRadioGroup',
