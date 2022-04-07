@@ -5,7 +5,7 @@ import TDateTable from '../basic/table';
 import { DatePickerConfig } from '../../config-provider';
 import { DateValue } from '../type';
 
-import { usePrefixClass } from '../../hooks';
+import { usePrefixClass } from '../../hooks/useConfig';
 
 import {
   getWeeks,

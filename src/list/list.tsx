@@ -5,7 +5,7 @@ import props from './props';
 import { TdListProps } from './type';
 import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
-import { useConfig, usePrefixClass } from '../hooks';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TList',

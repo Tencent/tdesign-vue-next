@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../hooks';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TContent',

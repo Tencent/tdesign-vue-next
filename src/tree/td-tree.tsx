@@ -8,7 +8,7 @@ import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { ClassName, TNodeReturnValue, TreeOptionData } from '../common';
 import { TdTreeProps } from './type';
-import { useConfig } from '../hooks';
+import { useConfig } from '../hooks/useConfig';
 
 import {
   TypeTdTreeProps,

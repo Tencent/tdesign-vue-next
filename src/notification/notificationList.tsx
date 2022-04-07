@@ -3,7 +3,7 @@ import Notification from './notification';
 import { TdNotificationProps, NotificationOptions } from './type';
 import { Styles } from '../common';
 import { DEFAULT_Z_INDEX, PLACEMENT_OFFSET, DISTANCE } from './const';
-import { usePrefixClass } from '../hooks';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   props: {

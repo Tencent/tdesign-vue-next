@@ -3,7 +3,7 @@ import { DeleteIcon, ErrorCircleFilledIcon, AddIcon } from 'tdesign-icons-vue-ne
 import { Select as TSelect, Option as TOption } from '../../select';
 import Color from '../utils/color';
 import { useBaseClassName } from '../hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks';
+import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
 import baseProps from './base-props';
 import { Button as TButton, TdButtonProps } from '../../button';
 

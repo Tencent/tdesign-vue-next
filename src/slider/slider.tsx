@@ -10,7 +10,7 @@ import { SliderValue, TdSliderProps } from './type';
 import log from '../_common/js/log/log';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useCommonClassName } from '../hooks';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 interface MarkItem {
   point: number;

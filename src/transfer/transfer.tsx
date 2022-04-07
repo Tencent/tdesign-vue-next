@@ -29,7 +29,7 @@ import { TNode } from '../common';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass } from '../hooks';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 const SOURCE = 'source';
 const TARGET = 'target';

@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import TDatePickerCell from './cell';
 import { Cell } from '../interface';
-import { useConfig, usePrefixClass } from '../../hooks';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 const DAY_NAMES = ['一', '二', '三', '四', '五', '六', '日'];
 

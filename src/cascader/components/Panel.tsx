@@ -12,7 +12,7 @@ import Item from './Item';
 // type
 import { ContextType, TreeNode, CascaderContextType } from '../interface';
 import CascaderProps from '../props';
-import { useConfig, usePrefixClass } from '../../hooks';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
   name: 'TCascaderPanel',

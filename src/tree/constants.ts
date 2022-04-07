@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { usePrefixClass } from '../hooks';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export const useCLASSNAMES = () => {
   const classPrefix = usePrefixClass();

@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { COMPONENT_NAME } from '../const';
 import { CalendarState } from '../interface';
 import { TdCalendarProps, ControllerOptions } from '../type';
-import { useConfig } from '../../hooks';
+import { useConfig } from '../../hooks/useConfig';
 
 const getDefaultControllerConfigData = (visible = true): Record<string, any> => ({
   visible, // 是否显示（全部控件）

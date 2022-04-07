@@ -18,7 +18,7 @@ import { EPickerCols, EMPTY_VALUE, amFormat, pmFormat, AM } from './constant';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 dayjs.extend(customParseFormat);
 

@@ -6,7 +6,7 @@ import { renderContent } from '../utils/render-tnode';
 import { TNodeReturnValue } from '../common';
 import { emitEvent } from '../utils/event';
 import useRipple from '../hooks/useRipple';
-import { useCommonClassName, usePrefixClass } from '../hooks';
+import { useCommonClassName, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TDropdownItem',

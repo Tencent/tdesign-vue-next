@@ -6,7 +6,7 @@ import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 
 // hooks
 import useVModel from '../hooks/useVModel';
-import { usePrefixClass } from '../hooks';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export const CheckboxGroupInjectionKey: InjectionKey<{
   name: string;

@@ -4,7 +4,7 @@ import { copyText } from '../utils/clipboard';
 import Message from '../message/plugin';
 import props from './anchor-target-props';
 import TPopup from '../popup';
-import { useConfig, usePrefixClass } from '../hooks';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TAnchorTarget',

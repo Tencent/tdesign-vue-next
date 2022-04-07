@@ -10,7 +10,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};

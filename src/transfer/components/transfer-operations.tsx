@@ -2,7 +2,7 @@ import { defineComponent, createElementVNode, PropType } from 'vue';
 import { ChevronRightIcon, ChevronLeftIcon } from 'tdesign-icons-vue-next';
 import TButton from '../../button';
 import { TNode } from '../../common';
-import { usePrefixClass } from '../../hooks';
+import { usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
   name: 'TTransferOperations',

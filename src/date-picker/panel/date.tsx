@@ -4,7 +4,7 @@ import TDateTable from '../basic/table';
 import props from '../props';
 import { TdDatePickerProps } from '../type';
 import { DatePickerConfig } from '../../config-provider';
-import { usePrefixClass } from '../../hooks';
+import { usePrefixClass } from '../../hooks/useConfig';
 
 import {
   getWeeks,

@@ -21,7 +21,7 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '../hooks';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 dayjs.extend(isBetween);
 

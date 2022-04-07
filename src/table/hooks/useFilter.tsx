@@ -5,7 +5,7 @@ import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue } from 
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
-import { useConfig } from '../../hooks';
+import { useConfig } from '../../hooks/useConfig';
 
 // 筛选条件不为空，才需要显示筛选结果行
 function filterEmptyData(data: FilterValue) {

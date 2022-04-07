@@ -1,7 +1,7 @@
 import { PropType, defineComponent } from 'vue';
 import { DatePickerConfig } from '../config-provider';
 import { CalendarPresetsProps, DateValue } from './interface';
-import { usePrefixClass } from '../hooks';
+import { usePrefixClass } from '../hooks/useConfig';
 
 import { Button as TButton } from '../button';
 
