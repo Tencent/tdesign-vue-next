@@ -9627,6 +9627,1436 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/card/demos/base.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <div class="t-card__header">
+          <!---->
+          <div class="t-card__title">标题 </div>
+          <div class="t-card__actions"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button></div>
+        </div>
+        <!---->
+        <!---->
+        <div class="t-card__body">
+          <!--[-->这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          <!--]-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/borderd.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover" borderd>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__body">
+          <!--[-->这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          <!--]-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/borderd-none.vue correctly 1`] = `
+<div class="tdesign-demo-block demo-card">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card__shadow-hover">
+        <div class="t-card__header">
+          <!---->
+          <div class="t-card__title">标题 </div>
+          <div class="t-card__actions"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button></div>
+        </div>
+        <!---->
+        <!---->
+        <div class="t-card__body">
+          <!--[-->这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          <!--]-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/footer.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <!-- <t-card :title="title" :actions="actions" head-bordered @actions="clickHandler">
+          {{ infoMessage }}
+        </t-card> -->
+      <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->C<!--]--></span></div><span class="t-tag t-tag--success t-tag--dark t-size-m" style=""><!----><!--[-->默认标签<!--]--><!----></span>
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-share" style=""><path fill="currentColor" d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/footer-action-poster2.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <!---->
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <div class="t-card__header t-card__title--bordered">
+          <!---->
+          <div class="t-card__title">标题 <div class="t-card__subtitle">副标题 </div>
+          </div>
+          <div class="t-card__actions"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button></div>
+        </div>
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/footer-actions.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--center t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-4" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <!---->
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-share" style=""><path fill="currentColor" d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="t-col t-col-4" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <!---->
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-heart" style=""><path fill="currentColor" d="M8 5.86l1.06-.98a2.35 2.35 0 013.25 3.4L8 12.57l-4.31-4.3a2.35 2.35 0 013.25-3.4L8 5.86zm-.39-1.72a3.35 3.35 0 00-4.63 4.84l4.87 4.87a.2.2 0 00.3 0l4.87-4.87a3.35 3.35 0 00-4.63-4.84L8 4.5l-.39-.36z" fill-opacity="0.9"></path></svg><!--]--></span></button><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-share" style=""><path fill="currentColor" d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-popup__reference">
+                <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                  <div class="t-popup__content t-dropdown">
+                    <!--[-->
+                    <div class="t-dropdown__menu">
+                      <!--[-->
+                      <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
+                        <!--[-->
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                    <!--]-->
+                    <!---->
+                  </div>
+                </div>
+                <!--[-->
+                <!--[-->
+                <div class="tdesign-demo-dropdown-trigger"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-more" style=""><path fill="currentColor" d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z" fill-opacity="0.9"></path></svg><!--]--></span></button></div>
+                <!--]-->
+                <!--]-->
+              </div>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="t-col t-col-4" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <!---->
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--space-between t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-avatar-group t-avatar--offset-left">
+                <!--[-->
+                <!--[-->
+                <!--[-->
+                <div class="t-avatar t-avatar--circle" style=""><img style="" src="https://tdesign.gtimg.com/site/avatar.jpg" alt></div>
+                <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->Q<!--]--></span></div>
+                <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->+3<!--]--></span></div>
+                <!--]-->
+                <!--]-->
+                <!--]-->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-popup__reference">
+                <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                  <div class="t-popup__content t-dropdown">
+                    <!--[-->
+                    <div class="t-dropdown__menu">
+                      <!--[-->
+                      <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
+                        <!--[-->
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                    <!--]-->
+                    <!---->
+                  </div>
+                </div>
+                <!--[-->
+                <!--[-->
+                <div class="tdesign-demo-dropdown-trigger"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-more" style=""><path fill="currentColor" d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z" fill-opacity="0.9"></path></svg><!--]--></span></button></div>
+                <!--]-->
+                <!--]-->
+              </div>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/footer-content.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+    <!--[-->
+    <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->C<!--]--></span></div><span class="t-tag t-tag--success t-tag--dark t-size-m" style=""><!----><!--[-->默认标签<!--]--><!----></span>
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-popup__reference">
+                <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                  <div class="t-popup__content t-dropdown">
+                    <!--[-->
+                    <div class="t-dropdown__menu">
+                      <!--[-->
+                      <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
+                        <!--[-->
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                    <!--]-->
+                    <!---->
+                  </div>
+                </div>
+                <!--[-->
+                <!--[-->
+                <div class="tdesign-demo-dropdown-trigger"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><span class="tdesign-demo-dropdown__text"> 下拉菜单 <svg class="t-icon t-icon-chevron-down" style="font-size:16;"><use href="#t-icon-chevron-down"></use></svg></span>
+                    <!--]--></span>
+                  </button></div>
+                <!--]-->
+                <!--]-->
+              </div>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->C<!--]--></span></div><span class="t-tag t-tag--success t-tag--dark t-size-m" style=""><!----><!--[-->默认标签<!--]--><!----></span>
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-share" style=""><path fill="currentColor" d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->C<!--]--></span></div><span class="t-tag t-tag--success t-tag--dark t-size-m" style=""><!----><!--[-->默认标签<!--]--><!----></span>
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-popup__reference">
+                <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                  <div class="t-popup__content t-dropdown">
+                    <!--[-->
+                    <div class="t-dropdown__menu">
+                      <!--[-->
+                      <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
+                        <!--[-->
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                    <!--]-->
+                    <!---->
+                  </div>
+                </div>
+                <!--[-->
+                <!--[-->
+                <div class="tdesign-demo-dropdown-trigger"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><span class="tdesign-demo-dropdown__text"> 下拉菜单 <svg class="t-icon t-icon-chevron-down" style="font-size:16;"><use href="#t-icon-chevron-down"></use></svg></span>
+                    <!--]--></span>
+                  </button></div>
+                <!--]-->
+                <!--]-->
+              </div>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/footer-content-actions.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+    <!--[-->
+    <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->C<!--]--></span></div><span class="t-tag t-tag--success t-tag--dark t-size-m" style=""><!----><!--[-->默认标签<!--]--><!----></span>
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-popup__reference">
+                <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                  <div class="t-popup__content t-dropdown">
+                    <!--[-->
+                    <div class="t-dropdown__menu">
+                      <!--[-->
+                      <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
+                        <!--[-->
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                    <!--]-->
+                    <!---->
+                  </div>
+                </div>
+                <!--[-->
+                <!--[-->
+                <div class="tdesign-demo-dropdown-trigger"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><span class="tdesign-demo-dropdown__text"> 下拉菜单 <svg class="t-icon t-icon-chevron-down" style="font-size:16;"><use href="#t-icon-chevron-down"></use></svg></span>
+                    <!--]--></span>
+                  </button></div>
+                <!--]-->
+                <!--]-->
+              </div>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->C<!--]--></span></div><span class="t-tag t-tag--success t-tag--dark t-size-m" style=""><!----><!--[-->默认标签<!--]--><!----></span>
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-share" style=""><path fill="currentColor" d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->C<!--]--></span></div><span class="t-tag t-tag--success t-tag--dark t-size-m" style=""><!----><!--[-->默认标签<!--]--><!----></span>
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-popup__reference">
+                <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                  <div class="t-popup__content t-dropdown">
+                    <!--[-->
+                    <div class="t-dropdown__menu">
+                      <!--[-->
+                      <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
+                        <!--[-->
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                    <!--]-->
+                    <!---->
+                  </div>
+                </div>
+                <!--[-->
+                <!--[-->
+                <div class="tdesign-demo-dropdown-trigger"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><span class="tdesign-demo-dropdown__text"> 下拉菜单 <svg class="t-icon t-icon-chevron-down" style="font-size:16;"><use href="#t-icon-chevron-down"></use></svg></span>
+                    <!--]--></span>
+                  </button></div>
+                <!--]-->
+                <!--]-->
+              </div>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/footer-poster2.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <!---->
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <div class="t-card__header t-card__title--bordered">
+          <!---->
+          <div class="t-card__title">标题 <div class="t-card__subtitle">副标题 </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/footer-subtitle.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <!-- <t-card :title="title" :actions="actions" head-bordered @actions="clickHandler">
+          {{ infoMessage }}
+        </t-card> -->
+      <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->C<!--]--></span></div><span class="t-tag t-tag--success t-tag--dark t-size-m" style=""><!----><!--[-->默认标签<!--]--><!----></span>
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-share" style=""><path fill="currentColor" d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/header.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <div class="t-card__header">
+          <!---->
+          <div class="t-card__title">标题 </div>
+          <div class="t-card__actions"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button></div>
+        </div>
+        <!---->
+        <!---->
+        <div class="t-card__body">
+          <!--[-->这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          <!--]-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/header-bordered.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <div class="t-card__header t-card__title--bordered">
+          <!---->
+          <div class="t-card__title">标题 </div>
+          <div class="t-card__actions"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button></div>
+        </div>
+        <!---->
+        <!---->
+        <div class="t-card__body">
+          <!--[-->这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          <!--]-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/header-footer-actions.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <div class="t-card__header">
+          <!--[-->
+          <!-- <t-row :align="'middle'" justify="space-between"> -->
+          <div class="t-row t-row--start t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-avatar-group t-avatar--offset-left">
+              <!--[-->
+              <!--[-->
+              <!--[-->
+              <div class="t-avatar t-avatar--circle" style=""><img style="" src="https://tdesign.gtimg.com/site/avatar.jpg" alt></div>
+              <!--]-->
+              <!--]-->
+              <!--]-->
+            </div>
+            <div>
+              <div>标题</div>
+              <div>副标题</div>
+            </div>
+            <!--]-->
+          </div>
+          <div>
+            <div class="t-row t-row--end t-row--middle" style="margin-left:0px;margin-right:0px;">
+              <!--[-->
+              <div class="t-popup__reference">
+                <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+                  <div class="t-popup__content t-dropdown">
+                    <!--[-->
+                    <div class="t-dropdown__menu">
+                      <!--[-->
+                      <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
+                        <!--[-->
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <div maxcolumnwidth="100" mincolumnwidth="112">
+                          <div class="t-dropdown__item">
+                            <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
+                            <!---->
+                          </div>
+                          <!---->
+                        </div>
+                        <!--]-->
+                      </div>
+                      <!--]-->
+                    </div>
+                    <!--]-->
+                    <!---->
+                  </div>
+                </div>
+                <!--[-->
+                <!--[-->
+                <div class="tdesign-demo-dropdown-trigger"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-more" style=""><path fill="currentColor" d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z" fill-opacity="0.9"></path></svg><!--]--></span></button></div>
+                <!--]-->
+                <!--]-->
+              </div>
+              <!--]-->
+            </div>
+          </div><!-- </t-row> -->
+          <!--]-->
+          <!---->
+          <!---->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-share" style=""><path fill="currentColor" d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/header-subtitle.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-size-s t-card--bordered t-card__shadow-hover">
+        <div class="t-card__header">
+          <!---->
+          <div class="t-card__title">标题 <div class="t-card__subtitle">副标题 </div>
+          </div>
+          <div class="t-card__actions"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button></div>
+        </div>
+        <!---->
+        <!---->
+        <div class="t-card__body">
+          <!--[-->这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          <!--]-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/header-subtitle-footer-actions.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <div class="t-card__header">
+          <!---->
+          <div class="t-card__title">标题 <div class="t-card__subtitle">副标题 </div>
+          </div>
+          <!--[-->
+          <div class="t-popup__reference">
+            <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
+              <div class="t-popup__content t-dropdown">
+                <!--[-->
+                <div class="t-dropdown__menu">
+                  <!--[-->
+                  <div class="t-dropdown__menu-column narrow-scrollbar" style="max-height:300px;max-width:100px;min-width:112px;">
+                    <!--[-->
+                    <div maxcolumnwidth="100" mincolumnwidth="112">
+                      <div class="t-dropdown__item">
+                        <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作一</span></div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    <div maxcolumnwidth="100" mincolumnwidth="112">
+                      <div class="t-dropdown__item">
+                        <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作二</span></div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    <div maxcolumnwidth="100" mincolumnwidth="112">
+                      <div class="t-dropdown__item">
+                        <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作三</span></div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    <div maxcolumnwidth="100" mincolumnwidth="112">
+                      <div class="t-dropdown__item">
+                        <div class="t-dropdown__item-content"><span class="t-dropdown__item-text">操作四</span></div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    <!--]-->
+                  </div>
+                  <!--]-->
+                </div>
+                <!--]-->
+                <!---->
+              </div>
+            </div>
+            <!--[-->
+            <!--[-->
+            <div class="tdesign-demo-dropdown-trigger"><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-more" style=""><path fill="currentColor" d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z" fill-opacity="0.9"></path></svg><!--]--></span></button></div>
+            <!--]-->
+            <!--]-->
+          </div>
+          <!--]-->
+        </div>
+        <div class="t-card__cover"><img src="https://tdesign.gtimg.com/site/doc/doc-card.png"></div>
+        <!---->
+        <!---->
+        <!---->
+        <div class="t-card__footer">
+          <!--[-->
+          <div class="t-row t-row--center t-row--middle" style="margin-left:0px;margin-right:0px;">
+            <!--[-->
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-thumb-up" style=""><path fill="currentColor" d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chat" style=""><path fill="currentColor" d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
+              <!--[-->
+              <div class="t-divider t-divider--vertical">
+                <!---->
+              </div>
+              <!--]-->
+            </div>
+            <div class="t-col t-col-12" style="flex:auto;padding-left:0px;padding-right:0px;">
+              <!--[--><button class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width" type="button"><span class="t-button__text"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-share" style=""><path fill="currentColor" d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z" fill-opacity="0.9"></path></svg><!--]--></span></button>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+          <!--]-->
+          <!---->
+        </div>
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/hover.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-card--bordered t-card__shadow-hover">
+        <div class="t-card__header">
+          <!---->
+          <div class="t-card__title">标题 </div>
+          <div class="t-card__actions"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button></div>
+        </div>
+        <!---->
+        <!---->
+        <div class="t-card__body">
+          <!--[-->这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          <!--]-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/card/demos/small.vue correctly 1`] = `
+<div class="tdesign-demo-block">
+  <div class="t-row t-row--start t-row--middle" style="margin-left:-8px;margin-right:-8px;">
+    <!--[-->
+    <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
+      <!--[-->
+      <div class="t-card t-size-s t-card--bordered t-card__shadow-hover">
+        <div class="t-card__header">
+          <!---->
+          <div class="t-card__title">标题 </div>
+          <div class="t-card__actions"><button class="t-button t-size-m t-button--variant-text t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button></div>
+        </div>
+        <!---->
+        <!---->
+        <div class="t-card__body">
+          <!--[-->这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+          很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          <!--]-->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!--]-->
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/cascader/demos/base.vue correctly 1`] = `
 <div>
   <div class="t-popup__reference t-cascader__popup" modelvalue="1.1">

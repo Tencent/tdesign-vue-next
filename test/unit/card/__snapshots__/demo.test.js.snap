@@ -1,0 +1,438 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Card baseVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-row t-row--start t-row--middle"
+    style="margin-left: -8px; margin-right: -8px;"
+  >
+    
+    <div
+      class="t-col t-col-6"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div
+        class="t-card t-card--bordered t-card__shadow-hover"
+      >
+        <div
+          class="t-card__header"
+        >
+          <!---->
+          <div
+            class="t-card__title"
+          >
+            标题
+             
+            
+          </div>
+          <div
+            class="t-card__actions"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                操作
+                
+              </span>
+            </button>
+          </div>
+        </div>
+        <!---->
+        <!---->
+        <div
+          class="t-card__body"
+        >
+          
+          这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          
+        </div>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Card Card borderdNoneVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block demo-card"
+>
+  <div
+    class="t-row t-row--start t-row--middle"
+    style="margin-left: -8px; margin-right: -8px;"
+  >
+    
+    <div
+      class="t-col t-col-6"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div
+        class="t-card t-card__shadow-hover"
+      >
+        <div
+          class="t-card__header"
+        >
+          <!---->
+          <div
+            class="t-card__title"
+          >
+            标题
+             
+            
+          </div>
+          <div
+            class="t-card__actions"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                操作
+                
+              </span>
+            </button>
+          </div>
+        </div>
+        <!---->
+        <!---->
+        <div
+          class="t-card__body"
+        >
+          
+          这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          
+        </div>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Card Card borderdVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-row t-row--start t-row--middle"
+    style="margin-left: -8px; margin-right: -8px;"
+  >
+    
+    <div
+      class="t-col t-col-6"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div
+        borderd=""
+        class="t-card t-card--bordered t-card__shadow-hover"
+      >
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="t-card__body"
+        >
+          
+          这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          
+        </div>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Card Card footerVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-row t-row--start t-row--middle"
+    style="margin-left: -8px; margin-right: -8px;"
+  >
+    
+    <div
+      class="t-col t-col-6"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <!-- &lt;t-card :title="title" :actions="actions" head-bordered @actions="clickHandler"&gt;
+          {{ infoMessage }}
+        &lt;/t-card&gt; -->
+      <div
+        class="t-card t-card--bordered t-card__shadow t-card__shadow-hover"
+      >
+        <div
+          class="t-card__header"
+        >
+          
+          <div
+            class="t-avatar t-avatar--circle"
+          >
+            <span>
+              
+              C
+              
+            </span>
+          </div>
+          <span
+            class="t-tag t-tag--success t-tag--dark t-size-m"
+          >
+            <!---->
+            
+            默认标签
+            
+            <!---->
+          </span>
+          
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="t-card__cover"
+        >
+          <img
+            src="https://tdesign.gtimg.com/site/doc/doc-card.png"
+          />
+        </div>
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="t-card__footer"
+        >
+          
+          <div
+            class="t-row t-row--center t-row--middle"
+            style="margin-left: 0px; margin-right: 0px;"
+          >
+            
+            <div
+              class="t-col t-col-12"
+              style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+            >
+              
+              <button
+                class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-thumb-up"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  
+                </span>
+              </button>
+              
+            </div>
+            <div
+              class="t-col t-col-12"
+              style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+            >
+              
+              <div
+                class="t-divider t-divider--vertical"
+              >
+                <!---->
+              </div>
+              
+            </div>
+            <div
+              class="t-col t-col-12"
+              style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+            >
+              
+              <button
+                class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-chat"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  
+                </span>
+              </button>
+              
+            </div>
+            <div
+              class="t-col t-col-12"
+              style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+            >
+              
+              <div
+                class="t-divider t-divider--vertical"
+              >
+                <!---->
+              </div>
+              
+            </div>
+            <div
+              class="t-col t-col-12"
+              style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+            >
+              
+              <button
+                class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+                type="button"
+              >
+                <span
+                  class="t-button__text"
+                >
+                  
+                  <svg
+                    class="t-icon t-icon-share"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                  
+                </span>
+              </button>
+              
+            </div>
+            
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`Card Card headerVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-row t-row--start t-row--middle"
+    style="margin-left: -8px; margin-right: -8px;"
+  >
+    
+    <div
+      class="t-col t-col-6"
+      style="padding-left: 8px; padding-right: 8px;"
+    >
+      
+      <div
+        class="t-card t-card--bordered t-card__shadow-hover"
+      >
+        <div
+          class="t-card__header"
+        >
+          <!---->
+          <div
+            class="t-card__title"
+          >
+            标题
+             
+            
+          </div>
+          <div
+            class="t-card__actions"
+          >
+            <button
+              class="t-button t-size-m t-button--variant-text t-button--theme-primary"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                操作
+                
+              </span>
+            </button>
+          </div>
+        </div>
+        <!---->
+        <!---->
+        <div
+          class="t-card__body"
+        >
+          
+          这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+          
+        </div>
+        <!---->
+        <!---->
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+`;

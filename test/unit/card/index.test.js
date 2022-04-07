@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Card from '@/src/card/index.ts';
+import Card from '@/src/card';
 
 // every component needs four parts: props/events/slots/functions.
 describe('Card', () => {
