@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 100%">
     <t-table :data="data" :columns="columns" row-key="property">
       <!-- 插槽方式 自定义单元格：cell 的值为插槽名称，参数有：{col, colIndex, row, rowIndex}  -->
       <template #type-slot-name="{ col, row }">
@@ -42,19 +42,16 @@ const columns = [
     title: '类型',
     // type-slot-name 会被用于自定义单元格的插槽名称
     cell: 'type-slot-name',
-    width: 100,
   },
   {
     // 没有 cell 的情况下， platform 会被用作自定义单元格的插槽名称
     colKey: 'platform',
     title: '平台',
-    width: 236,
   },
   {
     colKey: 'property',
     title: '属性名',
     cell: (h, { col, row }) => <div>使用 cell 方法自定义单元格：{row[col.colKey]}</div>,
-    width: 290,
   },
   {
     colKey: 'description',
@@ -64,7 +61,6 @@ const columns = [
       if (type === 'title') return 'render';
       return `render 方法渲染单元格: ${rowIndex}-${colIndex}`;
     },
-    width: 235,
   },
 ];
 </script>

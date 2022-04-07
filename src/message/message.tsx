@@ -13,11 +13,15 @@ import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
 import { emitEvent } from '../utils/event';
 import { usePrefixClass } from '../config-provider';
+import { fadeIn, fadeOut } from './animation';
 
 export default defineComponent({
   name: 'TMessage',
 
-  props: { ...props },
+  props: {
+    ...props,
+    placement: String, // just for animation
+  },
 
   emits: ['duration-end', 'click-close-btn'],
 
@@ -55,6 +59,11 @@ export default defineComponent({
     this.duration && this.setTimer();
   },
 
+  mounted() {
+    const msgDom = this.$refs.msg as HTMLElement;
+    fadeIn(msgDom, this.$props.placement);
+  },
+
   methods: {
     setTimer() {
       if (!this.duration) {
@@ -63,7 +72,10 @@ export default defineComponent({
       this.timer = Number(
         setTimeout(() => {
           this.clearTimer();
-          emitEvent(this, 'duration-end');
+          const msgDom = this.$refs.msg as HTMLElement;
+          fadeOut(msgDom, this.$props.placement, () => {
+            this.$emit('duration-end');
+          });
         }, this.duration),
       );
     },
@@ -101,7 +113,7 @@ export default defineComponent({
 
   render() {
     return (
-      <div class={this.classes} onMouseenter={this.clearTimer} onMouseleave={this.setTimer}>
+      <div ref="msg" class={this.classes} onMouseenter={this.clearTimer} onMouseleave={this.setTimer}>
         {this.renderIcon()}
         {renderContent(this, 'content', 'default')}
         {this.renderClose()}

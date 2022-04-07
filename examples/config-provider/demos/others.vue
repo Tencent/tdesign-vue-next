@@ -63,10 +63,10 @@
     <br /><br /><br />
 
     <!-- 自定义关闭按钮示例 -->
-    <t-tag theme="primary" closable>Fearure Tag</t-tag>
-    <t-tag theme="success" closable>Fearure Tag</t-tag>
-    <t-tag theme="warning" closable>Fearure Tag</t-tag>
-    <t-tag theme="danger" closable>Fearure Tag</t-tag>
+    <t-tag theme="primary" closable>Feature Tag</t-tag>
+    <t-tag theme="success" closable>Feature Tag</t-tag>
+    <t-tag theme="warning" closable>Feature Tag</t-tag>
+    <t-tag theme="danger" closable>Feature Tag</t-tag>
     <br /><br />
 
     <!-- 数组件空数据 -->
@@ -77,7 +77,7 @@
     <br /><br />
     <br />
     <t-steps :current="2" layout="vertical" style="width: 100%">
-      <t-step-item title="Fisrt Step" content="You need to click the blue button"></t-step-item>
+      <t-step-item title="First Step" content="You need to click the blue button"></t-step-item>
       <t-step-item title="Second Step" content="Fill your base information into the form"></t-step-item>
       <t-step-item title="Error Step" status="error" content="Something Wrong! Custom Error Icon!"></t-step-item>
       <t-step-item title="Last Step" content="You haven't finish this step."></t-step-item>
@@ -88,6 +88,8 @@
 
 <script setup lang="jsx">
 import { ErrorIcon, ChevronRightIcon, CloseIcon, CloseCircleIcon } from 'tdesign-icons-vue-next';
+import merge from 'lodash/merge';
+import enConfig from 'tdesign-vue-next/locale/en_US';
 
 const transferList = [];
 for (let i = 0; i < 20; i++) {
@@ -98,7 +100,8 @@ for (let i = 0; i < 20; i++) {
   });
 }
 
-const globalConfig = {
+// 全局特性配置，可以引入英文默认配置 enConfig，还可以在默认配置的基础上进行自定义配置
+const globalConfig = merge(enConfig, {
   form: {
     requiredMark: false,
   },
@@ -138,7 +141,7 @@ const globalConfig = {
   steps: {
     errorIcon: (h) => h && <ErrorIcon />,
   },
-};
+});
 
 const transferChecked = [];
 const transferTargetValue = [];

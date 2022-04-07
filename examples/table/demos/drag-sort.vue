@@ -3,7 +3,7 @@
     <div class="item">
       <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
 
-      <t-table row-key="id" :columns="columns" :data="data" sort-on-row-draggable @drag-sort="onDragSort">
+      <t-table row-key="id" :columns="columns" :data="data" drag-sort="row" @drag-sort="onDragSort">
         <template #status="{ row }">
           <p class="status" :class="['', 'warning', 'unhealth'][row.status]">
             {{ ['健康', '警告', '异常'][row.status] }}
@@ -32,94 +32,18 @@ const columns = [
   { colKey: 'owner', title: '管理员', width: 100 },
 ];
 
-const initData = [
-  {
-    id: 1,
-    instance: 'JQTest1',
-    status: 0,
-    owner: 'jenny;peter',
-    survivalTime: 1000,
-  },
-  {
-    id: 2,
-    instance: 'JQTest2',
-    status: 1,
-    owner: 'jenny',
-    survivalTime: 1000,
-  },
-  {
-    id: 3,
-    instance: 'JQTest3',
-    status: 2,
-    owner: 'jenny',
-    survivalTime: 500,
-  },
-  {
-    id: 4,
-    instance: 'JQTest4',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-];
+const initialData = new Array(4).fill(5).map((_, i) => ({
+  id: i + 1,
+  instance: `JQTest${i + 1}`,
+  status: [0, 1, 2, 1][i % 4],
+  owner: ['jenny;peter', 'jenny', 'jenny', 'peter'][i % 4],
+  survivalTime: [1000, 1000, 500, 1500][i % 4],
+}));
 
-const data = ref([...initData]);
+const data = ref(initialData);
 
-const onDragSort = ({ currentIndex, targetIndex }) => {
-  console.log('交换行', currentIndex, targetIndex);
-  const temp = data.value[currentIndex];
-  data.value[currentIndex] = data.value[targetIndex];
-  data.value[targetIndex] = temp;
+const onDragSort = ({ currentIndex, current, targetIndex, target, currentData, e }) => {
+  console.log('交换行', currentIndex, current, targetIndex, target, currentData, e);
+  data.value = currentData;
 };
 </script>
-<style scoped lang="less">
-:deep([class*='t-table-expandable-icon-cell']) .t-icon {
-  background-color: transparent;
-}
-
-/** 修正自定义排序图标位置 */
-.t-table-demo-sort .t-table-sort-desc {
-  margin-top: -12px;
-}
-
-.demo-container {
-  .title {
-    font-size: 14px;
-    line-height: 28px;
-    display: block;
-    margin: 10px 0px;
-    i {
-      font-style: normal;
-    }
-  }
-  .status {
-    position: relative;
-    color: #00a870;
-    margin-left: 10px;
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 0px;
-      transform: translateY(-50%);
-      content: '';
-      background-color: #00a870;
-      width: 6px;
-      height: 6px;
-      margin-left: -10px;
-      border-radius: 50%;
-    }
-  }
-  .status.unhealth {
-    color: #e34d59;
-    &::before {
-      background-color: #e34d59;
-    }
-  }
-  .status.warning {
-    color: #ed7b2f;
-    &::before {
-      background-color: #ed7b2f;
-    }
-  }
-}
-</style>

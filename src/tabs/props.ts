@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdTabsProps } from './type';
@@ -22,6 +21,7 @@ export default {
     type: String as PropType<TdTabsProps['placement']>,
     default: 'top' as TdTabsProps['placement'],
     validator(val: TdTabsProps['placement']): boolean {
+      if (!val) return true;
       return ['left', 'top', 'bottom', 'right'].includes(val);
     },
   },
@@ -30,6 +30,7 @@ export default {
     type: String as PropType<TdTabsProps['size']>,
     default: 'medium' as TdTabsProps['size'],
     validator(val: TdTabsProps['size']): boolean {
+      if (!val) return true;
       return ['medium', 'large'].includes(val);
     },
   },
@@ -38,18 +39,21 @@ export default {
     type: String as PropType<TdTabsProps['theme']>,
     default: 'normal' as TdTabsProps['theme'],
     validator(val: TdTabsProps['theme']): boolean {
+      if (!val) return true;
       return ['normal', 'card'].includes(val);
     },
   },
   /** 激活的选项卡值 */
   value: {
     type: [String, Number] as PropType<TdTabsProps['value']>,
+    default: undefined,
+  },
+  modelValue: {
+    type: [String, Number] as PropType<TdTabsProps['value']>,
+    default: undefined,
   },
   /** 激活的选项卡值，非受控属性 */
   defaultValue: {
-    type: [String, Number] as PropType<TdTabsProps['defaultValue']>,
-  },
-  modelValue: {
     type: [String, Number] as PropType<TdTabsProps['defaultValue']>,
   },
   /** 添加选项卡时触发 */

@@ -18,6 +18,8 @@
 
 <script setup lang="jsx">
 import { ChevronRightIcon, CaretDownSmallIcon } from 'tdesign-icons-vue-next';
+import merge from 'lodash/merge';
+import enConfig from 'tdesign-vue-next/locale/en_US';
 
 const columns = [
   {
@@ -32,6 +34,10 @@ const columns = [
   {
     colKey: 'property',
     title: 'Property',
+    sorter: true,
+    filter: {
+      type: 'single',
+    },
   },
 ];
 
@@ -45,14 +51,27 @@ const expandedRow = (h) => {
   return <div>This is expanded row info</div>;
 };
 
-const globalConfig = {
+// 全局特性配置，可以引入英文默认配置 enConfig，还可以在默认配置的基础上进行自定义配置
+const globalConfig = merge(enConfig, {
   table: {
     empty: 'Empty Data',
+    // empty can also be a function
+    // empty: (h) => h && <div class='custom-empty-content'>Empty Data</div>,
     expandIcon: (h) => h && <ChevronRightIcon />,
     sortIcon: (h) => h && <CaretDownSmallIcon size="18px" />,
+
+    // More config
+    // filterIcon: () => <span>Filter</span>,
+    // filterInputPlaceholder: 'Enter Keyword',
+    // loadingMoreText: 'Load More',
+    // loadingText: 'Loading',
+    // sortAscendingOperationText: 'ascending sort',
+    // sortCancelOperationText: 'cancel sort',
+    // sortDescendingOperationText: 'descending sort',
   },
-};
+});
 </script>
+
 <style scoped>
 .tdesign-demo-item--locale-provider-base {
   margin: 24px -120px 0 0;

@@ -8,6 +8,7 @@ import { addClass, removeClass } from '../utils/dom';
 import { useConfig, usePrefixClass } from '../config-provider';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import useDestroyOnClose from '../hooks/useDestroyOnClose';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -101,6 +102,9 @@ export default defineComponent({
       });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
+
+    useDestroyOnClose();
+
     const scrollWidth = ref(0);
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
