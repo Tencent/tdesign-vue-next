@@ -38,8 +38,8 @@ const options = [
 ];
 
 const value = ref('');
-const onChange = (checkedValues) => {
-  console.log('checkedValues:', value.value, checkedValues);
+const onChange = (checkedValues, { prevCheckedValue }) => {
+  console.log('checkedValues:', value.value, checkedValues, prevCheckedValue);
 };
 </script>
 

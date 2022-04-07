@@ -83,7 +83,7 @@ export interface TdRadioGroupProps {
   /**
    * 选中值发生变化时触发
    */
-  onChange?: (value: RadioValue, context: { e: Event }) => void;
+  onChange?: (value: RadioValue, context: { prevValue: RadioValue; e: Event }) => void;
 }
 
 export type RadioValue = string | number | boolean;
