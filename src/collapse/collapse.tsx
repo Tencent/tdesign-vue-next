@@ -3,7 +3,7 @@ import props from './props';
 import { CollapseValue, TdCollapseProps, CollapsePanelValue } from './type';
 import useVModel from '../hooks/useVModel';
 import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TCollapse',
