@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { ref } from '@vue/reactivity';
+import { ref } from 'vue';
 
 const currentItem = ref([]);
 const handlePanelChange = (val) => {
