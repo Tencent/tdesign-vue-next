@@ -9,7 +9,6 @@ exports[`Radio Radio baseVue demo works fine 1`] = `
   >
     <label
       class="t-radio"
-      modelvalue="false"
     >
       <input
         class="t-radio__former"
@@ -29,7 +28,6 @@ exports[`Radio Radio baseVue demo works fine 1`] = `
     </label>
     <label
       class="t-radio t-is-checked"
-      modelvalue="false"
     >
       <input
         class="t-radio__former"
@@ -49,7 +47,6 @@ exports[`Radio Radio baseVue demo works fine 1`] = `
     </label>
     <label
       class="t-radio t-is-checked t-is-disabled"
-      modelvalue="false"
     >
       <input
         class="t-radio__former"
@@ -70,7 +67,6 @@ exports[`Radio Radio baseVue demo works fine 1`] = `
     </label>
     <label
       class="t-radio t-is-disabled"
-      modelvalue="false"
     >
       <input
         class="t-radio__former"
@@ -307,7 +303,6 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
-      modelvalue=""
     >
       
       <label
@@ -400,7 +395,6 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       
       <label
         class="t-radio t-is-checked"
-        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -421,7 +415,6 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio"
-        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -442,7 +435,6 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio"
-        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -463,7 +455,6 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio t-is-disabled"
-        modelvalue="false"
       >
         <input
           class="t-radio__former"
