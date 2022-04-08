@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, onBeforeMount, onMounted, computed, ref } from 'vue';
 import {
   InfoCircleFilledIcon,
   CheckCircleFilledIcon,
@@ -7,97 +7,82 @@ import {
   CloseIcon,
 } from 'tdesign-icons-vue-next';
 import TLoading from '../loading';
-
 import { THEME_LIST } from './const';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import props from './props';
+<<<<<<< HEAD
 import { emitEvent } from '../utils/event';
 import { usePrefixClass } from '../hooks/useConfig';
+=======
+import { usePrefixClass } from '../config-provider';
+>>>>>>> 349e28e5 (refactor: 使用compositionAPI重构message及messageList组件)
 import { fadeIn, fadeOut } from './animation';
+import { useTNodeJSX, useContent } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TMessage',
-
   props: {
     ...props,
     placement: String, // just for animation
   },
-
-  emits: ['duration-end', 'click-close-btn'],
-
-  setup() {
+  setup(props, { slots, expose }) {
     const COMPONENT_NAME = usePrefixClass('message');
     const classPrefix = usePrefixClass();
-    return {
-      classPrefix,
-      COMPONENT_NAME,
-    };
-  },
 
-  data() {
-    return {
-      timer: null,
-    };
-  },
-  computed: {
-    classes(): Array<any> {
+    const renderTNode = useTNodeJSX();
+    const renderContent = useContent();
+
+    const msgRef = ref(null);
+    const timer = ref(null);
+
+    const classes = computed(() => {
       const status = {};
-      THEME_LIST.forEach((t) => {
-        status[`${this.classPrefix}-is-${t}`] = this.theme === t;
-      });
+      THEME_LIST.forEach((t) => (status[`${classPrefix.value}-is-${t}`] = props.theme === t));
       return [
-        this.COMPONENT_NAME,
+        COMPONENT_NAME.value,
         status,
         {
-          [`${this.classPrefix}-is-closable`]: this.closeBtn || this.$slots.closeBtn,
+          [`${classPrefix.value}-is-closable`]: props.closeBtn || slots.closeBtn,
         },
       ];
-    },
-  },
+    });
 
-  created() {
-    this.duration && this.setTimer();
-  },
+    const close = (e?: MouseEvent) => {
+      props.onCloseBtnClick?.({ e });
+    };
 
-  mounted() {
-    const msgDom = this.$refs.msg as HTMLElement;
-    fadeIn(msgDom, this.$props.placement);
-  },
+    const clearTimer = () => {
+      props.duration && clearTimeout(timer.value);
+    };
 
-  methods: {
-    setTimer() {
-      if (!this.duration) {
+    const setTimer = () => {
+      if (!props.duration) {
         return;
       }
-      this.timer = Number(
+      timer.value = Number(
         setTimeout(() => {
-          this.clearTimer();
-          const msgDom = this.$refs.msg as HTMLElement;
-          fadeOut(msgDom, this.$props.placement, () => {
-            this.$emit('duration-end');
+          clearTimer();
+          const msgDom = msgRef.value as HTMLElement;
+          fadeOut(msgDom, props.placement, () => {
+            props.onDurationEnd?.();
           });
-        }, this.duration),
+        }, props.duration),
       );
-    },
-    clearTimer() {
-      this.duration && clearTimeout(this.timer);
-    },
-    close(e?: MouseEvent) {
-      emitEvent(this, 'click-close-btn', e);
-    },
-    renderClose() {
+    };
+
+    const renderClose = () => {
       const defaultClose = <CloseIcon />;
       return (
-        <span class={`${this.COMPONENT_NAME}__close`} onClick={this.close}>
-          {renderTNodeJSX(this, 'closeBtn', defaultClose)}
+        <span class={`${COMPONENT_NAME.value}__close`} onClick={close}>
+          {renderTNode('closeBtn', defaultClose)}
         </span>
       );
-    },
-    renderIcon() {
-      if (this.icon === false) return;
-      if (typeof this.icon === 'function') return this.icon(h);
-      if (this.$slots.icon) {
-        return this.$slots.icon(null);
+    };
+
+    const renderIcon = () => {
+      if (props.icon === false) return;
+      if (typeof props.icon === 'function') return props.icon(h);
+      if (slots.icon) {
+        return slots.icon(null);
       }
       const Icon = {
         info: InfoCircleFilledIcon,
@@ -106,17 +91,26 @@ export default defineComponent({
         error: ErrorCircleFilledIcon,
         question: HelpCircleFilledIcon,
         loading: TLoading,
-      }[this.theme];
+      }[props.theme];
       return <Icon />;
-    },
-  },
+    };
 
-  render() {
-    return (
-      <div ref="msg" class={this.classes} onMouseenter={this.clearTimer} onMouseleave={this.setTimer}>
-        {this.renderIcon()}
-        {renderContent(this, 'content', 'default')}
-        {this.renderClose()}
+    onBeforeMount(() => {
+      props.duration && setTimer();
+    });
+
+    onMounted(() => {
+      const msgDom = msgRef.value;
+      fadeIn(msgDom, props.placement);
+    });
+
+    expose({ close });
+
+    return () => (
+      <div ref={msgRef} class={classes.value} onMouseenter={clearTimer} onMouseleave={setTimer}>
+        {renderIcon()}
+        {renderContent('content', 'default')}
+        {renderClose()}
       </div>
     );
   },
