@@ -5,7 +5,7 @@ import { TNodeReturnValue } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { pxCompat } from '../utils/helper';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TDropdownMenu',

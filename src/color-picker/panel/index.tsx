@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs, watch } from 'vue';
-import { useCommonClassName, useConfig } from '../../config-provider';
+import { useCommonClassName, useConfig } from '../../hooks/useConfig';
 import props from '../props';
 import {
   DEFAULT_COLOR,

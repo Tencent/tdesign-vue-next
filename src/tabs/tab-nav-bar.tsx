@@ -3,7 +3,7 @@ import { firstUpperCase } from '../utils/helper';
 import tabProps from './props';
 
 // hooks
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   props: {

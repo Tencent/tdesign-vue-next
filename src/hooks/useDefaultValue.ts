@@ -1,6 +1,5 @@
 import { ref, Ref, getCurrentInstance } from 'vue';
-
-export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
+import { ChangeHandler } from './useVModel';
 
 // 用于实现 v-model:propsName
 export default function useDefaultValue<T, P extends any[]>(

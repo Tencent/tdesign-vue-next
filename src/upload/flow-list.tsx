@@ -17,7 +17,7 @@ import { returnFileSize, abridgeName } from './util';
 
 import { useTNodeJSX } from '../hooks/tnode';
 import { useFormDisabled } from '../form/hooks';
-import { useConfig, usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TUploadFlowList',

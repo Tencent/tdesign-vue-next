@@ -5,7 +5,7 @@ import { genGradientPoint, gradientColors2string } from '../utils/color';
 import { GradientColorPoint } from '../utils/gradient';
 import { InputNumber as TInputNumber } from '../../input-number';
 import { useBaseClassName } from '../hooks';
-import { useCommonClassName } from '../../config-provider';
+import { useCommonClassName } from '../../hooks/useConfig';
 import baseProps from './base-props';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];

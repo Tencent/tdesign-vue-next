@@ -5,7 +5,7 @@ import { TdMenuInterface, TdSubMenuInterface, TdMenuItem } from './const';
 import FakeArrow from '../common-components/fake-arrow';
 import useRipple from '../hooks/useRipple';
 import { ClassName } from '../common';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 import { Popup } from '../popup';
 
 export default defineComponent({

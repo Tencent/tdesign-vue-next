@@ -1,13 +1,11 @@
 import { defineComponent } from 'vue';
 import TDatePickerCell from './cell';
 import { Cell } from '../interface';
-import mixins from '../../utils/mixins';
-import getConfigReceiverMixins, { DatePickerConfig } from '../../config-provider/config-receiver';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 const DAY_NAMES = ['一', '二', '三', '四', '五', '六', '日'];
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
   name: 'TDatePickerTable',
   components: {
     TDatePickerCell,
@@ -25,6 +23,12 @@ export default defineComponent({
     dayNames: { type: Array, default: () => DAY_NAMES },
     onCellClick: { type: Function },
     onCellMouseEnter: { type: Function },
+  },
+  setup() {
+    const { global } = useConfig('datePicker');
+    return {
+      global,
+    };
   },
   render() {
     const { type, data, onCellClick, onCellMouseEnter, firstDayOfWeek } = this.$props;

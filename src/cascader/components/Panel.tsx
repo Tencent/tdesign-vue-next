@@ -2,8 +2,6 @@ import { defineComponent, PropType } from 'vue';
 
 // utils
 import { renderTNodeJSXDefault } from '../../utils/render-tnode';
-import getConfigReceiverMixins, { CascaderConfig } from '../../config-provider/config-receiver';
-import mixins from '../../utils/mixins';
 
 // common logic
 import { getPanels, expendClickEffect, valueChangeEffect } from '../utils/panel';
@@ -14,10 +12,9 @@ import Item from './Item';
 // type
 import { ContextType, TreeNode, CascaderContextType } from '../interface';
 import CascaderProps from '../props';
-import { usePrefixClass } from '../../config-provider';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<CascaderConfig>('cascader')),
   name: 'TCascaderPanel',
   props: {
     empty: CascaderProps.empty,
@@ -32,8 +29,9 @@ export default defineComponent({
   setup() {
     const ComponentClassName = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();
+    const { global } = useConfig('cascader');
 
-    return { ComponentClassName, classPrefix };
+    return { global, ComponentClassName, classPrefix };
   },
 
   computed: {
@@ -67,7 +65,7 @@ export default defineComponent({
     const renderEmpty = renderTNodeJSXDefault(
       this,
       'empty',
-      <div class={`${ComponentClassName}__panel--empty`}>{this.t(this.global.empty)}</div>,
+      <div class={`${ComponentClassName}__panel--empty`}>{this.global.empty}</div>,
     );
 
     const renderItem = (node: TreeNode) => (

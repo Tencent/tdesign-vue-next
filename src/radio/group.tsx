@@ -6,9 +6,9 @@ import { RadioOptionObj, RadioOption } from './type';
 import Radio from './radio';
 import { RadioGroupInjectionKey } from './constants';
 
-import { usePrefixClass, useCommonClassName } from '../config-provider';
 import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
 import { useTNodeDefault } from '../hooks/tnode';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TRadioGroup',
