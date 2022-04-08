@@ -70,7 +70,7 @@ export default defineComponent({
         placeholder: this.tPlaceholder,
         maxlength: this.maxlength,
         name: this.name || undefined,
-        type: this.type,
+        type: this.renderType,
         autocomplete: this.type === 'password' ? 'on' : undefined,
       });
     },
