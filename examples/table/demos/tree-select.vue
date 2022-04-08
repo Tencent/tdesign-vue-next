@@ -79,7 +79,7 @@ const columns = [
     // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删）
     // 这种方式禁用行选中，行文本不会变灰
     checkProps: ({ row }) => ({ disabled: row.status !== 0 }),
-    width: 50,
+    width: 20,
   },
   {
     colKey: 'instance',

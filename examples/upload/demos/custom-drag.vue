@@ -8,7 +8,7 @@
     </t-button>
     <br /><br />
     <t-upload
-      ref="upload"
+      ref="uploadRef"
       v-model="files"
       action="https://service-bv448zsw-1257786608.gz.apigw.tencentcs.com/api/upload-demo"
       draggable

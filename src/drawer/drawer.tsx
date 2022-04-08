@@ -1,6 +1,6 @@
 import { computed, defineComponent, nextTick, onUpdated, ref, watch } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { addClass, removeClass } from '../utils/dom';
 import { ClassName, Styles } from '../common';
 import { Button as TButton } from '../button';

@@ -7,7 +7,7 @@ import TransferDom from '../utils/transfer-dom';
 import props from './props';
 import { Styles } from '../common';
 
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 const useComponentClassName = () => {
   return {

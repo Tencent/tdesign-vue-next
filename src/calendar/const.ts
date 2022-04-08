@@ -6,6 +6,8 @@ interface ModeOption {
 }
 
 /** 常量 */
+// 组件配置项名
+export const COMPONENT_NAME = 'calendar';
 // 非法日期的标识
 export const INVALID_DATE = 'Invalid Date';
 // 最小年份
@@ -75,6 +77,7 @@ export const MONTH_CN_MAP: Record<string, string> = {
 };
 
 export default {
+  COMPONENT_NAME,
   INVALID_DATE,
   MIN_YEAR,
   FIRST_MONTH_OF_YEAR,

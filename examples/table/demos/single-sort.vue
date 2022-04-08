@@ -1,10 +1,27 @@
 <template>
   <div class="demo-container">
-    <!-- 受控用法，示例代码有效，勿删 -->
-    <t-table bordered row-key="id" :columns="columns" :data="data" :sort="sort" @sort-change="sortChange">
-      <template #op-column>
-        <t-icon name="descending-order" />
+    <!-- 非受控用法：不需要传 sort，或者只需要传 defaultSort: { sortBy: 'status', descending: true }），defaultSort 仅第一次有效 -->
+    <!-- 非受控用法，示例代码有效，勿删 -->
+    <!-- <t-table rowKey="id" :columns="columns" :data="data" @sort-change="defaultSortChange">
+      <template #status="{ row }">
+        <p v-if="row.status === 0" class="status">健康</p>
+        <p v-if="row.status === 1" class="status warning">警告</p>
+        <p v-if="row.status === 2" class="status unhealth">异常</p>
       </template>
+    </t-table> -->
+
+    <!-- 受控用法，示例代码有效，勿删 -->
+    <p>排序：{{ sort }}</p>
+    <br /><br />
+    <t-table
+      row-key="id"
+      :columns="columns"
+      :data="data"
+      :sort="sort"
+      bordered
+      @sort-change="sortChange"
+      @change="onChange"
+    >
       <template #status="{ row }">
         <p v-if="row.status === 0" class="status">健康</p>
         <p v-if="row.status === 1" class="status warning">警告</p>
@@ -35,36 +52,14 @@ const columns = [
   },
   { colKey: 'owner', title: '管理员', width: 100 },
 ];
-const initData = [
-  {
-    id: 1,
-    instance: 'JQTest1',
-    status: 0,
-    owner: 'jenny;peter',
-    survivalTime: 1000,
-  },
-  {
-    id: 2,
-    instance: 'JQTest2',
-    status: 1,
-    owner: 'jenny',
-    survivalTime: 1000,
-  },
-  {
-    id: 3,
-    instance: 'JQTest3',
-    status: 2,
-    owner: 'jenny',
-    survivalTime: 500,
-  },
-  {
-    id: 4,
-    instance: 'JQTest4',
-    status: 1,
-    owner: 'peter',
-    survivalTime: 1500,
-  },
-];
+
+const initData = new Array(4).fill(null).map((_, i) => ({
+  id: i + 1,
+  instance: `JQTest${i + 1}`,
+  status: [0, 1, 2, 1][i % 3],
+  owner: ['jenny;peter', 'jenny', 'peter'][i % 3],
+  survivalTime: [1000, 1000, 500, 1500][i % 3],
+}));
 
 const sort = ref({
   sortBy: 'status',
@@ -91,7 +86,18 @@ const sortChange = (val) => {
   sort.value = val;
   request(val);
 };
+
+// 排序、分页、过滤等发生变化时会出发 change 事件
+const onChange = (info, context) => {
+  console.log('change', info, context);
+};
+
+// 非受控用法，不需要传递 sort 给 Table 组件，因而此处无需执行 this.sort = sort 进行赋值
+const defaultSortChange = (sort) => {
+  this.request(sort);
+};
 </script>
+
 <style lang="less">
 :deep([class*='t-table-expandable-icon-cell']) .t-icon {
   background-color: transparent;

@@ -3,7 +3,5 @@ import _ConfigProvider from './config-provider';
 
 export * from './type';
 
-export * from './useConfig';
-
 export const ConfigProvider: WithInstallType<typeof _ConfigProvider> = withInstall(_ConfigProvider);
 export default ConfigProvider;

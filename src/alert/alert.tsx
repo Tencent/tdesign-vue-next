@@ -11,7 +11,7 @@ import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { SlotReturnValue } from '../common';
 import { useIcon } from '../hooks/icon';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TAlert',

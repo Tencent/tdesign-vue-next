@@ -1,33 +1,33 @@
-import { defineComponent, getCurrentInstance } from 'vue';
+import { defineComponent, inject } from 'vue';
 import props from './tab-panel-props';
-import { renderContent } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
+import useDestroyOnClose from '../hooks/useDestroyOnClose';
+import { useContent } from '../hooks/tnode';
+
+import type { InjectTabs } from './tabs';
 
 export default defineComponent({
   name: 'TTabPanel',
 
   props: { ...props },
-  setup() {
-    const COMPONENT_NAME = usePrefixClass('tab-panel');
-    return {
-      COMPONENT_NAME,
-    };
-  },
-  computed: {
-    active(): boolean {
-      const { value } = this.$parent as any;
-      return this.value === value;
-    },
-  },
 
-  render() {
-    const instance = getCurrentInstance();
-    const { destroyOnHide, active } = (instance as any).ctx;
-    if (destroyOnHide && !active) return null;
-    return (
-      <div class={this.COMPONENT_NAME} v-show={active}>
-        {renderContent(this, 'default', 'panel')}
-      </div>
-    );
+  setup(props) {
+    const COMPONENT_NAME = usePrefixClass('tab-panel');
+    const renderTNodeContent = useContent();
+
+    useDestroyOnClose();
+
+    const tabs = inject<InjectTabs>('tabs');
+
+    return () => {
+      const isActive = props.value === tabs.value.value;
+
+      if (props.destroyOnHide && !isActive) return null;
+      return (
+        <div class={COMPONENT_NAME.value} v-show={isActive}>
+          {renderTNodeContent('default', 'panel')}
+        </div>
+      );
+    };
   },
 });

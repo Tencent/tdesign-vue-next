@@ -5,7 +5,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import { panelColProps } from './props';
 import { EPickerCols } from '../constant';
-import { usePrefixClass, useCommonClassName } from '../../config-provider';
+import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
 
 dayjs.extend(customParseFormat);
 

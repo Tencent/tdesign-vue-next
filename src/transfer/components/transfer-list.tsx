@@ -15,7 +15,7 @@ import Search from './transfer-search';
 import { renderTNodeJSXDefault } from '../../utils/render-tnode';
 import { useTNodeDefault } from '../../hooks/tnode';
 
-import { usePrefixClass } from '../../config-provider';
+import { usePrefixClass } from '../../hooks/useConfig';
 
 const props = {
   checkboxProps: {

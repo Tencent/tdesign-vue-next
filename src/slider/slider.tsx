@@ -10,7 +10,7 @@ import { SliderValue, TdSliderProps } from './type';
 import log from '../_common/js/log/log';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 interface MarkItem {
   point: number;
@@ -210,6 +210,9 @@ export default defineComponent({
         this.init();
       }
     },
+    inputNumberProps() {
+      this.setInputProps();
+    },
   },
   mounted() {
     this.init();
@@ -244,6 +247,7 @@ export default defineComponent({
       }
       this.$el.setAttribute('aria-valuetext', valuetext);
       this.resetSize();
+      this.setInputProps();
       window.addEventListener('resize', this.resetSize);
     },
     valueChanged(): boolean {

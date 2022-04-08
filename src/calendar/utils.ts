@@ -8,7 +8,7 @@ import { FIRST_MONTH_OF_YEAR, LAST_MONTH_OF_YEAR, DAY_CN_MAP } from './const';
 /**
  * 获取一个日期是周几（1~7）
  */
-const getDay = (dt: Date): number => {
+export const getDay = (dt: Date): number => {
   let day = dayjs(dt).day();
   if (day === 0) {
     day = 7;
@@ -20,7 +20,7 @@ const getDay = (dt: Date): number => {
  * 获取星期的中文
  * @param num 星期（1~7）
  */
-const getDayCn = (num: number): string => {
+export const getDayCn = (num: number): string => {
   let re = '';
   const numStr = num.toString();
   if (numStr in DAY_CN_MAP) {
@@ -34,7 +34,7 @@ const getDayCn = (num: number): string => {
  * @param firstDayOfWeek 周起始日（1~7）
  * @param dt
  */
-const getCellColIndex = (firstDayOfWeek: number, dt: Date): number => {
+export const getCellColIndex = (firstDayOfWeek: number, dt: Date): number => {
   let re = 0;
   const day = getDay(dt);
   if (day >= firstDayOfWeek) {
@@ -47,7 +47,7 @@ const getCellColIndex = (firstDayOfWeek: number, dt: Date): number => {
 /**
  * 返回日期+天数（天数可以负数）
  */
-const addDate = (dt: Date, days: number) => {
+export const addDate = (dt: Date, days: number) => {
   const d = new Date(dt);
   d.setDate(d.getDate() + days);
   return d;
@@ -58,7 +58,7 @@ const addDate = (dt: Date, days: number) => {
  * @param year 月历年份
  * @param curDate 当前日期
  */
-const createYearCellsData = (year: number, curDate: dayjs.Dayjs, format: string): CalendarCell[] => {
+export const createYearCellsData = (year: number, curDate: dayjs.Dayjs, format: string): CalendarCell[] => {
   const monthsArr: CalendarCell[] = [];
   const isCurYear = curDate.year() === year;
   for (let num = FIRST_MONTH_OF_YEAR; num <= LAST_MONTH_OF_YEAR; num++) {
@@ -87,7 +87,7 @@ const createYearCellsData = (year: number, curDate: dayjs.Dayjs, format: string)
  * @param curDate 当前日期
  * @param format 日期格式
  */
-const createMonthCellsData = (
+export const createMonthCellsData = (
   year: number,
   month: number,
   firstDayOfWeek: number,
@@ -153,4 +153,8 @@ const createMonthCellsData = (
   return daysArr;
 };
 
-export { getDayCn, getCellColIndex, addDate, createYearCellsData, createMonthCellsData };
+/**
+ * 根据当前时间创建一个默认日期
+ * @returns 当前日期都dayjs对象
+ */
+export const createDefaultCurDate = (): dayjs.Dayjs => dayjs(dayjs().format('YYYY-MM-DD'));

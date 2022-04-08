@@ -1,6 +1,7 @@
 import { defineComponent, VNode } from 'vue';
 import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
 import TButton from '../button';
+import TInput from '../input';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { ChangeSource, TdInputNumberProps } from './type';
@@ -9,7 +10,7 @@ import { emitEvent } from '../utils/event';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 type InputNumberEvent = {
   onInput?: (e: InputEvent) => void;
@@ -44,6 +45,7 @@ export default defineComponent({
     ChevronDownIcon,
     ChevronUpIcon,
     TButton,
+    TInput,
   },
   props: { ...props },
   emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],

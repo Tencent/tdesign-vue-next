@@ -3,13 +3,20 @@ import { TdTreeSelectProps } from './type';
 export type TreeSelectProps = TdTreeSelectProps;
 
 export * from './type';
-export interface RemoveOptions<DataOption> {
+export interface IRemoveOptions<DataOption> {
   value: string | number;
   data: DataOption;
   e: MouseEvent;
 }
 
-export interface NodeOptions {
+export interface INodeOptions {
   label: string;
   value: string | number;
+}
+
+export interface ISelectInputSlot {
+  panel: Function;
+  prefixIcon?: Function;
+  collapsedItems?: Function;
+  valueDisplay?: Function;
 }

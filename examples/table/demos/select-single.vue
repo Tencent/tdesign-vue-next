@@ -31,7 +31,16 @@ const columns = [
   {
     colKey: 'row-select',
     type: 'single',
-    checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }),
+    // 允许单选(Radio)取消行选中
+    checkProps: { allowUncheck: true },
+
+    // 禁用行选中方式一：使用 disabled 禁用行（示例代码有效，勿删，随时需要测试）。disabled 参数：{row: RowData; rowIndex: number })
+    // 这种方式禁用行选中，当前行会添加行类名 t-table__row--disabled，禁用行文字变灰
+    disabled: ({ rowIndex }) => rowIndex === 1 || rowIndex === 3,
+
+    // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删，随时需要测试）
+    // 这种方式禁用行选中，行文本不会变灰
+    // checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }),
     width: 50,
   },
   { colKey: 'instance', title: '集群名称', width: 150 },
@@ -50,40 +59,18 @@ const columns = [
     cell: 'op',
   },
 ];
-const data = [
-  {
-    id: 1,
-    instance: 'JQTest1',
-    status: 0,
-    owner: 'jenny;peter',
-    description: 'test',
-  },
-  {
-    id: '2',
-    instance: 'JQTest2',
-    status: 1,
-    owner: 'jenny',
-    description: 'test',
-  },
-  {
-    id: 3,
-    instance: 'JQTest3',
-    status: 0,
-    owner: 'jenny',
-    description: 'test',
-  },
-  {
-    id: 4,
-    instance: 'JQTest4',
-    status: 1,
-    owner: 'peter',
-    description: 'test',
-  },
-];
-const selectedRowKeys = ref([]);
+const data = new Array(5).fill(null).map((item, index) => ({
+  id: index + 100,
+  instance: `JQTest${index + 1}`,
+  status: index % 2,
+  owner: 'jenny;peter',
+  description: 'test',
+}));
 
-const rehandleClickOp = ({ text, row }) => {
-  console.log(text, row);
+const selectedRowKeys = ref([102]);
+
+const rehandleClickOp = ({ row }) => {
+  console.log(row);
 };
 
 const rehandleSelectChange = (value, { selectedRowData }) => {

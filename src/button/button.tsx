@@ -4,7 +4,7 @@ import props from './props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import useRipple from '../hooks/useRipple';
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TButton',

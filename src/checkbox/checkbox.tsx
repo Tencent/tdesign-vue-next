@@ -1,13 +1,11 @@
 import { defineComponent, ref, toRefs, computed, inject } from 'vue';
 import props from './props';
 import { ClassName } from '../common';
-
-// hooks
 import useVModel from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 import { CheckboxGroupInjectionKey } from './group';
 
 export default defineComponent({
@@ -18,7 +16,6 @@ export default defineComponent({
   },
 
   setup(props) {
-    const formDisabled = useFormDisabled();
     const labelRef = ref<HTMLElement>();
     if (props.needRipple) {
       useRipple(labelRef);
@@ -28,6 +25,10 @@ export default defineComponent({
     const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
 
     const checkboxGroup = inject(CheckboxGroupInjectionKey, undefined);
+    const GroupDisabled = computed(() => {
+      return props.disabled || !!checkboxGroup?.disabled;
+    });
+    const formDisabled = useFormDisabled(GroupDisabled);
 
     const name = computed<string>(() => props.name || checkboxGroup?.name);
 

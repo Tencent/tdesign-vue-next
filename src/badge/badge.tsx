@@ -1,7 +1,7 @@
 import { defineComponent, computed } from 'vue';
 import props from './props';
 import { useTNodeJSX } from '../hooks/tnode';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TBadge',

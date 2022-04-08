@@ -2,7 +2,7 @@ import { defineComponent, VNode, PropType } from 'vue';
 import { SearchIcon } from 'tdesign-icons-vue-next';
 import { SearchOption } from '../interface';
 import TInput from '../../input';
-import { usePrefixClass } from '../../config-provider';
+import { usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
   name: 'TTransferSearch',

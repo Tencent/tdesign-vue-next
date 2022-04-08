@@ -14,12 +14,14 @@ export interface MixinsConfirmBtn {
   confirmBtn: MixinsFooterButton;
   globalConfirm: PopconfirmConfig['confirm'] | DrawerConfig['confirm'] | DialogConfig['confirm'];
   globalConfirmBtnTheme?: PopconfirmConfig['confirmBtnTheme'] | DialogConfig['confirmBtnTheme'];
+  size?: ButtonProps['size'];
 }
 
 export interface MixinsCancelBtn {
   className?: ClassName;
   cancelBtn: MixinsFooterButton;
   globalCancel: PopconfirmConfig['cancel'] | DrawerConfig['cancel'] | DialogConfig['cancel'];
+  size?: ButtonProps['size'];
 }
 
 export type MixinsThemeType = keyof (PopconfirmConfig['confirmBtnTheme'] & DialogConfig['confirmBtnTheme']);
@@ -38,6 +40,7 @@ export function useAction(action: BtnAction) {
     const defaultTheme = globalConfirmBtnTheme?.[theme] || 'primary';
     let props: ButtonProps = {
       theme: defaultTheme,
+      size: options.size,
       onClick: (e) => {
         action.confirmBtnAction(e);
       },
@@ -54,6 +57,7 @@ export function useAction(action: BtnAction) {
     const { globalCancel } = options;
     let props: ButtonProps = {
       theme: 'default',
+      size: options.size,
       onClick: (e) => {
         action.cancelBtnAction(e);
       },

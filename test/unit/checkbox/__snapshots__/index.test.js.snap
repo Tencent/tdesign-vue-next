@@ -205,10 +205,11 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
 >
   
   <label
-    class="t-checkbox"
+    class="t-checkbox t-is-disabled"
   >
     <input
       class="t-checkbox__former"
+      disabled=""
       name=""
       type="checkbox"
       value="bj"
@@ -225,10 +226,11 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox"
+    class="t-checkbox t-is-disabled"
   >
     <input
       class="t-checkbox__former"
+      disabled=""
       name=""
       type="checkbox"
       value="gz"
@@ -245,10 +247,11 @@ exports[`Checkbox CheckboxGroup :props :disabled 1`] = `
     </span>
   </label>
   <label
-    class="t-checkbox"
+    class="t-checkbox t-is-disabled"
   >
     <input
       class="t-checkbox__former"
+      disabled=""
       name=""
       type="checkbox"
       value="sz"

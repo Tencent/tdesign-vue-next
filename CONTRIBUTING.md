@@ -91,7 +91,7 @@ npm run start
 
 ```bash
 # 建立 upstream remote
-git add upstream git@github.com:Tencent/tdesign-vue-next.git
+git remote add upstream git@github.com:Tencent/tdesign-vue-next.git
 
 # 更新 upstream 
 git fetch upstream develop

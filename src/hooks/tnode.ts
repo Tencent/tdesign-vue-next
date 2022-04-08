@@ -44,11 +44,11 @@ export const useTNodeJSX = () => {
     }
 
     // 是否静默日志
-    const isSilent = Boolean(isObject(options) && 'silent' in options && options.silent);
-    // 同名插槽和属性同时存在，则提醒用户只需要选择一种方式即可
-    if (instance.slots[name] && propsNode && propsNode !== true && !isSilent) {
-      log.warn('', `Both slots.${name} and props.${name} exist, props.${name} is preferred`);
-    }
+    // const isSilent = Boolean(isObject(options) && 'silent' in options && options.silent);
+    // // 同名插槽和属性同时存在，则提醒用户只需要选择一种方式即可
+    // if (instance.slots[name] && propsNode && propsNode !== true && !isSilent) {
+    //   log.warn('', `Both slots.${name} and props.${name} exist, props.${name} is preferred`);
+    // }
     // propsNode 为 false 不渲染
     if (propsNode === false) return;
     if (propsNode === true) {

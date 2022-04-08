@@ -8,7 +8,8 @@ import { PopupVisibleChangeContext } from './type';
 import { ClassName, Styles } from '../common';
 import setStyle from '../utils/set-style';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useDestroyOnClose from '../hooks/useDestroyOnClose';
 
 const stop = (e: MouseEvent) => e.stopPropagation();
 
@@ -61,6 +62,7 @@ export default defineComponent({
   setup() {
     const COMPONENT_NAME = usePrefixClass('popup');
     const { STATUS } = useCommonClassName();
+    useDestroyOnClose();
     return {
       STATUS,
       COMPONENT_NAME,
@@ -205,6 +207,12 @@ export default defineComponent({
       this.popper = null;
     }
 
+    // remove popup element is important for table ellipsis
+    const popperElement = this.$refs.popper as HTMLDivElement;
+    if (popperElement) {
+      (popperElement as HTMLDivElement)?.parentNode?.removeChild(popperElement);
+    }
+
     const popperElm = this.$refs.popper as HTMLElement;
     if (popperElm && popperElm.parentNode === document.body) {
       popperElm.removeEventListener('click', stop);
@@ -212,6 +220,7 @@ export default defineComponent({
     }
     this.offEvents.forEach((handler) => handler && handler());
   },
+
   methods: {
     createPopper() {
       const currentPlacement = this.placement;

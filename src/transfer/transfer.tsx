@@ -21,7 +21,7 @@ import useVModel from '../hooks/useVModel';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useConfig } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 const SOURCE = 'source';
 const TARGET = 'target';

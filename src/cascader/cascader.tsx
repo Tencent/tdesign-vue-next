@@ -31,7 +31,7 @@ import { CascaderChangeSource, CascaderValue, CascaderChangeContext } from './ty
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TCascader',

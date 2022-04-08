@@ -5,329 +5,754 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
   class="tdesign-tree-select-base"
 >
   <div
-    class="t-select__wrap"
-    modelvalue=""
+    class="t-popup__reference t-select-input t-select-input--empty"
   >
-    <div
-      class="t-popup__reference t-select__popup-reference"
-    >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content t-select__dropdown narrow-scrollbar"
-          >
-            
-            <div>
-              <p
-                class="t-select-loading-tips"
-                style="display: none;"
-              >
-                <div
-                  class="t-select__empty"
-                >
-                  加载中
-                </div>
-              </p>
-              <div
-                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-                modelvalue=""
-                size="medium"
-              >
-                <transition-group-stub>
-                  
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="0"
-                    data-value="guangdong"
-                    style="--level: 0;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon t-tree__icon--default"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      <svg
-                        class="t-icon t-icon-caret-right-small"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6 5v6l4.5-3L6 5z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        广东省
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="guangzhou"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        广州市
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="shenzhen"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        深圳市
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="0"
-                    data-value="jiangsu"
-                    style="--level: 0;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon t-tree__icon--default"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      <svg
-                        class="t-icon t-icon-caret-right-small"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6 5v6l4.5-3L6 5z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        江苏省
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="nanjing"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        南京市
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="suzhou"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        苏州市
-                      </span>
-                    </span>
-                    
-                  </div>
-                  
-                </transition-group-stub>
-                <!---->
-              </div>
-            </div>
-            
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
+    <transition-stub>
       <div
-        class="t-select t-select-polyfill t-size-m"
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
       >
-        <!---->
-        <span
-          class="t-select__placeholder"
-        >
-          请选择
-           
-        </span>
-        
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-          style="display: none;"
-        >
-          <!---->
-          
-          +0
-          
-          <!---->
-        </span>
-        <!---->
         <div
-          class="t-input__wrap t-select__input"
-          modelvalue=""
-          style="display: none;"
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
         >
-          <div
-            class="t-input"
-          >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              type="text"
-            />
-            <!---->
-            <!---->
-            <!---->
-          </div>
-          <!---->
-        </div>
-        <svg
-          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-          fill="none"
-          height="16"
-          style="font-size: medium;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-        <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon"
-          fill="none"
-          height="1em"
-          style="font-size: medium; display: none;"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        <div
-          class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill"
-          style="display: none;"
-        >
-          <svg
-            class="t-loading__gradient t-icon-loading"
-            height="1em"
-            size="small"
-            version="1.1"
-            viewBox="0 0 14 14"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <foreignobject
-              height="12"
-              width="12"
-              x="1"
-              y="1"
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
             >
               <div
-                class="t-loading__gradient-conic"
-              />
-            </foreignobject>
-          </svg>
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      广东省
+                    </span>
+                  </span>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      江苏省
+                    </span>
+                  </span>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
           <!---->
         </div>
       </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
+<div
+  class="tdesign-tree-select-collapsed"
+>
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty demo-space"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="guangdong"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      广东省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="jiangsu"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      江苏省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap t-tag-input"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
+            style="max-width: 300px;"
+          >
+            <!---->
+            <span
+              class="t-tag--text"
+              style="max-width: 300px;"
+            >
+              
+              <!---->
+              
+            </span>
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="guangdong"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      广东省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="jiangsu"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      江苏省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap t-tag-input"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
+            style="max-width: 300px;"
+          >
+            <!---->
+            <span
+              class="t-tag--text"
+              style="max-width: 300px;"
+            >
+              
+              <!---->
+              
+            </span>
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
+<div
+  class="tdesign-tree-select-filterable"
+>
+  <div
+    class="operation"
+  >
+    <div
+      class="t-radio-group t-size-m t-radio-group--filled"
+      modelvalue="default"
+    >
+      
+      <label
+        class="t-radio-button t-is-checked"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="default"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+           默认 
+          
+          
+        </span>
+      </label>
+      <label
+        class="t-radio-button"
+      >
+        <input
+          class="t-radio-button__former"
+          name=""
+          type="radio"
+          value="function"
+        />
+        <span
+          class="t-radio-button__input"
+        />
+        <span
+          class="t-radio-button__label"
+        >
+          
+          
+           自定义方法 
+          
+          
+        </span>
+      </label>
+      <div
+        class="t-radio-group__bg-block"
+        style="width: 0px; left: 0px;"
+      />
       
     </div>
+  </div>
+  <div
+    class="t-popup__reference t-select-input t-select-input--empty"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      广东省
+                    </span>
+                  </span>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      江苏省
+                    </span>
+                  </span>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
   </div>
 </div>
 `;
@@ -337,229 +762,350 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
   class="tdesign-tree-select-lazy"
 >
   <div
-    class="t-select__wrap"
-    modelvalue=""
+    class="t-popup__reference t-select-input t-select-input--empty"
   >
-    <div
-      class="t-popup__reference t-select__popup-reference"
-    >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content t-select__dropdown narrow-scrollbar"
-          >
-            
-            <div>
-              <p
-                class="t-select-loading-tips"
-                style="display: none;"
-              >
-                <div
-                  class="t-select__empty"
-                >
-                  加载中
-                </div>
-              </p>
-              <div
-                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-                modelvalue=""
-                size="medium"
-              >
-                <transition-group-stub>
-                  
-                  <div
-                    class="t-tree__item"
-                    data-level="0"
-                    data-value="1"
-                    style="--level: 0;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon t-tree__icon--default"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      <svg
-                        class="t-icon t-icon-caret-right-small"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6 5v6l4.5-3L6 5z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        1
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item"
-                    data-level="0"
-                    data-value="2"
-                    style="--level: 0;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon t-tree__icon--default"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      <svg
-                        class="t-icon t-icon-caret-right-small"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6 5v6l4.5-3L6 5z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        2
-                      </span>
-                    </span>
-                    
-                  </div>
-                  
-                </transition-group-stub>
-                <!---->
-              </div>
-            </div>
-            
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
+    <transition-stub>
       <div
-        class="t-select t-select-polyfill t-size-m"
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
       >
-        <!---->
-        <span
-          class="t-select__placeholder"
-        >
-          请选择
-           
-        </span>
-        
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-          style="display: none;"
-        >
-          <!---->
-          
-          +0
-          
-          <!---->
-        </span>
-        <!---->
         <div
-          class="t-input__wrap t-select__input"
-          modelvalue=""
-          style="display: none;"
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
         >
-          <div
-            class="t-input"
-          >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="请选择"
-              type="text"
-            />
-            <!---->
-            <!---->
-            <!---->
-          </div>
-          <!---->
-        </div>
-        <svg
-          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-          fill="none"
-          height="16"
-          style="font-size: medium;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-        <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon"
-          fill="none"
-          height="1em"
-          style="font-size: medium; display: none;"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
-        <div
-          class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill"
-          style="display: none;"
-        >
-          <svg
-            class="t-loading__gradient t-icon-loading"
-            height="1em"
-            size="small"
-            version="1.1"
-            viewBox="0 0 14 14"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <foreignobject
-              height="12"
-              width="12"
-              x="1"
-              y="1"
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
             >
               <div
-                class="t-loading__gradient-conic"
-              />
-            </foreignobject>
-          </svg>
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="1"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      1
+                    </span>
+                  </span>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="2"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      2
+                    </span>
+                  </span>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
           <!---->
         </div>
       </div>
-      
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
+    
+  </div>
+</div>
+`;
+
+exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
+<div
+  class="tdesign-tree-select-multiple"
+>
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="guangdong"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      广东省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="jiangsu"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      江苏省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap t-tag-input"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
+            style="max-width: 300px;"
+          >
+            <!---->
+            <span
+              class="t-tag--text"
+              style="max-width: 300px;"
+            >
+              
+              <!---->
+              
+            </span>
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
   </div>
 </div>
 `;
@@ -569,232 +1115,134 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
   class="tdesign-tree-select-prefix"
 >
   <div
-    class="t-select__wrap"
-    modelvalue=""
+    class="t-popup__reference t-select-input t-select-input--empty"
   >
-    <div
-      class="t-popup__reference t-select__popup-reference"
-    >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content t-select__dropdown narrow-scrollbar"
-          >
-            
-            <div>
-              <p
-                class="t-select-loading-tips"
-                style="display: none;"
-              >
-                <div
-                  class="t-select__empty"
-                >
-                  加载中
-                </div>
-              </p>
-              <div
-                class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
-                modelvalue=""
-                size="medium"
-              >
-                <transition-group-stub>
-                  
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="0"
-                    data-value="group1"
-                    style="--level: 0;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon t-tree__icon--default"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      <svg
-                        class="t-icon t-icon-caret-right-small"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6 5v6l4.5-3L6 5z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        开发一组
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="zhao"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        小赵
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="qian"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        小钱
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="0"
-                    data-value="group2"
-                    style="--level: 0;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon t-tree__icon--default"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      <svg
-                        class="t-icon t-icon-caret-right-small"
-                        fill="none"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        width="1em"
-                      >
-                        <path
-                          d="M6 5v6l4.5-3L6 5z"
-                          fill="currentColor"
-                          fill-opacity="0.9"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        开发二组
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="sun"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        小孙
-                      </span>
-                    </span>
-                    
-                  </div>
-                  <div
-                    class="t-tree__item t-tree__item--open"
-                    data-level="1"
-                    data-value="li"
-                    style="--level: 1;"
-                  >
-                    
-                    <span
-                      class="t-tree__icon t-folder-icon"
-                      ignore="active"
-                      trigger="expand"
-                    >
-                      
-                    </span>
-                    <span
-                      class="t-tree__label t-tree__label--strictly"
-                    >
-                      <span
-                        style="position: relative;"
-                      >
-                        小李
-                      </span>
-                    </span>
-                    
-                  </div>
-                  
-                </transition-group-stub>
-                <!---->
-              </div>
-            </div>
-            
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
+    <transition-stub>
       <div
-        class="t-select t-select-polyfill t-size-m t-has-prefix"
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="group1"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      开发一组
+                    </span>
+                  </span>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="group2"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      开发二组
+                    </span>
+                  </span>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
       >
         <span
-          class="t-select__left-icon"
+          class="t-input__prefix t-input__prefix-icon"
         >
+          
+          
+          
           <svg
             class="t-icon t-icon-browse"
           >
@@ -802,106 +1250,862 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
               href="#t-icon-browse"
             />
           </svg>
-        </span>
-        <span
-          class="t-select__placeholder"
-        >
-          请输入
-           
-        </span>
-        
-        
-        <span
-          class="t-tag t-tag--default t-tag--dark t-size-m"
-          style="display: none;"
-        >
-          <!---->
           
-          +0
           
-          <!---->
+          
         </span>
-        <!---->
         <div
-          class="t-input__wrap t-select__input"
-          modelvalue=""
-          style="display: none;"
+          class="t-input__prefix"
         >
-          <div
-            class="t-input"
-          >
-            <!---->
-            <!---->
-            <input
-              class="t-input__inner"
-              placeholder="请输入"
-              type="text"
-            />
-            <!---->
-            <!---->
-            <!---->
-          </div>
+          
           <!---->
+          <!---->
+          
         </div>
-        <svg
-          class="t-fake-arrow t-select__right-icon t-select__right-icon-polyfill"
-          fill="none"
-          height="16"
-          style="font-size: medium;"
-          viewBox="0 0 16 16"
-          width="16"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-            stroke="black"
-            stroke-opacity="0.9"
-            stroke-width="1.3"
-          />
-        </svg>
-        <svg
-          class="t-icon t-icon-close-circle-filled t-select__right-icon t-select__right-icon-polyfill t-select__active-icon"
-          fill="none"
-          height="1em"
-          style="font-size: medium; display: none;"
-          viewBox="0 0 16 16"
-          width="1em"
-        >
-          <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
-          />
-        </svg>
+        <input
+          class="t-input__inner"
+          placeholder="请输入"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`TreeSelect TreeSelect propsVue demo works fine 1`] = `
+<div
+  class="tdesign-tree-select-base"
+>
+  <div
+    class="t-popup__reference t-select-input t-select-input--empty"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
         <div
-          class="t-loading--center t-size-s t-loading t-select__loading-tips t-select__right-icon-polyfill"
-          style="display: none;"
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
         >
-          <svg
-            class="t-loading__gradient t-icon-loading"
-            height="1em"
-            size="small"
-            version="1.1"
-            viewBox="0 0 14 14"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <foreignobject
-              height="12"
-              width="12"
-              x="1"
-              y="1"
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
             >
               <div
-                class="t-loading__gradient-conic"
-              />
-            </foreignobject>
-          </svg>
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      广东省
+                    </span>
+                  </span>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      江苏省
+                    </span>
+                  </span>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
           <!---->
         </div>
       </div>
-      
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
     </div>
+    
+  </div>
+</div>
+`;
+
+exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
+<div
+  class="tdesign-tree-select-valuedisplay"
+>
+  <div
+    class="t-popup__reference t-select-input t-select-input--empty"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      广东省
+                    </span>
+                  </span>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      江苏省
+                    </span>
+                  </span>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          
+          
+          
+          () 
+          
+          
+          
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="guangdong"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      广东省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="jiangsu"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      江苏省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap t-tag-input"
+    >
+      <div
+        class="t-input t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
+  </div>
+</div>
+`;
+
+exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
+<div
+  class="tdesign-tree-select-base"
+>
+  <div
+    class="t-popup__reference t-select-input t-select-input--empty"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      广东省
+                    </span>
+                  </span>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="t-tree__label t-tree__label--strictly"
+                  >
+                    <span
+                      style="position: relative;"
+                    >
+                      江苏省
+                    </span>
+                  </span>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <!---->
+          <!---->
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder="请选择"
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
+  </div>
+  <div
+    class="t-popup__reference t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple"
+  >
+    <transition-stub>
+      <div
+        aria-hidden="true"
+        class="t-popup"
+        role="tooltip"
+        style="display: none;"
+      >
+        <div
+          class="t-popup__content t-select__dropdown-inner t-select__dropdown narrow-scrollbar"
+        >
+          
+          <div>
+            <p
+              class="t-select-loading-tips t-select__right-icon-polyfill"
+              style="display: none;"
+            >
+              <div
+                class="t-select__empty"
+              >
+                加载中
+              </div>
+            </p>
+            <div
+              class="t-tree t-tree--hoverable t-tree--checkable t-tree--transition t-tree--block-node"
+              modelvalue=""
+              size="medium"
+            >
+              <transition-group-stub>
+                
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="guangdong"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-is-checked t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="guangdong"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      广东省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                <div
+                  class="t-tree__item"
+                  data-level="0"
+                  data-value="jiangsu"
+                  style="--level: 0;"
+                >
+                  
+                  <span
+                    class="t-tree__icon t-folder-icon t-tree__icon--default"
+                    ignore="active"
+                    trigger="expand"
+                  >
+                    <svg
+                      class="t-icon t-icon-caret-right-small"
+                      fill="none"
+                      height="1em"
+                      viewBox="0 0 16 16"
+                      width="1em"
+                    >
+                      <path
+                        d="M6 5v6l4.5-3L6 5z"
+                        fill="currentColor"
+                        fill-opacity="0.9"
+                      />
+                    </svg>
+                  </span>
+                  <label
+                    class="t-checkbox t-tree__label t-tree__label--strictly"
+                    ignore="expand,active"
+                  >
+                    <input
+                      class="t-checkbox__former"
+                      name="jiangsu"
+                      type="checkbox"
+                    />
+                    <span
+                      class="t-checkbox__input"
+                    />
+                    <span
+                      class="t-checkbox__label"
+                    >
+                      
+                      江苏省
+                      
+                    </span>
+                  </label>
+                  
+                </div>
+                
+              </transition-group-stub>
+              <!---->
+            </div>
+          </div>
+          
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+    
+    <div
+      class="t-input__wrap t-tag-input"
+    >
+      <div
+        class="t-input t-is-readonly t-input--prefix"
+      >
+        <!---->
+        <div
+          class="t-input__prefix"
+        >
+          
+          <span
+            class="t-tag t-tag--default t-tag--dark t-tag--ellipsis t-tag--close t-size-m"
+            style="max-width: 300px;"
+          >
+            <!---->
+            <span
+              class="t-tag--text"
+              style="max-width: 300px;"
+            >
+              
+              <!---->
+              
+            </span>
+            <svg
+              class="t-icon t-icon-close t-tag__icon-close"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+          </span>
+          
+        </div>
+        <input
+          class="t-input__inner"
+          placeholder=""
+          readonly=""
+          type="text"
+        />
+        <!---->
+        <!---->
+        <!---->
+      </div>
+      <!---->
+    </div>
+    
   </div>
 </div>
 `;

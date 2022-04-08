@@ -1,5 +1,5 @@
 import { defineComponent, VNode } from 'vue';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { omit } from '../utils/helper';
 import props from './props';
 import { emitEvent } from '../utils/event';

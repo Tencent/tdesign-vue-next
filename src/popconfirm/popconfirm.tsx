@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import Popup, { PopupProps } from '../popup/index';
 import props from './props';
 import { PopconfirmVisibleChangeContext } from './type';
@@ -48,6 +48,7 @@ export default defineComponent({
         cancelBtn: props.cancelBtn,
         globalCancel: global.value.cancel,
         className: `${COMPONENT_NAME.value}__cancel`,
+        size: 'small',
       });
 
       const confirmBtn = getConfirmBtn({
@@ -56,6 +57,7 @@ export default defineComponent({
         globalConfirm: global.value.confirm,
         globalConfirmBtnTheme: global.value.confirmBtnTheme,
         className: `${COMPONENT_NAME.value}__confirm`,
+        size: 'small',
       });
 
       const renderIcon = () => {

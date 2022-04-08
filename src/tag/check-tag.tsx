@@ -2,7 +2,7 @@ import { defineComponent, computed, toRefs } from 'vue';
 import props from './check-tag-props';
 import { renderContent } from '../utils/render-tnode';
 import CLASSNAMES from '../utils/classnames';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
