@@ -27,5 +27,5 @@ const clickHandler = () => {
 const title = '标题';
 const subtitle = '副标题';
 const actions = '操作';
-const cover = 'https://tdesign.gtimg.com/site/doc/doc-card.png';
+const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

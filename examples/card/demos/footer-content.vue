@@ -130,7 +130,7 @@ import { MessagePlugin } from 'tdesign-vue-next';
 
 const title = '标题';
 const actions = '默认标签';
-const cover = 'https://tdesign.gtimg.com/site/doc/doc-card.png';
+const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 
 const options = [
   {

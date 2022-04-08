@@ -2,7 +2,8 @@
 import { defineComponent } from 'vue';
 
 // Global components 系统全局组件
-import { useCommonClassName, usePrefixClass } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+
 import TLoading from '../loading';
 
 // API 接口相关
