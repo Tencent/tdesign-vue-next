@@ -612,7 +612,6 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <div
               class="t-radio-group t-size-m t-radio-group--filled"
-              modelvalue="onlyLeaf"
             >
               
               
@@ -683,11 +682,11 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
                 </span>
               </label>
               
+              
               <div
                 class="t-radio-group__bg-block"
                 style="width: 0px; left: 0px;"
               />
-              
             </div>
             
             <!---->

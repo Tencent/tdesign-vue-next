@@ -562,7 +562,6 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-s t-radio-group--filled"
-          modelvalue="month"
         >
           
           
@@ -611,11 +610,11 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <div
@@ -9851,6 +9850,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                                     class="t-radio-group t-size-m t-radio-group__outline"
                                   >
                                     <!---->
+                                    <!---->
                                   </div>
                                 </div>
                                 <!---->
@@ -10215,6 +10215,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                                   <div
                                     class="t-radio-group t-size-m t-radio-group__outline"
                                   >
+                                    <!---->
                                     <!---->
                                   </div>
                                 </div>

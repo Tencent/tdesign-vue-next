@@ -7,7 +7,6 @@ exports[`Form Form alignVue demo works fine 1`] = `
   >
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="right"
     >
       
       <label
@@ -76,11 +75,11 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <form
@@ -424,12 +423,10 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -450,7 +447,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -470,6 +466,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
@@ -885,12 +882,10 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -911,7 +906,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -931,6 +925,7 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
@@ -3169,12 +3164,10 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio t-is-disabled"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -3196,7 +3189,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio t-is-disabled"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -3217,6 +3209,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
@@ -3604,7 +3597,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="default"
     >
       
       <label
@@ -3695,11 +3687,11 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -3954,12 +3946,10 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -3980,7 +3970,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -4000,6 +3989,7 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
@@ -4442,7 +4432,6 @@ exports[`Form Form layoutVue demo works fine 1`] = `
   >
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="inline"
     >
       
       <label
@@ -4489,11 +4478,11 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <form
@@ -4814,7 +4803,6 @@ exports[`Form Form resetVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="initial"
     >
       
       <label
@@ -4883,11 +4871,11 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -5155,7 +5143,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="medium"
     >
       
       <label
@@ -5202,11 +5189,11 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -5384,7 +5371,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -5405,7 +5391,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -5425,6 +5410,7 @@ exports[`Form Form sizeVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
@@ -5520,6 +5506,7 @@ exports[`Form Form sizeVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
@@ -5619,7 +5606,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue="1"
           >
             
             <label
@@ -5860,12 +5846,10 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-radio-group t-size-m t-radio-group__outline"
-                    modelvalue="wenke"
                   >
                     
                     <label
                       class="t-radio t-is-checked"
-                      modelvalue="false"
                     >
                       <input
                         class="t-radio__former"
@@ -5886,7 +5870,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                     </label>
                     <label
                       class="t-radio"
-                      modelvalue="false"
                     >
                       <input
                         class="t-radio__former"
@@ -5906,6 +5889,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                       </span>
                     </label>
                     
+                    <!---->
                   </div>
                   
                   <!---->
@@ -6086,6 +6070,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                       </span>
                     </label>
                     
+                    <!---->
                   </div>
                   
                   <!---->
@@ -6235,12 +6220,10 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-radio-group t-size-m t-radio-group__outline"
-                    modelvalue="wenke"
                   >
                     
                     <label
                       class="t-radio t-is-checked"
-                      modelvalue="false"
                     >
                       <input
                         class="t-radio__former"
@@ -6261,7 +6244,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                     </label>
                     <label
                       class="t-radio"
-                      modelvalue="false"
                     >
                       <input
                         class="t-radio__former"
@@ -6543,7 +6525,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="default"
     >
       
       <label
@@ -6634,11 +6615,11 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -6893,12 +6874,10 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -6919,7 +6898,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -6939,6 +6917,7 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
@@ -7407,7 +7386,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="true"
     >
       
       <label
@@ -7454,11 +7432,11 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -8292,12 +8270,10 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-radio-group t-size-m t-radio-group__outline"
-            modelvalue=""
           >
             
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -8318,7 +8294,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             </label>
             <label
               class="t-radio"
-              modelvalue="false"
             >
               <input
                 class="t-radio__former"
@@ -8338,6 +8313,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
