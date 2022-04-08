@@ -3,7 +3,7 @@ import upperCase from 'lodash/upperCase';
 import { TdColorPickerProps } from '../../type';
 import props from '../../props';
 import { FORMATS } from '../../const';
-import Color from '../../utils/color';
+import { Color } from '../../utils';
 import { Select as TSelect, Option as TOption } from '../../../select';
 import { Input as TInput } from '../../../input';
 import FormatInputs from './inputs';
