@@ -76,33 +76,29 @@ export default defineComponent({
 
     const radioGroupName = usePrefixClass('radio-group');
     const renderSlot = useTNodeDefault();
-    const renderContent = () => {
-      let content: VNode[] = [];
-
-      if (props.options && props.options.length) {
-        content = props.options.map((option: RadioOption) => {
-          let opt = option as RadioOptionObj;
-          if (isNumber(option) || isString(option)) {
-            opt = { value: option, label: option.toString() };
-          }
-          return (
-            <Radio
-              key={`radio-group-options-${opt.value}-${Math.random()}`}
-              name={props.name}
-              checked={innerValue.value === opt.value}
-              disabled={'disabled' in opt ? opt.disabled : props.disabled}
-              value={opt.value}
-            >
-              {typeof opt.label === 'function' ? opt.label(h) : opt.label}
-            </Radio>
-          );
-        });
-      } else content = renderSlot('default');
-      if (props.variant.includes('filled')) {
-        content.push(<div style={barStyle.value} class={`${radioGroupName.value}__bg-block`}></div>);
-      }
-
-      return content;
+    const renderBlock = () => {
+      if (props.variant.includes('filled'))
+        return <div style={barStyle.value} class={`${radioGroupName.value}__bg-block`} />;
+      return null;
+    };
+    const renderOptions = (): VNode[] => {
+      return props.options.map((option: RadioOption) => {
+        let opt = option as RadioOptionObj;
+        if (isNumber(option) || isString(option)) {
+          opt = { value: option, label: option.toString() };
+        }
+        return (
+          <Radio
+            key={`radio-group-options-${opt.value}-${Math.random()}`}
+            name={props.name}
+            checked={innerValue.value === opt.value}
+            disabled={'disabled' in opt ? opt.disabled : props.disabled}
+            value={opt.value}
+          >
+            {typeof opt.label === 'function' ? opt.label(h) : opt.label}
+          </Radio>
+        );
+      });
     };
 
     const groupClass = computed(() => [
@@ -117,7 +113,8 @@ export default defineComponent({
 
     return () => (
       <div ref={radioGroupRef} class={groupClass.value}>
-        {renderContent()}
+        {renderSlot('default') || renderOptions()}
+        {renderBlock()}
       </div>
     );
   },
