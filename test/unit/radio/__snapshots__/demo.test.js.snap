@@ -27,6 +27,25 @@ exports[`Radio Radio baseVue demo works fine 1`] = `
       </span>
     </label>
     <label
+      class="t-radio"
+    >
+      <input
+        class="t-radio__former"
+        name=""
+        type="radio"
+      />
+      <span
+        class="t-radio__input"
+      />
+      <span
+        class="t-radio__label"
+      >
+        
+         可取消选中项 
+        
+      </span>
+    </label>
+    <label
       class="t-radio t-is-checked"
     >
       <input
@@ -189,6 +208,7 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
     </div>
   </div>
   <div>
@@ -286,11 +306,11 @@ exports[`Radio Radio buttonVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
 </div>
@@ -306,10 +326,11 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
     >
       
       <label
-        class="t-radio"
+        class="t-radio t-is-disabled"
       >
         <input
           class="t-radio__former"
+          disabled=""
           name="city"
           type="radio"
           value="1"
@@ -386,6 +407,96 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
+    </div>
+  </div>
+  <div>
+    <div
+      class="t-radio-group t-size-m t-radio-group__outline"
+    >
+      
+      <label
+        class="t-radio t-is-checked"
+      >
+        <input
+          class="t-radio__former"
+          name="city"
+          type="radio"
+          value="选项一"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          选项一
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+      >
+        <input
+          class="t-radio__former"
+          name="city"
+          type="radio"
+          value="选项二"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          选项二
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+      >
+        <input
+          class="t-radio__former"
+          name="city"
+          type="radio"
+          value="选项三"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          选项三
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+      >
+        <input
+          class="t-radio__former"
+          name="city"
+          type="radio"
+          value="选项四"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          选项四
+          
+        </span>
+      </label>
+      
+      <!---->
     </div>
   </div>
   <div>
@@ -475,6 +586,99 @@ exports[`Radio Radio groupVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
+    </div>
+  </div>
+  <h5>
+    可取消选中按钮组
+  </h5>
+  <div>
+    <div
+      class="t-radio-group t-size-m t-radio-group__outline"
+    >
+      
+      <label
+        class="t-radio t-is-checked"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="1"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          可取消选中项一
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="2"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          可取消选中项二
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="3"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          可取消选中项三
+          
+        </span>
+      </label>
+      <label
+        class="t-radio"
+      >
+        <input
+          class="t-radio__former"
+          name=""
+          type="radio"
+          value="4"
+        />
+        <span
+          class="t-radio__input"
+        />
+        <span
+          class="t-radio__label"
+        >
+          
+          不可取消选中项
+          
+        </span>
+      </label>
+      
+      <!---->
     </div>
   </div>
 </div>
@@ -577,6 +781,7 @@ exports[`Radio Radio sizeVue demo works fine 1`] = `
       </span>
     </label>
     
+    <!---->
   </div>
   <div
     class="t-radio-group t-size-m t-radio-group__outline"
@@ -671,6 +876,7 @@ exports[`Radio Radio sizeVue demo works fine 1`] = `
       </span>
     </label>
     
+    <!---->
   </div>
   <div
     class="t-radio-group t-size-l t-radio-group__outline"
@@ -765,6 +971,7 @@ exports[`Radio Radio sizeVue demo works fine 1`] = `
       </span>
     </label>
     
+    <!---->
   </div>
 </div>
 `;
@@ -894,6 +1101,7 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
     </div>
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
@@ -1014,6 +1222,7 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
     </div>
   </div>
   <div
@@ -1137,11 +1346,11 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
             
           </span>
         </label>
+        
         <div
           class="t-radio-group__bg-block"
           style="width: 0px; left: 0px;"
         />
-        
       </div>
     </div>
     <div>
@@ -1259,11 +1468,11 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
             
           </span>
         </label>
+        
         <div
           class="t-radio-group__bg-block"
           style="width: 0px; left: 0px;"
         />
-        
       </div>
     </div>
     <div>
@@ -1386,11 +1595,11 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
             
           </span>
         </label>
+        
         <div
           class="t-radio-group__bg-block"
           style="width: 0px; left: 0px;"
         />
-        
       </div>
     </div>
     <div>
@@ -1513,11 +1722,11 @@ exports[`Radio Radio typeVue demo works fine 1`] = `
             
           </span>
         </label>
+        
         <div
           class="t-radio-group__bg-block"
           style="width: 0px; left: 0px;"
         />
-        
       </div>
     </div>
   </div>
