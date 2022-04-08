@@ -82,7 +82,7 @@ export default defineComponent({
       return null;
     };
     const renderOptions = (): VNode[] => {
-      return props.options.map((option: RadioOption) => {
+      return props.options?.map((option: RadioOption) => {
         let opt = option as RadioOptionObj;
         if (isNumber(option) || isString(option)) {
           opt = { value: option, label: option.toString() };

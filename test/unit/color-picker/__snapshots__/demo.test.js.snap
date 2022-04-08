@@ -34,7 +34,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-radio-group t-size-s t-radio-group--filled"
-                    modelvalue="monochrome"
                   >
                     
                     
@@ -83,11 +82,11 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       </span>
                     </label>
                     
+                    
                     <div
                       class="t-radio-group__bg-block"
                       style="width: 0px; left: 0px;"
                     />
-                    
                   </div>
                 </div>
                 <span
@@ -2929,7 +2928,6 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-s t-radio-group--filled"
-          modelvalue="monochrome"
         >
           
           
@@ -2978,11 +2976,11 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <!---->
@@ -3897,7 +3895,6 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-s t-radio-group--filled"
-          modelvalue="monochrome"
         >
           
           
@@ -3946,11 +3943,11 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <!---->
@@ -4824,7 +4821,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="monochrome"
           >
             
             
@@ -4873,11 +4869,11 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -5860,7 +5856,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="monochrome"
           >
             
             
@@ -5909,11 +5904,11 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -6819,7 +6814,6 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-s t-radio-group--filled"
-          modelvalue="monochrome"
         >
           
           
@@ -6868,11 +6862,11 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <!---->
@@ -7749,7 +7743,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="monochrome"
           >
             
             
@@ -7798,11 +7791,11 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -8250,7 +8243,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="monochrome"
           >
             
             
@@ -8299,11 +8291,11 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -8690,7 +8682,6 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
               >
                 <div
                   class="t-radio-group t-size-s t-radio-group--filled"
-                  modelvalue="monochrome"
                 >
                   
                   
@@ -8739,11 +8730,11 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                     </span>
                   </label>
                   
+                  
                   <div
                     class="t-radio-group__bg-block"
                     style="width: 0px; left: 0px;"
                   />
-                  
                 </div>
               </div>
               <span

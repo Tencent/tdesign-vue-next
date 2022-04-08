@@ -4,7 +4,6 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
 <div>
   <div
     class="t-radio-group t-size-m t-radio-group--filled"
-    modelvalue="loading"
   >
     
     <label
@@ -95,11 +94,11 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
         
       </span>
     </label>
+    
     <div
       class="t-radio-group__bg-block"
       style="width: 0px; left: 0px;"
     />
-    
   </div>
   <div
     asyncloading="loading"
@@ -355,7 +354,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="medium"
     >
       
       <label
@@ -424,11 +422,11 @@ exports[`Table Table baseVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
     <br />
     <br />
@@ -3741,7 +3739,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="true"
     >
       
       <label
@@ -3810,11 +3807,11 @@ exports[`Table Table expandableVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <div>
@@ -4624,7 +4621,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="left"
     >
       
       <label
@@ -4693,11 +4689,11 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
     <button
       class="t-button t-size-m t-button--variant-text t-button--theme-default"
@@ -4892,6 +4888,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                       </span>
                                     </label>
                                     
+                                    <!---->
                                   </div>
                                 </div>
                                 <!---->
@@ -5876,7 +5873,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="2"
     >
       
       <label
@@ -5923,17 +5919,16 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="1"
     >
       
       <label
@@ -5980,17 +5975,16 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="fixed"
     >
       
       <label
@@ -6037,11 +6031,11 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
     <label
       class="t-checkbox"
@@ -6530,7 +6524,6 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
     <div>
       <div
         class="t-radio-group t-size-m t-radio-group--filled"
-        modelvalue="fixed"
       >
         
         <label
@@ -6577,11 +6570,11 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
             
           </span>
         </label>
+        
         <div
           class="t-radio-group__bg-block"
           style="width: 0px; left: 0px;"
         />
-        
       </div>
     </div>
     <div>
@@ -7847,7 +7840,6 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="fixed"
     >
       
       <label
@@ -7894,11 +7886,11 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />
@@ -19429,6 +19421,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                                         </span>
                                       </label>
                                       
+                                      <!---->
                                     </div>
                                   </div>
                                   <!---->
@@ -21763,7 +21756,6 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             >
               <label
                 class="t-radio"
-                modelvalue="false"
               >
                 <input
                   class="t-radio__former"
@@ -21834,7 +21826,6 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             >
               <label
                 class="t-radio t-is-disabled"
-                modelvalue="false"
               >
                 <input
                   class="t-radio__former"
@@ -21906,7 +21897,6 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             >
               <label
                 class="t-radio t-is-checked"
-                modelvalue="false"
               >
                 <input
                   class="t-radio__former"
@@ -21977,7 +21967,6 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             >
               <label
                 class="t-radio t-is-disabled"
-                modelvalue="false"
               >
                 <input
                   class="t-radio__former"
@@ -22049,7 +22038,6 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
             >
               <label
                 class="t-radio"
-                modelvalue="false"
               >
                 <input
                   class="t-radio__former"
@@ -22911,7 +22899,6 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="true"
     >
       
       <label
@@ -22980,11 +22967,11 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <br />

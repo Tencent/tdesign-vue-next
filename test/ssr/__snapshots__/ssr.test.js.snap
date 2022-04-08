@@ -1422,12 +1422,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/base.vue correctly 
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-m t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -1929,12 +1929,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card.vue correctly 
           </div>
         </div>
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+          <div class="t-radio-group t-size-m t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <!---->
@@ -2431,12 +2431,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/card-cell.vue corre
           </div>
         </div>
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+          <div class="t-radio-group t-size-m t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <!---->
@@ -2854,12 +2854,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell.vue correctly 
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-m t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -3320,12 +3320,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/cell-append.vue cor
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-m t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -3940,12 +3940,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/controller-config.v
           </div>
         </div>
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="month">
+          <div class="t-radio-group t-size-s t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-s t-calendar__control-tag" theme="default" variant="base"><!--[-->隐藏周末<!--]--></span></div>
@@ -4399,12 +4399,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events.vue correctl
           </div>
         </div>
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+          <div class="t-radio-group t-size-m t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -4865,12 +4865,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/events-props-api.vu
           </div>
         </div>
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+          <div class="t-radio-group t-size-m t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -5339,12 +5339,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/filter.vue correctl
           </div>
         </div>
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+          <div class="t-radio-group t-size-m t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="primary"><!--[-->显示周末<!--]--></span></div>
@@ -5775,12 +5775,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/first-day-of-week.v
           </div>
         </div>
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+          <div class="t-radio-group t-size-m t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -6294,12 +6294,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/head.vue correctly 
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-m t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -6743,12 +6743,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/mode.vue correctly 
         </div>
         <!---->
         <div class="t-calendar__control-section-cell" style="height: auto">
-          <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="year">
+          <div class="t-radio-group t-size-m t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -6986,12 +6986,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/range.vue correctly
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-m t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -7443,12 +7443,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-m t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -7834,12 +7834,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-m t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -8354,12 +8354,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
             </div>
           </div>
           <div class="t-calendar__control-section-cell" style="height: auto">
-            <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+            <div class="t-radio-group t-size-m t-radio-group--filled">
               <!--[-->
-              <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+              <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+              <!--]-->
               <!--]-->
               <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-              <!--]-->
             </div>
           </div>
           <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -8832,12 +8832,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
             </div>
           </div>
           <div class="t-calendar__control-section-cell" style="height: auto">
-            <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+            <div class="t-radio-group t-size-m t-radio-group--filled">
               <!--[-->
-              <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+              <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+              <!--]-->
               <!--]-->
               <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-              <!--]-->
             </div>
           </div>
           <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -9289,12 +9289,12 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 
             </div>
           </div>
           <div class="t-calendar__control-section-cell" style="height: auto">
-            <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="month">
+            <div class="t-radio-group t-size-m t-radio-group--filled">
               <!--[-->
-              <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+              <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->月<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->年<!--]--><!--]--></span></label>
+              <!--]-->
               <!--]-->
               <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-              <!--]-->
             </div>
           </div>
           <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-m t-calendar__control-tag" theme="default"><!--[-->隐藏周末<!--]--></span></div>
@@ -10209,12 +10209,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
           <div class="t-color-picker__panel">
             <div class="t-color-picker__head">
               <div class="t-color-picker__mode">
-                <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+                <div class="t-radio-group t-size-s t-radio-group--filled">
                   <!--[-->
-                  <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+                  <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+                  <!--]-->
                   <!--]-->
                   <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-                  <!--]-->
                 </div>
               </div><span role="button" class="t-color-picker__icon t-color-picker__close"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
             </div>
@@ -11074,12 +11074,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
   <div class="t-color-picker__panel t-is-inline">
     <div class="t-color-picker__head">
       <div class="t-color-picker__mode">
-        <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+        <div class="t-radio-group t-size-s t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <!---->
@@ -11365,12 +11365,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
   <div class="t-color-picker__panel t-is-inline">
     <div class="t-color-picker__head">
       <div class="t-color-picker__mode">
-        <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+        <div class="t-radio-group t-size-s t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <!---->
@@ -11640,12 +11640,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
     <div class="t-color-picker__panel t-is-inline">
       <div class="t-color-picker__head">
         <div class="t-color-picker__mode">
-          <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+          <div class="t-radio-group t-size-s t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <!---->
@@ -11933,12 +11933,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
     <div class="t-color-picker__panel t-is-inline">
       <div class="t-color-picker__head">
         <div class="t-color-picker__mode">
-          <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+          <div class="t-radio-group t-size-s t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <!---->
@@ -12229,12 +12229,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
   <div class="t-color-picker__panel t-is-disabled t-is-inline">
     <div class="t-color-picker__head">
       <div class="t-color-picker__mode">
-        <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+        <div class="t-radio-group t-size-s t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <!---->
@@ -12504,12 +12504,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
     <div class="t-color-picker__panel t-is-inline">
       <div class="t-color-picker__head">
         <div class="t-color-picker__mode">
-          <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+          <div class="t-radio-group t-size-s t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <!---->
@@ -12670,12 +12670,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
     <div class="t-color-picker__panel t-is-inline">
       <div class="t-color-picker__head">
         <div class="t-color-picker__mode">
-          <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+          <div class="t-radio-group t-size-s t-radio-group--filled">
             <!--[-->
-            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+            <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+            <!--]-->
             <!--]-->
             <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-            <!--]-->
           </div>
         </div>
         <!---->
@@ -12819,12 +12819,12 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
         <div class="t-color-picker__panel">
           <div class="t-color-picker__head">
             <div class="t-color-picker__mode">
-              <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="monochrome">
+              <div class="t-radio-group t-size-s t-radio-group--filled">
                 <!--[-->
-                <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="monochrome" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="linear-gradient" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+                <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="monochrome"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->单色<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="linear-gradient"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->渐变<!--]--><!--]--></span></label>
+                <!--]-->
                 <!--]-->
                 <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-                <!--]-->
               </div>
             </div><span role="button" class="t-color-picker__icon t-color-picker__close"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
           </div>
@@ -13463,12 +13463,12 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
         </div>
       </div>
       <div class="t-calendar__control-section-cell" style="height: auto">
-        <div class="t-radio-group t-size-s t-radio-group--filled" modelvalue="month">
+        <div class="t-radio-group t-size-s t-radio-group--filled">
           <!--[-->
-          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="month" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->Month<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="year" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->Year<!--]--><!--]--></span></label>
+          <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="month"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->Month<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="year"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->Year<!--]--><!--]--></span></label>
+          <!--]-->
           <!--]-->
           <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-          <!--]-->
         </div>
       </div>
       <div class="t-calendar__control-section-cell"><span class="t-tag t-tag--check t-tag--default t-size-s t-calendar__control-tag" theme="default"><!--[-->Hide Weekend<!--]--></span></div>
@@ -15878,6 +15878,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                               <div class="t-table__filter-pop-content-inner">
                                 <div class="t-radio-group t-size-m t-radio-group__outline">
                                   <!---->
+                                  <!---->
                                 </div>
                               </div>
                               <!---->
@@ -16008,6 +16009,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                             <div class="t-table__filter-pop-content">
                               <div class="t-table__filter-pop-content-inner">
                                 <div class="t-radio-group t-size-m t-radio-group__outline">
+                                  <!---->
                                   <!---->
                                 </div>
                               </div>
@@ -20954,14 +20956,16 @@ exports[`ssr snapshot test renders ./examples/drawer/demos/attach-parent.vue cor
         </div>
       </div>
     </div>
-    <div class="tdesign-radio-button"> 抽屉弹出方向： <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="right">
-        <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> left <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> right <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="top" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> top <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="bottom" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> bottom <!--]--><!--]--></span></label>
+    <div class="tdesign-radio-button"> 抽屉弹出方向： <div class="t-radio-group t-size-m t-radio-group__outline">
+        <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="left"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> left <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="right"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> right <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="top"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> top <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="bottom"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> bottom <!--]--><!--]--></span></label>
         <!--]-->
+        <!---->
       </div>
     </div><br>
-    <div class="tdesign-radio-button"> 抽屉弹出模式： <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="overlay">
-        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="overlay" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> overlay <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="push" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> push <!--]--><!--]--></span></label>
+    <div class="tdesign-radio-button"> 抽屉弹出模式： <div class="t-radio-group t-size-m t-radio-group__outline">
+        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="overlay"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> overlay <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="push"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> push <!--]--><!--]--></span></label>
         <!--]-->
+        <!---->
       </div>
     </div><br><br><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->打开抽屉<!--]--></span></button>
   </div>
@@ -21150,9 +21154,10 @@ exports[`ssr snapshot test renders ./examples/drawer/demos/placement.vue correct
     </div>
   </div>
   <div class="tdesign-radio-button">
-    <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="right">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="top" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 上方 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="bottom" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 下方 <!--]--><!--]--></span></label>
+    <div class="t-radio-group t-size-m t-radio-group__outline">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="left"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="right"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="top"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 上方 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="bottom"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 下方 <!--]--><!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
   </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default btn-top-margin" type="button"><span class="t-button__text"><!--[--> 打开抽屉 <!--]--></span></button>
 </div>
@@ -21177,9 +21182,10 @@ exports[`ssr snapshot test renders ./examples/drawer/demos/popup.vue correctly 1
       </div>
     </div>
   </div>
-  <div class="tdesign-radio-button"> 抽屉弹出模式： <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="push">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="overlay" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> overlay <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="push" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> push <!--]--><!--]--></span></label>
+  <div class="tdesign-radio-button"> 抽屉弹出模式： <div class="t-radio-group t-size-m t-radio-group__outline">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="overlay"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> overlay <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="push"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> push <!--]--><!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
   </div><br><br><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[-->打开抽屉<!--]--></span></button>
 </div>
@@ -21205,9 +21211,10 @@ exports[`ssr snapshot test renders ./examples/drawer/demos/size.vue correctly 1`
     </div>
   </div>
   <div class="tdesign-radio-button">
-    <div class="t-radio-group t-size-m t-radio-group__outline btn-top-margin" modelvalue="small">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="small" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 小 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="medium" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 中 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="large" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 大 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="200" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 200 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="400px" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 400px <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="50%" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 50% <!--]--><!--]--></span></label>
+    <div class="t-radio-group t-size-m t-radio-group__outline btn-top-margin">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="small"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 小 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="medium"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 中 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="large"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 大 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="200"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 200 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="400px"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 400px <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="50%"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 50% <!--]--><!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
   </div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default btn-top-margin" type="button"><span class="t-button__text"><!--[--> 打开抽屉 <!--]--></span></button>
 </div>
@@ -21810,10 +21817,10 @@ exports[`ssr snapshot test renders ./examples/dropdown/demos/split.vue correctly
 exports[`ssr snapshot test renders ./examples/form/demos/align.vue correctly 1`] = `
 <div>
   <div class="controls">
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="right">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左对齐<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右对齐<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="top" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->顶部对齐<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="left"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左对齐<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="right"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右对齐<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="top"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->顶部对齐<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <form class="t-form">
@@ -21942,9 +21949,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue>
-            <!--[--><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="1" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="2" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
+          <div class="t-radio-group t-size-m t-radio-group__outline">
+            <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value="1"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="2"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
             <!--]-->
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -22075,9 +22083,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue>
-            <!--[--><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="male" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="femal" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
+          <div class="t-radio-group t-size-m t-radio-group__outline">
+            <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value="male"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="femal"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
             <!--]-->
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -22700,9 +22709,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue>
-            <!--[--><label class="t-radio t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" disabled value="1" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" disabled value="2" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
+          <div class="t-radio-group t-size-m t-radio-group__outline">
+            <!--[--><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" name disabled value="1"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" name disabled value="2"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
             <!--]-->
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -22819,10 +22829,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
 <div>
   <!-- 可以使用全局 ConfigProvider errorMessage 配置规则校验结果描述，而无需给每一个表单都配置校验信息 -->
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="default">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="default" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 使用表单默认校验信息 <!--]--></div><!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="config" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 表单统一配置校验信息 <!--]--></div><!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="default"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 使用表单默认校验信息 <!--]--></div><!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="config"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 表单统一配置校验信息 <!--]--></div><!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div><br><br><!-- error-message 非必需 -->
   <form class="t-form">
@@ -22915,9 +22925,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue>
-            <!--[--><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="male" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="femal" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
+          <div class="t-radio-group t-size-m t-radio-group__outline">
+            <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value="male"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="femal"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
             <!--]-->
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -23053,10 +23064,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
 exports[`ssr snapshot test renders ./examples/form/demos/layout.vue correctly 1`] = `
 <div>
   <div class="controls">
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="inline">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="vertical" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->纵向布局<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="inline" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->行内布局<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="vertical"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->纵向布局<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="inline"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->行内布局<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <form class="t-form t-form-inline">
@@ -23169,10 +23180,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/login.vue correctly 1`]
 exports[`ssr snapshot test renders ./examples/form/demos/reset.vue correctly 1`] = `
 <div>
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="initial">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="empty" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->重置为空<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="initial" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">改变表单数据后，点击重置按钮，观察数据重置情况<!----></div></div><!--[--> 重置为初始值 <!--]--></div><!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="empty"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->重置为空<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="initial"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">改变表单数据后，点击重置按钮，观察数据重置情况<!----></div></div><!--[--> 重置为初始值 <!--]--></div><!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div><br><br><!-- colon 表示，是否统一显示 label 冒号 -->
   <form class="t-form">
@@ -23253,10 +23264,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/reset.vue correctly 1`]
 exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] = `
 <div>
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="medium">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="medium" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->中尺寸（默认）<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="large" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->大尺寸<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="medium"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->中尺寸（默认）<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="large"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->大尺寸<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div><br><br><!-- 开发中 -->
   <form class="t-form">
@@ -23325,8 +23336,9 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
         <div class="t-form__controls-content">
           <!--[-->
           <div class="t-radio-group t-size-m t-radio-group__outline">
-            <!--[--><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="1" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="2" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
+            <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value="1"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="2"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
             <!--]-->
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -23374,9 +23386,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="1">
-            <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" checked value="1" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->学校一<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="2" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->学校二<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="3" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->学校三<!--]--></span></label>
+          <div class="t-radio-group t-size-m t-radio-group__outline">
+            <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked value="1"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->学校一<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="2"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->学校二<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="3"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->学校三<!--]--></span></label>
             <!--]-->
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -23449,9 +23462,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
               <div class="t-form__controls" style="margin-left:80px;">
                 <div class="t-form__controls-content">
                   <!--[-->
-                  <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="wenke">
-                    <!--[--><label class="t-radio t-is-checked" modelvalue="false"><input type="radio" class="t-radio__former" checked value="wenke" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->文科<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="like" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->理科<!--]--></span></label>
+                  <div class="t-radio-group t-size-m t-radio-group__outline">
+                    <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked value="wenke"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->文科<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="like"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->理科<!--]--></span></label>
                     <!--]-->
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -23519,9 +23533,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
               <div class="t-form__controls" style="margin-left:80px;">
                 <div class="t-form__controls-content">
                   <!--[-->
-                  <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="wenke">
-                    <!--[--><label class="t-radio t-is-checked" modelvalue="false"><input type="radio" class="t-radio__former" checked value="wenke" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->文科<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="like" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->理科<!--]--></span></label>
+                  <div class="t-radio-group t-size-m t-radio-group__outline">
+                    <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked value="wenke"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->文科<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="like"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->理科<!--]--></span></label>
                     <!--]-->
+                    <!---->
                   </div>
                   <!--]-->
                   <!---->
@@ -23571,10 +23586,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
 <div>
   <!-- 可以使用全局 ConfigProvider errorMessage 配置规则校验结果描述，而无需给每一个表单都配置校验信息 -->
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="default">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="default" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 使用表单默认校验信息 <!--]--></div><!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="config" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 表单统一配置校验信息 <!--]--></div><!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="default"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">Form.errorMessage 为空，使用组件内置校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 使用表单默认校验信息 <!--]--></div><!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="config"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">统一配置 Form.errorMessage，使用自定义配置的校验信息。重置后，点击提交观察校验结果信息<!----></div></div><!--[--> 表单统一配置校验信息 <!--]--></div><!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div><br><br><!-- error-message 非必需 -->
   <form class="t-form">
@@ -23667,9 +23682,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue>
-            <!--[--><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="male" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="femal" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
+          <div class="t-radio-group t-size-m t-radio-group__outline">
+            <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value="male"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="femal"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
             <!--]-->
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -23895,9 +23911,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue>
-            <!--[--><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="male" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="femal" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
+          <div class="t-radio-group t-size-m t-radio-group__outline">
+            <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value="male"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->男<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="femal"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->女<!--]--></span></label>
             <!--]-->
+            <!---->
           </div>
           <!--]-->
           <!---->
@@ -24039,10 +24056,10 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
     4. statusIcon 为 slot(插槽)，可自定义右侧状态图标
   -->
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="true">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="true" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->显示校验图标<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="false" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->隐藏校验图标<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="true"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->显示校验图标<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="false"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->隐藏校验图标<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div><br><br>
   <form class="t-form">
@@ -27167,10 +27184,10 @@ exports[`ssr snapshot test renders ./examples/list/demos/image-text.vue correctl
 exports[`ssr snapshot test renders ./examples/list/demos/loading.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="load-more">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="load-more" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 加载更多 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="loading" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 加载中 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="loading-custom" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 自定义加载更多 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 加载完成 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="load-more"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 加载更多 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="loading"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 加载中 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="loading-custom"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 自定义加载更多 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 加载完成 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div class="t-list t-size-m t-list--split">
@@ -31968,7 +31985,7 @@ exports[`ssr snapshot test renders ./examples/progress/demos/status.vue correctl
 
 exports[`ssr snapshot test renders ./examples/radio/demos/base.vue correctly 1`] = `
 <div class="tdesign-radio-base">
-  <div class="tdesign-demo-block"><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->未选中项<!--]--></span></label><label class="t-radio t-is-checked" modelvalue="false"><input type="radio" class="t-radio__former" checked name><span class="t-radio__input"></span><span class="t-radio__label"><!--[--> 选中项 <!--]--></span></label><label class="t-radio t-is-checked t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" checked disabled name><span class="t-radio__input"></span><span class="t-radio__label"><!--[--> 选中禁用态 <!--]--></span></label><label class="t-radio t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" disabled name><span class="t-radio__input"></span><span class="t-radio__label"><!--[--> 未选中禁用态 <!--]--></span></label></div>
+  <div class="tdesign-demo-block"><label class="t-radio"><input type="radio" class="t-radio__former" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->未选中项<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[--> 可取消选中项 <!--]--></span></label><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked><span class="t-radio__input"></span><span class="t-radio__label"><!--[--> 选中项 <!--]--></span></label><label class="t-radio t-is-checked t-is-disabled"><input type="radio" class="t-radio__former" name checked disabled><span class="t-radio__input"></span><span class="t-radio__label"><!--[--> 选中禁用态 <!--]--></span></label><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" name disabled><span class="t-radio__input"></span><span class="t-radio__label"><!--[--> 未选中禁用态 <!--]--></span></label></div>
 </div>
 `;
 
@@ -31976,15 +31993,16 @@ exports[`ssr snapshot test renders ./examples/radio/demos/button.vue correctly 1
 <div class="tdesign-radio-button">
   <div>
     <div class="t-radio-group t-size-m t-radio-group__outline">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项一 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项二 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" checked disabled value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项三 <!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项四 <!--]--><!--]--></span></label>
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项一 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项二 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" name checked disabled value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项三 <!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项四 <!--]--><!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
   </div>
   <div>
     <div class="t-radio-group t-size-m t-radio-group--filled">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="bj" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项一 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="gz" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项二 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" checked disabled value="gz" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项三 <!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="sz" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项四 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="bj"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项一 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="gz"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项二 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" name checked disabled value="gz"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项三 <!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="sz"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 选项四 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
 </div>
@@ -31993,15 +32011,32 @@ exports[`ssr snapshot test renders ./examples/radio/demos/button.vue correctly 1
 exports[`ssr snapshot test renders ./examples/radio/demos/group.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue>
-      <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" value="1" name="city"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项一<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="2" name="city"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项二<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="3" name="city"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项三<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="4" name="city"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项四<!--]--></span></label>
+    <div class="t-radio-group t-size-m t-radio-group__outline">
+      <!--[--><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" name="city" disabled value="1"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项一<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name="city" value="2"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项二<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name="city" value="3"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项三<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name="city" value="4"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项四<!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
   </div>
   <div>
     <div class="t-radio-group t-size-m t-radio-group__outline">
-      <!--[--><label class="t-radio t-is-checked" modelvalue="false"><input type="radio" class="t-radio__former" checked value="1" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项一<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="2" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项二<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="3" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项三<!--]--></span></label><label class="t-radio t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" disabled value="4" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项四<!--]--></span></label>
+      <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name="city" checked value="选项一"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项一<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name="city" value="选项二"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项二<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name="city" value="选项三"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项三<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name="city" value="选项四"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项四<!--]--></span></label>
       <!--]-->
+      <!---->
+    </div>
+  </div>
+  <div>
+    <div class="t-radio-group t-size-m t-radio-group__outline">
+      <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked value="1"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项一<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="2"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项二<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="3"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项三<!--]--></span></label><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" name disabled value="4"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选项四<!--]--></span></label>
+      <!--]-->
+      <!---->
+    </div>
+  </div>
+  <h5>可取消选中按钮组</h5>
+  <div>
+    <div class="t-radio-group t-size-m t-radio-group__outline">
+      <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked value="1"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->可取消选中项一<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="2"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->可取消选中项二<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="3"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->可取消选中项三<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="4"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->不可取消选中项<!--]--></span></label>
+      <!--]-->
+      <!---->
     </div>
   </div>
 </div>
@@ -32010,16 +32045,19 @@ exports[`ssr snapshot test renders ./examples/radio/demos/group.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/radio/demos/size.vue correctly 1`] = `
 <div class="tdesign-demo-block-column">
   <div class="t-radio-group t-size-s t-radio-group__outline">
-    <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label>
+    <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label>
     <!--]-->
+    <!---->
   </div>
   <div class="t-radio-group t-size-m t-radio-group__outline">
-    <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label>
+    <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label>
     <!--]-->
+    <!---->
   </div>
   <div class="t-radio-group t-size-l t-radio-group__outline">
-    <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label>
+    <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label>
     <!--]-->
+    <!---->
   </div>
 </div>
 `;
@@ -32029,42 +32067,44 @@ exports[`ssr snapshot test renders ./examples/radio/demos/type.vue correctly 1`]
   <div class="tdesign-demo-block-column">
     <h5>边框型单选按钮</h5>
     <div class="t-radio-group t-size-m t-radio-group__outline">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="5" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项五<!--]--><!--]--></span></label>
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="5"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项五<!--]--><!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
     <div class="t-radio-group t-size-m t-radio-group__outline">
-      <!--[--><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" checked disabled value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选中禁用态<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->未选中禁用态<!--]--><!--]--></span></label>
+      <!--[--><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" name checked disabled value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选中禁用态<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->未选中禁用态<!--]--><!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
   </div>
   <div class="tdesign-demo-block-column">
     <h5>填充型单选按钮</h5>
     <div>
       <div class="t-radio-group t-size-m t-radio-group--filled">
-        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="5" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项五<!--]--><!--]--></span></label>
-        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="5"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项五<!--]--><!--]--></span></label>
         <!--]-->
+        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
       </div>
     </div>
     <div>
       <div class="t-radio-group t-size-m t-radio-group--filled t-radio-group--primary-filled">
-        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="5" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项五<!--]--><!--]--></span></label>
-        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项四<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="5"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项五<!--]--><!--]--></span></label>
         <!--]-->
+        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
       </div>
     </div>
     <div>
       <div class="t-radio-group t-size-m t-radio-group--filled">
-        <!--[--><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" checked disabled value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选中禁用态<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="5" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->未选中禁用态<!--]--><!--]--></span></label>
-        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+        <!--[--><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" name checked disabled value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选中禁用态<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="5"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->未选中禁用态<!--]--><!--]--></span></label>
         <!--]-->
+        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
       </div>
     </div>
     <div>
       <div class="t-radio-group t-size-m t-radio-group--filled t-radio-group--primary-filled">
-        <!--[--><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="3" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" checked disabled value="4" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选中禁用态<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" disabled value="5" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->未选中禁用态<!--]--><!--]--></span></label>
-        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+        <!--[--><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项一<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项二<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="3"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选项三<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked t-is-disabled"><input type="radio" class="t-radio-button__former" name checked disabled value="4"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->选中禁用态<!--]--><!--]--></span></label><label class="t-radio-button t-is-disabled"><input type="radio" class="t-radio-button__former" name disabled value="5"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->未选中禁用态<!--]--><!--]--></span></label>
         <!--]-->
+        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
       </div>
     </div>
   </div>
@@ -34467,9 +34507,10 @@ exports[`ssr snapshot test renders ./examples/select-input/demos/multiple.vue co
 <div class="tdesign-demo__select-input-multiple" style="width:100%;">
   <div><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否允许输入<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->允许创建新选项（Enter 创建）<!--]--></span></label></div><br>
   <div>
-    <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="break-line">
-      <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" value="scroll" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选中项过多横向滚动<!--]--></span></label><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" checked value="break-line" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选中项过多换行显示<!--]--></span></label>
+    <div class="t-radio-group t-size-m t-radio-group__outline">
+      <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value="scroll"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选中项过多横向滚动<!--]--></span></label><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked value="break-line"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->选中项过多换行显示<!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
   </div><br><br><!-- :popup-props="{ trigger: 'hover' }" -->
   <div class="t-popup__reference t-select-input t-select-input--multiple">
@@ -37459,10 +37500,10 @@ exports[`ssr snapshot test renders ./examples/switch/demos/status.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue correctly 1`] = `
 <div>
-  <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="loading">
-    <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="load-more" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载更多<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="loading" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载中<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="loading-custom" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->自定义加载更多<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载完成<!--]--><!--]--></span></label>
-    <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+  <div class="t-radio-group t-size-m t-radio-group--filled">
+    <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="load-more"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载更多<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="loading"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载中<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="loading-custom"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->自定义加载更多<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->加载完成<!--]--><!--]--></span></label>
     <!--]-->
+    <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
   </div>
   <div class="t-table" style="position:relative;" asyncloading="loading" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
     <!---->
@@ -37567,10 +37608,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
 <div class="tdesign-demo-block-column-large">
   <!-- 按钮操作区域 -->
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="medium">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="small" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->小尺寸<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="medium" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->中尺寸<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="large" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->大尺寸<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="small"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->小尺寸<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="medium"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->中尺寸<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="large"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->大尺寸<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div><br><br><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示斑马纹 <!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示表格边框 <!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示悬浮效果 <!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 宽度自适应 <!--]--></span></label>
   </div>
   <div class="t-table t-table--bordered t-table--striped" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
@@ -38098,10 +38139,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col-button.vue 
 <div class="tdesign-demo-block-column-large">
   <!-- 按钮操作区域 -->
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="top-right">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="top-left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左上角<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="top-right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右上角<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="bottom-left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左下角<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="bottom-right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右下角<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="top-left"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左上角<!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="top-right"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右上角<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="bottom-left"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左下角<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="bottom-right"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右下角<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div><br><br><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否显示边框<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->自定义列配置按钮<!--]--></span></label>
   </div><!-- 1. defaultDisplayColumns = ['platform'] 设置默认显示哪些列，仅第一次有效 -->
   <!-- 2. displayColumns 动态设置显示哪些列，受控属性，支持 displayColumns.sync 语法糖 -->
@@ -39102,10 +39143,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
   <!-- expanded-row-keys 为受控属性 -->
   <!-- default-expanded-row-keys 为非受控属性 -->
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="true">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="true" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 显示展开图标 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="false" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 隐藏展开图标 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="custom" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 自由控制展开图标 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="true"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 显示展开图标 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="false"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 隐藏展开图标 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="custom"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 自由控制展开图标 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->允许点击行之后展开/收起<!--]--></span></label><label class="t-checkbox" style="margin-left:32px;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->固定列<!--]--></span></label><label class="t-checkbox" style="margin-left:32px;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->空数据<!--]--></span></label></div><!-- :defaultExpandedRowKeys="defaultExpandedRowKeys" -->
@@ -39329,10 +39370,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
 exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue correctly 1`] = `
 <div>
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="left">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左对齐<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="center" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->居中对齐<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右对齐<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="left"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->左对齐<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="center"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->居中对齐<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="right"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->右对齐<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div><button class="t-button t-size-m t-button--variant-text t-button--theme-default" type="button" style="margin-left:36px;"><span class="t-button__text"><!--[-->清除筛选条件<!--]--></span></button><span style="padding-left:36px;">已选筛选条件：{}</span>
   </div>
   <div style="margin:16px;"><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否显示表格边框<!--]--></span></label></div><!-- 1. 此处代码有效，勿删！支持语法糖 filter-value.sync ， 支持非受控属性 defaultfilterValue -->
@@ -39380,8 +39421,9 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                             <div class="t-table__filter-pop-content">
                               <div class="t-table__filter-pop-content-inner">
                                 <div class="t-radio-group t-size-m t-radio-group__outline">
-                                  <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" value name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->anyone<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="Heriberto" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->Heriberto<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="Eric" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->Eric<!--]--></span></label>
+                                  <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->anyone<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="Heriberto"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->Heriberto<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="Eric"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->Eric<!--]--></span></label>
                                   <!--]-->
+                                  <!---->
                                 </div>
                               </div>
                               <!---->
@@ -39675,24 +39717,24 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="width:100%;">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="2">
-      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定两列 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 左侧固定两列 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="1">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="1" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="2" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定两列 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="1"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定一列 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="2"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 右侧固定两列 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="fixed">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="fixed" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: fixed<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="auto" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: auto<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="fixed"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: fixed<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="auto"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: auto<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div><label class="t-checkbox" style="margin-left:16px;vertical-align:middle;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->空数据<!--]--></span></label>
   </div><!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。这种模式下的固定列，必须指定 tableContentWidth -->
   <div class="t-table t-table--bordered t-table--column-fixed" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
@@ -39871,10 +39913,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
 exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue correctly 1`] = `
 <div>
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="fixed">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="fixed" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: fixed<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="auto" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: auto<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="fixed"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: fixed<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="auto"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: auto<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div><br><br>
   <div><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否冻结首尾两行<!--]--></span></label></div><br><br><!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。如果列字段过多超出表格宽度，还需同时设置 table-content-width -->
@@ -40263,10 +40305,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
 <!-- 父元素宽度不能超过 100% -->
 <div class="tdesign-demo-block-column" style="width:100%;">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="fixed">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="fixed" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: fixed<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="auto" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: auto<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="fixed"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: fixed<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="auto"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->table-layout: auto<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否冻结首尾两行<!--]--></span></label></div><!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。需同时设置 table-content-width -->
@@ -46226,8 +46268,9 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
                             <div class="t-table__filter-pop-content">
                               <div class="t-table__filter-pop-content-inner">
                                 <div class="t-radio-group t-size-m t-radio-group__outline">
-                                  <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" value name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->any<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="A" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->A<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="B" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->B<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" value="D" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->D<!--]--></span></label>
+                                  <!--[--><label class="t-radio"><input type="radio" class="t-radio__former" name value><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->any<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="A"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->A<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="B"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->B<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="D"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->D<!--]--></span></label>
                                   <!--]-->
+                                  <!---->
                                 </div>
                               </div>
                               <!---->
@@ -47085,7 +47128,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
           <!--[-->
           <tr style="" class="">
             <!--[-->
-            <td class="" style=""><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
+            <td class="" style=""><label class="t-radio"><input type="radio" class="t-radio__former" name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
             <td class="" style="">JQTest1</td>
             <td class="" style="">
               <!--[-->
@@ -47103,7 +47146,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
           </tr>
           <tr style="" class="t-table__row--disabled">
             <!--[-->
-            <td class="" style=""><label class="t-radio t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" disabled name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
+            <td class="" style=""><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" name disabled><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
             <td class="" style="">JQTest2</td>
             <td class="" style="">
               <!--[-->
@@ -47121,7 +47164,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
           </tr>
           <tr style="" class="t-table__row--selected">
             <!--[-->
-            <td class="" style=""><label class="t-radio t-is-checked" modelvalue="false"><input type="radio" class="t-radio__former" checked name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
+            <td class="" style=""><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
             <td class="" style="">JQTest3</td>
             <td class="" style="">
               <!--[-->
@@ -47139,7 +47182,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
           </tr>
           <tr style="" class="t-table__row--disabled">
             <!--[-->
-            <td class="" style=""><label class="t-radio t-is-disabled" modelvalue="false"><input type="radio" class="t-radio__former" disabled name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
+            <td class="" style=""><label class="t-radio t-is-disabled"><input type="radio" class="t-radio__former" name disabled><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
             <td class="" style="">JQTest4</td>
             <td class="" style="">
               <!--[-->
@@ -47157,7 +47200,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
           </tr>
           <tr style="" class="">
             <!--[-->
-            <td class="" style=""><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
+            <td class="" style=""><label class="t-radio"><input type="radio" class="t-radio__former" name><span class="t-radio__input"></span><span class="t-radio__label"><!----></span></label></td>
             <td class="" style="">JQTest5</td>
             <td class="" style="">
               <!--[-->
@@ -47891,10 +47934,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
 exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correctly 1`] = `
 <div class="t-table-tree-select-demo">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="true">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="true" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 父子行选中独立 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="false" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">「父子行选中关联」由于表格数据的特殊性，父节点选中或者取消选中，会影响子节点；但子节点选中或取消不影响父元素<!----></div></div><!--[--> 父子行选中关联 <!--]--></div><!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="true"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 父子行选中独立 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="false"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--><div class="t-popup__reference"><div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;"><div class="t-popup__content">「父子行选中关联」由于表格数据的特殊性，父节点选中或者取消选中，会影响子节点；但子节点选中或取消不影响父元素<!----></div></div><!--[--> 父子行选中关联 <!--]--></div><!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div><br><!-- 子节点字段不是 children，而是 childrenList -->
   <!-- expandedRow 和 expanded-row-keys 控制是否显示展开收起行，以及哪些行展开 -->
@@ -48104,10 +48147,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/virtual-scroll.vue cor
 exports[`ssr snapshot test renders ./examples/tabs/demos/ban.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="normal">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="normal" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 常规型 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="card" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 卡片型 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="normal"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 常规型 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="card"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 卡片型 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div class="t-tabs">
@@ -48255,10 +48298,10 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/base.vue correctly 1`] 
 exports[`ssr snapshot test renders ./examples/tabs/demos/combination.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large" style="width:100%;">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="normal">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="normal" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 常规型 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="card" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 卡片型 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="normal"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 常规型 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="card"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 卡片型 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div class="t-tabs">
@@ -48430,10 +48473,10 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/custom.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/tabs/demos/icon.vue correctly 1`] = `
 <div class="t-demo-tabs">
   <div class="t-demo-tabs__desc">
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="normal">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="normal" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 常规型 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="card" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 卡片型 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="normal"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 常规型 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="card"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 卡片型 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div class="t-tabs">
@@ -48540,10 +48583,10 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/operation.vue correctly
 exports[`ssr snapshot test renders ./examples/tabs/demos/position.vue correctly 1`] = `
 <div class="t-demo-tabs">
   <div class="t-demo-tabs__desc">
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="top">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="top" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> top <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="right" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> right <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="bottom" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> bottom <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="left" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> left <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="top"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> top <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="right"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> right <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="bottom"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> bottom <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="left"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> left <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div class="t-tabs">
@@ -54056,12 +54099,12 @@ exports[`ssr snapshot test renders ./examples/tree/demos/checkable.vue correctly
         <div class="t-form__controls" style="margin-left:100px;">
           <div class="t-form__controls-content">
             <!--[-->
-            <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="onlyLeaf">
+            <div class="t-radio-group t-size-m t-radio-group--filled">
               <!--[-->
-              <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="onlyLeaf" name="value-mode"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->onlyLeaf<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="parentFirst" name="value-mode"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->parentFirst<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="all" name="value-mode"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->all<!--]--><!--]--></span></label>
+              <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name="value-mode" checked value="onlyLeaf"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->onlyLeaf<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name="value-mode" value="parentFirst"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->parentFirst<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name="value-mode" value="all"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->all<!--]--><!--]--></span></label>
+              <!--]-->
               <!--]-->
               <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
-              <!--]-->
             </div>
             <!--]-->
             <!---->
@@ -55699,10 +55742,10 @@ exports[`ssr snapshot test renders ./examples/tree-select/demos/collapsed.vue co
 exports[`ssr snapshot test renders ./examples/tree-select/demos/filterable.vue correctly 1`] = `
 <div class="tdesign-tree-select-filterable">
   <div class="operation">
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="default">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="default" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 默认 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="function" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 自定义方法 <!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="default"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 默认 <!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="function"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[--> 自定义方法 <!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div class="t-popup__reference t-select-input t-select-input--empty">
@@ -56240,10 +56283,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/draggable.vue correct
       </div>
     </div>
     <div>
-      <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="file">
-        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="file" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->文件拖拽上传<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="image" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->图片拖拽上传<!--]--><!--]--></span></label>
-        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+      <div class="t-radio-group t-size-m t-radio-group--filled">
+        <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="file"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->文件拖拽上传<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="image"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->图片拖拽上传<!--]--><!--]--></span></label>
         <!--]-->
+        <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
       </div>
     </div>
   </div><!-- data 表示传递给上传接口的额外数据；如果有更复杂的数据场景传递，请使用 format 方法 -->
@@ -56583,10 +56626,10 @@ exports[`ssr snapshot test renders ./examples/upload/demos/listType.vue correctl
 exports[`ssr snapshot test renders ./examples/upload/demos/request-method.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large">
   <div>
-    <div class="t-radio-group t-size-m t-radio-group--filled" modelvalue="requestSuccessMethod">
-      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" checked value="requestSuccessMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->上传成功示例<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" value="requestFailMethod" name><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->上传失败示例<!--]--><!--]--></span></label>
-      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
+    <div class="t-radio-group t-size-m t-radio-group--filled">
+      <!--[--><label class="t-radio-button t-is-checked"><input type="radio" class="t-radio-button__former" name checked value="requestSuccessMethod"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->上传成功示例<!--]--><!--]--></span></label><label class="t-radio-button"><input type="radio" class="t-radio-button__former" name value="requestFailMethod"><span class="t-radio-button__input"></span><span class="t-radio-button__label"><!--[--><!--[-->上传失败示例<!--]--><!--]--></span></label>
       <!--]-->
+      <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div>
   </div>
   <div class="t-upload"><input type="file" accept hidden>
