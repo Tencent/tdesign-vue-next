@@ -38,4 +38,4 @@ onChange | Function |  | TS 类型：`(value: RadioValue, context: { e: Event })
 
 名称 | 参数 | 描述
 -- | -- | --
-change | `(value: RadioValue, context: { prevValue: RadioValue; e: Event })` | 选中值发生变化时触发
+change | `(value: RadioValue, context: { e: Event })` | 选中值发生变化时触发
