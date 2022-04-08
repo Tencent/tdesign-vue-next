@@ -32031,7 +32031,7 @@ exports[`ssr snapshot test renders ./examples/radio/demos/group.vue correctly 1`
       <!---->
     </div>
   </div>
-  <h5>可取消选中按钮组</h5>
+  <h5>可取消选中单选框组</h5>
   <div>
     <div class="t-radio-group t-size-m t-radio-group__outline">
       <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked value="1"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->可取消选中项一<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="2"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->可取消选中项二<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="3"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->可取消选中项三<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="4"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->不可取消选中项<!--]--></span></label>

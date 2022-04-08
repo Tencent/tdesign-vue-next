@@ -17,7 +17,7 @@
       </t-radio-group>
     </div>
 
-    <h5>可取消选中按钮组</h5>
+    <h5>可取消选中单选框组</h5>
     <div>
       <t-radio-group default-value="1" @change="onChange">
         <t-radio allow-uncheck value="1">可取消选中项一</t-radio>
