@@ -9,12 +9,7 @@ import {
 import TLoading from '../loading';
 import { THEME_LIST } from './const';
 import props from './props';
-<<<<<<< HEAD
-import { emitEvent } from '../utils/event';
 import { usePrefixClass } from '../hooks/useConfig';
-=======
-import { usePrefixClass } from '../config-provider';
->>>>>>> 349e28e5 (refactor: 使用compositionAPI重构message及messageList组件)
 import { fadeIn, fadeOut } from './animation';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 
