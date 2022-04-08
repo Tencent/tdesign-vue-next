@@ -1,6 +1,6 @@
 import { defineComponent, computed, toRefs } from 'vue';
 import { InfoCircleFilledIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import Popup, { PopupProps } from '../popup/index';
 import props from './props';
 import { PopconfirmVisibleChangeContext } from './type';

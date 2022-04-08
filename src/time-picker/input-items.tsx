@@ -1,15 +1,12 @@
 import { defineComponent } from 'vue';
 import { TimeInputType, InputEvent, InputTime } from './interface';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { TimePickerConfig } from '../config-provider/config-receiver';
 import { emitEvent } from '../utils/event';
 
 import { amFormat, KeyboardDirection, EMPTY_VALUE, MERIDIEM_LIST } from './constant';
 
-import { usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<TimePickerConfig>('timePicker')),
   name: 'TTimePickerInputItems',
   props: {
     // 格式化标准
@@ -43,7 +40,9 @@ export default defineComponent({
 
   setup() {
     const COMPONENT_NAME = usePrefixClass('time-picker');
+    const { global } = useConfig('timePicker');
     return {
+      global,
       COMPONENT_NAME,
     };
   },

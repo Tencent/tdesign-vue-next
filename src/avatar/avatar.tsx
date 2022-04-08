@@ -2,7 +2,7 @@ import { computed, defineComponent, inject, nextTick, onMounted, onUpdated, ref 
 import props from './props';
 import { TdAvatarProps } from './type';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TAvatar',

@@ -11,7 +11,7 @@ import { BaseTableProps } from './interface';
 import { useTNodeJSX } from '../hooks/tnode';
 import useStyle, { formatCSSUnit } from './hooks/useStyle';
 import useClassName from './hooks/useClassName';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../hooks/useConfig';
 import { Affix } from '../affix';
 import { ROW_LISTENERS } from './tr';
 import useCommonClassName from '../hooks/useCommonClassName';

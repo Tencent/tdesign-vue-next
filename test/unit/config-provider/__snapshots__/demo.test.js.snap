@@ -6152,6 +6152,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="There is required mark on the left of this input in Form"
                 type="password"

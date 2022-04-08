@@ -3,7 +3,7 @@ import { ChevronDownIcon } from 'tdesign-icons-vue-next';
 import useClassName from './hooks/useClassName';
 import { SortType } from './type';
 import Tooltip, { TooltipProps } from '../tooltip';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../hooks/useConfig';
 import { useTNodeDefault } from '../hooks/tnode';
 import { TNode } from '../common';
 

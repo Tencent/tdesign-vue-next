@@ -5,7 +5,7 @@ import { TabValue, TdTabsProps } from './type';
 import props from './props';
 
 import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
 
 export interface InjectTabs {
