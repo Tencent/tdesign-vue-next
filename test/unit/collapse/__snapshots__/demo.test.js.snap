@@ -609,7 +609,9 @@ exports[`Collapse Collapse baseVue demo works fine 1`] = `
   <div
     style="margin-top: 10px;"
   >
-    当前展开项:
+    当前展开项:[
+  1
+]
   </div>
 </div>
 `;
@@ -1436,7 +1438,7 @@ exports[`Collapse Collapse rightSlotVue demo works fine 1`] = `
             </span>
           </label>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
             type="button"
           >
             <span
@@ -1515,7 +1517,7 @@ exports[`Collapse Collapse rightSlotVue demo works fine 1`] = `
             </span>
           </label>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
             type="button"
           >
             <span
@@ -1594,7 +1596,7 @@ exports[`Collapse Collapse rightSlotVue demo works fine 1`] = `
             </span>
           </label>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
             type="button"
           >
             <span
@@ -1673,7 +1675,7 @@ exports[`Collapse Collapse rightSlotVue demo works fine 1`] = `
             </span>
           </label>
           <button
-            class="t-button t-size-m t-button--variant-base t-button--theme-primary"
+            class="t-button t-size-s t-button--variant-base t-button--theme-primary"
             type="button"
           >
             <span
