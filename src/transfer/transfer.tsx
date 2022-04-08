@@ -105,7 +105,7 @@ export default defineComponent({
       return getTransferListOption<boolean>(disabled.value);
     });
     const titleOption = computed(() => {
-      return getTransferListOption<string | TNode>(props.title);
+      return getTransferListOption<string | TNode<{ type: TransferListType }>>(props.title);
     });
     const paginationOption = computed(() => {
       return getTransferListOption<TdPaginationProps>(props.pagination);
