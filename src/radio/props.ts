@@ -47,4 +47,6 @@ export default {
   },
   /** 选中状态变化时触发 */
   onChange: Function as PropType<TdRadioProps['onChange']>,
+  /** 点击时触发 */
+  onClick: Function as PropType<TdRadioProps['onClick']>,
 };
