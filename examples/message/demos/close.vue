@@ -1,10 +1,10 @@
 <template>
   <div class="t-demo-message">
-    <t-message v-if="isShowMsg" :close-btn="true" @click-close-btn="isShowMsg = false">
-      点击关闭按钮触发事件 click-close-btn
+    <t-message v-if="isShowMsg" :close-btn="true" @close-btn-click="isShowMsg = false">
+      点击关闭按钮触发事件 close-btn-click
     </t-message>
 
-    <t-message v-if="closableMsg" close-btn="关闭" @click-close-btn="closableMsg = false">
+    <t-message v-if="closableMsg" close-btn="关闭" @close-btn-click="closableMsg = false">
       自定义关闭按钮（文字）
     </t-message>
 
