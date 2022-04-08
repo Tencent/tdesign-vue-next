@@ -6,7 +6,7 @@ import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
 import { emitEvent } from '../utils/event';
 import { getPropsApiByEvent } from '../utils/helper';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export const EVENT_NAME_WITH_KEBAB = ['click'];
 interface LocalTBreadcrumb {

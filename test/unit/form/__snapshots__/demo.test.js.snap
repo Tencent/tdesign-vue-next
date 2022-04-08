@@ -165,6 +165,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -754,6 +755,7 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -1447,6 +1449,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -1519,6 +1522,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -3776,6 +3780,7 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -4493,6 +4498,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -4642,6 +4648,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
               </span>
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入密码"
                 type="password"
@@ -6648,6 +6655,7 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"
@@ -8010,6 +8018,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
               <!---->
               <!---->
               <input
+                autocomplete="on"
                 class="t-input__inner"
                 placeholder="请输入"
                 type="password"

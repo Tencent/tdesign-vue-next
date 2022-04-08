@@ -17,7 +17,7 @@ import TSliderButton from './slider-button';
 import { SliderValue } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useSliderMark } from './hooks/useSliderMark';
 import { useSliderInput } from './hooks/useSliderInput';
 import { getStopStyle } from './util/common';

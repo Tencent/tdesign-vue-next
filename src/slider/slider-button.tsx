@@ -1,8 +1,10 @@
 import { defineComponent, ComponentPublicInstance, ref, computed, reactive, nextTick, watchEffect, inject } from 'vue';
 import TPopup from '../popup/index';
-import { usePrefixClass } from '../config-provider';
+
+import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderPopup } from './hooks/useSliderPopup';
 import { sliderPropsInjectKey } from './util/contanst';
+
 
 export default defineComponent({
   name: 'TSliderButton',

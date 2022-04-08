@@ -10,7 +10,7 @@ import {
 import { getBackgroundColor } from '../utils/helper';
 import { PRO_THEME, CIRCLE_SIZE, CIRCLE_SIZE_PX, STATUS_ICON, CIRCLE_FONT_SIZE_RATIO } from './constants';
 import props from './props';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({

@@ -4,13 +4,9 @@ import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
 import props from './step-item-props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, SlotReturnValue } from '../common';
-import { usePrefixClass } from '../config-provider';
-
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { StepsConfig } from '../config-provider/config-receiver';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<StepsConfig>('steps')),
   name: 'TStepItem',
   components: {
     CheckIcon,
@@ -24,7 +20,9 @@ export default defineComponent({
   },
   setup() {
     const COMPONENT_NAME = usePrefixClass('steps-item');
+    const { global } = useConfig('steps');
     return {
+      global,
       COMPONENT_NAME,
     };
   },

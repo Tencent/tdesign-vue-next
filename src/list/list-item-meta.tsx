@@ -1,7 +1,7 @@
 import { defineComponent, ComponentPublicInstance } from 'vue';
 import props from './list-item-meta-props';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TListItemMeta',

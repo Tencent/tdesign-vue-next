@@ -8,7 +8,7 @@ import { UploadFile } from './type';
 import { abridgeName } from './util';
 
 import { useTNodeJSX } from '../hooks/tnode';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 
 const SingleFileProps = {
   file: {

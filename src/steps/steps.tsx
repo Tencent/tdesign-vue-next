@@ -2,16 +2,13 @@ import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
 import props from './props';
 import TStepItem from './step-item';
 import { ClassName } from '../common';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { StepsConfig } from '../config-provider/config-receiver';
 import { TdStepsProps, TdStepItemProps } from './type';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TSteps',
-  ...mixins(getConfigReceiverMixins<StepsConfig>('datePicker')),
   components: {
     TStepItem,
   },

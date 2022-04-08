@@ -1,8 +1,6 @@
 import { VNode, h, defineComponent, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CaretRightSmallIcon } from 'tdesign-icons-vue-next';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { TreeConfig } from '../config-provider/config-receiver';
 import TCheckBox from '../checkbox';
 import TLoading from '../loading';
 
@@ -12,6 +10,7 @@ import { TypeEventState } from './interface';
 import { useCLASSNAMES } from './constants';
 import { ClassName } from '../common';
 import useRipple from '../hooks/useRipple';
+import { useConfig } from '../hooks/useConfig';
 
 export const TreeItemProps = {
   node: {
@@ -23,7 +22,6 @@ export const TreeItemProps = {
 };
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<TreeConfig>('tree')),
   name: 'TTreeNode',
   props: TreeItemProps,
   emits: ['click', 'change'],
@@ -33,7 +31,8 @@ export default defineComponent({
 
     const CLASS_NAMES = useCLASSNAMES();
 
-    return { label, CLASS_NAMES };
+    const { global } = useConfig('tree');
+    return { global, label, CLASS_NAMES };
   },
   created() {
     if (this.node) {
