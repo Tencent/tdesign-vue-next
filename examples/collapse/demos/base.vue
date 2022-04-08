@@ -31,7 +31,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const currentItem = ref();
+const currentItem = ref([1]);
 const tags1 = ref(['Vue', 'React']);
 const tags2 = ref(['Vue', 'React']);
 const tags3 = ref(['Vue', 'React']);
