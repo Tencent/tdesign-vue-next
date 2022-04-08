@@ -61,6 +61,7 @@ export default {
   /** 滑块值 */
   value: {
     type: [Number, Array] as PropType<TdSliderProps['value']>,
+    default: undefined,
   },
   /** 滑块值，非受控属性 */
   defaultValue: {

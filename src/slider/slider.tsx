@@ -39,7 +39,6 @@ export default defineComponent({
     event: 'change',
   },
   props: { ...props },
-  emits: ['change'],
   setup(props, ctx) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');
@@ -184,8 +183,7 @@ export default defineComponent({
         }
       }
       const fixValue: SliderValue = setValues(changeValue);
-      ctx.emit('change', fixValue);
-      setSliderValue(fixValue, { ...ctx, trigger: 'change' });
+      setSliderValue(fixValue);
     };
 
     const resetSize = () => {
