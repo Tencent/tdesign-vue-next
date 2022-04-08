@@ -79,29 +79,27 @@ export default defineComponent({
       return renderContent;
     };
 
-    return () => {
-      return (
-        <div class={`${classPrefix.value}-transfer__operations`}>
-          <t-button
-            variant={props.rightDisabled ? 'outline' : 'base'}
-            key={props.rightDisabled ? 'right-outline' : 'right-base'}
-            disabled={props.rightDisabled}
-            onClick={moveToRight}
-            icon={getIcon('right')}
-          >
-            {renderButton(h, 'right')}
-          </t-button>
-          <t-button
-            variant={props.leftDisabled ? 'outline' : 'base'}
-            key={props.rightDisabled ? 'left-outline' : 'left-base'}
-            disabled={props.leftDisabled}
-            onClick={moveToLeft}
-            icon={getIcon('left')}
-          >
-            {renderButton(h, 'left')}
-          </t-button>
-        </div>
-      );
-    };
+    return () => (
+      <div class={`${classPrefix.value}-transfer__operations`}>
+        <t-button
+          variant={props.rightDisabled ? 'outline' : 'base'}
+          key={props.rightDisabled ? 'right-outline' : 'right-base'}
+          disabled={props.rightDisabled}
+          onClick={moveToRight}
+          icon={getIcon('right')}
+        >
+          {renderButton(h, 'right')}
+        </t-button>
+        <t-button
+          variant={props.leftDisabled ? 'outline' : 'base'}
+          key={props.rightDisabled ? 'left-outline' : 'left-base'}
+          disabled={props.leftDisabled}
+          onClick={moveToLeft}
+          icon={getIcon('left')}
+        >
+          {renderButton(h, 'left')}
+        </t-button>
+      </div>
+    );
   },
 });

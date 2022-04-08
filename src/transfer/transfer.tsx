@@ -219,33 +219,31 @@ export default defineComponent({
       );
     };
 
-    return () => {
-      return (
-        <div
-          class={[
-            `${classPrefix.value}-transfer`,
-            showSearch.value ? `${classPrefix.value}-transfer__search` : '',
-            hasFooter.value ? `${classPrefix.value}-transfer__footer` : '',
-            showPagination.value ? `${classPrefix.value}-transfer__pagination` : '',
-            isTreeMode.value ? `${classPrefix.value}-transfer--with-tree` : '',
-          ]}
-        >
-          {renderTransferList(SOURCE)}
-          <transfer-operations
-            left-disabled={
-              disabledOption.value[TARGET] || leftButtonDisabled.value || checkedValue.value[TARGET].length === 0
-            }
-            right-disabled={
-              disabledOption.value[SOURCE] || rightButtonDisabled.value || checkedValue.value[SOURCE].length === 0
-            }
-            operation={props.operation}
-            onMoveToRight={transferToRight}
-            onMoveToLeft={transferToLeft}
-            v-slots={{ operation: slots.operation }}
-          />
-          {renderTransferList(TARGET)}
-        </div>
-      );
-    };
+    return () => (
+      <div
+        class={[
+          `${classPrefix.value}-transfer`,
+          showSearch.value ? `${classPrefix.value}-transfer__search` : '',
+          hasFooter.value ? `${classPrefix.value}-transfer__footer` : '',
+          showPagination.value ? `${classPrefix.value}-transfer__pagination` : '',
+          isTreeMode.value ? `${classPrefix.value}-transfer--with-tree` : '',
+        ]}
+      >
+        {renderTransferList(SOURCE)}
+        <transfer-operations
+          left-disabled={
+            disabledOption.value[TARGET] || leftButtonDisabled.value || checkedValue.value[TARGET].length === 0
+          }
+          right-disabled={
+            disabledOption.value[SOURCE] || rightButtonDisabled.value || checkedValue.value[SOURCE].length === 0
+          }
+          operation={props.operation}
+          onMoveToRight={transferToRight}
+          onMoveToLeft={transferToLeft}
+          v-slots={{ operation: slots.operation }}
+        />
+        {renderTransferList(TARGET)}
+      </div>
+    );
   },
 });
