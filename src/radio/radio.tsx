@@ -35,7 +35,7 @@ export default defineComponent({
     /** Event */
     const handleChange = (e: Event) => {
       if (radioGroup?.setValue) {
-        radioGroup.setValue(props.value, { prevValue: radioGroup.value, e });
+        radioGroup.setValue(props.value, { e });
       } else {
         const { checked } = e.target as HTMLInputElement;
         setInnerChecked(checked, { e });
@@ -45,7 +45,7 @@ export default defineComponent({
       emit('click', e);
       if (!radioChecked.value || !props.allowUncheck) return;
       if (radioGroup) {
-        radioGroup.setValue(undefined, { prevValue: radioGroup.value, e });
+        radioGroup.setValue(undefined, { e });
       } else {
         setInnerChecked(false, { e });
       }

@@ -54,8 +54,8 @@ const options = [
 const itemOptions = ['选项一', '选项二', '选项三', '选项四'];
 
 const value = ref('');
-const onChange = (checkedValues, { prevValue }) => {
-  console.log('checkedValues:', value.value, checkedValues, 'previousValue:', prevValue);
+const onChange = (checkedValues) => {
+  console.log('checkedValues:', value.value, checkedValues);
 };
 </script>
 
