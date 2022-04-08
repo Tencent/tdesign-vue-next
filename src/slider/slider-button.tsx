@@ -5,7 +5,6 @@ import { usePrefixClass } from '../hooks/useConfig';
 import { useSliderPopup } from './hooks/useSliderPopup';
 import { sliderPropsInjectKey } from './util/contanst';
 
-
 export default defineComponent({
   name: 'TSliderButton',
   components: {
