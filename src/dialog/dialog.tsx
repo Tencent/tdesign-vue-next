@@ -5,9 +5,10 @@ import { DialogCloseContext, TdDialogProps } from './type';
 import props from './props';
 import TransferDom from '../utils/transfer-dom';
 import { addClass, removeClass } from '../utils/dom';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useAction } from './hooks';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
+import useDestroyOnClose from '../hooks/useDestroyOnClose';
 
 function GetCSSValue(v: string | number) {
   return Number.isNaN(Number(v)) ? v : `${Number(v)}px`;
@@ -84,7 +85,7 @@ export default defineComponent({
   emits: ['update:visible'],
   setup(props: TdDialogProps, context) {
     const COMPONENT_NAME = usePrefixClass('dialog');
-    const LOCK_CLASS = usePrefixClass('dialog--lock').value;
+    const LOCK_CLASS = usePrefixClass('dialog--lock');
     const classPrefix = usePrefixClass();
     const renderContent = useContent();
     const renderTNodeJSX = useTNodeJSX();
@@ -101,6 +102,9 @@ export default defineComponent({
       });
     };
     const { getConfirmBtn, getCancelBtn } = useAction({ confirmBtnAction, cancelBtnAction });
+
+    useDestroyOnClose();
+
     const scrollWidth = ref(0);
     // 是否模态形式的对话框
     const isModal = computed(() => props.mode === 'modal');
@@ -150,7 +154,7 @@ export default defineComponent({
             const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
             document.body.style.cssText = bodyCssText;
           }
-          !isModeless.value && addClass(document.body, LOCK_CLASS);
+          !isModeless.value && addClass(document.body, LOCK_CLASS.value);
           nextTick(() => {
             if (mousePosition && dialogEle.value) {
               dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
@@ -160,7 +164,7 @@ export default defineComponent({
           });
         } else {
           document.body.style.cssText = '';
-          removeClass(document.body, LOCK_CLASS);
+          removeClass(document.body, LOCK_CLASS.value);
         }
         addKeyboardEvent(value);
       },

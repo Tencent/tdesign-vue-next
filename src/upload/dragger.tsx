@@ -8,7 +8,7 @@ import props from './props';
 import { returnFileSize, getCurrentDate, abridgeName } from './util';
 
 import { useTNodeJSX } from '../hooks/tnode';
-import { useConfig, usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TUploadDragger',

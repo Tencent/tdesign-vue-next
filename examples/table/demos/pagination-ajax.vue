@@ -3,16 +3,16 @@
     :data="data"
     :columns="columns"
     :row-key="rowKey"
-    :vertical-align="verticalAlign"
     :loading="isLoading"
     :pagination="pagination"
     bordered
     stripe
     @change="rehandleChange"
+    @page-change="onPageChange"
   />
 </template>
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 
 const columns = [
   {
@@ -20,7 +20,7 @@ const columns = [
     colKey: 'name',
     title: '姓名',
     render(h, { row: { name } }) {
-      return name ? `${name.first} ${name.last}` : 'UNKNOW_USER';
+      return name ? `${name.first} ${name.last}` : 'UNKNOWN_USER';
     },
   },
   {
@@ -39,31 +39,36 @@ const columns = [
   {
     colKey: 'email',
     title: '邮箱',
+    width: 180,
+    ellipsis: true,
   },
 ];
 
 const data = ref([]);
 const isLoading = ref(false);
 
-const pagination = ref({
+const pagination = reactive({
   current: 1,
   pageSize: 10,
+  // defaultCurrent: 1,
+  // defaultPageSize: 10,
+  total: 0,
+  showJumper: true,
+  onChange: (pageInfo) => {
+    console.log('pagination.onChange', pageInfo);
+  },
 });
 
-const fetchData = async (paginationVal = pagination.value) => {
+const fetchData = async (paginationInfo) => {
   try {
     isLoading.value = true;
-    const { current, pageSize } = pagination.value;
+    const { current, pageSize } = paginationInfo;
     // 请求可能存在跨域问题
     const response = await fetch(`https://randomuser.me/api?page=${current}&results=${pageSize}`);
     const { results } = await response.json();
-    console.log(results);
     data.value = results;
-    pagination.value = {
-      ...paginationVal,
-      total: 120,
-    };
-    console.log('分页数据', results);
+    // 数据加载完成，设置数据总条数
+    pagination.total = 120;
   } catch (err) {
     console.log(err);
     data.value = [];
@@ -71,17 +76,25 @@ const fetchData = async (paginationVal = pagination.value) => {
   isLoading.value = false;
 };
 
-const rehandleChange = async (changeParams, triggerAndData) => {
+// BaseTable 中只有 page-change 事件，没有 change 事件
+const rehandleChange = (changeParams, triggerAndData) => {
   console.log('分页、排序、过滤等发生变化时会触发 change 事件：', changeParams, triggerAndData);
-  const { current, pageSize } = changeParams.pagination;
-  const pagination = { current, pageSize };
-  await fetchData(pagination);
+};
+
+// BaseTable 中只有 page-change 事件，没有 change 事件
+const onPageChange = async (pageInfo) => {
+  console.log('page-change', pageInfo);
+  pagination.current = pageInfo.current;
+  pagination.pageSize = pageInfo.pageSize;
+  await fetchData(pageInfo);
 };
 
 onMounted(async () => {
-  await fetchData(pagination.value);
+  await fetchData({
+    current: pagination.current || pagination.defaultCurrent,
+    pageSize: pagination.pageSize || pagination.defaultPageSize,
+  });
 });
 
-const rowKey = 'property';
-const verticalAlign = 'top';
+const rowKey = 'phone';
 </script>

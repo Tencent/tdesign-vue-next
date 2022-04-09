@@ -1,7 +1,7 @@
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reactive, ref } from 'vue';
 import { SATURATION_PANEL_DEFAULT_HEIGHT, SATURATION_PANEL_DEFAULT_WIDTH } from '../const';
 import { Select as TSelect, Option as TOption } from '../../select';
-import Draggable, { Coordinate } from '../utils/draggable';
+import { Draggable, Coordinate } from '../utils';
 import { useBaseClassName } from '../hooks';
 import baseProps from './base-props';
 
@@ -19,7 +19,6 @@ export default defineComponent({
     const refPanel = ref<HTMLElement>(null);
     const refThumb = ref<HTMLElement>(null);
     const dragInstance = ref<Draggable>(null);
-    const isMoved = ref<Boolean>(false);
     const panelRect = reactive({
       width: SATURATION_PANEL_DEFAULT_WIDTH,
       height: SATURATION_PANEL_DEFAULT_HEIGHT,
@@ -58,14 +57,12 @@ export default defineComponent({
         value: value / 100,
         addUsedColor: isEnded,
       });
-      isMoved.value = true;
     };
 
     const handleDragEnd = (coordinate: Coordinate) => {
-      if (props.disabled || !isMoved.value) {
+      if (props.disabled) {
         return;
       }
-      isMoved.value = false;
       nextTick(() => {
         handleDrag(coordinate, true);
       });
@@ -82,7 +79,6 @@ export default defineComponent({
         start() {
           panelRect.width = refPanel.value.offsetWidth;
           panelRect.height = refPanel.value.offsetHeight;
-          isMoved.value = false;
         },
         drag: (coordinate: Coordinate) => {
           handleDrag(coordinate);

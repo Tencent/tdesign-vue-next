@@ -77,6 +77,6 @@ export default {
   onChange: Function as PropType<TdColorPickerProps['onChange']>,
   /** 调色板控制器的值变化时触发，`context.color` 指调色板控制器的值 */
   onPaletteBarChange: Function as PropType<TdColorPickerProps['onPaletteBarChange']>,
-  /** 最近使用颜色发生变化时触发。第一个参数 `value` 表示变化后的色值，`context.trigger` 表示触发颜色变化的来源 */
+  /** 最近使用颜色发生变化时触发 */
   onRecentColorsChange: Function as PropType<TdColorPickerProps['onRecentColorsChange']>,
 };

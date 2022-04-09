@@ -1,7 +1,7 @@
 import { defineComponent, VNode, computed } from 'vue';
 import props from './props';
 import { useChildComponentSlots } from '../hooks/slot';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TSwiper',

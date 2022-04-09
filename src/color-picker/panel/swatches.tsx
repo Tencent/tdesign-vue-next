@@ -1,11 +1,10 @@
 import { computed, defineComponent, PropType, ref } from 'vue';
-import { DeleteIcon, ErrorCircleFilledIcon } from 'tdesign-icons-vue-next';
+import { DeleteIcon, ErrorCircleFilledIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { Select as TSelect, Option as TOption } from '../../select';
-import Color from '../utils/color';
+import { Color } from '../utils';
 import { useBaseClassName } from '../hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '../../config-provider';
+import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
 import baseProps from './base-props';
-import { RecentColorsChangeTrigger } from '../type';
 import { Button as TButton, TdButtonProps } from '../../button';
 
 export default defineComponent({
@@ -25,11 +24,17 @@ export default defineComponent({
       type: String,
       default: '系统色彩',
     },
-    removable: {
+    editable: {
       type: Boolean,
       default: false,
     },
     onSetColor: {
+      type: Function,
+      default: () => {
+        return () => {};
+      },
+    },
+    handleAddColor: {
       type: Function,
       default: () => {
         return () => {};
@@ -64,14 +69,12 @@ export default defineComponent({
     const handleRemoveColor = () => {
       const colors = [...props.colors];
       const selectedIndex = selectedColorIndex.value;
-      let trigger: RecentColorsChangeTrigger = 'delete';
       if (selectedIndex > -1) {
         colors.splice(selectedIndex, 1);
       } else {
         colors.length = 0;
-        trigger = 'clear';
       }
-      props.onChange(colors, trigger);
+      props.onChange(colors);
       setVisiblePopConfirm(false);
     };
 
@@ -100,7 +103,7 @@ export default defineComponent({
       global,
       confirmGlobal,
       title,
-      removable,
+      editable,
     } = this;
     const swatchesClass = `${baseClassName}__swatches`;
     const popupBaseClassName = `${classPrefix}-popup`;
@@ -150,8 +153,8 @@ export default defineComponent({
       );
     };
 
-    const renderRemoveBtn = () => {
-      if (!removable) {
+    const renderActions = () => {
+      if (!editable) {
         return null;
       }
       // if (this.selectedColorIndex === -1) {
@@ -169,9 +172,16 @@ export default defineComponent({
       //   );
       // }
       return (
-        <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleRemoveColor()}>
-          <DeleteIcon />
-        </span>
+        <div class={`${swatchesClass}--actions`}>
+          <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleAddColor()}>
+            <AddIcon />
+          </span>
+          {this.colors.length > 0 ? (
+            <span role="button" class={`${baseClassName}__icon`} onClick={() => this.handleRemoveColor()}>
+              <DeleteIcon />
+            </span>
+          ) : null}
+        </div>
       );
     };
 
@@ -179,7 +189,7 @@ export default defineComponent({
       <div class={swatchesClass}>
         <h3 class={`${swatchesClass}--title`}>
           <span>{title}</span>
-          {renderRemoveBtn()}
+          {renderActions()}
         </h3>
         <ul class={[`${swatchesClass}--items`, 'narrow-scrollbar']}>
           {this.colors.map((color) => {
@@ -187,7 +197,7 @@ export default defineComponent({
               <li
                 class={[
                   `${swatchesClass}--item`,
-                  this.isEqualCurrentColor(color) && removable ? statusClassNames.active : '',
+                  this.isEqualCurrentColor(color) && editable ? statusClassNames.active : '',
                 ]}
                 key={color}
                 onClick={() => {

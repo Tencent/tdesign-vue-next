@@ -3,16 +3,14 @@ import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-
 import camelCase from 'lodash/camelCase';
 import kebabCase from 'lodash/kebabCase';
 import { InputValue } from './type';
-import { getCharacterLength, omit } from '../utils/helper';
-import getConfigReceiverMixins, { InputConfig } from '../config-provider/config-receiver';
-import mixins from '../utils/mixins';
+import { getCharacterLength } from '../utils/helper';
 import props from './props';
 import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -25,7 +23,6 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 }
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<InputConfig>('input')),
   name: 'TInput',
   props: { ...props },
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
@@ -36,8 +33,10 @@ export default defineComponent({
     const INPUT_TIPS_CLASS = usePrefixClass('input__tips');
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
+    const { global } = useConfig('input');
 
     return {
+      global,
       disabled,
       COMPONENT_NAME,
       INPUT_WRAP_CLASS,
@@ -61,7 +60,7 @@ export default defineComponent({
       );
     },
     tPlaceholder(): string {
-      return this.placeholder ?? this.t(this.global.placeholder);
+      return this.placeholder ?? this.global.placeholder;
     },
     inputAttrs(): Record<string, any> {
       return getValidAttrs({
@@ -71,7 +70,8 @@ export default defineComponent({
         placeholder: this.tPlaceholder,
         maxlength: this.maxlength,
         name: this.name || undefined,
-        type: this.type,
+        type: this.renderType,
+        autocomplete: this.type === 'password' ? 'on' : undefined,
       });
     },
   },

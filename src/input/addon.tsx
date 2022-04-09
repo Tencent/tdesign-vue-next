@@ -1,5 +1,5 @@
 import { defineComponent, h, VNodeChild } from 'vue';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TAddon',

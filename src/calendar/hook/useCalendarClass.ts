@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 
-import { usePrefixClass } from '../../config-provider';
+import { usePrefixClass } from '../../hooks/useConfig';
 import { CalendarState } from '../interface';
 import { TdCalendarProps } from '../type';
 import { COMPONENT_NAME } from '../const';

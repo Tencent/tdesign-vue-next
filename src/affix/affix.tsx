@@ -4,7 +4,7 @@ import { on, off, getScrollContainer } from '../utils/dom';
 import props from './props';
 import { ScrollContainerElement } from '../common';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TAffix',
@@ -13,7 +13,6 @@ export default defineComponent({
   setup(props, context) {
     const COMPONENT_NAME = usePrefixClass('affix');
 
-    const { emit } = context;
     const affixRef = ref(null);
     const fixedTop = ref<false | number>(false);
     const scrollContainer = ref<ScrollContainerElement>();
@@ -54,8 +53,6 @@ export default defineComponent({
             fixedTop.value = false;
           }
           ticking.value = false;
-          emit('fixedChange', fixedTop.value !== false, { top: fixedTop.value });
-          if (isFunction(props.onFixedChange)) props.onFixedChange(fixedTop.value !== false, { top: fixedTop.value });
         });
         ticking.value = true;
       }
@@ -74,6 +71,11 @@ export default defineComponent({
         calcInitValue();
       },
     );
+
+    watch([fixedTop], ([val]) => {
+      context.emit('fixedChange', val !== false, { top: val });
+      if (isFunction(props.onFixedChange)) props.onFixedChange(val !== false, { top: Number(val) });
+    });
 
     const getContentStyle = () => {
       const { clientWidth, clientHeight } = affixRef.value;

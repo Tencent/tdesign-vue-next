@@ -1,11 +1,10 @@
 import { defineComponent, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
 import { GRADIENT_SLIDER_DEFAULT_WIDTH } from '../const';
-import { genGradientPoint } from '../utils/color';
-import { GradientColorPoint } from '../utils/gradient';
+import { genGradientPoint, gradientColors2string, GradientColorPoint } from '../utils';
 import { InputNumber as TInputNumber } from '../../input-number';
 import { useBaseClassName } from '../hooks';
-import { useCommonClassName } from '../../config-provider';
+import { useCommonClassName } from '../../hooks/useConfig';
 import baseProps from './base-props';
 
 const DELETE_KEYS: string[] = ['delete', 'backspace'];
@@ -216,8 +215,12 @@ export default defineComponent({
     };
   },
   render() {
-    const { linearGradient } = this.color;
+    const { linearGradient, gradientColors } = this.color;
     const { colors, selectedId, degree, disabled, baseClassName, statusClassNames } = this;
+    const thumbBackground = gradientColors2string({
+      points: gradientColors,
+      degree: 90,
+    });
     return (
       <div class={`${baseClassName}__gradient`}>
         <div class={`${baseClassName}__gradient-slider`}>
@@ -231,7 +234,7 @@ export default defineComponent({
               class="gradient-thumbs"
               onClick={this.handleThumbBarClick}
               style={{
-                background: linearGradient,
+                background: thumbBackground,
               }}
             >
               {colors.map((t) => {
@@ -271,6 +274,14 @@ export default defineComponent({
             onEnter={this.handleDegreeChange}
             disabled={disabled}
           />
+        </div>
+        <div class={[`${baseClassName}__gradient-preview`, `${baseClassName}--bg-alpha`]}>
+          <span
+            class="preview-inner"
+            style={{
+              background: linearGradient,
+            }}
+          ></span>
         </div>
       </div>
     );

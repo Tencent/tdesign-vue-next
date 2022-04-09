@@ -25,7 +25,7 @@ watch(
     const timer = setTimeout(() => {
       loading.value = false;
       clearTimeout(timer);
-    }, 10000);
+    }, 1000);
   },
 );
 </script>

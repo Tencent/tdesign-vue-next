@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { COMPONENT_NAME } from '../const';
 import { CalendarState } from '../interface';
 import { TdCalendarProps, ControllerOptions } from '../type';
-import { useConfig } from '../../config-provider';
+import { useConfig } from '../../hooks/useConfig';
 
 const getDefaultControllerConfigData = (visible = true): Record<string, any> => ({
   visible, // 是否显示（全部控件）
@@ -16,12 +16,12 @@ const getDefaultControllerConfigData = (visible = true): Record<string, any> => 
   // 年份选择框组件相关设置
   year: {
     visible: true, // 是否显示
-    selecteProps: {}, // 用于透传props给该select组件
+    selectProps: {}, // 用于透传props给该select组件
   },
   // 年份选择框组件相关设置
   month: {
     visible: true, // 是否显示（“year”模式下本身是不显示该组件的）
-    selecteProps: {}, // 用于透传props给该select组件
+    selectProps: {}, // 用于透传props给该select组件
   },
   // 隐藏\显示周末按钮组件相关设置
   weekend: {

@@ -3,7 +3,7 @@ import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import props from './props';
 import * as utils from './utils';
-import { useConfig } from '../config-provider';
+import { useConfig } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
 import { useState, useCalendarClass, userController, useColHeaders } from './hook';
 
@@ -115,7 +115,7 @@ export default defineComponent({
         return controller.checkControllerVisible('year');
       }),
       isYearSelectDisabled: computed<boolean>(() => {
-        return controller.checkControllerDisabled('year', 'selecteProps');
+        return controller.checkControllerDisabled('year', 'selectProps');
       }),
       monthSelectOptionList: computed<YearMonthOption[]>(() => {
         const re: YearMonthOption[] = [];
@@ -133,7 +133,7 @@ export default defineComponent({
         return state.curSelectedMode === 'month' && controller.checkControllerVisible('month');
       }),
       isMonthSelectDisabled: computed<boolean>(() => {
-        return controller.checkControllerDisabled('month', 'selecteProps');
+        return controller.checkControllerDisabled('month', 'selectProps');
       }),
     };
     // 模式选项
@@ -204,7 +204,7 @@ export default defineComponent({
                 <TSelect
                   v-model={state.curSelectedYear}
                   size={state.controlSize}
-                  {...controller.configData.value.year.selecteProps}
+                  {...controller.configData.value.year.selectProps}
                   disabled={dateSelect.isYearSelectDisabled.value}
                 >
                   {dateSelect.yearSelectOptionList.value.map((item) => (
@@ -220,7 +220,7 @@ export default defineComponent({
                 <TSelect
                   v-model={state.curSelectedMonth}
                   size={state.controlSize}
-                  {...controller.configData.value.month.selecteProps}
+                  {...controller.configData.value.month.selectProps}
                   disabled={dateSelect.isMonthSelectDisabled.value}
                 >
                   {dateSelect.monthSelectOptionList.value.map((item) => (
