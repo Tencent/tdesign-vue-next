@@ -40,11 +40,9 @@ docClass: timeline
 ### 🐞  Bug Fixes
 
 - 修复 `configProvider` 警告 和 globalConfig 数据响应式问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#543](https://github.com/Tencent/tdesign-vue-next/pull/543))
-- 修复 `Input` type=password 时 autocomplete 警告 [@pengYYYYY](https://github.com/pengYYYYY) ([#543](https://github.com/Tencent/tdesign-vue-next/pull/543))
-- 修复 `Input` toggle password [@pengYYYYY](https://github.com/pengYYYYY) ([#559](https://github.com/Tencent/tdesign-vue-next/pull/559))
+- 修复 `Input` type=password 时 autocomplete 警告 以及 toggle password 问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#543](https://github.com/Tencent/tdesign-vue-next/pull/543)) ([#559](https://github.com/Tencent/tdesign-vue-next/pull/559))
 - 修复 `Checkbox` Group 插槽形式 disabled 属性没有生效 [@pengYYYYY](https://github.com/pengYYYYY) ([#543](https://github.com/Tencent/tdesign-vue-next/pull/543))
-- 修复 `Upload` 中 triggerUpload 方法未正确导出 [@k1nz](https://github.com/k1nz) ([#533](https://github.com/Tencent/tdesign-vue-next/pull/533))
-- 修复 `Upload` 自定义拖拽上传demo中“点击上传”按钮无效 [@k1nz](https://github.com/k1nz) ([#533](https://github.com/Tencent/tdesign-vue-next/pull/533))
+- 修复 `Upload` 中 triggerUpload 方法未正确导出 和 自定义拖拽上传demo中“点击上传”按钮无效  [@k1nz](https://github.com/k1nz) ([#533](https://github.com/Tencent/tdesign-vue-next/pull/533))
 - 修复 `Slider` inputNumberProps 未正常透传 [@delbertbeta](https://github.com/delbertbeta) ([#547](https://github.com/Tencent/tdesign-vue-next/pull/547))
 - 修复 `Affix` onFixedChange 触发时机，在固定状态发生变化时才会触发该事件（改动之前为：滚动一直触发）
 - 修复 `Table` 的 若干 Bug [@chaishi](https://github.com/chaishi) ([#468](https://github.com/Tencent/tdesign-vue-next/pull/468))
