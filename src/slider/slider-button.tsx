@@ -1,7 +1,7 @@
 import { defineComponent, ComponentPublicInstance } from 'vue';
 import TPopup from '../popup/index';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TSliderButton',

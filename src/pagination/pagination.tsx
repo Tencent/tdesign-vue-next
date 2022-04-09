@@ -8,7 +8,7 @@ import {
   EllipsisIcon,
 } from 'tdesign-icons-vue-next';
 import { TdPaginationProps } from '../pagination/type';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import TInputNumber from '../input-number';
 import { Option, Select } from '../select';

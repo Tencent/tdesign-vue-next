@@ -332,6 +332,13 @@ export default {
           component: () => import('@/examples/calendar/calendar.md'),
         },
         {
+          title: 'Collapse 折叠面板',
+          name: 'collapse',
+          docType: 'data',
+          path: '/vue-next/components/collapse',
+          component: () => import('@/examples/collapse/collapse.md')
+        },
+        {
           title: 'Comment 评论',
           name: 'comment',
           meta: {
@@ -400,7 +407,7 @@ export default {
           docType: 'data',
           path: '/vue-next/components/tree',
           component: () => import('@/examples/tree/tree.md'),
-        },
+        }
       ],
     },
     {

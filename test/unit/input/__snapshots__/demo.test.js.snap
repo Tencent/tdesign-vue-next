@@ -662,6 +662,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
       </span>
       <!---->
       <input
+        autocomplete="on"
         class="t-input__inner"
         placeholder="请输入"
         type="password"
@@ -724,6 +725,7 @@ exports[`Input Input passwordVue demo works fine 1`] = `
       </span>
       <!---->
       <input
+        autocomplete="on"
         class="t-input__inner"
         placeholder="请输入"
         type="password"

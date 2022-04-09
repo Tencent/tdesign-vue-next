@@ -6,7 +6,7 @@ import { TdSelectInputProps } from './type';
 import Input, { InputValue } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 import useDefaultValue from '../hooks/useDefaultValue';
 
 // single 和 multiple 共有特性

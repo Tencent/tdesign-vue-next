@@ -6,7 +6,7 @@ import { TdSelectInputProps } from './type';
 import useSingle from './useSingle';
 import useMultiple from './useMultiple';
 import useOverlayStyle from './useOverlayStyle';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 const useComponentClassName = () => {
   return {

@@ -1,7 +1,7 @@
 import { defineComponent, h, VNodeChild } from 'vue';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TAnchorItem',

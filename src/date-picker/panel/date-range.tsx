@@ -2,10 +2,10 @@ import { defineComponent, PropType } from 'vue';
 import dayjs from 'dayjs';
 import TDateHeader from '../basic/header';
 import TDateTable from '../basic/table';
-import { DatePickerConfig } from '../../config-provider/config-receiver';
+import { DatePickerConfig } from '../../config-provider';
 import { DateValue } from '../type';
 
-import { usePrefixClass } from '../../config-provider';
+import { usePrefixClass } from '../../hooks/useConfig';
 
 import {
   getWeeks,

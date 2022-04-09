@@ -5,7 +5,7 @@ import tabPanelProps from './tab-panel-props';
 
 // hooks
 import useRipple from '../hooks/useRipple';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TTabNavItem',

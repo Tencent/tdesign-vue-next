@@ -1,9 +1,9 @@
 import { computed, defineComponent, PropType, ref } from 'vue';
 import { DeleteIcon, ErrorCircleFilledIcon, AddIcon } from 'tdesign-icons-vue-next';
 import { Select as TSelect, Option as TOption } from '../../select';
-import Color from '../utils/color';
+import { Color } from '../utils';
 import { useBaseClassName } from '../hooks';
-import { useCommonClassName, useConfig, usePrefixClass } from '../../config-provider';
+import { useCommonClassName, useConfig, usePrefixClass } from '../../hooks/useConfig';
 import baseProps from './base-props';
 import { Button as TButton, TdButtonProps } from '../../button';
 

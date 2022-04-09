@@ -1,7 +1,7 @@
 import { computed, defineComponent, onBeforeUnmount, onMounted, PropType, reactive, ref } from 'vue';
 import { SLIDER_DEFAULT_WIDTH } from '../const';
 import { Select as TSelect, Option as TOption } from '../../select';
-import Draggable, { Coordinate } from '../utils/draggable';
+import { Draggable, Coordinate } from '../utils';
 import { useBaseClassName } from '../hooks';
 import baseProps from './base-props';
 

@@ -1,7 +1,7 @@
 import { computed, defineComponent, inject } from 'vue';
 import props from './col-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 import { RowProviderType, useRowSize, parseFlex, calcColPadding, getColClasses } from './common';
 
 export default defineComponent({

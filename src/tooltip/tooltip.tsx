@@ -5,7 +5,7 @@ import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup';
 import { ClassName } from '../common';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TTooltip',
