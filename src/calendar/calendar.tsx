@@ -359,9 +359,8 @@ export default defineComponent({
                         onClick={(e: MouseEvent) => clickCell(e, item)}
                         onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
                         onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
-                      >
-                        {{ ...slots }}
-                      </CalendarCellItem>
+                        v-slots={{ ...slots }}
+                      ></CalendarCellItem>
                     ),
                 )}
               </tr>
@@ -404,9 +403,8 @@ export default defineComponent({
                     onClick={(e: MouseEvent) => clickCell(e, item)}
                     onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
                     onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
-                  >
-                    {{ ...slots }}
-                  </CalendarCellItem>
+                    v-slots={{ ...slots }}
+                  ></CalendarCellItem>
                 ))}
               </tr>
             ))}
