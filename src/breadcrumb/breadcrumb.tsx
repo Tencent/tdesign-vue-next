@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, provide, getCurrentInstance } from 'vue';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps } from './type';
@@ -6,28 +6,30 @@ import { TNodeReturnValue } from '../common';
 
 export default defineComponent({
   name: 'TBreadcrumb',
-
   components: {
     BreadcrumbItem,
   },
-
-  provide() {
+  props,
+  setup(props, { slots, attrs }) {
+    provide('tBreadcrumb', { ...props, slots });
+    const renderContent = () => {
+      let content: TNodeReturnValue = slots.default ? slots.default() : '';
+      if (props.options && props.options.length) {
+        content = props.options.map((option: TdBreadcrumbItemProps, index: number) => (
+          <BreadcrumbItem {...attrs} {...option} key={index}>
+            {option.default || option.content}
+          </BreadcrumbItem>
+        ));
+      }
+      return content;
+    };
     return {
-      tBreadcrumb: this,
+      renderContent,
     };
   },
 
-  props,
-
   render() {
-    let content: TNodeReturnValue = this.$slots.default ? this.$slots.default() : '';
-    if (this.options && this.options.length) {
-      content = this.options.map((option: TdBreadcrumbItemProps, index: number) => (
-        <BreadcrumbItem {...this.$attrs} {...option} key={index}>
-          {option.default || option.content}
-        </BreadcrumbItem>
-      ));
-    }
-    return <div class="t-breadcrumb">{content}</div>;
+    const { renderContent } = this;
+    return <div class="t-breadcrumb">{renderContent()}</div>;
   },
 });
