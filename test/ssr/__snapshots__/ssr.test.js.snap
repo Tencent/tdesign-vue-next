@@ -10463,9 +10463,10 @@ exports[`ssr snapshot test renders ./examples/collapse/demos/icon.vue correctly 
     <!--]-->
   </div>
   <div class="button-area"><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->显示箭头<!--]--></span></label>
-    <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="left">
-      <!--[--><label class="t-radio t-is-checked" modelvalue="false"><input type="radio" class="t-radio__former" checked value="left" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->左边<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="right" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->右边<!--]--></span></label>
+    <div class="t-radio-group t-size-m t-radio-group__outline">
+      <!--[--><label class="t-radio t-is-checked"><input type="radio" class="t-radio__former" name checked value="left"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->左边<!--]--></span></label><label class="t-radio"><input type="radio" class="t-radio__former" name value="right"><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->右边<!--]--></span></label>
       <!--]-->
+      <!---->
     </div>
   </div>
   <div style="margin-top:10px;"><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->仅图标响应点击<!--]--></span></label></div>
