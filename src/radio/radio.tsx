@@ -41,7 +41,7 @@ export default defineComponent({
         setInnerChecked(checked, { e });
       }
     };
-    const handleClick = (e: Event) => {
+    const handleClick = (e: MouseEvent) => {
       props.onClick?.(e);
       if (!radioChecked.value || !props.allowUncheck) return;
       if (radioGroup) {
