@@ -10199,6 +10199,516 @@ exports[`ssr snapshot test renders ./examples/checkbox/demos/link.vue correctly 
 </div>
 `;
 
+exports[`ssr snapshot test renders ./examples/collapse/demos/base.vue correctly 1`] = `
+<div class="tdesign-collapse">
+  <div class="t-collapse">
+    <!--[-->
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>设置默认展开项<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>自定义折叠面板内容<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[-->
+            <div class="tdesign-demo-block-column" style="width:80%;">
+              <div class="t-input__wrap t-tag-input">
+                <div class="t-input t-input--prefix">
+                  <!---->
+                  <div class="t-input__prefix">
+                    <!--[--><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
+                    <!--]-->
+                  </div><input class="t-input__inner" placeholder type="text">
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div class="t-input__wrap t-tag-input">
+                <div class="t-input t-input--prefix">
+                  <!---->
+                  <div class="t-input__prefix">
+                    <!--[-->
+                    <div class="t-tag-input__prefix">Controlled: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
+                    <!--]-->
+                  </div><input class="t-input__inner" placeholder type="text">
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+              </div>
+              <div class="t-input__wrap t-tag-input">
+                <div class="t-input t-input--prefix">
+                  <!---->
+                  <div class="t-input__prefix">
+                    <!--[-->
+                    <div class="t-tag-input__prefix">UnControlled: </div><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->Vue<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span><span class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m" style=""><!----><!--[-->React<!--]--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close t-tag__icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
+                    <!--]-->
+                  </div><input class="t-input__inner" placeholder type="text">
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+                <!---->
+              </div>
+            </div>
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>嵌套折叠面板<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[-->
+            <div class="t-collapse">
+              <!--[-->
+              <div class="t-collapse-panel">
+                <div class="t-collapse-panel__wrapper">
+                  <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+                      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                    </svg>子面板1<div class="t-collapse-panel__header--blank"></div>
+                    <!---->
+                    <!---->
+                  </div>
+                  <div class="t-collapse-panel__body">
+                    <div class="t-collapse-panel__content">
+                      <!--[--> 这是子面板1
+                      <!--]-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="t-collapse-panel">
+                <div class="t-collapse-panel__wrapper">
+                  <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+                      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                    </svg>子面板2<div class="t-collapse-panel__header--blank"></div>
+                    <!---->
+                    <!---->
+                  </div>
+                  <div class="t-collapse-panel__body">
+                    <div class="t-collapse-panel__content">
+                      <!--[--> 这是子面板2
+                      <!--]-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="t-collapse-panel">
+                <div class="t-collapse-panel__wrapper">
+                  <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+                      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                    </svg>子面板3<div class="t-collapse-panel__header--blank"></div>
+                    <!---->
+                    <!---->
+                  </div>
+                  <div class="t-collapse-panel__body">
+                    <div class="t-collapse-panel__content">
+                      <!--[--> 这是子面板3
+                      <!--]-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="t-collapse-panel">
+                <div class="t-collapse-panel__wrapper">
+                  <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-fake-arrow--active t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+                      <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+                    </svg>子面板4<div class="t-collapse-panel__header--blank"></div>
+                    <!---->
+                    <!---->
+                  </div>
+                  <div class="t-collapse-panel__body">
+                    <div class="t-collapse-panel__content">
+                      <!--[--> 这是子面板4
+                      <!--]-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--]-->
+            </div>
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--]-->
+  </div>
+  <div style="margin-top:10px;">当前展开项:[
+    1
+    ]</div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/collapse/demos/icon.vue correctly 1`] = `
+<div class="tdesign-collapse">
+  <div class="t-collapse">
+    <!--[-->
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>
+          <!--[-->这是一个折叠标题
+          <!--]-->
+          <div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[-->这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>
+          <!--[-->这是一个折叠标题
+          <!--]-->
+          <div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--]-->
+  </div>
+  <div class="button-area"><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->显示箭头<!--]--></span></label>
+    <div class="t-radio-group t-size-m t-radio-group__outline" modelvalue="left">
+      <!--[--><label class="t-radio t-is-checked" modelvalue="false"><input type="radio" class="t-radio__former" checked value="left" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->左边<!--]--></span></label><label class="t-radio" modelvalue="false"><input type="radio" class="t-radio__former" value="right" name><span class="t-radio__input"></span><span class="t-radio__label"><!--[-->右边<!--]--></span></label>
+      <!--]-->
+    </div>
+  </div>
+  <div style="margin-top:10px;"><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->仅图标响应点击<!--]--></span></label></div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/collapse/demos/mutex.vue correctly 1`] = `
+<div class="tdesign-collapse">
+  <div class="t-collapse">
+    <!--[-->
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>
+          <!--[-->这是一个折叠标题
+          <!--]-->
+          <div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[-->这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>
+          <!--[-->这是一个折叠标题
+          <!--]-->
+          <div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--]-->
+  </div>
+  <div style="margin-top:10px;">当前展开项：[]</div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/collapse/demos/other.vue correctly 1`] = `
+<div class="tdesign-collapse">
+  <div class="t-collapse">
+    <!--[-->
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>
+          <!--[-->这是一个折叠标题
+          <!--]-->
+          <div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[-->这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>
+          <!--[-->这是一个折叠标题
+          <!--]-->
+          <div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题<div class="t-collapse-panel__header--blank"></div>
+          <!---->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--]-->
+  </div>
+  <div class="button-area"><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->全部禁用<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->无边框模式<!--]--></span></label></div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/collapse/demos/rightSlot.vue correctly 1`] = `
+<div class="tdesign-collapse">
+  <div class="t-collapse">
+    <!--[-->
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题可以设置右侧操作区域<div class="t-collapse-panel__header--blank"></div>
+          <!--[--><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->禁用<!--]--></span></label><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button>
+          <!--]-->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel t-is-disabled">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题可以设置右侧操作区域<div class="t-collapse-panel__header--blank"></div>
+          <!--[--><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->禁用<!--]--></span></label><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button>
+          <!--]-->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header t-is-clickable"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题可以设置右侧操作区域<div class="t-collapse-panel__header--blank"></div>
+          <!--[--><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->禁用<!--]--></span></label><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button>
+          <!--]-->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="t-collapse-panel t-is-disabled">
+      <div class="t-collapse-panel__wrapper">
+        <div class="t-collapse-panel__header"><svg class="t-fake-arrow t-collapse-panel__icon t-collapse-panel__icon--left" width="16" height="16" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="" name="arrow">
+            <path d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921" stroke="black" stroke-opacity="0.9" stroke-width="1.3"></path>
+          </svg>这是一个折叠标题可以设置右侧操作区域<div class="t-collapse-panel__header--blank"></div>
+          <!--[--><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->禁用<!--]--></span></label><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->操作<!--]--></span></button>
+          <!--]-->
+          <!---->
+        </div>
+        <div class="t-collapse-panel__body" style="display:none;">
+          <div class="t-collapse-panel__content">
+            <!--[--> 这部分是每个折叠面板折叠或展开的内容，可根据不同业务或用户的使用诉求，进行自定义填充。可以是纯文本、图文、子列表等内容形式。
+            <!--]-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--]-->
+  </div>
+</div>
+`;
+
 exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue correctly 1`] = `
 <div class="tdesign-demo-block-row">
   <div class="item">
@@ -29363,7 +29873,7 @@ exports[`ssr snapshot test renders ./examples/message/demos/close.vue correctly 
   <div class="t-message t-is-info t-is-closable"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
       <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fill-opacity="0.9"></path>
     </svg>
-    <!--[--> 点击关闭按钮触发事件 click-close-btn
+    <!--[--> 点击关闭按钮触发事件 close-btn-click
     <!--]--><span class="t-message__close"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-close" style=""><path fill="currentColor" d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z" fill-opacity="0.9"></path></svg></span>
   </div>
   <div class="t-message t-is-info t-is-closable"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
@@ -35429,7 +35939,7 @@ exports[`ssr snapshot test renders ./examples/skeleton/demos/theme.vue correctly
 exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12">
+    <div class="t-slider__container">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -35492,7 +36002,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/base.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider t-is-disabled" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" aria-disabled="true">
         <div class="t-slider__rail disabled" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -35555,7 +36065,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/disabled.vue correctl
 exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider t-slider--with-input" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail show-input" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -35701,7 +36211,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number.vue corr
 exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="number-vertical-block">
-    <div class="t-slider__container is-vertical" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container is-vertical" show-tooltip="true">
       <div class="t-slider is-vertical t-slider--with-input t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical">
         <div class="t-slider__rail show-input" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -35847,7 +36357,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/input-number-vertical
 exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -35947,7 +36457,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
     </div>
   </div>
   <div class="block">
-    <div class="t-slider__container" modelvalue="10" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -35993,7 +36503,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/marks.vue correctly 1
 exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="10" aria-valuemax="30" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:-50%;left:0%;"></div>
@@ -36082,7 +36592,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/min-and-max.vue corre
 exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="block">
-    <div class="t-slider__container" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container" show-tooltip="true">
       <div class="t-slider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal">
         <div class="t-slider__rail" style="">
           <div class="t-slider__track" style="width:0%;left:0%;"></div>
@@ -36145,7 +36655,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/step.vue correctly 1`
 exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="vertical-block">
-    <div class="t-slider__container is-vertical" modelvalue="12" show-tooltip="true">
+    <div class="t-slider__container is-vertical" show-tooltip="true">
       <div class="t-slider is-vertical t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical">
         <div class="t-slider__rail" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
@@ -36208,7 +36718,7 @@ exports[`ssr snapshot test renders ./examples/slider/demos/vertical.vue correctl
 exports[`ssr snapshot test renders ./examples/slider/demos/vertical-marks.vue correctly 1`] = `
 <div class="demo-slider">
   <div class="vertical-marks-block">
-    <div class="t-slider__container is-vertical" modelvalue="12" vertical show-tooltip="true">
+    <div class="t-slider__container is-vertical" vertical show-tooltip="true">
       <div class="t-slider is-vertical t-slider--vertical" role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="vertical">
         <div class="t-slider__rail" style="height:100%;">
           <div class="t-slider__track" style="height:0%;bottom:0%;"></div>
