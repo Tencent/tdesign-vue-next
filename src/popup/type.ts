@@ -85,6 +85,11 @@ export interface TdPopupProps {
    */
   defaultVisible?: boolean;
   /**
+   * 是否显示浮层
+   * @default false
+   */
+  modelValue?: boolean;
+  /**
    * 组件层级，Web 侧样式默认为 5500，移动端和小程序样式默认为 1500
    */
   zIndex?: number;

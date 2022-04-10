@@ -8,13 +8,6 @@ import './style';
 export * from './type';
 export type TooltipProps = TdTooltipProps;
 
-export const Tooltip: WithInstallType<typeof _Tooltip> = withInstall(
-  mapProps([
-    {
-      name: 'visible',
-      event: 'visible-change',
-    },
-  ])(_Tooltip),
-);
+export const Tooltip: WithInstallType<typeof _Tooltip> = withInstall(_Tooltip);
 
 export default Tooltip;
