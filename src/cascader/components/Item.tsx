@@ -1,84 +1,50 @@
-import { defineComponent, PropType, ref } from 'vue';
+import { defineComponent, PropType, computed, ref } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 
-// utils
-import CLASSNAMES from '../../utils/classnames';
-import useRipple from '../../hooks/useRipple';
-
-// common logic
 import { getFullPathLabel } from '../utils/helper';
 import { getCascaderItemClass, getCascaderItemIconClass, getLabelIsEllipsis } from '../utils/item';
 
-// component
-import Checkbox, { CheckboxProps } from '../../checkbox/index';
+import Checkbox from '../../checkbox/index';
 import Tooltip from '../../tooltip/index';
 import TLoading from '../../loading';
 
-// type
-import { ClassName } from '../../common';
-import { ContextType, CascaderContextType, CascaderItemPropsType, TreeNodeValue, TreeNode } from '../interface';
-import { usePrefixClass, useConfig } from '../../hooks/useConfig';
+import { CascaderContextType, TreeNodeValue, TreeNode } from '../interface';
+import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
+import useRipple from '../../hooks/useRipple';
+
+const props = {
+  node: {
+    type: Object as PropType<TreeNode>,
+    default() {
+      return {};
+    },
+  },
+  cascaderContext: {
+    type: Object as PropType<CascaderContextType>,
+  },
+  onChange: Function as PropType<(node: TreeNode) => void>,
+  onClick: Function as PropType<(node: TreeNode) => void>,
+  onMouseenter: Function as PropType<(node: TreeNode) => void>,
+};
 
 export default defineComponent({
   name: 'TCascaderItem',
-  props: {
-    node: {
-      type: Object as PropType<CascaderItemPropsType['node']>,
-      default() {
-        return {};
-      },
-    },
-    cascaderContext: {
-      type: Object as PropType<CascaderItemPropsType['cascaderContext']>,
-    },
-  },
-
-  emits: ['change', 'click', 'mouseenter'],
-  setup() {
+  props,
+  setup(props) {
     const liRef = ref<HTMLElement>();
     useRipple(liRef);
 
-    const ComponentClassName = usePrefixClass('cascader__item');
+    const COMPONENT_NAME = usePrefixClass('cascader__item');
     const classPrefix = usePrefixClass();
+    const { STATUS, SIZE } = useCommonClassName();
 
-    return { liRef, ComponentClassName, classPrefix };
-  },
-  computed: {
-    itemClass(): ClassName {
-      return getCascaderItemClass(this.classPrefix, this.node, CLASSNAMES, this.cascaderContext);
-    },
-    iconClass(): ClassName {
-      return getCascaderItemIconClass(this.classPrefix, this.node, CLASSNAMES, this.cascaderContext);
-    },
-  },
-  render() {
-    const { node, itemClass, iconClass, cascaderContext, ComponentClassName } = this;
+    const itemClass = computed(() => {
+      return getCascaderItemClass(classPrefix.value, props.node, SIZE.value, STATUS.value, props.cascaderContext);
+    });
 
-    const handleClick = (e: Event) => {
-      e.stopPropagation();
-      const ctx: ContextType = {
-        e,
-        node,
-      };
-      this.$emit('click', ctx);
-    };
-
-    const handleChange: CheckboxProps['onChange'] = (e) => {
-      const ctx = {
-        e,
-        node,
-      };
-      this.$emit('change', ctx);
-    };
-
-    const handleMouseenter = (e: Event) => {
-      e.stopPropagation();
-      const ctx: ContextType = {
-        e,
-        node,
-      };
-      this.$emit('mouseenter', ctx);
-    };
+    const iconClass = computed(() => {
+      return getCascaderItemIconClass(classPrefix.value, props.node, STATUS.value, props.cascaderContext);
+    });
 
     function RenderLabelInner(node: TreeNode, cascaderContext: CascaderContextType) {
       const { filterActive, inputVal } = cascaderContext;
@@ -90,7 +56,7 @@ export default defineComponent({
           doms.push(<span key={index}>{texts[index]}</span>);
           if (index === texts.length - 1) break;
           doms.push(
-            <span key={`${index}filter`} class={`${ComponentClassName}__label--filter`}>
+            <span key={`${index}filter`} class={`${COMPONENT_NAME.value}__label--filter`}>
               {inputVal}
             </span>,
           );
@@ -105,26 +71,22 @@ export default defineComponent({
       const isEllipsis = getLabelIsEllipsis(node, cascaderContext.size);
       if (isEllipsis) {
         return (
-          <span class={`${ComponentClassName}-label`} role="label">
+          <span class={`${COMPONENT_NAME.value}-label`} role="label">
             {label}
-            <div class={`${ComponentClassName}-label--ellipsis`}>
+            <div class={`${COMPONENT_NAME.value}-label--ellipsis`}>
               <Tooltip content={node.label} placement="top-left" />
             </div>
           </span>
         );
       }
       return (
-        <span class={[`${ComponentClassName}-label`]} role="label">
+        <span class={[`${COMPONENT_NAME.value}-label`]} role="label">
           {label}
         </span>
       );
     }
 
-    function RenderCheckBox(
-      node: TreeNode,
-      cascaderContext: CascaderContextType,
-      handleChange: CheckboxProps['onChange'],
-    ) {
+    function RenderCheckBox(node: TreeNode, cascaderContext: CascaderContextType) {
       const { checkProps, value, max, size } = cascaderContext;
       const label = RenderLabelInner(node, cascaderContext);
       return (
@@ -134,7 +96,9 @@ export default defineComponent({
           disabled={node.isDisabled() || ((value as TreeNodeValue[]).length >= max && max !== 0)}
           name={node.value}
           size={size}
-          onChange={handleChange}
+          onChange={() => {
+            props.onChange(node);
+          }}
           {...checkProps}
         >
           {label}
@@ -142,14 +106,30 @@ export default defineComponent({
       );
     }
 
-    return (
-      <li ref="liRef" class={itemClass} onClick={handleClick} onMouseenter={handleMouseenter}>
-        {cascaderContext.multiple
-          ? RenderCheckBox(node, cascaderContext, handleChange)
-          : RenderLabelContent(node, cascaderContext)}
-        {node.children &&
-          (node.loading ? <TLoading class={iconClass} size="small" /> : <ChevronRightIcon class={iconClass} />)}
-      </li>
-    );
+    return () => {
+      const { cascaderContext, node } = props;
+      return (
+        <li
+          ref="liRef"
+          class={itemClass.value}
+          onClick={(e: Event) => {
+            e.stopPropagation();
+            props.onClick(node);
+          }}
+          onMouseenter={(e: Event) => {
+            e.stopPropagation();
+            props.onMouseenter(node);
+          }}
+        >
+          {cascaderContext.multiple ? RenderCheckBox(node, cascaderContext) : RenderLabelContent(node, cascaderContext)}
+          {node.children &&
+            (node.loading ? (
+              <TLoading class={iconClass.value} size="small" />
+            ) : (
+              <ChevronRightIcon class={iconClass.value} />
+            ))}
+        </li>
+      );
+    };
   },
 });

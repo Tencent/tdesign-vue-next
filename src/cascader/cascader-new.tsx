@@ -9,7 +9,7 @@ import props from './props';
 
 import { useCascaderContext } from './hooks';
 import { CascaderValue } from './interface';
-import { useConfig, usePrefixClass } from '../config-provider';
+import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { getSingleContent, getMultipleContent, closeIconClickEffect } from './utils/inputContent';
 
 export default defineComponent({
@@ -31,7 +31,6 @@ export default defineComponent({
 
     const renderSuffixIcon = () => {
       const { size, visible, disabled, loading } = cascaderContext.value;
-      // const { closeShow, closeIconClass, fakeArrowIconClass } = this;
 
       const fakeArrowIconClass = 'null';
       const closeIconClass = 'null';
