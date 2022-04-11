@@ -66,15 +66,8 @@ const props = {
 
 export default defineComponent({
   name: 'TTransferList',
-  components: {
-    Search,
-    TCheckbox,
-    TCheckboxGroup,
-    Pagination,
-  },
   props: { ...props },
-  emits: ['pageChange', 'checkedChange', 'scroll', 'search'],
-  setup(props, { slots, emit }) {
+  setup(props, { slots }) {
     const classPrefix = usePrefixClass();
     // 搜索框输入内容
     const filterValue = ref('');
@@ -146,12 +139,12 @@ export default defineComponent({
     });
 
     const handlePaginationChange = (pageInfo: PageInfo) => {
-      emit('pageChange', pageInfo);
+      props.onPageChange?.(pageInfo);
       defaultCurrent.value = pageInfo.current;
       defaultPageSize.value = pageInfo.pageSize;
     };
     const handleCheckedChange = (val: Array<TransferValue>) => {
-      emit('checkedChange', val);
+      props.onCheckedChange?.(val);
     };
     const handleCheckedAllChange = (checked: boolean) => {
       if (checked) {
@@ -162,7 +155,7 @@ export default defineComponent({
       }
     };
     const scroll = (e: Event) => {
-      emit('scroll', e);
+      props.onScroll?.(e);
     };
     const handleSearch = (e: any) => {
       const event: SearchEvent = {
@@ -172,7 +165,7 @@ export default defineComponent({
         trigger: e.trigger,
       };
       filterValue.value = e.value;
-      emit('search', event);
+      props.onSearch?.(event);
     };
     const renderTNodeJSX = useTNodeDefault();
     const renderTitle = () => {

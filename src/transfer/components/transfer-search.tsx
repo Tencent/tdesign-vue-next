@@ -20,11 +20,10 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: ['change'],
-  setup(props, { emit }) {
+  setup(props) {
     const classPrefix = usePrefixClass();
     const handleChange = (value: string, changeCtx: any) => {
-      emit('change', {
+      props.onChange?.({
         value,
         e: changeCtx.e,
       });

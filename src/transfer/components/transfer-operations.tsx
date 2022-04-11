@@ -6,9 +6,6 @@ import { usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
   name: 'TTransferOperations',
-  components: {
-    TButton,
-  },
   props: {
     // 控制左按钮的禁用与否
     leftDisabled: {
@@ -26,14 +23,13 @@ export default defineComponent({
       >,
     },
   },
-  emits: ['moveToRight', 'moveToLeft'],
-  setup(props, { emit, slots }) {
+  setup(props, { slots }) {
     const classPrefix = usePrefixClass();
     const moveToRight = () => {
-      emit('moveToRight');
+      props.onMoveToRight?.();
     };
     const moveToLeft = () => {
-      emit('moveToLeft');
+      props.onMoveToLeft?.();
     };
     const getIconRight = () => {
       return <ChevronRightIcon />;

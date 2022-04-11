@@ -92,10 +92,12 @@ export default {
   /** 目标数据列表数据 */
   value: {
     type: Array as PropType<TdTransferProps['value']>,
+    default: undefined,
   },
   /** v-model*/
   modelValue: {
     type: Array as PropType<TdTransferProps['value']>,
+    default: undefined,
   },
   /** 目标数据列表数据，非受控属性 */
   defaultValue: {
