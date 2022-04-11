@@ -7,7 +7,7 @@ exports[`BreadcrumbItem BreadcrumbItem baseVue demo works fine 1`] = `
   
   
   <div
-    class="t-breadcrumb__item __v_isRef _rawValue _value"
+    class="t-breadcrumb__item light"
   >
     <a
       class="t-breadcrumb--text-overflow t-link"
@@ -45,7 +45,7 @@ exports[`BreadcrumbItem BreadcrumbItem baseVue demo works fine 1`] = `
   
   
   <div
-    class="t-breadcrumb__item __v_isRef _rawValue _value"
+    class="t-breadcrumb__item light"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -90,7 +90,7 @@ exports[`BreadcrumbItem BreadcrumbItem overlayVue demo works fine 1`] = `
   
   
   <div
-    class="t-breadcrumb__item __v_isRef _rawValue _value"
+    class="t-breadcrumb__item light"
   >
     <a
       class="t-breadcrumb--text-overflow t-link"
@@ -128,7 +128,7 @@ exports[`BreadcrumbItem BreadcrumbItem overlayVue demo works fine 1`] = `
   
   
   <div
-    class="t-breadcrumb__item __v_isRef _rawValue _value"
+    class="t-breadcrumb__item light"
   >
     <span
       class="t-breadcrumb--text-overflow"

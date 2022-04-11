@@ -8,7 +8,7 @@ exports[`Breadcrumb <slot> <separator> 1`] = `
   
   
   <div
-    class="t-breadcrumb__item __v_isRef _rawValue _value"
+    class="t-breadcrumb__item light"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -44,7 +44,7 @@ exports[`Breadcrumb <slot> <separator> 1`] = `
   
   
   <div
-    class="t-breadcrumb__item __v_isRef _rawValue _value"
+    class="t-breadcrumb__item light"
   >
     <span
       class="t-breadcrumb--text-overflow"
