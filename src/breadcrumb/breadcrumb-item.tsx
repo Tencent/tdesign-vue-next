@@ -78,7 +78,7 @@ export default defineComponent({
     };
 
     const renderContent = () => {
-      const itemClass = [COMPONENT_NAME.value, themeClassName];
+      const itemClass = [COMPONENT_NAME.value, themeClassName.value];
       const textClass = [textFlowClass.value];
 
       if (props.disabled) {
