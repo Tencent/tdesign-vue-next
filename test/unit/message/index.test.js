@@ -12,6 +12,7 @@ import Button from '@/src/button/index.ts';
 import Loading from '@/src/loading';
 
 // every component needs four parts: props/events/slots/functions.
+jest.useFakeTimers();
 describe('Message', () => {
   // test props api
   describe(':props', () => {
@@ -128,20 +129,17 @@ describe('Message', () => {
 
   // test events
   describe('@event', () => {
-    it('@duration-end', (done) => {
-      const wrapper = mount({
-        render() {
-          return <Message duration={3000}></Message>;
+    it('@duration-end', () => {
+      const onDurationEnd = jest.fn();
+      const wrapper = mount(Message, {
+        props: {
+          onDurationEnd,
+          duration: 3000,
         },
       });
-      const msg = wrapper.findComponent(Message);
-      expect(msg.emitted()['duration-end']).toBeFalsy();
-      const timer = setTimeout(() => {
-        const msg = wrapper.findComponent(Message);
-        expect(msg.emitted()['duration-end']).toBeTruthy();
-        done();
-        clearTimeout(timer);
-      }, 3100);
+      expect(onDurationEnd).not.toBeCalled();
+      jest.runAllTimers();
+      expect(onDurationEnd).toHaveBeenCalledTimes(1);
     });
   });
 
