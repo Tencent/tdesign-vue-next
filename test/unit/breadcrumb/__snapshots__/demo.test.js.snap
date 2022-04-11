@@ -5,8 +5,9 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
   class="t-breadcrumb"
 >
   
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <a
       class="t-breadcrumb--text-overflow t-link"
@@ -41,8 +42,10 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -75,8 +78,10 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -110,6 +115,7 @@ exports[`Breadcrumb Breadcrumb baseVue demo works fine 1`] = `
     </span>
   </div>
   
+  
 </div>
 `;
 
@@ -118,8 +124,9 @@ exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
   class="t-breadcrumb"
 >
   
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -141,8 +148,10 @@ exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
       
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -164,8 +173,10 @@ exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
       
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -188,6 +199,7 @@ exports[`Breadcrumb Breadcrumb customVue demo works fine 1`] = `
     </span>
   </div>
   
+  
 </div>
 `;
 
@@ -196,8 +208,9 @@ exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
   class="t-breadcrumb"
 >
   
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -217,8 +230,10 @@ exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
       /
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -245,8 +260,10 @@ exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
       /
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -267,6 +284,7 @@ exports[`Breadcrumb Breadcrumb dropdownVue demo works fine 1`] = `
     </span>
   </div>
   
+  
 </div>
 `;
 
@@ -276,8 +294,9 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
     class="t-breadcrumb"
   >
     
+    
     <div
-      class="t-breadcrumb__item light"
+      class="t-breadcrumb__item __v_isRef _rawValue _value"
     >
       <a
         class="t-breadcrumb--text-overflow t-link"
@@ -312,8 +331,10 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
         </svg>
       </span>
     </div>
+    
+    
     <div
-      class="t-breadcrumb__item light"
+      class="t-breadcrumb__item __v_isRef _rawValue _value"
     >
       <a
         class="t-breadcrumb--text-overflow t-link"
@@ -348,8 +369,10 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
         </svg>
       </span>
     </div>
+    
+    
     <div
-      class="t-breadcrumb__item light"
+      class="t-breadcrumb__item __v_isRef _rawValue _value"
     >
       <a
         class="t-breadcrumb--text-overflow t-link"
@@ -384,8 +407,10 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
         </svg>
       </span>
     </div>
+    
+    
     <div
-      class="t-breadcrumb__item light"
+      class="t-breadcrumb__item __v_isRef _rawValue _value"
     >
       <span
         class="t-breadcrumb--text-overflow t-is-disabled"
@@ -418,8 +443,10 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
         </svg>
       </span>
     </div>
+    
+    
     <div
-      class="t-breadcrumb__item light"
+      class="t-breadcrumb__item __v_isRef _rawValue _value"
     >
       <span
         class="t-breadcrumb--text-overflow"
@@ -453,6 +480,7 @@ exports[`Breadcrumb Breadcrumb hrefVue demo works fine 1`] = `
       </span>
     </div>
     
+    
   </div>
   <div
     style="margin-top: 20px;"
@@ -467,8 +495,9 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
   class="t-breadcrumb"
 >
   
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -508,8 +537,10 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -549,8 +580,10 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -591,6 +624,7 @@ exports[`Breadcrumb Breadcrumb iconVue demo works fine 1`] = `
     </span>
   </div>
   
+  
 </div>
 `;
 
@@ -599,8 +633,9 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
   class="t-breadcrumb"
 >
   
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -633,8 +668,10 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -667,8 +704,10 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <a
       class="t-breadcrumb--text-overflow t-link"
@@ -704,6 +743,7 @@ exports[`Breadcrumb Breadcrumb optionsVue demo works fine 1`] = `
     </span>
   </div>
   
+  
 </div>
 `;
 
@@ -712,8 +752,9 @@ exports[`Breadcrumb Breadcrumb toVue demo works fine 1`] = `
   class="t-breadcrumb"
 >
   
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <a
       class="t-breadcrumb--text-overflow t-link"
@@ -748,8 +789,10 @@ exports[`Breadcrumb Breadcrumb toVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -782,6 +825,7 @@ exports[`Breadcrumb Breadcrumb toVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
+  
   
 </div>
 `;
