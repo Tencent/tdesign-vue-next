@@ -979,13 +979,13 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/base.vue correctl
 <div class="t-breadcrumb">
   <!--[-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:150px;"><!--[--> 页面1 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:150px;"><!--[--> 页面1 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:150px;"><!--[-->页面2面包屑文案超长时悬浮显示文案全部信息<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:150px;"><!--[-->页面2面包屑文案超长时悬浮显示文案全部信息<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:160px;"><!--[--> 面包屑中文案过长时可缩略显示，鼠标hover时显示全部 <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:160px;"><!--[--> 面包屑中文案过长时可缩略显示，鼠标hover时显示全部 <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--]-->
 </div>
@@ -995,13 +995,13 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/custom.vue correc
 <div class="t-breadcrumb">
   <!--[-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator"><!--[--> &gt; <!--]--></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator"><!--[--> &gt; <!--]--></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面2<!--]--></span></span><span class="t-breadcrumb__separator"><!--[--> &gt; <!--]--></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面2<!--]--></span></span><span class="t-breadcrumb__separator"><!--[--> &gt; <!--]--></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面3<!--]--></span></span><span class="t-breadcrumb__separator"><!--[--> &gt; <!--]--></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面3<!--]--></span></span><span class="t-breadcrumb__separator"><!--[--> &gt; <!--]--></span></div>
   <!--]-->
   <!--]-->
 </div>
@@ -1011,13 +1011,13 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/dropdown.vue corr
 <div class="t-breadcrumb">
   <!--[-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator">/</span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator">/</span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面2 <svg class="t-icon t-icon-chevron-down" style=""><use href="#t-icon-chevron-down"></use></svg><!--]--></span></span><span class="t-breadcrumb__separator">/</span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面2 <svg class="t-icon t-icon-chevron-down" style=""><use href="#t-icon-chevron-down"></use></svg><!--]--></span></span><span class="t-breadcrumb__separator">/</span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面3<!--]--></span></span><span class="t-breadcrumb__separator">/</span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面3<!--]--></span></span><span class="t-breadcrumb__separator">/</span></div>
   <!--]-->
   <!--]-->
 </div>
@@ -1028,19 +1028,19 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/href.vue correctl
   <div class="t-breadcrumb">
     <!--[-->
     <!--[-->
-    <div class="t-breadcrumb__item __v_isRef _rawValue _value"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 首页 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+    <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 首页 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
     <!--]-->
     <!--[-->
-    <div class="t-breadcrumb__item __v_isRef _rawValue _value"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面1(覆盖路由) <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+    <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面1(覆盖路由) <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
     <!--]-->
     <!--[-->
-    <div class="t-breadcrumb__item __v_isRef _rawValue _value"><a class="t-breadcrumb--text-overflow t-link" href="https://www.tencent.com" target="_blank"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面2 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+    <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-overflow t-link" href="https://www.tencent.com" target="_blank"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面2 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
     <!--]-->
     <!--[-->
-    <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow t-is-disabled"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面3(disabled) <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+    <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow t-is-disabled"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面3(disabled) <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
     <!--]-->
     <!--[-->
-    <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面4自定义点击 <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+    <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 页面4自定义点击 <!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
     <!--]-->
     <!--]-->
   </div>
@@ -1052,13 +1052,13 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/icon.vue correctl
 <div class="t-breadcrumb">
   <!--[-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--><svg class="t-icon t-icon-books" style=""><use href="#t-icon-books"></use></svg>页面1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--><svg class="t-icon t-icon-books" style=""><use href="#t-icon-books"></use></svg>页面1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--><svg class="t-icon t-icon-books" style=""><use href="#t-icon-books"></use></svg>页面2<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--><svg class="t-icon t-icon-books" style=""><use href="#t-icon-books"></use></svg>页面2<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--><svg class="t-icon t-icon-books" style=""><use href="#t-icon-books"></use></svg>页面3<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--><svg class="t-icon t-icon-books" style=""><use href="#t-icon-books"></use></svg>页面3<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--]-->
 </div>
@@ -1068,13 +1068,13 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/options.vue corre
 <div class="t-breadcrumb">
   <!--[-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面2<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面2<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><a class="t-breadcrumb--text-overflow t-link" href="https://www.tencent.com" target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面3<!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-overflow t-link" href="https://www.tencent.com" target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面3<!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--]-->
 </div>
@@ -1084,10 +1084,10 @@ exports[`ssr snapshot test renders ./examples/breadcrumb/demos/to.vue correctly 
 <div class="t-breadcrumb">
   <!--[-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 首页 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 首页 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->页面1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--]-->
 </div>
@@ -1097,10 +1097,10 @@ exports[`ssr snapshot test renders ./examples/breadcrumbItem/demos/base.vue corr
 <div class="t-breadcrumb">
   <!--[-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 首页 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 首页 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->面包屑1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->面包屑1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--]-->
 </div>
@@ -1110,10 +1110,10 @@ exports[`ssr snapshot test renders ./examples/breadcrumbItem/demos/overlay.vue c
 <div class="t-breadcrumb">
   <!--[-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 首页 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><a class="t-breadcrumb--text-overflow t-link" href target="_self"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[--> 首页 <!--]--></span></a><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--[-->
-  <div class="t-breadcrumb__item __v_isRef _rawValue _value"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->面包屑1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
+  <div class="t-breadcrumb__item light"><span class="t-breadcrumb--text-overflow"><span class="t-breadcrumb__inner" style="max-width:120px;"><!--[-->面包屑1<!--]--></span></span><span class="t-breadcrumb__separator"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="" color="rgba(0,0,0,.3)"><path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path></svg></span></div>
   <!--]-->
   <!--]-->
 </div>
