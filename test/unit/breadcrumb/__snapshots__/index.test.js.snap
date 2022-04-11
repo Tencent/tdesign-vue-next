@@ -6,8 +6,9 @@ exports[`Breadcrumb <slot> <separator> 1`] = `
   size="large"
 >
   
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -40,8 +41,10 @@ exports[`Breadcrumb <slot> <separator> 1`] = `
       </svg>
     </span>
   </div>
+  
+  
   <div
-    class="t-breadcrumb__item light"
+    class="t-breadcrumb__item __v_isRef _rawValue _value"
   >
     <span
       class="t-breadcrumb--text-overflow"
@@ -74,6 +77,7 @@ exports[`Breadcrumb <slot> <separator> 1`] = `
       </svg>
     </span>
   </div>
+  
   
 </div>
 `;
