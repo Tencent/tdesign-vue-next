@@ -49,7 +49,7 @@ export interface TdRadioProps {
   /**
    * 点击时触发
    */
-  onClick?: (e: MouseEvent) => void;
+  onClick?: (context: { e: MouseEvent }) => void;
 }
 
 export interface TdRadioGroupProps {
