@@ -8,11 +8,10 @@ import {
   TransferListType,
   TransferItemOption,
 } from '../interface';
-import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
+import { PageInfo, TdPaginationProps } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
 import { getLeefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
-import { renderTNodeJSXDefault } from '../../utils/render-tnode';
 import { useTNodeDefault } from '../../hooks/tnode';
 
 import { usePrefixClass } from '../../hooks/useConfig';
@@ -66,6 +65,9 @@ const props = {
 
 export default defineComponent({
   name: 'TTransferList',
+  components: {
+    Search,
+  },
   props: { ...props },
   setup(props, { slots }) {
     const classPrefix = usePrefixClass();

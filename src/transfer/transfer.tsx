@@ -28,6 +28,10 @@ const TARGET = 'target';
 
 export default defineComponent({
   name: TRANSFER_NAME,
+  components: {
+    TransferList,
+    TransferOperations,
+  },
   props: {
     ...props,
   },

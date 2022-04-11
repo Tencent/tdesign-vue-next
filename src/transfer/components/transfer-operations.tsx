@@ -23,13 +23,14 @@ export default defineComponent({
       >,
     },
   },
-  setup(props, { slots }) {
+  emits: ['moveToRight', 'moveToLeft'],
+  setup(props, { slots, emit }) {
     const classPrefix = usePrefixClass();
     const moveToRight = () => {
-      props.onMoveToRight?.();
+      emit('moveToRight');
     };
     const moveToLeft = () => {
-      props.onMoveToLeft?.();
+      emit('moveToLeft');
     };
     const getIconRight = () => {
       return <ChevronRightIcon />;
