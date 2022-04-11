@@ -35,7 +35,7 @@ export default defineComponent({
   props: {
     ...props,
   },
-  setup(props, { emit, slots }) {
+  setup(props, { slots }) {
     const disabled = useFormDisabled();
     const classPrefix = usePrefixClass();
     const { t, global } = useConfig('transfer');
