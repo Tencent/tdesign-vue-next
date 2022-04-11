@@ -48711,7 +48711,11 @@ exports[`ssr snapshot test renders ./examples/tabs/demos/base.vue correctly 1`] 
         <p style="padding:25px;">选项卡1的内容，使用 t-tab-pannel 渲染</p>
         <!--]-->
       </div>
-      <!---->
+      <div class="t-tab-panel" style="display:none;">
+        <!--[-->
+        <p style="padding:25px;">选项卡2的内容，使用 t-tab-pannel 渲染</p>
+        <!--]-->
+      </div>
       <!---->
       <!--]-->
     </div>
