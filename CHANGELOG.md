@@ -11,7 +11,7 @@ docClass: timeline
 
 - 重构 Table 为 Composition API [@chaishi](https://github.com/chaishi) ([#468](https://github.com/Tencent/tdesign-vue-next/pull/468))
   - BaseTable HTML 结构变更，写过 CSS 样式覆盖的同学需注意更新样式。由之前的两个 table 分别渲染 thead 和 tbody，更为一个 table
-  - 行拖拽排序功能，使用方法有调整，从 sortOnRowDraggable 更为 dragSort='col'
+  - 行拖拽排序功能，使用方法有调整，从 sortOnRowDraggable 更为 dragSort='row'
   - 表头更为使用 th 标签，之前为 td，不符合语义
   - 事件 row-db-click 更为row-dblclick ，onRowDbClick 更为 onRowDblclick
   - 事件 row-hover 更为 row-mouseover, onRowHover 更为 onRowMouseover
