@@ -20,33 +20,19 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: ['change'],
-  setup() {
+  setup(props) {
     const classPrefix = usePrefixClass();
-    return {
-      classPrefix,
-    };
-  },
-  methods: {
-    handleChange(value: string, changeCtx: any) {
-      this.$emit('change', {
+    const handleChange = (value: string, changeCtx: any) => {
+      props.onChange?.({
         value,
         e: changeCtx.e,
       });
-    },
-  },
-  render(): VNode {
-    const { value, search, placeholder } = this;
-    const inputProps =
-      typeof search === 'object'
-        ? search
-        : {
-            clearable: true,
-          };
+    };
+    const inputProps = typeof props.search === 'object' ? props.search : { clearable: true };
 
-    return (
-      <div class={`${this.classPrefix}-transfer__search-wrapper`}>
-        <TInput {...inputProps} defaultValue={value} onChange={this.handleChange} placeholder={placeholder}>
+    return () => (
+      <div class={`${classPrefix.value}-transfer__search-wrapper`}>
+        <TInput {...inputProps} defaultValue={props.value} onChange={handleChange} placeholder={props.placeholder}>
           <SearchIcon slot="suffix-icon" />
         </TInput>
       </div>
