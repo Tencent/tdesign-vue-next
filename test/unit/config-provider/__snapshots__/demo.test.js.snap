@@ -6073,7 +6073,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__username"
+      class="t-form__item t-form-item__username t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -6117,11 +6117,13 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6187,7 +6189,9 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
