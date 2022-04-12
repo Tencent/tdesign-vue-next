@@ -65,9 +65,6 @@ const props = {
 
 export default defineComponent({
   name: 'TTransferList',
-  components: {
-    Search,
-  },
   props: { ...props },
   setup(props, { slots }) {
     const classPrefix = usePrefixClass();
@@ -205,13 +202,6 @@ export default defineComponent({
       );
       return (
         <div class={`${classPrefix.value}-transfer__list-content narrow-scrollbar`} onScroll={scroll}>
-          {/* {this.$slots.tree
-            ? this.$slots.tree({
-                data: this.curPageData,
-                value: this.checkedValue,
-                onChange: this.handleCheckedChange,
-              })
-            : defaultNode} */}
           {renderTNodeJSX('tree', {
             defaultNode,
             params: {
@@ -279,7 +269,7 @@ export default defineComponent({
             ]}
           >
             {props.search && (
-              <search
+              <Search
                 searchValue={filterValue.value}
                 placeholder={props.t(props.global.placeholder)}
                 onChange={handleSearch}
