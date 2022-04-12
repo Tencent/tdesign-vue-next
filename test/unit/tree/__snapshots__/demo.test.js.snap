@@ -12,7 +12,7 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
     >
       
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -47,11 +47,13 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -86,11 +88,13 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -125,7 +129,9 @@ exports[`Tree Tree activableVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       
@@ -495,7 +501,7 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
     >
       
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
         style="margin-bottom: 16px;"
       >
         <div
@@ -533,11 +539,13 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
         style="margin-bottom: 16px;"
       >
         <div
@@ -575,11 +583,13 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
         style="margin-bottom: 16px;"
       >
         <div
@@ -682,7 +692,9 @@ exports[`Tree Tree checkableVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       
@@ -1993,7 +2005,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
     >
       
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -2028,11 +2040,13 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -2067,7 +2081,9 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       
@@ -2509,7 +2525,7 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
     >
       
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -2544,7 +2560,9 @@ exports[`Tree Tree disabledVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       
@@ -3058,7 +3076,7 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
     >
       
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -3093,11 +3111,13 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -3132,7 +3152,9 @@ exports[`Tree Tree expandAllVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       
@@ -3676,7 +3698,7 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
     >
       
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -3711,11 +3733,13 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -3750,7 +3774,9 @@ exports[`Tree Tree expandMutexVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       
@@ -4652,7 +4678,7 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
     >
       
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -4687,11 +4713,13 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -4726,7 +4754,9 @@ exports[`Tree Tree lazyVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       
@@ -4850,7 +4880,7 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="margin-bottom: 16px;"
     >
       <div
@@ -4888,11 +4918,13 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="margin-bottom: 16px;"
     >
       <div
@@ -4930,7 +4962,9 @@ exports[`Tree Tree lineVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -7198,7 +7232,7 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
     >
       
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -7233,11 +7267,13 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       <div
-        class="t-form__item t-form-item__"
+        class="t-form__item t-form-item__ t-form__item-with-extra"
       >
         <div
           class="t-form__label t-form__label--right"
@@ -7272,7 +7308,9 @@ exports[`Tree Tree operationsVue demo works fine 1`] = `
             
             <!---->
           </div>
-          <!---->
+          <div
+            class="t-input__extra"
+          />
         </div>
       </div>
       

@@ -88,7 +88,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -131,11 +131,13 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -200,11 +202,13 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -240,7 +244,9 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -255,7 +261,7 @@ exports[`Form Form baseVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -298,11 +304,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__tel"
+      class="t-form__item t-form-item__tel t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -345,11 +353,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__status"
+      class="t-form__item t-form-item__status t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -386,11 +396,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -462,11 +474,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -555,11 +569,13 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -608,7 +624,9 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -667,7 +685,7 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           这是用户名字段帮助说明
         </div>
@@ -718,14 +736,14 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           一句话介绍自己
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -790,11 +808,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__email"
+      class="t-form__item t-form-item__email t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -837,11 +857,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -913,11 +935,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1026,11 +1050,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1184,11 +1210,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1231,11 +1259,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__content.url"
+      class="t-form__item t-form-item__content.url t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1278,11 +1308,13 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -1357,7 +1389,9 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -1372,7 +1406,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__account"
+      class="t-form__item t-form-item__account t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -1415,7 +1449,9 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
@@ -1485,7 +1521,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           同一个校验方法可输出不同的错误信息和类型，依次输入：1234 观察变化
         </div>
@@ -1558,14 +1594,14 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           自定义异步校验方法
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -1614,7 +1650,9 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -1654,7 +1692,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -1698,11 +1736,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -1844,11 +1884,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__address1"
+      class="t-form__item t-form-item__address1 t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -2055,11 +2097,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__address2"
+      class="t-form__item t-form-item__address2 t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -2141,11 +2185,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3009,11 +3055,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__personalProfile"
+      class="t-form__item t-form-item__personalProfile t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3049,11 +3097,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__message"
+      class="t-form__item t-form-item__message t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3091,11 +3141,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3169,11 +3221,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3265,11 +3319,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gradePoint"
+      class="t-form__item t-form-item__gradePoint t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3319,11 +3375,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__avatar"
+      class="t-form__item t-form-item__avatar t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -3473,11 +3531,13 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -3528,7 +3588,9 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -3692,7 +3754,7 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           这是用户名字段帮助说明
         </div>
@@ -3743,14 +3805,14 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           一句话介绍自己
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -3815,11 +3877,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__email"
+      class="t-form__item t-form-item__email t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -3862,11 +3926,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -3938,11 +4004,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -4031,11 +4099,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -4189,11 +4259,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -4236,11 +4308,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__content.url"
+      class="t-form__item t-form-item__content.url t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -4283,11 +4357,13 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -4349,7 +4425,9 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -4423,7 +4501,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -4465,11 +4543,13 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -4533,7 +4613,9 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -4550,7 +4632,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__account"
+      class="t-form__item t-form-item__account t-form__item-with-extra"
     >
       <!---->
       <div
@@ -4601,11 +4683,13 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <!---->
       <div
@@ -4683,11 +4767,13 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <!---->
@@ -4713,7 +4799,9 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -4810,7 +4898,7 @@ exports[`Form Form resetVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -4853,11 +4941,13 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__tel"
+      class="t-form__item t-form-item__tel t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -4900,11 +4990,13 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--colon t-form__label--right"
@@ -4993,11 +5085,13 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -5046,7 +5140,9 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -5121,7 +5217,7 @@ exports[`Form Form sizeVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__name"
+      class="t-form__item t-form-item__name t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5164,11 +5260,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__tel"
+      class="t-form__item t-form-item__tel t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5211,11 +5309,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__status"
+      class="t-form__item t-form-item__status t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5252,11 +5352,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5327,11 +5429,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -5420,11 +5524,13 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -5473,7 +5579,9 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -5489,7 +5597,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__school"
+      class="t-form__item t-form-item__school t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -5579,7 +5687,9 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
@@ -5679,7 +5789,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
             <!-- 重点阅读：数组里面，注意 name 定义，用于区分不同的字段 -->
             <!-- 重点阅读：name 表示当前字段在 formData 中的路径，ruleName 表示当前字段在 rules 中的名称 -->
             <div
-              class="t-form__item t-form-item__students[0].name"
+              class="t-form__item t-form-item__students[0].name t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -5722,11 +5832,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__extra"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__students[0].courseType"
+              class="t-form__item t-form-item__students[0].courseType t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -5798,11 +5910,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__extra"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__students[0].course"
+              class="t-form__item t-form-item__students[0].course t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -5976,11 +6090,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__extra"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__"
+              class="t-form__item t-form-item__ t-form__item-with-extra"
               style="padding-top: 8px;"
             >
               <div
@@ -6029,7 +6145,9 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__extra"
+                />
               </div>
             </div>
           </div>
@@ -6046,7 +6164,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
             <!-- 重点阅读：数组里面，注意 name 定义，用于区分不同的字段 -->
             <!-- 重点阅读：name 表示当前字段在 formData 中的路径，ruleName 表示当前字段在 rules 中的名称 -->
             <div
-              class="t-form__item t-form-item__students[1].name"
+              class="t-form__item t-form-item__students[1].name t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -6089,11 +6207,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__extra"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__students[1].courseType"
+              class="t-form__item t-form-item__students[1].courseType t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -6165,11 +6285,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__extra"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__students[1].course"
+              class="t-form__item t-form-item__students[1].course t-form__item-with-extra"
             >
               <div
                 class="t-form__label t-form__label--required t-form__label--right"
@@ -6343,11 +6465,13 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__extra"
+                />
               </div>
             </div>
             <div
-              class="t-form__item t-form-item__"
+              class="t-form__item t-form-item__ t-form__item-with-extra"
               style="padding-top: 8px;"
             >
               <div
@@ -6396,7 +6520,9 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <!---->
                 </div>
-                <!---->
+                <div
+                  class="t-input__extra"
+                />
               </div>
             </div>
           </div>
@@ -6567,7 +6693,7 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           这是用户名字段帮助说明
         </div>
@@ -6618,14 +6744,14 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           一句话介绍自己
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6690,11 +6816,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__email"
+      class="t-form__item t-form-item__email t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6737,11 +6865,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6813,11 +6943,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -6926,11 +7058,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7084,11 +7218,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7131,11 +7267,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__content.url"
+      class="t-form__item t-form-item__content.url t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7178,11 +7316,13 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -7244,7 +7384,9 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -7326,7 +7468,7 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__fail"
+      class="t-form__item t-form-item__fail t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7369,11 +7511,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__warning"
+      class="t-form__item t-form-item__warning t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7416,11 +7560,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__success"
+      class="t-form__item t-form-item__success t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7463,11 +7609,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__success"
+      class="t-form__item t-form-item__success t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7510,11 +7658,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__failB"
+      class="t-form__item t-form-item__failB t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7557,11 +7707,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__warningB"
+      class="t-form__item t-form-item__warningB t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -7604,11 +7756,13 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__loading"
+      class="t-form__item t-form-item__loading t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7685,12 +7839,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             
           </span>
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <!-- 自定义图标：可以使用渲染函数 statusIcon，也可以使用插槽 statusIcon -->
     <div
-      class="t-form__item t-form-item__help"
+      class="t-form__item t-form-item__help t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7745,12 +7901,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             </svg>
           </span>
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
     <div
-      class="t-form__item t-form-item__add0"
+      class="t-form__item t-form-item__add0 t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -7817,12 +7975,14 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
             
           </span>
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -7871,7 +8031,9 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
@@ -7931,7 +8093,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           这是用户名字段帮助说明
         </div>
@@ -7981,14 +8143,14 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-form__help"
+          class="t-input__extra"
         >
           一句话介绍自己
         </div>
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__password"
+      class="t-form__item t-form-item__password t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8053,11 +8215,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__email"
+      class="t-form__item t-form-item__email t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8100,11 +8264,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__gender"
+      class="t-form__item t-form-item__gender t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8176,11 +8342,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__course"
+      class="t-form__item t-form-item__course t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8289,11 +8457,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__college"
+      class="t-form__item t-form-item__college t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -8446,11 +8616,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__date"
+      class="t-form__item t-form-item__date t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8493,11 +8665,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__content.url"
+      class="t-form__item t-form-item__content.url t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--required t-form__label--right"
@@ -8540,11 +8714,13 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
       style="padding-top: 8px;"
     >
       <div
@@ -8606,7 +8782,9 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__extra"
+        />
       </div>
     </div>
     
