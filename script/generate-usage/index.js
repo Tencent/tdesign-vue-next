@@ -6,9 +6,9 @@ const prettierJson = require('../../.prettierrc.js');
 
 const renderUsageStr = (compStrMap) => `<!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="renderCode" :config-list="configList">
-    <template #default="data">
-      <component :is="renderComp(data)" />
+  <base-usage :code="usageCode" :config-list="configList">
+    <template #default="{ configProps }">
+      ${compStrMap.render.trim()}
     </template>
   </base-usage>
 </template>
@@ -16,13 +16,13 @@ const renderUsageStr = (compStrMap) => `<!-- 该脚本为自动生成，如有�
 <script setup lang="jsx">
 /* eslint-disable */
 import { compile } from 'vue/dist/vue.esm-bundler.js';
-${compStrMap.importStr || ''}
 import configList from './props.json';
-const renderCode = \`${compStrMap.renderCode}\`;
+${compStrMap.script ? compStrMap.script.trim() : ''}
 
-const renderComp = (data) => {
-  return data?.usageCode ? compile(data.usageCode) : null;
-};
+const usageCode = \`<template>
+  ${codeFormat(compStrMap.render).trim()}
+</template>
+${compStrMap.script ? `\\<script\\>\n${codeFormat(compStrMap.script.trim())}\\</script\\>` : ''}\`;
 </script>
 `;
 // 自动化生成 live demo 脚本

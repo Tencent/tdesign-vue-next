@@ -1,8 +1,8 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="renderCode" :config-list="configList">
-    <template #default="data">
-      <component :is="renderComp(data)" />
+  <base-usage :code="usageCode" :config-list="configList">
+    <template #default="{ configProps }">
+      <t-button v-bind="configProps">确定</t-button>
     </template>
   </base-usage>
 </template>
@@ -10,11 +10,10 @@
 <script setup lang="jsx">
 /* eslint-disable */
 import { compile } from 'vue/dist/vue.esm-bundler.js';
-
 import configList from './props.json';
-const renderCode = `<t-button ____pointerProps____>确定</t-button>`;
 
-const renderComp = (data) => {
-  return data?.usageCode ? compile(data.usageCode) : null;
-};
+const usageCode = `<template>
+  <t-button v-bind="configProps">确定</t-button>
+</template>
+`;
 </script>

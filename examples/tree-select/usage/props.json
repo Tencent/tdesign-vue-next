@@ -42,12 +42,6 @@
     "options": []
   },
   {
-    "name": "popupVisible",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
-  },
-  {
     "name": "readonly",
     "type": "Boolean",
     "defaultValue": false,

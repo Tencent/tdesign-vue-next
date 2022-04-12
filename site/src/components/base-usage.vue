@@ -1,6 +1,6 @@
 <template>
   <td-doc-usage ref="usageRef" :code="usageCode">
-    <slot :usageCode="usageCode" />
+    <slot :configProps="{ ...defaultProps, ...changedProps }" />
   </td-doc-usage>
 </template>
 
@@ -47,10 +47,9 @@ const usageCode = computed(() => {
   const propsStrs = Object.keys(changedProps.value)
     .map((name) => `${stringifyProp(name, changedProps.value[name])}`)
     .filter(Boolean);
-  const tureCode = props.code.replace(/\s*__pointerProps__/g, () =>
-    propsStrs.length ? `\n  ${propsStrs.join('\n  ')}\n` : '',
+  const tureCode = props.code.replace(/\s*v-bind="configProps"/g, () =>
+    propsStrs.length ? `\n  ${propsStrs.join('\n  ')}` : '',
   );
-  console.log(tureCode);
   return tureCode;
 });
 </script>
