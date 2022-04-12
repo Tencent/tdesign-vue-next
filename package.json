@@ -160,7 +160,7 @@
     "rollup-plugin-vue": "^6.0.0",
     "tdesign-icons-view": "0.0.2",
     "tdesign-publish-cli": "^0.0.9",
-    "tdesign-site-components": "^0.7.10",
+    "tdesign-site-components": "^0.8.6",
     "ts-jest": "^26.0.0",
     "typescript": "^4.5.4",
     "vite": "^2.7.7",
