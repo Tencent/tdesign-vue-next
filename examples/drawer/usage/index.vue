@@ -1,8 +1,13 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="renderCode" :config-list="configList">
-    <template #default="data">
-      <component :is="renderComp(data)" />
+  <base-usage :code="usageCode" :config-list="configList">
+    <template #default="{ configProps }">
+      <div>
+        <t-button @click="handleClick">Open Drawer</t-button>
+        <t-drawer v-bind="configProps" v-model:visible="visible" header="header" :close-btn="true">
+          <p>This is a Drawer</p>
+        </t-drawer>
+      </div>
     </template>
   </base-usage>
 </template>
@@ -10,16 +15,22 @@
 <script setup lang="jsx">
 /* eslint-disable */
 import { compile } from 'vue/dist/vue.esm-bundler.js';
-
 import configList from './props.json';
-const renderCode = `<div>
-            <Button onClick={() => setVisible(true)}>Open Drawer</Button>
-            <Drawer __pointerProps__ visible={visible}>
-              <p>This is a Drawer</p>
-            </Drawer>
-          </div>`;
-
-const renderComp = (data) => {
-  return data?.usageCode ? compile(data.usageCode) : null;
+import { ref } from 'vue';
+const visible = ref(false);
+const handleClick = () => {
+  visible.value = true;
 };
+
+const usageCode = `<template>
+  <div>
+  <t-button @click="handleClick">Open Drawer</t-button>
+  <t-drawer v-bind="configProps" v-model:visible="visible" header="header" :close-btn="true">
+    <p>This is a Drawer</p>
+  </t-drawer>
+</div>
+</template>
+\<script\>
+import { ref } from 'vue'; const visible = ref(false); const handleClick = () => { visible.value = true; };
+\</script\>`;
 </script>
