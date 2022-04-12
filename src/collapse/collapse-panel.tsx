@@ -18,6 +18,7 @@ export default defineComponent({
     const { value, disabled, destroyOnCollapse } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
+    const getUniqId: Function = inject('getUniqId', () => undefined, false);
     const {
       defaultExpandAll,
       disabled: disableAll,
@@ -25,16 +26,17 @@ export default defineComponent({
       expandOnRowClick,
       expandIcon,
     } = inject('collapseProps');
+    const innerValue = value.value || getUniqId();
     if (defaultExpandAll.value) {
-      updateCollapseValue(value.value);
+      updateCollapseValue(innerValue);
     }
     const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
     const headRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
     const isActive = computed(() =>
       collapseValue.value instanceof Array
-        ? collapseValue.value.includes(value.value)
-        : collapseValue.value === value.value,
+        ? collapseValue.value.includes(innerValue)
+        : collapseValue.value === innerValue,
     );
     const classes = computed(() => {
       return [componentName.value, { [disableClass.value]: isDisabled.value }];
@@ -44,7 +46,7 @@ export default defineComponent({
         (expandOnRowClick.value && e.target === headRef.value) ||
         (e.target as Element).getAttribute('name') === 'arrow';
       if (canExpand && !isDisabled.value) {
-        updateCollapseValue(value.value);
+        updateCollapseValue(innerValue);
       }
     };
     const renderIcon = (direction: string) => {
