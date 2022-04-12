@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import isFunction from 'lodash/isFunction';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
@@ -82,20 +82,12 @@ export default defineComponent({
       return [dayjs().hour(0).minute(0).second(0)];
     },
     textClassName(): string {
-      const isDefault = (this.inputTime as any).some(
-        (item: InputTime) => !!item.hour && !!item.minute && !!item.second,
-      );
+      const isDefault = !!this.inputTime?.hour && !!this.inputTime?.minute && !!this.inputTime?.second;
       return isDefault ? '' : `${this.COMPONENT_NAME}__group-text`;
     },
   },
 
   watch: {
-    // 监听选中时间变动
-    time: {
-      handler() {
-        this.output();
-      },
-    },
     value: {
       handler() {
         this.time = this.value ? dayjs(this.value, this.format) : undefined;
@@ -302,7 +294,9 @@ export default defineComponent({
     handleTInputFocus() {
       // TODO: 待改成select-input后删除
       // hack 在input聚焦时马上blur 避免出现输入光标
-      (this.$refs.tInput as HTMLInputElement).blur();
+      nextTick(() => {
+        (this.$refs.tInput as HTMLInputElement).blur();
+      });
     },
     renderInput() {
       const classes = [
