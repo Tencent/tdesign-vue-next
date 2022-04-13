@@ -2,8 +2,11 @@
   <div class="tdesign-demo-block">
     <t-row :align="'middle'" justify="start" :gutter="16">
       <t-col :span="6">
-        <t-card :title="title" :actions="actions" hover-shadow @actions="clickHandler">
+        <t-card :title="title" hover-shadow>
           {{ infoMessage }}
+          <template #actions>
+            <a href="javascript:void(0)" @click="clickHandler">操作</a>
+          </template>
         </t-card>
       </t-col>
     </t-row>

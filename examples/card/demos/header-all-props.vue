@@ -5,11 +5,12 @@
         <t-card
           :title="title"
           :subtitle="subtitle"
-          :cover="cover"
-          theme="poster2"
-          head-bordered
+          :description="description"
+          :actions="actions"
+          hover-shadow
           @actions="clickHandler"
         >
+          {{ infoMessage }}
         </t-card>
       </t-col>
     </t-row>
@@ -17,7 +18,6 @@
 </template>
 <script setup lang="jsx">
 import { MessagePlugin } from 'tdesign-vue-next';
-import { ThumbUpIcon, ChatIcon, ShareIcon } from 'tdesign-icons-vue-next';
 
 const clickHandler = () => {
   MessagePlugin.success('操作');
@@ -25,5 +25,9 @@ const clickHandler = () => {
 
 const title = '标题';
 const subtitle = '副标题';
-const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
+const description = '描述';
+const actions = '操作';
+const infoMessage = `这是一段很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长的内容示例。`;
 </script>

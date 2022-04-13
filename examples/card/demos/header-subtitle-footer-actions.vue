@@ -7,7 +7,7 @@
             <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
               <div class="tdesign-demo-dropdown-trigger">
                 <t-button variant="text">
-                  <more-icon />
+                  <more-icon size="24" />
                 </t-button>
               </div>
             </t-dropdown>
@@ -16,7 +16,7 @@
             <t-row :align="'middle'" justify="center">
               <t-col flex="auto">
                 <t-button block variant="text">
-                  <thumb-up-icon />
+                  <thumb-up-icon size="24" />
                 </t-button>
               </t-col>
               <t-col flex="none">
@@ -24,7 +24,7 @@
               </t-col>
               <t-col flex="auto">
                 <t-button block variant="text">
-                  <chat-icon />
+                  <chat-icon size="24" />
                 </t-button>
               </t-col>
               <t-col flex="none">
@@ -32,7 +32,7 @@
               </t-col>
               <t-col flex="auto">
                 <t-button block variant="text">
-                  <share-icon />
+                  <share-icon size="24" />
                 </t-button>
               </t-col>
             </t-row>

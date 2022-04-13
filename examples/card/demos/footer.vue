@@ -2,13 +2,9 @@
   <div class="tdesign-demo-block">
     <t-row :align="'middle'" justify="start" :gutter="16">
       <t-col :span="6">
-        <!-- <t-card :title="title" :actions="actions" head-bordered @actions="clickHandler">
-          {{ infoMessage }}
-        </t-card> -->
-        <t-card :title="title" :cover="cover" shadow>
-          <template #header>
-            <t-avatar>C</t-avatar>
-            <t-tag theme="success">{{ actions }}</t-tag>
+        <t-card :cover="cover" shadow>
+          <template #avatar>
+            <t-avatar size="56px" :icon="icon" />
           </template>
           <template #actions>
             <t-tag theme="success">{{ actions }}</t-tag>
@@ -17,7 +13,7 @@
             <t-row :align="'middle'" justify="center">
               <t-col flex="auto">
                 <t-button block variant="text">
-                  <thumb-up-icon />
+                  <thumb-up-icon size="24" />
                 </t-button>
               </t-col>
               <t-col flex="none">
@@ -25,7 +21,7 @@
               </t-col>
               <t-col flex="auto">
                 <t-button block variant="text">
-                  <chat-icon />
+                  <chat-icon size="24" />
                 </t-button>
               </t-col>
               <t-col flex="none">
@@ -33,7 +29,7 @@
               </t-col>
               <t-col flex="auto">
                 <t-button block variant="text">
-                  <share-icon />
+                  <share-icon size="24" />
                 </t-button>
               </t-col>
             </t-row>
@@ -44,9 +40,10 @@
   </div>
 </template>
 <script setup lang="jsx">
-import { ThumbUpIcon, ChatIcon, ShareIcon } from 'tdesign-icons-vue-next';
+import { computed } from 'vue';
+import { ThumbUpIcon, ChatIcon, ShareIcon, UserIcon } from 'tdesign-icons-vue-next';
 
-const title = '标题';
+const icon = computed(() => () => <UserIcon />);
 const actions = '默认标签';
 const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 </script>

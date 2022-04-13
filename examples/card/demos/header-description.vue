@@ -2,7 +2,7 @@
   <div class="tdesign-demo-block">
     <t-row :align="'middle'" justify="start" :gutter="16">
       <t-col :span="6">
-        <t-card :title="title" :subtitle="subtitle" :actions="actions" hover-shadow @actions="clickHandler">
+        <t-card :title="title" :description="description" :actions="actions" hover-shadow @actions="clickHandler">
           {{ infoMessage }}
         </t-card>
       </t-col>
@@ -17,10 +17,9 @@ const clickHandler = () => {
 };
 
 const title = '标题';
-const subtitle = '副标题';
+const description = '描述';
 const actions = '操作';
-const infoMessage = `这是一段很长很长很长很长很长很长很长很长很长很长很长很长
-  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+const infoMessage = `这是一段很长很长很长很长
   很长很长很长很长很长很长很长很长很长很长很长很长很长很长
   很长很长很长很长很长很长很长很长很长很长很长的内容示例。`;
 </script>

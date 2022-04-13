@@ -1,105 +1,78 @@
-// Dependencies components 第三方依赖组件
 import { defineComponent } from 'vue';
 
-// Global components 系统全局组件
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
-
+import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
-
-// API 接口相关
 import props from './props';
 
-// Page components and constants 页面相关组件与常量配置
-const COMPONENT_NAME = usePrefixClass('card');
-const { SIZE } = useCommonClassName();
-
-// output defineComponent 输出组件
 export default defineComponent({
   name: 'TCard',
   props,
   emits: ['image-error', 'actions'],
   setup(props, { slots, emit }) {
-    //       return () => (
-    //         slots.header ? (
-    //             <div>
-    //                 slots.header()
-    //             </div>
-    //         ) : null
-    // {/* <div>{slots.header({ text: props.message })}</div> */}
-    //         <div>{slots.default?.()}</div>
+    const renderTNodeJSX = useTNodeJSX();
+    const COMPONENT_NAME = usePrefixClass('card');
+    const { SIZE } = useCommonClassName();
 
-    // {/* <div>{slots.footer({ text: props.message })}</div> */}
+    const baseCls = [`${COMPONENT_NAME.value}`];
+    const headerCls = [`${COMPONENT_NAME.value}__header`];
+    const headerAvatarCls = [`${COMPONENT_NAME.value}__avatar`];
+    const headerTitleCls = [`${COMPONENT_NAME.value}__title`];
+    const headerSubTitleCls = [`${COMPONENT_NAME.value}__subtitle`];
+    const headerDescriptionCls = [`${COMPONENT_NAME.value}__description`];
+    const actionsCls = [`${COMPONENT_NAME.value}__actions`];
 
-    //     //   <div :class="[ns.b(), ns.is(`${shadow}-shadow`)]">
-    //     //   <div v-if="$slots.header || header" :class="ns.e('header')">
-    //     //     <slot name="header">{{ header }}</slot>
-    //     //   </div>
-    //     //   <div :class="ns.e('body')" :style="bodyStyle">
-    //     //     <slot></slot>
-    //     //   </div>
-    //     // </div>
-    //     );
-    const baseCls: string[] = [`${COMPONENT_NAME.value}`];
-    const headerCls: string[] = [`${COMPONENT_NAME.value}__header`];
-    const actionsCls: string[] = [`${COMPONENT_NAME.value}__actions`];
-    const headerTitleCls: string[] = [`${COMPONENT_NAME.value}__title`];
-    const headersubTitleCls: string[] = [`${COMPONENT_NAME.value}__subtitle`];
-    const bodyCls: string[] = [`${COMPONENT_NAME.value}__body`];
-    const coverCls: string[] = [`${COMPONENT_NAME.value}__cover`];
-    const footerCls: string[] = [`${COMPONENT_NAME.value}__footer`];
+    const bodyCls = [`${COMPONENT_NAME.value}__body`];
+    const coverCls = [`${COMPONENT_NAME.value}__cover`];
+    const footerCls = [`${COMPONENT_NAME.value}__footer`];
 
-    if (props.size === 'small') {
-      baseCls.push(`${SIZE.value[props.size]}`);
-    }
-    if (props.bordered) {
-      baseCls.push(`${COMPONENT_NAME.value}--bordered`);
-    }
-    if (props.shadow) {
-      baseCls.push(`${COMPONENT_NAME.value}__shadow`);
-    }
-    if (props.hoverShadow) {
-      baseCls.push(`${COMPONENT_NAME.value}__shadow-hover`);
-    }
-    if (props.headBordered) {
-      headerCls.push(`${COMPONENT_NAME.value}__title--bordered`);
-    }
+    if (props.size === 'small') baseCls.push(`${SIZE.value[props.size]}`);
+
+    if (props.bordered) baseCls.push(`${COMPONENT_NAME.value}--bordered`);
+
+    if (props.shadow) baseCls.push(`${COMPONENT_NAME.value}--shadow`);
+
+    if (props.hoverShadow) baseCls.push(`${COMPONENT_NAME.value}--shadow-hover`);
+
+    if (props.headerBordered) headerCls.push(`${COMPONENT_NAME.value}__title--bordered`);
 
     const handleImgLoadError = () => {
       emit('image-error');
     };
 
-    const handleActions = () => {
-      emit('actions');
-    };
-
-    const textSubtitle = props.subtitle && <div class={headersubTitleCls}>{props.subtitle} </div>;
-    const textTitle = props.title && (
-      <div class={headerTitleCls}>
-        {props.title} {textSubtitle || ''}
-      </div>
-    );
-
-    const textActions = props.actions && (
-      <div class={actionsCls}>
-        <t-button variant="text" theme="primary" onClick={handleActions}>
-          {props.actions}
-        </t-button>
-      </div>
-    );
-
-    const textCover = typeof props.cover === 'string' && <img src={props.cover} onError={handleImgLoadError}></img>;
-
     // 卡片风格：普通风格、海报风格1（操作区域在顶部）、海报风格2（操作区域在底部）。
     // 可选项：normal/poster1/poster2
     const isPoster2 = props.theme === 'poster2';
 
-    const showHeader = slots.header || props.title || slots.actions || props.actions;
-    const showFooter = slots.footer || props.footer;
-    const showCover = slots.cover || props.cover;
+    const showTitle = props.title || slots.title;
+    const showHeader = props.header || slots.header;
+    const showSubtitle = props.subtitle || slots.subtitle;
+    const showAvatar = props.avatar || slots.avatar;
+    const showDescription = props.description || slots.description;
+    const showStatus = props.status || slots.status;
+    const showActions = props.actions || slots.actions;
+    const showFooter = props.footer || slots.footer;
+    const showCover = props.cover || slots.cover;
+    const showLoading = props.loading || slots.loading;
+    const showContent = props.content || slots.content || props.default || slots.default;
 
-    if (props.loading || slots.loading) {
+    // 是否展示头部区域
+    const isHeaderRender =
+      showHeader ||
+      showTitle ||
+      showSubtitle ||
+      showDescription ||
+      showDescription ||
+      showAvatar ||
+      (showStatus && isPoster2) ||
+      (showActions && !isPoster2);
+
+    // 是否展示底部区域
+    const isFooterRender = showFooter || (showActions && isPoster2);
+
+    if (showLoading) {
       return (
-        slots.loading?.() || (
+        renderTNodeJSX('loading') || (
           <TLoading>
             <div class={baseCls}></div>
           </TLoading>
@@ -107,29 +80,44 @@ export default defineComponent({
       );
     }
 
+    // 头部区域渲染逻辑
+    const renderHeader = () => {
+      if (showHeader) return <div class={headerCls}>{renderTNodeJSX('header')}</div>;
+      return (
+        <div class={headerCls}>
+          <div class={`${COMPONENT_NAME.value}__header-wrapper`}>
+            {showAvatar && <div class={headerAvatarCls}>{renderTNodeJSX('avatar')}</div>}
+            <div>
+              {showTitle && <span class={headerTitleCls}>{renderTNodeJSX('title')}</span>}
+              {showSubtitle && <span class={headerSubTitleCls}>{renderTNodeJSX('subtitle')}</span>}
+              {showDescription && <p class={headerDescriptionCls}>{renderTNodeJSX('description')}</p>}
+            </div>
+          </div>
+          {showActions && !isPoster2 && <div class={actionsCls}>{renderTNodeJSX('actions')}</div>}
+          {showStatus && <div class={actionsCls}>{renderTNodeJSX('status')}</div>}
+        </div>
+      );
+    };
+
+    // 封面区域渲染逻辑
+    const renderCover = () => {
+      const textCover = typeof props.cover === 'string';
+      return (
+        <div class={coverCls}>
+          {textCover ? <img src={props.cover} onError={handleImgLoadError}></img> : renderTNodeJSX('cover')}
+        </div>
+      );
+    };
+
     return () => (
       <div class={baseCls}>
-        {!isPoster2 && showHeader && (
-          <div class={headerCls}>
-            {slots.header?.()}
-            {!slots.header && (slots.title?.() || textTitle)}
-            {!slots.header && (slots.actions?.() || textActions)}
-          </div>
-        )}
-        {showCover && <div class={coverCls}>{slots.cover?.() || textCover || props.cover}</div>}
-        {slots.content && <div class={bodyCls}>{slots.content?.()}</div>}
-        {slots.default && <div class={bodyCls}>{slots.default?.()}</div>}
-        {isPoster2 && showHeader && (
-          <div class={headerCls}>
-            {slots.header?.()}
-            {!slots.header && (slots.title?.() || textTitle)}
-            {!slots.header && (slots.actions?.() || textActions)}
-          </div>
-        )}
-        {showFooter && (
+        {isHeaderRender ? renderHeader() : null}
+        {showCover ? renderCover() : null}
+        {showContent && <div class={bodyCls}>{renderTNodeJSX('default') || renderTNodeJSX('content')}</div>}
+        {isFooterRender && (
           <div class={footerCls}>
-            {slots.footer?.() || props.footer}
-            {!slots.footer && (slots.actions?.() || textActions)}
+            <div class={`${COMPONENT_NAME.value}__footer-wrapper`}>{renderTNodeJSX('footer')}</div>
+            {showActions && isPoster2 && <div class={actionsCls}>{renderTNodeJSX('actions')}</div>}
           </div>
         )}
       </div>

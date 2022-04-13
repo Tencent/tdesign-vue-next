@@ -2,10 +2,7 @@
   <div class="tdesign-demo-block">
     <t-row :align="'middle'" justify="start" :gutter="16">
       <t-col :span="6">
-        <!-- <t-card :title="title" :actions="actions" head-bordered @actions="clickHandler">
-          {{ infoMessage }}
-        </t-card> -->
-        <t-card :title="title" :subtitle="subtitle" :cover="cover" shadow>
+        <t-card :title="title" :subtitle="subtitle" :cover="cover" shadow theme="poster2">
           <template #header>
             <t-avatar>C</t-avatar>
             <t-tag theme="success">{{ actions }}</t-tag>
