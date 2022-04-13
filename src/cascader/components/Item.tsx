@@ -110,7 +110,7 @@ export default defineComponent({
       const { cascaderContext, node } = props;
       return (
         <li
-          ref="liRef"
+          ref={liRef}
           class={itemClass.value}
           onClick={(e: Event) => {
             e.stopPropagation();
