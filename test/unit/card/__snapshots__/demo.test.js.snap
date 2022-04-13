@@ -135,7 +135,6 @@ exports[`Card Card borderdVue demo works fine 1`] = `
     >
       
       <div
-        borderd=""
         class="t-card t-card--bordered"
       >
         <!---->
@@ -1691,46 +1690,6 @@ exports[`Card Card headerFooterActionsVue demo works fine 1`] = `
                         </div>
                         <!---->
                       </div>
-                      <div
-                        maxcolumnwidth="100"
-                        mincolumnwidth="112"
-                      >
-                        <div
-                          class="t-dropdown__item"
-                        >
-                          <div
-                            class="t-dropdown__item-content"
-                          >
-                            <span
-                              class="t-dropdown__item-text"
-                            >
-                              操作三
-                            </span>
-                          </div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
-                      <div
-                        maxcolumnwidth="100"
-                        mincolumnwidth="112"
-                      >
-                        <div
-                          class="t-dropdown__item"
-                        >
-                          <div
-                            class="t-dropdown__item-content"
-                          >
-                            <span
-                              class="t-dropdown__item-text"
-                            >
-                              操作四
-                            </span>
-                          </div>
-                          <!---->
-                        </div>
-                        <!---->
-                      </div>
                       
                     </div>
                     
@@ -2026,46 +1985,6 @@ exports[`Card Card headerSubtitleFooterActionsVue demo works fine 1`] = `
                                 class="t-dropdown__item-text"
                               >
                                 操作二
-                              </span>
-                            </div>
-                            <!---->
-                          </div>
-                          <!---->
-                        </div>
-                        <div
-                          maxcolumnwidth="100"
-                          mincolumnwidth="112"
-                        >
-                          <div
-                            class="t-dropdown__item"
-                          >
-                            <div
-                              class="t-dropdown__item-content"
-                            >
-                              <span
-                                class="t-dropdown__item-text"
-                              >
-                                操作三
-                              </span>
-                            </div>
-                            <!---->
-                          </div>
-                          <!---->
-                        </div>
-                        <div
-                          maxcolumnwidth="100"
-                          mincolumnwidth="112"
-                        >
-                          <div
-                            class="t-dropdown__item"
-                          >
-                            <div
-                              class="t-dropdown__item-content"
-                            >
-                              <span
-                                class="t-dropdown__item-text"
-                              >
-                                操作四
                               </span>
                             </div>
                             <!---->
