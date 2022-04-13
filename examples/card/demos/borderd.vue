@@ -2,7 +2,7 @@
   <div class="tdesign-demo-block">
     <t-row :align="'middle'" justify="start" :gutter="16">
       <t-col :span="6">
-        <t-card borderd> {{ infoMessage }} </t-card>
+        <t-card bordered> {{ infoMessage }} </t-card>
       </t-col>
     </t-row>
   </div>

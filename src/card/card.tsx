@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { useTNodeJSX } from '../hooks/tnode';
@@ -42,35 +42,37 @@ export default defineComponent({
 
     // 卡片风格：普通风格、海报风格1（操作区域在顶部）、海报风格2（操作区域在底部）。
     // 可选项：normal/poster1/poster2
-    const isPoster2 = props.theme === 'poster2';
+    const isPoster2 = computed(() => props.theme === 'poster2');
 
-    const showTitle = props.title || slots.title;
-    const showHeader = props.header || slots.header;
-    const showSubtitle = props.subtitle || slots.subtitle;
-    const showAvatar = props.avatar || slots.avatar;
-    const showDescription = props.description || slots.description;
-    const showStatus = props.status || slots.status;
-    const showActions = props.actions || slots.actions;
-    const showFooter = props.footer || slots.footer;
-    const showCover = props.cover || slots.cover;
-    const showLoading = props.loading || slots.loading;
-    const showContent = props.content || slots.content || props.default || slots.default;
+    const showTitle = computed(() => props.title || slots.title);
+    const showHeader = computed(() => props.header || slots.header);
+    const showSubtitle = computed(() => props.subtitle || slots.subtitle);
+    const showAvatar = computed(() => props.avatar || slots.avatar);
+    const showDescription = computed(() => props.description || slots.description);
+    const showStatus = computed(() => props.status || slots.status);
+    const showActions = computed(() => props.actions || slots.actions);
+    const showFooter = computed(() => props.footer || slots.footer);
+    const showCover = computed(() => props.cover || slots.cover);
+    const showLoading = computed(() => props.loading || slots.loading);
+    const showContent = computed(() => props.content || slots.content || props.default || slots.default);
 
     // 是否展示头部区域
-    const isHeaderRender =
-      showHeader ||
-      showTitle ||
-      showSubtitle ||
-      showDescription ||
-      showDescription ||
-      showAvatar ||
-      (showStatus && isPoster2) ||
-      (showActions && !isPoster2);
+    const isHeaderRender = computed(
+      () =>
+        showHeader.value ||
+        showTitle.value ||
+        showSubtitle.value ||
+        showDescription.value ||
+        showDescription.value ||
+        showAvatar.value ||
+        (showStatus.value && isPoster2.value) ||
+        (showActions.value && !isPoster2.value),
+    );
 
     // 是否展示底部区域
-    const isFooterRender = showFooter || (showActions && isPoster2);
+    const isFooterRender = computed(() => showFooter.value || (showActions.value && isPoster2.value));
 
-    if (showLoading) {
+    if (showLoading.value) {
       return (
         renderTNodeJSX('loading') || (
           <TLoading>
@@ -82,19 +84,19 @@ export default defineComponent({
 
     // 头部区域渲染逻辑
     const renderHeader = () => {
-      if (showHeader) return <div class={headerCls}>{renderTNodeJSX('header')}</div>;
+      if (showHeader.value) return <div class={headerCls}>{renderTNodeJSX('header')}</div>;
       return (
         <div class={headerCls}>
           <div class={`${COMPONENT_NAME.value}__header-wrapper`}>
-            {showAvatar && <div class={headerAvatarCls}>{renderTNodeJSX('avatar')}</div>}
+            {showAvatar.value && <div class={headerAvatarCls}>{renderTNodeJSX('avatar')}</div>}
             <div>
-              {showTitle && <span class={headerTitleCls}>{renderTNodeJSX('title')}</span>}
-              {showSubtitle && <span class={headerSubTitleCls}>{renderTNodeJSX('subtitle')}</span>}
-              {showDescription && <p class={headerDescriptionCls}>{renderTNodeJSX('description')}</p>}
+              {showTitle.value && <span class={headerTitleCls}>{renderTNodeJSX('title')}</span>}
+              {showSubtitle.value && <span class={headerSubTitleCls}>{renderTNodeJSX('subtitle')}</span>}
+              {showDescription.value && <p class={headerDescriptionCls}>{renderTNodeJSX('description')}</p>}
             </div>
           </div>
-          {showActions && !isPoster2 && <div class={actionsCls}>{renderTNodeJSX('actions')}</div>}
-          {showStatus && <div class={actionsCls}>{renderTNodeJSX('status')}</div>}
+          {showActions.value && !isPoster2.value && <div class={actionsCls}>{renderTNodeJSX('actions')}</div>}
+          {showStatus.value && <div class={actionsCls}>{renderTNodeJSX('status')}</div>}
         </div>
       );
     };
@@ -111,13 +113,13 @@ export default defineComponent({
 
     return () => (
       <div class={baseCls}>
-        {isHeaderRender ? renderHeader() : null}
-        {showCover ? renderCover() : null}
-        {showContent && <div class={bodyCls}>{renderTNodeJSX('default') || renderTNodeJSX('content')}</div>}
-        {isFooterRender && (
+        {isHeaderRender.value ? renderHeader() : null}
+        {showCover.value ? renderCover() : null}
+        {showContent.value && <div class={bodyCls}>{renderTNodeJSX('default') || renderTNodeJSX('content')}</div>}
+        {isFooterRender.value && (
           <div class={footerCls}>
             <div class={`${COMPONENT_NAME.value}__footer-wrapper`}>{renderTNodeJSX('footer')}</div>
-            {showActions && isPoster2 && <div class={actionsCls}>{renderTNodeJSX('actions')}</div>}
+            {showActions.value && isPoster2.value && <div class={actionsCls}>{renderTNodeJSX('actions')}</div>}
           </div>
         )}
       </div>
