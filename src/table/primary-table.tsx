@@ -1,5 +1,6 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted } from 'vue';
+import { computed, defineComponent, toRefs, h, ref, onMounted, SetupContext } from 'vue';
 import get from 'lodash/get';
+import omit from 'lodash/omit';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
@@ -18,6 +19,16 @@ import useClassName from './hooks/useClassName';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
+const OMIT_PROPS = [
+  'defaultExpandedRowKeys',
+  'columnController',
+  'filterRow',
+  'sortOnRowDraggable',
+  'expandOnRowClick',
+  'multipleSort',
+  'expandIcon',
+];
+
 export default defineComponent({
   name: 'TPrimaryTable',
 
@@ -26,7 +37,9 @@ export default defineComponent({
     ...primaryTableProps,
   },
 
-  setup(props: TdPrimaryTableProps, context) {
+  // emits: ['update:columnControllerVisible'],
+
+  setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const { columns } = toRefs(props);
     const primaryTableRef = ref(null);
@@ -47,7 +60,7 @@ export default defineComponent({
       renderFilterIcon,
       renderFirstFilterRow,
       setFilterPrimaryTableRef,
-    } = useFilter(props);
+    } = useFilter(props, context);
     // 拖拽排序功能
     const { isColDraggable, isRowDraggable, setDragSortPrimaryTableRef } = useDragSort(props, context);
 
@@ -189,7 +202,7 @@ export default defineComponent({
     const lastFullRow = this.formatNode('lastFullRow', this.renderAsyncLoading, !!this.asyncLoading);
 
     const props = {
-      ...this.$props,
+      ...omit(this.$props, OMIT_PROPS),
       rowClassName: this.tRowClassNames,
       rowAttributes: this.tRowAttributes,
       columns: this.tColumns,

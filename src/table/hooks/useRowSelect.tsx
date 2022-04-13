@@ -20,7 +20,7 @@ import { ClassName } from '../../common';
 import log from '../../_common/js/log';
 
 export default function useRowSelect(props: TdPrimaryTableProps) {
-  const { selectedRowKeys, columns, data, rowClassName } = toRefs(props);
+  const { selectedRowKeys, columns, data, rowKey } = toRefs(props);
   const { tableSelectedClasses } = useClassName();
   const selectedRowClassNames = ref();
   const [tSelectedRowKeys, setTSelectedRowKeys] = useDefaultValue(
@@ -40,7 +40,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
   );
 
   watch(
-    [data, columns, tSelectedRowKeys],
+    [data, columns, tSelectedRowKeys, selectColumn, rowKey],
     () => {
       const disabledRowFunc = (p: RowClassNameParams<TableRowData>): ClassName =>
         selectColumn.value.disabled(p) ? tableSelectedClasses.disabled : '';
@@ -84,7 +84,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
       disabled,
       ...checkProps,
       onClick: (e: MouseEvent) => {
-        // 选中行功能中，点击 checkbo/radio 需阻止事件冒泡，避免触发不必要的 onRowClick
+        // 选中行功能中，点击 checkbox/radio 需阻止事件冒泡，避免触发不必要的 onRowClick
         e?.stopPropagation();
       },
       onChange: () => handleSelectChange(row),
@@ -105,7 +105,7 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
     } else if (selectColumn.value.type === 'single') {
       selectedRowKeys = !isExisted ? [id] : [];
     } else {
-      log.warn('Table', '`column.type` must be one of `multilpe` and `single`');
+      log.warn('Table', '`column.type` must be one of `multiple` and `single`');
       return;
     }
     setTSelectedRowKeys(selectedRowKeys, {

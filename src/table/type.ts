@@ -258,7 +258,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
 }
 
 export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
-  extends Omit<TdBaseTableProps<T>, 'columns'> {
+  extends Omit<TdBaseTableProps<T>, 'columns' | 'onCellClick'> {
   /**
    * 异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `loading-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容
    */
@@ -290,7 +290,6 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
    * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`col` 表示通过专门的 拖拽列 进行拖拽排序。`drag-col` 已废弃，请勿使用
-   * @default col
    */
   dragSort?: 'row' | 'col' | 'drag-col';
   /**
@@ -414,7 +413,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
-  extends Omit<BaseTableCol, 'cell' | 'title' | 'render'> {
+  extends Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'> {
   /**
    * 【开发中】是否允许用户选择是否显示当前列，表格属性 `showColumnController` 为真时有效
    * @default true
@@ -428,6 +427,10 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
    * 透传参数，`colKey` 值为 `row-select` 时，配置有效。具体定义参考 Checkbox 组件 和 Radio 组件。泛型 T 指表格数据类型
    */
   checkProps?: CheckProps<T>;
+  /**
+   * 用于多级表头，泛型 T 指表格数据类型
+   */
+  children?: Array<PrimaryTableCol<T>>;
   /**
    * 渲染列所需字段，必须唯一。值为 `row-select` 表示当前列为行选中操作列。值为 `drag` 表示当前列为拖拽排序操作列
    * @default ''
@@ -686,9 +689,7 @@ export interface ExpandArrowRenderParams<T> {
   index: number;
 }
 
-export type FilterValue = { [key: string]: FilterItemValue };
-
-export type FilterItemValue = string | number | undefined | Array<string | number>;
+export type FilterValue = { [key: string]: any };
 
 export type TableSort = SortInfo | Array<SortInfo>;
 

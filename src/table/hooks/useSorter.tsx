@@ -9,7 +9,6 @@ export type SortMap = Record<string, SortInfo & { index: number }>;
 export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: SetupContext) {
   const { sort, data } = toRefs(props);
   const originalData = ref();
-  // uncontroll and controll
   const [tSortInfo, setTSortInfo] = useDefaultValue(sort, props.defaultSort, props.onSortChange, 'sort');
   const [tData, setTData] = useDefaultValue(data, [], props.onDataChange, 'data');
   // 本地数据排序：用于记录哪些字段是自定义排序函数

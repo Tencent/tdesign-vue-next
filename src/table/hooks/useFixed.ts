@@ -117,6 +117,7 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
     bordered,
   } = toRefs(props);
   const tableContentRef = ref<HTMLDivElement>();
+  // 高度超出时，自动固定表头
   const isFixedHeader = ref(false);
   const isWidthOverflow = ref(false);
   const affixHeaderRef = ref<HTMLDivElement>();
@@ -390,7 +391,9 @@ export default function useFixed(props: TdBaseTableProps, context: SetupContext)
 
   const updateTableWidth = () => {
     const rect = tableContentRef.value.getBoundingClientRect();
-    tableWidth.value = rect.width - scrollbarWidth.value - (props.bordered ? 1 : 0);
+    // 存在纵向滚动条，且固定表头时，需去除滚动条宽度
+    const reduceWidth = isFixedHeader.value ? scrollbarWidth.value : 0;
+    tableWidth.value = rect.width - reduceWidth - (props.bordered ? 2 : 0);
   };
 
   const updateThWidthList = (trList: HTMLCollection) => {

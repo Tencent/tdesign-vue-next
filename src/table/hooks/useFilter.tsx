@@ -1,4 +1,4 @@
-import { toRefs, ref, watch, computed } from 'vue';
+import { toRefs, ref, watch, computed, SetupContext } from 'vue';
 import useClassName from './useClassName';
 import TButton from '../../button';
 import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue } from '../type';
@@ -22,7 +22,7 @@ function filterEmptyData(data: FilterValue) {
   return newFilterValue;
 }
 
-export default function useFilter(props: TdPrimaryTableProps) {
+export default function useFilter(props: TdPrimaryTableProps, context: SetupContext) {
   const primaryTableRef = ref(null);
   const { t, global } = useConfig('table');
   const renderTNode = useTNodeDefault();
@@ -139,7 +139,9 @@ export default function useFilter(props: TdPrimaryTableProps) {
   function renderFilterIcon({ col }: { col: PrimaryTableCol<TableRowData>; colIndex: number }) {
     return (
       <TableFilterController
+        v-slots={{ filterIcon: context.slots.filterIcon }}
         column={col}
+        filterIcon={props.filterIcon}
         tFilterValue={tFilterValue.value}
         innerFilterValue={innerFilterValue.value}
         tableFilterClasses={tableFilterClasses}
