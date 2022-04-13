@@ -8,5 +8,5 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: '<rootDir>/test/unit/coverage',
   collectCoverageFrom: ['src/**/*.{ts,tsx,js,vue}', '!**/node_modules/**'],
-  coverageReporters: ['html', 'text-summary'],
+  coverageReporters: ['html', 'text-summary', 'cobertura'],
 };
