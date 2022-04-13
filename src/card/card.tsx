@@ -8,7 +8,6 @@ import props from './props';
 export default defineComponent({
   name: 'TCard',
   props,
-  emits: ['image-error', 'actions'],
   setup(props, { slots, emit }) {
     const renderTNodeJSX = useTNodeJSX();
     const COMPONENT_NAME = usePrefixClass('card');
@@ -35,10 +34,6 @@ export default defineComponent({
     if (props.hoverShadow) baseCls.push(`${COMPONENT_NAME.value}--shadow-hover`);
 
     if (props.headerBordered) headerCls.push(`${COMPONENT_NAME.value}__title--bordered`);
-
-    const handleImgLoadError = () => {
-      emit('image-error');
-    };
 
     // 卡片风格：普通风格、海报风格1（操作区域在顶部）、海报风格2（操作区域在底部）。
     // 可选项：normal/poster1/poster2
@@ -104,11 +99,7 @@ export default defineComponent({
     // 封面区域渲染逻辑
     const renderCover = () => {
       const textCover = typeof props.cover === 'string';
-      return (
-        <div class={coverCls}>
-          {textCover ? <img src={props.cover} onError={handleImgLoadError}></img> : renderTNodeJSX('cover')}
-        </div>
-      );
+      return <div class={coverCls}>{textCover ? <img src={props.cover}></img> : renderTNodeJSX('cover')}</div>;
     };
 
     return () => (
