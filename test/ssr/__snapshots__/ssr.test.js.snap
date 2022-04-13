@@ -9722,7 +9722,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/footer.vue correctly 1`
     <!--[-->
     <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
       <!--[-->
-      <!-- <t-card :title="title" :actions="actions" head-bordered @actions="clickHandler">
+      <!-- <t-card :title="title" :actions="actions" header-bordered @actions="clickHandler">
           {{ infoMessage }}
         </t-card> -->
       <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">
@@ -10598,7 +10598,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/footer-subtitle.vue cor
     <!--[-->
     <div class="t-col t-col-6" style="padding-left:8px;padding-right:8px;">
       <!--[-->
-      <!-- <t-card :title="title" :actions="actions" head-bordered @actions="clickHandler">
+      <!-- <t-card :title="title" :actions="actions" header-bordered @actions="clickHandler">
           {{ infoMessage }}
         </t-card> -->
       <div class="t-card t-card--bordered t-card__shadow t-card__shadow-hover">

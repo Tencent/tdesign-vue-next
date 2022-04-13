@@ -189,7 +189,7 @@ exports[`Card Card footerVue demo works fine 1`] = `
       style="padding-left: 8px; padding-right: 8px;"
     >
       
-      <!-- &lt;t-card :title="title" :actions="actions" head-bordered @actions="clickHandler"&gt;
+      <!-- &lt;t-card :title="title" :actions="actions" header-bordered @actions="clickHandler"&gt;
           {{ infoMessage }}
         &lt;/t-card&gt; -->
       <div
