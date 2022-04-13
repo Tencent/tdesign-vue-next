@@ -6,15 +6,39 @@ import { mount } from '@vue/test-utils';
 import baseVue from '@/examples/card/demos/base.vue';
 import borderdNoneVue from '@/examples/card/demos/borderd-none.vue';
 import borderdVue from '@/examples/card/demos/borderd.vue';
+import footerActionsVue from '@/examples/card/demos/footer-actions.vue';
+import footerContentActionsVue from '@/examples/card/demos/footer-content-actions.vue';
+import footerContentVue from '@/examples/card/demos/footer-content.vue';
+import footerSubtitleVue from '@/examples/card/demos/footer-subtitle.vue';
 import footerVue from '@/examples/card/demos/footer.vue';
+import headerAllPropsVue from '@/examples/card/demos/header-all-props.vue';
+import headerBorderedVue from '@/examples/card/demos/header-bordered.vue';
+import headerDescriptionVue from '@/examples/card/demos/header-description.vue';
+import headerFooterActionsVue from '@/examples/card/demos/header-footer-actions.vue';
+import headerSubtitleFooterActionsVue from '@/examples/card/demos/header-subtitle-footer-actions.vue';
+import headerSubtitleVue from '@/examples/card/demos/header-subtitle.vue';
 import headerVue from '@/examples/card/demos/header.vue';
+import hoverVue from '@/examples/card/demos/hover.vue';
+import smallVue from '@/examples/card/demos/small.vue';
 
 const mapper = {
   baseVue,
   borderdNoneVue,
   borderdVue,
+  footerActionsVue,
+  footerContentActionsVue,
+  footerContentVue,
+  footerSubtitleVue,
   footerVue,
+  headerAllPropsVue,
+  headerBorderedVue,
+  headerDescriptionVue,
+  headerFooterActionsVue,
+  headerSubtitleFooterActionsVue,
+  headerSubtitleVue,
   headerVue,
+  hoverVue,
+  smallVue,
 };
 
 describe('Card', () => {
