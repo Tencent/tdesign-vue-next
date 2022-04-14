@@ -195,7 +195,7 @@ exports[`Card Card footerActionsVue demo works fine 1`] = `
           >
             
             <div
-              class="t-divider t-divider--horizontal"
+              class="t-divider t-divider--vertical"
             >
               <!---->
             </div>
@@ -238,7 +238,7 @@ exports[`Card Card footerActionsVue demo works fine 1`] = `
           >
             
             <div
-              class="t-divider t-divider--horizontal"
+              class="t-divider t-divider--vertical"
             >
               <!---->
             </div>
@@ -994,7 +994,7 @@ exports[`Card Card footerVue demo works fine 1`] = `
         >
           
           <div
-            class="t-divider t-divider--horizontal"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -1037,7 +1037,7 @@ exports[`Card Card footerVue demo works fine 1`] = `
         >
           
           <div
-            class="t-divider t-divider--horizontal"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -1444,7 +1444,7 @@ exports[`Card Card headerFooterActionsVue demo works fine 1`] = `
         >
           
           <div
-            class="t-divider t-divider--horizontal"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -1487,7 +1487,7 @@ exports[`Card Card headerFooterActionsVue demo works fine 1`] = `
         >
           
           <div
-            class="t-divider t-divider--horizontal"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -1729,7 +1729,7 @@ exports[`Card Card headerSubtitleFooterActionsVue demo works fine 1`] = `
         >
           
           <div
-            class="t-divider t-divider--horizontal"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>
@@ -1772,7 +1772,7 @@ exports[`Card Card headerSubtitleFooterActionsVue demo works fine 1`] = `
         >
           
           <div
-            class="t-divider t-divider--horizontal"
+            class="t-divider t-divider--vertical"
           >
             <!---->
           </div>

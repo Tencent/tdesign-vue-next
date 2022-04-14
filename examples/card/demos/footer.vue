@@ -14,7 +14,7 @@
           </t-button>
         </t-col>
         <t-col flex="none">
-          <t-divider layout="vertical" />
+          <t-divider theme="vertical" />
         </t-col>
         <t-col flex="auto">
           <t-button block variant="text">
@@ -22,7 +22,7 @@
           </t-button>
         </t-col>
         <t-col flex="none">
-          <t-divider layout="vertical" />
+          <t-divider theme="vertical" />
         </t-col>
         <t-col flex="auto">
           <t-button block variant="text">

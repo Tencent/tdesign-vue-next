@@ -9741,7 +9741,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/footer.vue correctly 1`
         </div>
         <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
           <!--[-->
-          <div class="t-divider t-divider--horizontal">
+          <div class="t-divider t-divider--vertical">
             <!---->
           </div>
           <!--]-->
@@ -9752,7 +9752,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/footer.vue correctly 1`
         </div>
         <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
           <!--[-->
-          <div class="t-divider t-divider--horizontal">
+          <div class="t-divider t-divider--vertical">
             <!---->
           </div>
           <!--]-->
@@ -9787,7 +9787,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/footer-actions.vue corr
           </div>
           <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
             <!--[-->
-            <div class="t-divider t-divider--horizontal">
+            <div class="t-divider t-divider--vertical">
               <!---->
             </div>
             <!--]-->
@@ -9798,7 +9798,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/footer-actions.vue corr
           </div>
           <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
             <!--[-->
-            <div class="t-divider t-divider--horizontal">
+            <div class="t-divider t-divider--vertical">
               <!---->
             </div>
             <!--]-->
@@ -10202,7 +10202,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/header-footer-actions.v
         </div>
         <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
           <!--[-->
-          <div class="t-divider t-divider--horizontal">
+          <div class="t-divider t-divider--vertical">
             <!---->
           </div>
           <!--]-->
@@ -10213,7 +10213,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/header-footer-actions.v
         </div>
         <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
           <!--[-->
-          <div class="t-divider t-divider--horizontal">
+          <div class="t-divider t-divider--vertical">
             <!---->
           </div>
           <!--]-->
@@ -10319,7 +10319,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/header-subtitle-footer-
         </div>
         <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
           <!--[-->
-          <div class="t-divider t-divider--horizontal">
+          <div class="t-divider t-divider--vertical">
             <!---->
           </div>
           <!--]-->
@@ -10330,7 +10330,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/header-subtitle-footer-
         </div>
         <div class="t-col t-col-12" style="flex:none;padding-left:0px;padding-right:0px;">
           <!--[-->
-          <div class="t-divider t-divider--horizontal">
+          <div class="t-divider t-divider--vertical">
             <!---->
           </div>
           <!--]-->
