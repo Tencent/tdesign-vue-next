@@ -9875,7 +9875,7 @@ exports[`ssr snapshot test renders ./examples/card/demos/footer-actions.vue corr
           <!--[-->
           <!--[-->
           <!--[-->
-          <div class="t-avatar t-avatar--circle" style=""><img style="" src="https://tdesign.gtimg.com/site/avatar.jpg" alt></div>
+          <div class="t-avatar t-avatar--circle" style=""><img style="" src="https://tdesign.gtimg.com/site/avatar-boy.jpg" alt></div>
           <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->Q<!--]--></span></div>
           <div class="t-avatar t-avatar--circle" style=""><span style="transform:;"><!--[-->+3<!--]--></span></div>
           <!--]-->

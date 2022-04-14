@@ -48,7 +48,7 @@ const cover = 'https://tdesign.gtimg.com/site/source/card-demo.png';
 
 const icon = () => <UserIcon />;
 
-const image = 'https://tdesign.gtimg.com/site/avatar.jpg';
+const image = 'https://tdesign.gtimg.com/site/avatar-boy.jpg';
 
 const options = [
   {
