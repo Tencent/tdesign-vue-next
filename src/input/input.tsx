@@ -1,16 +1,15 @@
-import { defineComponent, h, VNodeChild, nextTick } from 'vue';
+import { defineComponent, h, VNodeChild, computed } from 'vue';
 import { BrowseIcon, BrowseOffIcon, CloseCircleFilledIcon } from 'tdesign-icons-vue-next';
-import camelCase from 'lodash/camelCase';
-import kebabCase from 'lodash/kebabCase';
-import { InputValue } from './type';
-import { getCharacterLength } from '../utils/helper';
 import props from './props';
-import { emitEvent } from '../utils/event';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import useInput from './useInput';
+import useInputEventHandler from './useInputEventHandler';
+import useInputWidth from './useInputWidth';
+import { useIcon } from '../hooks/icon';
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -26,14 +25,32 @@ export default defineComponent({
   name: 'TInput',
   props: { ...props },
   emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
-  setup() {
+  setup(props, { slots }) {
+    const { global } = useConfig('input');
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input');
     const INPUT_WRAP_CLASS = usePrefixClass('input__wrap');
     const INPUT_TIPS_CLASS = usePrefixClass('input__tips');
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
-    const { global } = useConfig('input');
+    const { isHover, inputRef, renderType, ...inputHandle } = useInput(props);
+    useInputWidth(props, inputRef);
+    const inputEventHandler = useInputEventHandler(props, isHover);
+    const renderIconTNode = useIcon();
+
+    const tPlaceholder = computed(() => props.placeholder ?? global.value.placeholder);
+    const inputAttrs = computed(() =>
+      getValidAttrs({
+        autofocus: props.autofocus,
+        disabled: props.disabled,
+        readonly: props.readonly,
+        placeholder: tPlaceholder.value,
+        maxlength: props.maxlength,
+        name: props.name || undefined,
+        type: renderType.value,
+        autocomplete: renderType.value === 'password' ? 'on' : undefined,
+      }),
+    );
 
     return {
       global,
@@ -44,214 +61,18 @@ export default defineComponent({
       classPrefix,
       STATUS,
       SIZE,
+      tPlaceholder,
+      ...inputHandle,
+      ...inputEventHandler,
+      renderType,
+      inputRef,
+      inputAttrs,
+      renderIconTNode,
     };
-  },
-  data() {
-    return {
-      isHover: false,
-      focused: false,
-      renderType: this.type,
-    };
-  },
-  computed: {
-    showClear(): boolean {
-      return (
-        (this.value && !this.disabled && this.clearable && this.isHover && !this.readonly) || this.showClearIconOnEmpty
-      );
-    },
-    tPlaceholder(): string {
-      return this.placeholder ?? this.global.placeholder;
-    },
-    inputAttrs(): Record<string, any> {
-      return getValidAttrs({
-        autofocus: this.autofocus,
-        disabled: this.disabled,
-        readonly: this.readonly,
-        placeholder: this.tPlaceholder,
-        maxlength: this.maxlength,
-        name: this.name || undefined,
-        type: this.renderType,
-        autocomplete: this.type === 'password' ? 'on' : undefined,
-      });
-    },
-  },
-  watch: {
-    autofocus: {
-      handler(val) {
-        if (val === true) {
-          this.$nextTick(() => {
-            (this.$refs.inputRef as HTMLInputElement).focus();
-          });
-        }
-      },
-      immediate: true,
-    },
-    value: {
-      handler(val) {
-        this.inputValue = val;
-      },
-      immediate: true,
-    },
-  },
-
-  created() {
-    this.composing = false;
-    if (this.autoWidth) {
-      this.addListenders();
-    }
-  },
-
-  methods: {
-    addListenders() {
-      this.$watch(
-        () => this.value + this.placeholder,
-        () => {
-          if (!this.autoWidth) return;
-          nextTick(() => {
-            this.updateInputWidth();
-          });
-        },
-        { immediate: true },
-      );
-    },
-    mouseEvent(v: boolean) {
-      this.isHover = v;
-    },
-    renderIcon(icon: string | Function | undefined, iconType: 'prefix-icon' | 'suffix-icon') {
-      if (typeof icon === 'function') {
-        return icon(h);
-      }
-      // 插槽名称为中划线
-      if (this.$slots[kebabCase(iconType)]) {
-        return this.$slots[kebabCase(iconType)](null);
-      }
-      // 插槽名称为驼峰
-      if (this.$slots[camelCase(iconType)]) {
-        return this.$slots[camelCase(iconType)](null);
-      }
-      return null;
-    },
-    setInputValue(v: InputValue = ''): void {
-      const input = this.$refs.inputRef as HTMLInputElement;
-      const sV = String(v);
-      if (!input) {
-        return;
-      }
-      if (input.value !== sV) {
-        input.value = sV;
-      }
-    },
-    focus(): void {
-      const input = this.$refs.inputRef as HTMLInputElement;
-      input?.focus();
-    },
-    blur(): void {
-      const input = this.$refs.inputRef as HTMLInputElement;
-      input?.blur();
-    },
-    handleInput(e: InputEvent): void {
-      // 中文输入的时候inputType是insertCompositionText所以中文输入的时候禁止触发。
-      const checkInputType = e.inputType && e.inputType === 'insertCompositionText';
-      if (e.isComposing || checkInputType) return;
-      this.inputValueChangeHandle(e);
-    },
-
-    handleKeydown(e: KeyboardEvent) {
-      if (this.disabled) return;
-      const { code } = e;
-      if (code === 'Enter' || code === 'NumpadEnter') {
-        emitEvent(this, 'enter', this.value, { e });
-      } else {
-        emitEvent(this, 'keydown', this.value, { e });
-      }
-    },
-    handleKeyUp(e: KeyboardEvent) {
-      if (this.disabled) return;
-      emitEvent(this, 'keyup', this.value, { e });
-    },
-    handleKeypress(e: KeyboardEvent) {
-      if (this.disabled) return;
-      emitEvent(this, 'keypress', this.value, { e });
-    },
-    onHandlePaste(e: ClipboardEvent) {
-      if (this.disabled) return;
-      // @ts-ignore
-      const clipData = e.clipboardData || window.clipboardData;
-      this.onPaste?.({ e, pasteValue: clipData?.getData('text/plain') });
-    },
-    onHandleMousewheel(e: WheelEvent) {
-      this.onWheel?.({ e });
-    },
-    emitPassword() {
-      const { renderType } = this;
-      const toggleType = renderType === 'password' ? 'text' : 'password';
-      this.renderType = toggleType;
-    },
-    emitClear({ e }: { e: MouseEvent }) {
-      emitEvent(this, 'clear', { e });
-      emitEvent(this, 'change', '', { e });
-      this.focus();
-      this.emitFocus(e);
-    },
-    emitFocus(e: FocusEvent) {
-      this.inputValue = this.value;
-      if (this.disabled || this.readonly) return;
-      this.focused = true;
-      emitEvent(this, 'focus', this.value, { e });
-    },
-    formatAndEmitBlur(e: FocusEvent) {
-      if (this.format) {
-        this.inputValue = this.format(this.value);
-      }
-      this.focused = false;
-      emitEvent(this, 'blur', this.value, { e });
-    },
-    compositionendHandler(e: InputEvent) {
-      this.inputValueChangeHandle(e);
-    },
-    onHandleCompositionend(e: CompositionEvent) {
-      this.inputValueChangeHandle(e);
-      emitEvent(this, 'compositionend', this.value, { e });
-    },
-    onHandleonCompositionstart(e: CompositionEvent) {
-      emitEvent(this, 'compositionstart', this.value, { e });
-    },
-    onRootClick(e: MouseEvent) {
-      (this.$refs.inputRef as HTMLInputElement)?.focus();
-      this.$emit('click', e);
-    },
-    inputValueChangeHandle(e: InputEvent | CompositionEvent) {
-      const { target } = e;
-      let val = (target as HTMLInputElement).value;
-      if (this.maxcharacter && this.maxcharacter >= 0) {
-        const stringInfo = getCharacterLength(val, this.maxcharacter);
-        val = typeof stringInfo === 'object' && stringInfo.characters;
-      }
-      emitEvent(this, 'change', val, { e });
-      // 受控
-      nextTick(() => this.setInputValue(this.value));
-    },
-
-    onInputMouseenter(e: MouseEvent) {
-      this.mouseEvent(true);
-      this.onMouseenter?.({ e });
-    },
-
-    onInputMouseleave(e: MouseEvent) {
-      this.mouseEvent(false);
-      this.onMouseleave?.({ e });
-    },
-
-    updateInputWidth() {
-      const pre = this.$refs.inputPreRef as HTMLSpanElement;
-      if (!pre) return;
-      const width = pre.offsetWidth;
-      (this.$refs.inputRef as HTMLInputElement).style.width = `${width}px`;
-    },
   },
 
   render(): VNodeChild {
-    const { COMPONENT_NAME, INPUT_WRAP_CLASS, INPUT_TIPS_CLASS, SIZE, STATUS, classPrefix } = this;
+    const { COMPONENT_NAME, INPUT_WRAP_CLASS, INPUT_TIPS_CLASS, SIZE, STATUS, classPrefix, inputRef } = this;
 
     const inputEvents = getValidAttrs({
       onFocus: (e: FocusEvent) => this.emitFocus(e),
@@ -261,14 +82,14 @@ export default defineComponent({
       onKeypress: this.handleKeypress,
       onPaste: this.onHandlePaste,
       onCompositionend: this.onHandleCompositionend,
-      onCompositionstart: this.onHandleonCompositionstart,
+      onCompositionstart: this.onHandleCompositionstart,
       // input的change事件是失去焦点或者keydown的时候执行。这与api定义的change不符，所以不做任何变化。
       // eslint-disable-next-line @typescript-eslint/no-empty-function
     });
 
-    const prefixIcon = this.renderIcon(this.prefixIcon, 'prefix-icon');
+    const prefixIcon = this.renderIconTNode('prefix-icon', this.prefixIcon);
 
-    let suffixIcon = this.renderIcon(this.suffixIcon, 'suffix-icon');
+    let suffixIcon = this.renderIconTNode('suffix-icon', this.suffixIcon);
 
     const label = renderTNodeJSX(this, 'label', { silent: true });
     const suffix = renderTNodeJSX(this, 'suffix');
@@ -320,7 +141,7 @@ export default defineComponent({
           class={`${COMPONENT_NAME}__inner`}
           {...this.inputAttrs}
           {...inputEvents}
-          ref="inputRef"
+          ref={inputRef}
           value={this.inputValue}
           onInput={(e: Event) => this.handleInput(e as InputEvent)}
         />

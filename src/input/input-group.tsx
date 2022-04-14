@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue';
-import { ClassName } from '../common';
+import { defineComponent, computed } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
@@ -10,21 +9,20 @@ export default defineComponent({
       default: false,
     },
   },
-  setup() {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('input-group');
+
+    const CLASS = computed(() => [
+      COMPONENT_NAME.value,
+      {
+        [`${COMPONENT_NAME.value}--separate`]: props.separate,
+      },
+    ]);
+
     return {
       COMPONENT_NAME,
+      CLASS,
     };
-  },
-  computed: {
-    CLASS(): ClassName {
-      return [
-        this.COMPONENT_NAME,
-        {
-          [`${this.COMPONENT_NAME}--separate`]: this.separate,
-        },
-      ];
-    },
   },
   render() {
     const { CLASS } = this;
