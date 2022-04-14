@@ -833,7 +833,6 @@ exports[`Steps Steps sequenceVue demo works fine 1`] = `
   <!-- 使用 options 渲染步骤条 -->
   <div
     class="t-steps t-steps--horizontal t-steps--default-anchor"
-    modelvalue="third"
   >
     
     <div
