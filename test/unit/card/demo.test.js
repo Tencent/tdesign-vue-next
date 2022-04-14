@@ -4,12 +4,11 @@
 
 import { mount } from '@vue/test-utils';
 import baseVue from '@/examples/card/demos/base.vue';
-import borderdNoneVue from '@/examples/card/demos/borderd-none.vue';
-import borderdVue from '@/examples/card/demos/borderd.vue';
+import borderedNoneVue from '@/examples/card/demos/bordered-none.vue';
+import borderedVue from '@/examples/card/demos/bordered.vue';
 import footerActionsVue from '@/examples/card/demos/footer-actions.vue';
 import footerContentActionsVue from '@/examples/card/demos/footer-content-actions.vue';
 import footerContentVue from '@/examples/card/demos/footer-content.vue';
-import footerSubtitleVue from '@/examples/card/demos/footer-subtitle.vue';
 import footerVue from '@/examples/card/demos/footer.vue';
 import headerAllPropsVue from '@/examples/card/demos/header-all-props.vue';
 import headerBorderedVue from '@/examples/card/demos/header-bordered.vue';
@@ -23,12 +22,11 @@ import smallVue from '@/examples/card/demos/small.vue';
 
 const mapper = {
   baseVue,
-  borderdNoneVue,
-  borderdVue,
+  borderedNoneVue,
+  borderedVue,
   footerActionsVue,
   footerContentActionsVue,
   footerContentVue,
-  footerSubtitleVue,
   footerVue,
   headerAllPropsVue,
   headerBorderedVue,

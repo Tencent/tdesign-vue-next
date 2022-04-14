@@ -1,81 +1,69 @@
 <template>
   <div class="tdesign-demo-block">
-    <t-row :align="'middle'" justify="center" :gutter="16">
-      <t-col :span="8">
-        <t-card :cover="cover" theme="poster2">
-          <template #footer>
-            <t-row :align="'middle'" justify="center">
-              <t-col flex="auto">
-                <t-button block variant="text">
-                  <thumb-up-icon size="24" />
-                </t-button>
-              </t-col>
-              <t-col flex="none">
-                <t-divider theme="vertical" />
-              </t-col>
-              <t-col flex="auto">
-                <t-button block variant="text">
-                  <chat-icon size="24" />
-                </t-button>
-              </t-col>
-              <t-col flex="none">
-                <t-divider theme="vertical" />
-              </t-col>
-              <t-col flex="auto">
-                <t-button block variant="text">
-                  <share-icon size="24" />
-                </t-button>
-              </t-col>
-            </t-row>
-          </template>
-        </t-card>
-      </t-col>
-    </t-row>
-    <br />
-    <t-row :align="'middle'" justify="center" :gutter="16">
-      <t-col :span="8">
-        <t-card :cover="cover" theme="poster2">
-          <template #footer>
-            <t-button variant="text">
-              <heart-icon size="24" />
+    <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
+      <template #footer>
+        <t-row :align="'middle'" justify="center">
+          <t-col flex="auto">
+            <t-button block variant="text" shape="square">
+              <thumb-up-icon size="24" />
             </t-button>
-            <t-button variant="text">
+          </t-col>
+          <t-col flex="none">
+            <t-divider layout="vertical" />
+          </t-col>
+          <t-col flex="auto">
+            <t-button block variant="text" shape="square">
+              <chat-icon size="24" />
+            </t-button>
+          </t-col>
+          <t-col flex="none">
+            <t-divider layout="vertical" />
+          </t-col>
+          <t-col flex="auto">
+            <t-button block variant="text" shape="square">
               <share-icon size="24" />
             </t-button>
-          </template>
-          <template #actions>
-            <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
-              <t-button variant="text">
-                <more-icon size="24" />
-              </t-button>
-            </t-dropdown>
-          </template>
-        </t-card>
-      </t-col>
-    </t-row>
+          </t-col>
+        </t-row>
+      </template>
+    </t-card>
     <br />
-    <t-row :align="'middle'" justify="center" :gutter="16">
-      <t-col :span="8">
-        <t-card :cover="cover" theme="poster2">
-          <template #footer>
-            <t-avatar-group cascading="left-up" :max="2">
-              <t-avatar :image="image" />
-              <t-avatar>Q</t-avatar>
-              <t-avatar>C</t-avatar>
-              <t-avatar>G</t-avatar>
-              <t-avatar :icon="icon" />
-            </t-avatar-group>
-          </template>
-          <template #actions>
-            <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
-              <t-button variant="text">
-                <more-icon size="24" />
-              </t-button>
-            </t-dropdown>
-          </template>
-        </t-card>
-      </t-col>
-    </t-row>
+    <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
+      <template #footer>
+        <t-button variant="text" shape="square">
+          <heart-icon size="24" />
+        </t-button>
+        <t-button variant="text" shape="square">
+          <share-icon size="24" />
+        </t-button>
+      </template>
+      <template #actions>
+        <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
+          <t-button variant="text" shape="square">
+            <more-icon size="24" />
+          </t-button>
+        </t-dropdown>
+      </template>
+    </t-card>
+    <br />
+    <t-card :cover="cover" theme="poster2" :style="{ width: '400px' }">
+      <template #footer>
+        <t-avatar-group cascading="left-up" :max="2">
+          <t-avatar :image="image" />
+          <t-avatar>Q</t-avatar>
+          <t-avatar>C</t-avatar>
+          <t-avatar>G</t-avatar>
+          <t-avatar :icon="icon" />
+        </t-avatar-group>
+      </template>
+      <template #actions>
+        <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
+          <t-button variant="text" shape="square">
+            <more-icon size="24" />
+          </t-button>
+        </t-dropdown>
+      </template>
+    </t-card>
   </div>
 </template>
 <script setup lang="jsx">

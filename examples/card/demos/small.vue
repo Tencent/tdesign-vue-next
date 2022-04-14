@@ -1,13 +1,14 @@
 <template>
-  <div class="tdesign-demo-block">
-    <t-row :align="'middle'" justify="start" :gutter="16">
-      <t-col :span="6">
-        <t-card :title="title" :actions="actions" size="small" hover-shadow @actions="clickHandler">
-          {{ infoMessage }}
-        </t-card>
-      </t-col>
-    </t-row>
-  </div>
+  <t-card
+    :title="title"
+    :actions="actions"
+    size="small"
+    hover-shadow
+    :style="{ width: '400px' }"
+    @actions="clickHandler"
+  >
+    {{ infoMessage }}
+  </t-card>
 </template>
 <script setup lang="jsx">
 import { MessagePlugin } from 'tdesign-vue-next';

@@ -1,15 +1,11 @@
 <template>
   <div class="tdesign-demo-block demo-card">
-    <t-row :align="'middle'" justify="start" :gutter="16">
-      <t-col :span="8">
-        <t-card :title="title" :bordered="false" hover-shadow>
-          {{ infoMessage }}
-          <template #actions>
-            <a href="javascript:void(0)" @click="clickHandler">操作</a>
-          </template>
-        </t-card>
-      </t-col>
-    </t-row>
+    <t-card :title="title" :bordered="false" hover-shadow :style="{ width: '400px' }">
+      {{ infoMessage }}
+      <template #actions>
+        <a href="javascript:void(0)" @click="clickHandler">操作</a>
+      </template>
+    </t-card>
   </div>
 </template>
 <script setup lang="jsx">

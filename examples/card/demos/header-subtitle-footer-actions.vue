@@ -1,46 +1,40 @@
 <template>
-  <div class="tdesign-demo-block">
-    <t-row :align="'middle'" :gutter="16">
-      <t-col :span="6">
-        <t-card :title="title" :subtitle="subtitle" :cover="cover">
-          <template #actions>
-            <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
-              <div class="tdesign-demo-dropdown-trigger">
-                <t-button variant="text">
-                  <more-icon size="24" />
-                </t-button>
-              </div>
-            </t-dropdown>
-          </template>
-          <template #footer>
-            <t-row :align="'middle'" justify="center">
-              <t-col flex="auto">
-                <t-button block variant="text">
-                  <thumb-up-icon size="24" />
-                </t-button>
-              </t-col>
-              <t-col flex="none">
-                <t-divider theme="vertical" />
-              </t-col>
-              <t-col flex="auto">
-                <t-button block variant="text">
-                  <chat-icon size="24" />
-                </t-button>
-              </t-col>
-              <t-col flex="none">
-                <t-divider theme="vertical" />
-              </t-col>
-              <t-col flex="auto">
-                <t-button block variant="text">
-                  <share-icon size="24" />
-                </t-button>
-              </t-col>
-            </t-row>
-          </template>
-        </t-card>
-      </t-col>
-    </t-row>
-  </div>
+  <t-card :title="title" :subtitle="subtitle" :cover="cover" :style="{ width: '400px' }">
+    <template #actions>
+      <t-dropdown :options="options" :min-column-width="112" @click="clickHandler">
+        <div class="tdesign-demo-dropdown-trigger">
+          <t-button variant="text" shape="square">
+            <more-icon size="24" />
+          </t-button>
+        </div>
+      </t-dropdown>
+    </template>
+    <template #footer>
+      <t-row :align="'middle'" justify="center">
+        <t-col flex="auto">
+          <t-button block variant="text">
+            <thumb-up-icon size="24" />
+          </t-button>
+        </t-col>
+        <t-col flex="none">
+          <t-divider layout="vertical" />
+        </t-col>
+        <t-col flex="auto">
+          <t-button block variant="text">
+            <chat-icon size="24" />
+          </t-button>
+        </t-col>
+        <t-col flex="none">
+          <t-divider layout="vertical" />
+        </t-col>
+        <t-col flex="auto">
+          <t-button block variant="text">
+            <share-icon size="24" />
+          </t-button>
+        </t-col>
+      </t-row>
+    </template>
+  </t-card>
 </template>
 <script setup lang="jsx">
 import { ThumbUpIcon, ChatIcon, ShareIcon, MoreIcon, UserIcon } from 'tdesign-icons-vue-next';
