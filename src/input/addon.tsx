@@ -18,17 +18,13 @@ export default defineComponent({
       },
     },
   },
-  setup() {
+  setup(props, { slots }) {
     const COMPONENT_NAME = usePrefixClass('addon');
-    return {
-      COMPONENT_NAME,
-    };
-  },
-  methods: {
-    renderAddon(h: any, type: string, addon: string | Function | undefined): VNodeChild {
+
+    const renderAddon = (h: any, type: string, addon: string | Function | undefined): VNodeChild => {
       let addonNode: VNodeChild;
-      if (this.$slots[type]) {
-        addonNode = this.$slots[type](null);
+      if (slots[type]) {
+        addonNode = slots[type](null);
       } else if (typeof addon === 'string') {
         addonNode = addon;
       } else if (typeof addon === 'function') {
@@ -36,8 +32,12 @@ export default defineComponent({
       } else {
         addonNode = null;
       }
-      return addonNode ? <span class={`${this.COMPONENT_NAME}__${type}`}>{addonNode}</span> : addonNode;
-    },
+      return addonNode ? <span class={`${COMPONENT_NAME.value}__${type}`}>{addonNode}</span> : addonNode;
+    };
+    return {
+      COMPONENT_NAME,
+      renderAddon,
+    };
   },
   render() {
     const { COMPONENT_NAME } = this;
