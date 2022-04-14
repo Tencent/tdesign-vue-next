@@ -63,7 +63,7 @@ export default defineComponent({
           doms.push(<span key={index}>{texts[index]}</span>);
           if (index === texts.length - 1) break;
           doms.push(
-            <span key={`${index}filter`} class={`${COMPONENT_NAME.value}__label--filter`}>
+            <span key={`${index}filter`} class={`${COMPONENT_NAME.value}-label--filter`}>
               {inputVal}
             </span>,
           );

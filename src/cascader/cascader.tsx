@@ -25,6 +25,7 @@ export default defineComponent({
   props: { ...props },
 
   setup(props, { slots }) {
+    const COMPONENT_NAME = usePrefixClass('cascader');
     const classPrefix = usePrefixClass();
     const { STATUS } = useCommonClassName();
     const overlayClassName = usePrefixClass('cascader__popup');
@@ -54,6 +55,7 @@ export default defineComponent({
       const { setVisible, visible, inputVal, setInputVal, setFilterActive } = cascaderContext.value;
       return (
         <SelectInput
+          class={COMPONENT_NAME.value}
           value={selectVal.value}
           inputVal={inputVal}
           popupVisible={visible}
