@@ -1,98 +1,89 @@
-import { defineComponent, h } from 'vue';
+import { computed, defineComponent, getCurrentInstance, h, inject, onBeforeUnmount, onMounted, Ref, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { CheckIcon, CloseIcon } from 'tdesign-icons-vue-next';
+import { StepsInjectionKey } from './constants';
 import props from './step-item-props';
-import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import { ClassName, SlotReturnValue } from '../common';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX, useContent } from '../hooks';
+
+export type StepItemExposed = {
+  index: Ref<number>;
+};
 
 export default defineComponent({
   name: 'TStepItem',
-  components: {
-    CheckIcon,
-    CloseIcon,
-  },
-  inject: {
-    steps: { default: undefined },
-  },
-  props: {
-    ...props,
-  },
-  setup() {
-    const COMPONENT_NAME = usePrefixClass('steps-item');
+  props: { ...props },
+
+  setup(props, { expose }) {
+    const steps = inject(StepsInjectionKey, undefined);
+
     const { global } = useConfig('steps');
-    return {
-      global,
-      COMPONENT_NAME,
+    const canClick = computed<boolean>(() => {
+      return props.status !== 'process' && !steps?.readonly;
+    });
+
+    // when props.value is undefined
+    const index = ref<number>(-1);
+    const onStepClick = (e: MouseEvent) => {
+      const val = props.value === undefined ? index.value : props.value;
+      steps.setCurrent(val, steps.current, { e });
     };
-  },
-  data() {
-    return {
-      index: -1,
-    };
-  },
-  computed: {
-    current(): string | number {
-      return this.steps && this.steps.current;
-    },
-    baseClass(): ClassName {
-      return [this.COMPONENT_NAME, { [`${this.COMPONENT_NAME}--${this.status}`]: this.status }];
-    },
-    iconClass(): ClassName {
-      return [`${this.COMPONENT_NAME}__icon`, { [`${this.COMPONENT_NAME}--${this.status}`]: this.status }];
-    },
-    canClick(): boolean {
-      return this.status !== 'process' && !this.steps?.readonly;
-    },
-  },
-  mounted() {
-    this.steps.addItem(this);
-  },
-  unmounted() {
-    this.steps.removeItem(this);
-  },
-  methods: {
-    renderIcon() {
+
+    expose({ index });
+
+    const { exposed } = getCurrentInstance();
+    onMounted(() => {
+      steps.addItem(exposed as StepItemExposed);
+    });
+    onBeforeUnmount(() => {
+      steps.removeItem(exposed as StepItemExposed);
+    });
+
+    // class
+    const COMPONENT_NAME = usePrefixClass('steps-item');
+    const statusClass: ClassName = computed(() => ({ [`${COMPONENT_NAME.value}--${props.status}`]: props.status }));
+    const baseClass: ClassName = computed(() => [COMPONENT_NAME.value, statusClass.value]);
+    const iconClass: ClassName = computed(() => [`${COMPONENT_NAME.value}__icon`, statusClass.value]);
+
+    // render
+    const renderTNodeJSX = useTNodeJSX();
+    const renderContent = useContent();
+    const renderIcon = () => {
       let defaultIcon;
-      if (this.steps.theme === 'default') {
+      if (steps.theme === 'default') {
         let icon: SlotReturnValue = '';
-        switch (this.status) {
+        switch (props.status) {
           case 'finish':
-            icon = <check-icon />;
+            icon = <CheckIcon />;
             break;
           case 'error':
-            if (isFunction(this.global.errorIcon)) {
-              icon = this.global.errorIcon(h);
+            if (isFunction(global.value.errorIcon)) {
+              icon = global.value.errorIcon(h);
             } else {
-              icon = <close-icon />;
+              icon = <CloseIcon />;
             }
             break;
           default:
-            icon = String(this.index + 1);
+            icon = String(index.value + 1);
             break;
         }
-        defaultIcon = <span class={`${this.COMPONENT_NAME}__icon--number`}>{icon}</span>;
+        defaultIcon = <span class={`${COMPONENT_NAME.value}__icon--number`}>{icon}</span>;
       }
-      return renderTNodeJSX(this, 'icon', defaultIcon);
-    },
-    onStepClick(e: MouseEvent) {
-      const val = this.value === undefined ? this.index : this.value;
-      this.steps.handleChange(val, this.current, e);
-    },
-  },
-  render() {
-    const content = renderContent(this, 'default', 'content');
-    return (
-      <div class={this.baseClass}>
+      return renderTNodeJSX('icon', defaultIcon);
+    };
+
+    return () => (
+      <div class={baseClass.value}>
         <div
-          class={`${this.COMPONENT_NAME}__inner ${this.canClick ? `${this.COMPONENT_NAME}--clickable` : ''}`}
-          onClick={this.onStepClick}
+          class={`${COMPONENT_NAME.value}__inner ${canClick.value ? `${COMPONENT_NAME.value}--clickable` : ''}`}
+          onClick={onStepClick}
         >
-          <div class={this.iconClass}>{this.renderIcon()}</div>
-          <div class={`${this.COMPONENT_NAME}__content`}>
-            <div class={`${this.COMPONENT_NAME}__title`}>{renderTNodeJSX(this, 'title')}</div>
-            <div class={`${this.COMPONENT_NAME}__description`}>{content}</div>
-            <div class={`${this.COMPONENT_NAME}__extra`}>{renderTNodeJSX(this, 'extra')}</div>
+          <div class={iconClass.value}>{renderIcon()}</div>
+          <div class={`${COMPONENT_NAME.value}__content`}>
+            <div class={`${COMPONENT_NAME.value}__title`}>{renderTNodeJSX('title')}</div>
+            <div class={`${COMPONENT_NAME.value}__description`}>{renderContent('default', 'content')}</div>
+            <div class={`${COMPONENT_NAME.value}__extra`}>{renderTNodeJSX('extra')}</div>
           </div>
         </div>
       </div>
