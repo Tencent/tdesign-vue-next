@@ -1,8 +1,8 @@
-import { defineComponent, PropType, computed, ref } from 'vue';
+import { defineComponent, PropType, computed, ref, onMounted, onUpdated } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import { getFullPathLabel } from '../utils/helper';
-import { getCascaderItemClass, getCascaderItemIconClass, getLabelIsEllipsis } from '../utils/item';
+import { getCascaderItemClass, getCascaderItemIconClass } from '../utils/item';
 
 import Checkbox from '../../checkbox/index';
 import Tooltip from '../../tooltip/index';
@@ -11,6 +11,7 @@ import TLoading from '../../loading';
 import { CascaderContextType, TreeNodeValue, TreeNode } from '../interface';
 import { usePrefixClass, useCommonClassName } from '../../hooks/useConfig';
 import useRipple from '../../hooks/useRipple';
+import { isNodeOverflow } from '../../utils/dom';
 
 const props = {
   node: {
@@ -32,7 +33,13 @@ export default defineComponent({
   props,
   setup(props) {
     const liRef = ref<HTMLElement>();
+    const liRef2 = ref<HTMLElement>();
+    const isOverflow = ref(false);
     useRipple(liRef);
+
+    onMounted(() => {
+      isOverflow.value = isNodeOverflow(liRef.value);
+    });
 
     const COMPONENT_NAME = usePrefixClass('cascader__item');
     const classPrefix = usePrefixClass();
@@ -50,7 +57,7 @@ export default defineComponent({
       const { filterActive, inputVal } = cascaderContext;
       const labelText = filterActive ? getFullPathLabel(node) : node.label;
       if (filterActive) {
-        const texts = labelText.split(inputVal);
+        const texts = labelText.split(inputVal as string);
         const doms = [];
         for (let index = 0; index < texts.length; index++) {
           doms.push(<span key={index}>{texts[index]}</span>);
@@ -68,22 +75,25 @@ export default defineComponent({
 
     function RenderLabelContent(node: TreeNode, cascaderContext: CascaderContextType) {
       const label = RenderLabelInner(node, cascaderContext);
-      const isEllipsis = getLabelIsEllipsis(node, cascaderContext.size);
-      if (isEllipsis) {
-        return (
-          <span class={`${COMPONENT_NAME.value}-label`} role="label">
-            {label}
-            <div class={`${COMPONENT_NAME.value}-label--ellipsis`}>
-              <Tooltip content={node.label} placement="top-left" />
-            </div>
-          </span>
-        );
-      }
-      return (
-        <span class={[`${COMPONENT_NAME.value}-label`]} role="label">
+
+      const labelCont = (
+        <span
+          ref={liRef2}
+          class={[`${COMPONENT_NAME.value}-label`, { [`${COMPONENT_NAME.value}-label--ellipsis`]: isOverflow.value }]}
+          role="label"
+        >
           {label}
         </span>
       );
+
+      if (isOverflow.value) {
+        return (
+          <Tooltip content={node.label} placement="top-left">
+            {labelCont}
+          </Tooltip>
+        );
+      }
+      return labelCont;
     }
 
     function RenderCheckBox(node: TreeNode, cascaderContext: CascaderContextType) {

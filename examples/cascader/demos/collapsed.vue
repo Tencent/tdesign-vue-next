@@ -24,7 +24,7 @@
               {{ item.label }}
             </p>
           </template>
-          <span v-show="count > 0" style="color: #00a870">+{{ count }}</span>
+          <span v-show="count > 0" style="color: #00a870">+{{ count - 1 }}</span>
         </t-popup>
       </template>
     </t-cascader>
@@ -90,7 +90,7 @@ const collapsedItems = (h, { value, count }) => {
       }}
     >
       <span v-show={count > 0} style="color: #ED7B2F;">
-        +{count}
+        +{count - 1}
       </span>
     </t-popup>
   );

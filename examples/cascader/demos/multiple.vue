@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-cascader-new v-model="value" class="t-demo-cascader" :options="options" multiple clearable />
+    <t-cascader v-model="value" class="t-demo-cascader" :options="options" multiple clearable />
   </div>
 </template>
 
@@ -44,11 +44,3 @@ const options = [
 
 const value = ref(['1.1']);
 </script>
-<style scoped>
-.t-demo-cascader-title {
-  margin: 10px 0;
-}
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

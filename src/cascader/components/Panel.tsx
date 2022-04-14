@@ -1,4 +1,4 @@
-import { defineComponent, PropType, computed } from 'vue';
+import { defineComponent, PropType, ref, computed, watch, nextTick } from 'vue';
 
 import { getPanels, expendClickEffect, valueChangeEffect } from '../utils/panel';
 
@@ -15,6 +15,10 @@ export default defineComponent({
     empty: CascaderProps.empty,
     trigger: CascaderProps.trigger,
     onChange: CascaderProps.onChange,
+    visible: {
+      type: Boolean,
+      default: true,
+    },
     cascaderContext: {
       type: Object as PropType<CascaderContextType>,
     },
@@ -24,33 +28,41 @@ export default defineComponent({
     const renderTNodeJSXDefault = useTNodeDefault();
     const COMPONENT_NAME = usePrefixClass('cascader');
     const { global, t } = useConfig('cascader');
+    const itemShow = ref(props.visible);
 
-    const panels = computed(() => {
-      return getPanels(props.cascaderContext.treeNodes);
-    });
+    const panels = computed(() => getPanels(props.cascaderContext.treeNodes));
 
     const handleExpand = (node: TreeNode, trigger: 'hover' | 'click') => {
       const { trigger: propsTrigger, cascaderContext } = props;
-
       expendClickEffect(propsTrigger, trigger, node, cascaderContext);
     };
 
-    const renderItem = (node: TreeNode) => (
-      <Item
-        key={node.value}
-        node={node}
-        cascaderContext={props.cascaderContext}
-        onClick={(node: TreeNode) => {
-          handleExpand(node, 'click');
-        }}
-        onMouseenter={(node: TreeNode) => {
-          handleExpand(node, 'hover');
-        }}
-        onChange={(node) => {
-          valueChangeEffect(node, props.cascaderContext);
-        }}
-      />
+    watch(
+      () => props.visible,
+      () => {
+        nextTick(() => {
+          itemShow.value = props.visible;
+        });
+      },
     );
+
+    const renderItem = (node: TreeNode) =>
+      itemShow.value && (
+        <Item
+          key={node.value}
+          node={node}
+          cascaderContext={props.cascaderContext}
+          onClick={(node: TreeNode) => {
+            handleExpand(node, 'click');
+          }}
+          onMouseenter={(node: TreeNode) => {
+            handleExpand(node, 'hover');
+          }}
+          onChange={(node) => {
+            valueChangeEffect(node, props.cascaderContext);
+          }}
+        />
+      );
 
     const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, key = '1') => (
       <ul
@@ -78,13 +90,8 @@ export default defineComponent({
     };
 
     return () => (
-      <div
-        class={[`${COMPONENT_NAME.value}__panel`, { [`${COMPONENT_NAME.value}--normal`]: panels.value.length }]}
-        style={{
-          width: panels.value.length === 0 ? `${props.cascaderContext.inputWidth}px` : null,
-        }}
-      >
-        {panels.value && panels.value.length
+      <div class={[`${COMPONENT_NAME.value}__panel`, { [`${COMPONENT_NAME.value}--normal`]: panels.value.length }]}>
+        {panels.value.length
           ? renderPanels()
           : renderTNodeJSXDefault(
               'empty',

@@ -1,6 +1,13 @@
 <template>
   <div>
-    <t-cascader v-model="value" :options="options" clearable size="medium" placeholder="请选择" @change="onChange" />
+    <t-cascader-panel
+      v-model="value"
+      :options="options"
+      clearable
+      size="medium"
+      placeholder="请选择"
+      @change="onChange"
+    />
   </div>
 </template>
 
@@ -9,7 +16,7 @@ import { ref } from 'vue';
 
 const options = [
   {
-    label: '选项一',
+    label: '选项一1231231231212313123132312',
     value: '1',
     children: [
       {
