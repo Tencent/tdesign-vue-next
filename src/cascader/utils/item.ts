@@ -1,20 +1,5 @@
 import { CascaderContextType, TreeNode, TreeNodeValue } from '../interface';
 
-/**
- * 是否显示省略计算方法
- * @param node
- * @param size
- * @returns
- */
-export function getLabelIsEllipsis(node: TreeNode, size: CascaderContextType['size']) {
-  const sizeMap = {
-    small: 11,
-    medium: 9,
-    large: 8,
-  };
-  return sizeMap[size] < node.label.length;
-}
-
 export function getNodeStatusClass(
   node: TreeNode,
   STATUS: Record<string, string>,

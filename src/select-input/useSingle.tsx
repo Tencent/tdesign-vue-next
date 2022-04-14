@@ -87,6 +87,10 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         onBlur={(val: InputValue, context: { e: MouseEvent }) => {
           props.onBlur?.(value.value, { ...context, inputValue: val });
         }}
+        onMouseenter={() => {
+          if (inputValue.value) return;
+          inputValue.value = getInputValue(value.value, keys.value);
+        }}
         onEnter={(val: InputValue, context: { e: KeyboardEvent }) => {
           props.onEnter?.(value.value, { ...context, inputValue: val });
         }}

@@ -21,10 +21,9 @@ import {
 // 全局状态
 export const useContext = (props: TdCascaderProps, setInnerValue: TdCascaderProps['onChange']) => {
   const statusContext = reactive({
-    inputWidth: 0,
     visible: false,
     treeStore: null,
-    inputVal: '',
+    inputVal: null,
     scopeVal: undefined,
     treeNodes: [],
     filterActive: false,
@@ -84,9 +83,6 @@ export const useContext = (props: TdCascaderProps, setInnerValue: TdCascaderProp
         setExpend: (val: TreeNodeValue[]) => {
           statusContext.expend = val;
         },
-        setInputWidth: (val: number) => {
-          statusContext.inputWidth = val;
-        },
       };
     }),
   };
@@ -119,7 +115,6 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   // 创建单个 cascader 节点
   watchEffect(() => {
     const { keys, checkStrictly, lazy, load, options, valueMode = 'onlyLeaf' } = props;
-    if (!options || (Array.isArray(options) && !options.length)) return;
 
     const treeStore = new TreeStore({
       keys: keys || {},

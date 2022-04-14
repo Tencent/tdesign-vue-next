@@ -81,7 +81,3 @@ export function valueValidate(value: CascaderValue, cascaderContext: CascaderCon
   const { multiple, showAllLevels } = cascaderContext;
   return (multiple && !Array.isArray(value)) || (!multiple && Array.isArray(value) && !showAllLevels);
 }
-
-export default {
-  getFullPathLabel,
-};

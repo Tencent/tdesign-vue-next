@@ -59,7 +59,7 @@ export function expendClickEffect(
     const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
     setTreeNodes(nodes);
 
-    // 多选条件下手动维护expend
+    // 多选条件下手动维护expend
     if (multiple) {
       setExpend(expanded);
     }
