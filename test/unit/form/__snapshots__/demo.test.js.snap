@@ -5506,7 +5506,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
               </span>
             </label>
             
-            <!---->
           </div>
           
           <!---->
@@ -5669,6 +5668,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
               </span>
             </label>
             
+            <!---->
           </div>
           
           <!---->
@@ -6070,7 +6070,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                       </span>
                     </label>
                     
-                    <!---->
                   </div>
                   
                   <!---->
@@ -6263,6 +6262,7 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                       </span>
                     </label>
                     
+                    <!---->
                   </div>
                   
                   <!---->
