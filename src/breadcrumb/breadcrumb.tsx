@@ -1,35 +1,34 @@
-import { defineComponent, provide, getCurrentInstance } from 'vue';
+import { defineComponent, reactive, provide } from 'vue';
 import props from './props';
 import BreadcrumbItem from './breadcrumb-item';
 import { TdBreadcrumbItemProps } from './type';
 import { TNodeReturnValue } from '../common';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TBreadcrumb',
-  components: {
-    BreadcrumbItem,
-  },
   props,
-  setup(props, { slots, attrs }) {
-    provide('tBreadcrumb', { ...props, slots });
-    const renderContent = () => {
-      let content: TNodeReturnValue = slots.default ? slots.default() : '';
+  setup(props, { slots }) {
+    provide(
+      'tBreadcrumb',
+      reactive({
+        separator: props.separator,
+        theme: props.theme,
+        slots: { separator: slots.separator },
+        maxItemWidth: props.maxItemWidth,
+      }),
+    );
+    const renderTNodeJSX = useTNodeJSX();
+    return () => {
+      let content: TNodeReturnValue = renderTNodeJSX('default');
       if (props.options && props.options.length) {
         content = props.options.map((option: TdBreadcrumbItemProps, index: number) => (
-          <BreadcrumbItem {...attrs} {...option} key={index}>
+          <BreadcrumbItem {...option} key={index}>
             {option.default || option.content}
           </BreadcrumbItem>
         ));
       }
-      return content;
+      return <div class="t-breadcrumb">{content}</div>;
     };
-    return {
-      renderContent,
-    };
-  },
-
-  render() {
-    const { renderContent } = this;
-    return <div class="t-breadcrumb">{renderContent()}</div>;
   },
 });
