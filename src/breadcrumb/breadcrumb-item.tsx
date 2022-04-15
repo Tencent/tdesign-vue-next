@@ -1,14 +1,11 @@
-import { defineComponent, VNode, inject, ref, computed, watchEffect, onMounted, onBeforeUpdate, Fragment } from 'vue';
+import { defineComponent, VNode, inject, ref, computed, watchEffect, onMounted, onBeforeUpdate } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
-import { useEmitEvent } from '../hooks/event';
-import { getPropsApiByEvent } from '../utils/helper';
 import { usePrefixClass } from '../hooks/useConfig';
 
-export const EVENT_NAME_WITH_KEBAB = ['click'];
 interface LocalTBreadcrumb {
   separator: (() => void) | string;
   theme: string;
@@ -17,6 +14,7 @@ interface LocalTBreadcrumb {
   };
   maxItemWidth: string;
 }
+
 const localTBreadcrumbOrigin: LocalTBreadcrumb = {
   separator: '',
   theme: 'light',
@@ -26,16 +24,11 @@ const localTBreadcrumbOrigin: LocalTBreadcrumb = {
 
 export default defineComponent({
   name: 'TBreadcrumbItem',
-  components: {
-    Tooltip,
-  },
   props,
-  emits: ['click'],
   setup(props, { slots, attrs }) {
     const breadcrumbText = ref<HTMLElement | null>(null);
-    const tBreadcrumb = inject('tBreadcrumb');
-    const localTBreadcrumb = ref(localTBreadcrumbOrigin);
-    const themeClassName = ref(localTBreadcrumb?.value?.theme);
+    const localTBreadcrumb = inject('tBreadcrumb', localTBreadcrumbOrigin);
+    const themeClassName = ref(localTBreadcrumb?.theme);
     const curRouter = ref(null);
     const isCutOff = ref(false);
     const COMPONENT_NAME = usePrefixClass('breadcrumb__item');
@@ -44,15 +37,10 @@ export default defineComponent({
     const linkClass = usePrefixClass('link');
     const maxLengthClass = usePrefixClass('breadcrumb__inner');
     const textFlowClass = usePrefixClass('breadcrumb--text-overflow');
-    const emitEvent = useEmitEvent();
     const maxWithStyle = computed(() => {
-      const maxItemWidth = localTBreadcrumb?.value?.maxItemWidth;
+      const maxItemWidth = localTBreadcrumb?.maxItemWidth;
       const maxWith: string = props.maxWidth || maxItemWidth || '120';
       return { maxWidth: `${maxWith}px` };
-    });
-
-    watchEffect(() => {
-      localTBreadcrumb.value = tBreadcrumb as any;
     });
 
     onMounted(() => {
@@ -62,8 +50,8 @@ export default defineComponent({
       isCutOff.value = true;
     });
 
-    const separatorPropContent = localTBreadcrumb.value?.separator;
-    const separatorSlot = localTBreadcrumb.value?.slots?.separator;
+    const separatorPropContent = localTBreadcrumb?.separator;
+    const separatorSlot = localTBreadcrumb?.slots?.separator;
     const separatorContent = separatorPropContent || separatorSlot || (
       <ChevronRightIcon {...{ color: 'rgba(0,0,0,.3)' }} />
     );
@@ -77,22 +65,21 @@ export default defineComponent({
       }
     };
 
-    const renderContent = () => {
+    return () => {
       const itemClass = [COMPONENT_NAME.value, themeClassName.value];
       const textClass = [textFlowClass.value];
 
       if (props.disabled) {
         textClass.push(disableClass.value);
       }
-      const listeners: Record<string, any> = {};
-      EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
-        listeners[getPropsApiByEvent(eventName)] = (...args: any[]) => {
-          emitEvent(eventName, ...args);
-        };
-      });
 
+      const listeners = {
+        onClick: (e: MouseEvent) => {
+          props.onClick?.({ e });
+        },
+      };
       const textContent = (
-        <span ref="breadcrumbText" {...{ class: maxLengthClass.value, style: maxWithStyle.value }}>
+        <span ref={breadcrumbText} {...{ class: maxLengthClass.value, style: maxWithStyle.value }}>
           {slots.default()}
         </span>
       );
@@ -115,16 +102,5 @@ export default defineComponent({
         </div>
       );
     };
-
-    return {
-      breadcrumbText,
-      renderContent,
-    };
-  },
-
-  render() {
-    const { renderContent } = this;
-
-    return <Fragment>{renderContent()}</Fragment>;
   },
 });

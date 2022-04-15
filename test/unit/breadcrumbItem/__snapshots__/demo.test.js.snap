@@ -5,7 +5,6 @@ exports[`BreadcrumbItem BreadcrumbItem baseVue demo works fine 1`] = `
   class="t-breadcrumb"
 >
   
-  
   <div
     class="t-breadcrumb__item light"
   >
@@ -42,8 +41,6 @@ exports[`BreadcrumbItem BreadcrumbItem baseVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
-  
-  
   <div
     class="t-breadcrumb__item light"
   >
@@ -78,7 +75,6 @@ exports[`BreadcrumbItem BreadcrumbItem baseVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
-  
   
 </div>
 `;
@@ -88,7 +84,6 @@ exports[`BreadcrumbItem BreadcrumbItem overlayVue demo works fine 1`] = `
   class="t-breadcrumb"
 >
   
-  
   <div
     class="t-breadcrumb__item light"
   >
@@ -125,8 +120,6 @@ exports[`BreadcrumbItem BreadcrumbItem overlayVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
-  
-  
   <div
     class="t-breadcrumb__item light"
   >
@@ -161,7 +154,6 @@ exports[`BreadcrumbItem BreadcrumbItem overlayVue demo works fine 1`] = `
       </svg>
     </span>
   </div>
-  
   
 </div>
 `;
