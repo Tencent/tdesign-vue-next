@@ -14,6 +14,7 @@ export default function usePaginationClasses(
     const c: number = Math.ceil(props.total / innerPageSize.value);
     return c > 0 ? c : 1;
   });
+  const { SIZE, STATUS } = useCommonClassName();
 
   const paginationClass = computed(() => [
     `${name.value}`,
