@@ -26,7 +26,7 @@ export default {
   /** 当前折叠面板展开图标，优先级大于 Collapse 的同名属性 */
   expandIcon: {
     type: [Boolean, Function] as PropType<TdCollapsePanelProps['expandIcon']>,
-    default: true,
+    default: undefined,
   },
   /** 面板头内容 */
   header: {
