@@ -3,7 +3,7 @@ import props from './avatar-group-props';
 import { SlotReturnValue, TNodeReturnValue } from '../common';
 import Avatar from './avatar';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass, useConfig } from '../config-provider';
+import { usePrefixClass, useConfig } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TAvatarGroup',

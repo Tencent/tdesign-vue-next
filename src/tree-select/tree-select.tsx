@@ -17,7 +17,7 @@ import { TreeOptionData } from '../common';
 import props from './props';
 
 // hooks
-import { usePrefixClass, useConfig } from '../config-provider';
+import { usePrefixClass, useConfig } from '../hooks/useConfig';
 import { useFormDisabled } from '../form/hooks';
 import { useTNodeJSX } from '../hooks/tnode';
 import useVModel from '../hooks/useVModel';

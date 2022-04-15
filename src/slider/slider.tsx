@@ -1,22 +1,29 @@
-import { defineComponent, VNode } from 'vue';
-import cloneDeep from 'lodash/cloneDeep';
-import { emitEvent } from '../utils/event';
-import { ClassName, TNode } from '../common';
+import {
+  defineComponent,
+  VNode,
+  ref,
+  reactive,
+  provide,
+  computed,
+  onBeforeUnmount,
+  onMounted,
+  watch,
+  toRefs,
+} from 'vue';
 import props from './props';
 import InputNumber from '../input-number/index';
 import TSliderMark from './slider-mark';
 import TSliderButton from './slider-button';
-import { SliderValue, TdSliderProps } from './type';
-import log from '../_common/js/log/log';
+import { SliderValue } from './type';
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { useSliderMark } from './hooks/useSliderMark';
+import { useSliderInput } from './hooks/useSliderInput';
+import { getStopStyle } from './util/common';
+import { sliderPropsInjectKey } from './util/contanst';
+import useVModel from '../hooks/useVModel';
 
-interface MarkItem {
-  point: number;
-  position: number;
-  mark: string | number | TNode<{ value: number }>;
-}
 interface SliderButtonType {
   setPosition: (param: number) => {};
 }
@@ -32,250 +39,129 @@ export default defineComponent({
     event: 'change',
   },
   props: { ...props },
-  setup() {
+  setup(props, ctx) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('slider');
     const { STATUS } = useCommonClassName();
-    return {
-      STATUS,
-      COMPONENT_NAME,
-      disabled,
-    };
-  },
-  data() {
-    return {
-      firstValue: 0,
-      secondValue: 0,
+    const { value, modelValue } = toRefs(props) as any;
+    const [sliderValue, setSliderValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
+
+    const sliderContainerRef = ref<HTMLDivElement>();
+    const sliderRef = ref<HTMLDivElement>();
+    const firstButtonRef = ref<SliderButtonType>();
+    const secondButtonRef = ref<SliderButtonType>();
+
+    const sliderState = reactive({
       prevValue: 0 as SliderValue,
-      dragging: false,
-      sliderSize: 1,
-      inputDecimalPlaces: 0,
-      inputFormat: null,
-      inputPlaceholder: '',
-      inputTheme: 'column',
       showSteps: false,
-    };
-  },
-  computed: {
-    containerClass(): ClassName {
-      return [`${this.COMPONENT_NAME}__container`, { 'is-vertical': this.vertical }];
-    },
-    sliderClass(): ClassName {
+    });
+    const firstValue = ref(0);
+    const secondValue = ref(0);
+    const dragging = ref(false);
+    const sliderSize = ref(1);
+
+    const vertical = computed(() => {
+      return props.layout === 'vertical';
+    });
+
+    /** ----------------- 样式计算 start ------------- */
+    const containerClass = computed(() => [`${COMPONENT_NAME.value}__container`, { 'is-vertical': vertical.value }]);
+    const sliderClass = computed(() => {
       return [
-        `${this.COMPONENT_NAME}`,
+        `${COMPONENT_NAME.value}`,
         {
-          'is-vertical': this.vertical,
-          [`${this.COMPONENT_NAME}--with-input`]: this.inputNumberProps,
-          [`${this.COMPONENT_NAME}--vertical`]: this.vertical,
-          [this.STATUS.disabled]: this.disabled,
+          'is-vertical': vertical.value,
+          [`${COMPONENT_NAME.value}--with-input`]: props.inputNumberProps,
+          [`${COMPONENT_NAME.value}--vertical`]: vertical.value,
+          [STATUS.value.disabled]: disabled.value,
         },
       ];
-    },
-    sliderRailClass(): ClassName {
-      return [`${this.COMPONENT_NAME}__rail`, { 'show-input': this.inputNumberProps, disabled: this.disabled }];
-    },
-    sliderNumberClass(): ClassName {
-      return [
-        `${this.COMPONENT_NAME}__input`,
-        {
-          'is-vertical': this.vertical,
-        },
-      ];
-    },
-    vertical(): boolean {
-      return this.layout === 'vertical';
-    },
+    });
+    const sliderRailClass = computed(() => [
+      `${COMPONENT_NAME.value}__rail`,
+      { 'show-input': props.inputNumberProps, disabled: disabled.value },
+    ]);
+    const runwayStyle = computed(() => {
+      return vertical.value ? { height: '100%' } : {};
+    });
+    const barStyle = computed(() => {
+      const barStart = props.range ? `${(100 * (minValue.value - props.min)) / rangeDiff.value}%` : '0%';
+      const cuttentDiff = props.range ? maxValue.value - minValue.value : firstValue.value - props.min;
+      const barSize = `${(100 * cuttentDiff) / rangeDiff.value}%`;
+      return vertical.value
+        ? {
+            height: barSize,
+            bottom: barStart,
+          }
+        : {
+            width: barSize,
+            left: barStart,
+          };
+    });
+    /** ----------------- 样式计算 end ------------- */
+
     // 差值范围
-    rangeDiff(): number {
-      return this.max - this.min;
-    },
-    steps(): number[] {
-      const { min, max, rangeDiff, step } = this;
-      if (!this.showSteps || min > max) return [];
-      if (this.step === 0) {
+    const rangeDiff = computed(() => {
+      return props.max - props.min;
+    });
+    const minValue = computed(() => {
+      return Math.min(firstValue.value, secondValue.value);
+    });
+    const maxValue = computed(() => {
+      return Math.max(firstValue.value, secondValue.value);
+    });
+    const steps = computed(() => {
+      if (!sliderState.showSteps || props.min > props.max) return [];
+      if (props.step === 0) {
         console.warn('[Element Warn][Slider]step should not be 0.');
         return [];
       }
-      const stepCount = rangeDiff / step;
-      const stepWidth = (100 * step) / rangeDiff;
+      const stepCount = rangeDiff.value / props.step;
+      const stepWidth = (100 * props.step) / rangeDiff.value;
       const result = [];
       for (let i = 1; i < stepCount; i++) {
         result.push(i * stepWidth);
       }
-      if (this.range) {
+      if (props.range) {
         return result.filter(
           (step) =>
-            step < (100 * (this.minValue - min)) / rangeDiff || step > (100 * (this.maxValue - min)) / rangeDiff,
+            step < (100 * (minValue.value - props.min)) / rangeDiff.value ||
+            props.step > (100 * (maxValue.value - props.min)) / rangeDiff.value,
         );
       }
-      return result.filter((step) => step > (100 * (this.firstValue - min)) / rangeDiff);
-    },
-    markList(): Array<MarkItem> {
-      if (!this.marks) {
-        return [];
-      }
-      const legalMarks: Array<MarkItem> = [];
-      if (Array.isArray(this.marks)) {
-        const marks = cloneDeep(this.marks).sort((a, b) => a - b);
-        const max = Math.max(...marks, this.max);
-        const min = Math.min(...marks, this.min);
-        if (min < this.min) {
-          log.errorOnce('TSlider', 'marks min value should >= props min');
-        }
-        if (max > this.max) {
-          log.errorOnce('TSlider', 'marks max value should <= props max');
-        }
-        marks.forEach((item) => {
-          legalMarks.push({
-            point: item,
-            position: ((item - min) / (max - min)) * 100,
-            mark: item,
-          });
-        });
-      } else {
-        Object.keys(this.marks)
-          .map(parseFloat)
-          .sort((a, b) => a - b)
-          .filter((point) => point <= this.max && point >= this.min)
-          .forEach((point) => {
-            const item: MarkItem = {
-              point,
-              position: ((point - this.min) * 100) / this.rangeDiff,
-              mark: this.marks[point],
-            };
-            legalMarks.push(item);
-          });
-      }
-
-      return legalMarks;
-    },
-    minValue(): number {
-      return Math.min(this.firstValue, this.secondValue);
-    },
-    maxValue(): number {
-      return Math.max(this.firstValue, this.secondValue);
-    },
-    barSize(): string {
-      const cuttentDiff = this.range ? this.maxValue - this.minValue : this.firstValue - this.min;
-      return `${(100 * cuttentDiff) / this.rangeDiff}%`;
-    },
-    barStart(): string {
-      return this.range ? `${(100 * (this.minValue - this.min)) / this.rangeDiff}%` : '0%';
-    },
-    precision(): number {
-      const precisions = [this.min, this.max, this.step].map((item) => {
+      return result.filter((step) => step > (100 * (firstValue.value - props.min)) / rangeDiff.value);
+    });
+    const precision = computed(() => {
+      const precisions = [props.min, props.max, props.step].map((item) => {
         const decimalArr = `${item}`.split('.');
         return decimalArr[1] ? decimalArr[1].length : 0;
       });
       return Math.max.apply(null, precisions);
-    },
-    runwayStyle(): object {
-      return this.vertical ? { height: '100%' } : {};
-    },
-    barStyle(): object {
-      return this.vertical
-        ? {
-            height: this.barSize,
-            bottom: this.barStart,
-          }
-        : {
-            width: this.barSize,
-            left: this.barStart,
-          };
-    },
-  },
-  watch: {
-    value(newVal: SliderValue) {
-      if (this.dragging === true) return;
-      if (Array.isArray(newVal) && this.range) {
-        [this.firstValue, this.secondValue] = newVal;
-      } else {
-        this.firstValue = newVal as number;
-      }
-    },
-    firstValue(val: number) {
-      if (this.range) {
-        this.emitChange([this.minValue, this.maxValue]);
-      } else {
-        this.emitChange(val);
-      }
-    },
-    secondValue() {
-      if (this.range) {
-        this.emitChange([this.minValue, this.maxValue]);
-      }
-    },
-    dragging(newVal: boolean) {
-      if (newVal === false) {
-        this.init();
-      }
-    },
-  },
-  mounted() {
-    this.init();
-  },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.resetSize);
-  },
-  methods: {
-    // 初始化传入的value
-    init(): void {
-      let valuetext: string | number;
-
-      const { min, max, value } = this;
-      if (this.range) {
-        if (Array.isArray(value)) {
-          this.firstValue = Math.max(min || 0, value[0]);
-          this.secondValue = Math.min(max || 100, value[1]);
-        } else {
-          this.firstValue = min || 0;
-          this.secondValue = max || 100;
-        }
-        this.prevValue = [this.firstValue, this.secondValue];
-        valuetext = `${this.firstValue}-${this.secondValue}`;
-      } else {
-        if (typeof this.value !== 'number') {
-          this.firstValue = min;
-        } else {
-          this.firstValue = Math.min(max, Math.max(min, value as number));
-        }
-        this.prevValue = this.firstValue;
-        valuetext = String(this.firstValue);
-      }
-      this.$el.setAttribute('aria-valuetext', valuetext);
-      this.resetSize();
-      window.addEventListener('resize', this.resetSize);
-    },
-    valueChanged(): boolean {
-      if (this.range) {
-        return ![this.minValue, this.maxValue].every((item, index) => item === this.prevValue[index]);
-      }
-      return this.value !== this.prevValue;
-    },
+    });
     // 防止值越级
-    setValues(value: SliderValue): SliderValue {
-      const [min, max] = [this.min, this.max];
+    const setValues = (value: SliderValue): SliderValue => {
+      const [min, max] = [props.min, props.max];
       if (min > max) {
         console.warn('[Slider] max should be greater than min.');
         return;
       }
       // 双向滑块
-      if (this.range && Array.isArray(value)) {
-        let [firstValue, secondValue] = [Math.min(...value), Math.max(...value)];
-        if (firstValue > max) {
-          firstValue = this.firstValue;
+      if (props.range && Array.isArray(value)) {
+        let [maxLimit, minLimit] = [Math.min(...value), Math.max(...value)];
+        if (maxLimit > max) {
+          maxLimit = firstValue.value;
         }
-        if (firstValue < min) {
-          firstValue = min;
+        if (maxLimit < min) {
+          maxLimit = min;
         }
-        if (secondValue < min) {
-          secondValue = this.secondValue;
+        if (minLimit < min) {
+          minLimit = secondValue.value;
         }
-        if (secondValue > max) {
-          secondValue = max;
+        if (minLimit > max) {
+          minLimit = max;
         }
-        [this.firstValue, this.secondValue] = [firstValue, secondValue];
-        return [firstValue, secondValue];
+        [firstValue.value, secondValue.value] = [maxLimit, minLimit];
+        return [maxLimit, minLimit];
       }
       let preValue = value;
       if (preValue < min) {
@@ -285,226 +171,251 @@ export default defineComponent({
         preValue = max;
       }
       return preValue;
-    },
-    setInputProps(): void {
-      if (typeof this.inputNumberProps !== 'boolean') {
-        const {
-          decimalPlaces: inputDecimalPlaces,
-          format: inputFormat,
-          placeholder: inputPlaceholder,
-          theme: inputTheme,
-        } = this.inputNumberProps as TdSliderProps['inputNumberProps'];
-        if (typeof inputDecimalPlaces === 'number' && !Number.isNaN(inputDecimalPlaces)) {
-          this.inputDecimalPlaces = inputDecimalPlaces;
-        }
-        if (inputPlaceholder) {
-          this.inputPlaceholder = inputPlaceholder;
-        }
-        if (typeof inputFormat === 'function') {
-          this.inputFormat = inputFormat;
-        }
-        if (['column', 'row', 'normal'].includes(inputTheme)) {
-          this.inputTheme = inputTheme;
+    };
+    // 只要触发修改就要有这个方法抛出change事件
+    const emitChange = (value: SliderValue) => {
+      let changeValue = value;
+      if (changeValue === undefined) {
+        if (props.range) {
+          changeValue = [firstValue.value, secondValue.value];
+        } else {
+          changeValue = sliderState.prevValue;
         }
       }
-    },
+      const fixValue: SliderValue = setValues(changeValue);
+      setSliderValue(fixValue);
+    };
+
+    const resetSize = () => {
+      if (sliderRef.value) {
+        sliderSize.value = sliderRef.value[`client${vertical.value ? 'Height' : 'Width'}`];
+      }
+    };
+
+    // 初始化传入的value
+    const init = () => {
+      let valuetext: string | number;
+      if (props.range) {
+        if (Array.isArray(sliderValue.value)) {
+          firstValue.value = Math.max(props.min || 0, sliderValue.value[0]);
+          secondValue.value = Math.min(props.max || 100, sliderValue.value[1]);
+        } else {
+          firstValue.value = props.min || 0;
+          secondValue.value = props.max || 100;
+        }
+        sliderState.prevValue = [firstValue.value, secondValue.value];
+        valuetext = `${firstValue.value}-${secondValue.value}`;
+      } else {
+        if (typeof sliderValue.value !== 'number') {
+          firstValue.value = props.min;
+        } else {
+          firstValue.value = Math.min(props.max, Math.max(props.min, sliderValue.value as number));
+        }
+        sliderState.prevValue = firstValue.value;
+        valuetext = String(firstValue.value);
+      }
+      if (sliderContainerRef.value) {
+        sliderContainerRef.value.setAttribute('aria-valuetext', valuetext);
+      }
+      resetSize();
+      window.addEventListener('resize', resetSize);
+    };
     // 相应button的位置
-    setPosition(percent: number): void {
-      let targetValue = (percent * this.rangeDiff) / 100;
-      targetValue = this.min + targetValue;
-      if (!this.range) {
-        (this.$refs.button1 as SliderButtonType).setPosition(percent);
+    const setPosition = (percent: number): void => {
+      let targetValue = (percent * rangeDiff.value) / 100;
+      targetValue = props.min + targetValue;
+      if (!props.range && firstButtonRef.value) {
+        firstButtonRef.value.setPosition(percent);
         return;
       }
       let button;
-      if (Math.abs(this.minValue - targetValue) < Math.abs(this.maxValue - targetValue)) {
-        button = this.firstValue < this.secondValue ? 'button1' : 'button2';
+      if (Math.abs(minValue.value - targetValue) < Math.abs(maxValue.value - targetValue)) {
+        button = firstValue.value < secondValue.value ? 'button1' : 'button2';
       } else {
-        button = this.firstValue > this.secondValue ? 'button1' : 'button2';
+        button = firstValue.value > secondValue.value ? 'button1' : 'button2';
       }
-      (this.$refs[button] as SliderButtonType).setPosition(percent);
-    },
+      if (button === 'button1' && firstButtonRef.value) {
+        firstButtonRef.value.setPosition(percent);
+      }
+      if (button === 'button2' && secondButtonRef.value) {
+        secondButtonRef.value.setPosition(percent);
+      }
+    };
+
     // 全局点击
-    onSliderClick(event: MouseEvent): void {
-      if (this.disabled || this.dragging) {
+    const onSliderClick = (event: MouseEvent): void => {
+      if (disabled.value || dragging.value) {
         return;
       }
-      this.resetSize();
+      if (!sliderRef.value) return;
+      resetSize();
       let value = 0;
-      if (this.vertical) {
-        const sliderOffsetBottom = (this.$refs.slider as Element).getBoundingClientRect().bottom;
-        value = ((sliderOffsetBottom - event.clientY) / this.sliderSize) * 100;
-        this.setPosition(value);
+      if (vertical.value) {
+        const sliderOffsetBottom = sliderRef.value.getBoundingClientRect().bottom;
+        value = ((sliderOffsetBottom - event.clientY) / sliderSize.value) * 100;
+        setPosition(value);
       } else {
-        const sliderOffsetLeft = (this.$refs.slider as Element).getBoundingClientRect().left;
-        value = ((event.clientX - sliderOffsetLeft) / this.sliderSize) * 100;
-        this.setPosition(value);
+        const sliderOffsetLeft = sliderRef.value.getBoundingClientRect().left;
+        value = ((event.clientX - sliderOffsetLeft) / sliderSize.value) * 100;
+        setPosition(value);
       }
-    },
-    resetSize(): void {
-      if (this.$refs.slider) {
-        this.sliderSize = this.$refs.slider[`client${this.vertical ? 'Height' : 'Width'}`];
-      }
-    },
-    // 只要触发修改就要有这个方法抛出change事件
-    emitChange(value: SliderValue) {
-      let changeValue = value;
-      if (changeValue === undefined) {
-        if (this.range) {
-          changeValue = [this.firstValue, this.secondValue];
-        } else {
-          changeValue = this.prevValue;
-        }
-      }
-      const fixValue: SliderValue = this.setValues(changeValue);
-      emitEvent<Parameters<TdSliderProps['onChange']>>(this, 'change', fixValue);
-    },
-    getStopStyle(position: number) {
-      return this.vertical ? { top: `calc(${100 - position}% - 1px)` } : { left: `${position}%` };
-    },
+    };
 
     // mark 点击触发修改事件
-    changeValue(point: number) {
-      if (this.disabled || this.dragging) {
+    const changeValue = (point: number) => {
+      if (disabled.value || dragging.value) {
         return;
       }
-      this.resetSize();
-      const value = Number((point / this.rangeDiff) * 100);
-      this.setPosition(value);
-      this.emitChange(point);
-    },
-    renderMask(): VNode {
-      if (this.markList.length) {
-        return (
-          <div>
-            <div>
-              {this.markList.map((item, index) => (
-                <div
-                  class={`${this.COMPONENT_NAME}__stop ${this.COMPONENT_NAME}__mark-stop`}
-                  style={this.getStopStyle(item.position)}
-                  key={index}
-                />
-              ))}
-            </div>
-            <div class={`${this.COMPONENT_NAME}__mark`}>
-              {this.markList.map((item, key) => (
-                <t-slider-mark
-                  mark={item.mark}
-                  point={item.point}
-                  key={key}
-                  style={this.getStopStyle(item.position)}
-                  on-change-value={this.changeValue}
-                />
-              ))}
-            </div>
-          </div>
-        );
+      resetSize();
+      const value = Number((point / rangeDiff.value) * 100);
+      setPosition(value);
+      emitChange(point);
+    };
+
+    /** 副作用监听 */
+    watch(
+      () => sliderValue.value,
+      (newVal) => {
+        if (dragging.value === true) return;
+        if (Array.isArray(newVal) && props.range) {
+          [firstValue.value, secondValue.value] = newVal;
+        } else {
+          firstValue.value = newVal as number;
+        }
+      },
+    );
+
+    watch([firstValue, secondValue, dragging], (newStates, prevStates) => {
+      if (newStates[0] !== prevStates[0]) {
+        if (props.range) {
+          emitChange([minValue.value, maxValue.value]);
+        } else {
+          emitChange(firstValue.value);
+        }
       }
-    },
-    renderInputButton(): VNode {
-      const { max, min, sliderNumberClass, range } = this;
+      if (newStates[1] !== prevStates[1]) {
+        if (props.range) {
+          emitChange([minValue.value, maxValue.value]);
+        }
+      }
+      if (newStates[2] !== prevStates[2] && newStates[2] === false) {
+        init();
+      }
+    });
+
+    /** 挂载&卸载 */
+    onMounted(() => {
+      init();
+    });
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', resetSize);
+    });
+
+    /** -------------------------- 渲染相关逻辑 start --------------------------  */
+    const renderMask = useSliderMark(props.max, props.min, props.marks, vertical.value, COMPONENT_NAME.value);
+
+    const renderInputNumber = useSliderInput(
+      props.inputNumberProps,
+      props.max,
+      props.min,
+      props.step,
+      COMPONENT_NAME.value,
+      vertical.value,
+      disabled,
+    );
+
+    const renderInputButton = (): VNode => {
+      const firstInputVal = props.range ? firstValue.value : sliderState.prevValue;
+      const firstInputOnChange = (v: number) => {
+        firstValue.value = v;
+        props.range ? (firstValue.value = v) : (sliderState.prevValue = v);
+      };
+      const secondInputVal = secondValue.value;
+      const secondInputOnChange = (v: number) => {
+        secondValue.value = v;
+      };
       return (
         <div
           class={[
-            `${this.COMPONENT_NAME}__input-container`,
+            `${COMPONENT_NAME.value}__input-container`,
             {
-              'is-vertical': this.vertical,
+              'is-vertical': vertical.value,
             },
           ]}
         >
-          {
-            <t-input-number
-              class={sliderNumberClass}
-              value={range ? this.firstValue : this.prevValue}
-              ref="input"
-              step={this.step}
-              onChange={(v: number) => {
-                this.firstValue = v;
-                this.range ? (this.firstValue = v) : (this.prevValue = v);
-              }}
-              disabled={this.disabled}
-              min={min}
-              max={max}
-              decimalPlaces={this.inputDecimalPlaces}
-              format={this.inputFormat}
-              placeholder={this.inputPlaceholder}
-              theme={this.inputTheme}
-            />
-          }
-          {range && <div class={`${this.COMPONENT_NAME}__center-line`} />}
-          {range && (
-            <t-input-number
-              class={this.sliderNumberClass}
-              value={this.secondValue}
-              ref="input"
-              onChange={(v: number) => {
-                this.secondValue = v;
-              }}
-              step={this.step}
-              disabled={this.disabled}
-              min={min}
-              max={max}
-              decimalPlaces={this.inputDecimalPlaces}
-              format={this.inputFormat}
-              placeholder={this.inputPlaceholder}
-              theme={this.inputTheme}
-            />
-          )}
+          {renderInputNumber(firstInputVal, firstInputOnChange)}
+          {props.range && <div class={`${COMPONENT_NAME.value}__center-line`} />}
+          {props.range && renderInputNumber(secondInputVal, secondInputOnChange)}
         </div>
       );
-    },
-  },
-  render(): VNode {
-    const { min, max, layout, disabled, vertical } = this;
-    const BUTTON_GROUP = this.inputNumberProps && this.renderInputButton();
-    const MASKS = this.renderMask();
-    return (
-      <div class={this.containerClass}>
+    };
+    /** -------------------------- 渲染相关逻辑 end --------------------------  */
+
+    /** 父子共用状态&方法 */
+    const toggleDragging = (toState: boolean) => {
+      dragging.value = toState;
+    };
+    const provideCollect = computed(() => {
+      return {
+        max: props.max,
+        min: props.min,
+        step: props.step,
+        dragging,
+        toggleDragging,
+        precision,
+        disabled,
+        resetSize,
+        sliderSize,
+      };
+    });
+    provide(sliderPropsInjectKey, provideCollect.value);
+
+    return () => (
+      <div class={containerClass.value} ref={sliderContainerRef}>
         <div
-          class={this.sliderClass}
+          class={sliderClass.value}
           role="slider"
-          aria-valuemin={min}
-          aria-valuemax={max}
-          aria-orientation={layout}
-          aria-disabled={disabled}
-          tooltip-props={this.tooltipProps}
+          aria-valuemin={props.min}
+          aria-valuemax={props.max}
+          aria-orientation={props.layout}
+          aria-disabled={disabled.value}
+          tooltip-props={props.tooltipProps}
         >
-          <div class={this.sliderRailClass} style={this.runwayStyle} onClick={this.onSliderClick} ref="slider">
-            <div class={`${this.COMPONENT_NAME}__track`} style={this.barStyle} />
+          <div class={sliderRailClass.value} style={runwayStyle.value} onClick={onSliderClick} ref={sliderRef}>
+            <div class={`${COMPONENT_NAME.value}__track`} style={barStyle.value} />
             <t-slider-button
-              vertical={vertical}
-              value={this.firstValue}
-              ref="button1"
-              disabled={disabled}
-              tooltip-props={this.tooltipProps}
+              vertical={vertical.value}
+              value={firstValue.value}
+              ref={firstButtonRef}
+              disabled={disabled.value}
+              tooltip-props={props.tooltipProps}
               onInput={(v: number) => {
-                this.firstValue = v;
+                firstValue.value = v;
               }}
             />
-            {this.range && (
+            {props.range && (
               <t-slider-button
-                vertical={vertical}
-                value={this.secondValue}
-                ref="button2"
-                disabled={disabled}
-                tooltip-props={this.tooltipProps}
+                vertical={vertical.value}
+                value={secondValue.value}
+                ref={secondButtonRef}
+                disabled={disabled.value}
+                tooltip-props={props.tooltipProps}
                 onInput={(v: number) => {
-                  this.secondValue = v;
+                  secondValue.value = v;
                 }}
               />
             )}
-
-            {this.showSteps && (
+            {sliderState.showSteps && (
               <div>
-                {this.steps.map((item, key) => (
-                  <div class={`${this.COMPONENT_NAME}__stop`} key={key} style={this.getStopStyle(item)} />
+                {steps.value.map((item, key) => (
+                  <div class={`${COMPONENT_NAME.value}__stop`} key={key} style={getStopStyle(item, vertical.value)} />
                 ))}
               </div>
             )}
-            {MASKS}
+            {renderMask(changeValue)}
           </div>
         </div>
-        {BUTTON_GROUP}
+        {props.inputNumberProps && renderInputButton()}
       </div>
     );
   },

@@ -1,7 +1,9 @@
-import { defineComponent, ComponentPublicInstance } from 'vue';
+import { defineComponent, ComponentPublicInstance, ref, computed, reactive, nextTick, watchEffect, inject } from 'vue';
 import TPopup from '../popup/index';
-import { emitEvent } from '../utils/event';
-import { usePrefixClass } from '../config-provider';
+
+import { usePrefixClass } from '../hooks/useConfig';
+import { useSliderPopup } from './hooks/useSliderPopup';
+import { sliderPropsInjectKey } from './util/contanst';
 
 export default defineComponent({
   name: 'TSliderButton',
@@ -27,217 +29,50 @@ export default defineComponent({
     },
   },
   emits: ['input'],
-  setup() {
+  setup(props, ctx) {
     const COMPONENT_NAME = usePrefixClass('slider__button');
-    return {
-      COMPONENT_NAME,
-    };
-  },
-  data() {
-    return {
-      hovering: false,
+    const { popupRef, popupProps, togglePopup, showTooltip, placement } = useSliderPopup(
+      props.tooltipProps,
+      props.vertical,
+    );
+
+    const parentProps = inject(sliderPropsInjectKey);
+    const buttonRef = ref();
+
+    /** --------------------- slide button 相关状态start ------------------- */
+    const slideButtonProps = reactive({
       dragging: false,
       isClick: false,
       startX: 0,
       startY: 0,
-      currentX: 0,
-      currentY: 0,
       startPos: 0,
       newPos: null,
-      prevValue: this.value,
-      showTooltip: true,
-      trigger: 'hover',
-      showArrow: true,
-      overlayStyle: undefined,
-      overlayClassName: undefined,
-      attach: 'body',
-      popupVisible: false,
-    };
-  },
-  computed: {
-    placement() {
-      if (this.tooltipProps instanceof Object) {
-        const { placement } = this.tooltipProps;
-        if (placement) return placement;
-      }
+    });
 
-      return this.vertical ? 'right' : 'top';
-    },
-    rangeDiff() {
-      return this.max - this.min;
-    },
-    formatValue() {
-      return (this.enableFormat && this.$parent.formatpopup(this.value)) || this.value;
-    },
-    disabled() {
-      return this.$parent.disabled;
-    },
-    max() {
-      return this.$parent.max;
-    },
-    min() {
-      return this.$parent.min;
-    },
-    step() {
-      return this.$parent.step;
-    },
-    precision() {
-      return this.$parent.precision;
-    },
-    currentPos() {
-      return `${((this.value - this.min) / this.rangeDiff) * 100}%`;
-    },
-    enableFormat() {
-      return this.$parent.formatpopup instanceof Function;
-    },
-    wrapperStyle() {
-      return this.vertical ? { bottom: this.currentPos } : { left: this.currentPos };
-    },
-  },
-  watch: {
-    dragging(val) {
-      this.$parent.dragging = val;
-    },
-  },
-  mounted() {
-    this.showTooltip = !this.tooltipProps === false;
-    this.setTooltipProps();
-  },
-  methods: {
-    setTooltipProps() {
-      if (this.tooltipProps instanceof Object) {
-        const { trigger, destroyOnHide, showArrow, overlayStyle, overlayClassName, attach } = this.tooltipProps;
-        if (!this.empty(trigger)) {
-          this.trigger = trigger;
-        }
-        this.destroyOnHide = destroyOnHide;
-        if (!this.empty(showArrow)) {
-          this.showArrow = showArrow;
-        }
+    const rangeDiff = computed(() => {
+      return Number(parentProps.max) - Number(parentProps.min);
+    });
 
-        this.overlayStyle = overlayStyle;
-        this.overlayClassName = overlayClassName;
-        if (!this.empty(attach)) {
-          this.attach = attach;
-        }
-      }
-    },
-    showPopup() {
-      this.popupVisible = true;
-    },
-    hidePopup() {
-      this.popupVisible = false;
-    },
+    const currentPos = computed(() => {
+      return `${((props.value - parentProps.min) / rangeDiff.value) * 100}%`;
+    });
 
-    handleMouseEnter() {
-      this.hovering = true;
-      (this.$refs.button as ComponentPublicInstance).focus();
-      this.showPopup();
-    },
-    handleMouseLeave() {
-      this.hovering = false;
-      if (!this.dragging) {
-        this.hidePopup();
-      }
-    },
-    onButtonDown(event: MouseEvent | TouchEvent) {
-      if (this.disabled) {
-        return;
-      }
-      event.preventDefault();
-      this.onDragStart(event);
-      window.addEventListener('mousemove', this.onDragging);
-      window.addEventListener('mouseup', this.onDragEnd);
-      window.addEventListener('touchmove', this.onDragging);
-      window.addEventListener('touchend', this.onDragEnd);
-      window.addEventListener('contextmenu', this.onDragEnd);
-    },
-    onNativeKeyDown(e: KeyboardEvent) {
-      const { code } = e;
-      e.preventDefault();
-      if (code === 'ArrowDown' || code === 'ArrowLeft') {
-        this.onKeyDown('sub');
-      }
-      if (code === 'ArrowUp' || code === 'ArrowRight') {
-        this.onKeyDown('add');
-      }
-    },
-    onKeyDown(state: 'sub' | 'add') {
-      if (this.disabled) {
-        return;
-      }
-      let stepLength = (this.step / this.rangeDiff) * 100;
-      if (state === 'sub') {
-        stepLength = -stepLength;
-      }
-      this.newPos = parseFloat(this.currentPos) + stepLength;
-      this.setPosition(this.newPos);
-      // this.$parent.emitChange(parseInt(this.newPos));
-    },
-    onDragStart(event: MouseEvent | TouchEvent) {
-      this.dragging = true;
-      this.isClick = true;
-      const { type } = event;
-      let { clientY, clientX } = event as MouseEvent;
-      if (type === 'touchstart') {
-        const touch = (event as TouchEvent).touches;
-        [clientY, clientX] = [touch[0].clientY, touch[0].clientX];
-      }
-      if (this.vertical) {
-        this.startY = clientY;
-      } else {
-        this.startX = clientX;
-      }
-      this.startPos = parseFloat(this.currentPos);
-      this.newPos = this.startPos;
-    },
-    onDragging(e: MouseEvent | TouchEvent) {
-      const event = e;
-      if (!this.dragging) {
-        return;
-      }
-      this.isClick = false;
-      this.$parent.resetSize();
-      let diff = 0;
+    const step = computed(() => {
+      return parentProps.step;
+    });
 
-      const parentSliderSize = this.$parent.sliderSize;
-      if (this.vertical) {
-        this.currentY = (event as MouseEvent).clientY;
-        diff = this.startY - this.currentY;
-      } else {
-        this.currentX = (event as MouseEvent).clientX;
-        diff = this.currentX - this.startX;
-      }
+    const wrapperStyle = computed(() => {
+      return props.vertical ? { bottom: currentPos.value } : { left: currentPos.value };
+    });
 
-      if (event.type === 'touchmove') {
-        const touch = (event as TouchEvent).touches;
-        const [clientY, clientX] = [touch[0].clientY, touch[0].clientX];
-        this.clientY = clientY;
-        this.clientX = clientX;
-      }
+    watchEffect(() => {
+      parentProps.toggleDragging(slideButtonProps.dragging);
+    });
+    /** --------------------- slide button 相关状态end ------------------- */
 
-      diff = (diff / parentSliderSize) * 100;
-      this.newPos = this.startPos + diff;
-      this.setPosition(this.newPos);
-    },
-    onDragEnd() {
-      if (this.dragging) {
-        setTimeout(() => {
-          this.dragging = false;
-          this.hidePopup();
-          if (!this.isClick) {
-            this.setPosition(this.newPos);
-            // this.$parent.emitChange(parseInt(this.newPos));
-          }
-        }, 0);
-        window.removeEventListener('mousemove', this.onDragging);
-        window.removeEventListener('touchmove', this.onDragging);
-        window.removeEventListener('mouseup', this.onDragEnd);
-        window.removeEventListener('touchend', this.onDragEnd);
-        window.removeEventListener('contextmenu', this.onDragEnd);
-      }
-    },
-    setPosition(pos: number) {
+    /** --------------------- slide button 相关事件start ------------------- */
+    /** 设置当前位置 */
+    const setPosition = (pos: number) => {
       let newPos = pos;
       if (newPos === null || Number.isNaN(newPos)) {
         return;
@@ -248,54 +83,155 @@ export default defineComponent({
       } else if (newPos < 0) {
         newPos = 0;
       }
-      const perStepLen = (100 * this.step) / this.rangeDiff;
+      const perStepLen = (100 * step.value) / rangeDiff.value;
       const steps = Math.round(newPos / perStepLen);
-      let value = steps * perStepLen * this.rangeDiff * 0.01;
-      value += this.min;
-      value = Number(parseFloat(`${value}`).toFixed(this.precision));
-      emitEvent(this, 'input', value);
-      this.$nextTick(() => {
-        this.$refs.popup && (this.$refs.popup as ComponentPublicInstance).updatePopper();
+      let value = steps * perStepLen * rangeDiff.value * 0.01;
+      value += parentProps.min;
+      value = Number(parseFloat(`${value}`).toFixed(parentProps.precision.value));
+      ctx.emit('input', value);
+      nextTick(() => {
+        popupRef.value && (popupRef.value as ComponentPublicInstance).updatePopper();
       });
-      if (!this.dragging && this.value !== this.prevValue) {
-        this.prevValue = this.value;
+    };
+
+    const handleMouseEnter = () => {
+      (buttonRef.value as ComponentPublicInstance).focus();
+      togglePopup(true);
+    };
+    const handleMouseLeave = () => {
+      if (!slideButtonProps.dragging) {
+        togglePopup(false);
       }
-    },
-    empty(str: undefined | null | string) {
-      return str === undefined || str === null;
-    },
-  },
-  render() {
-    return (
+    };
+
+    const onDragStart = (event: MouseEvent | TouchEvent) => {
+      slideButtonProps.dragging = true;
+      slideButtonProps.isClick = true;
+      const { type } = event;
+      let { clientY, clientX } = event as MouseEvent;
+      if (type === 'touchstart') {
+        const touch = (event as TouchEvent).touches;
+        [clientY, clientX] = [touch[0].clientY, touch[0].clientX];
+      }
+      if (props.vertical) {
+        slideButtonProps.startY = clientY;
+      } else {
+        slideButtonProps.startX = clientX;
+      }
+      slideButtonProps.startPos = parseFloat(currentPos.value);
+      slideButtonProps.newPos = slideButtonProps.startPos;
+    };
+
+    const onDragging = (e: MouseEvent | TouchEvent) => {
+      const event = e;
+      if (!slideButtonProps.dragging) {
+        return;
+      }
+      slideButtonProps.isClick = false;
+      if (parentProps?.resetSize && typeof parentProps?.resetSize === 'function') {
+        parentProps.resetSize();
+      }
+      let diff = 0;
+      const parentSliderSize = parentProps.sliderSize.value;
+      if (props.vertical) {
+        diff = slideButtonProps.startY - (event as MouseEvent).clientY;
+      } else {
+        diff = (event as MouseEvent).clientX - slideButtonProps.startX;
+      }
+      diff = (diff / parentSliderSize) * 100;
+      slideButtonProps.newPos = slideButtonProps.startPos + diff;
+      setPosition(slideButtonProps.newPos);
+    };
+
+    const onDragEnd = () => {
+      if (slideButtonProps.dragging) {
+        setTimeout(() => {
+          slideButtonProps.dragging = false;
+          togglePopup(false);
+          if (!slideButtonProps.isClick) {
+            setPosition(slideButtonProps.newPos);
+          }
+        }, 0);
+        window.removeEventListener('mousemove', onDragging);
+        window.removeEventListener('touchmove', onDragging);
+        window.removeEventListener('mouseup', onDragEnd);
+        window.removeEventListener('touchend', onDragEnd);
+        window.removeEventListener('contextmenu', onDragEnd);
+      }
+    };
+
+    function onButtonDown(event: MouseEvent | TouchEvent) {
+      if (parentProps.disabled.value) {
+        return;
+      }
+      event.preventDefault();
+      onDragStart(event);
+      window.addEventListener('mousemove', onDragging);
+      window.addEventListener('mouseup', onDragEnd);
+      window.addEventListener('touchmove', onDragging);
+      window.addEventListener('touchend', onDragEnd);
+      window.addEventListener('contextmenu', onDragEnd);
+    }
+
+    const onKeyDown = (state: 'sub' | 'add') => {
+      if (parentProps.disabled.value) {
+        return;
+      }
+      let stepLength = (step.value / rangeDiff.value) * 100;
+      if (state === 'sub') {
+        stepLength = -stepLength;
+      }
+      slideButtonProps.newPos = parseFloat(currentPos.value) + stepLength;
+      setPosition(slideButtonProps.newPos);
+    };
+
+    const onNativeKeyDown = (e: KeyboardEvent) => {
+      const { code } = e;
+      e.preventDefault();
+      if (code === 'ArrowDown' || code === 'ArrowLeft') {
+        onKeyDown('sub');
+      }
+      if (code === 'ArrowUp' || code === 'ArrowRight') {
+        onKeyDown('add');
+      }
+    };
+    /** --------------------- slide button 相关事件end ------------------- */
+
+    /** 暴露设置按钮坐标方法供父组件调用 */
+    ctx.expose({
+      setPosition,
+    });
+
+    return () => (
       <div
-        ref="button"
-        class={`${this.COMPONENT_NAME}-wrapper`}
-        style={this.wrapperStyle}
+        ref={buttonRef}
+        class={`${COMPONENT_NAME.value}-wrapper`}
+        style={wrapperStyle.value}
         tabindex="0"
-        show-tooltip={this.showTooltip}
-        disabled={this.disabled}
-        onmouseenter={this.handleMouseEnter}
-        onmouseleave={this.handleMouseLeave}
-        onmousedown={this.onButtonDown}
-        ontouchstart={this.onButtonDown}
-        onfocus={this.handleMouseEnter}
-        onblur={this.handleMouseLeave}
-        onKeydown={this.onNativeKeyDown}
+        show-tooltip={showTooltip.value}
+        disabled={parentProps.disabled.value}
+        onmouseenter={handleMouseEnter}
+        onmouseleave={handleMouseLeave}
+        onmousedown={onButtonDown}
+        onTouchstart={onButtonDown}
+        onfocus={handleMouseEnter}
+        onblur={handleMouseLeave}
+        onKeydown={onNativeKeyDown}
       >
         <t-popup
-          visible={this.popupVisible}
-          ref="popup"
-          popper-class={this.popupClass}
-          disabled={!this.showTooltip}
-          content={String(this.formatValue)}
-          placement={this.placement}
-          trigger={this.trigger}
-          showArrow={this.showArrow}
-          overlayStyle={this.overlayStyle}
-          overlayClassName={this.overlayClassName}
-          attach={this.attach}
+          visible={popupProps.visible}
+          ref={popupRef}
+          popper-class={props.popupClass}
+          disabled={!showTooltip.value}
+          content={String(props.value)}
+          placement={placement.value}
+          trigger={popupProps.trigger}
+          showArrow={popupProps.showArrow}
+          overlayStyle={popupProps.overlayStyle}
+          overlayClassName={popupProps.overlayClassName}
+          attach={popupProps.attach}
         >
-          <div class={[this.COMPONENT_NAME, { [`${this.COMPONENT_NAME}--dragging`]: this.dragging }]} />
+          <div class={[COMPONENT_NAME.value, { [`${COMPONENT_NAME.value}--dragging`]: slideButtonProps.dragging }]} />
         </t-popup>
       </div>
     );

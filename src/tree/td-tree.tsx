@@ -1,8 +1,6 @@
 import { defineComponent, TransitionGroup } from 'vue';
 import upperFirst from 'lodash/upperFirst';
 import pick from 'lodash/pick';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { TreeConfig } from '../config-provider/config-receiver';
 import TreeStore from '../_common/js/tree/tree-store';
 import TreeNode from '../_common/js/tree/tree-node';
 import TreeItem from './tree-item';
@@ -10,6 +8,7 @@ import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { ClassName, TNodeReturnValue, TreeOptionData } from '../common';
 import { TdTreeProps } from './type';
+import { useConfig } from '../hooks/useConfig';
 
 import {
   TypeTdTreeProps,
@@ -24,13 +23,17 @@ import { useCLASSNAMES } from './constants';
 import { getMark, getNode, emitEvent } from './util';
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<TreeConfig>('tree')),
   name: 'TTree',
   components: { TransitionGroup },
   props,
   setup() {
     const CLASS_NAMES = useCLASSNAMES();
+
+    const { global, t } = useConfig('tree');
+
     return {
+      t,
+      global,
       CLASS_NAMES,
     };
   },

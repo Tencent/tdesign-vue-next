@@ -50,6 +50,10 @@ export default {
     type: Number,
     default: 1,
   },
+  modelValue: {
+    type: [Number, Array] as PropType<TdSliderProps['value']>,
+    default: undefined,
+  },
   /** 透传提示组件属性 */
   tooltipProps: {
     type: Object as PropType<TdSliderProps['tooltipProps']>,
@@ -57,6 +61,7 @@ export default {
   /** 滑块值 */
   value: {
     type: [Number, Array] as PropType<TdSliderProps['value']>,
+    default: undefined,
   },
   /** 滑块值，非受控属性 */
   defaultValue: {

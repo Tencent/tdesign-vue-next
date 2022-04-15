@@ -5,7 +5,7 @@ import { TNode } from '../common';
 import { renderContent } from '../utils/render-tnode';
 import { isNodeOverflow } from '../utils/dom';
 import TPopup, { PopupProps } from '../popup';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../hooks/useConfig';
 
 export interface EllipsisProps {
   content: string | TNode;

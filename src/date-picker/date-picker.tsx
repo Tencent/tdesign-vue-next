@@ -9,8 +9,6 @@ import props from './props';
 import { Button as TButton } from '../button';
 import { Input as TInput } from '../input';
 import TPopup from '../popup';
-import mixins from '../utils/mixins';
-import getConfigReceiverMixins, { DatePickerConfig } from '../config-provider/config-receiver';
 
 import TCalendarPresets from './calendar-presets';
 import TDate from './panel/date';
@@ -23,12 +21,11 @@ import { renderTNodeJSX } from '../utils/render-tnode';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 dayjs.extend(isBetween);
 
 export default defineComponent({
-  ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
   name: 'TDatePicker',
   components: {
     TPopup,
@@ -46,7 +43,9 @@ export default defineComponent({
     const classPrefix = usePrefixClass();
     const COMPONENT_NAME = usePrefixClass('date-picker');
     const { SIZE, STATUS } = useCommonClassName();
+    const { global } = useConfig('datePicker');
     return {
+      global,
       classPrefix,
       COMPONENT_NAME,
       SIZE,
@@ -536,7 +535,9 @@ export default defineComponent({
     handleTInputFocus() {
       // TODO: 待改成select-input后删除
       // hack 在input聚焦时马上blur 避免出现输入光标
-      (this.$refs.native as HTMLInputElement).blur();
+      nextTick(() => {
+        (this.$refs.native as HTMLInputElement).blur();
+      });
     },
   },
   render() {

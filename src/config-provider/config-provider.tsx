@@ -1,4 +1,4 @@
-import { defineComponent, PropType, provide } from 'vue';
+import { defineComponent, PropType, provide, computed } from 'vue';
 import { GlobalConfigProvider } from './type';
 import { renderTNodeJSX } from '../utils/render-tnode';
 
@@ -10,7 +10,12 @@ export default defineComponent({
   },
 
   setup(props) {
-    provide('globalConfig', props.globalConfig);
+    provide(
+      'globalConfig',
+      computed(() => {
+        return props.globalConfig;
+      }),
+    );
   },
 
   render() {

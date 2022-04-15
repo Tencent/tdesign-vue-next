@@ -2,13 +2,10 @@ import { defineComponent } from 'vue';
 import { RoundIcon, ChevronLeftIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import TButton from '../../button/button';
-import mixins from '../../utils/mixins';
-import getConfigReceiverMixins, { DatePickerConfig } from '../../config-provider/config-receiver';
-import { usePrefixClass } from '../../config-provider';
+import { useConfig, usePrefixClass } from '../../hooks/useConfig';
 
 export default defineComponent({
   name: 'TDatePickerHeader',
-  ...mixins(getConfigReceiverMixins<DatePickerConfig>('datePicker')),
   components: {
     TButton,
     RoundIcon,
@@ -28,7 +25,9 @@ export default defineComponent({
   },
   setup() {
     const COMPONENT_NAME = usePrefixClass('date-picker__header');
+    const { global } = useConfig('datePicker');
     return {
+      global,
       COMPONENT_NAME,
     };
   },

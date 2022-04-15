@@ -1,7 +1,7 @@
 import { defineComponent, PropType } from 'vue';
 import { TdSliderProps } from './type';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TSliderMark',
@@ -14,23 +14,16 @@ export default defineComponent({
     },
   },
   emits: ['change-value'],
-  setup() {
+  setup(props, ctx) {
     const COMPONENT_NAME = usePrefixClass('slider__mark');
-    return {
-      COMPONENT_NAME,
+    const changeValue = (e: MouseEvent) => {
+      e.stopPropagation();
+      ctx.emit('change-value', props.point);
     };
-  },
-  methods: {
-    changeValue(event: MouseEvent) {
-      event.stopPropagation();
-      emitEvent(this, 'change-value', this.point);
-    },
-  },
-  render() {
-    const label = this.mark;
-    return (
-      <div class={`${this.COMPONENT_NAME}-text`} onClick={this.changeValue}>
-        {label}
+
+    return () => (
+      <div class={`${COMPONENT_NAME.value}-text`} onClick={changeValue}>
+        {props.mark}
       </div>
     );
   },

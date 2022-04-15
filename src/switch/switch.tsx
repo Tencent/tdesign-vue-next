@@ -1,5 +1,5 @@
 import { defineComponent, h, VNodeChild, computed, watch, toRefs } from 'vue';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import TLoading from '../loading';
 import props from './props';
 import { TNodeReturnValue } from '../common';

@@ -1,5 +1,5 @@
 import { defineComponent, PropType, computed } from 'vue';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 // 统一使用的翻转箭头组件
 export default defineComponent({

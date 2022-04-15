@@ -5,7 +5,52 @@ toc: false
 docClass: timeline
 ---
 
-## 0.11.1 `2022-04-02`
+## 0.12.0 `2022-04-08`
+
+### ❗ Breaking Changes
+
+- 重构 Table 为 Composition API [@chaishi](https://github.com/chaishi) ([#468](https://github.com/Tencent/tdesign-vue-next/pull/468))
+  - BaseTable HTML 结构变更，写过 CSS 样式覆盖的同学需注意更新样式。由之前的两个 table 分别渲染 thead 和 tbody，更为一个 table
+  - 行拖拽排序功能，使用方法有调整，从 sortOnRowDraggable 更为 dragSort='row'
+  - 表头更为使用 th 标签，之前为 td，不符合语义
+  - 事件 row-db-click 更为row-dblclick ，onRowDbClick 更为 onRowDblclick
+  - 事件 row-hover 更为 row-mouseover, onRowHover 更为 onRowMouseover
+  - CSS 类名 t-table__row-first-full-row 更为 t-table__first-full-row，t-table__row-last-full-row 更为 t-table__last-full-row
+
+### 🚀  Features
+
+- 新增 `Collapse` 组件，使用 Composition api [@asbstty](https://github.com/asbstty) ([#535](https://github.com/Tencent/tdesign-vue-next/pull/535))
+- 新增 `Message` 的 fadeIn and fadeOut animation [@Zack921](https://github.com/Zack921) ([#546](https://github.com/Tencent/tdesign-vue-next/pull/546))
+- 新增 `color-picker` 渐变预览，改进最近使用色交互 [@S-mohan](https://github.com/S-mohan) ([#545](https://github.com/Tencent/tdesign-vue-next/pull/545))
+- 新增 `Table` 特性 [@chaishi](https://github.com/chaishi) ([#468](https://github.com/Tencent/tdesign-vue-next/pull/468))
+  - 排序交互变更：排序方式支持点击直接排序issue#480
+  - 优化表格最后一列 ellipsis 浮层位置底部右对齐
+  - 新增超出省略功能， ellipsis 支持透传 Popup 组件全部属性
+  - 新增表尾合计行，支持固定在底部，支持多行合计，支持完全自定义内容 issue#116
+  - 新增loadingProps 透传加载组件全部特性
+  - 新增固定行（冻结行）
+  - 新增排序图标自定义，插槽(slot='filterIcon')和渲染函数(props.filterIcon) 均可
+  - 新增全局配置：过滤图标、空元素、异步加载文本配置、排序按钮文本配置
+  - 新增 scroll 滚动事件
+  - 新增表头吸顶功能，issue#216
+  - 新增综合功能：多级表头 + 固定表头 + 固定列 + 表头吸顶 + 虚拟滚动 + 自定义列配置
+  - 过滤功能，条件为真时，高亮筛选图标
+  - 新增列拖拽排序功能，通过拖拽手柄调整表格排序
+
+### 🐞  Bug Fixes
+
+- 修复 `configProvider` 警告 和 globalConfig 数据响应式问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#543](https://github.com/Tencent/tdesign-vue-next/pull/543))
+- 修复 `Input` type=password 时 autocomplete 警告 以及 toggle password 问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#543](https://github.com/Tencent/tdesign-vue-next/pull/543)) ([#559](https://github.com/Tencent/tdesign-vue-next/pull/559))
+- 修复 `Checkbox` Group 插槽形式 disabled 属性没有生效 [@pengYYYYY](https://github.com/pengYYYYY) ([#543](https://github.com/Tencent/tdesign-vue-next/pull/543))
+- 修复 `Upload` 中 triggerUpload 方法未正确导出 和 自定义拖拽上传demo中“点击上传”按钮无效  [@k1nz](https://github.com/k1nz) ([#533](https://github.com/Tencent/tdesign-vue-next/pull/533))
+- 修复 `Slider` inputNumberProps 未正常透传 [@delbertbeta](https://github.com/delbertbeta) ([#547](https://github.com/Tencent/tdesign-vue-next/pull/547))
+- 修复 `Affix` onFixedChange 触发时机，在固定状态发生变化时才会触发该事件（改动之前为：滚动一直触发）
+- 修复 `Table` 的 若干 Bug [@chaishi](https://github.com/chaishi) ([#468](https://github.com/Tencent/tdesign-vue-next/pull/468))
+
+特此感谢 tdesign-vue-next 本次版本发布的代码贡献者：
+@94dreamer @LeeJim, @S-mohan, @Zack921, @asbstty, @chaishi, @delbertbeta, @k1nz, @pengYYYYY, @shyrii and @uyarn。
+
+## 0.11.2 `2022-04-02`
 
 ### 🚀  Features
 

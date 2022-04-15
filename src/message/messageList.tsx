@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 import { PLACEMENT_OFFSET } from './const';
 import TMessage from './message';
 import { MessageOptions } from './type';
@@ -15,7 +15,6 @@ const getUniqueId = (() => {
 
 export const MessageList = defineComponent({
   name: 'TMessageList',
-  components: { TMessage },
   props: {
     zIndex: {
       type: Number,
@@ -26,75 +25,70 @@ export const MessageList = defineComponent({
       default: '',
     },
   },
-  data() {
-    return {
-      list: [],
-      messageList: [],
+  setup(props, { expose }) {
+    const list = ref([]);
+    const messageList = ref([]);
+
+    const styles = computed(() => ({
+      ...PLACEMENT_OFFSET[props.placement],
+      zIndex: props.zIndex !== DEFAULT_Z_INDEX ? props.zIndex : DEFAULT_Z_INDEX,
+    }));
+
+    const add = (msg: MessageOptions): number => {
+      const mg = { ...msg, key: getUniqueId() };
+      list.value.push(mg);
+      return list.value.length - 1;
     };
-  },
-  computed: {
-    styles(): Record<string, string | number> {
-      return {
-        ...PLACEMENT_OFFSET[this.placement],
-        zIndex: this.zIndex !== DEFAULT_Z_INDEX ? this.zIndex : DEFAULT_Z_INDEX,
-      };
-    },
-  },
-  methods: {
-    add(msg: MessageOptions): number {
-      const mg = {
-        ...msg,
-        key: getUniqueId(),
-      };
-      this.list.push(mg);
-      return this.list.length - 1;
-    },
-    remove(index: number) {
-      this.list.splice(index, 1);
-    },
-    removeAll() {
-      this.list = [];
-    },
-    getOffset(val: string | number) {
+
+    const remove = (index: number) => {
+      list.value.splice(index, 1);
+    };
+
+    const removeAll = () => {
+      list.value = [];
+    };
+
+    const getOffset = (val: string | number) => {
       if (!val) return;
       return isNaN(Number(val)) ? val : `${val}px`;
-    },
-    msgStyles(item: { offset: Array<string | number> }) {
+    };
+
+    const msgStyles = (item: { offset: Array<string | number> }) => {
       return (
         item.offset && {
           position: 'relative',
-          left: this.getOffset(item.offset[0]),
-          top: this.getOffset(item.offset[1]),
+          left: getOffset(item.offset[0]),
+          top: getOffset(item.offset[1]),
         }
       );
-    },
-    getListeners(index: number) {
+    };
+
+    const getListeners = (index: number) => {
       return {
-        onClickCloseBtn: () => this.remove(index),
-        onDurationEnd: () => this.remove(index),
+        onCloseBtnClick: () => remove(index),
+        onDurationEnd: () => remove(index),
       };
-    },
-    addChild(el: Element) {
+    };
+
+    const addChild = (el: Element) => {
       if (el) {
-        this.messageList.push(el);
+        messageList.value.push(el);
       }
-    },
-  },
-  render() {
-    if (!this.list.length) return;
-    return (
-      <div class="t-message__list" style={this.styles}>
-        {this.list.map((item, index) => (
-          <t-message
-            key={item.key}
-            style={this.msgStyles(item)}
-            ref={this.addChild}
-            {...item}
-            {...this.getListeners(index)}
-          />
-        ))}
-      </div>
-    );
+    };
+
+    expose({ add, removeAll, list, messageList });
+
+    return () => {
+      if (!list.value.length) return;
+
+      return (
+        <div class="t-message__list" style={styles.value}>
+          {list.value.map((item, index) => (
+            <TMessage key={item.key} style={msgStyles(item)} ref={addChild} {...item} {...getListeners(index)} />
+          ))}
+        </div>
+      );
+    };
   },
 });
 

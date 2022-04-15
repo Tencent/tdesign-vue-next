@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs, watch } from 'vue';
-import { useCommonClassName, useConfig } from '../../config-provider';
+import { useCommonClassName, useConfig } from '../../hooks/useConfig';
 import props from '../props';
 import {
   DEFAULT_COLOR,
@@ -14,8 +14,7 @@ import HueSlider from './hue';
 import AlphaSlider from './alpha';
 import FormatPanel from './format';
 import SwatchesPanel from './swatches';
-import Color, { getColorObject } from '../utils/color';
-import { GradientColorPoint } from '../utils/gradient';
+import { Color, getColorObject, GradientColorPoint } from '../utils';
 import { TdColorPickerProps, ColorPickerChangeTrigger } from '../type';
 import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';

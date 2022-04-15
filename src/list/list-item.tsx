@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TListItem',

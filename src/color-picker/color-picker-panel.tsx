@@ -3,7 +3,7 @@ import useVModel from '../hooks/useVModel';
 import props from './props';
 import ColorPanel from './panel';
 import { TdColorContext } from './interfaces';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TColorPickerPanel',

@@ -1,7 +1,7 @@
 import { defineComponent, onMounted, onUnmounted, inject } from 'vue';
 import props from './aside-props';
 import { renderTNodeJSX } from '../utils/render-tnode';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 import { LayoutProvideType } from './layout';
 
 export default defineComponent({

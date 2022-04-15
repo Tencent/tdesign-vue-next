@@ -4,7 +4,7 @@ import { TdMenuInterface, TdSubMenuInterface } from './const';
 import { renderContent, renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
 import useRipple from '../hooks/useRipple';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TMenuItem',

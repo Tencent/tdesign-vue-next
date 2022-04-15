@@ -3,7 +3,7 @@ import { defineComponent, computed, watch } from 'vue';
 import dayjs from 'dayjs';
 import props from './props';
 import * as utils from './utils';
-import { useConfig } from '../config-provider';
+import { useConfig } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
 import { useState, useCalendarClass, userController, useColHeaders } from './hook';
 
@@ -359,9 +359,8 @@ export default defineComponent({
                         onClick={(e: MouseEvent) => clickCell(e, item)}
                         onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
                         onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
-                      >
-                        {{ ...slots }}
-                      </CalendarCellItem>
+                        v-slots={{ ...slots }}
+                      ></CalendarCellItem>
                     ),
                 )}
               </tr>
@@ -404,9 +403,8 @@ export default defineComponent({
                     onClick={(e: MouseEvent) => clickCell(e, item)}
                     onDblclick={(e: MouseEvent) => doubleClickCell(e, item)}
                     onRightclick={(e: MouseEvent) => rightClickCell(e, item)}
-                  >
-                    {{ ...slots }}
-                  </CalendarCellItem>
+                    v-slots={{ ...slots }}
+                  ></CalendarCellItem>
                 ))}
               </tr>
             ))}
