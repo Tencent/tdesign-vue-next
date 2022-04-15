@@ -7,7 +7,6 @@ exports[`Tabs Tabs banVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="normal"
     >
       
       <label
@@ -54,11 +53,11 @@ exports[`Tabs Tabs banVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <div
@@ -406,7 +405,6 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="normal"
     >
       
       <label
@@ -453,11 +451,11 @@ exports[`Tabs Tabs combinationVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <div
@@ -951,7 +949,6 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
   >
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="normal"
     >
       
       <label
@@ -998,11 +995,11 @@ exports[`Tabs Tabs iconVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <div
@@ -1279,7 +1276,6 @@ exports[`Tabs Tabs positionVue demo works fine 1`] = `
   >
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="top"
     >
       
       <label
@@ -1370,11 +1366,11 @@ exports[`Tabs Tabs positionVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
   </div>
   <div

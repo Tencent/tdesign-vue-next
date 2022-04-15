@@ -1,12 +1,13 @@
-import { defineComponent, VNode } from 'vue';
+import { defineComponent, inject, toRefs, computed } from 'vue';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { omit } from '../utils/helper';
 import props from './props';
-import { emitEvent } from '../utils/event';
-import { TdRadioProps } from './type';
+import { RadioGroupInjectionKey, RadioButtonInjectionKey } from './constants';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
+import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
+import { useContent } from '../hooks/tnode';
 
 function getValidAttrs(obj: Record<string, any>): Record<string, any> {
   const newObj = {};
@@ -20,96 +21,93 @@ function getValidAttrs(obj: Record<string, any>): Record<string, any> {
 
 export default defineComponent({
   name: 'TRadio',
-  inject: {
-    radioGroup: { default: undefined },
-    radioButton: { default: undefined },
-  },
   inheritAttrs: false,
   props: { ...props },
-  emits: ['change', 'click'],
-  setup() {
-    const disabled = useFormDisabled();
-    const COMPONENT_NAME = usePrefixClass('radio');
-    const radioBtnName = usePrefixClass('radio-button');
-    const { STATUS } = useCommonClassName();
-    return {
-      STATUS,
-      COMPONENT_NAME,
-      radioBtnName,
-      disabled,
-    };
-  },
-  methods: {
-    handleChange(e: Event) {
-      if (this.radioGroup && this.radioGroup.handleRadioChange) {
-        this.radioGroup.handleRadioChange(this.value, { e });
+  emits: [UPDATE_MODEL],
+
+  setup(props, { attrs }) {
+    const { checked, modelValue } = toRefs(props);
+    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const radioChecked = computed(() => (radioGroup ? props.value === radioGroup.value : innerChecked.value));
+
+    const radioGroup = inject(RadioGroupInjectionKey, undefined);
+
+    /** Event */
+    const handleChange = (e: Event) => {
+      if (radioGroup?.setValue) {
+        radioGroup.setValue(props.value, { e });
       } else {
-        const target = e.target as HTMLInputElement;
-        emitEvent(this, 'change', target.checked, { e });
+        const { checked } = e.target as HTMLInputElement;
+        setInnerChecked(checked, { e });
       }
-    },
-    handleClick(e: Event) {
-      this.$emit('click');
-      if (!this.checked || !this.allowUncheck) return;
-      if (this.radioGroup) {
-        this.radioGroup.$emit('checked-change', undefined, { e });
-      } else {
-        emitEvent<Parameters<TdRadioProps['onChange']>>(this, 'change', false, { e });
-      }
-    },
-  },
-  render(): VNode {
-    const { $attrs, $slots, radioGroup, radioButton } = this;
-    const children: VNode[] | VNode | string = $slots.default && $slots.default(null);
-
-    const inputProps = {
-      checked: this.checked,
-      disabled: this.disabled,
-      value: this.value,
-      name: this.name,
     };
-
-    const inputEvents = getValidAttrs({
-      focus: $attrs.onFocus,
-      blur: $attrs.onBlur,
-      keydown: $attrs.onKeydown,
-      keyup: $attrs.onKeyup,
-      keypresss: $attrs.onKeypresss,
-    });
-
-    const events = [...Object.keys(inputEvents), 'input', 'change'].map(
-      (str) => `on${str[0].toUpperCase()}${str.slice(1)}`,
+    const handleClick = (e: MouseEvent) => {
+      props.onClick?.({ e });
+      if (!radioChecked.value || !props.allowUncheck) return;
+      if (radioGroup) {
+        radioGroup.setValue(undefined, { e });
+      } else {
+        setInnerChecked(false, { e });
+      }
+    };
+    const inputEvents = computed(() =>
+      getValidAttrs({
+        focus: attrs.onFocus,
+        blur: attrs.onBlur,
+        keydown: attrs.onKeydown,
+        keyup: attrs.onKeyup,
+        keypresss: attrs.onKeypresss,
+      }),
     );
-    const wrapperAttrs = omit($attrs, events);
+    const wrapperAttrs = computed(() => {
+      const events = [...Object.keys(inputEvents.value), 'input', 'change'].map(
+        (str) => `on${str[0].toUpperCase()}${str.slice(1)}`,
+      );
+      return omit(attrs, events);
+    });
+    /** Event END */
 
-    if (radioGroup) {
-      inputProps.checked = this.value === radioGroup.value;
-      inputProps.disabled = this.disabled === undefined ? radioGroup.disabled : this.disabled;
-      inputProps.name = radioGroup.name;
-    }
+    // extend radioGroup disabled props
+    const groupDisabled = computed(() => radioGroup?.disabled);
+    const disabled = useFormDisabled(groupDisabled);
 
-    const prefixCls = radioButton ? this.radioBtnName : this.COMPONENT_NAME;
+    // attribute
+    const inputProps = computed(() => ({
+      name: radioGroup ? radioGroup.name : props.name,
+      checked: radioChecked.value,
+      disabled: disabled.value,
+      value: props.value,
+    }));
 
-    const inputClass = [
-      `${prefixCls}`,
+    /** Style */
+    const { STATUS } = useCommonClassName();
+    const radioButton = inject(RadioButtonInjectionKey, undefined);
+    const radioBtnName = usePrefixClass('radio-button');
+    const COMPONENT_NAME = usePrefixClass('radio');
+    const prefixCls = computed(() => (radioButton ? radioBtnName.value : COMPONENT_NAME.value));
+    const inputClass = computed(() => [
+      `${prefixCls.value}`,
       {
-        [this.STATUS.checked]: inputProps.checked,
-        [this.STATUS.disabled]: inputProps.disabled,
+        [STATUS.value.checked]: inputProps.value.checked,
+        [STATUS.value.disabled]: inputProps.value.disabled,
       },
-    ];
+    ]);
+    /** Style END */
 
-    return (
-      <label class={inputClass} {...wrapperAttrs}>
+    const renderContent = useContent();
+
+    return () => (
+      <label class={inputClass.value} {...wrapperAttrs.value}>
         <input
           type="radio"
-          class={`${prefixCls}__former`}
-          {...inputEvents}
-          {...inputProps}
-          onChange={this.handleChange}
-          onClick={this.handleClick}
+          class={`${prefixCls.value}__former`}
+          {...inputEvents.value}
+          {...inputProps.value}
+          onChange={handleChange}
+          onClick={handleClick}
         />
-        <span class={`${prefixCls}__input`}></span>
-        <span class={`${prefixCls}__label`}>{children}</span>
+        <span class={`${prefixCls.value}__input`}></span>
+        <span class={`${prefixCls.value}__label`}>{renderContent('default', 'label')}</span>
       </label>
     );
   },

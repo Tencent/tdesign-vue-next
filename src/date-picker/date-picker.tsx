@@ -535,7 +535,9 @@ export default defineComponent({
     handleTInputFocus() {
       // TODO: 待改成select-input后删除
       // hack 在input聚焦时马上blur 避免出现输入光标
-      (this.$refs.native as HTMLInputElement).blur();
+      nextTick(() => {
+        (this.$refs.native as HTMLInputElement).blur();
+      });
     },
   },
   render() {
