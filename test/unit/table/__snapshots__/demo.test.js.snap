@@ -1279,7 +1279,6 @@ exports[`Table Table customColButtonVue demo works fine 1`] = `
   <div>
     <div
       class="t-radio-group t-size-m t-radio-group--filled"
-      modelvalue="top-right"
     >
       
       <label
@@ -1370,11 +1369,11 @@ exports[`Table Table customColButtonVue demo works fine 1`] = `
           
         </span>
       </label>
+      
       <div
         class="t-radio-group__bg-block"
         style="width: 0px; left: 0px;"
       />
-      
     </div>
     <br />
     <br />
