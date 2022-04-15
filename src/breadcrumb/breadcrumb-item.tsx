@@ -6,7 +6,6 @@ import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
 import { usePrefixClass } from '../hooks/useConfig';
 
-
 interface LocalTBreadcrumb {
   separator: (() => void) | string;
   theme: string;
