@@ -4,7 +4,7 @@ import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 
 interface LocalTBreadcrumb {
