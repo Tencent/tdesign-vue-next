@@ -15,7 +15,7 @@ export default defineComponent({
     const disableClass = usePrefixClass('is-disabled');
     const clickableClass = usePrefixClass('is-clickable');
     const transitionClass = usePrefixClass('slide-down');
-    const { value, disabled, destroyOnCollapse } = toRefs(props);
+    const { value, disabled, destroyOnCollapse, expandIcon } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
     const getUniqId: Function = inject('getUniqId', () => undefined, false);
@@ -24,9 +24,10 @@ export default defineComponent({
       disabled: disableAll,
       expandIconPlacement,
       expandOnRowClick,
-      expandIcon,
+      expandIcon: expandIconAll,
     } = inject('collapseProps');
     const innerValue = value.value || getUniqId();
+    const showExpandIcon = computed(() => (expandIcon.value === undefined ? expandIconAll.value : expandIcon.value));
     if (defaultExpandAll.value) {
       updateCollapseValue(innerValue);
     }
@@ -70,11 +71,11 @@ export default defineComponent({
       ];
       return (
         <div ref={headRef} class={cls} onClick={handleClick}>
-          {expandIcon.value && expandIconPlacement.value === 'left' ? renderIcon(expandIconPlacement.value) : null}
+          {showExpandIcon.value && expandIconPlacement.value === 'left' ? renderIcon(expandIconPlacement.value) : null}
           {renderTNodeJSX('header')}
           {renderBlank()}
           {renderTNodeJSX('headerRightContent')}
-          {expandIcon.value && expandIconPlacement.value === 'right' ? renderIcon(expandIconPlacement.value) : null}
+          {showExpandIcon.value && expandIconPlacement.value === 'right' ? renderIcon(expandIconPlacement.value) : null}
         </div>
       );
     };
