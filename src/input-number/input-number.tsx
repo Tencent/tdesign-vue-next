@@ -111,9 +111,9 @@ export default defineComponent({
       addEvents: computed(() => ({ onClick: stepHandler.handleAdd })),
       cmptWrapClasses: computed(() => [
         COMPONENT_NAME.value,
-        COMPONENT_NAME.value[props.size],
+        CLASSNAMES.SIZE[props.size],
         {
-          [COMPONENT_NAME.value.disabled]: props.disabled,
+          [CLASSNAMES.STATUS.disabled]: props.disabled,
           [`${classPrefix.value}-is-controls-right`]: props.theme === 'column',
           [`${COMPONENT_NAME.value}--${props.theme}`]: props.theme,
           [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth,
