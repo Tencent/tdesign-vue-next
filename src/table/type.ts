@@ -71,7 +71,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   headerAffixProps?: AffixProps;
   /**
-   * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
+   * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
    */
   height?: string | number;
   /**
@@ -93,7 +93,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   loadingProps?: LoadingProps;
   /**
-   * 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300px'。值为数字类型，会自动加上单位 px
+   * 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px
    */
   maxHeight?: string | number;
   /**
@@ -289,9 +289,9 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
-   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`col` 表示通过专门的 拖拽列 进行拖拽排序。`drag-col` 已废弃，请勿使用
+   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽，列拖拽功能开发中。`drag-col` 已废弃，请勿使用。
    */
-  dragSort?: 'row' | 'col' | 'drag-col';
+  dragSort?: 'row' | 'row-handler' | 'col' | 'drag-col';
   /**
    * 展开行内容，泛型 T 指表格数据类型
    */
@@ -474,6 +474,10 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
    * 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true
    */
   tree?: TableTreeConfig;
+  /**
+   * 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发
+   */
+  onTreeExpandChange?: (context: TableTreeExpandChangeContext<T>) => void;
 }
 
 /** 组件实例方法 */
@@ -780,6 +784,12 @@ export interface TableTreeConfig {
   treeNodeColumnIndex?: number;
   childrenKey?: 'children';
   checkStrictly?: boolean;
+}
+
+export interface TableTreeExpandChangeContext<T> {
+  row: T;
+  rowIndex: number;
+  rowState: TableRowState<T>;
 }
 
 export type TableRowValue = string | number;

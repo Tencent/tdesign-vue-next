@@ -148,6 +148,7 @@ export default function useClassName() {
     // 拖拽功能类名
     tableDraggableClasses: {
       rowDraggable: `${classPrefix.value}-table--row-draggable`,
+      rowHandlerDraggable: `${classPrefix.value}-table--row-handler-draggable`,
       colDraggable: `${classPrefix.value}-table--col-draggable`,
       handle: `${classPrefix.value}-table__handle-draggable`,
       ghost: `${classPrefix.value}-table__col--draggable-ghost`,

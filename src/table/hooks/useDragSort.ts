@@ -16,11 +16,20 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   const dragCol = computed(() => columns.value.find((item) => item.colKey === 'drag'));
   // 行拖拽判断条件
   const isRowDraggable = computed(() => sortOnRowDraggable.value || dragSort.value === 'row');
+  // 行拖拽判断条件-手柄列
+  const isRowHandlerDraggable = computed(() => ['col', 'row-handler'].includes(dragSort.value) && !!dragCol.value);
   // 列拖拽判断条件
-  const isColDraggable = computed(() => ['col'].includes(dragSort.value) && !!dragCol.value);
+  // const isColDraggable = computed(() => dragSort.value === 'col';
 
   if (props.sortOnRowDraggable) {
-    log.warn('Table', "`sortOnRowDraggable` is going to be deprecated, use dragSort='row' instead.");
+    log.error('Table', "`sortOnRowDraggable` is going to be deprecated, use dragSort='row' instead.");
+  }
+
+  if (dragSort.value === 'col') {
+    log.error(
+      'Table',
+      "dragSort='drag' is going to be used as column drag, please use dragSort='row-handler' instead.",
+    );
   }
 
   const { tableDraggableClasses } = useClassName();
@@ -34,7 +43,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
   });
   // 注册拖拽事件
   const registerDragEvent = (element: TargetDom) => {
-    if (!isColDraggable.value && !isRowDraggable.value) {
+    if (!isRowHandlerDraggable.value && !isRowDraggable.value) {
       return;
     }
     const dragContainer = element?.querySelector('tbody');
@@ -94,7 +103,7 @@ export default function useDragSort(props: TdPrimaryTableProps, context: SetupCo
 
   return {
     isRowDraggable,
-    isColDraggable,
+    isRowHandlerDraggable,
     registerDragEvent,
     setDragSortPrimaryTableRef,
   };

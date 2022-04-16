@@ -28,19 +28,24 @@ export default function useTreeData(props: TdEnhancedTableProps, context: SetupC
 
   watch(
     [data],
-    ([val]) => {
-      if (!val) return [];
+    ([data]) => {
+      if (!data) return;
       // 如果没有树形解构，则不需要相关逻辑
       if (!props.tree || !Object.keys(props.tree).length) {
-        dataSource.value = val;
+        dataSource.value = data;
         return;
       }
-      const newVal = cloneDeep(val);
+      const newVal = cloneDeep(data);
       dataSource.value = newVal;
       store.value.initialTreeStore(newVal, props.columns, rowDataKeys.value);
     },
     { immediate: true },
   );
+
+  // 不能启用这部分代码。如果启用，会导致选中树形结构子节点时数据被重置，全部节点收起
+  // watch([columns, rowDataKeys], ([columns, rowDataKeys]) => {
+  //   store.value.initialTreeStore(data.value, columns, rowDataKeys);
+  // });
 
   onUnmounted(() => {
     if (!props.tree || !Object.keys(props.tree).length) return;
