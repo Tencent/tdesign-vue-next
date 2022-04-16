@@ -1,15 +1,13 @@
-import { ref, computed, toRef, watch, nextTick, toRefs } from 'vue';
+import { ref, computed, watch, nextTick, toRefs } from 'vue';
 import { getCharacterLength } from '../utils/helper';
 import { TdInputProps, InputValue } from './type';
 import { useEmitEvent } from '../hooks/event';
-import useDefaultValue from '../hooks/useDefaultValue';
 
 export default function useInput(props: TdInputProps) {
   const { value } = toRefs(props);
+  const inputValue = ref<InputValue>();
 
   const emitEvent = useEmitEvent();
-
-  const [inputValue] = useDefaultValue(value, props.defaultValue, props.onChange, 'value');
 
   const isHover = ref(false);
   const focused = ref(false);
@@ -106,9 +104,9 @@ export default function useInput(props: TdInputProps) {
   );
 
   watch(
-    () => props.value,
-    (value) => {
-      inputValue.value = value;
+    value,
+    (v) => {
+      inputValue.value = v;
     },
     { immediate: true },
   );
