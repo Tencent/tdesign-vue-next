@@ -54,13 +54,11 @@ export default defineComponent({
     handleClick(e: MouseEvent): void {
       const { href, tAnchor, title } = this;
       tAnchor.handleScrollTo(href);
-      tAnchor.handleLinkClick(
-        {
-          href,
-          title: typeof title === 'string' ? title : undefined,
-        },
+      tAnchor.handleLinkClick({
+        href,
+        title: typeof title === 'string' ? title : undefined,
         e,
-      );
+      });
     },
     renderTitle() {
       const { title, $slots } = this;
