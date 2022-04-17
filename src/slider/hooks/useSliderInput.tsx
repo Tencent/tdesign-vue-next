@@ -55,11 +55,12 @@ export const useSliderInput = (
     ];
   });
 
-  const renderInputNumber = (val: number, changeFn: (val: number) => void) => {
+  const renderInputNumber = (val: number | number[], changeFn: (val: number) => void) => {
+    const inputValue = val as number;
     return (
       <InputNumber
         class={sliderNumberClass.value}
-        value={val}
+        value={inputValue}
         step={step}
         onChange={changeFn}
         disabled={disabled.value}
