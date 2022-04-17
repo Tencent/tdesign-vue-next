@@ -12,8 +12,7 @@ import { emitEvent } from '../utils/event';
 import { useFormDisabled } from '../form/hooks';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useEmitEvent } from '../hooks/event';
-import useInputAction from './useInputAction';
-import useInputNumberStep from './useInputNumberStep';
+import useInputNumberAction from './useInputNumberAction';
 import useInputNumberTools from './useInputNumberTools';
 import useKeyboardEvents from './useKeyboardEvents';
 
@@ -53,7 +52,17 @@ export default defineComponent({
     TInput,
   },
   props,
-  emits: ['update:value', 'change', 'blur', 'focus', 'keydown-enter', 'keydown', 'keyup', 'keypress'],
+  emits: [
+    'update:value',
+    'update:modelValue',
+    'change',
+    'blur',
+    'focus',
+    'keydown-enter',
+    'keydown',
+    'keyup',
+    'keypress',
+  ],
   setup(props) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input-number');
@@ -63,18 +72,23 @@ export default defineComponent({
     const isError = ref(false);
     const inputting = ref(false);
 
-    const { digitsNum, filterValue, clearFilterValue, addClasses, reduceClasses, ...stepHandler } = useInputNumberStep(
-      COMPONENT_NAME,
-      props,
-      isError,
-    );
+    const {
+      digitsNum,
+      filterValue,
+      clearFilterValue,
+      addClasses,
+      reduceClasses,
+      innerValue,
+      handleAction,
+      userInput,
+      ...actionHandler
+    } = useInputNumberAction(COMPONENT_NAME, props, isError);
     const inputNumberTools = useInputNumberTools(props, digitsNum, isError);
-    const { innerValue, handleAction, userInput } = useInputAction(props, digitsNum);
     const keyboardEvents = useKeyboardEvents(innerValue);
 
     const handleStartInput = () => {
       inputting.value = true;
-      if (innerValue === undefined) return;
+      if (innerValue.value === undefined) return;
       filterValue.value = innerValue.value.toFixed(digitsNum.value);
     };
 
@@ -98,22 +112,14 @@ export default defineComponent({
       emitEvent('focus', innerValue.value, { e });
     };
 
-    const handleInput = (val: string, e: InputEvent) => {
-      userInput.value = val;
-      filterValue.value = inputNumberTools.toValidStringNumber(userInput.value);
-      userInput.value = '';
-      if (!inputNumberTools.isValid(filterValue.value) || Number(filterValue.value) === innerValue.value) return;
-      handleAction(Number(filterValue.value), 'input', e);
-    };
-
     const computeds = {
-      reduceEvents: computed(() => ({ onClick: stepHandler.handleReduce })),
-      addEvents: computed(() => ({ onClick: stepHandler.handleAdd })),
+      reduceEvents: computed(() => ({ onClick: actionHandler.handleReduce })),
+      addEvents: computed(() => ({ onClick: actionHandler.handleAdd })),
       cmptWrapClasses: computed(() => [
         COMPONENT_NAME.value,
         CLASSNAMES.SIZE[props.size],
         {
-          [CLASSNAMES.STATUS.disabled]: props.disabled,
+          [CLASSNAMES.STATUS.disabled]: disabled.value,
           [`${classPrefix.value}-is-controls-right`]: props.theme === 'column',
           [`${COMPONENT_NAME.value}--${props.theme}`]: props.theme,
           [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth,
@@ -127,7 +133,7 @@ export default defineComponent({
         onKeypress: keyboardEvents.handleKeypress,
       })),
       inputAttrs: computed(() => ({
-        disabled: props.disabled,
+        disabled: disabled.value,
         readonly: props.readonly,
         autocomplete: 'off',
         ref: 'refInputElem',
@@ -167,13 +173,10 @@ export default defineComponent({
     );
 
     return {
-      classPrefix,
-      COMPONENT_NAME,
-      disabled,
       ...computeds,
-      handleInput,
       addClasses,
       reduceClasses,
+      actionHandler,
     };
   },
   render() {
@@ -195,7 +198,7 @@ export default defineComponent({
           {...this.inputAttrs}
           {...this.inputEvents}
           value={this.displayValue}
-          onChange={(val: string, { e }: { e: InputEvent }) => this.handleInput(val, e)}
+          onChange={(val: string, { e }: { e: InputEvent }) => this.actionHandler.handleInput(val, e)}
         />
         {this.theme !== 'normal' && (
           <t-button
