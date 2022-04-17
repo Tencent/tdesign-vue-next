@@ -173,7 +173,7 @@ export default defineComponent({
       }
     };
 
-    const onJumperChange = (val: string) => {
+    const onJumperChange = (val: number) => {
       const currentIndex = Math.trunc(+val);
       if (isNaN(currentIndex)) return;
       jumpIndex.value = currentIndex;
