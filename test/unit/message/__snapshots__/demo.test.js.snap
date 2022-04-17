@@ -183,7 +183,7 @@ exports[`Message Message closeVue demo works fine 1`] = `
       />
     </svg>
     
-     点击关闭按钮触发事件 click-close-btn 
+     点击关闭按钮触发事件 close-btn-click 
     
     <span
       class="t-message__close"

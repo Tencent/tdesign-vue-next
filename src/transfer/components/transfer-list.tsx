@@ -1,4 +1,4 @@
-import { defineComponent, VNode, PropType } from 'vue';
+import { defineComponent, VNode, PropType, ref, computed, watch } from 'vue';
 import {
   EmptyType,
   SearchEvent,
@@ -8,300 +8,285 @@ import {
   TransferListType,
   TransferItemOption,
 } from '../interface';
-import { PageInfo, TdPaginationProps, Pagination } from '../../pagination';
+import { PageInfo, TdPaginationProps } from '../../pagination';
 import { Checkbox as TCheckbox, CheckboxGroup as TCheckboxGroup, CheckboxProps } from '../../checkbox';
 import { getLeefCount, getDataValues } from '../utils';
 import Search from './transfer-search';
-import { renderTNodeJSXDefault } from '../../utils/render-tnode';
+import { useTNodeDefault } from '../../hooks/tnode';
 
-import { usePrefixClass } from '../../config-provider';
+import { usePrefixClass } from '../../hooks/useConfig';
+
+const props = {
+  checkboxProps: {
+    type: Object as PropType<CheckboxProps>,
+    default: () => ({}),
+  },
+  dataSource: {
+    type: Array as PropType<Array<TransferItemOption>>,
+    default(): Array<TransferItemOption> {
+      return [];
+    },
+  },
+  listType: {
+    type: String as PropType<TransferListType>,
+    default: 'target',
+  },
+  title: {
+    type: [String, Function],
+  },
+  checkedValue: {
+    type: Array as PropType<Array<TransferValue>>,
+    default(): Array<TransferValue> {
+      return [];
+    },
+  },
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
+  search: {
+    type: [Boolean, Object] as PropType<SearchOption>,
+    default: false,
+  },
+  transferItem: Function as PropType<TdTransferProps['transferItem']>,
+  empty: {
+    type: [Function, String] as PropType<EmptyType>,
+  },
+  pagination: [Boolean, Object],
+  footer: [Function, String],
+  checkAll: Boolean,
+  t: Function,
+  global: Object,
+  isTreeMode: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+};
 
 export default defineComponent({
   name: 'TTransferList',
-  components: {
-    Search,
-    TCheckbox,
-    TCheckboxGroup,
-    Pagination,
-  },
-  props: {
-    checkboxProps: {
-      type: Object as PropType<CheckboxProps>,
-      default: () => ({}),
-    },
-    dataSource: {
-      type: Array as PropType<Array<TransferItemOption>>,
-      default(): Array<TransferItemOption> {
-        return [];
-      },
-    },
-    listType: {
-      type: String as PropType<TransferListType>,
-      default: 'target',
-    },
-    title: {
-      type: [String, Function],
-    },
-    checkedValue: {
-      type: Array as PropType<Array<TransferValue>>,
-      default(): Array<TransferValue> {
-        return [];
-      },
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    search: {
-      type: [Boolean, Object] as PropType<SearchOption>,
-      default: false,
-    },
-    transferItem: Function as PropType<TdTransferProps['transferItem']>,
-    empty: {
-      type: [Function, String] as PropType<EmptyType>,
-    },
-    pagination: [Boolean, Object],
-    footer: [Function, String],
-    checkAll: Boolean,
-    t: Function,
-    global: Object,
-    isTreeMode: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-  },
-  emits: ['pageChange', 'checkedChange', 'scroll', 'search'],
-  setup() {
+  props: { ...props },
+  setup(props, { slots }) {
     const classPrefix = usePrefixClass();
-    return {
-      classPrefix,
-    };
-  },
-  data() {
-    return {
-      filterValue: '', // 搜索框输入内容,
-      // 用于兼容处理 Pagination 的非受控属性（非受控属性仅有 change 事件变化，无 props 变化，因此只需监听事件）
-      defaultCurrent: 1,
-      // 用于兼容处理 Pagination 的非受控属性
-      defaultPageSize: 0,
-    };
-  },
-  computed: {
-    // this.defaultCurrent 属于分页组件抛出的事件参数，非受控的情况也会有该事件触发
-    // this.pagination.defaultCurrent 为表格组件传入的非受控属性
-    currentPage(): number {
-      return this.pagination.current || this.defaultCurrent || this.pagination.defaultCurrent;
-    },
-    pageSize(): number {
-      return this.pagination.pageSize || this.defaultPageSize || this.pagination.defaultPageSize;
-    },
-    pageTotal(): number {
-      return (this.filteredData && this.filteredData.length) || 0;
-    },
-    filteredData(): Array<TransferItemOption> {
-      return this.dataSource.filter((item: TransferItemOption) => {
+    // 搜索框输入内容
+    const filterValue = ref('');
+    // 用于兼容处理 Pagination 的非受控属性（非受控属性仅有 change 事件变化，无 props 变化，因此只需监听事件）
+    const defaultCurrent = ref(1);
+    // 用于兼容处理 Pagination 的非受控属性
+    const defaultPageSize = ref(0);
+
+    const currentPage = computed(() => {
+      const pagination = props.pagination as any;
+      return pagination?.current || defaultCurrent.value || pagination?.defaultCurrent;
+    });
+    const pageSize = computed(() => {
+      const pagination = props.pagination as any;
+      return pagination?.pageSize || defaultPageSize.value || pagination?.defaultPageSize;
+    });
+    const filteredData = computed(() => {
+      return props.dataSource.filter((item: TransferItemOption) => {
         const label = item && item.label.toString();
-        return label.toLowerCase().indexOf(this.filterValue.toLowerCase()) > -1;
+        return label.toLowerCase().indexOf(filterValue.value.toLowerCase()) > -1;
       });
-    },
-    curPageData(): Array<TransferItemOption> {
-      let pageData = this.filteredData;
-      if (!this.pagination) return pageData;
-      if (this.pageSize === 0) return pageData;
-      const startIndex = (this.currentPage - 1) * this.pageSize;
-      const endIndex = this.currentPage * this.pageSize;
+    });
+
+    const pageTotal = computed(() => {
+      return (filteredData.value && filteredData.value.length) || 0;
+    });
+
+    const curPageData = computed(() => {
+      let pageData = filteredData.value;
+      if (!props.pagination) return pageData;
+      if (pageSize.value === 0) return pageData;
+      const startIndex = (currentPage.value - 1) * pageSize.value;
+      const endIndex = currentPage.value * pageSize.value;
       pageData = pageData.slice(startIndex, endIndex);
       return pageData;
-    },
-    paginationProps(): TdPaginationProps {
+    });
+    const paginationProps = computed(() => {
       const defaultPaginationProps: TdPaginationProps = {
         size: 'small',
         theme: 'simple',
         totalContent: false,
         pageSizeOptions: [],
       };
-      return typeof this.pagination === 'object'
+      return typeof props.pagination === 'object'
         ? {
             ...defaultPaginationProps,
-            ...this.pagination,
-            current: this.currentPage,
-            total: this.pageTotal,
-            pageSize: this.pageSize,
+            ...props.pagination,
+            current: currentPage.value,
+            total: pageTotal.value,
+            pageSize: pageSize.value,
           }
         : {};
-    },
-    hasFooter(): boolean {
-      return !!this.$slots.default;
-    },
-    indeterminate(): boolean {
-      return !this.isAllChecked && this.checkedValue.length > 0;
-    },
-    isAllChecked(): boolean {
+    });
+    const hasFooter = computed(() => {
+      return !!slots.default;
+    });
+    const isAllChecked = computed(() => {
       return (
-        this.checkedValue.length > 0 &&
-        this.dataSource.every((item: TransferItemOption) => item.disabled || this.checkedValue.includes(item.value))
+        props.checkedValue.length > 0 &&
+        props.dataSource.every((item: TransferItemOption) => item.disabled || props.checkedValue.includes(item.value))
       );
-    },
-    totalCount(): number {
-      return getLeefCount(this.dataSource);
-    },
-  },
-  methods: {
-    handlePaginationChange(pageInfo: PageInfo): void {
-      this.$emit('pageChange', pageInfo);
-      this.defaultCurrent = pageInfo.current;
-      this.defaultPageSize = pageInfo.pageSize;
-    },
-    handleCheckedChange(val: Array<TransferValue>): void {
-      this.$emit('checkedChange', val);
-    },
-    handleCheckedAllChange(checked: boolean): void {
+    });
+    const indeterminate = computed(() => {
+      return !isAllChecked.value && props.checkedValue.length > 0;
+    });
+
+    const totalCount = computed(() => {
+      return getLeefCount(props.dataSource);
+    });
+
+    const handlePaginationChange = (pageInfo: PageInfo) => {
+      props.onPageChange?.(pageInfo);
+      defaultCurrent.value = pageInfo.current;
+      defaultPageSize.value = pageInfo.pageSize;
+    };
+    const handleCheckedChange = (val: Array<TransferValue>) => {
+      props.onCheckedChange?.(val);
+    };
+    const handleCheckedAllChange = (checked: boolean) => {
       if (checked) {
-        const allValue = getDataValues(this.dataSource, [], { isTreeMode: this.isTreeMode, include: false });
-        this.handleCheckedChange(allValue);
+        const allValue = getDataValues(props.dataSource, [], { isTreeMode: props.isTreeMode, include: false });
+        handleCheckedChange(allValue);
       } else {
-        this.handleCheckedChange([]);
+        handleCheckedChange([]);
       }
-    },
-    scroll(e: Event): void {
-      this.$emit('scroll', e);
-    },
-    handleSearch(e: any): void {
+    };
+    const scroll = (e: Event) => {
+      props.onScroll?.(e);
+    };
+    const handleSearch = (e: any) => {
       const event: SearchEvent = {
         query: e.value,
-        type: this.listType as TransferListType,
+        type: props.listType as TransferListType,
         e: e.e,
         trigger: e.trigger,
       };
-      this.filterValue = e.value;
-      this.$emit('search', event);
-    },
-    renderTitle() {
-      const defaultNode = this.title && typeof this.title === 'string' ? <template>{this.title}</template> : null;
-      const titleNode = renderTNodeJSXDefault(this, 'title', {
+      filterValue.value = e.value;
+      props.onSearch?.(event);
+    };
+    const renderTNodeJSX = useTNodeDefault();
+    const renderTitle = () => {
+      const defaultNode = props.title && typeof props.title === 'string' ? <template>{props.title}</template> : null;
+      const titleNode = renderTNodeJSX('title', {
         defaultNode,
         params: {
-          type: this.listType,
+          type: props.listType,
         },
       });
       return <span>{titleNode}</span>;
-    },
-    renderContent() {
+    };
+    const renderContent = () => {
       const defaultNode = (
-        <TCheckboxGroup value={this.checkedValue} onChange={this.handleCheckedChange}>
-          {this.curPageData.map((item, index) => (
+        <TCheckboxGroup value={props.checkedValue} onChange={handleCheckedChange}>
+          {curPageData.value.map((item, index) => (
             <TCheckbox
-              disabled={this.disabled || item.disabled}
+              disabled={props.disabled || item.disabled}
               value={item.value}
               needRipple={true}
               class={[
-                `${this.classPrefix}-transfer__list-item`,
-                this.checkedValue.includes(item.value) ? `${this.classPrefix}-is-checked` : '',
+                `${classPrefix.value}-transfer__list-item`,
+                props.checkedValue.includes(item.value) ? `${classPrefix.value}-is-checked` : '',
               ]}
               key={item.key}
-              {...{ props: this.checkboxProps }}
+              {...{ props: props.checkboxProps }}
             >
-              {renderTNodeJSXDefault(this, 'transferItem', {
+              {renderTNodeJSX('transferItem', {
                 defaultNode: <span>{item.label}</span>,
-                params: { data: item.data, index, type: this.listType },
+                params: { data: item.data, index, type: props.listType },
               })}
             </TCheckbox>
           ))}
         </TCheckboxGroup>
       );
       return (
-        <div class={`${this.classPrefix}-transfer__list-content narrow-scrollbar`} onScroll={this.scroll}>
-          {/* {this.$slots.tree
-            ? this.$slots.tree({
-                data: this.curPageData,
-                value: this.checkedValue,
-                onChange: this.handleCheckedChange,
-              })
-            : defaultNode} */}
-          {renderTNodeJSXDefault(this, 'tree', {
+        <div class={`${classPrefix.value}-transfer__list-content narrow-scrollbar`} onScroll={scroll}>
+          {renderTNodeJSX('tree', {
             defaultNode,
             params: {
-              data: this.curPageData,
-              value: this.checkedValue,
-              onChange: this.handleCheckedChange,
+              data: curPageData.value,
+              value: props.checkedValue,
+              onChange: handleCheckedChange,
             },
           })}
         </div>
       );
-    },
-    renderEmpty() {
-      const empty = this.empty || this.t(this.global.empty);
+    };
+    const renderEmpty = () => {
+      const empty = props.empty || props.t(props.global.empty);
       const defaultNode: VNode = typeof empty === 'string' ? <span>{empty}</span> : null;
       return (
-        <div class={`${this.classPrefix}-transfer__empty`}>
-          {renderTNodeJSXDefault(this, 'empty', {
+        <div class={`${classPrefix.value}-transfer__empty`}>
+          {renderTNodeJSX('empty', {
             defaultNode,
             params: {
-              type: this.listType,
+              type: props.listType,
             },
           })}
         </div>
       );
-    },
-    renderFooter() {
+    };
+    const renderFooter = () => {
       const defaultNode =
-        typeof this.footer === 'string' ? (
-          <div class={`${this.classPrefix}-transfer__footer`}>{this.footer}</div>
+        typeof props.footer === 'string' ? (
+          <div class={`${classPrefix.value}-transfer__footer`}>{props.footer}</div>
         ) : null;
-      return renderTNodeJSXDefault(this, 'footer', {
+      return renderTNodeJSX('footer', {
         defaultNode,
         params: {
-          type: this.listType,
+          type: props.listType,
         },
       });
-    },
-  },
-  render() {
-    return (
-      <div class={`${this.classPrefix}-transfer__list ${this.classPrefix}-transfer__list-${this.listType}`}>
-        <div class={`${this.classPrefix}-transfer__list-header`}>
-          <div>
-            {this.checkAll && (
-              <TCheckbox
-                disabled={this.disabled || !this.dataSource.length}
-                checked={this.isAllChecked}
-                indeterminate={this.indeterminate}
-                onChange={this.handleCheckedAllChange}
+    };
+
+    return () => {
+      return (
+        <div class={`${classPrefix.value}-transfer__list ${classPrefix.value}-transfer__list-${props.listType}`}>
+          <div class={`${classPrefix.value}-transfer__list-header`}>
+            <div>
+              {props.checkAll && (
+                <TCheckbox
+                  disabled={props.disabled || !props.dataSource.length}
+                  checked={isAllChecked.value}
+                  indeterminate={indeterminate.value}
+                  onChange={handleCheckedAllChange}
+                />
+              )}
+              <span>
+                {props.t(props.global.title, {
+                  checked: props.checkedValue.length,
+                  total: totalCount.value,
+                })}
+              </span>
+            </div>
+            {renderTitle()}
+          </div>
+          <div
+            class={[
+              `${classPrefix.value}-transfer__list-body`,
+              props.search ? `${classPrefix.value}-transfer__list--with-search` : '',
+            ]}
+          >
+            {props.search && (
+              <Search
+                searchValue={filterValue.value}
+                placeholder={props.t(props.global.placeholder)}
+                onChange={handleSearch}
+                disabled={props.disabled}
+                search={props.search}
               />
             )}
-            <span>
-              {this.t(this.global.title, {
-                checked: this.checkedValue.length,
-                total: this.totalCount,
-              })}
-            </span>
+            {curPageData.value.length > 0 ? renderContent() : renderEmpty()}
           </div>
-          {this.renderTitle()}
-        </div>
-        <div
-          class={[
-            `${this.classPrefix}-transfer__list-body`,
-            this.search ? `${this.classPrefix}-transfer__list--with-search` : '',
-          ]}
-        >
-          {this.search && (
-            <search
-              searchValue={this.filterValue}
-              placeholder={this.t(this.global.placeholder)}
-              onChange={this.handleSearch}
-              disabled={this.disabled}
-              search={this.search}
-            />
+          {props.pagination && pageSize.value > 0 && pageTotal.value > 0 && (
+            <div class={`${classPrefix.value}-transfer__list-pagination`}>
+              <t-pagination {...paginationProps.value} onChange={handlePaginationChange} />
+            </div>
           )}
-          {this.curPageData.length > 0 ? this.renderContent() : this.renderEmpty()}
+          {renderFooter()}
         </div>
-        {this.pagination && this.pageSize > 0 && this.pageTotal > 0 && (
-          <div class={`${this.classPrefix}-transfer__list-pagination`}>
-            <t-pagination {...this.paginationProps} onChange={this.handlePaginationChange} />
-          </div>
-        )}
-        {this.renderFooter()}
-      </div>
-    );
+      );
+    };
   },
 });

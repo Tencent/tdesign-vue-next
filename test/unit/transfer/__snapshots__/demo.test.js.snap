@@ -4,7 +4,6 @@ exports[`Transfer Transfer baseVue demo works fine 1`] = `
 <div>
   <div
     class="t-transfer"
-    modelvalue=""
   >
     <div
       class="t-transfer__list t-transfer__list-source"
@@ -644,7 +643,6 @@ exports[`Transfer Transfer checkedVue demo works fine 1`] = `
 <div>
   <div
     class="t-transfer"
-    modelvalue=""
   >
     <div
       class="t-transfer__list t-transfer__list-source"
@@ -1285,7 +1283,6 @@ exports[`Transfer Transfer customRenderVue demo works fine 1`] = `
   <div
     checked-value=""
     class="t-transfer"
-    modelvalue=""
     theme="primary"
   >
     <div
@@ -2002,7 +1999,6 @@ exports[`Transfer Transfer customVue demo works fine 1`] = `
 <div>
   <div
     class="t-transfer t-transfer__footer"
-    modelvalue=""
   >
     <div
       class="t-transfer__list t-transfer__list-source"
@@ -2628,7 +2624,6 @@ exports[`Transfer Transfer disabledVue demo works fine 1`] = `
 <div>
   <div
     class="t-transfer"
-    modelvalue=""
   >
     <div
       class="t-transfer__list t-transfer__list-source"
@@ -3284,7 +3279,6 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
   </p>
   <div
     class="t-transfer"
-    modelvalue=""
   >
     <div
       class="t-transfer__list t-transfer__list-source"
@@ -3456,7 +3450,6 @@ exports[`Transfer Transfer emptyVue demo works fine 1`] = `
   </p>
   <div
     class="t-transfer"
-    modelvalue=""
   >
     <div
       class="t-transfer__list t-transfer__list-source"
@@ -3625,7 +3618,6 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
   <div
     checked-value=""
     class="t-transfer t-transfer__pagination"
-    modelvalue=""
     theme="primary"
   >
     <div
@@ -4189,7 +4181,6 @@ exports[`Transfer Transfer searchVue demo works fine 1`] = `
   <div
     checked-value=""
     class="t-transfer t-transfer__search"
-    modelvalue=""
     theme="primary"
   >
     <div
@@ -4874,7 +4865,6 @@ exports[`Transfer Transfer targetValueVue demo works fine 1`] = `
 <div>
   <div
     class="t-transfer"
-    modelvalue="0,2,4,6,8,10,12,14,16,18"
   >
     <div
       class="t-transfer__list t-transfer__list-source"
@@ -5514,7 +5504,6 @@ exports[`Transfer Transfer treeVue demo works fine 1`] = `
 <div>
   <div
     class="t-transfer t-transfer--with-tree"
-    modelvalue=""
   >
     <div
       class="t-transfer__list t-transfer__list-source"

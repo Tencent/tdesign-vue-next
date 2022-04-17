@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue';
 import { ClassName } from '../common';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TInputGroup',

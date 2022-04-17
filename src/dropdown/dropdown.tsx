@@ -5,7 +5,7 @@ import { DropdownOption, TdDropdownProps } from './type';
 import props from './props';
 import { renderTNodeJSX } from '../utils/render-tnode';
 import { emitEvent } from '../utils/event';
-import { usePrefixClass } from '../config-provider';
+import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TDropdown',

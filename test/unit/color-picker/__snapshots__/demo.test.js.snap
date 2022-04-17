@@ -34,7 +34,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 >
                   <div
                     class="t-radio-group t-size-s t-radio-group--filled"
-                    modelvalue="monochrome"
                   >
                     
                     
@@ -83,11 +82,11 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       </span>
                     </label>
                     
+                    
                     <div
                       class="t-radio-group__bg-block"
                       style="width: 0px; left: 0px;"
                     />
-                    
                   </div>
                 </div>
                 <span
@@ -414,7 +413,46 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 <div
                   class="t-color-picker__swatches-wrap"
                 >
-                  <!---->
+                  <div
+                    class="t-color-picker__swatches"
+                  >
+                    <h3
+                      class="t-color-picker__swatches--title"
+                    >
+                      <span>
+                        最近使用颜色
+                      </span>
+                      <div
+                        class="t-color-picker__swatches--actions"
+                      >
+                        <span
+                          class="t-color-picker__icon"
+                          role="button"
+                        >
+                          <svg
+                            class="t-icon t-icon-add"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
+                          >
+                            <path
+                              d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
+                        </span>
+                        <!---->
+                      </div>
+                    </h3>
+                    <ul
+                      class="t-color-picker__swatches--items narrow-scrollbar"
+                    >
+                      
+                      
+                    </ul>
+                  </div>
                   <div
                     class="t-color-picker__swatches"
                   >
@@ -1324,7 +1362,46 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 <div
                   class="t-color-picker__swatches-wrap"
                 >
-                  <!---->
+                  <div
+                    class="t-color-picker__swatches"
+                  >
+                    <h3
+                      class="t-color-picker__swatches--title"
+                    >
+                      <span>
+                        最近使用颜色
+                      </span>
+                      <div
+                        class="t-color-picker__swatches--actions"
+                      >
+                        <span
+                          class="t-color-picker__icon"
+                          role="button"
+                        >
+                          <svg
+                            class="t-icon t-icon-add"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
+                          >
+                            <path
+                              d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
+                        </span>
+                        <!---->
+                      </div>
+                    </h3>
+                    <ul
+                      class="t-color-picker__swatches--items narrow-scrollbar"
+                    >
+                      
+                      
+                    </ul>
+                  </div>
                   <div
                     class="t-color-picker__swatches"
                   >
@@ -2003,6 +2080,13 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       <!---->
                     </div>
                   </div>
+                  <div
+                    class="t-color-picker__gradient-preview t-color-picker--bg-alpha"
+                  >
+                    <span
+                      class="preview-inner"
+                    />
+                  </div>
                 </div>
                 <div
                   class="t-color-picker__saturation"
@@ -2232,7 +2316,46 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                 <div
                   class="t-color-picker__swatches-wrap"
                 >
-                  <!---->
+                  <div
+                    class="t-color-picker__swatches"
+                  >
+                    <h3
+                      class="t-color-picker__swatches--title"
+                    >
+                      <span>
+                        最近使用颜色
+                      </span>
+                      <div
+                        class="t-color-picker__swatches--actions"
+                      >
+                        <span
+                          class="t-color-picker__icon"
+                          role="button"
+                        >
+                          <svg
+                            class="t-icon t-icon-add"
+                            fill="none"
+                            height="1em"
+                            viewBox="0 0 16 16"
+                            width="1em"
+                          >
+                            <path
+                              d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                              fill="currentColor"
+                              fill-opacity="0.9"
+                            />
+                          </svg>
+                        </span>
+                        <!---->
+                      </div>
+                    </h3>
+                    <ul
+                      class="t-color-picker__swatches--items narrow-scrollbar"
+                    >
+                      
+                      
+                    </ul>
+                  </div>
                   <div
                     class="t-color-picker__swatches"
                   >
@@ -2805,7 +2928,6 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-s t-radio-group--filled"
-          modelvalue="monochrome"
         >
           
           
@@ -2854,11 +2976,11 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <!---->
@@ -3213,7 +3335,46 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
       <div
         class="t-color-picker__swatches-wrap"
       >
-        <!---->
+        <div
+          class="t-color-picker__swatches"
+        >
+          <h3
+            class="t-color-picker__swatches--title"
+          >
+            <span>
+              最近使用颜色
+            </span>
+            <div
+              class="t-color-picker__swatches--actions"
+            >
+              <span
+                class="t-color-picker__icon"
+                role="button"
+              >
+                <svg
+                  class="t-icon t-icon-add"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+              <!---->
+            </div>
+          </h3>
+          <ul
+            class="t-color-picker__swatches--items narrow-scrollbar"
+          >
+            
+            
+          </ul>
+        </div>
         <div
           class="t-color-picker__swatches"
         >
@@ -3734,7 +3895,6 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-s t-radio-group--filled"
-          modelvalue="monochrome"
         >
           
           
@@ -3783,11 +3943,11 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <!---->
@@ -4097,7 +4257,46 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
       <div
         class="t-color-picker__swatches-wrap"
       >
-        <!---->
+        <div
+          class="t-color-picker__swatches"
+        >
+          <h3
+            class="t-color-picker__swatches--title"
+          >
+            <span>
+              最近使用颜色
+            </span>
+            <div
+              class="t-color-picker__swatches--actions"
+            >
+              <span
+                class="t-color-picker__icon"
+                role="button"
+              >
+                <svg
+                  class="t-icon t-icon-add"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+              <!---->
+            </div>
+          </h3>
+          <ul
+            class="t-color-picker__swatches--items narrow-scrollbar"
+          >
+            
+            
+          </ul>
+        </div>
         <div
           class="t-color-picker__swatches"
         >
@@ -4622,7 +4821,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="monochrome"
           >
             
             
@@ -4671,11 +4869,11 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -4994,29 +5192,51 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               <span>
                 最近使用颜色
               </span>
-              <span
-                class="t-color-picker__icon"
-                role="button"
+              <div
+                class="t-color-picker__swatches--actions"
               >
-                <svg
-                  class="t-icon t-icon-delete"
-                  fill="none"
-                  height="1em"
-                  viewBox="0 0 16 16"
-                  width="1em"
+                <span
+                  class="t-color-picker__icon"
+                  role="button"
                 >
-                  <path
-                    d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                  <path
-                    d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
-                    fill="currentColor"
-                    fill-opacity="0.9"
-                  />
-                </svg>
-              </span>
+                  <svg
+                    class="t-icon t-icon-add"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="t-color-picker__icon"
+                  role="button"
+                >
+                  <svg
+                    class="t-icon t-icon-delete"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M6 12V6h1v6H6zM9 6v6h1V6H9z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                    <path
+                      d="M10.5 3H14v1h-1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V4H2V3h3.5V1.8c0-.44.36-.8.8-.8h3.4c.44 0 .8.36.8.8V3zm-4 0h3V2h-3v1zM4 4v10h8V4H4z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+              </div>
             </h3>
             <ul
               class="t-color-picker__swatches--items narrow-scrollbar"
@@ -5636,7 +5856,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="monochrome"
           >
             
             
@@ -5685,11 +5904,11 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -6595,7 +6814,6 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-s t-radio-group--filled"
-          modelvalue="monochrome"
         >
           
           
@@ -6644,11 +6862,11 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <!---->
@@ -6961,7 +7179,46 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
       <div
         class="t-color-picker__swatches-wrap"
       >
-        <!---->
+        <div
+          class="t-color-picker__swatches"
+        >
+          <h3
+            class="t-color-picker__swatches--title"
+          >
+            <span>
+              最近使用颜色
+            </span>
+            <div
+              class="t-color-picker__swatches--actions"
+            >
+              <span
+                class="t-color-picker__icon"
+                role="button"
+              >
+                <svg
+                  class="t-icon t-icon-add"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+              </span>
+              <!---->
+            </div>
+          </h3>
+          <ul
+            class="t-color-picker__swatches--items narrow-scrollbar"
+          >
+            
+            
+          </ul>
+        </div>
         <div
           class="t-color-picker__swatches"
         >
@@ -7486,7 +7743,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="monochrome"
           >
             
             
@@ -7535,11 +7791,11 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -7849,7 +8105,46 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
         <div
           class="t-color-picker__swatches-wrap"
         >
-          <!---->
+          <div
+            class="t-color-picker__swatches"
+          >
+            <h3
+              class="t-color-picker__swatches--title"
+            >
+              <span>
+                最近使用颜色
+              </span>
+              <div
+                class="t-color-picker__swatches--actions"
+              >
+                <span
+                  class="t-color-picker__icon"
+                  role="button"
+                >
+                  <svg
+                    class="t-icon t-icon-add"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <!---->
+              </div>
+            </h3>
+            <ul
+              class="t-color-picker__swatches--items narrow-scrollbar"
+            >
+              
+              
+            </ul>
+          </div>
           <div
             class="t-color-picker__swatches"
           >
@@ -7948,7 +8243,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="monochrome"
           >
             
             
@@ -7997,11 +8291,11 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -8307,7 +8601,53 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
             </div>
           </div>
         </div>
-        <!---->
+        
+        <div
+          class="t-color-picker__swatches-wrap"
+        >
+          <div
+            class="t-color-picker__swatches"
+          >
+            <h3
+              class="t-color-picker__swatches--title"
+            >
+              <span>
+                最近使用颜色
+              </span>
+              <div
+                class="t-color-picker__swatches--actions"
+              >
+                <span
+                  class="t-color-picker__icon"
+                  role="button"
+                >
+                  <svg
+                    class="t-icon t-icon-add"
+                    fill="none"
+                    height="1em"
+                    viewBox="0 0 16 16"
+                    width="1em"
+                  >
+                    <path
+                      d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                      fill="currentColor"
+                      fill-opacity="0.9"
+                    />
+                  </svg>
+                </span>
+                <!---->
+              </div>
+            </h3>
+            <ul
+              class="t-color-picker__swatches--items narrow-scrollbar"
+            >
+              
+              
+            </ul>
+          </div>
+          <!---->
+        </div>
+        
       </div>
     </div>
   </div>
@@ -8342,7 +8682,6 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
               >
                 <div
                   class="t-radio-group t-size-s t-radio-group--filled"
-                  modelvalue="monochrome"
                 >
                   
                   
@@ -8391,11 +8730,11 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                     </span>
                   </label>
                   
+                  
                   <div
                     class="t-radio-group__bg-block"
                     style="width: 0px; left: 0px;"
                   />
-                  
                 </div>
               </div>
               <span
@@ -8722,7 +9061,46 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
               <div
                 class="t-color-picker__swatches-wrap"
               >
-                <!---->
+                <div
+                  class="t-color-picker__swatches"
+                >
+                  <h3
+                    class="t-color-picker__swatches--title"
+                  >
+                    <span>
+                      最近使用颜色
+                    </span>
+                    <div
+                      class="t-color-picker__swatches--actions"
+                    >
+                      <span
+                        class="t-color-picker__icon"
+                        role="button"
+                      >
+                        <svg
+                          class="t-icon t-icon-add"
+                          fill="none"
+                          height="1em"
+                          viewBox="0 0 16 16"
+                          width="1em"
+                        >
+                          <path
+                            d="M7.35 8.65v3.85h1.3V8.65h3.85v-1.3H8.65V3.5h-1.3v3.85H3.5v1.3h3.85z"
+                            fill="currentColor"
+                            fill-opacity="0.9"
+                          />
+                        </svg>
+                      </span>
+                      <!---->
+                    </div>
+                  </h3>
+                  <ul
+                    class="t-color-picker__swatches--items narrow-scrollbar"
+                  >
+                    
+                    
+                  </ul>
+                </div>
                 <div
                   class="t-color-picker__swatches"
                 >

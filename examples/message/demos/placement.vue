@@ -53,7 +53,8 @@ const msgList = computed(() =>
   margin-right: 16px;
   margin-bottom: 16px;
 }
-.t-message-offset .t-input {
+
+.t-message-offset > .t-input__wrap {
   width: 130px;
   display: inline-block;
   margin-right: 20px;
@@ -69,47 +70,51 @@ const msgList = computed(() =>
 .placement-top {
   position: absolute;
   top: 0;
-  left: 42%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .placement-top-left {
   position: absolute;
   top: 0;
-  left: 70px;
+  left: 0;
 }
 .placement-top-right {
   position: absolute;
   top: 0;
-  right: 70px;
+  right: 0;
 }
 .placement-bottom {
   position: absolute;
   bottom: 0;
-  left: 42%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .placement-bottom-left {
   position: absolute;
   bottom: 0;
-  left: 70px;
-  width: 120px;
+  left: 0;
 }
 .placement-bottom-right {
   position: absolute;
   bottom: 0;
-  right: 70px;
+  right: 0;
 }
 .placement-left {
   position: absolute;
   left: 0;
-  top: 42%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .placement-right {
   position: absolute;
   right: 0;
-  top: 42%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .placement-center {
   position: absolute;
-  right: 42%;
-  bottom: 42%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

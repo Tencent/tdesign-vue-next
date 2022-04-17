@@ -1,5 +1,5 @@
 import { defineComponent, ref, toRefs, watch } from 'vue';
-import { useCommonClassName, useConfig } from '../../config-provider';
+import { useCommonClassName, useConfig } from '../../hooks/useConfig';
 import props from '../props';
 import {
   DEFAULT_COLOR,
@@ -14,9 +14,8 @@ import HueSlider from './hue';
 import AlphaSlider from './alpha';
 import FormatPanel from './format';
 import SwatchesPanel from './swatches';
-import Color, { getColorObject } from '../utils/color';
-import { GradientColorPoint } from '../utils/gradient';
-import { TdColorPickerProps, ColorPickerChangeTrigger, RecentColorsChangeTrigger } from '../type';
+import { Color, getColorObject, GradientColorPoint } from '../utils';
+import { TdColorPickerProps, ColorPickerChangeTrigger } from '../type';
 import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
 import useVModel from '../../hooks/useVModel';
@@ -74,14 +73,14 @@ export default defineComponent({
 
     /**
      * 添加最近使用颜色
-     * @param value
+     * @returns void
      */
-    const addRecentlyUsedColor = (value: string, trigger?: RecentColorsChangeTrigger) => {
+    const addRecentlyUsedColor = () => {
       if (recentlyUsedColors.value === null || recentlyUsedColors.value === false) {
         return;
       }
       const colors = (recentlyUsedColors.value as string[]) || [];
-      const currentColor = value || color.value.rgba;
+      const currentColor = color.value.isGradient ? color.value.linearGradient : color.value.rgba;
       const index = colors.indexOf(currentColor);
       if (index > -1) {
         colors.splice(index, 1);
@@ -90,38 +89,27 @@ export default defineComponent({
       if (colors.length > TD_COLOR_USED_COLORS_MAX_SIZE) {
         colors.length = TD_COLOR_USED_COLORS_MAX_SIZE;
       }
-      handleRecentlyUsedColorsChange(colors, trigger || 'palette-saturation-brightness');
+      handleRecentlyUsedColorsChange(colors);
     };
 
     /**
      * 最近使用颜色变更时触发
      * @param colors
-     * @param trigger
      */
-    const handleRecentlyUsedColorsChange = (colors: string[], trigger?: RecentColorsChangeTrigger) => {
+    const handleRecentlyUsedColorsChange = (colors: string[]) => {
       recentlyUsedColors.value = colors;
-      setRecentlyUsedColors(colors, {
-        trigger,
-      });
+      setRecentlyUsedColors(colors);
     };
 
     /**
      * onChange
      * @param trigger
-     * @param addUsedColor
      */
-    const emitColorChange = (trigger?: ColorPickerChangeTrigger, addUsedColor?: boolean) => {
+    const emitColorChange = (trigger?: ColorPickerChangeTrigger) => {
       setInnerValue(formatValue(), {
         color: getColorObject(color.value),
         trigger: trigger || 'palette-saturation-brightness',
       });
-      if (addUsedColor) {
-        if (color.value.isGradient) {
-          addRecentlyUsedColor(color.value.linearGradient, trigger);
-        } else {
-          addRecentlyUsedColor(props.enableAlpha ? color.value.rgba : color.value.rgb, trigger);
-        }
-      }
     };
 
     watch(() => [props.defaultValue, props.enableAlpha], updateColor);
@@ -163,15 +151,7 @@ export default defineComponent({
      * 饱和度亮度变化
      * @param param0
      */
-    const handleSatAndValueChange = ({
-      saturation,
-      value,
-      addUsedColor,
-    }: {
-      saturation: number;
-      value: number;
-      addUsedColor?: boolean;
-    }) => {
+    const handleSatAndValueChange = ({ saturation, value }: { saturation: number; value: number }) => {
       const { saturation: sat, value: val } = color.value;
       let changeTrigger: ColorPickerChangeTrigger = 'palette-saturation-brightness';
       if (value !== val && saturation !== sat) {
@@ -187,16 +167,16 @@ export default defineComponent({
       } else {
         return;
       }
-      emitColorChange(changeTrigger, addUsedColor);
+      emitColorChange(changeTrigger);
     };
 
     /**
      * 色相变化
      * @param hue
      */
-    const handleHueChange = (hue: number, addUsedColor?: boolean) => {
+    const handleHueChange = (hue: number) => {
       color.value.hue = hue;
-      emitColorChange('palette-hue-bar', addUsedColor);
+      emitColorChange('palette-hue-bar');
       props.onPaletteBarChange?.({
         color: getColorObject(color.value),
       });
@@ -206,9 +186,9 @@ export default defineComponent({
      * 透明度变化
      * @param alpha
      */
-    const handleAlphaChange = (alpha: number, addUsedColor?: boolean) => {
+    const handleAlphaChange = (alpha: number) => {
       color.value.alpha = alpha;
-      emitColorChange('palette-alpha-bar', addUsedColor);
+      emitColorChange('palette-alpha-bar');
     };
 
     /**
@@ -219,7 +199,7 @@ export default defineComponent({
     const handleInputChange = (input: string, alpha?: number) => {
       color.value.update(input);
       color.value.alpha = alpha;
-      emitColorChange('input', true);
+      emitColorChange('input');
     };
 
     /**
@@ -229,11 +209,9 @@ export default defineComponent({
     const handleGradientChange = ({
       key,
       payload,
-      addUsedColor,
     }: {
       key: 'degree' | 'selectedId' | 'colors';
       payload: number | string | GradientColorPoint[];
-      addUsedColor?: boolean;
     }) => {
       let trigger: ColorPickerChangeTrigger = 'palette-saturation-brightness';
       switch (key) {
@@ -248,7 +226,7 @@ export default defineComponent({
           color.value.gradientColors = payload as GradientColorPoint[];
           break;
       }
-      emitColorChange(trigger, addUsedColor);
+      emitColorChange(trigger);
     };
 
     /**
@@ -258,15 +236,6 @@ export default defineComponent({
      */
     const handleSetColor = (type: 'system' | 'used', value: string) => {
       const isGradientValue = Color.isGradientColor(value);
-      if (type === 'system') {
-        if (
-          (isGradientValue && mode.value === 'linear-gradient') ||
-          (!isGradientValue && mode.value === 'monochrome')
-        ) {
-          // 每种模式下只能添加与模式匹配的颜色到最近使用色
-          addRecentlyUsedColor(value);
-        }
-      }
       if (isGradientValue) {
         if (props.colorModes.includes('linear-gradient')) {
           mode.value = 'linear-gradient';
@@ -278,7 +247,6 @@ export default defineComponent({
       } else if (mode.value === 'linear-gradient') {
         color.value.updateStates(value);
         color.value.updateCurrentGradientColor();
-        addRecentlyUsedColor(color.value.linearGradient);
       } else {
         color.value.update(value);
       }
@@ -294,6 +262,7 @@ export default defineComponent({
       mode,
       formatModel,
       recentlyUsedColors,
+      addRecentlyUsedColor,
       handleModeChange,
       handleSatAndValueChange,
       handleHueChange,
@@ -311,8 +280,7 @@ export default defineComponent({
       color: this.color,
       disabled: this.disabled,
     };
-    const showUsedColors =
-      recentColors !== null && recentColors !== false && ((recentlyUsedColors as string[]) || [])?.length > 0;
+    const showUsedColors = recentColors !== null && recentColors !== false;
 
     let systemColors = swatchColors;
     if (systemColors === undefined) {
@@ -331,8 +299,9 @@ export default defineComponent({
               <swatches-panel
                 {...baseProps}
                 title={t(global.recentColorTitle)}
-                removable
+                editable
                 colors={this.recentlyUsedColors}
+                handleAddColor={this.addRecentlyUsedColor}
                 onSetColor={(color: string) => this.handleSetColor('used', color)}
                 onChange={this.handleRecentlyUsedColorsChange}
               />

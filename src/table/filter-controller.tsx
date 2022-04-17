@@ -8,7 +8,7 @@ import Input from '../input';
 import TButton from '../button';
 import { useTNodeDefault } from '../hooks/tnode';
 import { PrimaryTableCol, FilterValue } from './type';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../hooks/useConfig';
 
 export interface TableFilterControllerProps {
   tFilterValue: FilterValue;

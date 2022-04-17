@@ -3,7 +3,7 @@ import camelCase from 'lodash/camelCase';
 import get from 'lodash/get';
 import pick from 'lodash/pick';
 import TrElement, { ROW_LISTENERS, TABLE_PROPS } from './tr';
-import { useConfig } from '../config-provider/useConfig';
+import { useConfig } from '../hooks/useConfig';
 import { RowspanColspan, TableRowData, BaseTableCellParams } from './type';
 import { BaseTableProps } from './interface';
 import { RowAndColFixedPosition } from './hooks/useFixed';

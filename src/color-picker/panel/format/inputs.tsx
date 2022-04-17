@@ -1,7 +1,7 @@
 import { computed, defineComponent, PropType, reactive, watch } from 'vue';
 import throttle from 'lodash/throttle';
 import props from '../../props';
-import Color from '../../utils/color';
+import { Color } from '../../utils';
 import { Select as TSelect, Option as TOption } from '../../../select';
 import TInput from '../../../input';
 import TInputNumber from '../../../input-number';

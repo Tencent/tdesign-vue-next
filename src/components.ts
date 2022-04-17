@@ -40,6 +40,7 @@ export * from './color-picker';
 export * from './avatar';
 export * from './badge';
 export * from './calendar';
+export * from './card';
 export * from './comment';
 export * from './list';
 export * from './progress';
@@ -49,6 +50,7 @@ export * from './table';
 export * from './tag';
 export * from './tooltip';
 export * from './tree';
+export * from './collapse';
 
 // 消息提醒
 

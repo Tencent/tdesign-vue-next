@@ -1,7 +1,7 @@
 import { reactive, watch } from 'vue';
 import dayjs from 'dayjs';
 
-import { useConfig } from '../../config-provider';
+import { useConfig } from '../../hooks/useConfig';
 import { COMPONENT_NAME } from '../const';
 import { createDefaultCurDate } from '../utils';
 import { TdCalendarProps } from '../type';

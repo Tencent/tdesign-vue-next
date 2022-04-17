@@ -1,0 +1,1984 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Card baseVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <!---->
+      <div>
+        <span
+          class="t-card__title"
+        >
+          标题
+        </span>
+        <!---->
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      
+      <a
+        href="javascript:void(0)"
+      >
+        操作
+      </a>
+      
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="t-card__body"
+  >
+    
+    仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。 
+    
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Card Card borderedNoneVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block demo-card"
+>
+  <div
+    class="t-card t-card--shadow-hover"
+    style="width: 400px;"
+  >
+    <div
+      class="t-card__header"
+    >
+      <div
+        class="t-card__header-wrapper"
+      >
+        <!---->
+        <div>
+          <span
+            class="t-card__title"
+          >
+            标题
+          </span>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-card__actions"
+      >
+        
+        <a
+          href="javascript:void(0)"
+        >
+          操作
+        </a>
+        
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="t-card__body"
+    >
+      
+      仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。 
+      
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card Card borderedVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-card t-card--bordered"
+    style="width: 400px;"
+  >
+    <!---->
+    <!---->
+    <div
+      class="t-card__body"
+    >
+      
+      仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。
+      
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card Card footerActionsVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-card t-card--bordered"
+    style="width: 400px;"
+  >
+    <!---->
+    <div
+      class="t-card__cover"
+    >
+      <img
+        src="https://tdesign.gtimg.com/site/source/card-demo.png"
+      />
+    </div>
+    <!---->
+    <div
+      class="t-card__footer"
+    >
+      <div
+        class="t-card__footer-wrapper"
+      >
+        
+        <div
+          class="t-row t-row--center t-row--middle"
+          style="margin-left: 0px; margin-right: 0px;"
+        >
+          
+          <div
+            class="t-col t-col-12"
+            style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+          >
+            
+            <button
+              class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-size-full-width"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <svg
+                  class="t-icon t-icon-thumb-up"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+                
+              </span>
+            </button>
+            
+          </div>
+          <div
+            class="t-col t-col-12"
+            style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+          >
+            
+            <div
+              class="t-divider t-divider--vertical"
+            >
+              <!---->
+            </div>
+            
+          </div>
+          <div
+            class="t-col t-col-12"
+            style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+          >
+            
+            <button
+              class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-size-full-width"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <svg
+                  class="t-icon t-icon-chat"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+                
+              </span>
+            </button>
+            
+          </div>
+          <div
+            class="t-col t-col-12"
+            style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+          >
+            
+            <div
+              class="t-divider t-divider--vertical"
+            >
+              <!---->
+            </div>
+            
+          </div>
+          <div
+            class="t-col t-col-12"
+            style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+          >
+            
+            <button
+              class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square t-size-full-width"
+              type="button"
+            >
+              <span
+                class="t-button__text"
+              >
+                
+                <svg
+                  class="t-icon t-icon-share"
+                  fill="none"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  width="1em"
+                >
+                  <path
+                    d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z"
+                    fill="currentColor"
+                    fill-opacity="0.9"
+                  />
+                </svg>
+                
+              </span>
+            </button>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      <!---->
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-card t-card--bordered"
+    style="width: 400px;"
+  >
+    <!---->
+    <div
+      class="t-card__cover"
+    >
+      <img
+        src="https://tdesign.gtimg.com/site/source/card-demo.png"
+      />
+    </div>
+    <!---->
+    <div
+      class="t-card__footer"
+    >
+      <div
+        class="t-card__footer-wrapper"
+      >
+        
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-heart"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M8 5.86l1.06-.98a2.35 2.35 0 013.25 3.4L8 12.57l-4.31-4.3a2.35 2.35 0 013.25-3.4L8 5.86zm-.39-1.72a3.35 3.35 0 00-4.63 4.84l4.87 4.87a.2.2 0 00.3 0l4.87-4.87a3.35 3.35 0 00-4.63-4.84L8 4.5l-.39-.36z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+        <button
+          class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+          type="button"
+        >
+          <span
+            class="t-button__text"
+          >
+            
+            <svg
+              class="t-icon t-icon-share"
+              fill="none"
+              height="1em"
+              viewBox="0 0 16 16"
+              width="1em"
+            >
+              <path
+                d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z"
+                fill="currentColor"
+                fill-opacity="0.9"
+              />
+            </svg>
+            
+          </span>
+        </button>
+        
+      </div>
+      <div
+        class="t-card__actions"
+      >
+        
+        <div
+          class="t-popup__reference"
+        >
+          <transition-stub>
+            <div
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup__content t-dropdown"
+              >
+                
+                <div
+                  class="t-dropdown__menu"
+                >
+                  
+                  <div
+                    class="t-dropdown__menu-column narrow-scrollbar"
+                    style="max-height: 300px; max-width: 100px; min-width: 112px;"
+                  >
+                    
+                    <div
+                      maxcolumnwidth="100"
+                      mincolumnwidth="112"
+                    >
+                      <div
+                        class="t-dropdown__item"
+                      >
+                        <div
+                          class="t-dropdown__item-content"
+                        >
+                          <span
+                            class="t-dropdown__item-text"
+                          >
+                            操作一
+                          </span>
+                        </div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    <div
+                      maxcolumnwidth="100"
+                      mincolumnwidth="112"
+                    >
+                      <div
+                        class="t-dropdown__item"
+                      >
+                        <div
+                          class="t-dropdown__item-content"
+                        >
+                          <span
+                            class="t-dropdown__item-text"
+                          >
+                            操作二
+                          </span>
+                        </div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                
+                <!---->
+              </div>
+            </div>
+          </transition-stub>
+          
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-more"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    class="t-card t-card--bordered"
+    style="width: 400px;"
+  >
+    <!---->
+    <div
+      class="t-card__cover"
+    >
+      <img
+        src="https://tdesign.gtimg.com/site/source/card-demo.png"
+      />
+    </div>
+    <!---->
+    <div
+      class="t-card__footer"
+    >
+      <div
+        class="t-card__footer-wrapper"
+      >
+        
+        <div
+          class="t-avatar-group t-avatar--offset-left"
+        >
+          
+          
+          
+          <div
+            class="t-avatar t-avatar--circle"
+          >
+            <img
+              alt=""
+              src="https://tdesign.gtimg.com/site/avatar-boy.jpg"
+            />
+          </div>
+          <div
+            class="t-avatar t-avatar--circle"
+          >
+            <span>
+              
+              Q
+              
+            </span>
+          </div>
+          <div
+            class="t-avatar t-avatar--circle"
+          >
+            <span>
+              
+              +3
+              
+            </span>
+          </div>
+          
+          
+          
+        </div>
+        
+      </div>
+      <div
+        class="t-card__actions"
+      >
+        
+        <div
+          class="t-popup__reference"
+        >
+          <transition-stub>
+            <div
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup__content t-dropdown"
+              >
+                
+                <div
+                  class="t-dropdown__menu"
+                >
+                  
+                  <div
+                    class="t-dropdown__menu-column narrow-scrollbar"
+                    style="max-height: 300px; max-width: 100px; min-width: 112px;"
+                  >
+                    
+                    <div
+                      maxcolumnwidth="100"
+                      mincolumnwidth="112"
+                    >
+                      <div
+                        class="t-dropdown__item"
+                      >
+                        <div
+                          class="t-dropdown__item-content"
+                        >
+                          <span
+                            class="t-dropdown__item-text"
+                          >
+                            操作一
+                          </span>
+                        </div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    <div
+                      maxcolumnwidth="100"
+                      mincolumnwidth="112"
+                    >
+                      <div
+                        class="t-dropdown__item"
+                      >
+                        <div
+                          class="t-dropdown__item-content"
+                        >
+                          <span
+                            class="t-dropdown__item-text"
+                          >
+                            操作二
+                          </span>
+                        </div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                
+                <!---->
+              </div>
+            </div>
+          </transition-stub>
+          
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-more"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Card footerContentActionsVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-card t-card--bordered"
+    style="width: 400px;"
+  >
+    <!---->
+    <div
+      class="t-card__cover"
+    >
+      <img
+        src="https://tdesign.gtimg.com/site/source/card-demo.png"
+      />
+    </div>
+    <!---->
+    <div
+      class="t-card__footer"
+    >
+      <div
+        class="t-card__footer-wrapper"
+      >
+        
+        <div
+          class="t-comment"
+        >
+          <div
+            class="t-comment__inner"
+          >
+            <div
+              class="t-comment__avatar"
+            >
+              <img
+                alt=""
+                class="t-comment__avatar-image"
+                src="https://tdesign.gtimg.com/site/avatar-boy.jpg"
+              />
+            </div>
+            <div
+              class="t-comment__content"
+            >
+              <div
+                class="t-comment__author"
+              >
+                <span
+                  class="t-comment__name"
+                >
+                  标题
+                </span>
+                <!---->
+              </div>
+              <div
+                class="t-comment__detail"
+              >
+                卡片内容
+              </div>
+              <!---->
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        
+      </div>
+      <div
+        class="t-card__actions"
+      >
+        
+        <div
+          class="t-popup__reference"
+        >
+          <transition-stub>
+            <div
+              aria-hidden="true"
+              class="t-popup"
+              role="tooltip"
+              style="display: none;"
+            >
+              <div
+                class="t-popup__content t-dropdown"
+              >
+                
+                <div
+                  class="t-dropdown__menu"
+                >
+                  
+                  <div
+                    class="t-dropdown__menu-column narrow-scrollbar"
+                    style="max-height: 300px; max-width: 100px; min-width: 112px;"
+                  >
+                    
+                    <div
+                      maxcolumnwidth="100"
+                      mincolumnwidth="112"
+                    >
+                      <div
+                        class="t-dropdown__item"
+                      >
+                        <div
+                          class="t-dropdown__item-content"
+                        >
+                          <span
+                            class="t-dropdown__item-text"
+                          >
+                            操作一
+                          </span>
+                        </div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    <div
+                      maxcolumnwidth="100"
+                      mincolumnwidth="112"
+                    >
+                      <div
+                        class="t-dropdown__item"
+                      >
+                        <div
+                          class="t-dropdown__item-content"
+                        >
+                          <span
+                            class="t-dropdown__item-text"
+                          >
+                            操作二
+                          </span>
+                        </div>
+                        <!---->
+                      </div>
+                      <!---->
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+                
+                <!---->
+              </div>
+            </div>
+          </transition-stub>
+          
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-more"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card Card footerContentVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered"
+  style="width: 400px;"
+>
+  <!---->
+  <div
+    class="t-card__cover"
+  >
+    <img
+      src="https://tdesign.gtimg.com/site/source/card-demo.png"
+    />
+  </div>
+  <!---->
+  <div
+    class="t-card__footer"
+  >
+    <div
+      class="t-card__footer-wrapper"
+    >
+      
+      <div
+        class="t-comment"
+      >
+        <div
+          class="t-comment__inner"
+        >
+          <div
+            class="t-comment__avatar"
+          >
+            <img
+              alt=""
+              class="t-comment__avatar-image"
+              src="https://tdesign.gtimg.com/site/avatar-boy.jpg"
+            />
+          </div>
+          <div
+            class="t-comment__content"
+          >
+            <div
+              class="t-comment__author"
+            >
+              <span
+                class="t-comment__name"
+              >
+                标题
+              </span>
+              <!---->
+            </div>
+            <div
+              class="t-comment__detail"
+            >
+              卡片内容
+            </div>
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <!---->
+      </div>
+      
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card Card footerVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <div
+        class="t-card__avatar"
+      >
+        
+        <div
+          class="t-avatar t-avatar--circle t-avatar__icon"
+        >
+          
+          <svg
+            class="t-icon t-icon-user"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M11.5 5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm-1 0a2.5 2.5 0 10-5 0 2.5 2.5 0 005 0zM13.96 10.85c.34.16.54.5.54.87V14a.5.5 0 01-.5.5H2a.5.5 0 01-.5-.5v-2.28c0-.37.2-.7.54-.87a13.79 13.79 0 0111.92 0zM8 10.5c-1.97 0-3.83.45-5.5 1.24v1.76h11v-1.76A12.78 12.78 0 008 10.5z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+          
+          
+        </div>
+        
+      </div>
+      <div>
+        <!---->
+        <!---->
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      
+      <span
+        class="t-tag t-tag--success t-tag--dark t-size-m"
+      >
+        <!---->
+        
+        默认标签
+        
+        <!---->
+      </span>
+      
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-card__cover"
+  >
+    <img
+      src="https://tdesign.gtimg.com/site/source/card-demo.png"
+    />
+  </div>
+  <!---->
+  <div
+    class="t-card__footer"
+  >
+    <div
+      class="t-card__footer-wrapper"
+    >
+      
+      <div
+        class="t-row t-row--center t-row--middle"
+        style="margin-left: 0px; margin-right: 0px;"
+      >
+        
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-thumb-up"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <div
+            class="t-divider t-divider--vertical"
+          >
+            <!---->
+          </div>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-chat"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <div
+            class="t-divider t-divider--vertical"
+          >
+            <!---->
+          </div>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-share"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card Card headerAllPropsVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered t-card--shadow-hover"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <!---->
+      <div>
+        <span
+          class="t-card__title"
+        >
+          标题
+        </span>
+        <span
+          class="t-card__subtitle"
+        >
+          副标题
+        </span>
+        <p
+          class="t-card__description"
+        >
+          描述
+        </p>
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      操作
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="t-card__body"
+  >
+    
+    卡片内容，以描述性为主，可以是文字、图片或图文组合的形式。按业务需求进行自定义组合。
+    
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Card Card headerBorderedVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block demo-card"
+>
+  <div
+    class="t-card t-card--bordered"
+    style="width: 400px;"
+  >
+    <div
+      class="t-card__header t-card__title--bordered"
+    >
+      <div
+        class="t-card__header-wrapper"
+      >
+        <!---->
+        <div>
+          <span
+            class="t-card__title"
+          >
+            标题
+          </span>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-card__actions"
+      >
+        
+        <a
+          href="javascript:void(0)"
+        >
+          操作
+        </a>
+        
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="t-card__body"
+    >
+      
+      卡片内容，以描述性为主，可以是文字、图片或图文组合的形式。按业务需求进行自定义组合。 
+      
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card Card headerDescriptionVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered t-card--shadow-hover"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <!---->
+      <div>
+        <span
+          class="t-card__title"
+        >
+          标题
+        </span>
+        <!---->
+        <p
+          class="t-card__description"
+        >
+          描述
+        </p>
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      操作
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="t-card__body"
+  >
+    
+    卡片内容，以描述性为主，可以是文字、图片或图文组合的形式。按业务需求进行自定义组合。
+    
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Card Card headerFooterActionsVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <div
+        class="t-card__avatar"
+      >
+        
+        <div
+          class="t-avatar t-avatar--circle"
+        >
+          <img
+            alt=""
+            src="https://tdesign.gtimg.com/site/avatar-boy.jpg"
+          />
+        </div>
+        
+      </div>
+      <div>
+        <span
+          class="t-card__title"
+        >
+          标题
+        </span>
+        <!---->
+        <p
+          class="t-card__description"
+        >
+          卡片内容
+        </p>
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      
+      <div
+        class="t-popup__reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup__content t-dropdown"
+            >
+              
+              <div
+                class="t-dropdown__menu"
+              >
+                
+                <div
+                  class="t-dropdown__menu-column narrow-scrollbar"
+                  style="max-height: 300px; max-width: 100px; min-width: 112px;"
+                >
+                  
+                  <div
+                    maxcolumnwidth="100"
+                    mincolumnwidth="112"
+                  >
+                    <div
+                      class="t-dropdown__item"
+                    >
+                      <div
+                        class="t-dropdown__item-content"
+                      >
+                        <span
+                          class="t-dropdown__item-text"
+                        >
+                          操作一
+                        </span>
+                      </div>
+                      <!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <div
+                    maxcolumnwidth="100"
+                    mincolumnwidth="112"
+                  >
+                    <div
+                      class="t-dropdown__item"
+                    >
+                      <div
+                        class="t-dropdown__item-content"
+                      >
+                        <span
+                          class="t-dropdown__item-text"
+                        >
+                          操作二
+                        </span>
+                      </div>
+                      <!---->
+                    </div>
+                    <!---->
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        
+        <div
+          class="tdesign-demo-dropdown-trigger"
+        >
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-more"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+        </div>
+        
+        
+      </div>
+      
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-card__cover"
+  >
+    <img
+      src="https://tdesign.gtimg.com/site/source/card-demo.png"
+    />
+  </div>
+  <!---->
+  <div
+    class="t-card__footer"
+  >
+    <div
+      class="t-card__footer-wrapper"
+    >
+      
+      <div
+        class="t-row t-row--center t-row--middle"
+        style="margin-left: 0px; margin-right: 0px;"
+      >
+        
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-thumb-up"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <div
+            class="t-divider t-divider--vertical"
+          >
+            <!---->
+          </div>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-chat"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <div
+            class="t-divider t-divider--vertical"
+          >
+            <!---->
+          </div>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-share"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card Card headerSubtitleFooterActionsVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <!---->
+      <div>
+        <span
+          class="t-card__title"
+        >
+          标题
+        </span>
+        <span
+          class="t-card__subtitle"
+        >
+          副标题
+        </span>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      
+      <div
+        class="t-popup__reference"
+      >
+        <transition-stub>
+          <div
+            aria-hidden="true"
+            class="t-popup"
+            role="tooltip"
+            style="display: none;"
+          >
+            <div
+              class="t-popup__content t-dropdown"
+            >
+              
+              <div
+                class="t-dropdown__menu"
+              >
+                
+                <div
+                  class="t-dropdown__menu-column narrow-scrollbar"
+                  style="max-height: 300px; max-width: 100px; min-width: 112px;"
+                >
+                  
+                  <div
+                    maxcolumnwidth="100"
+                    mincolumnwidth="112"
+                  >
+                    <div
+                      class="t-dropdown__item"
+                    >
+                      <div
+                        class="t-dropdown__item-content"
+                      >
+                        <span
+                          class="t-dropdown__item-text"
+                        >
+                          操作一
+                        </span>
+                      </div>
+                      <!---->
+                    </div>
+                    <!---->
+                  </div>
+                  <div
+                    maxcolumnwidth="100"
+                    mincolumnwidth="112"
+                  >
+                    <div
+                      class="t-dropdown__item"
+                    >
+                      <div
+                        class="t-dropdown__item-content"
+                      >
+                        <span
+                          class="t-dropdown__item-text"
+                        >
+                          操作二
+                        </span>
+                      </div>
+                      <!---->
+                    </div>
+                    <!---->
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+              <!---->
+            </div>
+          </div>
+        </transition-stub>
+        
+        
+        <div
+          class="tdesign-demo-dropdown-trigger"
+        >
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-button--shape-square"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-more"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M8 4a1 1 0 100-2 1 1 0 000 2zM8 9a1 1 0 100-2 1 1 0 000 2zM9 13a1 1 0 11-2 0 1 1 0 012 0z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+        </div>
+        
+        
+      </div>
+      
+    </div>
+    <!---->
+  </div>
+  <div
+    class="t-card__cover"
+  >
+    <img
+      src="https://tdesign.gtimg.com/site/source/card-demo.png"
+    />
+  </div>
+  <!---->
+  <div
+    class="t-card__footer"
+  >
+    <div
+      class="t-card__footer-wrapper"
+    >
+      
+      <div
+        class="t-row t-row--center t-row--middle"
+        style="margin-left: 0px; margin-right: 0px;"
+      >
+        
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-thumb-up"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M10 6h3.22a1 1 0 01.97 1.24l-1.5 6a1 1 0 01-.97.76H3a1 1 0 01-1-1V8a1 1 0 011-1h2l2-5h2a1 1 0 011 1v3zM6 7.2V13h5.72l1.5-6H9V3H7.68L6 7.2zM5 8H3v5h2V8z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <div
+            class="t-divider t-divider--vertical"
+          >
+            <!---->
+          </div>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-chat"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M4.64 10.5H13V4H3v7.87l1.64-1.37zm-2.15 3.09a.3.3 0 01-.49-.23V4a1 1 0 011-1h10a1 1 0 011 1v6.5a1 1 0 01-1 1H5l-2.5 2.09z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex: 0 0 auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <div
+            class="t-divider t-divider--vertical"
+          >
+            <!---->
+          </div>
+          
+        </div>
+        <div
+          class="t-col t-col-12"
+          style="flex-basis: auto; padding-left: 0px; padding-right: 0px;"
+        >
+          
+          <button
+            class="t-button t-size-m t-button--variant-text t-button--theme-default t-size-full-width"
+            type="button"
+          >
+            <span
+              class="t-button__text"
+            >
+              
+              <svg
+                class="t-icon t-icon-share"
+                fill="none"
+                height="1em"
+                viewBox="0 0 16 16"
+                width="1em"
+              >
+                <path
+                  d="M9.93 5.36a2.31 2.31 0 004.02-1.57 2.32 2.32 0 10-4.52.7L6.07 6.45a2.31 2.31 0 00-4.02 1.58A2.32 2.32 0 006.07 9.6l3.36 1.96a2.32 2.32 0 10.5-.87L6.57 8.73a2.32 2.32 0 000-1.41l3.36-1.96zm1.7-2.9a1.32 1.32 0 110 2.64 1.32 1.32 0 010-2.63zM5.5 7.35a.5.5 0 00.03.05 1.31 1.31 0 01-.03 1.33 1.32 1.32 0 110-1.38zm4.83 4.93c0-.22.05-.43.14-.6a.52.52 0 00.07-.13 1.32 1.32 0 11-.21.73z"
+                  fill="currentColor"
+                  fill-opacity="0.9"
+                />
+              </svg>
+              
+            </span>
+          </button>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card Card headerSubtitleVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered t-card--shadow-hover"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <!---->
+      <div>
+        <span
+          class="t-card__title"
+        >
+          标题
+        </span>
+        <span
+          class="t-card__subtitle"
+        >
+          副标题
+        </span>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      操作
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="t-card__body"
+  >
+    
+    卡片内容，以描述性为主，可以是文字、图片或图文组合的形式。按业务需求进行自定义组合。
+    
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Card Card headerVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block"
+>
+  <div
+    class="t-card t-card--bordered t-card--shadow-hover"
+    style="width: 400px;"
+  >
+    <div
+      class="t-card__header"
+    >
+      <div
+        class="t-card__header-wrapper"
+      >
+        <!---->
+        <div>
+          <span
+            class="t-card__title"
+          >
+            标题
+          </span>
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <div
+        class="t-card__actions"
+      >
+        
+        <a
+          href="javascript:void(0)"
+        >
+          操作
+        </a>
+        
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="t-card__body"
+    >
+      
+      卡片内容，以描述性为主，可以是文字、图片或图文组合的形式。按业务需求进行自定义组合。 
+      
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`Card Card hoverVue demo works fine 1`] = `
+<div
+  class="t-card t-card--bordered t-card--shadow-hover"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <!---->
+      <div>
+        <span
+          class="t-card__title"
+        >
+          标题
+        </span>
+        <!---->
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      操作
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="t-card__body"
+  >
+    
+    卡片内容，以描述性为主，可以是文字、图片或图文组合的形式。按业务需求进行自定义组合。
+    
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`Card Card smallVue demo works fine 1`] = `
+<div
+  class="t-card t-size-s t-card--bordered t-card--shadow-hover"
+  style="width: 400px;"
+>
+  <div
+    class="t-card__header"
+  >
+    <div
+      class="t-card__header-wrapper"
+    >
+      <!---->
+      <div>
+        <span
+          class="t-card__title"
+        >
+          标题
+        </span>
+        <!---->
+        <!---->
+      </div>
+    </div>
+    <div
+      class="t-card__actions"
+    >
+      操作
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="t-card__body"
+  >
+    
+    这是一段很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+  很长很长很长很长很长很长很长很长很长很长很长的内容示例。
+    
+  </div>
+  <!---->
+</div>
+`;

@@ -1,5 +1,5 @@
 import { defineComponent, computed, watch, ref, nextTick, onMounted, toRefs } from 'vue';
-import { usePrefixClass, useCommonClassName } from '../config-provider';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import props from './props';
 import { TextareaValue } from './type';
 import { getCharacterLength } from '../utils/helper';

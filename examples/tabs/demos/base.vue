@@ -1,10 +1,10 @@
 <template>
   <div class="tdesign-demo-block-column-large">
     <t-tabs v-model="value">
-      <t-tab-panel :value="1" label="选项卡1">
+      <t-tab-panel :value="1" label="选项卡1" :destroy-on-hide="false">
         <p style="padding: 25px">选项卡1的内容，使用 t-tab-pannel 渲染</p>
       </t-tab-panel>
-      <t-tab-panel :value="2" label="选项卡2">
+      <t-tab-panel :value="2" label="选项卡2" :destroy-on-hide="false">
         <template #panel>
           <p style="padding: 25px">选项卡2的内容，使用 t-tab-pannel 渲染</p>
         </template>
