@@ -24,5 +24,7 @@
 - hooks/useSorter 排序，PrimaryTable
 - hooks/useStyle 基础样式，BaseTable
 - hooks/useTableHeader 表头，BaseTable
+- hooks/useLazyLoad 懒加载，BaseTable
+- hooks/useDragSort 拖拽排序，PrimaryTable
 - hooks/useTreeData 树形结构，EnhancedTable
 - hooks/useTreeSelect 树形选择，EnhancedTable
