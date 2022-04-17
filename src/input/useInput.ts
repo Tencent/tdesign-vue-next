@@ -2,11 +2,12 @@ import { ref, computed, watch, nextTick, toRefs } from 'vue';
 import { getCharacterLength } from '../utils/helper';
 import { TdInputProps, InputValue } from './type';
 import { useEmitEvent } from '../hooks/event';
+import useVModel from '../hooks/useVModel';
 
 export default function useInput(props: TdInputProps) {
-  const { value } = toRefs(props);
+  const { value, modelValue } = toRefs(props);
   const inputValue = ref<InputValue>();
-
+  const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
   const emitEvent = useEmitEvent();
 
   const isHover = ref(false);
@@ -24,10 +25,10 @@ export default function useInput(props: TdInputProps) {
   const blur = () => inputRef.value?.blur();
 
   const emitFocus = (e: FocusEvent) => {
-    inputValue.value = props.value;
+    inputValue.value = innerValue.value;
     if (props.disabled || props.readonly) return;
     focused.value = true;
-    emitEvent('focus', props.value, { e });
+    emitEvent('focus', innerValue.value, { e });
   };
   const emitClear = ({ e }: { e: MouseEvent }) => {
     emitEvent('clear', { e });
@@ -58,8 +59,9 @@ export default function useInput(props: TdInputProps) {
       val = typeof stringInfo === 'object' && stringInfo.characters;
     }
     emitEvent('change', val, { e });
+    setInnerValue(val);
     // 受控
-    nextTick(() => setInputElValue(props.value));
+    nextTick(() => setInputElValue(innerValue.value));
   };
   const handleInput = (e: InputEvent) => {
     const checkInputType = e.inputType && e.inputType === 'insertCompositionText';
@@ -69,7 +71,7 @@ export default function useInput(props: TdInputProps) {
 
   const formatAndEmitBlur = (e: FocusEvent) => {
     if (props.format) {
-      inputValue.value = props.format(props.value);
+      inputValue.value = props.format(innerValue.value);
     }
     focused.value = false;
     emitEvent('blur', props.value, { e });
@@ -80,10 +82,10 @@ export default function useInput(props: TdInputProps) {
   };
   const onHandleCompositionend = (e: CompositionEvent) => {
     inputValueChangeHandle(e);
-    emitEvent('compositionend', props.value, { e });
+    emitEvent('compositionend', innerValue.value, { e });
   };
   const onHandleCompositionstart = (e: CompositionEvent) => {
-    emitEvent('compositionstart', props.value, { e });
+    emitEvent('compositionstart', innerValue.value, { e });
   };
 
   const onRootClick = (e: MouseEvent) => {
@@ -104,7 +106,7 @@ export default function useInput(props: TdInputProps) {
   );
 
   watch(
-    value,
+    innerValue,
     (v) => {
       inputValue.value = v;
     },
@@ -126,5 +128,6 @@ export default function useInput(props: TdInputProps) {
     emitPassword,
     handleInput,
     emitClear,
+    innerValue,
   };
 }
