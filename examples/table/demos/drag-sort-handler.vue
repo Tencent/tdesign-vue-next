@@ -3,7 +3,7 @@
     <div class="item">
       <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
 
-      <t-table row-key="id" :columns="columns" :data="data" drag-sort="col" @drag-sort="onDragSort">
+      <t-table row-key="id" :columns="columns" :data="data" drag-sort="row-handler" @drag-sort="onDragSort">
         <template #status="{ row }">
           <p class="status" :class="['', 'warning', 'unhealth'][row.status]">
             {{ ['健康', '警告', '异常'][row.status] }}
@@ -48,8 +48,8 @@ const initialData = new Array(4).fill(5).map((_, i) => ({
 
 const data = ref([...initialData]);
 
-const onDragSort = ({ currentIndex, current, targetIndex, target, currentData, e }) => {
-  console.log('交换行', currentIndex, current, targetIndex, target, currentData, e);
+const onDragSort = ({ currentIndex, targetIndex, current, target, currentData, e }) => {
+  console.log('交换行', currentIndex, targetIndex, current, target, currentData, e);
   data.value = currentData;
 };
 </script>

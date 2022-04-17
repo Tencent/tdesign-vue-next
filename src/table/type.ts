@@ -9,7 +9,7 @@ import { LoadingProps } from '../loading';
 import { PaginationProps, PageInfo } from '../pagination';
 import { PopupProps } from '../popup';
 import { CheckboxGroupValue } from '../checkbox';
-import { SortableEvent } from 'sortablejs';
+import { SortableEvent, SortableOptions } from 'sortablejs';
 import { CheckboxProps } from '../checkbox';
 import { RadioProps } from '../radio';
 import { InputProps } from '../input';
@@ -293,6 +293,10 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   dragSort?: 'row' | 'row-handler' | 'col' | 'drag-col';
   /**
+   * 拖拽排序扩展参数，具体参数见 [Sortable](https://github.com/SortableJS/Sortable)
+   */
+  dragSortOptions?: SortableOptions;
+  /**
    * 展开行内容，泛型 T 指表格数据类型
    */
   expandedRow?: TNode<TableExpandedRowParams<T>>;
@@ -391,7 +395,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onDisplayColumnsChange?: (value: CheckboxGroupValue) => void;
   /**
-   * 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据
+   * 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据，`sort=row` 表示行拖拽事件触发，`sort=col` 表示列拖拽事件触发
    */
   onDragSort?: (context: DragSortContext<T>) => void;
   /**
@@ -741,6 +745,7 @@ export interface DragSortContext<T> {
   target: T;
   currentData: T[];
   e: SortableEvent;
+  sort: 'row' | 'col';
 }
 
 export interface ExpandOptions<T> {

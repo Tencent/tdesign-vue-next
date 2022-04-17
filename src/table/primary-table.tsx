@@ -37,8 +37,6 @@ export default defineComponent({
     ...primaryTableProps,
   },
 
-  // emits: ['update:columnControllerVisible'],
-
   setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const { columns } = toRefs(props);
@@ -62,14 +60,14 @@ export default defineComponent({
       setFilterPrimaryTableRef,
     } = useFilter(props, context);
     // 拖拽排序功能
-    const { isRowHandlerDraggable, isRowDraggable, setDragSortPrimaryTableRef } = useDragSort(props, context);
+    const { isRowHandlerDraggable, isRowDraggable, isColDraggable, setDragSortPrimaryTableRef } = useDragSort(props);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
 
     const primaryTableClasses = computed(() => {
       return {
-        // [tableDraggableClasses.colDraggable]: isColDraggable.value,
+        [tableDraggableClasses.colDraggable]: isColDraggable.value,
         [tableDraggableClasses.rowHandlerDraggable]: isRowHandlerDraggable.value,
         [tableDraggableClasses.rowDraggable]: isRowDraggable.value,
         [tableBaseClass.overflowVisible]: isTableOverflowHidden.value === false,
