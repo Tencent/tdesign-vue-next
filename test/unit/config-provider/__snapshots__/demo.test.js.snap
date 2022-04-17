@@ -2114,7 +2114,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -3716,7 +3715,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -4071,7 +4069,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -4711,7 +4708,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -5037,7 +5033,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -5619,7 +5614,6 @@ exports[`ConfigProvider ConfigProvider datePickerVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -6122,7 +6116,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
             style="width: 400px;"
           >
             <div
@@ -6172,7 +6165,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
             style="width: 400px;"
           >
             <div
@@ -9173,7 +9165,6 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
     jump to
     <div
       class="t-input-number t-size-m t-input-number--normal t-pagination__input"
-      modelvalue="1"
     >
       <!---->
       <div

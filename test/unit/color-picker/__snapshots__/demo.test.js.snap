@@ -312,7 +312,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input-number t-size-m t-input-number--normal"
-                          modelvalue="0"
                           title="0"
                         >
                           <!---->
@@ -345,7 +344,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input-number t-size-m t-input-number--normal"
-                          modelvalue="82"
                           title="82"
                         >
                           <!---->
@@ -378,7 +376,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input-number t-size-m t-input-number--normal"
-                          modelvalue="217"
                           title="217"
                         >
                           <!---->
@@ -968,7 +965,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
         >
           <div
             class="t-input__wrap"
-            modelvalue="#0052d9"
           >
             <div
               class="t-input t-input--prefix t-input--auto-width"
@@ -996,7 +992,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               <span
                 class="t-input__input-pre"
               >
-                #0052d9
+                请输入
               </span>
               <!---->
               <!---->
@@ -1261,7 +1257,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input-number t-size-m t-input-number--normal"
-                          modelvalue="0"
                           title="0"
                         >
                           <!---->
@@ -1294,7 +1289,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input-number t-size-m t-input-number--normal"
-                          modelvalue="82"
                           title="82"
                         >
                           <!---->
@@ -1327,7 +1321,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input-number t-size-m t-input-number--normal"
-                          modelvalue="217"
                           title="217"
                         >
                           <!---->
@@ -1917,7 +1910,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
         >
           <div
             class="t-input__wrap"
-            modelvalue="#0052d9"
           >
             <div
               class="t-input t-input--prefix t-input--auto-width"
@@ -1945,7 +1937,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               <span
                 class="t-input__input-pre"
               >
-                #0052d9
+                请输入
               </span>
               <!---->
               <!---->
@@ -2054,7 +2046,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                   >
                     <div
                       class="t-input-number t-size-m t-input-number--normal"
-                      modelvalue="45"
                     >
                       <!---->
                       <div
@@ -2288,7 +2279,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
                       >
                         <div
                           class="t-input__wrap"
-                          modelvalue="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
                           title="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)"
                         >
                           <div
@@ -2871,7 +2861,6 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
         >
           <div
             class="t-input__wrap"
-            modelvalue="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"
           >
             <div
               class="t-input t-input--prefix t-input--auto-width"
@@ -2898,7 +2887,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               <span
                 class="t-input__input-pre"
               >
-                linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)
+                请输入
               </span>
               <!---->
               <!---->
@@ -3201,7 +3190,6 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                modelvalue="0"
                 title="0"
               >
                 <!---->
@@ -3234,7 +3222,6 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                modelvalue="82"
                 title="82"
               >
                 <!---->
@@ -3267,7 +3254,6 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                modelvalue="217"
                 title="217"
               >
                 <!---->
@@ -3300,7 +3286,6 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                modelvalue="100"
                 title="100"
               >
                 <!---->
@@ -4156,7 +4141,6 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                modelvalue="0"
                 title="0"
               >
                 <!---->
@@ -4189,7 +4173,6 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                modelvalue="82"
                 title="82"
               >
                 <!---->
@@ -4222,7 +4205,6 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-input-number--normal"
-                modelvalue="217"
                 title="217"
               >
                 <!---->
@@ -5082,7 +5064,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="0"
                   title="0"
                 >
                   <!---->
@@ -5115,7 +5096,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="82"
                   title="82"
                 >
                   <!---->
@@ -5148,7 +5128,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="217"
                   title="217"
                 >
                   <!---->
@@ -6117,7 +6096,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="0"
                   title="0"
                 >
                   <!---->
@@ -6150,7 +6128,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="82"
                   title="82"
                 >
                   <!---->
@@ -6183,7 +6160,6 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="217"
                   title="217"
                 >
                   <!---->
@@ -6756,7 +6732,6 @@ exports[`ColorPicker ColorPicker statusDisabledVue demo works fine 1`] = `
       >
         <div
           class="t-input__wrap"
-          modelvalue="#0052d9"
         >
           <div
             class="t-input t-is-disabled t-input--prefix t-input--auto-width"
@@ -6785,7 +6760,7 @@ exports[`ColorPicker ColorPicker statusDisabledVue demo works fine 1`] = `
             <span
               class="t-input__input-pre"
             >
-              #0052d9
+              请输入
             </span>
             <!---->
             <!---->
@@ -7075,7 +7050,6 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-is-disabled t-input-number--normal"
-                modelvalue="0"
                 title="0"
               >
                 <!---->
@@ -7109,7 +7083,6 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-is-disabled t-input-number--normal"
-                modelvalue="82"
                 title="82"
               >
                 <!---->
@@ -7143,7 +7116,6 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
             >
               <div
                 class="t-input-number t-size-m t-is-disabled t-input-number--normal"
-                modelvalue="217"
                 title="217"
               >
                 <!---->
@@ -8004,7 +7976,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="0"
                   title="0"
                 >
                   <!---->
@@ -8037,7 +8008,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="82"
                   title="82"
                 >
                   <!---->
@@ -8070,7 +8040,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="217"
                   title="217"
                 >
                   <!---->
@@ -8504,7 +8473,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="0"
                   title="0"
                 >
                   <!---->
@@ -8537,7 +8505,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="82"
                   title="82"
                 >
                   <!---->
@@ -8570,7 +8537,6 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               >
                 <div
                   class="t-input-number t-size-m t-input-number--normal"
-                  modelvalue="217"
                   title="217"
                 >
                   <!---->
@@ -8960,7 +8926,6 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                     >
                       <div
                         class="t-input-number t-size-m t-input-number--normal"
-                        modelvalue="0"
                         title="0"
                       >
                         <!---->
@@ -8993,7 +8958,6 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                     >
                       <div
                         class="t-input-number t-size-m t-input-number--normal"
-                        modelvalue="82"
                         title="82"
                       >
                         <!---->
@@ -9026,7 +8990,6 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
                     >
                       <div
                         class="t-input-number t-size-m t-input-number--normal"
-                        modelvalue="217"
                         title="217"
                       >
                         <!---->
@@ -9616,7 +9579,6 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
       >
         <div
           class="t-input__wrap"
-          modelvalue="#0052d9"
         >
           <div
             class="t-input t-input--prefix t-input--auto-width"
@@ -9644,7 +9606,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
             <span
               class="t-input__input-pre"
             >
-              #0052d9
+              请输入
             </span>
             <!---->
             <!---->

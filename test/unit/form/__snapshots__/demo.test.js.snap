@@ -109,7 +109,6 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -158,7 +157,6 @@ exports[`Form Form alignVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -282,7 +280,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -331,7 +328,6 @@ exports[`Form Form baseVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -660,7 +656,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -711,7 +706,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -762,7 +756,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -833,7 +826,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -1233,7 +1225,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -1282,7 +1273,6 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -1423,7 +1413,6 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -1472,7 +1461,6 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -1545,7 +1533,6 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -1709,7 +1696,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-is-disabled"
@@ -3008,7 +2994,6 @@ exports[`Form Form disabledVue demo works fine 1`] = `
                   allowinput="0"
                   class="t-input__wrap"
                   input="function () { [native code] }"
-                  modelvalue=""
                 >
                   <div
                     class="t-input t-is-disabled t-input--suffix"
@@ -3724,7 +3709,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -3775,7 +3759,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -3826,7 +3809,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -3897,7 +3879,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -4277,7 +4258,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -4326,7 +4306,6 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -4511,7 +4490,6 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -4559,7 +4537,6 @@ exports[`Form Form layoutVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -4633,7 +4610,6 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--prefix"
@@ -4690,7 +4666,6 @@ exports[`Form Form loginVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--prefix t-input--suffix"
@@ -4908,7 +4883,6 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue="TDesign"
           >
             <div
               class="t-input"
@@ -4957,7 +4931,6 @@ exports[`Form Form resetVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue="12345678910"
           >
             <div
               class="t-input"
@@ -5226,7 +5199,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue="TDesign"
           >
             <div
               class="t-input"
@@ -5275,7 +5247,6 @@ exports[`Form Form sizeVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue="12345678910"
           >
             <div
               class="t-input"
@@ -5797,7 +5768,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-input__wrap"
-                    modelvalue="StudentA"
                   >
                     <div
                       class="t-input"
@@ -6170,7 +6140,6 @@ exports[`Form Form validateComplicatedDataVue demo works fine 1`] = `
                   
                   <div
                     class="t-input__wrap"
-                    modelvalue="StudentB"
                   >
                     <div
                       class="t-input"
@@ -6652,7 +6621,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -6703,7 +6671,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -6754,7 +6721,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -6825,7 +6791,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7225,7 +7190,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7274,7 +7238,6 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7468,7 +7431,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7517,7 +7479,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7566,7 +7527,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7615,7 +7575,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7664,7 +7623,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7713,7 +7671,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7762,7 +7719,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -7846,7 +7802,6 @@ exports[`Form Form validatorStatusVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -8049,7 +8004,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -8150,7 +8104,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -8221,7 +8174,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -8620,7 +8572,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
@@ -8669,7 +8620,6 @@ exports[`Form Form validatorVue demo works fine 1`] = `
           
           <div
             class="t-input__wrap"
-            modelvalue=""
           >
             <div
               class="t-input"
