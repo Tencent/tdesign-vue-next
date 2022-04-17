@@ -10,7 +10,8 @@ export default defineComponent({
   props: { ...props },
 
   setup() {
-    const items = computed(() => useChildComponentSlots('TSwiperItem'));
+    const getChildComponentByName = useChildComponentSlots();
+    const items = computed(() => getChildComponentByName('TSwiperItem'));
     const COMPONENT_NAME = usePrefixClass('swiper');
     const classPrefix = usePrefixClass();
     return {
