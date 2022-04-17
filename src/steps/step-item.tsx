@@ -19,12 +19,12 @@ export default defineComponent({
     const steps = inject(StepsInjectionKey, undefined);
 
     const { global } = useConfig('steps');
-    const canClick = computed<boolean>(() => {
+    const canClick = computed(() => {
       return props.status !== 'process' && !steps?.readonly;
     });
 
     // when props.value is undefined
-    const index = ref<number>(-1);
+    const index = ref(-1);
     const onStepClick = (e: MouseEvent) => {
       const val = props.value === undefined ? index.value : props.value;
       steps.setCurrent(val, steps.current, { e });
