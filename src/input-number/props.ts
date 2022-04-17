@@ -91,6 +91,10 @@ export default {
     type: Number,
     default: undefined,
   },
+  modelValue: {
+    type: Number,
+    default: undefined,
+  },
   /** 失去焦点时触发 */
   onBlur: Function as PropType<TdInputNumberProps['onBlur']>,
   /** 值变化时触发 */
