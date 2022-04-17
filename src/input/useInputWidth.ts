@@ -1,7 +1,11 @@
 import { onMounted, Ref, ref, watch, nextTick } from 'vue';
-import { TdInputProps } from './type';
+import { InputValue, TdInputProps } from './type';
 
-export default function useInputWidth(props: TdInputProps, inputRef: Ref<HTMLInputElement>) {
+export default function useInputWidth(
+  props: TdInputProps,
+  inputRef: Ref<HTMLInputElement>,
+  innerValue: Ref<InputValue>,
+) {
   const composing = ref(false);
 
   const updateInputWidth = () => {
@@ -12,7 +16,7 @@ export default function useInputWidth(props: TdInputProps, inputRef: Ref<HTMLInp
 
   const addListeners = () => {
     watch(
-      () => props.value + props.placeholder,
+      () => innerValue.value + props.placeholder,
       () => {
         if (!props.autoWidth) return;
         nextTick(() => {

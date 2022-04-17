@@ -25,7 +25,7 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 export default defineComponent({
   name: 'TInput',
   props,
-  emits: ['enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
+  emits: ['update:modelValue', 'enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
   setup(props, { slots }) {
     const { global } = useConfig('input');
     const disabled = useFormDisabled();
@@ -35,15 +35,16 @@ export default defineComponent({
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
-    const { isHover, inputRef, renderType, showClear, focused, inputValue, ...inputHandle } = useInput(props);
-    useInputWidth(props, inputRef);
-    const inputEventHandler = useInputEventHandler(props, isHover);
+    const { isHover, inputRef, renderType, showClear, focused, inputValue, innerValue, ...inputHandle } =
+      useInput(props);
+    useInputWidth(props, inputRef, innerValue);
+    const inputEventHandler = useInputEventHandler(props, isHover, innerValue);
 
     const tPlaceholder = computed(() => props.placeholder ?? global.value.placeholder);
     const inputAttrs = computed(() =>
       getValidAttrs({
         autofocus: props.autofocus,
-        disabled: props.disabled,
+        disabled: disabled.value,
         readonly: props.readonly,
         placeholder: tPlaceholder.value,
         maxlength: props.maxlength,
@@ -112,7 +113,7 @@ export default defineComponent({
         props.inputClass,
         {
           [SIZE.value[props.size]]: props.size !== 'medium',
-          [STATUS.value.disabled]: props.disabled,
+          [STATUS.value.disabled]: disabled.value,
           [STATUS.value.focused]: focused.value,
           [`${classPrefix.value}-is-${props.status}`]: props.status,
           [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
