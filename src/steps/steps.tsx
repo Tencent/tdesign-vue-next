@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, computed, defineComponent, provide, reactive, ref, toRefs, VNode, watch } from 'vue';
+import { computed, defineComponent, provide, reactive, ref, toRefs, VNode, watchEffect } from 'vue';
 import props from './props';
 import TStepItem, { StepItemExposed } from './step-item';
 import { StepsInjectionKey } from './constants';
@@ -7,7 +7,7 @@ import { TdStepItemProps } from './type';
 
 import { usePrefixClass } from '../hooks/useConfig';
 import useVModel from '../hooks/useVModel';
-import { useTNodeJSX } from '../hooks';
+import { useChildComponentSlots } from '../hooks';
 
 export default defineComponent({
   name: 'TSteps',
@@ -42,16 +42,13 @@ export default defineComponent({
     );
 
     const indexMap = ref({});
-    watch(
-      () => props.options,
-      (newOptions) => {
-        if (!newOptions) return;
-        newOptions?.forEach((item, index) => {
-          if (item.value !== undefined) indexMap.value[item.value] = index;
-        });
-      },
-      { immediate: true, deep: true },
-    );
+    watchEffect(() => {
+      if (!props.options) return;
+      props.options?.forEach((item, index) => {
+        if (item.value !== undefined) indexMap.value[item.value] = index;
+      });
+    });
+
     const handleStatus = (itemProps: TdStepItemProps, index: number) => {
       if (itemProps.status && itemProps.status !== 'default') return itemProps.status;
       if (innerCurrent.value === 'FINISH') return 'finish';
@@ -71,7 +68,7 @@ export default defineComponent({
       return 'default';
     };
 
-    const renderTNodeJSX = useTNodeJSX();
+    const getChildComponentByName = useChildComponentSlots();
 
     const getOptionListBySlots = (nodes: VNode[]) => {
       const arr: Array<TdStepItemProps> = [];
@@ -86,7 +83,7 @@ export default defineComponent({
       if (props.options?.length) {
         options = props.options;
       } else {
-        const nodes: VNode[] = renderTNodeJSX('default');
+        const nodes: VNode[] = getChildComponentByName('TStepItem') as VNode[];
         options = getOptionListBySlots(nodes);
       }
       return options;
@@ -97,16 +94,7 @@ export default defineComponent({
       const options = getOptions();
       // 优先级 slot > options
       if (slots.default) {
-        content = renderTNodeJSX('default');
-        content = content
-          .map((item: ComponentPublicInstance) => {
-            if (item.children && Array.isArray(item.children)) return item.children;
-            return item;
-          })
-          .flat()
-          .filter((item: ComponentPublicInstance) => {
-            return item.type.name === 'TStepItem';
-          });
+        content = getChildComponentByName('TStepItem');
 
         content?.forEach((item: VNode, index: number) => {
           item.props.status = handleStatus(item.props as TdStepItemProps, index);
