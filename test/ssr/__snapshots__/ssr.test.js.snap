@@ -11533,7 +11533,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                   <div class="input-group">
                     <!--[-->
                     <div class="input-group__item" style="flex:1;">
-                      <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+                      <div class="t-input-number t-size-m t-input-number--normal" title="0">
                         <!---->
                         <div class="t-input__wrap" unselectable="off">
                           <div class="t-input t-align-center">
@@ -11549,7 +11549,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       </div>
                     </div>
                     <div class="input-group__item" style="flex:1;">
-                      <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+                      <div class="t-input-number t-size-m t-input-number--normal" title="82">
                         <!---->
                         <div class="t-input__wrap" unselectable="off">
                           <div class="t-input t-align-center">
@@ -11565,7 +11565,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       </div>
                     </div>
                     <div class="input-group__item" style="flex:1;">
-                      <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+                      <div class="t-input-number t-size-m t-input-number--normal" title="217">
                         <!---->
                         <div class="t-input__wrap" unselectable="off">
                           <div class="t-input t-align-center">
@@ -11736,14 +11736,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
       <!--[-->
       <div class="t-color-picker__trigger">
         <div class="t-color-picker__trigger--default">
-          <div class="t-input__wrap" modelvalue="#0052d9">
+          <div class="t-input__wrap">
             <div class="t-input t-input--prefix t-input--auto-width">
               <!---->
               <div class="t-input__prefix">
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">请输入</span>
               <!---->
               <!---->
             </div>
@@ -11821,7 +11821,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                   <div class="input-group">
                     <!--[-->
                     <div class="input-group__item" style="flex:1;">
-                      <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+                      <div class="t-input-number t-size-m t-input-number--normal" title="0">
                         <!---->
                         <div class="t-input__wrap" unselectable="off">
                           <div class="t-input t-align-center">
@@ -11837,7 +11837,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       </div>
                     </div>
                     <div class="input-group__item" style="flex:1;">
-                      <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+                      <div class="t-input-number t-size-m t-input-number--normal" title="82">
                         <!---->
                         <div class="t-input__wrap" unselectable="off">
                           <div class="t-input t-align-center">
@@ -11853,7 +11853,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                       </div>
                     </div>
                     <div class="input-group__item" style="flex:1;">
-                      <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+                      <div class="t-input-number t-size-m t-input-number--normal" title="217">
                         <!---->
                         <div class="t-input__wrap" unselectable="off">
                           <div class="t-input t-align-center">
@@ -12024,14 +12024,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
       <!--[-->
       <div class="t-color-picker__trigger">
         <div class="t-color-picker__trigger--default">
-          <div class="t-input__wrap" modelvalue="#0052d9">
+          <div class="t-input__wrap">
             <div class="t-input t-input--prefix t-input--auto-width">
               <!---->
               <div class="t-input__prefix">
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">请输入</span>
               <!---->
               <!---->
             </div>
@@ -12065,7 +12065,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                   </div>
                 </div>
                 <div class="t-color-picker__gradient-degree" title="45deg">
-                  <div class="t-input-number t-size-m t-input-number--normal" modelvalue="45">
+                  <div class="t-input-number t-size-m t-input-number--normal">
                     <!---->
                     <div class="t-input__wrap" unselectable="off">
                       <div class="t-input">
@@ -12138,7 +12138,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                   <div class="input-group">
                     <!--[-->
                     <div class="input-group__item" style="flex:3;">
-                      <div class="t-input__wrap" modelvalue="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)" title="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)">
+                      <div class="t-input__wrap" title="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)">
                         <div class="t-input t-align-center">
                           <!---->
                           <!----><input class="t-input__inner" placeholder="请输入" type="text" value="linear-gradient(45deg,rgb(79, 172, 254) 0%,rgb(0, 242, 254) 100%)">
@@ -12305,14 +12305,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
       <!--[-->
       <div class="t-color-picker__trigger">
         <div class="t-color-picker__trigger--default">
-          <div class="t-input__wrap" modelvalue="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)">
+          <div class="t-input__wrap">
             <div class="t-input t-input--prefix t-input--auto-width">
               <!---->
               <div class="t-input__prefix">
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请输入" type="text" value="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"><span class="t-input__input-pre">linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"><span class="t-input__input-pre">请输入</span>
               <!---->
               <!---->
             </div>
@@ -12401,7 +12401,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
           <div class="input-group">
             <!--[-->
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+              <div class="t-input-number t-size-m t-input-number--normal" title="0">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
@@ -12417,7 +12417,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+              <div class="t-input-number t-size-m t-input-number--normal" title="82">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
@@ -12433,7 +12433,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+              <div class="t-input-number t-size-m t-input-number--normal" title="217">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
@@ -12449,7 +12449,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/enable-alpha.vu
               </div>
             </div>
             <div class="input-group__item" style="flex:1.15;">
-              <div class="t-input-number t-size-m t-input-number--normal" modelvalue="100" title="100">
+              <div class="t-input-number t-size-m t-input-number--normal" title="100">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
@@ -12690,7 +12690,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
           <div class="input-group">
             <!--[-->
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+              <div class="t-input-number t-size-m t-input-number--normal" title="0">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
@@ -12706,7 +12706,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+              <div class="t-input-number t-size-m t-input-number--normal" title="82">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
@@ -12722,7 +12722,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/panel.vue corre
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+              <div class="t-input-number t-size-m t-input-number--normal" title="217">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-align-center">
@@ -12965,7 +12965,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
             <div class="input-group">
               <!--[-->
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+                <div class="t-input-number t-size-m t-input-number--normal" title="0">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -12981,7 +12981,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+                <div class="t-input-number t-size-m t-input-number--normal" title="82">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -12997,7 +12997,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+                <div class="t-input-number t-size-m t-input-number--normal" title="217">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -13258,7 +13258,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
             <div class="input-group">
               <!--[-->
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+                <div class="t-input-number t-size-m t-input-number--normal" title="0">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -13274,7 +13274,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+                <div class="t-input-number t-size-m t-input-number--normal" title="82">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -13290,7 +13290,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/recent-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+                <div class="t-input-number t-size-m t-input-number--normal" title="217">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -13461,14 +13461,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-disabled
     <!--[-->
     <div class="t-color-picker__trigger">
       <div class="t-color-picker__trigger--default">
-        <div class="t-input__wrap" modelvalue="#0052d9">
+        <div class="t-input__wrap">
           <div class="t-input t-is-disabled t-input--prefix t-input--auto-width">
             <!---->
             <div class="t-input__prefix">
               <!--[-->
               <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
               <!--]-->
-            </div><input class="t-input__inner" disabled placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
+            </div><input class="t-input__inner" disabled placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">请输入</span>
             <!---->
             <!---->
           </div>
@@ -13554,7 +13554,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
           <div class="input-group">
             <!--[-->
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" modelvalue="0" title="0">
+              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" title="0">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-is-disabled t-align-center">
@@ -13570,7 +13570,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" modelvalue="82" title="82">
+              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" title="82">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-is-disabled t-align-center">
@@ -13586,7 +13586,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-readonly
               </div>
             </div>
             <div class="input-group__item" style="flex:1;">
-              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" modelvalue="217" title="217">
+              <div class="t-input-number t-size-m t-is-disabled t-input-number--normal" title="217">
                 <!---->
                 <div class="t-input__wrap" unselectable="off">
                   <div class="t-input t-is-disabled t-align-center">
@@ -13829,7 +13829,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
             <div class="input-group">
               <!--[-->
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+                <div class="t-input-number t-size-m t-input-number--normal" title="0">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -13845,7 +13845,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+                <div class="t-input-number t-size-m t-input-number--normal" title="82">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -13861,7 +13861,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+                <div class="t-input-number t-size-m t-input-number--normal" title="217">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -13995,7 +13995,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
             <div class="input-group">
               <!--[-->
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+                <div class="t-input-number t-size-m t-input-number--normal" title="0">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -14011,7 +14011,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+                <div class="t-input-number t-size-m t-input-number--normal" title="82">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -14027,7 +14027,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/swatch-color.vu
                 </div>
               </div>
               <div class="input-group__item" style="flex:1;">
-                <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+                <div class="t-input-number t-size-m t-input-number--normal" title="217">
                   <!---->
                   <div class="t-input__wrap" unselectable="off">
                     <div class="t-input t-align-center">
@@ -14143,7 +14143,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
                 <div class="input-group">
                   <!--[-->
                   <div class="input-group__item" style="flex:1;">
-                    <div class="t-input-number t-size-m t-input-number--normal" modelvalue="0" title="0">
+                    <div class="t-input-number t-size-m t-input-number--normal" title="0">
                       <!---->
                       <div class="t-input__wrap" unselectable="off">
                         <div class="t-input t-align-center">
@@ -14159,7 +14159,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
                     </div>
                   </div>
                   <div class="input-group__item" style="flex:1;">
-                    <div class="t-input-number t-size-m t-input-number--normal" modelvalue="82" title="82">
+                    <div class="t-input-number t-size-m t-input-number--normal" title="82">
                       <!---->
                       <div class="t-input__wrap" unselectable="off">
                         <div class="t-input t-align-center">
@@ -14175,7 +14175,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
                     </div>
                   </div>
                   <div class="input-group__item" style="flex:1;">
-                    <div class="t-input-number t-size-m t-input-number--normal" modelvalue="217" title="217">
+                    <div class="t-input-number t-size-m t-input-number--normal" title="217">
                       <!---->
                       <div class="t-input__wrap" unselectable="off">
                         <div class="t-input t-align-center">
@@ -14346,14 +14346,14 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
     <!--[-->
     <div class="t-color-picker__trigger">
       <div class="t-color-picker__trigger--default">
-        <div class="t-input__wrap" modelvalue="#0052d9">
+        <div class="t-input__wrap">
           <div class="t-input t-input--prefix t-input--auto-width">
             <!---->
             <div class="t-input__prefix">
               <!--[-->
               <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
               <!--]-->
-            </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
+            </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">请输入</span>
             <!---->
             <!---->
           </div>
@@ -15246,7 +15246,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="select date" type="text" value>
@@ -15622,7 +15622,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="select date" type="text" value>
@@ -15710,7 +15710,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="select month" type="text" value>
@@ -15862,7 +15862,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="select month" type="text" value>
@@ -15945,7 +15945,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="select year" type="text" value>
@@ -16087,7 +16087,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/date-picker.
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="select year" type="text" value>
@@ -16199,7 +16199,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue style="width:400px;">
+          <div class="t-input__wrap" style="width:400px;">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="There is no required mark on the left of this input in Form" type="text" value>
@@ -16220,7 +16220,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue style="width:400px;">
+          <div class="t-input__wrap" style="width:400px;">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="There is required mark on the left of this input in Form" type="password" autocomplete="on" value>
@@ -16937,7 +16937,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
   <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
       <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
     </svg></div>
-  <div class="t-pagination__jump">jump to<div class="t-input-number t-size-m t-input-number--normal t-pagination__input" modelvalue="1">
+  <div class="t-pagination__jump">jump to<div class="t-input-number t-size-m t-input-number--normal t-pagination__input">
       <!---->
       <div class="t-input__wrap" unselectable="off">
         <div class="t-input">
@@ -17522,7 +17522,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/base.vue correct
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue="2021-11-10" allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value="2021-11-10">
@@ -17727,7 +17727,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/custom-icon.vue 
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--prefix t-input--suffix"><span class="t-input__prefix t-input__prefix-icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-browse" style=""><path fill="currentColor" d="M10.88 8a2.88 2.88 0 11-5.76 0 2.88 2.88 0 015.76 0zm-1 0a1.88 1.88 0 10-3.76 0 1.88 1.88 0 003.76 0z" fill-opacity="0.9"></path><path fill="currentColor" d="M1.12 8.23A7.72 7.72 0 008 12.5c2.9 0 5.54-1.63 6.88-4.27L15 8l-.12-.23A7.73 7.73 0 008 3.5a7.74 7.74 0 00-6.88 4.27L1 8l.12.23zM8 11.5A6.73 6.73 0 012.11 8 6.73 6.73 0 0113.9 8 6.74 6.74 0 018 11.5z" fill-opacity="0.9"></path></svg></span>
             <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
             <!---->
@@ -18116,7 +18116,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets.vue
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -18509,7 +18509,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input__wrap" modelvalue="2020-12-28 至 2020-12-28" allowinput="0">
+          <div class="t-input__wrap" allowinput="0">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value="2020-12-28 至 2020-12-28">
@@ -18721,7 +18721,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-alt
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input__wrap" modelvalue="2020-12-28" allowinput="0">
+          <div class="t-input__wrap" allowinput="0">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value="2020-12-28">
@@ -19114,7 +19114,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-presets-tim
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -19495,7 +19495,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="开始时间 至 结束时间" type="text" value>
@@ -19878,7 +19878,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-range.vue c
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -20090,7 +20090,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/date-time.vue co
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue="2021-05-01 11:30:20" allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value="2021-05-01 11:30:20">
@@ -20296,7 +20296,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input__wrap" modelvalue allowinput="0">
+          <div class="t-input__wrap" allowinput="0">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -20498,7 +20498,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input__wrap" modelvalue allowinput="0">
+          <div class="t-input__wrap" allowinput="0">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -20700,7 +20700,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input__wrap" modelvalue allowinput="0">
+          <div class="t-input__wrap" allowinput="0">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -21078,7 +21078,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input__wrap" modelvalue allowinput="0">
+          <div class="t-input__wrap" allowinput="0">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -21280,7 +21280,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/disable-date.vue
         </div>
         <!--[-->
         <div class="t-form-controls">
-          <div class="t-input__wrap" modelvalue allowinput="0">
+          <div class="t-input__wrap" allowinput="0">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -21486,7 +21486,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/first-day-of-wee
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="请选择日期" type="text" value>
@@ -21579,7 +21579,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/month.vue correc
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="请选择月份" type="text" value>
@@ -21667,7 +21667,7 @@ exports[`ssr snapshot test renders ./examples/date-picker/demos/year.vue correct
       </div>
       <!--[-->
       <div class="t-form-controls">
-        <div class="t-input__wrap" modelvalue allowinput="0">
+        <div class="t-input__wrap" allowinput="0">
           <div class="t-input t-input--suffix">
             <!---->
             <!----><input class="t-input__inner" placeholder="请选择年份" type="text" value>
@@ -23091,7 +23091,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/align.vue correctly 1`]
       <div class="t-form__controls" style="margin-left:60px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -23112,7 +23112,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/align.vue correctly 1`]
       <div class="t-form__controls" style="margin-left:60px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="password" autocomplete="on" value>
@@ -23152,7 +23152,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入内容" type="text" value>
@@ -23173,7 +23173,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入内容" type="text" value>
@@ -23261,7 +23261,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -23282,7 +23282,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -23303,7 +23303,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="password" autocomplete="on" value>
@@ -23323,7 +23323,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -23427,7 +23427,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -23448,7 +23448,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -23489,7 +23489,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -23510,7 +23510,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="password" autocomplete="on" value>
@@ -23530,7 +23530,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="password" autocomplete="on" value>
@@ -23571,7 +23571,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-is-disabled">
               <!---->
               <!----><input class="t-input__inner" disabled placeholder="请输入" type="text" value>
@@ -23916,7 +23916,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
               </div>
               <!--[-->
               <div class="t-form-controls">
-                <div class="t-input__wrap" modelvalue allowinput="0">
+                <div class="t-input__wrap" allowinput="0">
                   <div class="t-input t-is-disabled t-input--suffix">
                     <!---->
                     <!----><input class="t-input__inner" disabled placeholder="请选择日期" type="text" value>
@@ -24103,7 +24103,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -24124,7 +24124,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -24145,7 +24145,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="password" autocomplete="on" value>
@@ -24165,7 +24165,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -24269,7 +24269,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -24290,7 +24290,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -24338,7 +24338,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/layout.vue correctly 1`
       <div class="t-form__controls" style="margin-left:calc(2em + 24px);">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -24359,7 +24359,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/layout.vue correctly 1`
       <div class="t-form__controls" style="margin-left:calc(2em + 24px);">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="password" autocomplete="on" value>
@@ -24388,7 +24388,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/login.vue correctly 1`]
       <div class="t-form__controls" style="">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--prefix"><span class="t-input__prefix t-input__prefix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-desktop" style=""><path fill="currentColor" d="M2.5 11h5v2H3v1h10v-1H8.5v-2h5a1 1 0 001-1V3a1 1 0 00-1-1h-11a1 1 0 00-1 1v7a1 1 0 001 1zm0-8h11v7h-11V3z" fill-opacity="0.9"></path></svg><!--]--></span>
               <!----><input class="t-input__inner" placeholder="请输入账户名" type="text" value>
               <!---->
@@ -24408,7 +24408,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/login.vue correctly 1`]
       <div class="t-form__controls" style="">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--prefix t-input--suffix"><span class="t-input__prefix t-input__prefix-icon"><!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-lock-on" style=""><path fill="currentColor" d="M6 10v1h4v-1H6z" fill-opacity="0.9"></path><path fill="currentColor" d="M4.5 5v1H3a.5.5 0 00-.5.5v7c0 .28.22.5.5.5h10a.5.5 0 00.5-.5v-7A.5.5 0 0013 6h-1.5V5a3.5 3.5 0 00-7 0zm6 1h-5V5a2.5 2.5 0 015 0v1zm-7 1h9v6h-9V7z" fill-opacity="0.9"></path></svg><!--]--></span>
               <!----><input class="t-input__inner" placeholder="请输入密码" type="password" autocomplete="on" value>
               <!---->
@@ -24454,7 +24454,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/reset.vue correctly 1`]
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue="TDesign">
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入内容" type="text" value="TDesign">
@@ -24475,7 +24475,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/reset.vue correctly 1`]
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue="12345678910">
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入内容" type="text" value="12345678910">
@@ -24538,7 +24538,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue="TDesign">
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入内容" type="text" value="TDesign">
@@ -24559,7 +24559,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue="12345678910">
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入内容" type="text" value="12345678910">
@@ -24702,7 +24702,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
               <div class="t-form__controls" style="margin-left:80px;">
                 <div class="t-form__controls-content">
                   <!--[-->
-                  <div class="t-input__wrap" modelvalue="StudentA">
+                  <div class="t-input__wrap">
                     <div class="t-input">
                       <!---->
                       <!----><input class="t-input__inner" placeholder="请输入内容" type="text" value="StudentA">
@@ -24773,7 +24773,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
               <div class="t-form__controls" style="margin-left:80px;">
                 <div class="t-form__controls-content">
                   <!--[-->
-                  <div class="t-input__wrap" modelvalue="StudentB">
+                  <div class="t-input__wrap">
                     <div class="t-input">
                       <!---->
                       <!----><input class="t-input__inner" placeholder="请输入内容" type="text" value="StudentB">
@@ -24860,7 +24860,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -24881,7 +24881,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -24902,7 +24902,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="password" autocomplete="on" value>
@@ -24922,7 +24922,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -25026,7 +25026,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -25047,7 +25047,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -25089,7 +25089,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -25131,7 +25131,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input t-input--suffix">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="password" autocomplete="on" value>
@@ -25151,7 +25151,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -25255,7 +25255,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -25276,7 +25276,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -25330,7 +25330,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="校验不通过状态" type="text" value>
@@ -25351,7 +25351,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="校验警告状态" type="text" value>
@@ -25372,7 +25372,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="不带绿色边框的成功状态" type="text" value>
@@ -25393,7 +25393,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="带绿色边框的成功状态" type="text" value>
@@ -25414,7 +25414,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="隐藏状态图标" type="text" value>
@@ -25435,7 +25435,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="校验警告状态" type="text" value>
@@ -25456,7 +25456,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="正在校验中，请稍等" type="text" value>
@@ -25476,7 +25476,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
       <div class="t-form__controls" style="margin-left:80px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input__wrap" modelvalue>
+          <div class="t-input__wrap">
             <div class="t-input">
               <!---->
               <!----><input class="t-input__inner" placeholder="自定义右侧图标" type="text" value>
@@ -26475,7 +26475,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/auto-width.vue correct
   <div class="t-input__wrap">
     <div class="t-input t-input--auto-width">
       <!---->
-      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="宽度自适应"><span class="t-input__input-pre">宽度自适应</span>
+      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="宽度自适应"><span class="t-input__input-pre">请输入</span>
       <!---->
       <!---->
     </div>
@@ -26496,7 +26496,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/base.vue correctly 1`]
     </div>
     <!---->
   </div>
-  <div class="t-input__wrap" modelvalue="有默认值">
+  <div class="t-input__wrap">
     <div class="t-input">
       <!---->
       <!----><input class="t-input__inner" placeholder="请输入内容（有默认值）" type="text" value="有默认值">
@@ -26521,7 +26521,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/base.vue correctly 1`]
 
 exports[`ssr snapshot test renders ./examples/input/demos/clearable.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
-  <div class="t-input__wrap" modelvalue="Hello TDesign">
+  <div class="t-input__wrap">
     <div class="t-input">
       <!---->
       <!----><input class="t-input__inner" placeholder="请输入" type="text" value="Hello TDesign">
@@ -26551,7 +26551,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/focus.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/input/demos/format.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
-  <div class="t-input__wrap" modelvalue>
+  <div class="t-input__wrap">
     <div class="t-input">
       <!---->
       <!----><input class="t-input__inner" placeholder="请输入数字" type="text" value>
@@ -26694,7 +26694,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/group.vue correctly 1`
 
 exports[`ssr snapshot test renders ./examples/input/demos/max-length-count.vue correctly 1`] = `
 <div class="tdesign-demo-block-column" style="max-width:500px;">
-  <div class="t-input__wrap" modelvalue>
+  <div class="t-input__wrap">
     <div class="t-input t-input--suffix">
       <!---->
       <!----><input class="t-input__inner" placeholder="请输入" maxlength="5" type="text" value>
@@ -27010,7 +27010,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/align.vue corre
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/auto-width.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-input-number--row t-input-number--auto-width" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m t-input-number--row t-input-number--auto-width"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27040,7 +27040,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/auto-width.vue 
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/center.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27102,7 +27102,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/default.vue cor
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/disabled.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-is-disabled t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
+  <div class="t-input-number t-size-m t-is-disabled t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27164,7 +27164,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/empty.vue corre
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27195,7 +27195,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/format.vue corr
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-is-controls-right t-input-number--column" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m t-is-controls-right t-input-number--column"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style="font-size:medium;">
         <path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path>
@@ -27226,7 +27226,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/left.vue correc
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/normal.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-input-number--normal" modelvalue="3">
+  <div class="t-input-number t-size-m t-input-number--normal">
     <!---->
     <div class="t-input__wrap" unselectable="off">
       <div class="t-input">
@@ -27245,7 +27245,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/normal.vue corr
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-s t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-s t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-s" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27271,7 +27271,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!--]-->
     </button>
   </div>
-  <div class="t-input-number t-size-m t-input-number--row" modelvalue="3" style="margin:0 50px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m t-input-number--row" style="margin:0 50px;"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27297,7 +27297,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/size.vue correc
       <!--]-->
     </button>
   </div>
-  <div class="t-input-number t-size-l t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-l t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove t-size-l" style="">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27335,7 +27335,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-is-disabled t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
+          <div class="t-input-number t-size-m t-is-disabled t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27372,7 +27372,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27409,7 +27409,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27446,7 +27446,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27483,7 +27483,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27520,7 +27520,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27557,7 +27557,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27594,7 +27594,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27631,7 +27631,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27668,7 +27668,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
       <div class="t-form__controls" style="margin-left:100px;">
         <div class="t-form__controls-content">
           <!--[-->
-          <div class="t-input-number t-size-m t-input-number--row" modelvalue="3"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+          <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
               <!--[-->
               <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
                 <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -27707,7 +27707,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
 
 exports[`ssr snapshot test renders ./examples/input-number/demos/step.vue correctly 1`] = `
 <div>
-  <div class="t-input-number t-size-m t-input-number--row" modelvalue="3.2"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
+  <div class="t-input-number t-size-m t-input-number--row"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease" type="button">
       <!--[-->
       <!--[--><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-remove" style="font-size:medium;">
         <path fill="currentColor" d="M3.5 7.35h9v1.3h-9v-1.3z" fill-opacity="0.9"></path>
@@ -30697,7 +30697,7 @@ exports[`ssr snapshot test renders ./examples/message/demos/offset.vue correctly
 exports[`ssr snapshot test renders ./examples/message/demos/placement.vue correctly 1`] = `
 <div>
   <div class="t-message-offset">
-    <div class="t-input__wrap" modelvalue>
+    <div class="t-input__wrap">
       <div class="t-input">
         <!---->
         <!----><input class="t-input__inner" placeholder="请输入横向偏移量" type="text" value>
@@ -30707,7 +30707,7 @@ exports[`ssr snapshot test renders ./examples/message/demos/placement.vue correc
       </div>
       <!---->
     </div>
-    <div class="t-input__wrap" modelvalue>
+    <div class="t-input__wrap">
       <div class="t-input">
         <!---->
         <!----><input class="t-input__inner" placeholder="请输入纵向偏移量" type="text" value>
@@ -31018,7 +31018,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/operation.vue c
 exports[`ssr snapshot test renders ./examples/notification/demos/placement.vue correctly 1`] = `
 <div>
   <div class="t-message-offset">
-    <div class="t-input__wrap" modelvalue>
+    <div class="t-input__wrap">
       <div class="t-input">
         <!---->
         <!----><input class="t-input__inner" placeholder="请输入横向偏移量" type="text" value>
@@ -31028,7 +31028,7 @@ exports[`ssr snapshot test renders ./examples/notification/demos/placement.vue c
       </div>
       <!---->
     </div>
-    <div class="t-input__wrap" modelvalue>
+    <div class="t-input__wrap">
       <div class="t-input">
         <!---->
         <!----><input class="t-input__inner" placeholder="请输入纵向偏移量" type="text" value>
@@ -31330,7 +31330,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
-    <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input" modelvalue="1">
+    <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input">
         <!---->
         <div class="t-input__wrap" unselectable="off">
           <div class="t-input">
@@ -33666,7 +33666,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/creatable.vue correct
         <!---->
         <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue>
+        <div class="t-input__wrap t-select__input">
           <div class="t-input t-is-readonly">
             <!---->
             <!----><input class="t-input__inner" readonly placeholder="支持自定义创建" type="text" value>
@@ -34054,7 +34054,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <!---->
         <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue>
+        <div class="t-input__wrap t-select__input">
           <div class="t-input t-is-readonly">
             <!---->
             <!----><input class="t-input__inner" readonly placeholder="-请选择-" type="text" value>
@@ -34104,7 +34104,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/filterable.vue correc
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue>
+        <div class="t-input__wrap t-select__input">
           <div class="t-input t-is-readonly">
             <!---->
             <!----><input class="t-input__inner" readonly placeholder="-请选择-" type="text" value>
@@ -34197,7 +34197,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
         <!---->
         <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue>
+        <div class="t-input__wrap t-select__input">
           <div class="t-input t-is-readonly">
             <!---->
             <!----><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
@@ -34280,7 +34280,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/group.vue correctly 1
         <!---->
         <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue>
+        <div class="t-input__wrap t-select__input">
           <div class="t-input t-is-readonly">
             <!---->
             <!----><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
@@ -34902,7 +34902,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <!---->
         <!----><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue>
+        <div class="t-input__wrap t-select__input">
           <div class="t-input t-is-readonly">
             <!---->
             <!----><input class="t-input__inner" readonly placeholder="请选择" type="text" value>
@@ -34948,7 +34948,7 @@ exports[`ssr snapshot test renders ./examples/select/demos/remote-search.vue cor
         <!--[-->
         <!--]--><span class="t-tag t-tag--default t-tag--dark t-size-m" style="display:none;"><!----><!--[-->+0<!--]--><!----></span>
         <!---->
-        <div class="t-input__wrap t-select__input" modelvalue>
+        <div class="t-input__wrap t-select__input">
           <div class="t-input t-is-readonly">
             <!---->
             <!----><input class="t-input__inner" readonly placeholder="请输入搜索" type="text" value>
@@ -40988,7 +40988,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                                     </div>
                                     <!--[-->
                                     <div class="t-form-controls">
-                                      <div class="t-input__wrap" modelvalue allowinput="0">
+                                      <div class="t-input__wrap" allowinput="0">
                                         <div class="t-input t-input--suffix">
                                           <!---->
                                           <!----><input class="t-input__inner" placeholder="请选择月份" type="text" value>
@@ -48593,7 +48593,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
         <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
             <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
           </svg></div>
-        <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input" modelvalue="2">
+        <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input">
             <!---->
             <div class="t-input__wrap" unselectable="off">
               <div class="t-input">
@@ -48725,7 +48725,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
       <div class="t-pagination__btn t-pagination__btn-next t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
         </svg></div>
-      <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input" modelvalue="1">
+      <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input">
           <!---->
           <div class="t-input__wrap" unselectable="off">
             <div class="t-input">
@@ -56478,7 +56478,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-mutex.vue correc
 exports[`ssr snapshot test renders ./examples/tree/demos/filter.vue correctly 1`] = `
 <div class="tdesign-tree-base">
   <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">filter:</span>
-    <div class="t-input__wrap" modelvalue>
+    <div class="t-input__wrap">
       <div class="t-input">
         <!---->
         <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
@@ -57203,7 +57203,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/operations.vue correctl
   </div>
   <div class="operations">
     <div class="t-addon t-addon--prepend"><span class="t-addon__prepend">filter:</span>
-      <div class="t-input__wrap" modelvalue>
+      <div class="t-input__wrap">
         <div class="t-input">
           <!---->
           <!----><input class="t-input__inner" placeholder="请输入" type="text" value>
