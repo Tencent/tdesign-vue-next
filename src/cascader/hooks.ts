@@ -1,4 +1,4 @@
-import { reactive, computed, onMounted, toRefs, nextTick, watchEffect } from 'vue';
+import { reactive, computed, onMounted, toRefs, nextTick, watchEffect, watch } from 'vue';
 
 import isEqual from 'lodash/isEqual';
 import { getTreeValue, getValue, isEmptyValues, valueValidate } from './utils/helper';
@@ -151,12 +151,15 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     updatedTreeNodes();
   });
 
-  watchEffect(() => {
-    const { setInputVal } = cascaderContext.value;
-    if (!statusContext.filterActive) {
-      setInputVal('');
-    }
-  });
+  watch(
+    () => statusContext.filterActive,
+    () => {
+      const { setInputVal } = cascaderContext.value;
+      if (!statusContext.filterActive) {
+        setInputVal('');
+      }
+    },
+  );
 
   watchEffect(() => {
     const { value, setExpend } = cascaderContext.value;

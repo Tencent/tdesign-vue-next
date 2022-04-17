@@ -15,6 +15,7 @@ export default defineComponent({
     const { global } = useConfig('list');
     const COMPONENT_NAME = usePrefixClass('list');
     const { SIZE } = useCommonClassName();
+
     const renderTNodeJSX = useTNodeJSX();
 
     /** 列表基础逻辑 start */

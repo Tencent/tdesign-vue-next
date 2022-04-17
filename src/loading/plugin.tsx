@@ -1,9 +1,8 @@
 import { App, Plugin, createApp, defineComponent, h, reactive } from 'vue';
 import LoadingComponent from './loading';
-import { prefix } from '../config';
+import { usePrefixClass } from '../hooks/useConfig';
 import { getAttach, removeClass } from '../utils/dom';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
-import { usePrefixClass } from '../hooks/useConfig';
 
 let fullScreenLoadingInstance: LoadingInstance = null;
 

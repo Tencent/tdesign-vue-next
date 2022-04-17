@@ -52,7 +52,7 @@ export default defineComponent({
     const panels = computed(() => getPanels(cascaderContext.value.treeNodes));
 
     return () => {
-      const { setVisible, visible, inputVal, setInputVal, setFilterActive } = cascaderContext.value;
+      const { setVisible, visible, inputVal, setInputVal, setFilterActive, filterActive } = cascaderContext.value;
       return (
         <SelectInput
           class={COMPONENT_NAME.value}

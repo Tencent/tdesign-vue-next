@@ -30,6 +30,7 @@ type NodeElement = HTMLElement | VNode | ComponentPublicInstance;
 
 const createDocumentHandler = (elements: HTMLElement[], handler: Handler, includePopup = true) => {
   const POPUP_SELECTOR = usePrefixClass('popup');
+
   return (e: MouseEvent) => {
     if (includePopup) {
       document.querySelectorAll(POPUP_SELECTOR.value).forEach((ele: Element) => {

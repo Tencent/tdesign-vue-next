@@ -46,23 +46,22 @@ export default defineComponent({
       },
     );
 
-    const renderItem = (node: TreeNode) =>
-      itemShow.value && (
-        <Item
-          key={node.value}
-          node={node}
-          cascaderContext={props.cascaderContext}
-          onClick={(node: TreeNode) => {
-            handleExpand(node, 'click');
-          }}
-          onMouseenter={(node: TreeNode) => {
-            handleExpand(node, 'hover');
-          }}
-          onChange={(node) => {
-            valueChangeEffect(node, props.cascaderContext);
-          }}
-        />
-      );
+    const renderItem = (node: TreeNode) => (
+      <Item
+        key={node.value}
+        node={node}
+        cascaderContext={props.cascaderContext}
+        onClick={(node: TreeNode) => {
+          handleExpand(node, 'click');
+        }}
+        onMouseenter={(node: TreeNode) => {
+          handleExpand(node, 'hover');
+        }}
+        onChange={(node) => {
+          valueChangeEffect(node, props.cascaderContext);
+        }}
+      />
+    );
 
     const renderList = (treeNodes: TreeNode[], isFilter = false, segment = true, key = '1') => (
       <ul
@@ -82,6 +81,7 @@ export default defineComponent({
 
     const renderPanels = () => {
       const { filterActive, treeNodes } = props.cascaderContext;
+      if (!itemShow.value) return;
       return filterActive
         ? renderList(treeNodes, true)
         : panels.value.map((treeNodes, index: number) =>
