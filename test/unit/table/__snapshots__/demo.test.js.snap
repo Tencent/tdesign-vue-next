@@ -6552,7 +6552,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                                           allowinput="0"
                                           class="t-input__wrap"
                                           input="function () { [native code] }"
-                                          modelvalue=""
                                         >
                                           <div
                                             class="t-input t-input--suffix"
@@ -22899,7 +22898,6 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
         跳至
         <div
           class="t-input-number t-size-m t-input-number--normal t-pagination__input"
-          modelvalue="1"
         >
           <!---->
           <div
@@ -23538,7 +23536,6 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           跳至
           <div
             class="t-input-number t-size-m t-input-number--normal t-pagination__input"
-            modelvalue="2"
           >
             <!---->
             <div

@@ -1149,7 +1149,6 @@ exports[`Select Select creatableVue demo works fine 1`] = `
         <!---->
         <div
           class="t-input__wrap t-select__input"
-          modelvalue=""
         >
           <div
             class="t-input t-is-readonly"
@@ -3274,7 +3273,6 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         <!---->
         <div
           class="t-input__wrap t-select__input"
-          modelvalue=""
         >
           <div
             class="t-input t-is-readonly"
@@ -3470,7 +3468,6 @@ exports[`Select Select filterableVue demo works fine 1`] = `
         <!---->
         <div
           class="t-input__wrap t-select__input"
-          modelvalue=""
         >
           <div
             class="t-input t-is-readonly"
@@ -3709,7 +3706,6 @@ exports[`Select Select groupVue demo works fine 1`] = `
         <!---->
         <div
           class="t-input__wrap t-select__input"
-          modelvalue=""
         >
           <div
             class="t-input t-is-readonly"
@@ -3951,7 +3947,6 @@ exports[`Select Select groupVue demo works fine 1`] = `
         <!---->
         <div
           class="t-input__wrap t-select__input"
-          modelvalue=""
         >
           <div
             class="t-input t-is-readonly"
@@ -6504,7 +6499,6 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         <!---->
         <div
           class="t-input__wrap t-select__input"
-          modelvalue=""
         >
           <div
             class="t-input t-is-readonly"
@@ -6634,7 +6628,6 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
         <!---->
         <div
           class="t-input__wrap t-select__input"
-          modelvalue=""
         >
           <div
             class="t-input t-is-readonly"

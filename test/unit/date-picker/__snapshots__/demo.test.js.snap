@@ -802,7 +802,6 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue="2021-11-10"
         >
           <div
             class="t-input t-input--suffix"
@@ -1644,7 +1643,6 @@ exports[`DatePicker DatePicker customIconVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--prefix t-input--suffix"
@@ -3309,7 +3307,6 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
             allowinput="0"
             class="t-input__wrap"
             input="function () { [native code] }"
-            modelvalue="2020-12-28 至 2020-12-28"
           >
             <div
               class="t-input t-input--suffix"
@@ -4171,7 +4168,6 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
             allowinput="0"
             class="t-input__wrap"
             input="function () { [native code] }"
-            modelvalue="2020-12-28"
           >
             <div
               class="t-input t-input--suffix"
@@ -5807,7 +5803,6 @@ exports[`DatePicker DatePicker datePresetsTimeVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -7432,7 +7427,6 @@ exports[`DatePicker DatePicker datePresetsVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -9039,7 +9033,6 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -10680,7 +10673,6 @@ exports[`DatePicker DatePicker dateRangeVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -11565,7 +11557,6 @@ exports[`DatePicker DatePicker dateTimeVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue="2021-05-01 11:30:20"
         >
           <div
             class="t-input t-input--suffix"
@@ -12413,7 +12404,6 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             allowinput="0"
             class="t-input__wrap"
             input="function () { [native code] }"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -13252,7 +13242,6 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             allowinput="0"
             class="t-input__wrap"
             input="function () { [native code] }"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -14091,7 +14080,6 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             allowinput="0"
             class="t-input__wrap"
             input="function () { [native code] }"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -15696,7 +15684,6 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             allowinput="0"
             class="t-input__wrap"
             input="function () { [native code] }"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -16535,7 +16522,6 @@ exports[`DatePicker DatePicker disableDateVue demo works fine 1`] = `
             allowinput="0"
             class="t-input__wrap"
             input="function () { [native code] }"
-            modelvalue=""
           >
             <div
               class="t-input t-input--suffix"
@@ -17377,7 +17363,6 @@ exports[`DatePicker DatePicker firstDayOfWeekVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -17738,7 +17723,6 @@ exports[`DatePicker DatePicker monthVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"
@@ -18070,7 +18054,6 @@ exports[`DatePicker DatePicker yearVue demo works fine 1`] = `
           allowinput="0"
           class="t-input__wrap"
           input="function () { [native code] }"
-          modelvalue=""
         >
           <div
             class="t-input t-input--suffix"

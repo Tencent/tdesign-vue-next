@@ -287,7 +287,6 @@ exports[`DatePicker :mode 1`] = `
         allowinput="0"
         class="t-input__wrap"
         input="function () { [native code] }"
-        modelvalue=""
       >
         <div
           class="t-input t-input--suffix"
@@ -928,7 +927,6 @@ exports[`DatePicker :range 1`] = `
         allowinput="0"
         class="t-input__wrap"
         input="function () { [native code] }"
-        modelvalue="2018-08-01 至 2028-04-01"
       >
         <div
           class="t-input t-input--suffix"
@@ -1284,7 +1282,6 @@ exports[`DatePicker :value 1`] = `
         allowinput="0"
         class="t-input__wrap"
         input="function () { [native code] }"
-        modelvalue="1998-11-11"
       >
         <div
           class="t-input t-input--suffix"
