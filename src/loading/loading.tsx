@@ -1,13 +1,12 @@
 import { defineComponent, ref, computed, watch, onMounted } from 'vue';
 import GradientIcon from './icon/gradient';
-import { SIZE_CLASSNAMES } from '../utils/classnames';
 import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import TransferDom from '../utils/transfer-dom';
 import props from './props';
 import { Styles } from '../common';
 
-import { usePrefixClass } from '../hooks/useConfig';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 const useComponentClassName = () => {
   return {
@@ -35,6 +34,7 @@ export default defineComponent({
       useComponentClassName();
 
     const classPrefix = usePrefixClass();
+    const { SIZE } = useCommonClassName();
 
     const countDelay = () => {
       delayShowLoading.value = false;
@@ -69,7 +69,7 @@ export default defineComponent({
     const classes = computed(() => {
       const baseClasses = [
         centerClass.value,
-        SIZE_CLASSNAMES[props.size],
+        SIZE.value[props.size],
         { [inheritColorClass.value]: props.inheritColor },
       ];
       const fullScreenClasses = [name.value, fullscreenClass.value, centerClass.value, overlayClass.value];

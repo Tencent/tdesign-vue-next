@@ -1,7 +1,7 @@
 import { computed, defineComponent, h, VNode } from 'vue';
 import { CloseIcon } from 'tdesign-icons-vue-next';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
-import CLASSNAMES from '../utils/classnames';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+
 import props from './props';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 
@@ -11,6 +11,7 @@ export default defineComponent({
   setup(props) {
     const { global: tagGlobalConfig } = useConfig('tag');
     const COMPONENT_NAME = usePrefixClass('tag');
+    const { SIZE } = useCommonClassName();
 
     const tagClass = computed(() => {
       return [
@@ -22,7 +23,7 @@ export default defineComponent({
           [`${COMPONENT_NAME.value}--close`]: props.closable,
           [`${COMPONENT_NAME.value}--disabled`]: props.disabled,
         },
-        CLASSNAMES.SIZE[props.size],
+        SIZE.value[props.size],
         props.shape !== 'square' && `${COMPONENT_NAME.value}--${props.shape}`,
       ];
     });

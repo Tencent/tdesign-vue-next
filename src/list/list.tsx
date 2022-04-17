@@ -3,9 +3,8 @@ import { useTNodeJSX } from '../hooks/tnode';
 import TLoading from '../loading';
 import props from './props';
 import { TdListProps } from './type';
-import CLASSNAMES from '../utils/classnames';
 import { LOAD_MORE, LOADING } from './const';
-import { useConfig, usePrefixClass } from '../hooks/useConfig';
+import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TList',
@@ -15,13 +14,14 @@ export default defineComponent({
   setup(props: TdListProps) {
     const { global } = useConfig('list');
     const COMPONENT_NAME = usePrefixClass('list');
+    const { SIZE } = useCommonClassName();
 
     const renderTNodeJSX = useTNodeJSX();
     /** 列表基础逻辑 start */
     const listClass = computed(() => {
       return [
         `${COMPONENT_NAME.value}`,
-        CLASSNAMES.SIZE[props.size],
+        SIZE.value[props.size],
         {
           [`${COMPONENT_NAME.value}--split`]: props.split,
           [`${COMPONENT_NAME.value}--stripe`]: props.stripe,

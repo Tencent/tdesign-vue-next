@@ -1,5 +1,4 @@
 import { ComponentPublicInstance, VNode } from 'vue';
-import { prefix } from '../../config';
 import { on } from '../../utils/dom';
 
 type Handler = (...args: unknown[]) => unknown;
@@ -11,7 +10,7 @@ interface ElementHandler {
 
 type FlushList = Map<number, ElementHandler>;
 
-const POPUP_SELECTOR = `.${prefix}-popup`;
+const POPUP_SELECTOR = `.t-popup`;
 const nodeList: FlushList = new Map();
 
 let startClick: MouseEvent;
