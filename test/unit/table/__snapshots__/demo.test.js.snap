@@ -103,12 +103,6 @@ exports[`Table Table asyncLoadingVue demo works fine 1`] = `
   <div
     asyncloading="loading"
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -505,12 +499,6 @@ exports[`Table Table baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-table t-table--bordered t-table--striped"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -1072,12 +1060,6 @@ exports[`Table Table customCellVue demo works fine 1`] = `
 >
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -1421,14 +1403,7 @@ exports[`Table Table customColButtonVue demo works fine 1`] = `
   <!-- 受控用法，示例代码有效，勿删  -->
   <div
     class="t-table t-table--bordered t-table--striped"
-    columncontroller="[object Object]"
-    defaultexpandedrowkeys=""
     displaycolumns="index,needed,detail.position,platform,type,default"
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <div
@@ -2066,15 +2041,8 @@ exports[`Table Table customColVue demo works fine 1`] = `
   <!-- 受控用法，示例代码有效，勿删  -->
   <div
     class="t-table t-table--striped"
-    columncontroller="[object Object]"
     columncontrollervisible="false"
-    defaultexpandedrowkeys=""
     displaycolumns="index,needed,detail.position,platform,type,default"
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -2655,12 +2623,6 @@ exports[`Table Table customFooterVue demo works fine 1`] = `
   <!-- rowClassName="tdesign-demo__row-custom-name" -->
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -2959,12 +2921,6 @@ exports[`Table Table customHeaderVue demo works fine 1`] = `
 <div>
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -3144,13 +3100,7 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
     </div>
     <div
       class="t-table"
-      defaultexpandedrowkeys=""
-      dragsort="col"
-      expandicon="true"
-      expandonrowclick="false"
-      multiplesort="false"
       sort="[object Object]"
-      sortonrowdraggable="false"
       style="position: relative;"
     >
       <!---->
@@ -3556,12 +3506,244 @@ exports[`Table Table dragColSortVue demo works fine 1`] = `
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--col-draggable"
-      defaultexpandedrowkeys=""
       dragsort="col"
-      expandicon="true"
-      expandonrowclick="false"
-      multiplesort="false"
-      sortonrowdraggable="false"
+      style="position: relative;"
+    >
+      <!---->
+      <!---->
+      <div
+        class="t-table__content"
+      >
+        <!---->
+        <table
+          class="t-table--layout-fixed"
+        >
+          <colgroup>
+            
+            <col
+              style="width: 150px;"
+            />
+            <col
+              style="width: 100px;"
+            />
+            <col
+              style="width: 200px;"
+            />
+            <col
+              style="width: 100px;"
+            />
+            
+          </colgroup>
+          <thead
+            class="t-table__header"
+          >
+            
+            <tr>
+              
+              <th
+                class="t-table__th-instance"
+                data-colkey="instance"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  集群名称
+                </div>
+              </th>
+              <th
+                class="t-table__th-status"
+                data-colkey="status"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  状态
+                </div>
+              </th>
+              <th
+                class="t-table__th-survivalTime"
+                data-colkey="survivalTime"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  存活时间(s)
+                </div>
+              </th>
+              <th
+                class="t-table__th-owner"
+                data-colkey="owner"
+              >
+                <div
+                  class="t-table__th-cell-inner"
+                >
+                  管理员
+                </div>
+              </th>
+              
+            </tr>
+            
+          </thead>
+          <tbody
+            class="t-table__body"
+          >
+            
+            <!---->
+            
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                JQTest1
+              </td>
+              <td
+                class=""
+              >
+                
+                <p
+                  class="status"
+                >
+                  健康
+                </p>
+                
+              </td>
+              <td
+                class=""
+              >
+                1000
+              </td>
+              <td
+                class=""
+              >
+                jenny;peter
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                JQTest2
+              </td>
+              <td
+                class=""
+              >
+                
+                <p
+                  class="status warning"
+                >
+                  警告
+                </p>
+                
+              </td>
+              <td
+                class=""
+              >
+                1000
+              </td>
+              <td
+                class=""
+              >
+                jenny
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                JQTest3
+              </td>
+              <td
+                class=""
+              >
+                
+                <p
+                  class="status unhealth"
+                >
+                  异常
+                </p>
+                
+              </td>
+              <td
+                class=""
+              >
+                500
+              </td>
+              <td
+                class=""
+              >
+                jenny
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                JQTest4
+              </td>
+              <td
+                class=""
+              >
+                
+                <p
+                  class="status warning"
+                >
+                  警告
+                </p>
+                
+              </td>
+              <td
+                class=""
+              >
+                1500
+              </td>
+              <td
+                class=""
+              >
+                peter
+              </td>
+              
+            </tr>
+            
+            <!---->
+            
+          </tbody>
+          <!---->
+        </table>
+      </div>
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table Table dragSortHandlerVue demo works fine 1`] = `
+<div
+  class="demo-container t-table-demo-sort"
+>
+  <div
+    class="item"
+  >
+    <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
+    <div
+      class="t-table t-table--row-handler-draggable"
+      dragsort="row-handler"
       style="position: relative;"
     >
       <!---->
@@ -3875,12 +4057,7 @@ exports[`Table Table dragSortVue demo works fine 1`] = `
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div
       class="t-table t-table--row-draggable"
-      defaultexpandedrowkeys=""
       dragsort="row"
-      expandicon="true"
-      expandonrowclick="false"
-      multiplesort="false"
-      sortonrowdraggable="false"
       style="position: relative;"
     >
       <!---->
@@ -4115,12 +4292,6 @@ exports[`Table Table emptyVue demo works fine 1`] = `
 <div>
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -4240,12 +4411,6 @@ exports[`Table Table emptyVue demo works fine 1`] = `
   <br />
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -4371,12 +4536,6 @@ exports[`Table Table emptyVue demo works fine 1`] = `
   <br />
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -4645,8 +4804,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
   <!-- :defaultExpandedRowKeys="defaultExpandedRowKeys" -->
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
     expandedrow="(h, {
       row
     }) => (0, _vue.createVNode)(\\"div\\", {
@@ -4665,10 +4822,6 @@ exports[`Table Table expandableVue demo works fine 1`] = `
       \\"class\\": \\"content\\"
     }, [row.description])])"
     expandedrowkeys="2"
-    expandicon="true"
-    expandonrowclick="true"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -5522,13 +5675,7 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
   <!-- :filter-row="() =&gt; null" 用于隐藏过滤结果行 -->
   <div
     class="t-table t-table--bordered"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
     filtervalue="[object Object]"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -6830,12 +6977,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
   <!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。这种模式下的固定列，必须指定 tableContentWidth -->
   <div
     class="t-table t-table--bordered t-table--column-fixed"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -7372,12 +7513,6 @@ exports[`Table Table fixedHeaderColVue demo works fine 1`] = `
     <!-- footData 可以是多行，均支持固定在底部 -->
     <div
       class="t-table t-table--bordered t-table--column-fixed"
-      defaultexpandedrowkeys=""
-      dragsort="col"
-      expandicon="true"
-      expandonrowclick="false"
-      multiplesort="false"
-      sortonrowdraggable="false"
       style="position: relative;"
     >
       <!---->
@@ -8692,12 +8827,6 @@ exports[`Table Table fixedHeaderVue demo works fine 1`] = `
   <!-- footData 可以是多行，均支持固定在底部 -->
   <div
     class="t-table t-table--bordered"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -9715,12 +9844,6 @@ exports[`Table Table lazyVue demo works fine 1`] = `
     <br />
     <div
       class="t-table t-table--bordered"
-      defaultexpandedrowkeys=""
-      dragsort="col"
-      expandicon="true"
-      expandonrowclick="false"
-      multiplesort="false"
-      sortonrowdraggable="false"
       style="position: relative;"
     >
       <!---->
@@ -18833,12 +18956,6 @@ exports[`Table Table loadingVue demo works fine 1`] = `
 <div>
   <div
     class="t-table t-size-s"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -19028,12 +19145,6 @@ exports[`Table Table loadingVue demo works fine 1`] = `
   </div>
   <div
     class="t-table t-size-s"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -19233,12 +19344,6 @@ exports[`Table Table loadingVue demo works fine 1`] = `
   </div>
   <div
     class="t-table t-size-s"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -19441,12 +19546,6 @@ exports[`Table Table mergeCellsVue demo works fine 1`] = `
 <div>
   <div
     class="t-table t-size-s t-table--bordered t-table--rowspan-colspan"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -19760,24 +19859,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
         </span>
       </label>
       <!-- 为保证组件收益最大化，当数据量小于 \`100\` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 -->
-      <label
-        class="t-checkbox t-is-checked"
-      >
-        <input
-          class="t-checkbox__former"
-          type="checkbox"
-        />
-        <span
-          class="t-checkbox__input"
-        />
-        <span
-          class="t-checkbox__label"
-        >
-          
-          虚拟滚动
-          
-        </span>
-      </label>
+      <!-- &lt;t-checkbox v-model="virtualScroll"&gt;虚拟滚动&lt;/t-checkbox&gt; -->
       <label
         class="t-checkbox"
       >
@@ -19835,16 +19917,9 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
     </div>
     <!-- tableContentWidth 必须大于表格的外层宽度，否则请设置 width: 100% -->
     <!-- 多级表头中，如果要使用固定列功能，则必须设置 colKey 和 fixed -->
+    <!-- :scroll="{ type: 'virtual' }" -->
     <div
       class="t-table t-table--bordered t-table--multiple-header"
-      columncontroller="[object Object]"
-      defaultexpandedrowkeys=""
-      dragsort="col"
-      expandicon="true"
-      expandonrowclick="false"
-      filterrow="function () { return null; }"
-      multiplesort="false"
-      sortonrowdraggable="false"
       style="position: relative;"
       v-model:sort="[object Object]"
     >
@@ -19893,10 +19968,7 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
         class="t-table__content"
         style="max-height: 380px;"
       >
-        <div
-          class="t-table__virtual-scroll-cursor"
-          style="transform: translate(0, 28800px);"
-        />
+        <!---->
         <table
           class="t-table--layout-fixed"
         >
@@ -20419,21 +20491,1653 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
           </thead>
           <tbody
             class="t-table__body"
-            style="transform: translate(0, 0px);"
           >
+            
+            <!---->
+            
             <tr
-              class="t-table__empty-row"
+              class=""
             >
+              
               <td
-                colspan="14"
+                class=""
+              >
+                0
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                String
+              </td>
+              <td
+                class=""
+              >
+                0
+              </td>
+              <td
+                class=""
+              >
+                是
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                A
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
               >
                 <div
-                  class="t-table__empty"
+                  class="t-table__ellipsis t-text-ellipsis"
                 >
-                  暂无数据
+                  
+                  这是一段很长很长很长的文本
+                  
                 </div>
               </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
             </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                1
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Number
+              </td>
+              <td
+                class=""
+              >
+                1
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                B
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                2
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                Array
+              </td>
+              <td
+                class=""
+              >
+                2
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                C
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                3
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Object
+              </td>
+              <td
+                class=""
+              >
+                3
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                A
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                4
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                String
+              </td>
+              <td
+                class=""
+              >
+                4
+              </td>
+              <td
+                class=""
+              >
+                是
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                B
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                5
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Number
+              </td>
+              <td
+                class=""
+              >
+                5
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                C
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                6
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                Array
+              </td>
+              <td
+                class=""
+              >
+                6
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                A
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                7
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Object
+              </td>
+              <td
+                class=""
+              >
+                7
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                B
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                8
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                String
+              </td>
+              <td
+                class=""
+              >
+                8
+              </td>
+              <td
+                class=""
+              >
+                是
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                C
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                9
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Number
+              </td>
+              <td
+                class=""
+              >
+                9
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                A
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                10
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                Array
+              </td>
+              <td
+                class=""
+              >
+                10
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                B
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                11
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Object
+              </td>
+              <td
+                class=""
+              >
+                11
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                C
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                12
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                String
+              </td>
+              <td
+                class=""
+              >
+                12
+              </td>
+              <td
+                class=""
+              >
+                是
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                A
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                13
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Number
+              </td>
+              <td
+                class=""
+              >
+                13
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                B
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                14
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                Array
+              </td>
+              <td
+                class=""
+              >
+                14
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                C
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                15
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Object
+              </td>
+              <td
+                class=""
+              >
+                15
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                A
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                16
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                String
+              </td>
+              <td
+                class=""
+              >
+                16
+              </td>
+              <td
+                class=""
+              >
+                是
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                B
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                17
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Number
+              </td>
+              <td
+                class=""
+              >
+                17
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                C
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                18
+              </td>
+              <td
+                class=""
+              >
+                共有
+              </td>
+              <td
+                class=""
+              >
+                Array
+              </td>
+              <td
+                class=""
+              >
+                18
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                A
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            <tr
+              class=""
+            >
+              
+              <td
+                class=""
+              >
+                19
+              </td>
+              <td
+                class=""
+              >
+                私有
+              </td>
+              <td
+                class=""
+              >
+                Object
+              </td>
+              <td
+                class=""
+              >
+                19
+              </td>
+              <td
+                class=""
+              >
+                否
+              </td>
+              <td
+                class=""
+              >
+                字段1
+              </td>
+              <td
+                class=""
+              >
+                字段2
+              </td>
+              <td
+                class=""
+              >
+                字段3
+              </td>
+              <td
+                class=""
+              >
+                字段4
+              </td>
+              <td
+                class=""
+              >
+                B
+              </td>
+              <td
+                class=""
+              >
+                字段6
+              </td>
+              <td
+                class=""
+              >
+                字段7
+              </td>
+              <td
+                class="t-table-td--ellipsis"
+              >
+                <div
+                  class="t-table__ellipsis t-text-ellipsis"
+                >
+                  
+                  这是一段很长很长很长的文本
+                  
+                </div>
+              </td>
+              <td
+                class=""
+              >
+                字段5
+              </td>
+              
+            </tr>
+            
+            <!---->
+            
           </tbody>
           <!---->
         </table>
@@ -20462,13 +22166,7 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
     <!-- 支持受控用法 ，也支持非受控用法 -->
     <div
       class="t-table"
-      defaultexpandedrowkeys=""
-      dragsort="col"
-      expandicon="true"
-      expandonrowclick="false"
-      multiplesort="true"
       sort="[object Object],[object Object]"
-      sortonrowdraggable="false"
       style="position: relative;"
     >
       <!---->
@@ -20908,12 +22606,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
 exports[`Table Table paginationAjaxVue demo works fine 1`] = `
 <div
   class="t-table t-table--bordered t-table--striped"
-  defaultexpandedrowkeys=""
-  dragsort="col"
-  expandicon="true"
-  expandonrowclick="false"
-  multiplesort="false"
-  sortonrowdraggable="false"
   style="position: relative;"
 >
   <!---->
@@ -21255,12 +22947,6 @@ exports[`Table Table paginationVue demo works fine 1`] = `
 <div>
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -21903,13 +23589,7 @@ exports[`Table Table selectMultipleVue demo works fine 1`] = `
   <!-- 支持语法糖 selected-row-keys.sync -->
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
     selectedrowkeys="3,2"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -22401,13 +24081,7 @@ exports[`Table Table selectSingleVue demo works fine 1`] = `
   <!-- 支持语法糖 selected-row-keys.sync -->
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
     selectedrowkeys="102"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -22887,13 +24561,7 @@ exports[`Table Table showColumnsVue demo works fine 1`] = `
 <div>
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
     show-columns=""
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -23220,13 +24888,7 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
   <br />
   <div
     class="t-table t-table--bordered"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
     sort="[object Object]"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -23750,17 +25412,11 @@ exports[`Table Table treeSelectVue demo works fine 1`] = `
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
     expandedrow="(h, {
       row
-    }) => (0, _vue.createVNode)(\\"div\\", null, [(0, _vue.createTextVNode)(\\"\\\\u8FD9\\\\u662F\\\\u5C55\\\\u5F00\\\\u9879\\\\u6570\\\\u636E\\\\uFF0C\\"), row.key])"
+    }) => (0, _vue.createVNode)(\\"div\\", null, [(0, _vue.createTextVNode)(\\"\\\\u8FD9\\\\u662F\\\\u5C55\\\\u5F00\\\\u9879\\\\u6570\\\\u636E\\\\uFF0C\\\\u6211\\\\u662F \\"), row.key, (0, _vue.createTextVNode)(\\" \\\\u53F7\\")])"
     expandedrowkeys=""
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
     selectedrowkeys=""
-    sortonrowdraggable="false"
     style="position: relative;"
     tree="[object Object]"
   >
@@ -24428,12 +26084,6 @@ exports[`Table Table treeVue demo works fine 1`] = `
   <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
     tree="[object Object]"
   >
