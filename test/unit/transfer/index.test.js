@@ -318,7 +318,7 @@ describe('Transfer', () => {
 
         await wrapper.vm.$nextTick();
         const targetColumn = wrapper.vm.$el.querySelectorAll(
-          '.t-transfer-list-target .t-transfer-list__item input[type=checkbox]',
+          '.t-transfer__list-target .t-transfer__list-item input[type=checkbox]',
         );
         const targetColumnValues = Array.prototype.map.call(targetColumn, (item) => item.value);
         expect(targetColumnValues).toEqual(['1', '2', '5']);
@@ -346,7 +346,7 @@ describe('Transfer', () => {
 
         await wrapper.vm.$nextTick();
         const targetColumn = wrapper.vm.$el.querySelectorAll(
-          '.t-transfer-list-target .t-transfer-list__item input[type=checkbox]',
+          '.t-transfer__list-target .t-transfer__list-item input[type=checkbox]',
         );
         const targetColumnValues = Array.prototype.map.call(targetColumn, (item) => item.value);
         expect(targetColumnValues).toEqual(['1', '5', '2']);
@@ -374,7 +374,7 @@ describe('Transfer', () => {
 
         await wrapper.vm.$nextTick();
         const targetColumn = wrapper.vm.$el.querySelectorAll(
-          '.t-transfer-list-target .t-transfer-list__item input[type=checkbox]',
+          '.t-transfer__list-target .t-transfer__list-item input[type=checkbox]',
         );
         const targetColumnValues = Array.prototype.map.call(targetColumn, (item) => item.value);
         expect(targetColumnValues).toEqual(['2', '1', '5']);
