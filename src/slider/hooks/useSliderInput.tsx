@@ -1,6 +1,6 @@
-import { computed, reactive, ComputedRef, watch } from 'vue';
-import { TdSliderProps } from '..';
-import InputNumber, { InputNumberProps } from '../../input-number/index';
+import { computed, ComputedRef } from 'vue';
+import { TdSliderProps } from '../type';
+import InputNumber, { InputNumberProps } from '../../input-number';
 
 /**
  * 聚合管理inputNumber渲染逻辑
