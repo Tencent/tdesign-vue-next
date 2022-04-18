@@ -164,9 +164,14 @@ function filterTransferData(
   isTreeMode = false,
 ) {
   if (!isTreeMode) {
+    if (needMatch) {
+      // 正向过滤。要保持filterValues顺序
+      return filterValues.map((value) => data.find((item) => item.value === value));
+    }
+    // 反向过滤
     return data.filter((item) => {
       const isMatch = filterValues.includes(item.value);
-      return needMatch ? isMatch : !isMatch;
+      return !isMatch;
     });
   }
 
