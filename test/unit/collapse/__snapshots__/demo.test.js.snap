@@ -845,12 +845,10 @@ exports[`Collapse Collapse iconVue demo works fine 1`] = `
     </label>
     <div
       class="t-radio-group t-size-m t-radio-group__outline"
-      modelvalue="left"
     >
       
       <label
         class="t-radio t-is-checked"
-        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -871,7 +869,6 @@ exports[`Collapse Collapse iconVue demo works fine 1`] = `
       </label>
       <label
         class="t-radio"
-        modelvalue="false"
       >
         <input
           class="t-radio__former"
@@ -891,6 +888,7 @@ exports[`Collapse Collapse iconVue demo works fine 1`] = `
         </span>
       </label>
       
+      <!---->
     </div>
   </div>
   <div

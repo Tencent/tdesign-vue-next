@@ -561,7 +561,6 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-m t-radio-group--filled"
-          modelvalue="month"
         >
           
           
@@ -610,11 +609,11 @@ exports[`Calendar Calendar baseVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <div
@@ -2000,7 +1999,6 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-m t-radio-group--filled"
-            modelvalue="month"
           >
             
             
@@ -2049,11 +2047,11 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -3409,7 +3407,6 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-m t-radio-group--filled"
-            modelvalue="month"
           >
             
             
@@ -3458,11 +3455,11 @@ exports[`Calendar Calendar cardVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <!---->
@@ -4697,7 +4694,6 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-m t-radio-group--filled"
-          modelvalue="month"
         >
           
           
@@ -4746,11 +4742,11 @@ exports[`Calendar Calendar cellAppendVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <div
@@ -6092,7 +6088,6 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-m t-radio-group--filled"
-          modelvalue="month"
         >
           
           
@@ -6141,11 +6136,11 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <div
@@ -7708,7 +7703,6 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-s t-radio-group--filled"
-            modelvalue="month"
           >
             
             
@@ -7757,11 +7751,11 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <div
@@ -9045,7 +9039,6 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-m t-radio-group--filled"
-            modelvalue="month"
           >
             
             
@@ -9094,11 +9087,11 @@ exports[`Calendar Calendar eventsPropsApiVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <div
@@ -10398,7 +10391,6 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-m t-radio-group--filled"
-            modelvalue="month"
           >
             
             
@@ -10447,11 +10439,11 @@ exports[`Calendar Calendar eventsVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <div
@@ -11713,7 +11705,6 @@ exports[`Calendar Calendar filterVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-m t-radio-group--filled"
-            modelvalue="month"
           >
             
             
@@ -11762,11 +11753,11 @@ exports[`Calendar Calendar filterVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <div
@@ -13030,7 +13021,6 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-m t-radio-group--filled"
-            modelvalue="month"
           >
             
             
@@ -13079,11 +13069,11 @@ exports[`Calendar Calendar firstDayOfWeekVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <div
@@ -14464,7 +14454,6 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-m t-radio-group--filled"
-          modelvalue="month"
         >
           
           
@@ -14513,11 +14502,11 @@ exports[`Calendar Calendar headVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <div
@@ -15678,7 +15667,6 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
         >
           <div
             class="t-radio-group t-size-m t-radio-group--filled"
-            modelvalue="year"
           >
             
             
@@ -15727,11 +15715,11 @@ exports[`Calendar Calendar modeVue demo works fine 1`] = `
               </span>
             </label>
             
+            
             <div
               class="t-radio-group__bg-block"
               style="width: 0px; left: 0px;"
             />
-            
           </div>
         </div>
         <div
@@ -16453,7 +16441,6 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-m t-radio-group--filled"
-          modelvalue="month"
         >
           
           
@@ -16502,11 +16489,11 @@ exports[`Calendar Calendar rangeVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <div
@@ -17768,7 +17755,6 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-m t-radio-group--filled"
-          modelvalue="month"
         >
           
           
@@ -17817,11 +17803,11 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <div
@@ -19045,7 +19031,6 @@ exports[`Calendar Calendar valueVue demo works fine 1`] = `
       >
         <div
           class="t-radio-group t-size-m t-radio-group--filled"
-          modelvalue="month"
         >
           
           
@@ -19094,11 +19079,11 @@ exports[`Calendar Calendar valueVue demo works fine 1`] = `
             </span>
           </label>
           
+          
           <div
             class="t-radio-group__bg-block"
             style="width: 0px; left: 0px;"
           />
-          
         </div>
       </div>
       <div
@@ -20485,7 +20470,6 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
           >
             <div
               class="t-radio-group t-size-m t-radio-group--filled"
-              modelvalue="month"
             >
               
               
@@ -20534,11 +20518,11 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </label>
               
+              
               <div
                 class="t-radio-group__bg-block"
                 style="width: 0px; left: 0px;"
               />
-              
             </div>
           </div>
           <div
@@ -21802,7 +21786,6 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
           >
             <div
               class="t-radio-group t-size-m t-radio-group--filled"
-              modelvalue="month"
             >
               
               
@@ -21851,11 +21834,11 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </label>
               
+              
               <div
                 class="t-radio-group__bg-block"
                 style="width: 0px; left: 0px;"
               />
-              
             </div>
           </div>
           <div
@@ -23105,7 +23088,6 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
           >
             <div
               class="t-radio-group t-size-m t-radio-group--filled"
-              modelvalue="month"
             >
               
               
@@ -23154,11 +23136,11 @@ exports[`Calendar Calendar weekVue demo works fine 1`] = `
                 </span>
               </label>
               
+              
               <div
                 class="t-radio-group__bg-block"
                 style="width: 0px; left: 0px;"
               />
-              
             </div>
           </div>
           <div

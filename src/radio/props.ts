@@ -12,7 +12,14 @@ export default {
   /** 是否允许取消选中 */
   allowUncheck: Boolean,
   /** 是否选中 */
-  checked: Boolean,
+  checked: {
+    type: Boolean,
+    default: undefined,
+  },
+  modelValue: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否选中，非受控属性 */
   defaultChecked: Boolean,
   /** 单选按钮内容，同 label */
@@ -40,4 +47,6 @@ export default {
   },
   /** 选中状态变化时触发 */
   onChange: Function as PropType<TdRadioProps['onChange']>,
+  /** 点击时触发 */
+  onClick: Function as PropType<TdRadioProps['onClick']>,
 };

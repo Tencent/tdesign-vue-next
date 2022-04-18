@@ -3,7 +3,6 @@
 exports[`Radio :props :checked 1`] = `
 <label
   class="t-radio t-is-checked"
-  modelvalue="false"
 >
   <input
     class="t-radio__former"
@@ -24,7 +23,6 @@ exports[`Radio :props :checked 1`] = `
 exports[`Radio :props :defaultChecked 1`] = `
 <label
   class="t-radio t-is-checked"
-  modelvalue="false"
 >
   <input
     class="t-radio__former"
@@ -45,7 +43,6 @@ exports[`Radio :props :defaultChecked 1`] = `
 exports[`Radio :props :disabled 1`] = `
 <label
   class="t-radio t-is-disabled"
-  modelvalue="false"
 >
   <input
     class="t-radio__former"
@@ -67,7 +64,6 @@ exports[`Radio :props :disabled 1`] = `
 exports[`Radio :props :name 1`] = `
 <label
   class="t-radio"
-  modelvalue="false"
 >
   <input
     class="t-radio__former"
@@ -92,7 +88,6 @@ exports[`Radio RadioGroup :props :defaultValue 1`] = `
   
   <label
     class="t-radio"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -113,7 +108,6 @@ exports[`Radio RadioGroup :props :defaultValue 1`] = `
   </label>
   <label
     class="t-radio t-is-checked t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -134,6 +128,7 @@ exports[`Radio RadioGroup :props :defaultValue 1`] = `
     </span>
   </label>
   
+  <!---->
 </div>
 `;
 
@@ -144,7 +139,6 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
   
   <label
     class="t-radio t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -166,7 +160,6 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
   </label>
   <label
     class="t-radio t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -188,7 +181,6 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
   </label>
   <label
     class="t-radio t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -209,6 +201,7 @@ exports[`Radio RadioGroup :props :disabled 1`] = `
     </span>
   </label>
   
+  <!---->
 </div>
 `;
 
@@ -219,7 +212,6 @@ exports[`Radio RadioGroup :props :name 1`] = `
   
   <label
     class="t-radio"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -240,7 +232,6 @@ exports[`Radio RadioGroup :props :name 1`] = `
   </label>
   <label
     class="t-radio t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -261,6 +252,7 @@ exports[`Radio RadioGroup :props :name 1`] = `
     </span>
   </label>
   
+  <!---->
 </div>
 `;
 
@@ -311,6 +303,7 @@ exports[`Radio RadioGroup :props :options 1`] = `
     </span>
   </label>
   
+  <!---->
 </div>
 `;
 
@@ -365,6 +358,7 @@ exports[`Radio RadioGroup :props :size 1`] = `
     </span>
   </label>
   
+  <!---->
 </div>
 `;
 
@@ -375,7 +369,6 @@ exports[`Radio RadioGroup :props :value 1`] = `
   
   <label
     class="t-radio"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -396,7 +389,6 @@ exports[`Radio RadioGroup :props :value 1`] = `
   </label>
   <label
     class="t-radio t-is-checked t-is-disabled"
-    modelvalue="false"
   >
     <input
       class="t-radio__former"
@@ -417,6 +409,7 @@ exports[`Radio RadioGroup :props :value 1`] = `
     </span>
   </label>
   
+  <!---->
 </div>
 `;
 
@@ -470,10 +463,10 @@ exports[`Radio RadioGroup :props :variant 1`] = `
       
     </span>
   </label>
+  
   <div
     class="t-radio-group__bg-block"
     style="width: 0px; left: 0px;"
   />
-  
 </div>
 `;
