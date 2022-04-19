@@ -5,6 +5,32 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 1.12.2 `2022-04-19`
+
+### 🐞 Bug Fixes
+
+- `Transfer` 修复设置 targetSort 后未按预期展示的问题 [@BigLiao](https://github.com/BigLiao) ([#599](https://github.com/Tencent/tdesign-vue-next/pull/599))
+- `Anchor`: 修复 click 事件参数不正确 [@pengYYYYY](https://github.com/pengYYYYY) ([#589](https://github.com/Tencent/tdesign-vue-next/pull/589))
+- 修复 slider 引起的产物报错 [@pengYYYYY](https://github.com/pengYYYYY)
+
+## 🌈 1.12.1 `2022-04-17`
+
+### 🚀 Features
+
+- `Card` 新增卡片组件 [@zhwachen](https://github.com/zhwachen) ([#530](https://github.com/Tencent/tdesign-vue-next/pull/530))
+- `Form` 优化 样式 & 默认渲染 extra 节点 [@HQ-Lin](https://github.com/HQ-Lin) ([#572](https://github.com/Tencent/tdesign-vue-next/pull/572))
+
+### 🐞 Bug Fixes
+
+- `Calendar`修复日历组件 cell 和 cellAppend 插槽在 build 版本不生效的问题 [@PsTiu](https://github.com/PsTiu) ([#564](https://github.com/Tencent/tdesign-vue-next/pull/564))
+- `Checkbox` 修复组件开发时，热更新导致的 provide & inject 失效 [@k1nz](https://github.com/k1nz) ([#561](https://github.com/Tencent/tdesign-vue-next/pull/561))
+- `Collapse` 异步获取 panel 列表优化 [@asbstty](https://github.com/asbstty) ([#571](https://github.com/Tencent/tdesign-vue-next/pull/571))
+- `Timepicker` 修复手动清空 value 的异常 [@uyarn](https://github.com/uyarn) ([#575](https://github.com/Tencent/tdesign-vue-next/pull/575))
+
+### 🚧 Others
+
+- `Transfer` 使用composition api 重构 [@btea](https://github.com/btea) ([#496](https://github.com/Tencent/tdesign-vue-next/pull/496))
+
 ## 0.12.0 `2022-04-08`
 
 ### ❗ Breaking Changes
@@ -16,6 +42,7 @@ docClass: timeline
   - 事件 row-db-click 更为row-dblclick ，onRowDbClick 更为 onRowDblclick
   - 事件 row-hover 更为 row-mouseover, onRowHover 更为 onRowMouseover
   - CSS 类名 t-table__row-first-full-row 更为 t-table__first-full-row，t-table__row-last-full-row 更为 t-table__last-full-row
+  - 移除属性 minWidth
 
 ### 🚀  Features
 
