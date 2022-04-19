@@ -225,6 +225,7 @@ export default defineComponent({
     if (this.destroyOnClose && !this.visible) return;
     const defaultCloseBtn = <close-icon class="t-submenu-icon"></close-icon>;
     const body = renderContent(this, 'body', 'default');
+    const headerContent = renderTNodeJSX(this, 'header');
     const defaultFooter = this.getDefaultFooter();
     return (
       <div
@@ -237,7 +238,7 @@ export default defineComponent({
       >
         {this.showOverlay && <div class={`${COMPONENT_NAME}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wrapperClasses} style={this.wrapperStyles}>
-          {this.header && <div class={`${COMPONENT_NAME}__header`}>{renderTNodeJSX(this, 'header')}</div>}
+          {headerContent && <div class={`${COMPONENT_NAME}__header`}>{renderTNodeJSX(this, 'header')}</div>}
           {this.closeBtn && (
             <div class={`${COMPONENT_NAME}__close-btn`} onClick={this.handleCloseBtnClick}>
               {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
