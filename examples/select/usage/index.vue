@@ -1,27 +1,30 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="usageCode" :config-list="configList">
-    <template #default="{ configProps }">
-      <t-select v-bind="configProps">
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+    <template #select="{ configProps }"
+      ><t-select v-bind="configProps">
         <t-option key="apple" label="Apple" value="apple" />
         <t-option key="orange" value="orange">Orange</t-option>
-        <t-option key="banana" label="Banana" value="banana" />
-      </t-select>
-    </template>
+        <t-option key="banana" label="Banana" value="banana" /> </t-select
+    ></template>
   </base-usage>
 </template>
 
 <script setup lang="jsx">
 /* eslint-disable */
-import { compile } from 'vue/dist/vue.esm-bundler.js';
-import configList from './props.json';
+import { ref, onMounted } from 'vue/dist/vue.esm-bundler.js';
+import configJson from './props.json';
 
-const usageCode = `<template>
-  <t-select v-bind="configProps">
-            <t-option key="apple" label="Apple" value="apple" />
-            <t-option key="orange" value="orange">Orange</t-option>
-            <t-option key="banana" label="Banana" value="banana" />
-          </t-select>
-</template>
-`;
+const configList = ref(configJson);
+const panelList = [{ label: 'select', value: 'select' }];
+
+const usageCodeMap = {
+  select:
+    '\n        <t-select v-bind="configProps">\n          <t-option key="apple" label="Apple" value="apple" />\n          <t-option key="orange" value="orange">Orange</t-option>\n          <t-option key="banana" label="Banana" value="banana" />\n        </t-select>\n      ',
+};
+const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
+
+function onPanelChange(panel) {
+  usageCode.value = `<template>${usageCodeMap[panel].trim()}</template>`;
+}
 </script>
