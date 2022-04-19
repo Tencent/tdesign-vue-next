@@ -22259,7 +22259,11 @@ exports[`ssr snapshot test renders ./examples/drawer/demos/custom.vue correctly 
   <div class="t-drawer t-drawer--right" style="">
     <div class="t-drawer__mask"></div>
     <div class="t-drawer__content-wrapper t-drawer__content-wrapper--right" style="width:300px;height:;">
-      <!---->
+      <div class="t-drawer__header">
+        <!--[-->
+        <div>自定义头部</div>
+        <!--]-->
+      </div>
       <div class="t-drawer__body narrow-scrollbar">
         <!--[-->
         <p>This is the body of drawer</p>
