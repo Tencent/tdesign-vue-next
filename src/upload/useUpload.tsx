@@ -1,5 +1,4 @@
 import { ref } from 'vue';
-import findIndex from 'lodash/findIndex';
 import isFunction from 'lodash/isFunction';
 import without from 'lodash/without';
 import { TdUploadProps, UploadFile, RequestMethodResponse, SizeLimitObj } from './type';
@@ -53,6 +52,7 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
     uploadCtx.errorMsg = res?.error;
     const context = { e: event, file: uploadCtx.uploadInOneRequest ? null : innerFiles[0], currentFiles: innerFiles };
     props.onFail?.(context);
+    uploadCtx.loadingFile = null;
   };
 
   const handleSuccess = ({ event, file, files: currentFiles, response }: SuccessContext) => {
@@ -79,7 +79,6 @@ export const useUploadProgress = (props: TdUploadProps, uploadCtx: UploadCtxType
         response: res,
         resFormatted: true,
       });
-      uploadCtx.loadingFile = null;
       return;
     }
     if (!uploadCtx.uploadInOneRequest) {
@@ -142,7 +141,7 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
     const sizeLimit: SizeLimitObj =
       typeof props.sizeLimit === 'number' ? { size: props.sizeLimit, unit: 'KB' } : props.sizeLimit;
 
-    const rSize = isOverSizeLimit(fileSize, sizeLimit.size, sizeLimit.unit);
+    const rSize = isOverSizeLimit(fileSize / 1024, sizeLimit.size, sizeLimit.unit);
     if (!rSize) {
       // 有参数 message 则使用，没有就使用全局 locale 配置
       uploadCtx.errorMsg = sizeLimit.message
@@ -212,7 +211,6 @@ export const useUpload = (props: TdUploadProps, uploadCtx: UploadCtxType) => {
 
   const upload = async (currentFiles: UploadFile | UploadFile[]): Promise<void> => {
     const innerFiles = Array.isArray(currentFiles) ? currentFiles : [currentFiles];
-
     if (!props.action && !props.requestMethod) {
       log.error('Upload', 'one of action and requestMethod must be exist.');
       return;
