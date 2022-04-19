@@ -42,6 +42,7 @@ docClass: timeline
   - 事件 row-db-click 更为row-dblclick ，onRowDbClick 更为 onRowDblclick
   - 事件 row-hover 更为 row-mouseover, onRowHover 更为 onRowMouseover
   - CSS 类名 t-table__row-first-full-row 更为 t-table__first-full-row，t-table__row-last-full-row 更为 t-table__last-full-row
+  - 移除属性 minWidth
 
 ### 🚀  Features
 
