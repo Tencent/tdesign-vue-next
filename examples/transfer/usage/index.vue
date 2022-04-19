@@ -1,8 +1,8 @@
 <!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="usageCode" :config-list="configList">
-    <template #default="{ configProps }">
-      <t-transfer
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+    <template #transfer="{ configProps }"
+      ><t-transfer
         :data="[
           {
             value: 1,
@@ -21,37 +21,25 @@
           },
         ]"
         v-bind="configProps"
-      />
-    </template>
+    /></template>
   </base-usage>
 </template>
 
 <script setup lang="jsx">
 /* eslint-disable */
-import { compile } from 'vue/dist/vue.esm-bundler.js';
-import configList from './props.json';
+import { ref, onMounted } from 'vue/dist/vue.esm-bundler.js';
+import configJson from './props.json';
 
-const usageCode = `<template>
-  <t-transfer
-  :data="[
-    {
-      value: 1,
-      label: '内容1',
-      disabled: false,
-    },
-    {
-      value: 2,
-      label: '内容2',
-      disabled: true,
-    },
-    {
-      value: 3,
-      label: '内容3',
-      disabled: false,
-    },
-  ]"
-  v-bind="configProps"
-/>
-</template>
-`;
+const configList = ref(configJson);
+const panelList = [{ label: 'transfer', value: 'transfer' }];
+
+const usageCodeMap = {
+  transfer:
+    "\n        <t-transfer :data=\"[{\n          value: 1,\n          label: '内容1',\n          disabled: false\n        },{\n          value: 2,\n          label: '内容2',\n          disabled: true\n        },{\n          value: 3,\n          label: '内容3',\n          disabled: false\n        },]\" v-bind=\"configProps\" />\n      ",
+};
+const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
+
+function onPanelChange(panel) {
+  usageCode.value = `<template>${usageCodeMap[panel].trim()}</template>`;
+}
 </script>
