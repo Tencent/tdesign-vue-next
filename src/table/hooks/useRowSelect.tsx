@@ -83,9 +83,9 @@ export default function useRowSelect(props: TdPrimaryTableProps) {
       checked,
       disabled,
       ...checkProps,
-      onClick: (e: MouseEvent) => {
+      onClick: (ctx: { e: MouseEvent }) => {
         // 选中行功能中，点击 checkbo/radio 需阻止事件冒泡，避免触发不必要的 onRowClick
-        e?.stopPropagation();
+        ctx.e?.stopPropagation();
       },
       onChange: () => handleSelectChange(row),
     };
