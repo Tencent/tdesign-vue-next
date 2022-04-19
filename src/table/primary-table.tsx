@@ -27,6 +27,19 @@ const OMIT_PROPS = [
   'expandOnRowClick',
   'multipleSort',
   'expandIcon',
+  'onChange',
+  'onAsyncLoadingClick',
+  'onCellClick',
+  'onChange',
+  'onColumnChange',
+  'onColumnControllerVisibleChange',
+  'onDataChange',
+  'onDisplayColumnsChange',
+  'onDragSort',
+  'onExpandChange',
+  'onFilterChange',
+  'onSelectChange',
+  'onSortChange',
 ];
 
 export default defineComponent({
