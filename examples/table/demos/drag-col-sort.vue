@@ -14,28 +14,22 @@
   </div>
 </template>
 
-<script lang="jsx" setup>
+<script setup>
 import { ref } from 'vue';
-import { MoveIcon } from 'tdesign-icons-vue-next';
 
-const columns = [
-  {
-    colKey: 'drag', // 列拖拽排序必要参数
-    title: '排序',
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    cell: (h) => <MoveIcon />,
-    width: 80,
-  },
-  { colKey: 'instance', title: '集群名称' },
+const initialColumns = [
+  { colKey: 'instance', title: '集群名称', width: 150 },
   {
     colKey: 'status',
     title: '状态',
+    width: 100,
   },
   {
     colKey: 'survivalTime',
     title: '存活时间(s)',
+    width: 200,
   },
-  { colKey: 'owner', title: '管理员' },
+  { colKey: 'owner', title: '管理员', width: 100 },
 ];
 
 const initialData = new Array(4).fill(5).map((_, i) => ({
@@ -46,10 +40,14 @@ const initialData = new Array(4).fill(5).map((_, i) => ({
   survivalTime: [1000, 1000, 500, 1500][i % 4],
 }));
 
-const data = ref([...initialData]);
+const data = ref(initialData);
 
-const onDragSort = ({ currentIndex, current, targetIndex, target, currentData, e }) => {
-  console.log('交换行', currentIndex, current, targetIndex, target, currentData, e);
-  data.value = currentData;
+const columns = ref(initialColumns);
+
+const onDragSort = ({ currentIndex, targetIndex, current, target, currentData, e, sort }) => {
+  console.log('交换行', currentIndex, targetIndex, current, target, currentData, e, sort);
+  if (sort === 'col') {
+    columns.value = currentData;
+  }
 };
 </script>

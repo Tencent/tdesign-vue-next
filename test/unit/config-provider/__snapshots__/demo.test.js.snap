@@ -9567,12 +9567,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <!-- 全局配置：空数据呈现，演示 -->
   <div
     class="t-table t-table--bordered"
-    defaultexpandedrowkeys=""
-    dragsort="col"
-    expandicon="true"
-    expandonrowclick="false"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->
@@ -9917,15 +9911,9 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
   <!-- 全局配置：自定义展开图标和排序图标，演示 -->
   <div
     class="t-table"
-    defaultexpandedrowkeys=""
-    dragsort="col"
     expandedrow="h => {
       return (0, _vue.createVNode)(\\"div\\", null, [(0, _vue.createTextVNode)(\\"This is expanded row info\\")]);
     }"
-    expandicon="true"
-    expandonrowclick="true"
-    multiplesort="false"
-    sortonrowdraggable="false"
     style="position: relative;"
   >
     <!---->

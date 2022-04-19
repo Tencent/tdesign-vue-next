@@ -14,6 +14,7 @@ import customFooterVue from '@/examples/table/demos/custom-footer.vue';
 import customHeaderVue from '@/examples/table/demos/custom-header.vue';
 import dataSortVue from '@/examples/table/demos/data-sort.vue';
 import dragColSortVue from '@/examples/table/demos/drag-col-sort.vue';
+import dragSortHandlerVue from '@/examples/table/demos/drag-sort-handler.vue';
 import dragSortVue from '@/examples/table/demos/drag-sort.vue';
 import emptyVue from '@/examples/table/demos/empty.vue';
 import expandableVue from '@/examples/table/demos/expandable.vue';
@@ -47,6 +48,7 @@ const mapper = {
   customHeaderVue,
   dataSortVue,
   dragColSortVue,
+  dragSortHandlerVue,
   dragSortVue,
   emptyVue,
   expandableVue,

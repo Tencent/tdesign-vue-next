@@ -17046,7 +17046,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
 <div style="padding:16px;">
   <!--[-->
   <!-- 全局配置：空数据呈现，演示 -->
-  <div class="t-table t-table--bordered" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -17172,7 +17172,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
     <!---->
     <!---->
   </div><br><br><!-- 全局配置：自定义展开图标和排序图标，演示 -->
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="true" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -38762,7 +38762,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/async-loading.vue corr
     <!--]-->
     <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
   </div>
-  <div class="t-table" style="position:relative;" asyncloading="loading" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;" asyncloading="loading">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -38871,7 +38871,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
       <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div><br><br><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示斑马纹 <!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示表格边框 <!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 显示悬浮效果 <!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 宽度自适应 <!--]--></span></label>
   </div>
-  <div class="t-table t-table--bordered t-table--striped" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered t-table--striped" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -39080,7 +39080,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
 
 exports[`ssr snapshot test renders ./examples/table/demos/custom-cell.vue correctly 1`] = `
 <div style="width:100%;">
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -39175,7 +39175,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col.vue correct
   <!-- 2. displayColumns 动态设置显示哪些列，受控属性，支持 displayColumns.sync 语法糖 -->
   <!-- 3. onDisplayColumnsChange 当前显示列发生变化时触发 -->
   <!-- 受控用法，示例代码有效，勿删  -->
-  <div class="t-table t-table--striped" style="position:relative;" columncontrollervisible="false" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--striped" style="position:relative;" columncontrollervisible="false">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -39406,7 +39406,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col-button.vue 
   <!-- 3. onDisplayColumnsChange 当前显示列发生变化时触发 -->
   <!-- 4. 如果希望顶部内容 和 列配置按钮 保持在同一行，可将内容放在 topContent，并调整按钮父元素宽度(CSS) -->
   <!-- 受控用法，示例代码有效，勿删  -->
-  <div class="t-table t-table--bordered t-table--striped" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered t-table--striped" style="position:relative;">
     <div class="t-table__top-content">
       <div class="t-table__column-controller-trigger t-align-top-right"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button">
           <!--[-->
@@ -39636,7 +39636,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col-button.vue 
 exports[`ssr snapshot test renders ./examples/table/demos/custom-footer.vue correctly 1`] = `
 <div class="tdesign-demo-block-column-large">
   <!-- rowClassName="tdesign-demo__row-custom-name" -->
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -39766,7 +39766,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-footer.vue corr
 
 exports[`ssr snapshot test renders ./examples/table/demos/custom-header.vue correctly 1`] = `
 <div>
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -39838,7 +39838,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
   <div class="item">
     <div style="margin:16px;"><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[--> 是否允许多字段排序 <!--]--></span></label></div><!-- 本地数据排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
     <div style="margin:16px;"><span> 排序方式：{}</span></div>
-    <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+    <div class="t-table" style="position:relative;">
       <!---->
       <!---->
       <div class="t-table__content" style="">
@@ -39997,7 +39997,217 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-col-sort.vue corr
 <div class="demo-container t-table-demo-sort">
   <div class="item">
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
-    <div class="t-table t-table--col-draggable" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+    <div class="t-table t-table--col-draggable" style="position:relative;" dragsort="col">
+      <!---->
+      <!---->
+      <div class="t-table__content" style="">
+        <!---->
+        <table class="t-table--layout-fixed" style="width:;">
+          <colgroup>
+            <!--[-->
+            <col style="width:150px;">
+            <col style="width:100px;">
+            <col style="width:200px;">
+            <col style="width:100px;">
+            <!--]-->
+          </colgroup>
+          <thead class="t-table__header">
+            <!--[-->
+            <tr>
+              <!--[-->
+              <th data-colkey="instance" class="t-table__th-instance" style="">
+                <div class="t-table__th-cell-inner">集群名称</div>
+              </th>
+              <th data-colkey="status" class="t-table__th-status" style="">
+                <div class="t-table__th-cell-inner">状态</div>
+              </th>
+              <th data-colkey="survivalTime" class="t-table__th-survivalTime" style="">
+                <div class="t-table__th-cell-inner">存活时间(s)</div>
+              </th>
+              <th data-colkey="owner" class="t-table__th-owner" style="">
+                <div class="t-table__th-cell-inner">管理员</div>
+              </th>
+              <!--]-->
+            </tr>
+            <!--]-->
+          </thead>
+          <tbody class="t-table__body" style="">
+            <!--[-->
+            <!---->
+            <!--[-->
+            <tr style="" class="">
+              <!--[-->
+              <td class="" style="">JQTest1</td>
+              <td class="" style="">
+                <!--[-->
+                <p class="status">健康</p>
+                <!--]-->
+              </td>
+              <td class="" style="">1000</td>
+              <td class="" style="">jenny;peter</td>
+              <!--]-->
+            </tr>
+            <tr style="" class="">
+              <!--[-->
+              <td class="" style="">JQTest2</td>
+              <td class="" style="">
+                <!--[-->
+                <p class="status warning">警告</p>
+                <!--]-->
+              </td>
+              <td class="" style="">1000</td>
+              <td class="" style="">jenny</td>
+              <!--]-->
+            </tr>
+            <tr style="" class="">
+              <!--[-->
+              <td class="" style="">JQTest3</td>
+              <td class="" style="">
+                <!--[-->
+                <p class="status unhealth">异常</p>
+                <!--]-->
+              </td>
+              <td class="" style="">500</td>
+              <td class="" style="">jenny</td>
+              <!--]-->
+            </tr>
+            <tr style="" class="">
+              <!--[-->
+              <td class="" style="">JQTest4</td>
+              <td class="" style="">
+                <!--[-->
+                <p class="status warning">警告</p>
+                <!--]-->
+              </td>
+              <td class="" style="">1500</td>
+              <td class="" style="">peter</td>
+              <!--]-->
+            </tr>
+            <!--]-->
+            <!---->
+            <!--]-->
+          </tbody>
+          <!---->
+        </table>
+      </div>
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctly 1`] = `
+<div class="demo-container t-table-demo-sort">
+  <div class="item">
+    <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
+    <div class="t-table t-table--row-draggable" style="position:relative;" dragsort="row">
+      <!---->
+      <!---->
+      <div class="t-table__content" style="">
+        <!---->
+        <table class="t-table--layout-fixed" style="width:;">
+          <colgroup>
+            <!--[-->
+            <col style="width:150px;">
+            <col style="width:100px;">
+            <col style="width:200px;">
+            <col style="width:100px;">
+            <!--]-->
+          </colgroup>
+          <thead class="t-table__header">
+            <!--[-->
+            <tr>
+              <!--[-->
+              <th data-colkey="instance" class="t-table__th-instance" style="">
+                <div class="t-table__th-cell-inner">集群名称</div>
+              </th>
+              <th data-colkey="status" class="t-table__th-status" style="">
+                <div class="t-table__th-cell-inner">状态</div>
+              </th>
+              <th data-colkey="survivalTime" class="t-table__th-survivalTime" style="">
+                <div class="t-table__th-cell-inner">存活时间(s)</div>
+              </th>
+              <th data-colkey="owner" class="t-table__th-owner" style="">
+                <div class="t-table__th-cell-inner">管理员</div>
+              </th>
+              <!--]-->
+            </tr>
+            <!--]-->
+          </thead>
+          <tbody class="t-table__body" style="">
+            <!--[-->
+            <!---->
+            <!--[-->
+            <tr data-id="1" style="" class="">
+              <!--[-->
+              <td class="" style="">JQTest1</td>
+              <td class="" style="">
+                <!--[-->
+                <p class="status">健康</p>
+                <!--]-->
+              </td>
+              <td class="" style="">1000</td>
+              <td class="" style="">jenny;peter</td>
+              <!--]-->
+            </tr>
+            <tr data-id="2" style="" class="">
+              <!--[-->
+              <td class="" style="">JQTest2</td>
+              <td class="" style="">
+                <!--[-->
+                <p class="status warning">警告</p>
+                <!--]-->
+              </td>
+              <td class="" style="">1000</td>
+              <td class="" style="">jenny</td>
+              <!--]-->
+            </tr>
+            <tr data-id="3" style="" class="">
+              <!--[-->
+              <td class="" style="">JQTest3</td>
+              <td class="" style="">
+                <!--[-->
+                <p class="status unhealth">异常</p>
+                <!--]-->
+              </td>
+              <td class="" style="">500</td>
+              <td class="" style="">jenny</td>
+              <!--]-->
+            </tr>
+            <tr data-id="4" style="" class="">
+              <!--[-->
+              <td class="" style="">JQTest4</td>
+              <td class="" style="">
+                <!--[-->
+                <p class="status warning">警告</p>
+                <!--]-->
+              </td>
+              <td class="" style="">1500</td>
+              <td class="" style="">peter</td>
+              <!--]-->
+            </tr>
+            <!--]-->
+            <!---->
+            <!--]-->
+          </tbody>
+          <!---->
+        </table>
+      </div>
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/table/demos/drag-sort-handler.vue correctly 1`] = `
+<div class="demo-container t-table-demo-sort">
+  <div class="item">
+    <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
+    <div class="t-table t-table--row-handler-draggable" style="position:relative;" dragsort="row-handler">
       <!---->
       <!---->
       <div class="t-table__content" style="">
@@ -40114,114 +40324,9 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-col-sort.vue corr
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/table/demos/drag-sort.vue correctly 1`] = `
-<div class="demo-container t-table-demo-sort">
-  <div class="item">
-    <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
-    <div class="t-table t-table--row-draggable" style="position:relative;" dragsort="row" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
-      <!---->
-      <!---->
-      <div class="t-table__content" style="">
-        <!---->
-        <table class="t-table--layout-fixed" style="width:;">
-          <colgroup>
-            <!--[-->
-            <col style="width:150px;">
-            <col style="width:100px;">
-            <col style="width:200px;">
-            <col style="width:100px;">
-            <!--]-->
-          </colgroup>
-          <thead class="t-table__header">
-            <!--[-->
-            <tr>
-              <!--[-->
-              <th data-colkey="instance" class="t-table__th-instance" style="">
-                <div class="t-table__th-cell-inner">集群名称</div>
-              </th>
-              <th data-colkey="status" class="t-table__th-status" style="">
-                <div class="t-table__th-cell-inner">状态</div>
-              </th>
-              <th data-colkey="survivalTime" class="t-table__th-survivalTime" style="">
-                <div class="t-table__th-cell-inner">存活时间(s)</div>
-              </th>
-              <th data-colkey="owner" class="t-table__th-owner" style="">
-                <div class="t-table__th-cell-inner">管理员</div>
-              </th>
-              <!--]-->
-            </tr>
-            <!--]-->
-          </thead>
-          <tbody class="t-table__body" style="">
-            <!--[-->
-            <!---->
-            <!--[-->
-            <tr data-id="1" style="" class="">
-              <!--[-->
-              <td class="" style="">JQTest1</td>
-              <td class="" style="">
-                <!--[-->
-                <p class="status">健康</p>
-                <!--]-->
-              </td>
-              <td class="" style="">1000</td>
-              <td class="" style="">jenny;peter</td>
-              <!--]-->
-            </tr>
-            <tr data-id="2" style="" class="">
-              <!--[-->
-              <td class="" style="">JQTest2</td>
-              <td class="" style="">
-                <!--[-->
-                <p class="status warning">警告</p>
-                <!--]-->
-              </td>
-              <td class="" style="">1000</td>
-              <td class="" style="">jenny</td>
-              <!--]-->
-            </tr>
-            <tr data-id="3" style="" class="">
-              <!--[-->
-              <td class="" style="">JQTest3</td>
-              <td class="" style="">
-                <!--[-->
-                <p class="status unhealth">异常</p>
-                <!--]-->
-              </td>
-              <td class="" style="">500</td>
-              <td class="" style="">jenny</td>
-              <!--]-->
-            </tr>
-            <tr data-id="4" style="" class="">
-              <!--[-->
-              <td class="" style="">JQTest4</td>
-              <td class="" style="">
-                <!--[-->
-                <p class="status warning">警告</p>
-                <!--]-->
-              </td>
-              <td class="" style="">1500</td>
-              <td class="" style="">peter</td>
-              <!--]-->
-            </tr>
-            <!--]-->
-            <!---->
-            <!--]-->
-          </tbody>
-          <!---->
-        </table>
-      </div>
-      <!---->
-      <!---->
-      <!---->
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`] = `
 <div>
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -40277,7 +40382,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
     <!---->
     <!---->
   </div><br><br>
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -40336,7 +40441,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/empty.vue correctly 1`
     <!---->
     <!---->
   </div><br><br>
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -40407,7 +40512,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/expandable.vue correct
     </div>
   </div>
   <div><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->允许点击行之后展开/收起<!--]--></span></label><label class="t-checkbox" style="margin-left:32px;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->固定列<!--]--></span></label><label class="t-checkbox" style="margin-left:32px;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->空数据<!--]--></span></label></div><!-- :defaultExpandedRowKeys="defaultExpandedRowKeys" -->
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="true" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -40647,7 +40752,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
     </t-table> -->
   <!-- filter-value.sync 等同于 filter-value + filter-change -->
   <!-- :filter-row="() => null" 用于隐藏过滤结果行 -->
-  <div class="t-table t-table--bordered" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -40994,7 +41099,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
       <div style="width:0px;left:0px;" class="t-radio-group__bg-block"></div>
     </div><label class="t-checkbox" style="margin-left:16px;vertical-align:middle;"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->空数据<!--]--></span></label>
   </div><!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。这种模式下的固定列，必须指定 tableContentWidth -->
-  <div class="t-table t-table--bordered t-table--column-fixed" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered t-table--column-fixed" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -41179,7 +41284,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header.vue corre
   <div><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否冻结首尾两行<!--]--></span></label></div><br><br><!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。如果列字段过多超出表格宽度，还需同时设置 table-content-width -->
   <!-- fixedRows: [2, 2] 表示冻结表头两行和表尾两行 -->
   <!-- footData 可以是多行，均支持固定在底部 -->
-  <div class="t-table t-table--bordered" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="max-height:300px;">
@@ -41571,7 +41676,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
   <div><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->是否冻结首尾两行<!--]--></span></label></div><!-- 如果希望表格列宽自适应，设置 \`table-layout: auto\` 即可。需同时设置 table-content-width -->
   <!-- fixedRows: [2, 2] 表示冻结表格的头两行和尾两行 -->
   <!-- footData 可以是多行，均支持固定在底部 -->
-  <div class="t-table t-table--bordered t-table--column-fixed" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered t-table--column-fixed" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="max-height:300px;">
@@ -41960,7 +42065,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-header-col.vue c
 exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`] = `
 <div class="demo-container">
   <div class="item"><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button" style="margin-top:10px;"><span class="t-button__text"><!--[--> 列表恢复初始状态 <!--]--></span></button><br><br>
-    <div class="t-table t-table--bordered" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+    <div class="t-table t-table--bordered" style="position:relative;">
       <!---->
       <!---->
       <div class="t-table__content" style="height:300px;">
@@ -47018,7 +47123,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/lazy.vue correctly 1`]
 
 exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 1`] = `
 <div>
-  <div class="t-table t-size-s" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-size-s" style="position:relative;">
     <!---->
     <!---->
     <div class="t-loading__parent">
@@ -47116,7 +47221,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
     <!---->
     <!---->
   </div>
-  <div class="t-table t-size-s" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-size-s" style="position:relative;">
     <!---->
     <!---->
     <div class="t-loading__parent">
@@ -47218,7 +47323,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
     <!---->
     <!---->
   </div>
-  <div class="t-table t-size-s" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-size-s" style="position:relative;">
     <!---->
     <!---->
     <div class="t-loading__parent">
@@ -47323,7 +47428,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/table/demos/merge-cells.vue correctly 1`] = `
 <div>
-  <div class="t-table t-size-s t-table--bordered t-table--rowspan-colspan" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-size-s t-table--bordered t-table--rowspan-colspan" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -47438,9 +47543,12 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
 <!-- 注意控制父元素宽度 -->
 <div style="width:100%;" class="tdesign-demo-block-column-large tdesign-demo-table-multi-header">
   <!-- 按钮操作区域 -->
-  <div><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->显示表格边框<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->显示固定表头<!--]--></span></label><!-- 为保证组件收益最大化，当数据量小于 \`100\` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 --><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->虚拟滚动<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->固定左侧列<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->固定右侧列<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->表头吸顶<!--]--></span></label></div><!-- tableContentWidth 必须大于表格的外层宽度，否则请设置 width: 100% -->
+  <div><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->显示表格边框<!--]--></span></label><label class="t-checkbox t-is-checked"><input type="checkbox" class="t-checkbox__former" indeterminate="false" checked><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->显示固定表头<!--]--></span></label><!-- 为保证组件收益最大化，当数据量小于 \`100\` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 -->
+    <!-- <t-checkbox v-model="virtualScroll">虚拟滚动</t-checkbox> --><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->固定左侧列<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->固定右侧列<!--]--></span></label><label class="t-checkbox"><input type="checkbox" class="t-checkbox__former" indeterminate="false"><span class="t-checkbox__input"></span><span class="t-checkbox__label"><!--[-->表头吸顶<!--]--></span></label>
+  </div><!-- tableContentWidth 必须大于表格的外层宽度，否则请设置 width: 100% -->
   <!-- 多级表头中，如果要使用固定列功能，则必须设置 colKey 和 fixed -->
-  <div class="t-table t-table--bordered t-table--multiple-header" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <!-- :scroll="{ type: 'virtual' }" -->
+  <div class="t-table t-table--bordered t-table--multiple-header" style="position:relative;">
     <div class="t-table__top-content">
       <div class="t-table__column-controller-trigger t-align-top-right"><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button">
           <!--[-->
@@ -47454,7 +47562,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
     </div>
     <!---->
     <div class="t-table__content" style="max-height:380px;">
-      <div class="t-table__virtual-scroll-cursor" style="transform:translate(0, 28800px);-ms-transform:translate(0, 28800px);-moz-transform:translate(0, 28800px);-webkit-transform:translate(0, 28800px);"></div>
+      <!---->
       <table class="t-table--layout-fixed" style="width:;">
         <colgroup>
           <!--[-->
@@ -47616,12 +47724,473 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
           </tr>
           <!--]-->
         </thead>
-        <tbody class="t-table__body" style="transform:translate(0, 0px);-ms-transform:translate(0, 0px);-moz-transform:translate(0, 0px);-webkit-transform:translate(0, 0px);">
-          <tr class="t-table__empty-row">
-            <td colspan="14">
-              <div class="t-table__empty" style="">暂无数据</div>
+        <tbody class="t-table__body" style="">
+          <!--[-->
+          <!---->
+          <!--[-->
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">0</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">String</td>
+            <td class="" style="">0</td>
+            <td class="" style="">是</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">A</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
             </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
           </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">1</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Number</td>
+            <td class="" style="">1</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">B</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">2</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">Array</td>
+            <td class="" style="">2</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">C</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">3</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Object</td>
+            <td class="" style="">3</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">A</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">4</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">String</td>
+            <td class="" style="">4</td>
+            <td class="" style="">是</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">B</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">5</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Number</td>
+            <td class="" style="">5</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">C</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">6</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">Array</td>
+            <td class="" style="">6</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">A</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">7</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Object</td>
+            <td class="" style="">7</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">B</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">8</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">String</td>
+            <td class="" style="">8</td>
+            <td class="" style="">是</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">C</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">9</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Number</td>
+            <td class="" style="">9</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">A</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">10</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">Array</td>
+            <td class="" style="">10</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">B</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">11</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Object</td>
+            <td class="" style="">11</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">C</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">12</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">String</td>
+            <td class="" style="">12</td>
+            <td class="" style="">是</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">A</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">13</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Number</td>
+            <td class="" style="">13</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">B</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">14</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">Array</td>
+            <td class="" style="">14</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">C</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">15</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Object</td>
+            <td class="" style="">15</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">A</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">16</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">String</td>
+            <td class="" style="">16</td>
+            <td class="" style="">是</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">B</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">17</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Number</td>
+            <td class="" style="">17</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">C</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">18</td>
+            <td class="" style="">共有</td>
+            <td class="" style="">Array</td>
+            <td class="" style="">18</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">A</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <tr style="" class="">
+            <!--[-->
+            <td class="" style="">19</td>
+            <td class="" style="">私有</td>
+            <td class="" style="">Object</td>
+            <td class="" style="">19</td>
+            <td class="" style="">否</td>
+            <td class="" style="">字段1</td>
+            <td class="" style="">字段2</td>
+            <td class="" style="">字段3</td>
+            <td class="" style="">字段4</td>
+            <td class="" style="">B</td>
+            <td class="" style="">字段6</td>
+            <td class="" style="">字段7</td>
+            <td class="t-table-td--ellipsis" style="">
+              <div class="t-table__ellipsis t-text-ellipsis">
+                <!--[-->这是一段很长很长很长的文本
+                <!--]-->
+              </div>
+            </td>
+            <td class="" style="">字段5</td>
+            <!--]-->
+          </tr>
+          <!--]-->
+          <!---->
+          <!--]-->
         </tbody>
         <!---->
       </table>
@@ -47638,7 +48207,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
 <div class="demo-container">
   <div class="item">
     <div style="margin:16px;">排序方式：[{&quot;sortBy&quot;:&quot;status&quot;,&quot;descending&quot;:true},{&quot;sortBy&quot;:&quot;survivalTime&quot;,&quot;descending&quot;:false}]</div><!-- 支持受控用法 ，也支持非受控用法 -->
-    <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="true" sortonrowdraggable="false">
+    <div class="t-table" style="position:relative;">
       <!---->
       <!---->
       <div class="t-table__content" style="">
@@ -47811,7 +48380,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
 
 exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correctly 1`] = `
 <div>
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -48041,7 +48610,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
 `;
 
 exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue correctly 1`] = `
-<div class="t-table t-table--bordered t-table--striped" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+<div class="t-table t-table--bordered t-table--striped" style="position:relative;">
   <!---->
   <!---->
   <div class="t-table__content" style="">
@@ -48175,7 +48744,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-multiple.vue co
 <div>
   <!-- 支持非受控属性 default-selected-row-keys -->
   <!-- 支持语法糖 selected-row-keys.sync -->
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -48333,7 +48902,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
 <div>
   <!-- 支持非受控属性 default-selected-row-keys -->
   <!-- 支持语法糖 selected-row-keys.sync -->
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -48489,7 +49058,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/select-single.vue corr
 
 exports[`ssr snapshot test renders ./examples/table/demos/show-columns.vue correctly 1`] = `
 <div>
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false" show-columns>
+  <div class="t-table" style="position:relative;" show-columns>
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -48631,7 +49200,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
     &quot;sortBy&quot;: &quot;status&quot;,
     &quot;descending&quot;: true
     }</p><br><br>
-  <div class="t-table t-table--bordered" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table t-table--bordered" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -48806,7 +49375,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
   <div><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->重置数据<!--]--></span></button><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button" style="margin-left:16px;"><span class="t-button__text"><!--[-->展开/收起可见行<!--]--></span></button></div><br><!-- 第一列展开树结点，缩进为 24px，子节点字段 childrenKey 默认为 children -->
   <!-- !!! 树形结构 EnhancedTable 才支持，普通 Table 不支持 !!! -->
   <!-- treeNodeColumnIndex 定义第几列作为树结点展开列，默认为第一列 -->
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -49199,7 +49768,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
   </div><br><!-- 子节点字段不是 children，而是 childrenList -->
   <!-- expandedRow 和 expanded-row-keys 控制是否显示展开收起行，以及哪些行展开 -->
   <!-- !!! EnhancedTable 才支持，普通 Table 不支持 !!! -->
-  <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+  <div class="t-table" style="position:relative;">
     <!---->
     <!---->
     <div class="t-table__content" style="">
@@ -49349,7 +49918,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree-select.vue correc
 exports[`ssr snapshot test renders ./examples/table/demos/virtual-scroll.vue correctly 1`] = `
 <div class="demo-container">
   <div class="item">
-    <div class="t-table" style="position:relative;" dragsort="col" expandicon="true" expandonrowclick="false" multiplesort="false" sortonrowdraggable="false">
+    <div class="t-table" style="position:relative;">
       <!---->
       <!---->
       <div class="t-table__content" style="height:200px;">

@@ -6,7 +6,7 @@
       <t-checkbox v-model="bordered">显示表格边框</t-checkbox>
       <t-checkbox v-model="fixedHeader">显示固定表头</t-checkbox>
       <!-- 为保证组件收益最大化，当数据量小于 `100` 时，无论虚拟滚动的配置是否存在，组件内部都不会开启虚拟滚动 -->
-      <t-checkbox v-model="virtualScroll">虚拟滚动</t-checkbox>
+      <!-- <t-checkbox v-model="virtualScroll">虚拟滚动</t-checkbox> -->
       <t-checkbox v-model="fixedLeftCol">固定左侧列</t-checkbox>
       <t-checkbox v-model="fixedRightCol">固定右侧列</t-checkbox>
       <t-checkbox v-model="headerAffixedTop">表头吸顶</t-checkbox>
@@ -14,6 +14,7 @@
 
     <!-- tableContentWidth 必须大于表格的外层宽度，否则请设置 width: 100% -->
     <!-- 多级表头中，如果要使用固定列功能，则必须设置 colKey 和 fixed -->
+    <!-- :scroll="{ type: 'virtual' }" -->
     <t-table
       row-key="index"
       :data="data"
@@ -25,7 +26,6 @@
       :filter-row="() => null"
       :header-affix-props="{ offsetTop: 0 }"
       :header-affixed-top="headerAffixedTop"
-      :scroll="virtualScroll ? { type: 'virtual', threshold: 100, rowHeight: 48, bufferSize: 10 } : undefined"
       @data-change="onDataChange"
       @filter-change="onFilterChange"
     ></t-table>
@@ -35,7 +35,7 @@
 import { computed, ref } from 'vue';
 
 const initialData = [];
-for (let i = 0; i < 600; i++) {
+for (let i = 0; i < 20; i++) {
   initialData.push({
     index: i,
     platform: i % 2 === 0 ? '共有' : '私有',
