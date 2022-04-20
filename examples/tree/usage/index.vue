@@ -21,7 +21,7 @@
 
 <script setup lang="jsx">
 /* eslint-disable */
-import { ref, onMounted } from 'vue/dist/vue.esm-bundler.js';
+import { ref, onMounted } from 'vue';
 import configJson from './props.json';
 
 const configList = ref(configJson);

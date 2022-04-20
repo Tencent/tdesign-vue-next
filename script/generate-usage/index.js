@@ -15,7 +15,7 @@ const renderUsageStr = (compStrMap) => `<!-- 该脚本为自动生成，如有�
 
 <script setup lang="jsx">
 /* eslint-disable */
-import { ref, onMounted } from 'vue/dist/vue.esm-bundler.js';
+import { ref, onMounted } from 'vue';
 ${compStrMap.importStr ? compStrMap.importStr.trim() : `import configJson from './props.json';`}
 ${compStrMap.script ? compStrMap.script.trim() : ''}
 
@@ -25,8 +25,14 @@ ${compStrMap.panelStr ? compStrMap.panelStr.trim() : ''}
 const usageCodeMap = ${JSON.stringify(compStrMap.render)};
 const usageCode = ref(\`<template>\${usageCodeMap[panelList[0].value].trim()}</template>\`);
 
-function onPanelChange(panel) {
-  usageCode.value = \`<template>\${usageCodeMap[panel].trim()}</template>\`;
+${
+  compStrMap.panelChangeStr
+    ? compStrMap.panelChangeStr.trim()
+    : `
+  function onPanelChange(panel) {
+    usageCode.value = \`<template>\${usageCodeMap[panel].trim()}</template>\`;
+  }
+`
 }
 </script>
 `;
