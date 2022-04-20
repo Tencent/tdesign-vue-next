@@ -58,7 +58,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                     <li
                       class="t-select__empty t-size-s"
                     >
-                      Empty Data
+                      暂无数据
                     </li>
                     <ul
                       class="t-select__groups t-select__list"
@@ -373,7 +373,7 @@ exports[`ConfigProvider ConfigProvider calendarVue demo works fine 1`] = `
                     <li
                       class="t-select__empty t-size-s"
                     >
-                      Empty Data
+                      暂无数据
                     </li>
                     <ul
                       class="t-select__groups t-select__list"
@@ -6076,14 +6076,14 @@ exports[`ConfigProvider ConfigProvider globalVue demo works fine 1`] = `
   <div>
     英文语言包引入路径：
     <code>
-      import enConfig from 'tdesign-vue-next/locale/en_US';
+      import enConfig from 'tdesign-vue-next/es/locale/en_US';
     </code>
   </div>
   <br />
   <div>
     中文语言包引入路径：
     <code>
-      import enConfig from 'tdesign-vue-next/locale/zh_CN';
+      import enConfig from 'tdesign-vue-next/es/locale/zh_CN';
     </code>
   </div>
   
@@ -9629,7 +9629,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                click to sort ascending
+                                点击升序
                                 <!---->
                               </div>
                             </div>
@@ -9670,7 +9670,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                click to sort descending
+                                点击降序
                                 <!---->
                               </div>
                             </div>
@@ -9752,7 +9752,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                click to sort ascending
+                                点击升序
                                 <!---->
                               </div>
                             </div>
@@ -9793,7 +9793,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                click to sort descending
+                                点击降序
                                 <!---->
                               </div>
                             </div>
@@ -9989,7 +9989,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                click to sort ascending
+                                点击升序
                                 <!---->
                               </div>
                             </div>
@@ -10030,7 +10030,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                click to sort descending
+                                点击降序
                                 <!---->
                               </div>
                             </div>
@@ -10112,7 +10112,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                click to sort ascending
+                                点击升序
                                 <!---->
                               </div>
                             </div>
@@ -10153,7 +10153,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                               <div
                                 class="t-popup__content t-tooltip t-tooltip--default"
                               >
-                                click to sort descending
+                                点击降序
                                 <!---->
                               </div>
                             </div>
