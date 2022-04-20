@@ -5,7 +5,7 @@ toc: false
 docClass: timeline
 ---
 
-## 🌈 1.12.2 `2022-04-19`
+## 🌈 0.12.2 `2022-04-19`
 
 ### 🐞 Bug Fixes
 
@@ -13,7 +13,7 @@ docClass: timeline
 - `Anchor`: 修复 click 事件参数不正确 [@pengYYYYY](https://github.com/pengYYYYY) ([#589](https://github.com/Tencent/tdesign-vue-next/pull/589))
 - 修复 slider 引起的产物报错 [@pengYYYYY](https://github.com/pengYYYYY)
 
-## 🌈 1.12.1 `2022-04-17`
+## 🌈 0.12.1 `2022-04-17`
 
 ### 🚀 Features
 
