@@ -340,7 +340,15 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
       class="t-drawer__content-wrapper t-drawer__content-wrapper--right"
       style="width: 300px;"
     >
-      <!---->
+      <div
+        class="t-drawer__header"
+      >
+        
+        <div>
+          自定义头部
+        </div>
+        
+      </div>
       
       <div
         class="t-drawer__body narrow-scrollbar"
