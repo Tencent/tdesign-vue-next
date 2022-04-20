@@ -9,7 +9,7 @@ import { LoadingProps } from '../loading';
 import { PaginationProps, PageInfo } from '../pagination';
 import { PopupProps } from '../popup';
 import { CheckboxGroupValue } from '../checkbox';
-import { SortableEvent } from 'sortablejs';
+import { SortableEvent, SortableOptions } from 'sortablejs';
 import { CheckboxProps } from '../checkbox';
 import { RadioProps } from '../radio';
 import { InputProps } from '../input';
@@ -71,7 +71,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   headerAffixProps?: AffixProps;
   /**
-   * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300px'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
+   * 表格高度，超出后会出现滚动条。示例：100,  '30%',  '300'。值为数字类型，会自动加上单位 px。如果不是绝对固定表格高度，建议使用 `maxHeight`
    */
   height?: string | number;
   /**
@@ -93,7 +93,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   loadingProps?: LoadingProps;
   /**
-   * 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300px'。值为数字类型，会自动加上单位 px
+   * 表格最大高度，超出后会出现滚动条。示例：100, '30%', '300'。值为数字类型，会自动加上单位 px
    */
   maxHeight?: string | number;
   /**
@@ -258,7 +258,7 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
 }
 
 export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
-  extends Omit<TdBaseTableProps<T>, 'columns'> {
+  extends Omit<TdBaseTableProps<T>, 'columns' | 'onCellClick'> {
   /**
    * 异步加载状态。值为 `loading` 显示默认文字 “正在加载中，请稍后”，值为 `loading-more` 显示“点击加载更多”，值为其他，表示完全自定义异步加载区域内容
    */
@@ -289,10 +289,13 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
-   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`col` 表示通过专门的 拖拽列 进行拖拽排序。`drag-col` 已废弃，请勿使用
-   * @default col
+   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽，列拖拽功能开发中。`drag-col` 已废弃，请勿使用。
    */
-  dragSort?: 'row' | 'col' | 'drag-col';
+  dragSort?: 'row' | 'row-handler' | 'col' | 'drag-col';
+  /**
+   * 拖拽排序扩展参数，具体参数见 [Sortable](https://github.com/SortableJS/Sortable)
+   */
+  dragSortOptions?: SortableOptions;
   /**
    * 展开行内容，泛型 T 指表格数据类型
    */
@@ -392,7 +395,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   onDisplayColumnsChange?: (value: CheckboxGroupValue) => void;
   /**
-   * 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据
+   * 拖拽排序时触发，`currentData` 表示拖拽排序结束后的新数据，`sort=row` 表示行拖拽事件触发，`sort=col` 表示列拖拽事件触发
    */
   onDragSort?: (context: DragSortContext<T>) => void;
   /**
@@ -414,7 +417,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
 }
 
 export interface PrimaryTableCol<T extends TableRowData = TableRowData>
-  extends Omit<BaseTableCol, 'cell' | 'title' | 'render'> {
+  extends Omit<BaseTableCol, 'cell' | 'title' | 'render' | 'children'> {
   /**
    * 【开发中】是否允许用户选择是否显示当前列，表格属性 `showColumnController` 为真时有效
    * @default true
@@ -428,6 +431,10 @@ export interface PrimaryTableCol<T extends TableRowData = TableRowData>
    * 透传参数，`colKey` 值为 `row-select` 时，配置有效。具体定义参考 Checkbox 组件 和 Radio 组件。泛型 T 指表格数据类型
    */
   checkProps?: CheckProps<T>;
+  /**
+   * 用于多级表头，泛型 T 指表格数据类型
+   */
+  children?: Array<PrimaryTableCol<T>>;
   /**
    * 渲染列所需字段，必须唯一。值为 `row-select` 表示当前列为行选中操作列。值为 `drag` 表示当前列为拖拽排序操作列
    * @default ''
@@ -471,6 +478,10 @@ export interface TdEnhancedTableProps<T extends TableRowData = TableRowData> ext
    * 树形结构相关配置。`tree.indent` 表示树结点缩进距离，单位：px，默认为 24px。`tree.treeNodeColumnIndex` 表示树结点在第几列渲染，默认为 0 ，第一列。`tree.childrenKey` 表示树形结构子节点字段，默认为 children。`tree.checkStrictly` 表示树形结构的行选中（多选），父子行选中是否独立，默认独立，值为 true
    */
   tree?: TableTreeConfig;
+  /**
+   * 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发
+   */
+  onTreeExpandChange?: (context: TableTreeExpandChangeContext<T>) => void;
 }
 
 /** 组件实例方法 */
@@ -686,9 +697,7 @@ export interface ExpandArrowRenderParams<T> {
   index: number;
 }
 
-export type FilterValue = { [key: string]: FilterItemValue };
-
-export type FilterItemValue = string | number | undefined | Array<string | number>;
+export type FilterValue = { [key: string]: any };
 
 export type TableSort = SortInfo | Array<SortInfo>;
 
@@ -736,6 +745,7 @@ export interface DragSortContext<T> {
   target: T;
   currentData: T[];
   e: SortableEvent;
+  sort: 'row' | 'col';
 }
 
 export interface ExpandOptions<T> {
@@ -779,6 +789,12 @@ export interface TableTreeConfig {
   treeNodeColumnIndex?: number;
   childrenKey?: 'children';
   checkStrictly?: boolean;
+}
+
+export interface TableTreeExpandChangeContext<T> {
+  row: T;
+  rowIndex: number;
+  rowState: TableRowState<T>;
 }
 
 export type TableRowValue = string | number;

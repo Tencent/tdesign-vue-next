@@ -11,13 +11,13 @@ import Checkbox, {
   CheckboxGroupChangeContext,
 } from '../../checkbox';
 import { DialogPlugin } from '../../dialog/plugin';
-import { useTNodeDefault } from '../../hooks/tnode';
 import { renderTitle } from './useTableHeader';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
 import { useConfig } from '../../hooks/useConfig';
 import useDefaultValue from '../../hooks/useDefaultValue';
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
+import TButton from '../../button';
 
 export function getColumnKeys(columns: PrimaryTableCol[], keys: string[] = []) {
   for (let i = 0, len = columns.length; i < len; i++) {
@@ -32,7 +32,6 @@ export function getColumnKeys(columns: PrimaryTableCol[], keys: string[] = []) {
 }
 
 export default function useColumnController(props: TdPrimaryTableProps, context: SetupContext) {
-  const renderTNode = useTNodeDefault();
   const { classPrefix, global } = useConfig('table');
   const { columns, columnController, displayColumns, columnControllerVisible } = toRefs(props);
   const dialogInstance = ref<DialogInstance>(null);
@@ -59,7 +58,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   const intersectionChecked = computed(() => intersection(columnCheckboxKeys.value, [...enabledColKeys.value]));
 
   watch([displayColumns], ([val]) => {
-    columnCheckboxKeys.value = val;
+    columnCheckboxKeys.value = val || props.defaultDisplayColumns || keys;
   });
 
   function getCheckboxOptions(columns: PrimaryTableCol[], arr: CheckboxOptionObj[] = []) {
@@ -139,7 +138,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
             </div>
           </div>
         );
-        return renderTNode('columnControllerContent', defaultNode);
+        return defaultNode;
       },
       confirmBtn: global.value.confirmText,
       cancelBtn: global.value.cancelText,
@@ -191,7 +190,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
     ];
     return (
       <div class={classes}>
-        <t-button
+        <TButton
           theme="default"
           variant="outline"
           onClick={handleToggleColumnController}
@@ -200,7 +199,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
             icon: () => <SettingIcon />,
           }}
           {...props.columnController?.buttonProps}
-        ></t-button>
+        ></TButton>
       </div>
     );
   };

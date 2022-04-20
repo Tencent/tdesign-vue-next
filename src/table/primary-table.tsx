@@ -1,5 +1,6 @@
-import { computed, defineComponent, toRefs, h, ref, onMounted } from 'vue';
+import { computed, defineComponent, toRefs, h, ref, onMounted, SetupContext } from 'vue';
 import get from 'lodash/get';
+import omit from 'lodash/omit';
 import baseTableProps from './base-table-props';
 import primaryTableProps from './primary-table-props';
 import BaseTable from './base-table';
@@ -18,6 +19,28 @@ import useClassName from './hooks/useClassName';
 
 export { BASE_TABLE_ALL_EVENTS } from './base-table';
 
+const OMIT_PROPS = [
+  'defaultExpandedRowKeys',
+  'columnController',
+  'filterRow',
+  'sortOnRowDraggable',
+  'expandOnRowClick',
+  'multipleSort',
+  'expandIcon',
+  'onChange',
+  'onAsyncLoadingClick',
+  'onChange',
+  'onColumnChange',
+  'onColumnControllerVisibleChange',
+  'onDataChange',
+  'onDisplayColumnsChange',
+  'onDragSort',
+  'onExpandChange',
+  'onFilterChange',
+  'onSelectChange',
+  'onSortChange',
+];
+
 export default defineComponent({
   name: 'TPrimaryTable',
 
@@ -26,7 +49,7 @@ export default defineComponent({
     ...primaryTableProps,
   },
 
-  setup(props: TdPrimaryTableProps, context) {
+  setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
     const { columns } = toRefs(props);
     const primaryTableRef = ref(null);
@@ -47,9 +70,9 @@ export default defineComponent({
       renderFilterIcon,
       renderFirstFilterRow,
       setFilterPrimaryTableRef,
-    } = useFilter(props);
+    } = useFilter(props, context);
     // 拖拽排序功能
-    const { isColDraggable, isRowDraggable, setDragSortPrimaryTableRef } = useDragSort(props, context);
+    const { isRowHandlerDraggable, isRowDraggable, isColDraggable, setDragSortPrimaryTableRef } = useDragSort(props);
 
     const { renderTitleWidthIcon } = useTableHeader(props);
     const { renderAsyncLoading } = useAsyncLoading(props, context);
@@ -57,6 +80,7 @@ export default defineComponent({
     const primaryTableClasses = computed(() => {
       return {
         [tableDraggableClasses.colDraggable]: isColDraggable.value,
+        [tableDraggableClasses.rowHandlerDraggable]: isRowHandlerDraggable.value,
         [tableDraggableClasses.rowDraggable]: isRowDraggable.value,
         [tableBaseClass.overflowVisible]: isTableOverflowHidden.value === false,
       };
@@ -71,7 +95,7 @@ export default defineComponent({
     // 如果想给 TR 添加属性，请在这里补充，不要透传更多额外 Props 到 BaseTable
     const tRowAttributes = computed(() => {
       const tAttributes = [props.rowAttributes];
-      if (isColDraggable.value || isRowDraggable.value) {
+      if (isRowHandlerDraggable.value || isRowDraggable.value) {
         tAttributes.push(({ row }) => ({ 'data-id': get(row, props.rowKey || 'id') }));
       }
       return tAttributes.filter((v) => v);
@@ -189,7 +213,7 @@ export default defineComponent({
     const lastFullRow = this.formatNode('lastFullRow', this.renderAsyncLoading, !!this.asyncLoading);
 
     const props = {
-      ...this.$props,
+      ...omit(this.$props, OMIT_PROPS),
       rowClassName: this.tRowClassNames,
       rowAttributes: this.tRowAttributes,
       columns: this.tColumns,
