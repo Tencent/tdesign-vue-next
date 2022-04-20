@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="jsx">
-import { ref, compile, onMounted, computed, onBeforeUnmount } from 'vue';
+import { ref, compile, onMounted, computed, onBeforeUnmount, watchEffect } from 'vue';
 
 const stringifyProp = (name, value) => {
   if (value === true) return name; // 为 true 只展示 name
@@ -34,14 +34,17 @@ const props = defineProps({
 });
 
 const panel = ref(props.panelList[0].value);
-const usageRef = ref();
+const usageRef = ref({});
 const changedProps = ref({});
 
 onMounted(() => {
   usageRef.value.panelList = props.panelList;
-  usageRef.value.configList = props.configList;
   usageRef.value.addEventListener('ConfigChange', onConfigChange);
   usageRef.value.addEventListener('PanelChange', onPanelChange);
+});
+
+watchEffect(() => {
+  usageRef.value.configList = props.configList;
 });
 
 onBeforeUnmount(() => {
