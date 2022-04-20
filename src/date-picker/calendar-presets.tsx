@@ -26,8 +26,29 @@ export default defineComponent({
     };
   },
   methods: {
+    // 判断是否为日期
+    _isDate(obj: any) {
+      return obj.$d instanceof Date && !isNaN(obj.valueOf());
+    },
     clickPreset(value: DateValue | (() => DateValue)) {
-      this.onClick(value);
+      let dateCheckResult = true;
+      if (value instanceof Array) {
+        for (let i = 0; i < value.length; i++) {
+          if (!this._isDate(value[i])) {
+            dateCheckResult = false;
+            break;
+          }
+        }
+      } else if (typeof value === 'object') {
+        dateCheckResult = this._isDate(value);
+      } else {
+        dateCheckResult = false;
+      }
+      if (dateCheckResult) {
+        this.onClick(value);
+      } else {
+        this.$message.info('日期格式错误');
+      }
     },
   },
   render() {
