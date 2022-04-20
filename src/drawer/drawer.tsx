@@ -238,7 +238,7 @@ export default defineComponent({
       >
         {this.showOverlay && <div class={`${COMPONENT_NAME}__mask`} onClick={this.handleWrapperClick} />}
         <div class={this.wrapperClasses} style={this.wrapperStyles}>
-          {headerContent && <div class={`${COMPONENT_NAME}__header`}>{renderTNodeJSX(this, 'header')}</div>}
+          {headerContent && <div class={`${COMPONENT_NAME}__header`}>{headerContent}</div>}
           {this.closeBtn && (
             <div class={`${COMPONENT_NAME}__close-btn`} onClick={this.handleCloseBtnClick}>
               {renderTNodeJSX(this, 'closeBtn', defaultCloseBtn)}
