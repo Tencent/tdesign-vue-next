@@ -42,7 +42,9 @@ export default defineComponent({
     // methods
     const adjustTextareaHeight = () => {
       if (props.autosize === true) {
-        textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
+        nextTick(() => {
+          textareaStyle.value = calcTextareaHeight(refTextareaElem.value);
+        });
       } else if (typeof props.autosize === 'object') {
         const { minRows, maxRows } = props.autosize;
         textareaStyle.value = calcTextareaHeight(refTextareaElem.value, minRows, maxRows);
