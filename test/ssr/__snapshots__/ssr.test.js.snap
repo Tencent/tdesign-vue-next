@@ -14618,7 +14618,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                     <li class="t-select-option t-size-s t-select__create-option--special" title><span></span></li>
                   </ul>
                   <!---->
-                  <li class="t-select__empty t-size-s">暂无数据</li>
+                  <li class="t-select__empty t-size-s">Empty Data</li>
                   <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
@@ -14679,7 +14679,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/calendar.vue
                     <li class="t-select-option t-size-s t-select__create-option--special" title><span></span></li>
                   </ul>
                   <!---->
-                  <li class="t-select__empty t-size-s">暂无数据</li>
+                  <li class="t-select__empty t-size-s">Empty Data</li>
                   <ul class="t-select__groups t-select__list">
                     <!--[-->
                     <!--[-->
@@ -17073,7 +17073,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                         <!--[-->
                         <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                            <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
+                            <div class="t-popup__content t-tooltip t-tooltip--default">click to sort ascending
                               <!---->
                             </div>
                           </div>
@@ -17082,7 +17082,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                         </div>
                         <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                            <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
+                            <div class="t-popup__content t-tooltip t-tooltip--default">click to sort descending
                               <!---->
                             </div>
                           </div>
@@ -17110,7 +17110,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                         <!--[-->
                         <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                            <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
+                            <div class="t-popup__content t-tooltip t-tooltip--default">click to sort ascending
                               <!---->
                             </div>
                           </div>
@@ -17119,7 +17119,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                         </div>
                         <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                            <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
+                            <div class="t-popup__content t-tooltip t-tooltip--default">click to sort descending
                               <!---->
                             </div>
                           </div>
@@ -17205,7 +17205,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                         <!--[-->
                         <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                            <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
+                            <div class="t-popup__content t-tooltip t-tooltip--default">click to sort ascending
                               <!---->
                             </div>
                           </div>
@@ -17214,7 +17214,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                         </div>
                         <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                            <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
+                            <div class="t-popup__content t-tooltip t-tooltip--default">click to sort descending
                               <!---->
                             </div>
                           </div>
@@ -17242,7 +17242,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                         <!--[-->
                         <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                            <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
+                            <div class="t-popup__content t-tooltip t-tooltip--default">click to sort ascending
                               <!---->
                             </div>
                           </div>
@@ -17251,7 +17251,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                         </div>
                         <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
-                            <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
+                            <div class="t-popup__content t-tooltip t-tooltip--default">click to sort descending
                               <!---->
                             </div>
                           </div>
