@@ -305,7 +305,7 @@ export default defineComponent({
       await treeSelectValue.value;
 
       if (!props.multiple) {
-        if (treeSelectValue.value) {
+        if (treeSelectValue.value || treeSelectValue.value === 0) {
           nodeInfo.value = getSingleNodeInfo();
         }
       } else if (props.multiple) {
