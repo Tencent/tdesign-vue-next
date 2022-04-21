@@ -31,9 +31,9 @@
 </template>
 
 <script setup lang="jsx">
-const renderPopupContent = () => {
+function renderPopupContent() {
   return <div>浮层内容是指浮层里面显示的全部内容，这里的浮层内容使用渲染函数定义</div>;
-};
+}
 </script>
 <style scoped>
 .t-popup-demo-base-item {

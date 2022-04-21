@@ -572,7 +572,7 @@ export default defineComponent({
     getOverlayElm(): HTMLElement {
       let r;
       try {
-        r = (this.$refs.popup as any).$refs.overlay || (this.$refs.popup as any).$refs.component.$refs.overlay;
+        r = (this.$refs.popup as any).$refs.component.getOverlay();
       } catch (e) {
         console.warn('TDesign Warn:', e);
       }
