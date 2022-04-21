@@ -1,16 +1,4 @@
-import {
-  defineComponent,
-  onMounted,
-  onUnmounted,
-  ref,
-  cloneVNode,
-  Fragment,
-  Text,
-  watch,
-  PropType,
-  VNode,
-  Teleport,
-} from 'vue';
+import { defineComponent, onMounted, onUnmounted, ref, Fragment, Text, watch, PropType, VNode, Teleport } from 'vue';
 import { getAttach } from '../utils/dom';
 import props from './props';
 
@@ -72,7 +60,7 @@ function useObserveResize(elm: () => HTMLElement, cb: Parameters<typeof observeR
     cleanOR = observeResize(elm(), cb);
   });
   onUnmounted(() => {
-    cleanOR();
+    cleanOR?.();
   });
 }
 

@@ -11,6 +11,7 @@ import {
   InjectionKey,
   onUnmounted,
   onMounted,
+  nextTick,
 } from 'vue';
 import { createPopper, Placement } from '@popperjs/core';
 import { prefix } from '../config';
@@ -116,12 +117,12 @@ export default defineComponent({
 
       popper = createPopper(triggerEl.value, popperEl.value, {
         placement: getPopperPlacement(props.placement),
+        onFirstUpdate: () => {
+          nextTick(updatePopper);
+        },
       });
     }
 
-    /**
-     * destroy popper IF NEEDED
-     */
     function destroyPopper() {
       if (popper) {
         popper?.destroy();
@@ -301,16 +302,10 @@ export default defineComponent({
       triggerEl,
       overlayEl,
       popperEl,
-      // computed
       overlayClasses,
       hasTrigger,
-      // data
-      popper,
-      visibleState,
-      mouseInRange,
       contentClicked,
       triggerClicked,
-      // methods
       /**
        * @public
        */
@@ -318,9 +313,6 @@ export default defineComponent({
         return overlayEl.value;
       },
       updatePopper,
-      /**
-       * destroy popper IF NEEDED
-       */
       destroyPopper,
       updateOverlayStyle,
       emitVisible,
