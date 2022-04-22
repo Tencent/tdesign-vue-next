@@ -58,7 +58,7 @@ export default function useInput(props: TdInputProps) {
       const stringInfo = getCharacterLength(val, props.maxcharacter);
       val = typeof stringInfo === 'object' && stringInfo.characters;
     }
-    emitEvent('change', val, { e });
+    props.onChange?.(val, { e } as { e: InputEvent });
     setInnerValue(val, { e } as { e: InputEvent });
     // 受控
     nextTick(() => setInputElValue(innerValue.value));
