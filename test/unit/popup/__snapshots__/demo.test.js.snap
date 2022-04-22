@@ -7,26 +7,8 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
   <div
     class="t-popup-demo-base-item"
   >
-    <div
-      class="t-popup__reference"
-    >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content"
-            style="max-width: 480px;"
-          >
-            可以在浮层内容中描述禁用原因
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
+    
+    <div>
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
         disabled=""
@@ -40,91 +22,50 @@ exports[`Popup Popup baseVue demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
+    <!---->
+    
   </div>
   <!-- 使用 content 插槽渲染浮层内容 -->
   <!-- slot="content" 写法不建议使用，请使用 #content 写法 -->
   <div
     class="t-popup-demo-base-item"
   >
-    <div
-      class="t-popup__reference"
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content"
-          >
-            
-            <div>
-              触发元素是指触发浮层内容显示的元素
-            </div>
-            
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          触发元素
-          
-        </span>
-      </button>
-      
-    </div>
+        
+        触发元素
+        
+      </span>
+    </button>
+    <!---->
+    
   </div>
   <!-- 使用 content 渲染函数输出浮层内容 -->
   <div
     class="t-popup-demo-base-item"
   >
-    <div
-      class="t-popup__reference"
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content"
-          >
-            <div>
-              浮层内容是指浮层里面显示的全部内容，这里的浮层内容使用渲染函数定义
-            </div>
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          浮层内容
-          
-        </span>
-      </button>
-      
-    </div>
+        
+        浮层内容
+        
+      </span>
+    </button>
+    <!---->
+    
   </div>
 </div>
 `;
@@ -134,27 +75,10 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
   <div
     class="t-popup-demo-block"
   >
+    
     <div
-      class="t-popup__reference"
       id="myPopup"
     >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content"
-            style="max-width: 480px;"
-          >
-            触发元素的父元素是组件根元素，通过 CSSSelector 定义
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
       <button
         class="t-button t-size-m t-button--variant-outline t-button--theme-default"
         type="button"
@@ -167,72 +91,14 @@ exports[`Popup Popup containerVue demo works fine 1`] = `
           
         </span>
       </button>
-      
     </div>
+    <!---->
+    
   </div>
   <div
     class="t-popup-demo-block"
     id="second-popup"
   >
-    <div
-      class="t-popup__reference"
-    >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content"
-            style="max-width: 480px;"
-          >
-            触发元素的父元素是组件跟元素，通过 Funnction 定义
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
-      >
-        <span
-          class="t-button__text"
-        >
-          
-          父元素为其他元素
-          
-        </span>
-      </button>
-      
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Popup Popup destroyVue demo works fine 1`] = `
-<div>
-  <div
-    class="t-popup__reference"
-  >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
     
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default"
@@ -242,52 +108,54 @@ exports[`Popup Popup destroyVue demo works fine 1`] = `
         class="t-button__text"
       >
         
-        隐藏即销毁
+        父元素为其他元素
         
       </span>
     </button>
+    <!---->
     
   </div>
 </div>
 `;
 
+exports[`Popup Popup destroyVue demo works fine 1`] = `
+<div>
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
+  >
+    <span
+      class="t-button__text"
+    >
+      
+      隐藏即销毁
+      
+    </span>
+  </button>
+  <!---->
+  
+</div>
+`;
+
 exports[`Popup Popup disabledVue demo works fine 1`] = `
 <div>
-  <div
-    class="t-popup__reference"
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+    disabled=""
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-is-disabled"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
-      disabled=""
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-        禁用浮层显示
-        
-      </span>
-    </button>
-    
-  </div>
+      
+      禁用浮层显示
+      
+    </span>
+  </button>
+  <!---->
+  
 </div>
 `;
 
@@ -295,440 +163,188 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
 <div
   class="container"
 >
-  <div
-    class="t-popup__reference placement top center"
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top center"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         top 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement top left"
+      
+       top 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top left"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         top-left 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement top right"
+      
+       top-left 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top right"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         top-right 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement bottom center"
+      
+       top-right 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom center"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         bottom 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement bottom left"
+      
+       bottom 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom left"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         bottom-left 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement bottom right"
+      
+       bottom-left 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom right"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         bottom-right 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement align"
+      
+       bottom-right 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement align"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         left 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement top-align"
+      
+       left 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement top-align"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         left-top 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement bottom-align"
+      
+       left-top 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement bottom-align"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         left-bottom 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement right-full align"
+      
+       left-bottom 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full align"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         right 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement right-full top-align"
+      
+       right 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full top-align"
     destroy-on-hide=""
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         right-top 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference placement right-full bottom-align"
+      
+       right-top 
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full bottom-align"
     destroy-on-hide=""
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content t-popup__content--arrow"
-          style="max-width: 480px;"
-        >
-          这是popup内容
-          <div
-            class="t-popup__arrow"
-          />
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         right-bottom 
-        
-      </span>
-    </button>
-    
-  </div>
+      
+       right-bottom 
+      
+    </span>
+  </button>
+  <!---->
+  
 </div>
 `;
 
@@ -737,154 +353,78 @@ exports[`Popup Popup styleVue demo works fine 1`] = `
   <div
     class="t-popup-demo-base-item"
   >
-    <div
-      class="t-popup__reference"
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content tdesign-demo__custom-popup"
-            style="max-width: 480px;"
-          >
-            浮层拥有自定义类名，可以自定义浮层样式
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          自定义浮层类名
-          
-        </span>
-      </button>
-      
-    </div>
+        
+        自定义浮层类名
+        
+      </span>
+    </button>
+    <!---->
+    
   </div>
   <div
     class="t-popup-demo-base-item"
   >
-    <div
-      class="t-popup__reference"
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content"
-            style="max-width: 480px;"
-          >
-            浮层宽度是固定的，不会随内容变化而变化
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          固定浮层宽度
-          
-        </span>
-      </button>
-      
-    </div>
+        
+        固定浮层宽度
+        
+      </span>
+    </button>
+    <!---->
+    
   </div>
   <div
     class="t-popup-demo-base-item"
   >
-    <div
-      class="t-popup__reference"
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content"
-            style="max-width: 480px;"
-          >
-            可以设置浮层最大宽度，当内容超出最大宽度时，文本内容才会换行
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          浮层最大宽度
-          
-        </span>
-      </button>
-      
-    </div>
+        
+        浮层最大宽度
+        
+      </span>
+    </button>
+    <!---->
+    
   </div>
   <div
     class="t-popup-demo-base-item"
   >
-    <div
-      class="t-popup__reference"
+    
+    <button
+      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+      type="button"
     >
-      <transition-stub>
-        <div
-          aria-hidden="true"
-          class="t-popup"
-          role="tooltip"
-          style="display: none;"
-        >
-          <div
-            class="t-popup__content"
-            style="max-width: 480px;"
-          >
-            overlayStyle 作为函数使用，可以让浮层内容和触发元素同宽
-            <!---->
-          </div>
-        </div>
-      </transition-stub>
-      
-      <button
-        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-        type="button"
+      <span
+        class="t-button__text"
       >
-        <span
-          class="t-button__text"
-        >
-          
-          浮层和触发元素同宽
-          
-        </span>
-      </button>
-      
-    </div>
+        
+        浮层和触发元素同宽
+        
+      </span>
+    </button>
+    <!---->
+    
   </div>
 </div>
 `;
@@ -896,78 +436,40 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
     <div
       class="t-popup-demo-base-item"
     >
-      <div
-        class="t-popup__reference"
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
       >
-        <transition-stub>
-          <div
-            aria-hidden="true"
-            class="t-popup"
-            role="tooltip"
-            style="display: none;"
-          >
-            <div
-              class="t-popup__content"
-              style="max-width: 480px;"
-            >
-              我的触发元素通过默认插槽渲染
-              <!---->
-            </div>
-          </div>
-        </transition-stub>
-        
-        <button
-          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          type="button"
+        <span
+          class="t-button__text"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            默认插槽定义触发元素
-            
-          </span>
-        </button>
-        
-      </div>
+          
+          默认插槽定义触发元素
+          
+        </span>
+      </button>
+      <!---->
+      
     </div>
     <div
       class="t-popup-demo-base-item"
     >
-      <div
-        class="t-popup__reference"
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
       >
-        <transition-stub>
-          <div
-            aria-hidden="true"
-            class="t-popup"
-            role="tooltip"
-            style="display: none;"
-          >
-            <div
-              class="t-popup__content"
-              style="max-width: 480px;"
-            >
-              我的触发元素通过插槽(triggerElement)渲染
-              <!---->
-            </div>
-          </div>
-        </transition-stub>
-        
-        <button
-          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          type="button"
+        <span
+          class="t-button__text"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            具名插槽定义触发元素
-            
-          </span>
-        </button>
-        
-      </div>
+          
+          具名插槽定义触发元素
+          
+        </span>
+      </button>
+      <!---->
+      
     </div>
   </div>
   <br />
@@ -975,74 +477,40 @@ exports[`Popup Popup triggerElementVue demo works fine 1`] = `
     <div
       class="t-popup-demo-base-item"
     >
-      <div
-        class="t-popup__reference"
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
       >
-        <transition-stub>
-          <div
-            aria-hidden="true"
-            class="t-popup"
-            role="tooltip"
-            style="display: none;"
-          >
-            <div
-              class="t-popup__content"
-              style="max-width: 480px;"
-            >
-              我的触发元素通过渲染函数 default 渲染
-              <!---->
-            </div>
-          </div>
-        </transition-stub>
-        <button
-          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          type="button"
+        <span
+          class="t-button__text"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            渲染函数定义触发元素1
-            
-          </span>
-        </button>
-      </div>
+          
+          渲染函数定义触发元素1
+          
+        </span>
+      </button>
+      <!---->
+      
     </div>
     <div
       class="t-popup-demo-base-item"
     >
-      <div
-        class="t-popup__reference"
+      
+      <button
+        class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+        type="button"
       >
-        <transition-stub>
-          <div
-            aria-hidden="true"
-            class="t-popup"
-            role="tooltip"
-            style="display: none;"
-          >
-            <div
-              class="t-popup__content"
-              style="max-width: 480px;"
-            >
-              我的触发元素通过渲染函数 triggerElement 渲染
-              <!---->
-            </div>
-          </div>
-        </transition-stub>
-        <button
-          class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-          type="button"
+        <span
+          class="t-button__text"
         >
-          <span
-            class="t-button__text"
-          >
-            
-            渲染函数定义触发元素2
-            
-          </span>
-        </button>
-      </div>
+          
+          渲染函数定义触发元素2
+          
+        </span>
+      </button>
+      <!---->
+      
     </div>
   </div>
 </div>
@@ -1052,190 +520,92 @@ exports[`Popup Popup triggerVue demo works fine 1`] = `
 <div
   class="popup-demo-container"
 >
-  <div
-    class="t-popup__reference"
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content"
-          style="max-width: 480px;"
-        >
-          文字提示仅展示文本内容
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         悬浮时触发（默认） 
-        
-      </span>
-    </button>
-    
-  </div>
-  <div
-    class="t-popup__reference"
+      
+      悬浮时触发（默认）
+      
+    </span>
+  </button>
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content"
-          style="max-width: 480px;"
-        >
-          文字提示仅展示文本内容
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         点击时触发 
-        
-      </span>
-    </button>
-    
-  </div>
+      
+      点击时触发
+      
+    </span>
+  </button>
+  <!---->
+  
+  
   <div
-    class="t-popup__reference"
+    class="t-input__wrap"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content"
-          style="max-width: 480px;"
-        >
-          文字提示仅展示文本内容
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
     <div
-      class="t-input__wrap"
+      class="t-input"
     >
-      <div
-        class="t-input"
-      >
-        <!---->
-        <!---->
-        <input
-          class="t-input__inner"
-          placeholder="获得焦点时触发"
-          type="text"
-        />
-        <!---->
-        <!---->
-        <!---->
-      </div>
+      <!---->
+      <!---->
+      <input
+        class="t-input__inner"
+        placeholder="获得焦点时触发"
+        type="text"
+      />
+      <!---->
+      <!---->
       <!---->
     </div>
-    
+    <!---->
   </div>
-  <div
-    class="t-popup__reference"
+  <!---->
+  
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content"
-          style="max-width: 480px;"
-        >
-          文字提示仅展示文本内容
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-         右击时触发 
-        
-      </span>
-    </button>
-    
-  </div>
+      
+      右击时触发
+      
+    </span>
+  </button>
+  <!---->
+  
 </div>
 `;
 
 exports[`Popup Popup visibleVue demo works fine 1`] = `
 <div>
-  <div
-    class="t-popup__reference"
+  
+  <button
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    type="button"
   >
-    <transition-stub>
-      <div
-        aria-hidden="true"
-        class="t-popup"
-        role="tooltip"
-        style="display: none;"
-      >
-        <div
-          class="t-popup__content"
-        >
-          
-          <div>
-            浮层显示与否可以在外部自由控制
-          </div>
-          
-          <!---->
-        </div>
-      </div>
-    </transition-stub>
-    
-    <button
-      class="t-button t-size-m t-button--variant-outline t-button--theme-default"
-      type="button"
+    <span
+      class="t-button__text"
     >
-      <span
-        class="t-button__text"
-      >
-        
-        点击控制浮层显示
-        
-      </span>
-    </button>
-    
-  </div>
+      
+      点击控制浮层显示
+      
+    </span>
+  </button>
+  <!---->
+  
 </div>
 `;
