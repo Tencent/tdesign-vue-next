@@ -9,7 +9,7 @@ docClass: timeline
 
 ### BREAKING CHANGES
 
-* 拖拽排序，`drag=sort` 表示列拖拽排序，`drag=row` 表示行拖拽排序，`drag=row-handler` 表示行手柄列拖拽排序。如果您使用了 `drag="col"` 来实现行拖拽排序，请更为使用 `drag="row-handler"`([pr #594](https://github.com/Tencent/tdesign-vue-next/pull/594)), ([@chaishi](https://github.com/chaishi))
+* Table: 拖拽排序，`drag=sort` 表示列拖拽排序，`drag=row` 表示行拖拽排序，`drag=row-handler` 表示行手柄列拖拽排序。如果您使用了 `drag="col"` 来实现行拖拽排序，请更为使用 `drag="row-handler"`([pr #594](https://github.com/Tencent/tdesign-vue-next/pull/594)), ([@chaishi](https://github.com/chaishi))
 
 ### Bug Fixes
 
