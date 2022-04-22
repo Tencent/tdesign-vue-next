@@ -1,25 +1,23 @@
 import { Ref } from 'vue';
-import { useEmitEvent } from '../hooks/event';
+import { TdInputNumberProps } from './type';
 
-export default function useKeyboardEvents(innerValue: Ref<number>) {
-  const emitEvent = useEmitEvent();
-
+export default function useKeyboardEvents(props: TdInputNumberProps, innerValue: Ref<number>) {
   const handleKeydownEnter = (e: KeyboardEvent) => {
     if (e.key !== 'Enter') return;
-    emitEvent('keydown-enter', innerValue.value, { e });
+    props.onEnter(innerValue.value, { e });
   };
 
   const handleKeydown = (e: KeyboardEvent) => {
-    emitEvent('keydown', innerValue.value, { e });
+    props.onKeydown(innerValue.value, { e });
     handleKeydownEnter(e);
   };
 
   const handleKeyup = (e: KeyboardEvent) => {
-    emitEvent('keyup', innerValue.value, { e });
+    props.onKeyup(innerValue.value, { e });
   };
 
   const handleKeypress = (e: KeyboardEvent) => {
-    emitEvent('keypress', innerValue.value, { e });
+    props.onKeypress(innerValue.value, { e });
   };
 
   return {

@@ -1,12 +1,10 @@
-import { computed, defineComponent, ref, VNode, watch } from 'vue';
+import { computed, defineComponent, ref, watch } from 'vue';
 import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
 import TButton from '../button';
 import TInput from '../input';
 import CLASSNAMES from '../utils/classnames';
 import props from './props';
-import { ChangeSource, TdInputNumberProps } from './type';
-import { ClassName } from '../common';
-import { emitEvent } from '../utils/event';
+import { TdInputNumberProps } from './type';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
@@ -25,8 +23,6 @@ type InputNumberEvent = {
   onKeyup?: (e: KeyboardEvent) => void;
   onKeypress?: (e: KeyboardEvent) => void;
 };
-
-type ChangeContextEvent = InputEvent | MouseEvent | FocusEvent;
 
 type InputNumberAttr = {
   disabled?: boolean;
@@ -67,7 +63,6 @@ export default defineComponent({
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input-number');
     const classPrefix = usePrefixClass();
-    const emitEvent = useEmitEvent();
 
     const isError = ref(false);
     const inputting = ref(false);
@@ -84,7 +79,7 @@ export default defineComponent({
       ...actionHandler
     } = useInputNumberAction(COMPONENT_NAME, props, isError);
     const inputNumberTools = useInputNumberTools(props, digitsNum, isError);
-    const keyboardEvents = useKeyboardEvents(innerValue);
+    const keyboardEvents = useKeyboardEvents(props, innerValue);
 
     const handleStartInput = () => {
       inputting.value = true;
@@ -104,12 +99,12 @@ export default defineComponent({
     const handleBlur = async (e: FocusEvent) => {
       await handleEndInput(e);
       clearFilterValue();
-      emitEvent('blur', innerValue.value, { e });
+      props.onBlur(innerValue.value, { e });
     };
 
     const handleFocus = (e: FocusEvent) => {
       handleStartInput();
-      emitEvent('focus', innerValue.value, { e });
+      props.onFocus(innerValue.value, { e });
     };
 
     const computeds = {
@@ -132,7 +127,7 @@ export default defineComponent({
         onKeyup: keyboardEvents.handleKeyup,
         onKeypress: keyboardEvents.handleKeypress,
       })),
-      inputAttrs: computed(() => ({
+      inputAttrs: computed<InputNumberAttr>(() => ({
         disabled: disabled.value,
         readonly: props.readonly,
         autocomplete: 'off',
