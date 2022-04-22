@@ -5,6 +5,41 @@ toc: false
 docClass: timeline
 ---
 
+## 🌈 0.13.0 `2022-04-22`
+
+### BREAKING CHANGES
+
+* Table: 拖拽排序，`drag=sort` 表示列拖拽排序，`drag=row` 表示行拖拽排序，`drag=row-handler` 表示行手柄列拖拽排序。如果您使用了 `drag="col"` 来实现行拖拽排序，请更为使用 `drag="row-handler"`([pr #594](https://github.com/Tencent/tdesign-vue-next/pull/594)), ([@chaishi](https://github.com/chaishi))
+
+### Bug Fixes
+
+* Drawer: 修复 `header` 属性无效问题 ([#611](https://github.com/Tencent/tdesign-vue-next/issues/611))
+* Textarea: 修复在设置自动高度后，赋值后不高度不改变的问题 ([#613](https://github.com/Tencent/tdesign-vue-next/issues/613)) 
+* DatePicker:  修复当传入值为非日期格式的情况页面卡死的问题 [@Godlike-meteor](https://github.com/Godlike-meteor) ([#624](https://github.com/Tencent/tdesign-vue-next/pull/624)) [#512](https://github.com/Tencent/tdesign-vue-next/issues/512)
+* Transfer: 修复设置 `targetSort` 后未按预期展示的问题
+* TreeSelect: [@Godlike-meteor](https://github.com/Godlike-meteor)
+  * 修复 `value` 渲染异常问题 ([#633](https://github.com/Tencent/tdesign-vue-next/pull/633))
+  * 修复组件在多选时无 `v-model` 展示异常问题 ([#622](https://github.com/Tencent/tdesign-vue-next/pull/622)) [#616](https://github.com/Tencent/tdesign-vue-next/issues/616)
+* Upload:) ([#603](https://github.com/Tencent/tdesign-vue-next/pull/603)) [@pengYYYYY](https://github.com/pengYYYYY)
+  * 修复上传失败状态流转问题 [#582](https://github.com/Tencent/tdesign-vue-next/issues/582)
+  * 修复上传文件尺寸限制计算问题 [#601](https://github.com/Tencent/tdesign-vue-next/issues/601)
+* Table: ([pr #594](https://github.com/Tencent/tdesign-vue-next/pull/594)), ([@chaishi](https://github.com/chaishi))
+  * 多级表头和列配置功能混合使用时，表格宽度渲染不正确问题
+  * 表头吸顶，不对齐问题
+  * 列配置功能，按需引入 `Button` 组件。避免业务按需引入 `Table` 组件时，出现组件不存在错误
+  * 无法使用插槽自定义过滤图标
+  * 修复 `TdBaseTableProps` 和 `TdPrimaryTableProps` 关于 `onCellClick` 的 TS 类型冲突
+  * 单选，报错 `e.stopPropagation is not a function`
+  * 单选 和 多选触发了不应该触发的 'onChange' 事件
+
+### Features
+
+* Table: ([pr #594](https://github.com/Tencent/tdesign-vue-next/pull/594)), ([@chaishi](https://github.com/chaishi))
+  * 支持简易列拖拽排序
+  * 树形结构，行展开或收起时，触发事件 `onTreeExpandChange`
+* Checkbox: 使用 `compositionAPI` 重构 ([pr #584](https://github.com/Tencent/tdesign-vue-next/pull/584)), ([@k1nz](https://github.com/k1nz))
+* Breadcrumb: 使用 `compositionAPI` 重构 ([pr #567](https://github.com/Tencent/tdesign-vue-next/pull/567)), ([@Blackn-L](https://github.com/Blackn-L))
+
 ## 🌈 0.12.2 `2022-04-19`
 
 ### 🐞 Bug Fixes

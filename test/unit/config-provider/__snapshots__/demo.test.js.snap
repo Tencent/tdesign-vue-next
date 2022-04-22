@@ -6076,14 +6076,14 @@ exports[`ConfigProvider ConfigProvider globalVue demo works fine 1`] = `
   <div>
     英文语言包引入路径：
     <code>
-      import enConfig from 'tdesign-vue-next/locale/en_US';
+      import enConfig from 'tdesign-vue-next/es/locale/en_US';
     </code>
   </div>
   <br />
   <div>
     中文语言包引入路径：
     <code>
-      import enConfig from 'tdesign-vue-next/locale/zh_CN';
+      import enConfig from 'tdesign-vue-next/es/locale/zh_CN';
     </code>
   </div>
   

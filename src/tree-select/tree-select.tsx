@@ -304,10 +304,16 @@ export default defineComponent({
     const changeNodeInfo = async () => {
       await treeSelectValue.value;
 
-      if (!props.multiple && treeSelectValue.value) {
-        nodeInfo.value = getSingleNodeInfo();
-      } else if (props.multiple && isArray(treeSelectValue.value)) {
-        nodeInfo.value = getMultipleNodeInfo();
+      if (!props.multiple) {
+        if (treeSelectValue.value || treeSelectValue.value === 0) {
+          nodeInfo.value = getSingleNodeInfo();
+        }
+      } else if (props.multiple) {
+        if (isArray(treeSelectValue.value)) {
+          nodeInfo.value = getMultipleNodeInfo();
+        } else {
+          nodeInfo.value = [];
+        }
       } else {
         nodeInfo.value = null;
       }
