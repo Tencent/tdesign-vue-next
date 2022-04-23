@@ -68,6 +68,46 @@ export default defineComponent({
       return null;
     };
 
+    const prefixIcon = renderIcon(props.prefixIcon, 'prefix-icon');
+    let suffixIcon = renderIcon(props.suffixIcon, 'suffix-icon');
+
+    const label = renderTNodeJSX('label', { silent: true });
+    const suffix = renderTNodeJSX('suffix');
+
+    const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
+    const suffixContent = suffix ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffix}</div> : null;
+
+    if (showClear.value) {
+      suffixIcon = <CloseCircleFilledIcon class={`${COMPONENT_NAME}__suffix-clear`} onClick={inputHandle.emitClear} />;
+    }
+
+    if (props.type === 'password') {
+      if (renderType.value === 'password') {
+        suffixIcon = (
+          <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
+        );
+      } else if (renderType.value === 'text') {
+        suffixIcon = <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />;
+      }
+    }
+
+    const classes = computed(() => [
+      COMPONENT_NAME.value,
+      props.inputClass,
+      {
+        [SIZE.value[props.size]]: props.size !== 'medium',
+        [STATUS.value.disabled]: disabled.value,
+        [STATUS.value.focused]: focused.value,
+        [`${classPrefix.value}-is-${props.status}`]: props.status,
+        [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
+        [`${classPrefix.value}-is-readonly`]: props.readonly,
+        [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
+        [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
+        [`${COMPONENT_NAME.value}--focused`]: focused.value,
+        [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth,
+      },
+    ]);
+
     return () => {
       const inputEvents = getValidAttrs({
         onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
@@ -80,53 +120,9 @@ export default defineComponent({
         onCompositionstart: inputHandle.onHandleCompositionstart,
       });
 
-      const prefixIcon = renderIcon(props.prefixIcon, 'prefix-icon');
-      let suffixIcon = renderIcon(props.suffixIcon, 'suffix-icon');
-
-      const label = renderTNodeJSX('label', { silent: true });
-      const suffix = renderTNodeJSX('suffix');
-
-      const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
-      const suffixContent = suffix ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffix}</div> : null;
-
-      if (showClear.value) {
-        suffixIcon = (
-          <CloseCircleFilledIcon class={`${COMPONENT_NAME}__suffix-clear`} onClick={inputHandle.emitClear} />
-        );
-      }
-
-      if (props.type === 'password') {
-        if (renderType.value === 'password') {
-          suffixIcon = (
-            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
-        } else if (renderType.value === 'text') {
-          suffixIcon = (
-            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
-        }
-      }
-
-      const classes = [
-        COMPONENT_NAME.value,
-        props.inputClass,
-        {
-          [SIZE.value[props.size]]: props.size !== 'medium',
-          [STATUS.value.disabled]: disabled.value,
-          [STATUS.value.focused]: focused.value,
-          [`${classPrefix.value}-is-${props.status}`]: props.status,
-          [`${classPrefix.value}-align-${props.align}`]: props.align !== 'left',
-          [`${classPrefix.value}-is-readonly`]: props.readonly,
-          [`${COMPONENT_NAME.value}--prefix`]: prefixIcon || labelContent,
-          [`${COMPONENT_NAME.value}--suffix`]: suffixIcon || suffixContent,
-          [`${COMPONENT_NAME.value}--focused`]: focused.value,
-          [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth,
-        },
-      ];
-
       const renderInputNode = () => (
         <div
-          class={classes}
+          class={classes.value}
           onClick={inputHandle.onRootClick}
           onMouseEnter={inputEventHandler.onInputMouseenter}
           onMouseLeave={inputEventHandler.onInputMouseleave}
