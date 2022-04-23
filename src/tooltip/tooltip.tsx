@@ -46,7 +46,6 @@ export default defineComponent({
     });
 
     const popupProps = computed(() => ({
-      showArrow: props.showArrow,
       ...props,
       content: () => renderTNodeJSX('content'),
       default: () => renderContent('default', 'triggerElement'),
