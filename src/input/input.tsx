@@ -144,7 +144,7 @@ export default defineComponent({
           />
           {props.autoWidth && (
             <span ref="inputPreRef" className={`${classPrefix.value}-input__input-pre`}>
-              {props.value || tPlaceholder.value}
+              {innerValue.value || tPlaceholder.value}
             </span>
           )}
           {suffixContent}
