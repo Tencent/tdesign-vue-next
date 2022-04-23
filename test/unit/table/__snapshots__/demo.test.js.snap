@@ -3166,7 +3166,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           
                           <div
                             class="t-popup__reference t-table-sort-asc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -3206,7 +3205,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           </div>
                           <div
                             class="t-popup__reference t-table-sort-desc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -3277,7 +3275,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           
                           <div
                             class="t-popup__reference t-table-sort-asc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -3317,7 +3314,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           </div>
                           <div
                             class="t-popup__reference t-table-sort-desc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -6144,7 +6140,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                         
                         <div
                           class="t-popup__reference t-table-sort-asc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -6184,7 +6179,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                         </div>
                         <div
                           class="t-popup__reference t-table-sort-desc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -20353,7 +20347,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                           
                           <div
                             class="t-popup__reference t-table-sort-asc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -20393,7 +20386,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                           </div>
                           <div
                             class="t-popup__reference t-table-sort-desc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -22235,7 +22227,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           
                           <div
                             class="t-popup__reference t-table-sort-asc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -22275,7 +22266,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           </div>
                           <div
                             class="t-popup__reference t-table-sort-desc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -22346,7 +22336,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           
                           <div
                             class="t-popup__reference t-table-sort-asc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -22386,7 +22375,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           </div>
                           <div
                             class="t-popup__reference t-table-sort-desc"
-                            duration="3000"
                             theme="default"
                           >
                             <transition-stub>
@@ -24957,7 +24945,6 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         
                         <div
                           class="t-popup__reference t-table-sort-asc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -24997,7 +24984,6 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         </div>
                         <div
                           class="t-popup__reference t-table-sort-desc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -25068,7 +25054,6 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         
                         <div
                           class="t-popup__reference t-table-sort-asc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -25108,7 +25093,6 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         </div>
                         <div
                           class="t-popup__reference t-table-sort-desc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>

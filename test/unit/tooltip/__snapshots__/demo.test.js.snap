@@ -4,7 +4,6 @@ exports[`Tooltip Tooltip arrowVue demo works fine 1`] = `
 <div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -48,7 +47,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
 >
   <div
     class="t-popup__reference placement top center"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -85,7 +83,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement top left"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -122,7 +119,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement top right"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -159,7 +155,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement bottom center"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -196,7 +191,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement bottom left"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -233,7 +227,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement bottom right"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -270,7 +263,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement align"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -307,7 +299,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement top-align"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -344,7 +335,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement bottom-align"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -381,7 +371,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement right-full align"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -418,7 +407,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement right-full top-align"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -455,7 +443,6 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference placement right-full bottom-align"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -548,7 +535,6 @@ exports[`Tooltip Tooltip noArrowVue demo works fine 1`] = `
 <div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -590,7 +576,6 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
 >
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -627,7 +612,6 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="primary"
   >
     <transition-stub>
@@ -664,7 +648,6 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="success"
   >
     <transition-stub>
@@ -701,7 +684,6 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="danger"
   >
     <transition-stub>
@@ -738,7 +720,6 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="warning"
   >
     <transition-stub>
@@ -775,7 +756,6 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="light"
   >
     <transition-stub>
@@ -819,7 +799,6 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
 >
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -856,7 +835,6 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -900,7 +878,6 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
@@ -937,7 +914,6 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
   </div>
   <div
     class="t-popup__reference"
-    duration="3000"
     theme="default"
   >
     <transition-stub>
