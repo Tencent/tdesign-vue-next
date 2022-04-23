@@ -1,7 +1,7 @@
 import { computed, Ref, ref, toRefs } from 'vue';
-import CLASSNAMES from '../utils/classnames';
 import { ChangeSource, TdInputNumberProps } from './type';
 import useVModel from '../hooks/useVModel';
+import { useCommonClassName } from '../hooks/useConfig';
 import useInputNumberTools from './useInputNumberTools';
 
 type ChangeContextEvent = InputEvent | MouseEvent | FocusEvent;
@@ -11,6 +11,7 @@ export default function useInputNumberAction(
   props: TdInputNumberProps,
   isError: Ref<boolean>,
 ) {
+  const { STATUS } = useCommonClassName();
   const filterValue = ref(null);
   const userInput = ref(null);
   const { value, modelValue } = toRefs(props);
@@ -26,14 +27,14 @@ export default function useInputNumberAction(
   const reduceClasses = computed(() => [
     `${COMPONENT_NAME.value}__decrease`,
     {
-      [CLASSNAMES.STATUS.disabled]: disabledReduce.value,
+      [STATUS.value.disabled]: disabledReduce.value,
     },
   ]);
 
   const addClasses = computed(() => [
     `${COMPONENT_NAME.value}__increase`,
     {
-      [CLASSNAMES.STATUS.disabled]: disabledAdd.value,
+      [STATUS.value.disabled]: disabledAdd.value,
     },
   ]);
 
