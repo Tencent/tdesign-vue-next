@@ -38,6 +38,7 @@ export default ({ mode }) => {
     },
     plugins: [
       vue({
+        ssr: false,
         template: {
           compilerOptions: {
             isCustomElement: (tag) => tag.startsWith('td-'),
@@ -50,5 +51,11 @@ export default ({ mode }) => {
       tDocPlugin(),
       VitePWA(pwaConfig),
     ],
+    test: {
+      include: ['test/vitetest/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: path.resolve(__dirname, '../script/test/setup.js'),
+    },
   });
 };
