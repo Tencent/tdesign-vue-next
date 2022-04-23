@@ -1,11 +1,20 @@
-import { defineComponent, nextTick, ComponentPublicInstance } from 'vue';
+import {
+  defineComponent,
+  nextTick,
+  ComponentPublicInstance,
+  ref,
+  reactive,
+  onMounted,
+  onUnmounted,
+  watchEffect,
+  provide,
+} from 'vue';
 import { ANCHOR_SHARP_REGEXP, ANCHOR_CONTAINER, getOffsetTop } from './utils';
-import { on, off, getScroll, scrollTo, getScrollContainer } from '../utils/dom';
+import { on, off, getScroll, scrollTo, getScrollContainer as utilsGetScrollContainer } from '../utils/dom';
 import props from './props';
-import { renderTNodeJSX } from '../utils/render-tnode';
+import { useTNodeJSX } from '../hooks/tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
-import { emitEvent } from '../utils/event';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 export interface Anchor extends ComponentPublicInstance {
@@ -13,197 +22,53 @@ export interface Anchor extends ComponentPublicInstance {
   // 执行scrollTo设置的flag, 用来禁止执行handleScroll
   handleScrollLock: boolean;
 }
+interface ActiveLineStyle {
+  top: string;
+  height: string;
+  opacity: number;
+}
 
 export default defineComponent({
   name: 'TAnchor',
-
-  provide(): any {
-    return {
-      tAnchor: this,
-    };
-  },
-
-  props: { ...props },
-
-  emits: ['change', 'click'],
-
-  setup() {
+  props,
+  setup(props, { slots, attrs }) {
+    const anchorRef = ref<HTMLElement | null>(null);
+    const links = ref<string[]>([]);
+    const active = ref('');
+    const scrollContainer = ref<ANCHOR_CONTAINER>(null);
+    const handleScrollLock = ref<boolean>(false);
+    const activeLineStyle = reactive<ActiveLineStyle>({ top: '', height: '', opacity: null });
     const COMPONENT_NAME = usePrefixClass('anchor');
     const ANCHOR_LINE_CLASSNAME = usePrefixClass('anchor__line');
     const ANCHOR_LINE_CURSOR_CLASSNAME = usePrefixClass('anchor__line-cursor');
-
     const { STATUS, SIZE } = useCommonClassName();
-    return {
-      COMPONENT_NAME,
-      ANCHOR_LINE_CLASSNAME,
-      ANCHOR_LINE_CURSOR_CLASSNAME,
-      STATUS,
-      SIZE,
-    };
-  },
-  data() {
-    return {
-      links: [] as string[],
-      active: '',
-      scrollContainer: null as ANCHOR_CONTAINER,
-      activeLineStyle: {} as { top: string; height: string; opacity: number },
-    };
-  },
-
-  watch: {
-    attach() {
-      // 清空上一个container的事件监听
-      if (this.scrollContainer) {
-        off(this.scrollContainer, 'scroll', this.handleScroll);
-      }
-      this.getScrollContainer();
-    },
-  },
-
-  async mounted() {
-    const { active } = this;
-    this.getScrollContainer();
-    if (active) {
-      await nextTick();
-      this.handleScrollTo(active);
-    }
-  },
-
-  unmounted() {
-    if (!this.scrollContainer) return;
-    off(this.scrollContainer, 'scroll', this.handleScroll);
-  },
-
-  methods: {
+    const renderTNodeJSX = useTNodeJSX();
     /**
      * 获取滚动容器
      * 1. 如果是string则通过id获取
      * 2. 如果是method则获取方法返回值
      */
-    getScrollContainer(): void {
-      const { container } = this;
-      this.scrollContainer = getScrollContainer(container) as HTMLElement;
-      on(this.scrollContainer, 'scroll', this.handleScroll);
-      this.handleScroll();
-    },
-    /**
-     * 获取锚点对应的target元素
-     *
-     * @param {string} link
-     */
-    getAnchorTarget(link: string): HTMLElement {
-      const matcher = link.match(ANCHOR_SHARP_REGEXP);
-      if (!matcher) {
-        return;
-      }
-      const anchor = document.getElementById(matcher[1]);
-      if (!anchor) {
-        return;
-      }
-      return anchor;
-    },
-    /**
-     * 注册锚点
-     *
-     * @param {string} link
-     */
-    registerLink(link: string): void {
-      const { links } = this;
-      if (!ANCHOR_SHARP_REGEXP.test(link) || links.indexOf(link) !== -1) {
-        return;
-      }
-      links.push(link);
-    },
-    /**
-     * 注销锚点
-     *
-     * @param {string} link
-     */
-    unregisterLink(link: string): void {
-      this.links = this.links.filter((each) => each !== link);
-    },
-    /**
-     * 设置当前激活状态锚点
-     *
-     * @param {string} link
-     */
-    async setCurrentActiveLink(link: string): Promise<void> {
-      const { active } = this;
-      if (active === link) {
-        return;
-      }
-      this.active = link;
-      this.emitChange(link, active);
-      await nextTick();
-      this.updateActiveLine();
-    },
-    /**
-     * 计算active-line所在的位置
-     * 当前active-item的top + height, 以及ANCHOR_ITEM_PADDING修正
-     */
-    updateActiveLine(): void {
-      const ele = this.$el.querySelector(`.${this.STATUS.active}>a`) as HTMLAnchorElement;
-      if (!ele) {
-        this.activeLineStyle = null;
-        return;
-      }
-      const { offsetTop: top, offsetHeight: height } = ele;
-      this.activeLineStyle = {
-        top: `${top}px`,
-        height: `${height}px`,
-        opacity: 1,
-      };
-    },
-    /**
-     * 触发onchange事件或者props
-     *
-     * @param {string} currentLink
-     * @param {string} prevLink
-     */
-    emitChange(currentLink: string, prevLink: string) {
-      emitEvent(this, 'change', currentLink, prevLink);
-    },
-    /**
-     * 监听AnchorLink点击事件
-     * @param {{ href: string; title: string }} link
-     */
-    handleLinkClick(link: { href: string; title: string }): void {
-      emitEvent(this, 'click', link);
-    },
-    /**
-     * 滚动到指定锚点
-     *
-     * @param {string} link
-     */
-    async handleScrollTo(link: string): Promise<void> {
-      const anchor = this.getAnchorTarget(link);
-      this.setCurrentActiveLink(link);
-      if (!anchor) return;
-      this.handleScrollLock = true;
-      const { scrollContainer, targetOffset } = this;
-      const scrollTop = getScroll(scrollContainer);
-      const offsetTop = getOffsetTop(anchor, scrollContainer);
-      const top = scrollTop + offsetTop - targetOffset;
-      await scrollTo(top, {
-        container: scrollContainer,
-      });
-      this.handleScrollLock = false;
-    },
+    const getScrollContainer = (): void => {
+      const { container } = props;
+      scrollContainer.value = utilsGetScrollContainer(container) as HTMLElement;
+      on(scrollContainer.value, 'scroll', handleScroll);
+      handleScroll();
+    };
     /**
      * 监听滚动事件
      */
-    handleScroll(): void {
-      if (this.handleScrollLock) return;
-      const { links, bounds, targetOffset } = this;
+    const handleScroll = (): void => {
+      if (handleScrollLock.value) return;
+      const { bounds, targetOffset } = props;
       const filters: { top: number; link: string }[] = [];
       let active = '';
       // 找出所有当前top小于预设值
-      links.forEach((link) => {
-        const anchor = this.getAnchorTarget(link);
+      links.value.forEach((link) => {
+        const anchor = getAnchorTarget(link);
         if (!anchor) {
           return;
         }
-        const top = getOffsetTop(anchor, this.scrollContainer);
+        const top = getOffsetTop(anchor, scrollContainer.value);
         if (top < bounds + targetOffset) {
           filters.push({
             link,
@@ -216,39 +81,152 @@ export default defineComponent({
         const latest = filters.reduce((prev, cur) => (prev.top > cur.top ? prev : cur));
         active = latest.link;
       }
-      this.setCurrentActiveLink(active);
-    },
-    renderCursor() {
-      const titleContent: SlotReturnValue = renderTNodeJSX(this, 'cursor');
-      return titleContent || <div class={this.ANCHOR_LINE_CURSOR_CLASSNAME}></div>;
-    },
-  },
-
-  render() {
-    const {
-      $slots: { default: children },
-      size,
-      affixProps,
-      activeLineStyle,
-      $attrs,
-    } = this;
-    const className = [this.COMPONENT_NAME, this.SIZE[size]];
-
-    const content = (
-      <div class={className} {...$attrs}>
-        <div class={this.ANCHOR_LINE_CLASSNAME}>
-          <div class={`${this.ANCHOR_LINE_CURSOR_CLASSNAME}-wrapper`} style={activeLineStyle}>
-            {this.renderCursor()}
-          </div>
-        </div>
-        {children && children(null)}
-      </div>
+      setCurrentActiveLink(active);
+    };
+    /**
+     * 获取锚点对应的target元素
+     *
+     * @param {string} link
+     */
+    const getAnchorTarget = (link: string): HTMLElement => {
+      const matcher = link.match(ANCHOR_SHARP_REGEXP);
+      if (!matcher) {
+        return;
+      }
+      const anchor = document.getElementById(matcher[1]);
+      if (!anchor) {
+        return;
+      }
+      return anchor;
+    };
+    /**
+     * 注册锚点
+     *
+     * @param {string} link
+     */
+    const registerLink = (link: string): void => {
+      if (!ANCHOR_SHARP_REGEXP.test(link) || links.value.indexOf(link) !== -1) {
+        return;
+      }
+      links.value.push(link);
+    };
+    /**
+     * 注销锚点
+     *
+     * @param {string} link
+     */
+    const unregisterLink = (link: string): void => {
+      links.value = links.value.filter((each) => each !== link);
+    };
+    /**
+     * 设置当前激活状态锚点
+     *
+     * @param {string} link
+     */
+    const setCurrentActiveLink = async (link: string): Promise<void> => {
+      if (active.value === link) {
+        return;
+      }
+      active.value = link;
+      props.onChange?.(link, active.value);
+      await nextTick();
+      updateActiveLine();
+    };
+    /**
+     * 计算active-line所在的位置
+     * 当前active-item的top + height, 以及ANCHOR_ITEM_PADDING修正
+     */
+    const updateActiveLine = (): void => {
+      const ele = anchorRef.value?.querySelector(`.${STATUS.value.active}>a`) as HTMLAnchorElement;
+      if (!ele) {
+        Object.assign(activeLineStyle, {});
+        return;
+      }
+      const { offsetTop: top, offsetHeight: height } = ele;
+      Object.assign(activeLineStyle, {
+        top: `${top}px`,
+        height: `${height}px`,
+        opacity: 1,
+      });
+    };
+    /**
+     * 监听AnchorLink点击事件
+     * @param {{ href: string; title: string }} link
+     */
+    const handleLinkClick = (link: { href: string; title: string; e: MouseEvent }): void => {
+      props.onClick?.(link);
+    };
+    /**
+     * 滚动到指定锚点
+     *
+     * @param {string} link
+     */
+    const handleScrollTo = async (link: string): Promise<void> => {
+      const anchor = getAnchorTarget(link);
+      setCurrentActiveLink(link);
+      if (!anchor) return;
+      handleScrollLock.value = true;
+      const { targetOffset } = props;
+      const scrollTop = getScroll(scrollContainer.value);
+      const offsetTop = getOffsetTop(anchor, scrollContainer.value);
+      const top = scrollTop + offsetTop - targetOffset;
+      await scrollTo(top, {
+        container: scrollContainer.value,
+      });
+      handleScrollLock.value = false;
+    };
+    const renderCursor = () => {
+      const titleContent: SlotReturnValue = renderTNodeJSX('cursor');
+      return titleContent || <div class={ANCHOR_LINE_CURSOR_CLASSNAME.value}></div>;
+    };
+    onMounted(async () => {
+      getScrollContainer();
+      if (active.value) {
+        await nextTick();
+        handleScrollTo(active.value);
+      }
+    });
+    onUnmounted(() => {
+      if (!scrollContainer.value) return;
+      off(scrollContainer.value, 'scroll', handleScroll);
+    });
+    watchEffect(() => {
+      // 清空上一个container的事件监听
+      if (scrollContainer.value) {
+        off(scrollContainer.value, 'scroll', handleScroll);
+      }
+      getScrollContainer();
+    });
+    provide(
+      'tAnchor',
+      reactive({
+        registerLink,
+        unregisterLink,
+        handleScrollTo,
+        handleLinkClick,
+        active,
+      }),
     );
+    return () => {
+      const { size, affixProps } = props;
+      const className = [COMPONENT_NAME.value, SIZE.value[size]];
 
-    if (affixProps) {
-      return <Affix {...affixProps}>{content}</Affix>;
-    }
+      const content = (
+        <div ref={anchorRef} class={className} {...attrs}>
+          <div class={ANCHOR_LINE_CLASSNAME.value}>
+            <div class={`${ANCHOR_LINE_CURSOR_CLASSNAME.value}-wrapper`} style={activeLineStyle}>
+              {renderCursor()}
+            </div>
+          </div>
+          {slots.default && slots.default(null)}
+        </div>
+      );
 
-    return content;
+      if (affixProps) {
+        return <Affix {...affixProps}>{content}</Affix>;
+      }
+
+      return content;
+    };
   },
 });
