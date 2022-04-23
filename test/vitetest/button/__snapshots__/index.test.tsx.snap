@@ -1,0 +1,83 @@
+// Vitest Snapshot v1
+
+exports[`Button > :props > :block 1`] = `
+<button
+  block="true"
+>
+  text
+</button>
+`;
+
+exports[`Button > :props > :content 1`] = `
+<div>
+  <button
+    content="foo"
+  >
+    bar
+  </button>
+  <button
+    content="function () {
+        return 'foo';
+      }"
+  >
+    bar
+  </button>
+  <button
+    default="foo"
+  >
+    bar
+  </button>
+  <button
+    default="function () {
+        return 'foo';
+      }"
+  >
+    bar
+  </button>
+  <button
+    content="0"
+  >
+    bar
+  </button>
+</div>
+`;
+
+exports[`Button > :props > :disabled 1`] = `
+<button
+  disabled=""
+>
+  text
+</button>
+`;
+
+exports[`Button > :props > :loading 1`] = `
+<button
+  loading="true"
+>
+  text
+</button>
+`;
+
+exports[`Button > :props > :shape 1`] = `
+<button
+  shape="round"
+>
+  text
+</button>
+`;
+
+exports[`Button > :props > :size 1`] = `
+<button
+  size="large"
+>
+  text
+</button>
+`;
+
+exports[`Button > :props > :variant 1`] = `
+<button
+  variant="base"
+>
+  text
+</button>
+`;
