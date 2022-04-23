@@ -2,11 +2,10 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { ButtonProps } from '../button';
-import { TNode, AttachNode } from '../common';
+import { TNode, Styles, AttachNode } from '../common';
 
 export interface TdDialogProps {
   /**
@@ -30,7 +29,7 @@ export interface TdDialogProps {
    */
   closeBtn?: string | boolean | TNode;
   /**
-   * 按下 ESC 时是否触发抽屉关闭事件
+   * 按下 ESC 时是否触发对话框关闭事件
    * @default true
    */
   closeOnEscKeydown?: boolean;
@@ -40,12 +39,12 @@ export interface TdDialogProps {
    */
   closeOnOverlayClick?: boolean;
   /**
-   * 确认按钮。值为 null 则不显示取消按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件
+   * 确认按钮。值为 null 则不显示确认按钮。值类型为字符串，则表示自定义按钮文本，值类型为 Object 则表示透传 Button 组件属性。使用 TNode 自定义按钮时，需自行控制确认事件
    * @default ''
    */
   confirmBtn?: string | ButtonProps | TNode;
   /**
-   * 抽屉内容，同 body
+   * 对话框内容，同 body
    */
   default?: string | TNode;
   /**
@@ -84,6 +83,11 @@ export interface TdDialogProps {
    */
   preventScrollThrough?: boolean;
   /**
+   * 【开发中】仅在挂载元素中显示抽屉，默认在浏览器可视区域显示。父元素需要有定位属性，如：position: relative
+   * @default false
+   */
+  showInAttachedElement?: boolean;
+  /**
    * 是否显示遮罩层
    * @default true
    */
@@ -102,11 +106,6 @@ export interface TdDialogProps {
    * @default false
    */
   visible?: boolean;
-  /**
-   * 控制对话框是否显示，非受控属性
-   * @default false
-   */
-  defaultVisible?: boolean;
   /**
    * 对话框宽度，示例：320, '500px', '80%'
    */
@@ -162,9 +161,8 @@ export interface DialogOptions extends Omit<TdDialogProps, 'attach'> {
   className?: string;
   /**
    * 弹框 style 属性，输入 [CSSStyleDeclaration.cssText](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/cssText)
-   * @default ''
    */
-  style?: string;
+  style?: string | Styles;
 }
 
 export interface DialogInstance {
@@ -197,4 +195,4 @@ export type DialogMethod = (options?: DialogOptions) => DialogInstance;
 
 export type DialogConfirmMethod = (options?: DialogOptions) => DialogInstance;
 
-export type DialogAlertMethod = (options?: Omit<DialogOptions, 'confirmBtn'>) => DialogInstance;
+export type DialogAlertMethod = (options?: Omit<DialogOptions, 'cancelBtn'>) => DialogInstance;
