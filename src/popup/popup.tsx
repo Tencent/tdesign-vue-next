@@ -105,7 +105,6 @@ export default defineComponent({
   },
   watch: {
     visible(val) {
-      // console.log(val);
       if (val) {
         this.updatePopper();
         if (!this.hasDocumentEvent && (this.hasTrigger['context-menu'] || this.hasTrigger.click)) {
@@ -325,13 +324,9 @@ export default defineComponent({
       this.emitPopVisible(false, { trigger: 'document' });
     },
     emitPopVisible(val: boolean, context: PopupVisibleChangeContext) {
-      // this.$nextTick(() => {
-      // console.log(val, context);
-      emitEvent(this, 'visible-change', val, context);
-      // });
-      // setTimeout(() => {
-      //   emitEvent(this, 'visible-change', val, context);
-      // }, 1000);
+      this.$nextTick(() => {
+        emitEvent(this, 'visible-change', val, context);
+      });
     },
   },
 
