@@ -77,9 +77,6 @@ export default function useInput(props: TdInputProps) {
     emitEvent('blur', props.value, { e });
   };
 
-  const compositionendHandler = (e: InputEvent) => {
-    inputValueChangeHandle(e);
-  };
   const onHandleCompositionend = (e: CompositionEvent) => {
     inputValueChangeHandle(e);
     emitEvent('compositionend', innerValue.value, { e });
