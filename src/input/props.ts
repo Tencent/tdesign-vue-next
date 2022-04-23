@@ -109,6 +109,7 @@ export default {
   /** 输入框的值 */
   value: {
     type: [String, Number] as PropType<TdInputProps['value']>,
+    default: undefined,
   },
   modelValue: {
     type: [String, Number] as PropType<TdInputProps['modelValue']>,
