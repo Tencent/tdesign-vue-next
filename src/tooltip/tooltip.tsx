@@ -1,10 +1,7 @@
-import { computed, defineComponent, reactive, ref, unref, watch, toRefs } from 'vue';
+import { computed, defineComponent, onMounted, ref, watch } from 'vue';
 import props from './props';
 import popupProps from '../popup/props';
-import Popup, { PopupProps, PopupVisibleChangeContext } from '../popup';
-import { ClassName } from '../common';
-// import { useEmitEvent } from '../hooks/event';
-import useVModel from '../hooks/useVModel';
+import Popup, { PopupVisibleChangeContext } from '../popup';
 import { usePrefixClass } from '../hooks/useConfig';
 import { useTNodeJSX, useContent } from '../hooks/tnode';
 
@@ -18,67 +15,55 @@ export default defineComponent({
   emits: ['visible-change'],
   setup(props, ctx) {
     const timer = ref(null);
-    const tooltipVisible = ref(false);
-    // const emitEvent = useEmitEvent();
+
+    const innerTooltipVisible = ref(props.visible || props.defaultVisible);
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
     const renderContent = useContent();
-    const { duration, visible, modelValue, theme, overlayClassName } = toRefs(props);
-    const [visibleValue, setVisibleValue] = useVModel(visible, modelValue, props.defaultVisible, props.onVisibleChange);
-    if (duration && visible) {
-      timer.value = setTimeout(() => {
-        // emitEvent('visible-change', false);
-        setVisibleValue(false, {});
-        clearTimeout(timer.value);
-        timer.value = null;
-      }, unref(duration));
-    }
+
+    onMounted(() => {
+      if (props.duration && innerTooltipVisible.value) {
+        timer.value = setTimeout(() => {
+          innerTooltipVisible.value = false;
+          clearTimeout(timer.value);
+          timer.value = null;
+        }, props.duration);
+      }
+    });
+
     const onTipVisibleChange = (val: boolean, ctx?: PopupVisibleChangeContext) => {
       // 因 props={this.getPopupProps()} 已经透传 onVisibleChange props，此处不再需要使用 emitEvent
       if (timer.value && ctx?.trigger !== 'document') return;
-      setVisibleValue(val, ctx);
-      // emitEvent('visible-change', val);
+      innerTooltipVisible.value = val;
     };
-    const tooltipOverlayClassName: ClassName = computed(() => {
+
+    const tooltipOverlayClassName = computed(() => {
       return [
         `${classPrefix.value}-tooltip`,
-        { [`${classPrefix.value}-tooltip--${theme.value}`]: theme.value },
-        overlayClassName.value,
+        { [`${classPrefix.value}-tooltip--${props.theme}`]: props.theme },
+        props.overlayClassName,
       ];
     });
 
-    const getPopupProps = (): PopupProps => {
-      const r: PopupProps = {
-        showArrow: true,
-        ...props,
-        content: () => renderTNodeJSX('content'),
-        default: () => renderContent('default', 'triggerElement'),
-        overlayClassName: tooltipOverlayClassName.value,
-        onVisibleChange: onTipVisibleChange,
-      };
-      return r;
-    };
+    const popupProps = computed(() => ({
+      showArrow: props.showArrow,
+      ...props,
+      content: () => renderTNodeJSX('content'),
+      default: () => renderContent('default', 'triggerElement'),
+      overlayClassName: tooltipOverlayClassName.value,
+      onVisibleChange: onTipVisibleChange,
+    }));
 
     watch(
-      () => visible,
+      () => innerTooltipVisible.value,
       (next, prev) => {
-        if (timer.value && !visible) {
+        if (timer.value && !innerTooltipVisible.value) {
           clearTimeout(timer.value);
           timer.value = null;
         }
       },
     );
 
-    return {
-      visibleValue,
-      tooltipOverlayClassName,
-      getPopupProps,
-    };
-  },
-
-  render() {
-    // console.log(this.visibleValue, this.getPopupProps());
-    return <Popup visible={this.visibleValue} showArrow={this.showArrow} {...this.getPopupProps()} />;
-    // return <Popup visible={true} {...this.getPopupProps()} />;
+    return () => <Popup {...popupProps.value} visible={innerTooltipVisible.value} />;
   },
 });
