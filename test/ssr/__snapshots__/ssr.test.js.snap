@@ -11743,7 +11743,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">请输入</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
               <!---->
               <!---->
             </div>
@@ -12031,7 +12031,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">请输入</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
               <!---->
               <!---->
             </div>
@@ -12312,7 +12312,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/color-mode.vue 
                 <!--[-->
                 <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);"></span></div>
                 <!--]-->
-              </div><input class="t-input__inner" placeholder="请输入" type="text" value="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"><span class="t-input__input-pre">请输入</span>
+              </div><input class="t-input__inner" placeholder="请输入" type="text" value="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"><span class="t-input__input-pre">linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)</span>
               <!---->
               <!---->
             </div>
@@ -13468,7 +13468,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/status-disabled
               <!--[-->
               <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
               <!--]-->
-            </div><input class="t-input__inner" disabled placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">请输入</span>
+            </div><input class="t-input__inner" disabled placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
             <!---->
             <!---->
           </div>
@@ -14353,7 +14353,7 @@ exports[`ssr snapshot test renders ./examples/color-picker/demos/trigger.vue cor
               <!--[-->
               <div class="t-color-picker__trigger--default__color t-color-picker--bg-alpha"><span class="color-inner" style="background:#0052d9;"></span></div>
               <!--]-->
-            </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">请输入</span>
+            </div><input class="t-input__inner" placeholder="请输入" type="text" value="#0052d9"><span class="t-input__input-pre">#0052d9</span>
             <!---->
             <!---->
           </div>
@@ -26475,7 +26475,7 @@ exports[`ssr snapshot test renders ./examples/input/demos/auto-width.vue correct
   <div class="t-input__wrap">
     <div class="t-input t-input--auto-width">
       <!---->
-      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="宽度自适应"><span class="t-input__input-pre">请输入</span>
+      <!----><input class="t-input__inner" placeholder="请输入" type="text" value="宽度自适应"><span class="t-input__input-pre">宽度自适应</span>
       <!---->
       <!---->
     </div>

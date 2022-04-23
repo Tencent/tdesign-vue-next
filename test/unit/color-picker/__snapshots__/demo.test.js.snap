@@ -992,7 +992,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               <span
                 class="t-input__input-pre"
               >
-                请输入
+                #0052d9
               </span>
               <!---->
               <!---->
@@ -1937,7 +1937,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               <span
                 class="t-input__input-pre"
               >
-                请输入
+                #0052d9
               </span>
               <!---->
               <!---->
@@ -2887,7 +2887,7 @@ exports[`ColorPicker ColorPicker colorModeVue demo works fine 1`] = `
               <span
                 class="t-input__input-pre"
               >
-                请输入
+                linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)
               </span>
               <!---->
               <!---->
@@ -6760,7 +6760,7 @@ exports[`ColorPicker ColorPicker statusDisabledVue demo works fine 1`] = `
             <span
               class="t-input__input-pre"
             >
-              请输入
+              #0052d9
             </span>
             <!---->
             <!---->
@@ -9606,7 +9606,7 @@ exports[`ColorPicker ColorPicker triggerVue demo works fine 1`] = `
             <span
               class="t-input__input-pre"
             >
-              请输入
+              #0052d9
             </span>
             <!---->
             <!---->
