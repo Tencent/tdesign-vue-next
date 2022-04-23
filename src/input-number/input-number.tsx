@@ -2,27 +2,15 @@ import { computed, defineComponent, ref, watch } from 'vue';
 import { AddIcon, RemoveIcon, ChevronDownIcon, ChevronUpIcon } from 'tdesign-icons-vue-next';
 import TButton from '../button';
 import TInput from '../input';
-import CLASSNAMES from '../utils/classnames';
 import props from './props';
 import { TdInputNumberProps } from './type';
 
 // hooks
 import { useFormDisabled } from '../form/hooks';
-import { usePrefixClass } from '../hooks/useConfig';
-import { useEmitEvent } from '../hooks/event';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import useInputNumberAction from './useInputNumberAction';
 import useInputNumberTools from './useInputNumberTools';
 import useKeyboardEvents from './useKeyboardEvents';
-
-type InputNumberEvent = {
-  onInput?: (e: InputEvent) => void;
-  onClick?: (e: MouseEvent) => void;
-  onBlur?: (e: FocusEvent) => void;
-  onFocus?: (e: FocusEvent) => void;
-  onKeydown?: (e: KeyboardEvent) => void;
-  onKeyup?: (e: KeyboardEvent) => void;
-  onKeypress?: (e: KeyboardEvent) => void;
-};
 
 type InputNumberAttr = {
   disabled?: boolean;
@@ -48,20 +36,10 @@ export default defineComponent({
     TInput,
   },
   props,
-  emits: [
-    'update:value',
-    'update:modelValue',
-    'change',
-    'blur',
-    'focus',
-    'keydown-enter',
-    'keydown',
-    'keyup',
-    'keypress',
-  ],
   setup(props) {
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input-number');
+    const { SIZE, STATUS } = useCommonClassName();
     const classPrefix = usePrefixClass();
 
     const isError = ref(false);
@@ -99,22 +77,22 @@ export default defineComponent({
     const handleBlur = async (e: FocusEvent) => {
       await handleEndInput(e);
       clearFilterValue();
-      props.onBlur(innerValue.value, { e });
+      props.onBlur?.(innerValue.value, { e });
     };
 
     const handleFocus = (e: FocusEvent) => {
       handleStartInput();
-      props.onFocus(innerValue.value, { e });
+      props.onFocus?.(innerValue.value, { e });
     };
 
-    const computeds = {
+    const computedMap = {
       reduceEvents: computed(() => ({ onClick: actionHandler.handleReduce })),
       addEvents: computed(() => ({ onClick: actionHandler.handleAdd })),
-      cmptWrapClasses: computed(() => [
+      componentWrapClasses: computed(() => [
         COMPONENT_NAME.value,
-        CLASSNAMES.SIZE[props.size],
+        SIZE.value[props.size],
         {
-          [CLASSNAMES.STATUS.disabled]: disabled.value,
+          [STATUS.value.disabled]: disabled.value,
           [`${classPrefix.value}-is-controls-right`]: props.theme === 'column',
           [`${COMPONENT_NAME.value}--${props.theme}`]: props.theme,
           [`${COMPONENT_NAME.value}--auto-width`]: props.autoWidth,
@@ -168,7 +146,7 @@ export default defineComponent({
     );
 
     return {
-      ...computeds,
+      ...computedMap,
       addClasses,
       reduceClasses,
       actionHandler,
@@ -176,7 +154,7 @@ export default defineComponent({
   },
   render() {
     return (
-      <div class={this.cmptWrapClasses}>
+      <div class={this.componentWrapClasses}>
         {this.theme !== 'normal' && (
           <t-button
             class={this.reduceClasses}

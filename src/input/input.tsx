@@ -25,7 +25,6 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 export default defineComponent({
   name: 'TInput',
   props,
-  emits: ['update:modelValue', 'enter', 'keydown', 'keyup', 'keypress', 'clear', 'change', 'focus', 'blur', 'click'],
   setup(props, { slots }) {
     const { global } = useConfig('input');
     const disabled = useFormDisabled();

@@ -1,5 +1,6 @@
 import { defineComponent, computed } from 'vue';
 import { usePrefixClass } from '../hooks/useConfig';
+import { useTNodeJSX } from '../hooks/tnode';
 
 export default defineComponent({
   name: 'TInputGroup',
@@ -11,21 +12,13 @@ export default defineComponent({
   },
   setup(props) {
     const COMPONENT_NAME = usePrefixClass('input-group');
-
+    const renderTNodeJSX = useTNodeJSX();
     const CLASS = computed(() => [
       COMPONENT_NAME.value,
       {
         [`${COMPONENT_NAME.value}--separate`]: props.separate,
       },
     ]);
-
-    return {
-      COMPONENT_NAME,
-      CLASS,
-    };
-  },
-  render() {
-    const { CLASS } = this;
-    return <div class={CLASS}>{this.$slots.default && this.$slots.default(null)}</div>;
+    return () => <div class={CLASS.value}>{renderTNodeJSX('default')}</div>;
   },
 });
