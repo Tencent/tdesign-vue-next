@@ -337,11 +337,16 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           <div
             class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom t-is-opened"
           >
-            
-            <span>
-              菜单1
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单1
+              </span>
+              
             </span>
-            
           </div>
           <ul
             style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
@@ -394,11 +399,16 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           <div
             class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
           >
-            
-            <span>
-              菜单2
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单2
+              </span>
+              
             </span>
-            
           </div>
           <ul
             style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
@@ -528,11 +538,16 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           <div
             class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom t-is-opened"
           >
-            
-            <span>
-              菜单1
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单1
+              </span>
+              
             </span>
-            
           </div>
           <ul
             style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
@@ -585,11 +600,16 @@ exports[`Menu Menu doubleVue demo works fine 1`] = `
           <div
             class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
           >
-            
-            <span>
-              菜单2
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单2
+              </span>
+              
             </span>
-            
           </div>
           <ul
             style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
@@ -1190,6 +1210,11 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
             >
               <!---->
+              <span
+                class="t-menu__content"
+              >
+                <!---->
+              </span>
             </div>
             <ul
               style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
@@ -1257,6 +1282,11 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
             >
               <!---->
+              <span
+                class="t-menu__content"
+              >
+                <!---->
+              </span>
             </div>
             <ul
               style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
@@ -1324,6 +1354,11 @@ exports[`Menu Menu headMenuTileVue demo works fine 1`] = `
               class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
             >
               <!---->
+              <span
+                class="t-menu__content"
+              >
+                <!---->
+              </span>
             </div>
             <ul
               style="opacity: 0; width: 0px; height: 0px; overflow: hidden;"
@@ -2285,11 +2320,16 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
             class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
           >
             
-            
-            <span>
-              菜单1
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单1
+              </span>
+              
             </span>
-            
             <svg
               class="t-fake-arrow"
               fill="none"
@@ -2319,7 +2359,12 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
             class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
           >
             
-            菜单2
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              菜单2
+            </span>
             <svg
               class="t-fake-arrow"
               fill="none"
@@ -2426,11 +2471,16 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
             class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
           >
             
-            
-            <span>
-              菜单1
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单1
+              </span>
+              
             </span>
-            
             <svg
               class="t-fake-arrow"
               fill="none"
@@ -2460,11 +2510,16 @@ exports[`Menu Menu multipleVue demo works fine 1`] = `
             class="t-menu__item t-menu__item-spacer t-menu__item-spacer--bottom"
           >
             
-            
-            <span>
-              菜单2
+            <!---->
+            <span
+              class="t-menu__content"
+            >
+              
+              <span>
+                菜单2
+              </span>
+              
             </span>
-            
             <svg
               class="t-fake-arrow"
               fill="none"
