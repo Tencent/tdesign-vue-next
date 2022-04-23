@@ -185,7 +185,7 @@ exports[`Input Input autoWidthVue demo works fine 1`] = `
       <span
         class="t-input__input-pre"
       >
-        请输入
+        宽度自适应
       </span>
       <!---->
       <!---->
