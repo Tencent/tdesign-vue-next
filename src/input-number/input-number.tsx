@@ -36,7 +36,7 @@ export default defineComponent({
     );
 
     return () => (
-      <div class={componentWrapClasses}>
+      <div class={componentWrapClasses.value}>
         {props.theme !== 'normal' && (
           <t-button
             class={reduceClasses.value}
