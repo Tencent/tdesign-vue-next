@@ -191,17 +191,23 @@ export default defineComponent({
       return this.isNested ? popupInside : realPopup;
     },
     renderHeadSubmenu() {
+      const icon = renderTNodeJSX(this, 'icon');
       const normalSubmenu = [
         <div ref="submenuRef" class={this.submenuClass} onClick={this.handleSubmenuItemClick}>
-          {renderTNodeJSX(this, 'title')}
+          {icon}
+          <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>
         </div>,
         <ul style="opacity: 0; width: 0; height: 0; overflow: hidden">{renderContent(this, 'default', 'content')}</ul>,
       ];
+
+      const needRotate = this.mode === 'popup' && this.isNested;
+
       const triggerElement = [
-        renderTNodeJSX(this, 'title'),
+        icon,
+        <span class={[`${this.classPrefix}-menu__content`]}>{renderTNodeJSX(this, 'title', { silent: true })}</span>,
         <FakeArrow
           overlayClassName={this.arrowClass}
-          overlayStyle={{ transform: `rotate(${this.isNested ? -90 : 0}deg)` }}
+          overlayStyle={{ transform: `rotate(${needRotate ? -90 : 0}deg)` }}
         />,
       ];
 
