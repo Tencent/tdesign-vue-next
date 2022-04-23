@@ -325,7 +325,7 @@ export default defineComponent({
     );
 
     const renderInputButton = (): VNode => {
-      const firstInputVal = props.range ? firstValue.value : sliderState.prevValue;
+      const firstInputVal = props.range ? firstValue.value : (sliderState.prevValue as number);
       const firstInputOnChange = (v: number) => {
         firstValue.value = v;
         props.range ? (firstValue.value = v) : (sliderState.prevValue = v);
