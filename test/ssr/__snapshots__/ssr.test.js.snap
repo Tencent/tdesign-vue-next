@@ -17071,7 +17071,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                     <div class="t-table__filter-icon-wrap">
                       <div class="t-table__cell--sort-trigger t-table__double-icons">
                         <!--[-->
-                        <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-asc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">click to sort ascending
                               <!---->
@@ -17080,7 +17080,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                           <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-down-small" style="font-size:18px;"><path fill="currentColor" d="M11 6H5l3 4.5L11 6z" fill-opacity="0.9"></path></svg></span>
                           <!--]-->
                         </div>
-                        <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-desc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">click to sort descending
                               <!---->
@@ -17108,7 +17108,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                     <div class="t-table__filter-icon-wrap">
                       <div class="t-table__cell--sort-trigger t-table__double-icons">
                         <!--[-->
-                        <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-asc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">click to sort ascending
                               <!---->
@@ -17117,7 +17117,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                           <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-down-small" style="font-size:18px;"><path fill="currentColor" d="M11 6H5l3 4.5L11 6z" fill-opacity="0.9"></path></svg></span>
                           <!--]-->
                         </div>
-                        <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-desc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">click to sort descending
                               <!---->
@@ -17203,7 +17203,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                     <div class="t-table__filter-icon-wrap">
                       <div class="t-table__cell--sort-trigger t-table__double-icons">
                         <!--[-->
-                        <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-asc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">click to sort ascending
                               <!---->
@@ -17212,7 +17212,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                           <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-down-small" style="font-size:18px;"><path fill="currentColor" d="M11 6H5l3 4.5L11 6z" fill-opacity="0.9"></path></svg></span>
                           <!--]-->
                         </div>
-                        <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-desc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">click to sort descending
                               <!---->
@@ -17240,7 +17240,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                     <div class="t-table__filter-icon-wrap">
                       <div class="t-table__cell--sort-trigger t-table__double-icons">
                         <!--[-->
-                        <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-asc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">click to sort ascending
                               <!---->
@@ -17249,7 +17249,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/table.vue co
                           <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-caret-down-small" style="font-size:18px;"><path fill="currentColor" d="M11 6H5l3 4.5L11 6z" fill-opacity="0.9"></path></svg></span>
                           <!--]-->
                         </div>
-                        <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-desc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">click to sort descending
                               <!---->
@@ -39870,7 +39870,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
                       <div class="t-table__filter-icon-wrap">
                         <div class="t-table__cell--sort-trigger t-table__double-icons">
                           <!--[-->
-                          <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                          <div class="t-popup__reference t-table-sort-asc" theme="default">
                             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                               <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
                                 <!---->
@@ -39879,7 +39879,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
                             <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
                             <!--]-->
                           </div>
-                          <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                          <div class="t-popup__reference t-table-sort-desc" theme="default">
                             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                               <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
                                 <!---->
@@ -39904,7 +39904,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
                       <div class="t-table__filter-icon-wrap">
                         <div class="t-table__cell--sort-trigger t-table__double-icons">
                           <!--[-->
-                          <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                          <div class="t-popup__reference t-table-sort-asc" theme="default">
                             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                               <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
                                 <!---->
@@ -39913,7 +39913,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/data-sort.vue correctl
                             <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
                             <!--]-->
                           </div>
-                          <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                          <div class="t-popup__reference t-table-sort-desc" theme="default">
                             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                               <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
                                 <!---->
@@ -40888,7 +40888,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                     <div class="t-table__filter-icon-wrap">
                       <div class="t-table__cell--sort-trigger t-table__double-icons">
                         <!--[-->
-                        <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-asc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
                               <!---->
@@ -40897,7 +40897,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/filter-controlled.vue 
                           <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
                           <!--]-->
                         </div>
-                        <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-desc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
                               <!---->
@@ -47681,7 +47681,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
                     <div class="t-table__filter-icon-wrap">
                       <div class="t-table__cell--sort-trigger t-table__double-icons">
                         <!--[-->
-                        <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-asc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
                               <!---->
@@ -47690,7 +47690,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multi-header.vue corre
                           <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
                           <!--]-->
                         </div>
-                        <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-desc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
                               <!---->
@@ -48240,7 +48240,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
                       <div class="t-table__filter-icon-wrap">
                         <div class="t-table__cell--sort-trigger t-table__double-icons">
                           <!--[-->
-                          <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                          <div class="t-popup__reference t-table-sort-asc" theme="default">
                             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                               <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
                                 <!---->
@@ -48249,7 +48249,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
                             <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
                             <!--]-->
                           </div>
-                          <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                          <div class="t-popup__reference t-table-sort-desc" theme="default">
                             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                               <div class="t-popup__content t-tooltip t-tooltip--default">点击取消排序
                                 <!---->
@@ -48274,7 +48274,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
                       <div class="t-table__filter-icon-wrap">
                         <div class="t-table__cell--sort-trigger t-table__double-icons">
                           <!--[-->
-                          <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                          <div class="t-popup__reference t-table-sort-asc" theme="default">
                             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                               <div class="t-popup__content t-tooltip t-tooltip--default">点击取消排序
                                 <!---->
@@ -48283,7 +48283,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/multiple-sort.vue corr
                             <!--[--><span class="t-table__sort-icon--active t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
                             <!--]-->
                           </div>
-                          <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                          <div class="t-popup__reference t-table-sort-desc" theme="default">
                             <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                               <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
                                 <!---->
@@ -49233,7 +49233,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
                     <div class="t-table__filter-icon-wrap">
                       <div class="t-table__cell--sort-trigger t-table__double-icons">
                         <!--[-->
-                        <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-asc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
                               <!---->
@@ -49242,7 +49242,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
                           <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
                           <!--]-->
                         </div>
-                        <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-desc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">点击取消排序
                               <!---->
@@ -49267,7 +49267,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
                     <div class="t-table__filter-icon-wrap">
                       <div class="t-table__cell--sort-trigger t-table__double-icons">
                         <!--[-->
-                        <div class="t-popup__reference t-table-sort-asc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-asc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">点击升序
                               <!---->
@@ -49276,7 +49276,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/single-sort.vue correc
                           <!--[--><span class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-down" style=""><path fill="currentColor" d="M3.54 6.46l.92-.92L8 9.08l3.54-3.54.92.92L8 10.92 3.54 6.46z" fill-opacity="0.9"></path></svg></span>
                           <!--]-->
                         </div>
-                        <div class="t-popup__reference t-table-sort-desc" duration="3000" theme="default">
+                        <div class="t-popup__reference t-table-sort-desc" theme="default">
                           <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
                             <div class="t-popup__content t-tooltip t-tooltip--default">点击降序
                               <!---->
@@ -54620,7 +54620,7 @@ exports[`ssr snapshot test renders ./examples/time-picker/demos/twelve-hour-meri
 
 exports[`ssr snapshot test renders ./examples/tooltip/demos/arrow.vue correctly 1`] = `
 <div>
-  <div class="t-popup__reference" duration="3000" theme="default">
+  <div class="t-popup__reference" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54633,7 +54633,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/arrow.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1`] = `
 <div class="tdesign-tooltip-placement">
-  <div class="t-popup__reference placement top center" duration="3000" theme="default">
+  <div class="t-popup__reference placement top center" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54641,7 +54641,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement top left" duration="3000" theme="default">
+  <div class="t-popup__reference placement top left" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54649,7 +54649,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top-left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement top right" duration="3000" theme="default">
+  <div class="t-popup__reference placement top right" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54657,7 +54657,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> top-right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement bottom center" duration="3000" theme="default">
+  <div class="t-popup__reference placement bottom center" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54665,7 +54665,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement bottom left" duration="3000" theme="default">
+  <div class="t-popup__reference placement bottom left" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54673,7 +54673,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom-left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement bottom right" duration="3000" theme="default">
+  <div class="t-popup__reference placement bottom right" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54681,7 +54681,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> bottom-right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement align" duration="3000" theme="default">
+  <div class="t-popup__reference placement align" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54689,7 +54689,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement top-align" duration="3000" theme="default">
+  <div class="t-popup__reference placement top-align" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54697,7 +54697,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left-top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement bottom-align" duration="3000" theme="default">
+  <div class="t-popup__reference placement bottom-align" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54705,7 +54705,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> left-bottom <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement right-full align" duration="3000" theme="default">
+  <div class="t-popup__reference placement right-full align" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54713,7 +54713,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> right <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement right-full top-align" duration="3000" theme="default">
+  <div class="t-popup__reference placement right-full top-align" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54721,7 +54721,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> right-top <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference placement right-full bottom-align" duration="3000" theme="default">
+  <div class="t-popup__reference placement right-full bottom-align" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54748,7 +54748,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/duration.vue correct
 
 exports[`ssr snapshot test renders ./examples/tooltip/demos/no-arrow.vue correctly 1`] = `
 <div>
-  <div class="t-popup__reference" duration="3000" theme="default">
+  <div class="t-popup__reference" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-tooltip t-tooltip--default">文字提示仅展示文本内容
         <!---->
@@ -54762,7 +54762,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/no-arrow.vue correct
 
 exports[`ssr snapshot test renders ./examples/tooltip/demos/theme.vue correctly 1`] = `
 <div class="tdesign-tooltip-demo">
-  <div class="t-popup__reference" duration="3000" theme="default">
+  <div class="t-popup__reference" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54770,7 +54770,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/theme.vue correctly 
     <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-default" type="button"><span class="t-button__text"><!--[-->default<!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference" duration="3000" theme="primary">
+  <div class="t-popup__reference" theme="primary">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--primary">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54778,7 +54778,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/theme.vue correctly 
     <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[-->primary<!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference" duration="3000" theme="success">
+  <div class="t-popup__reference" theme="success">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--success">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54786,7 +54786,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/theme.vue correctly 
     <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-success" type="button"><span class="t-button__text"><!--[-->success<!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference" duration="3000" theme="danger">
+  <div class="t-popup__reference" theme="danger">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--danger">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54794,7 +54794,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/theme.vue correctly 
     <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-danger" type="button"><span class="t-button__text"><!--[-->danger<!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference" duration="3000" theme="warning">
+  <div class="t-popup__reference" theme="warning">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--warning">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54802,7 +54802,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/theme.vue correctly 
     <!--[--><button class="t-button t-size-m t-button--variant-base t-button--theme-warning" type="button"><span class="t-button__text"><!--[-->warning<!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference" duration="3000" theme="light">
+  <div class="t-popup__reference" theme="light">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--light">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54815,7 +54815,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/theme.vue correctly 
 
 exports[`ssr snapshot test renders ./examples/tooltip/demos/trigger.vue correctly 1`] = `
 <div class="tdesign-tooltip-demo">
-  <div class="t-popup__reference" duration="3000" theme="default">
+  <div class="t-popup__reference" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54823,7 +54823,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/trigger.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 悬浮时触发（默认） <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference" duration="3000" theme="default">
+  <div class="t-popup__reference" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54841,7 +54841,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/trigger.vue correctl
     </div>
     <!--]-->
   </div>
-  <div class="t-popup__reference" duration="3000" theme="default">
+  <div class="t-popup__reference" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>
@@ -54849,7 +54849,7 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/trigger.vue correctl
     <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 点击时触发 <!--]--></span></button>
     <!--]-->
   </div>
-  <div class="t-popup__reference" duration="3000" theme="default">
+  <div class="t-popup__reference" theme="default">
     <div class="t-popup" role="tooltip" aria-hidden="true" style="display:none;">
       <div class="t-popup__content t-popup__content--arrow t-tooltip t-tooltip--default">文字提示仅展示文本内容<div class="t-popup__arrow"></div>
       </div>

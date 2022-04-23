@@ -9616,7 +9616,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         
                         <div
                           class="t-popup__reference t-table-sort-asc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -9657,7 +9656,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         </div>
                         <div
                           class="t-popup__reference t-table-sort-desc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -9739,7 +9737,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         
                         <div
                           class="t-popup__reference t-table-sort-asc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -9780,7 +9777,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         </div>
                         <div
                           class="t-popup__reference t-table-sort-desc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -9976,7 +9972,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         
                         <div
                           class="t-popup__reference t-table-sort-asc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -10017,7 +10012,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         </div>
                         <div
                           class="t-popup__reference t-table-sort-desc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -10099,7 +10093,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         
                         <div
                           class="t-popup__reference t-table-sort-asc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
@@ -10140,7 +10133,6 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
                         </div>
                         <div
                           class="t-popup__reference t-table-sort-desc"
-                          duration="3000"
                           theme="default"
                         >
                           <transition-stub>
