@@ -102,3 +102,7 @@ Object.keys(extraApi).forEach((funcName) => {
 });
 
 export default DialogPlugin;
+
+DialogPlugin.alert({
+  confirmBtn: '1123123',
+});
