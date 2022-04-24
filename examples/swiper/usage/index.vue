@@ -3,7 +3,7 @@
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #swiper="{ configProps }"
       ><div :style="{ width: '500px' }">
-        <t-swiper duration="300" interval="2000" v-bind="configProps">
+        <t-swiper :duration="300" :interval="2000" v-bind="configProps">
           <t-swiper-item>
             <div :style="{ height: '200px', background: 'var(--td-success-color-7)' }" />
           </t-swiper-item>
@@ -28,7 +28,7 @@ const panelList = [{ label: 'swiper', value: 'swiper' }];
 
 const usageCodeMap = {
   swiper:
-    '\n        <div :style="{ width: \'500px\' }">\n          <t-swiper duration="300" interval="2000" v-bind="configProps">\n            <t-swiper-item>\n              <div :style="{ height: \'200px\', background: \'var(--td-success-color-7)\' }" />\n            </t-swiper-item>\n            <t-swiper-item>\n              <div :style="{ height: \'200px\', background: \'var(--td-warning-color-7)\' }" />\n            </t-swiper-item>\n            <t-swiper-item>\n              <div :style="{ height: \'200px\', background: \'var(--td-error-color-7)\' }" />\n            </t-swiper-item>\n          </t-swiper>\n        </div>\n      ',
+    '\n        <div :style="{ width: \'500px\' }">\n          <t-swiper :duration="300" :interval="2000" v-bind="configProps">\n            <t-swiper-item>\n              <div :style="{ height: \'200px\', background: \'var(--td-success-color-7)\' }" />\n            </t-swiper-item>\n            <t-swiper-item>\n              <div :style="{ height: \'200px\', background: \'var(--td-warning-color-7)\' }" />\n            </t-swiper-item>\n            <t-swiper-item>\n              <div :style="{ height: \'200px\', background: \'var(--td-error-color-7)\' }" />\n            </t-swiper-item>\n          </t-swiper>\n        </div>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

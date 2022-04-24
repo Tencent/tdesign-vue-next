@@ -44,7 +44,7 @@ onMounted(() => {
 });
 
 watchEffect(() => {
-  usageRef.value.configList = props.configList;
+  usageRef.value.configList = props.configList.filter((config) => config.name !== 'visible');
 });
 
 onBeforeUnmount(() => {

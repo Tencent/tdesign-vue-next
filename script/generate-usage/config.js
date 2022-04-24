@@ -455,7 +455,7 @@ module.exports = {
     render: {
       swiper: `
         <div :style="{ width: '500px' }">
-          <t-swiper duration="300" interval="2000" v-bind="configProps">
+          <t-swiper :duration="300" :interval="2000" v-bind="configProps">
             <t-swiper-item>
               <div :style="{ height: '200px', background: 'var(--td-success-color-7)' }" />
             </t-swiper-item>
@@ -558,7 +558,7 @@ module.exports = {
   message: {
     panelStr: `const panelList = [{label: 'message', value: 'message'}];`,
     render: {
-      message: `<t-message v-bind="configProps" duration="0" content="这里是 Message 信息"  :closeBtn="true" />`,
+      message: `<t-message v-bind="configProps" :duration="0" content="这里是 Message 信息"  :closeBtn="true" />`,
     },
   },
   notification: {
