@@ -199,6 +199,10 @@ export interface TdDateRangePickerProps {
    * 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期
    */
   onPick?: (value: DateValue, context: PickContext) => void;
+  /**
+   * 选择或点击确定按钮后触发
+   */
+  onApply?: (value: DateRangeValue) => void;
 }
 
 export type DisableDate = Array<DateValue> | DisableDateObj | ((date: DateValue) => boolean);
