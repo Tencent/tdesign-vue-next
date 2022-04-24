@@ -14,8 +14,7 @@ import {
   nextTick,
 } from 'vue';
 import { createPopper, Placement } from '@popperjs/core';
-import { prefix } from '../config';
-import CLASSNAMES from '../utils/classnames';
+import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 import { on, off, once } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
 import setStyle from '../_common/js/utils/set-style';
@@ -23,7 +22,6 @@ import props from './props';
 import { PopupVisibleChangeContext, TdPopupProps } from './type';
 import Container from './container';
 
-const name = `${prefix}-popup`;
 const showTimeout = 250;
 const hideTimeout = 150;
 const triggers = ['click', 'hover', 'focus', 'context-menu'] as const;
@@ -78,12 +76,14 @@ export default defineComponent({
 
     const parent = inject(injectionKey, undefined);
 
-    const overlayClasses = computed(() => [
-      `${name}__content`,
+    const prefixCls = usePrefixClass('popup');
+    const { STATUS: commonCls } = useCommonClassName();
+    const overlayCls = computed(() => [
+      `${prefixCls.value}__content`,
       {
-        [`${name}__content--text`]: props.content === 'string',
-        [`${name}__content--arrow`]: props.showArrow,
-        [CLASSNAMES.STATUS.disabled]: props.disabled,
+        [`${prefixCls.value}__content--text`]: typeof props.content === 'string',
+        [`${prefixCls.value}__content--arrow`]: props.showArrow,
+        [commonCls.value.disabled]: props.disabled,
       },
       props.overlayClassName,
     ]);
@@ -138,9 +138,7 @@ export default defineComponent({
       if (!visible && visibleState.value > 1) return;
       if (visible && mouseInRange.value) return;
       emit('visible-change', visible, context);
-      if (typeof props.onVisibleChange === 'function') {
-        props.onVisibleChange(visible, context);
-      }
+      props.onVisibleChange?.(visible, context);
     }
 
     function preventClosing(preventing: boolean) {
@@ -302,7 +300,8 @@ export default defineComponent({
       triggerEl,
       overlayEl,
       popperEl,
-      overlayClasses,
+      prefixCls,
+      overlayCls,
       hasTrigger,
       contentClicked,
       triggerClicked,
@@ -321,14 +320,14 @@ export default defineComponent({
     };
   },
   render() {
-    const { visible, destroyOnClose, hasTrigger, onScroll } = this;
+    const { prefixCls, visible, destroyOnClose, hasTrigger, onScroll } = this;
     const content = renderTNodeJSX(this, 'content');
     const hidePopup = this.hideEmptyPopup && ['', undefined, null].includes(content);
 
     const overlay =
       visible || !destroyOnClose ? (
         <div
-          class={name}
+          class={prefixCls}
           ref="popperEl"
           style={hidePopup && { visibility: 'hidden', pointerEvents: 'none' }}
           vShow={visible}
@@ -348,7 +347,7 @@ export default defineComponent({
           })}
         >
           <div
-            class={this.overlayClasses}
+            class={this.overlayCls}
             ref="overlayEl"
             {...(onScroll && {
               onScroll(e: WheelEvent) {
@@ -357,7 +356,7 @@ export default defineComponent({
             })}
           >
             {content}
-            {this.showArrow && <div class={`${name}__arrow`} />}
+            {this.showArrow && <div class={`${prefixCls}__arrow`} />}
           </div>
         </div>
       ) : null;
@@ -383,7 +382,7 @@ export default defineComponent({
         {{
           content: () => (
             <Transition
-              name={this.expandAnimation ? `${name}--animation-expand` : `${name}--animation`}
+              name={this.expandAnimation ? `${prefixCls}--animation-expand` : `${prefixCls}--animation`}
               appear
               onBeforeEnter={this.updatePopper}
               onAfterEnter={this.updatePopper}

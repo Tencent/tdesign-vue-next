@@ -5,7 +5,7 @@
     <!-- 使用 content 属性渲染浮层内容 -->
     <div class="t-popup-demo-base-item">
       <t-popup content="可以在浮层内容中描述禁用原因">
-        <t-button variant="outline" disabled>禁用状态</t-button>
+        <div><t-button variant="outline" disabled>禁用状态</t-button></div>
       </t-popup>
     </div>
 
