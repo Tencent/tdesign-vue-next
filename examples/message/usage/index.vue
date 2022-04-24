@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #message="{ configProps }"
-      ><t-message v-bind="configProps" duration="0" content="这里是 Message 信息" :close-btn="true"
+      ><t-message v-bind="configProps" :duration="0" content="这里是 Message 信息" :close-btn="true"
     /></template>
   </base-usage>
 </template>
@@ -16,7 +16,7 @@ const configList = ref(configJson);
 const panelList = [{ label: 'message', value: 'message' }];
 
 const usageCodeMap = {
-  message: '<t-message v-bind="configProps" duration="0" content="这里是 Message 信息"  :closeBtn="true" />',
+  message: '<t-message v-bind="configProps" :duration="0" content="这里是 Message 信息"  :closeBtn="true" />',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 
