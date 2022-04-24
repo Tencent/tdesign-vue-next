@@ -16,7 +16,7 @@ export default defineComponent({
      * 复制当前target的链接
      *
      */
-    const toCopyText = (): void => {
+    const toCopyText = () => {
       // 通过构造一个a标签, 自动拼接好传入的id为href
       const a = document.createElement('a');
       a.href = `#${props.id}`;

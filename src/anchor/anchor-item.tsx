@@ -1,7 +1,8 @@
-import { defineComponent, h, VNodeChild, ref, reactive, onMounted, onUnmounted, inject, watch } from 'vue';
+import { defineComponent, h, VNodeChild, onMounted, onUnmounted, inject, watch } from 'vue';
 import { ANCHOR_SHARP_REGEXP } from './utils';
 import props from './anchor-item-props';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { AnchorInjectionKey } from './constants';
 
 const localProps = {
   ...props,
@@ -34,27 +35,21 @@ export default defineComponent({
   },
   props: localProps,
   setup(props, { slots }) {
-    const localTAnchor = inject('tAnchor', localTAnchorOrigin);
+    const anchor = inject(AnchorInjectionKey, undefined);
     const CLASSNAME_PREFIX = usePrefixClass('anchor__item');
     const { STATUS } = useCommonClassName();
-    const register = (): void => {
-      localTAnchor.registerLink(props.href as string);
+    const register = () => {
+      anchor.registerLink(props.href as string);
     };
-    const unregister = (): void => {
+    const unregister = () => {
       const { href } = props;
       if (!href) return;
-      localTAnchor.unregisterLink(href);
+      anchor.unregisterLink(href);
     };
-    const handleClick = (e: MouseEvent): void => {
+    const handleClick = (e: MouseEvent) => {
       const { href, title } = props;
-      localTAnchor.handleScrollTo(href);
-      localTAnchor.handleLinkClick(
-        {
-          href,
-          title: typeof title === 'string' ? title : undefined,
-        },
-        e,
-      );
+      anchor.handleScrollTo(href);
+      anchor.handleLinkClick({ href, title: typeof title === 'string' ? title : undefined, e });
     };
     const renderTitle = () => {
       const { title } = props;
@@ -88,7 +83,7 @@ export default defineComponent({
       const { default: children, title: titleSlot } = slots;
       const title = renderTitle();
       const titleAttr = typeof title === 'string' ? title : null;
-      const active = localTAnchor.active === href;
+      const active = anchor.active === href;
       const wrapperClass = {
         [CLASSNAME_PREFIX.value]: true,
         [STATUS.value.active]: active,
