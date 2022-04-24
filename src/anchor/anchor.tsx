@@ -16,16 +16,12 @@ import { useTNodeJSX } from '../hooks/tnode';
 import { SlotReturnValue } from '../common';
 import Affix from '../affix';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
+import { AnchorInjectionKey } from './constants';
 
 export interface Anchor extends ComponentPublicInstance {
   scrollContainer: ANCHOR_CONTAINER;
   // 执行scrollTo设置的flag, 用来禁止执行handleScroll
   handleScrollLock: boolean;
-}
-interface ActiveLineStyle {
-  top: string;
-  height: string;
-  opacity: number;
 }
 
 export default defineComponent({
@@ -37,7 +33,7 @@ export default defineComponent({
     const active = ref('');
     const scrollContainer = ref<ANCHOR_CONTAINER>(null);
     const handleScrollLock = ref<boolean>(false);
-    const activeLineStyle = reactive<ActiveLineStyle>({ top: '', height: '', opacity: null });
+    const activeLineStyle = reactive({});
     const COMPONENT_NAME = usePrefixClass('anchor');
     const ANCHOR_LINE_CLASSNAME = usePrefixClass('anchor__line');
     const ANCHOR_LINE_CURSOR_CLASSNAME = usePrefixClass('anchor__line-cursor');
@@ -48,7 +44,7 @@ export default defineComponent({
      * 1. 如果是string则通过id获取
      * 2. 如果是method则获取方法返回值
      */
-    const getScrollContainer = (): void => {
+    const getScrollContainer = () => {
       const { container } = props;
       scrollContainer.value = utilsGetScrollContainer(container) as HTMLElement;
       on(scrollContainer.value, 'scroll', handleScroll);
@@ -57,7 +53,7 @@ export default defineComponent({
     /**
      * 监听滚动事件
      */
-    const handleScroll = (): void => {
+    const handleScroll = () => {
       if (handleScrollLock.value) return;
       const { bounds, targetOffset } = props;
       const filters: { top: number; link: string }[] = [];
@@ -104,7 +100,7 @@ export default defineComponent({
      *
      * @param {string} link
      */
-    const registerLink = (link: string): void => {
+    const registerLink = (link: string) => {
       if (!ANCHOR_SHARP_REGEXP.test(link) || links.value.indexOf(link) !== -1) {
         return;
       }
@@ -115,7 +111,7 @@ export default defineComponent({
      *
      * @param {string} link
      */
-    const unregisterLink = (link: string): void => {
+    const unregisterLink = (link: string) => {
       links.value = links.value.filter((each) => each !== link);
     };
     /**
@@ -136,7 +132,7 @@ export default defineComponent({
      * 计算active-line所在的位置
      * 当前active-item的top + height, 以及ANCHOR_ITEM_PADDING修正
      */
-    const updateActiveLine = (): void => {
+    const updateActiveLine = () => {
       const ele = anchorRef.value?.querySelector(`.${STATUS.value.active}>a`) as HTMLAnchorElement;
       if (!ele) {
         Object.assign(activeLineStyle, {});
@@ -153,7 +149,7 @@ export default defineComponent({
      * 监听AnchorLink点击事件
      * @param {{ href: string; title: string }} link
      */
-    const handleLinkClick = (link: { href: string; title: string; e: MouseEvent }): void => {
+    const handleLinkClick = (link: { href: string; title: string; e: MouseEvent }) => {
       props.onClick?.(link);
     };
     /**
@@ -198,7 +194,7 @@ export default defineComponent({
       getScrollContainer();
     });
     provide(
-      'tAnchor',
+      AnchorInjectionKey,
       reactive({
         registerLink,
         unregisterLink,
