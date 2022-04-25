@@ -1222,7 +1222,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -1325,7 +1325,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -1427,7 +1427,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -1529,7 +1529,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -1631,7 +1631,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -1733,7 +1733,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -1839,7 +1839,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -1945,7 +1945,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -2051,7 +2051,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
@@ -2157,7 +2157,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           <!---->
         </div>
         <div
-          class="t-input__extra"
+          class="t-input__help"
         />
       </div>
     </div>
