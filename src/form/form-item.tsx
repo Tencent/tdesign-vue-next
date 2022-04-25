@@ -250,9 +250,9 @@ export default defineComponent({
     },
     renderTipsInfo(): VNode {
       const parent = this.form;
-      let helpVNode: VNode = <div class={this.CLASS_NAMES.extra}></div>;
+      let helpVNode: VNode = <div class={this.CLASS_NAMES.help}></div>;
       if (this.help) {
-        helpVNode = <div class={this.CLASS_NAMES.extra}>{this.help}</div>;
+        helpVNode = <div class={this.CLASS_NAMES.help}>{this.help}</div>;
       }
       const list = this.errorList;
       if (parent.showErrorMessage && list && list[0] && list[0].message) {

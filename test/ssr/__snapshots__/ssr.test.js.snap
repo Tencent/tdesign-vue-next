@@ -16212,7 +16212,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-extra">
@@ -16232,7 +16232,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/others.vue c
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -23104,7 +23104,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/align.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-extra">
@@ -23124,7 +23124,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/align.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -23135,7 +23135,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/align.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -23165,7 +23165,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__tel t-form__item-with-extra">
@@ -23186,7 +23186,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__status t-form__item-with-extra">
@@ -23202,7 +23202,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__gender t-form__item-with-extra">
@@ -23218,7 +23218,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__course t-form__item-with-extra">
@@ -23233,7 +23233,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -23244,7 +23244,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/base.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -23274,7 +23274,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">这是用户名字段帮助说明</div>
+        <div class="t-input__help">这是用户名字段帮助说明</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__description t-form__item-with-help t-form__item-with-extra">
@@ -23295,7 +23295,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">一句话介绍自己</div>
+        <div class="t-input__help">一句话介绍自己</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-extra">
@@ -23315,7 +23315,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__email t-form__item-with-extra">
@@ -23336,7 +23336,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__gender t-form__item-with-extra">
@@ -23352,7 +23352,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__course t-form__item-with-extra">
@@ -23367,7 +23367,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__college t-form__item-with-extra">
@@ -23419,7 +23419,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__date t-form__item-with-extra">
@@ -23440,7 +23440,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__content.url t-form__item-with-extra">
@@ -23461,7 +23461,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -23472,7 +23472,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/clear-validate.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -23502,7 +23502,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-help t-form__item-with-extra">
@@ -23522,7 +23522,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">同一个校验方法可输出不同的错误信息和类型，依次输入：1234 观察变化</div>
+        <div class="t-input__help">同一个校验方法可输出不同的错误信息和类型，依次输入：1234 观察变化</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__rePassword t-form__item-with-help t-form__item-with-extra">
@@ -23542,7 +23542,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">自定义异步校验方法</div>
+        <div class="t-input__help">自定义异步校验方法</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -23553,7 +23553,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/custom-validator.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -23584,7 +23584,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__college t-form__item-with-extra">
@@ -23634,7 +23634,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__address1 t-form__item-with-extra">
@@ -23693,7 +23693,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__address2 t-form__item-with-extra">
@@ -23721,7 +23721,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__date t-form__item-with-extra">
@@ -23932,7 +23932,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__personalProfile t-form__item-with-extra">
@@ -23948,7 +23948,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__message t-form__item-with-extra">
@@ -23962,7 +23962,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__gender t-form__item-with-extra">
@@ -23978,7 +23978,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__course t-form__item-with-extra">
@@ -23993,7 +23993,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__gradePoint t-form__item-with-extra">
@@ -24018,7 +24018,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__avatar t-form__item-with-extra">
@@ -24067,7 +24067,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -24078,7 +24078,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/disabled.vue correctly 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -24116,7 +24116,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">这是用户名字段帮助说明</div>
+        <div class="t-input__help">这是用户名字段帮助说明</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__description t-form__item-with-help t-form__item-with-extra">
@@ -24137,7 +24137,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">一句话介绍自己</div>
+        <div class="t-input__help">一句话介绍自己</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-extra">
@@ -24157,7 +24157,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__email t-form__item-with-extra">
@@ -24178,7 +24178,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__gender t-form__item-with-extra">
@@ -24194,7 +24194,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__course t-form__item-with-extra">
@@ -24209,7 +24209,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__college t-form__item-with-extra">
@@ -24261,7 +24261,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__date t-form__item-with-extra">
@@ -24282,7 +24282,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__content.url t-form__item-with-extra">
@@ -24303,7 +24303,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -24314,7 +24314,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/error-message.vue corre
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -24351,7 +24351,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/layout.vue correctly 1`
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-extra">
@@ -24371,7 +24371,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/layout.vue correctly 1`
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -24400,7 +24400,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/login.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-extra">
@@ -24419,7 +24419,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/login.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -24430,7 +24430,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/login.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -24467,7 +24467,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/reset.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__tel t-form__item-with-extra">
@@ -24488,7 +24488,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/reset.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__course t-form__item-with-extra">
@@ -24503,7 +24503,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/reset.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -24514,7 +24514,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/reset.vue correctly 1`]
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -24551,7 +24551,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__tel t-form__item-with-extra">
@@ -24572,7 +24572,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__status t-form__item-with-extra">
@@ -24588,7 +24588,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__gender t-form__item-with-extra">
@@ -24604,7 +24604,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__course t-form__item-with-extra">
@@ -24619,7 +24619,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -24630,7 +24630,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/size.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -24655,7 +24655,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-tabs" style="margin-left:30px;border:1px solid var(--td-component-stroke);">
@@ -24715,7 +24715,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
                   <!--]-->
                   <!---->
                 </div>
-                <div class="t-input__extra"></div>
+                <div class="t-input__help"></div>
               </div>
             </div>
             <div class="t-form__item t-form-item__students[0].courseType t-form__item-with-extra">
@@ -24731,7 +24731,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
                   <!--]-->
                   <!---->
                 </div>
-                <div class="t-input__extra"></div>
+                <div class="t-input__help"></div>
               </div>
             </div>
             <div class="t-form__item t-form-item__students[0].course t-form__item-with-extra">
@@ -24746,7 +24746,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
                   <!--]-->
                   <!---->
                 </div>
-                <div class="t-input__extra"></div>
+                <div class="t-input__help"></div>
               </div>
             </div>
             <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -24757,7 +24757,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
                   <!--]-->
                   <!---->
                 </div>
-                <div class="t-input__extra"></div>
+                <div class="t-input__help"></div>
               </div>
             </div>
           </div>
@@ -24786,7 +24786,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
                   <!--]-->
                   <!---->
                 </div>
-                <div class="t-input__extra"></div>
+                <div class="t-input__help"></div>
               </div>
             </div>
             <div class="t-form__item t-form-item__students[1].courseType t-form__item-with-extra">
@@ -24802,7 +24802,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
                   <!--]-->
                   <!---->
                 </div>
-                <div class="t-input__extra"></div>
+                <div class="t-input__help"></div>
               </div>
             </div>
             <div class="t-form__item t-form-item__students[1].course t-form__item-with-extra">
@@ -24817,7 +24817,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
                   <!--]-->
                   <!---->
                 </div>
-                <div class="t-input__extra"></div>
+                <div class="t-input__help"></div>
               </div>
             </div>
             <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -24828,7 +24828,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-complicated-da
                   <!--]-->
                   <!---->
                 </div>
-                <div class="t-input__extra"></div>
+                <div class="t-input__help"></div>
               </div>
             </div>
           </div>
@@ -24873,7 +24873,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">这是用户名字段帮助说明</div>
+        <div class="t-input__help">这是用户名字段帮助说明</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__description t-form__item-with-help t-form__item-with-extra">
@@ -24894,7 +24894,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">一句话介绍自己</div>
+        <div class="t-input__help">一句话介绍自己</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-extra">
@@ -24914,7 +24914,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__email t-form__item-with-extra">
@@ -24935,7 +24935,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__gender t-form__item-with-extra">
@@ -24951,7 +24951,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__course t-form__item-with-extra">
@@ -24966,7 +24966,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__college t-form__item-with-extra">
@@ -25018,7 +25018,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__date t-form__item-with-extra">
@@ -25039,7 +25039,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__content.url t-form__item-with-extra">
@@ -25060,7 +25060,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -25071,7 +25071,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validate-message.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -25102,7 +25102,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">这是用户名字段帮助说明</div>
+        <div class="t-input__help">这是用户名字段帮助说明</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__description t-form__item-with-help t-form__item-with-extra">
@@ -25123,7 +25123,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra">一句话介绍自己</div>
+        <div class="t-input__help">一句话介绍自己</div>
       </div>
     </div>
     <div class="t-form__item t-form-item__password t-form__item-with-extra">
@@ -25143,7 +25143,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__email t-form__item-with-extra">
@@ -25164,7 +25164,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__gender t-form__item-with-extra">
@@ -25180,7 +25180,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__course t-form__item-with-extra">
@@ -25195,7 +25195,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__college t-form__item-with-extra">
@@ -25247,7 +25247,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__date t-form__item-with-extra">
@@ -25268,7 +25268,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__content.url t-form__item-with-extra">
@@ -25289,7 +25289,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="padding-top:8px;">
@@ -25300,7 +25300,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator.vue correctly
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -25343,7 +25343,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__warning t-form__item-with-extra">
@@ -25364,7 +25364,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__success t-form__item-with-extra">
@@ -25385,7 +25385,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__success t-form__item-with-extra">
@@ -25406,7 +25406,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__failB t-form__item-with-extra">
@@ -25427,7 +25427,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__warningB t-form__item-with-extra">
@@ -25448,7 +25448,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__loading t-form__item-with-extra">
@@ -25468,7 +25468,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           </div>
           <!--]--><span class="t-form__status"><!--[--><div style="width:25px;display:flex;justify-content:center;"><div class="t-loading--center t-size-s t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="small"><foreignObject x="1" y="1" width="12" height="12"><div class="t-loading__gradient-conic"></div></foreignObject></svg><!----></div></div><!--]--></span>
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div><!-- 自定义图标：可以使用渲染函数 statusIcon，也可以使用插槽 statusIcon -->
     <div class="t-form__item t-form-item__help t-form__item-with-extra">
@@ -25488,7 +25488,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           </div><!-- <t-icon slot="statusIcon" name='help-circle' size="24px" style="color: #0006"/> -->
           <!--]--><span class="t-form__status"><svg class="t-icon t-icon-help-circle" style="font-size:16px;color:#0006;"><use href="#t-icon-help-circle"></use></svg></span>
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--[-->
@@ -25511,7 +25511,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           <!--v-if-->
           <!--]--></span>
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -25523,7 +25523,7 @@ exports[`ssr snapshot test renders ./examples/form/demos/validator-status.vue co
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -27364,7 +27364,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27401,7 +27401,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27438,7 +27438,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27475,7 +27475,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27512,7 +27512,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27549,7 +27549,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27586,7 +27586,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27623,7 +27623,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27660,7 +27660,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -27697,7 +27697,7 @@ exports[`ssr snapshot test renders ./examples/input-number/demos/status.vue corr
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -55795,7 +55795,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/activable.vue correctly
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -55811,7 +55811,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/activable.vue correctly
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -55827,7 +55827,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/activable.vue correctly
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <!--]-->
@@ -55909,7 +55909,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/checkable.vue correctly
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra" style="margin-bottom:16px;">
@@ -55925,7 +55925,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/checkable.vue correctly
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra" style="margin-bottom:16px;">
@@ -55943,7 +55943,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/checkable.vue correctly
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <!--]-->
@@ -56133,7 +56133,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/disabled.vue correctly 
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -56149,7 +56149,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/disabled.vue correctly 
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <!--]-->
@@ -56216,7 +56216,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/disabled.vue correctly 
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <!--]-->
@@ -56315,7 +56315,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-all.vue correctl
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -56331,7 +56331,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-all.vue correctl
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <!--]-->
@@ -56437,7 +56437,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-mutex.vue correc
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -56453,7 +56453,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/expand-mutex.vue correc
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <!--]-->
@@ -56643,7 +56643,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/lazy.vue correctly 1`] 
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -56659,7 +56659,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/lazy.vue correctly 1`] 
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <!--]-->
@@ -56698,7 +56698,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/line.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <div class="t-form__item t-form-item__ t-form__item-with-extra" style="margin-bottom:16px;">
@@ -56714,7 +56714,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/line.vue correctly 1`] 
           <!--]-->
           <!---->
         </div>
-        <div class="t-input__extra"></div>
+        <div class="t-input__help"></div>
       </div>
     </div>
     <!--]-->
@@ -57179,7 +57179,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/operations.vue correctl
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <div class="t-form__item t-form-item__ t-form__item-with-extra">
@@ -57195,7 +57195,7 @@ exports[`ssr snapshot test renders ./examples/tree/demos/operations.vue correctl
             <!--]-->
             <!---->
           </div>
-          <div class="t-input__extra"></div>
+          <div class="t-input__help"></div>
         </div>
       </div>
       <!--]-->
