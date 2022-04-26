@@ -564,7 +564,7 @@ module.exports = {
   notification: {
     panelStr: `const panelList = [{label: 'notification', value: 'notification'}];`,
     render: {
-      notification: `<t-notification v-bind="configProps" duration="0" title="标题名称" content="这是一条消息通知" :closeBtn="true" />`,
+      notification: `<t-notification v-bind="configProps" :duration="0" title="标题名称" content="这是一条消息通知" :closeBtn="true" />`,
     },
   },
   popconfirm: {
@@ -582,8 +582,18 @@ module.exports = {
     render: {
       popup: `
         <t-popup content="这是一个弹出框" v-bind="configProps">
-          <t-button>按钮</t-button>
+          <t-button variant="outline">触发元素</t-button>
         </t-popup>
+      `,
+    },
+  },
+  card: {
+    panelStr: `const panelList = [{label: 'card', value: 'card'}];`,
+    render: {
+      card: `
+        <t-card v-bind="configProps">
+          仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。
+        </t-card>
       `,
     },
   },

@@ -1,8 +1,8 @@
 [
   {
     "name": "closeBtn",
-    "type": "String",
-    "defaultValue": "undefined",
+    "type": "Boolean",
+    "defaultValue": true,
     "options": []
   },
   {

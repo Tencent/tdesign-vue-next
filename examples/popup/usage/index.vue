@@ -3,7 +3,7 @@
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #popup="{ configProps }"
       ><t-popup content="这是一个弹出框" v-bind="configProps">
-        <t-button>按钮</t-button>
+        <t-button variant="outline">触发元素</t-button>
       </t-popup></template
     >
   </base-usage>
@@ -19,7 +19,7 @@ const panelList = [{ label: 'popup', value: 'popup' }];
 
 const usageCodeMap = {
   popup:
-    '\n        <t-popup content="这是一个弹出框" v-bind="configProps">\n          <t-button>按钮</t-button>\n        </t-popup>\n      ',
+    '\n        <t-popup content="这是一个弹出框" v-bind="configProps">\n          <t-button variant="outline">触发元素</t-button>\n        </t-popup>\n      ',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 

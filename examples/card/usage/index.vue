@@ -1,18 +1,28 @@
+<!-- 该脚本为自动生成，如有需要请在 /script/generate-usage/index.js 中调整 -->
 <template>
-  <base-usage :code="renderCode" :config-list="configList">
-    <template #default="data">
-      <component :is="renderComp(data)" />
-    </template>
+  <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
+    <template #card="{ configProps }"
+      ><t-card v-bind="configProps">
+        仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。
+      </t-card></template
+    >
   </base-usage>
 </template>
 
 <script setup lang="jsx">
-import { compile, ref, watchEffect, computed } from 'vue/dist/vue.esm-bundler.js';
-import configList from './props.json';
+/* eslint-disable */
+import { ref, onMounted } from 'vue';
+import configJson from './props.json';
 
-const renderCode = '<t-button>确定</t-button>';
+const configList = ref(configJson);
+const panelList = [{ label: 'card', value: 'card' }];
 
-const renderComp = (data) => {
-  return data?.usageCode ? compile(data.usageCode) : null;
+const usageCodeMap = {
+  card: '\n        <t-card v-bind="configProps">\n          仅有内容区域的卡片形式。卡片内容区域可以是文字、图片、表单、表格等形式信息内容。可使用大中小不同的卡片尺寸，按业务需求进行呈现。\n        </t-card>\n      ',
 };
+const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
+
+function onPanelChange(panel) {
+  usageCode.value = `<template>${usageCodeMap[panel].trim()}</template>`;
+}
 </script>

@@ -6,6 +6,18 @@
     "options": []
   },
   {
+    "name": "headerBordered",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "hoverShadow",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
     "name": "loading",
     "type": "Boolean",
     "defaultValue": false,

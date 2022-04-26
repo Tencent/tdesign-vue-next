@@ -2,7 +2,7 @@
 <template>
   <base-usage :code="usageCode" :config-list="configList" :panel-list="panelList" @PanelChange="onPanelChange">
     <template #notification="{ configProps }"
-      ><t-notification v-bind="configProps" duration="0" title="标题名称" content="这是一条消息通知" :close-btn="true"
+      ><t-notification v-bind="configProps" :duration="0" title="标题名称" content="这是一条消息通知" :close-btn="true"
     /></template>
   </base-usage>
 </template>
@@ -17,7 +17,7 @@ const panelList = [{ label: 'notification', value: 'notification' }];
 
 const usageCodeMap = {
   notification:
-    '<t-notification v-bind="configProps" duration="0" title="标题名称" content="这是一条消息通知" :closeBtn="true" />',
+    '<t-notification v-bind="configProps" :duration="0" title="标题名称" content="这是一条消息通知" :closeBtn="true" />',
 };
 const usageCode = ref(`<template>${usageCodeMap[panelList[0].value].trim()}</template>`);
 
