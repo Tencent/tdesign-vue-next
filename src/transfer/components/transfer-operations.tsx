@@ -1,27 +1,24 @@
 import { defineComponent, createElementVNode, PropType, h } from 'vue';
 import { ChevronRightIcon, ChevronLeftIcon } from 'tdesign-icons-vue-next';
-import TButton from '../../button';
+import Button from '../../button';
 import { TNode } from '../../common';
 import { usePrefixClass } from '../../hooks/useConfig';
+import props from '../props';
 
 export default defineComponent({
   name: 'TTransferOperations',
   props: {
     // 控制左按钮的禁用与否
     leftDisabled: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       required: true,
     },
     // 控制右按钮的禁用与否
     rightDisabled: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       required: true,
     },
-    operation: {
-      type: [String, Array, Function, Boolean] as PropType<
-        Array<string | TNode> | TNode<{ direction: 'left' | 'right' }>
-      >,
-    },
+    operation: props.operation,
   },
   emits: ['moveToRight', 'moveToLeft'],
   setup(props, { slots, emit }) {
@@ -78,7 +75,7 @@ export default defineComponent({
 
     return () => (
       <div class={`${classPrefix.value}-transfer__operations`}>
-        <t-button
+        <Button
           variant={props.rightDisabled ? 'outline' : 'base'}
           key={props.rightDisabled ? 'right-outline' : 'right-base'}
           disabled={props.rightDisabled}
@@ -86,8 +83,8 @@ export default defineComponent({
           icon={getIcon('right')}
         >
           {renderButton(h, 'right')}
-        </t-button>
-        <t-button
+        </Button>
+        <Button
           variant={props.leftDisabled ? 'outline' : 'base'}
           key={props.rightDisabled ? 'left-outline' : 'left-base'}
           disabled={props.leftDisabled}
@@ -95,7 +92,7 @@ export default defineComponent({
           icon={getIcon('left')}
         >
           {renderButton(h, 'left')}
-        </t-button>
+        </Button>
       </div>
     );
   },
