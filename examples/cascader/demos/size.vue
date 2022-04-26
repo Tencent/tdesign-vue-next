@@ -1,26 +1,11 @@
 <template>
-  <div>
+  <div class="tdesign-demo-block-row">
     <!-- 非受控用法 -->
-    <t-cascader
-      class="t-demo-cascader"
-      :options="options"
-      :default-value="value"
-      clearable
-      size="small"
-      placeholder="请选择"
-    />
+    <t-cascader :options="options" :default-value="value" clearable size="small" placeholder="请选择" />
     <!-- 受控+语法糖用法 -->
-    <t-cascader
-      v-model="value"
-      class="t-demo-cascader"
-      :options="options"
-      clearable
-      size="medium"
-      placeholder="请选择"
-    />
+    <t-cascader v-model="value" :options="options" clearable size="medium" placeholder="请选择" />
     <!-- 受控用法 -->
     <t-cascader
-      class="t-demo-cascader"
       :options="options"
       :value="value"
       clearable
@@ -74,11 +59,3 @@ const handleValueChange = (e) => {
   value.value = e;
 };
 </script>
-<style scoped>
-.t-demo-cascader-title {
-  margin: 10px 0;
-}
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

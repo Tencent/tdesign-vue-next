@@ -1,13 +1,11 @@
 <template>
   <div>
-    <t-cascader-panel
-      v-model="value"
-      :options="options"
-      clearable
-      size="medium"
-      placeholder="请选择"
-      @change="onChange"
-    />
+    <div class="tdesign-demo-block-row">
+      <t-cascader-panel v-model="value1" :options="options" clearable size="medium" @change="onChange" />
+    </div>
+    <div class="tdesign-demo-block-row">
+      <t-cascader-panel v-model="value2" multiple :options="options" clearable size="medium" @change="onChange" />
+    </div>
   </div>
 </template>
 
@@ -49,7 +47,8 @@ const options = [
   },
 ];
 
-const value = ref('1.1');
+const value1 = ref('1.1');
+const value2 = ref(['1.1']);
 
 const onChange = (e, context) => {
   console.log(e);

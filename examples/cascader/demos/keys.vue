@@ -2,7 +2,6 @@
   <div>
     <t-cascader
       v-model="value"
-      class="t-demo-cascader"
       :keys="{ label: 'name', value: 'code', children: 'items' }"
       :options="options"
       clearable
@@ -51,8 +50,3 @@ const options = [
 
 const value = ref('1.1');
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

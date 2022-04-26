@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-cascader v-model="value" class="t-demo-cascader" :options="options" clearable :load="load" />
+    <t-cascader v-model="value" :options="options" clearable :load="load" />
   </div>
 </template>
 
@@ -42,8 +42,3 @@ const load = (node) =>
     }, 1000);
   });
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

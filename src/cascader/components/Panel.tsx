@@ -1,9 +1,7 @@
 import { defineComponent, PropType, ref, computed, watch, nextTick } from 'vue';
-
 import { getPanels, expendClickEffect, valueChangeEffect } from '../utils/panel';
 
 import Item from './Item';
-
 import { TreeNode, CascaderContextType } from '../interface';
 import CascaderProps from '../props';
 import { usePrefixClass, useConfig } from '../../hooks/useConfig';
@@ -81,7 +79,6 @@ export default defineComponent({
 
     const renderPanels = () => {
       const { filterActive, treeNodes } = props.cascaderContext;
-      if (!itemShow.value) return;
       return filterActive
         ? renderList(treeNodes, true)
         : panels.value.map((treeNodes, index: number) =>

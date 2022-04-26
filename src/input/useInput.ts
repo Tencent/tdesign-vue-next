@@ -1,14 +1,12 @@
-import { ref, computed, watch, nextTick, toRefs } from 'vue';
+import { ref, computed, watch, nextTick, getCurrentInstance, toRefs } from 'vue';
 import { getCharacterLength } from '../utils/helper';
 import { TdInputProps, InputValue } from './type';
-import { useEmitEvent } from '../hooks/event';
 import useVModel from '../hooks/useVModel';
 
-export default function useInput(props: TdInputProps) {
+export default function useInput(props: TdInputProps, expose: (exposed: Record<string, any>) => void) {
   const { value, modelValue } = toRefs(props);
   const inputValue = ref<InputValue>();
   const [innerValue, setInnerValue] = useVModel(value, modelValue, props.defaultValue, props.onChange);
-  const emitEvent = useEmitEvent();
 
   const isHover = ref(false);
   const focused = ref(false);
@@ -28,11 +26,11 @@ export default function useInput(props: TdInputProps) {
     inputValue.value = innerValue.value;
     if (props.disabled || props.readonly) return;
     focused.value = true;
-    emitEvent('focus', innerValue.value, { e });
+    props.onFocus?.(innerValue.value, { e });
   };
   const emitClear = ({ e }: { e: MouseEvent }) => {
-    emitEvent('clear', { e });
-    emitEvent('change', '', { e });
+    props.onClear?.({ e });
+    props.onChange?.('', { e });
     focus();
     emitFocus(e);
   };
@@ -74,20 +72,19 @@ export default function useInput(props: TdInputProps) {
       inputValue.value = props.format(innerValue.value);
     }
     focused.value = false;
-    emitEvent('blur', props.value, { e });
+    props.onBlur?.(props.value, { e });
   };
 
   const onHandleCompositionend = (e: CompositionEvent) => {
     inputValueChangeHandle(e);
-    emitEvent('compositionend', innerValue.value, { e });
+    props.onCompositionend?.(innerValue.value, { e });
   };
   const onHandleCompositionstart = (e: CompositionEvent) => {
-    emitEvent('compositionstart', innerValue.value, { e });
+    props.onCompositionstart?.(innerValue.value, { e });
   };
 
   const onRootClick = (e: MouseEvent) => {
     inputRef.value?.focus();
-    emitEvent('click', e);
   };
 
   watch(
@@ -110,6 +107,10 @@ export default function useInput(props: TdInputProps) {
     { immediate: true },
   );
 
+  expose({
+    focus,
+    blur,
+  });
   return {
     isHover,
     focused,
