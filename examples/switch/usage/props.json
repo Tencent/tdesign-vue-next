@@ -32,8 +32,8 @@
   },
   {
     "name": "value",
-    "type": "String",
-    "defaultValue": "",
+    "type": "Boolean",
+    "defaultValue": false,
     "options": []
   }
 ]

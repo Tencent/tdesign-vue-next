@@ -12,6 +12,12 @@
     "options": []
   },
   {
+    "name": "footerAffixedBottom",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
     "name": "headerAffixedTop",
     "type": "Boolean",
     "defaultValue": false,

@@ -8,7 +8,7 @@
   {
     "name": "theme",
     "type": "enum",
-    "defaultValue": "article",
+    "defaultValue": "text",
     "options": [
       {
         "label": "text",

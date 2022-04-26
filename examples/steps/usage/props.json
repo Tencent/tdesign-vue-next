@@ -1,20 +1,5 @@
 [
   {
-    "name": "direction",
-    "type": "enum",
-    "defaultValue": "horizontal",
-    "options": [
-      {
-        "label": "horizontal",
-        "value": "horizontal"
-      },
-      {
-        "label": "vertical",
-        "value": "vertical"
-      }
-    ]
-  },
-  {
     "name": "layout",
     "type": "enum",
     "defaultValue": "horizontal",

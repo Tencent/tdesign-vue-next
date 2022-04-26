@@ -66,29 +66,21 @@
     ]
   },
   {
-    "name": "theme",
+    "name": "type",
     "type": "enum",
-    "defaultValue": "default",
+    "defaultValue": "button",
     "options": [
       {
-        "label": "default",
-        "value": "default"
+        "label": "submit",
+        "value": "submit"
       },
       {
-        "label": "primary",
-        "value": "primary"
+        "label": "reset",
+        "value": "reset"
       },
       {
-        "label": "danger",
-        "value": "danger"
-      },
-      {
-        "label": "warning",
-        "value": "warning"
-      },
-      {
-        "label": "success",
-        "value": "success"
+        "label": "button",
+        "value": "button"
       }
     ]
   },
