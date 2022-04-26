@@ -31,7 +31,7 @@ npm i tdesign-vue-next
 <script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
 ...
 <script>
-	Vue.createApp({}).use(TDesign).mount('#app')
+	Vue.createApp({}).use(TDesign).mount('#app');
 </script>
 ```
 
