@@ -25,8 +25,14 @@ npm i tdesign-vue-next
 目前可以通过 [unpkg.com/tdesign-vue-next](https://unpkg.com/tdesign-vue-next) 获取到最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
 
 ```html
+<!-- vue 3 -->
+<script src="https://unpkg.com/vue@next"></script>
 <link rel="stylesheet" href="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.css" />
 <script src="https://unpkg.com/tdesign-vue-next/dist/tdesign.min.js"></script>
+...
+<script>
+	Vue.createApp({}).use(TDesign).mount('#app')
+</script>
 ```
 
 npm package 中提供了多种构建产物，可以阅读 [这里](https://github.com/Tencent/tdesign/blob/main/docs/develop-install.md) 了解不同目录下产物的差别。
