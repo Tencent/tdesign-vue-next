@@ -19,6 +19,7 @@ export default defineComponent({
       type: String,
       default: '',
     },
+    onChange: Function,
   },
   setup(props) {
     const classPrefix = usePrefixClass();
