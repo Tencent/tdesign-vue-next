@@ -25,8 +25,7 @@ import useVModel from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TTreeSelect',
-  props,
-
+  props: { ...props },
   setup(props, { slots }) {
     const renderTNodeJSX = useTNodeJSX();
     const classPrefix = usePrefixClass();
@@ -305,7 +304,6 @@ export default defineComponent({
     };
     const changeNodeInfo = async () => {
       await treeSelectValue.value;
-
       if (!props.multiple) {
         if (treeSelectValue.value || treeSelectValue.value === 0) {
           nodeInfo.value = getSingleNodeInfo();
@@ -464,6 +462,7 @@ export default defineComponent({
       <SelectInput
         class={`${classPrefix.value}-tree-select`}
         ref={selectInputRef}
+        class={'t-tree-select'}
         v-slots={SelectInputSlots}
         value={nodeInfo.value}
         multiple={props.multiple}

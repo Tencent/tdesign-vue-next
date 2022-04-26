@@ -1,0 +1,2005 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cascader Cascader baseVue demo works fine 1`] = `
+<div>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
+<div
+<<<<<<< HEAD
+  class="tdesign-demo-block-row t-cascader-demo"
+>
+  
+  <div
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+  class="tdesign-demo-block-row"
+>
+  
+  <div
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          1/1.1/1.1.2/1.1.2.1
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          2
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-row"
+>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-size-m"
+        >
+          <!---->
+          
+          +
+          2
+          
+          <!---->
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        <span
+          style="color: rgb(237, 123, 47);"
+        >
+          +
+          2
+        </span>
+        <!---->
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader t-demo-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+        
+        <span
+          style="color: rgb(0, 168, 112);"
+        >
+          +2
+        </span>
+        <!---->
+        
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader disabledVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-row"
+>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-is-disabled t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        disabled=""
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon t-is-disabled"
+          disabled="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-is-disabled t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--disabled t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <!---->
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        disabled=""
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon t-is-disabled"
+          disabled="true"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-row t-cascader-demo"
+>
+  
+  <div
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+  >
+    <span
+      class="t-cascader__placeholder"
+    >
+      请选择
+    </span>
+    <svg
+      class="t-fake-arrow t-cascader__icon"
+      fill="none"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+        stroke="black"
+        stroke-opacity="0.9"
+        stroke-width="1.3"
+      />
+    </svg>
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader filterableVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-row"
+>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader keysVue demo works fine 1`] = `
+<div>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader loadVue demo works fine 1`] = `
+<div>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader maxVue demo works fine 1`] = `
+<div>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader multipleVue demo works fine 1`] = `
+<div
+  class="t-cascader-demo"
+>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader panelVue demo works fine 1`] = `
+<div>
+  <div
+    class="tdesign-demo-block-row"
+  >
+    <div
+      class="t-cascader__panel t-cascader--normal"
+    >
+      
+      <ul
+        class="t-cascader__menu narrow-scrollbar t-cascader__menu--segment"
+      >
+        
+        <li
+          class="t-cascader__item t-is-expanded t-size-m t-cascader__item--with-icon"
+        >
+          <span
+            class="t-cascader__item-label"
+            role="label"
+          >
+            选项一1231231231212313123132312
+          </span>
+          <svg
+            class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-expanded"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </li>
+        <li
+          class="t-cascader__item t-size-m t-cascader__item--with-icon"
+        >
+          <span
+            class="t-cascader__item-label"
+            role="label"
+          >
+            选项二
+          </span>
+          <svg
+            class="t-icon t-icon-chevron-right t-cascader__item-icon"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </li>
+        
+      </ul>
+      <ul
+        class="t-cascader__menu narrow-scrollbar"
+      >
+        
+        <li
+          class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--leaf"
+        >
+          <span
+            class="t-cascader__item-label"
+            role="label"
+          >
+            子选项一
+          </span>
+          <!---->
+        </li>
+        <li
+          class="t-cascader__item t-size-m t-cascader__item--leaf"
+        >
+          <span
+            class="t-cascader__item-label"
+            role="label"
+          >
+            子选项二
+          </span>
+          <!---->
+        </li>
+        <li
+          class="t-cascader__item t-size-m t-cascader__item--leaf"
+        >
+          <span
+            class="t-cascader__item-label"
+            role="label"
+          >
+            子选项三
+          </span>
+          <!---->
+        </li>
+        
+      </ul>
+      
+    </div>
+  </div>
+  <div
+    class="tdesign-demo-block-row"
+  >
+    <div
+      class="t-cascader__panel t-cascader--normal"
+    >
+      
+      <ul
+        class="t-cascader__menu narrow-scrollbar t-cascader__menu--segment"
+      >
+        
+        <li
+          class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--with-icon"
+        >
+          <label
+            class="t-checkbox t-is-indeterminate"
+            size="medium"
+          >
+            <input
+              class="t-checkbox__former"
+              name="1"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              
+              选项一1231231231212313123132312
+              
+            </span>
+          </label>
+          <svg
+            class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-selected t-is-expanded"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </li>
+        <li
+          class="t-cascader__item t-size-m t-cascader__item--with-icon"
+        >
+          <label
+            class="t-checkbox"
+            size="medium"
+          >
+            <input
+              class="t-checkbox__former"
+              name="2"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              
+              选项二
+              
+            </span>
+          </label>
+          <svg
+            class="t-icon t-icon-chevron-right t-cascader__item-icon"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </li>
+        
+      </ul>
+      <ul
+        class="t-cascader__menu narrow-scrollbar"
+      >
+        
+        <li
+          class="t-cascader__item t-is-selected t-size-m t-cascader__item--leaf"
+        >
+          <label
+            class="t-checkbox t-is-checked"
+            size="medium"
+          >
+            <input
+              class="t-checkbox__former"
+              name="1.1"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              
+              子选项一
+              
+            </span>
+          </label>
+          <!---->
+        </li>
+        <li
+          class="t-cascader__item t-size-m t-cascader__item--leaf"
+        >
+          <label
+            class="t-checkbox"
+            size="medium"
+          >
+            <input
+              class="t-checkbox__former"
+              name="1.2"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              
+              子选项二
+              
+            </span>
+          </label>
+          <!---->
+        </li>
+        <li
+          class="t-cascader__item t-size-m t-cascader__item--leaf"
+        >
+          <label
+            class="t-checkbox"
+            size="medium"
+          >
+            <input
+              class="t-checkbox__former"
+              name="1.3"
+              type="checkbox"
+            />
+            <span
+              class="t-checkbox__input"
+            />
+            <span
+              class="t-checkbox__label"
+            >
+              
+              子选项三
+              
+            </span>
+          </label>
+          <!---->
+        </li>
+        
+      </ul>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader Cascader showAllLevelsVue demo works fine 1`] = `
+<div>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader sizeVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-row"
+>
+  <!-- 非受控用法 -->
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-s t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-size-s t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  <!-- 受控+语法糖用法 -->
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  <!-- 受控用法 -->
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-l t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-size-l t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon t-input__clear"
+      >
+        <svg
+          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
+        >
+          <path
+            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader triggerVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-row"
+>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-row"
+>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
+
+exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
+<div
+  class="tdesign-demo-block-row"
+>
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-select-input t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="请选择"
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+<<<<<<< HEAD
+    class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
+=======
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+>>>>>>> fix: cascader filter bug
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          选项一/子选项二
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
