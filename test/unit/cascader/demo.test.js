@@ -13,6 +13,7 @@ import keysVue from '@/examples/cascader/demos/keys.vue';
 import loadVue from '@/examples/cascader/demos/load.vue';
 import maxVue from '@/examples/cascader/demos/max.vue';
 import multipleVue from '@/examples/cascader/demos/multiple.vue';
+import panelVue from '@/examples/cascader/demos/panel.vue';
 import showAllLevelsVue from '@/examples/cascader/demos/show-all-levels.vue';
 import sizeVue from '@/examples/cascader/demos/size.vue';
 import triggerVue from '@/examples/cascader/demos/trigger.vue';
@@ -30,6 +31,7 @@ const mapper = {
   loadVue,
   maxVue,
   multipleVue,
+  panelVue,
   showAllLevelsVue,
   sizeVue,
   triggerVue,

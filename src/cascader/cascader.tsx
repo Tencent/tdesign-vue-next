@@ -37,6 +37,10 @@ export default defineComponent({
       return props.multiple ? getMultipleContent(cascaderContext.value) : getSingleContent(cascaderContext.value);
     });
 
+    const inputPlaceholder = computed(() => {
+      return !props.multiple ? getSingleContent(cascaderContext.value) : '请输入';
+    });
+
     const renderSuffixIcon = () => {
       const { visible, disabled } = cascaderContext.value;
 
@@ -57,7 +61,7 @@ export default defineComponent({
         <SelectInput
           class={COMPONENT_NAME.value}
           value={selectVal.value}
-          inputVal={inputVal}
+          inputValue={visible ? inputVal : ''}
           popupVisible={visible}
           keys={props.keys}
           allowInput={props.filterable}
@@ -65,11 +69,12 @@ export default defineComponent({
           collapsed-items={props.collapsedItems}
           disabled={props.disabled}
           clearable={props.clearable}
-          placeholder={global.value.placeholder}
+          placeholder={filterActive ? inputPlaceholder.value : global.value.placeholder}
           multiple={props.multiple}
           loading={props.loading}
           overlayClassName={overlayClassName.value}
           popup-props={{ overlayStyle: { width: !panels.value.length ? '1000px' : '' } }}
+          inputProps={{ size: props.size }}
           onInputChange={(value) => {
             setInputVal(value);
             setFilterActive(!!value);

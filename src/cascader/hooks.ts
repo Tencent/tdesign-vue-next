@@ -169,6 +169,15 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     updatedTreeNodes();
   });
 
+  watch(
+    () => statusContext.visible,
+    (visible) => {
+      if (visible) {
+        cascaderContext.value.setInputVal('');
+      }
+    },
+  );
+
   onMounted(() => {
     const { setValue, multiple, valueType } = cascaderContext.value;
     if (valueValidate(innerValue.value, cascaderContext.value)) {

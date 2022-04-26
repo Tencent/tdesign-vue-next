@@ -1699,7 +1699,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             style="width: 400px;"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -2599,30 +2599,53 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <!-- 观察 placeholder -->
   
   <div
-    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue=""
+    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
     style="width: 400px;"
   >
-    <span
-      class="t-cascader__placeholder"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
-      select cascader data
-    </span>
-    <svg
-      class="t-fake-arrow t-cascader__icon"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="select cascader data"
+        readonly=""
+        type="text"
       />
-    </svg>
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
   </div>
   <!---->
   
@@ -2631,30 +2654,53 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <!-- 观察空数据文本呈现 -->
   
   <div
-    class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue=""
+    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
     style="width: 400px;"
   >
-    <span
-      class="t-cascader__placeholder"
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
-      select without data in Cascader
-    </span>
-    <svg
-      class="t-fake-arrow t-cascader__icon"
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
-        stroke="black"
-        stroke-opacity="0.9"
-        stroke-width="1.3"
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <!---->
+        <!---->
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder="select cascader data"
+        readonly=""
+        type="text"
       />
-    </svg>
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
+    </div>
+    <!---->
   </div>
   <!---->
   
@@ -2665,11 +2711,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <!-- &lt;br&gt;&lt;br&gt; -->
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
     style="width: 400px;"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -2688,7 +2734,28 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -2698,7 +2765,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
     style="width: 400px;"
   >
     <div
@@ -2759,11 +2826,11 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
     style="width: 400px;"
   >
     <div
-      class="t-input t-input--prefix"
+      class="t-input t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -2781,7 +2848,28 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>

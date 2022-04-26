@@ -21,7 +21,6 @@ const COMMON_PROPERTIES = [
   'suffixIcon',
   'onPaste',
   'onEnter',
-  'onMouseenter',
   'onMouseleave',
 ];
 
@@ -74,7 +73,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
       readonly: !props.allowInput,
       placeholder: singleValueDisplay ? '' : props.placeholder,
       suffixIcon: !props.disabled && props.loading ? () => <Loading loading size="small" /> : props.suffixIcon,
-      showClearIconOnEmpty: Boolean(props.clearable && inputValue.value),
+      showClearIconOnEmpty: Boolean(props.clearable && (inputValue.value || displayedValue)),
     };
     return (
       <Input
@@ -85,11 +84,6 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
         onClear={onInnerClear}
         onBlur={(val: InputValue, context: { e: MouseEvent }) => {
           props.onBlur?.(value.value, { ...context, inputValue: val });
-          inputValue.value = getInputValue(value.value, keys.value);
-        }}
-        onMouseenter={() => {
-          if (inputValue.value) return;
-          inputValue.value = getInputValue(value.value, keys.value);
         }}
         onEnter={(val: InputValue, context: { e: KeyboardEvent }) => {
           props.onEnter?.(value.value, { ...context, inputValue: val });

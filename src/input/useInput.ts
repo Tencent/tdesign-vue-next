@@ -13,11 +13,13 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
   const renderType = ref(props.type);
   const inputRef = ref(null);
 
-  const showClear = computed(
-    () =>
-      (props.value && !props.disabled && props.clearable && isHover.value && !props.readonly) ||
-      props.showClearIconOnEmpty,
-  );
+  const showClear = computed(() => {
+    return (
+      ((innerValue.value && !props.disabled && props.clearable && isHover.value && !props.readonly) ||
+        props.showClearIconOnEmpty) &&
+      isHover
+    );
+  });
 
   const focus = () => inputRef.value?.focus();
   const blur = () => inputRef.value?.blur();
@@ -30,7 +32,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
   };
   const emitClear = ({ e }: { e: MouseEvent }) => {
     props.onClear?.({ e });
-    props.onChange?.('', { e });
+    setInnerValue('');
     focus();
     emitFocus(e);
   };

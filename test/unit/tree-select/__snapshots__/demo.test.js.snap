@@ -6,10 +6,10 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -28,7 +28,28 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -43,10 +64,10 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty demo-space"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select demo-space"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -90,7 +111,28 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -98,10 +140,10 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -145,7 +187,28 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -218,10 +281,10 @@ exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
   </div>
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-input--prefix"
+      class="t-input t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -239,7 +302,28 @@ exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -254,10 +338,10 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -276,7 +360,28 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -291,10 +396,10 @@ exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -338,7 +443,28 @@ exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -353,10 +479,10 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <span
         class="t-input__prefix t-input__prefix-icon"
@@ -391,7 +517,28 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -406,10 +553,10 @@ exports[`TreeSelect TreeSelect propsVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -428,7 +575,28 @@ exports[`TreeSelect TreeSelect propsVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -443,10 +611,10 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -471,7 +639,28 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -479,10 +668,10 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select tree-select-multiple"
   >
     <div
-      class="t-input t-input--prefix"
+      class="t-input t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -506,7 +695,28 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -521,10 +731,10 @@ exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -543,7 +753,28 @@ exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>
@@ -551,10 +782,10 @@ exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select tree-select-multiple"
   >
     <div
-      class="t-input t-is-readonly t-input--prefix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -598,7 +829,28 @@ exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
       />
       <!---->
       <!---->
-      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        
+        <svg
+          class="t-fake-arrow"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+        
+      </span>
     </div>
     <!---->
   </div>

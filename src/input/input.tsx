@@ -126,52 +126,49 @@ export default defineComponent({
         onCompositionstart: inputHandle.onHandleCompositionstart,
       });
 
-      const renderInputNode = () => (
-        <div
-          class={classes}
-          onClick={inputHandle.onRootClick}
-          onMouseEnter={inputEventHandler.onInputMouseenter}
-          onMouseLeave={inputEventHandler.onInputMouseleave}
-          onWheel={inputEventHandler.onHandleMousewheel}
-        >
-          {prefixIcon ? (
-            <span class={[`${COMPONENT_NAME.value}__prefix`, `${COMPONENT_NAME.value}__prefix-icon`]}>
-              {prefixIcon}
-            </span>
-          ) : null}
-          {labelContent}
-          <input
-            class={`${COMPONENT_NAME.value}__inner`}
-            {...inputAttrs.value}
-            {...inputEvents}
-            ref={inputRef}
-            value={inputValue.value}
-            onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
-          />
-          {props.autoWidth && (
-            <span ref="inputPreRef" className={`${classPrefix.value}-input__input-pre`}>
-              {innerValue.value || tPlaceholder.value}
-            </span>
-          )}
-          {suffixContent}
-          {suffixIcon ? (
-            <span
-              class={[
-                `${COMPONENT_NAME.value}__suffix`,
-                `${COMPONENT_NAME.value}__suffix-icon`,
-                { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
-              ]}
-            >
-              {suffixIcon}
-            </span>
-          ) : null}
-        </div>
-      );
       const tips = renderTNodeJSX('tips');
 
       return (
         <div class={INPUT_WRAP_CLASS.value}>
-          {renderInputNode()}
+          <div
+            class={classes}
+            onClick={inputHandle.onRootClick}
+            onMouseenter={inputEventHandler.onInputMouseenter}
+            onMouseleave={inputEventHandler.onInputMouseleave}
+            onWheel={inputEventHandler.onHandleMousewheel}
+          >
+            {prefixIcon ? (
+              <span class={[`${COMPONENT_NAME.value}__prefix`, `${COMPONENT_NAME.value}__prefix-icon`]}>
+                {prefixIcon}
+              </span>
+            ) : null}
+            {labelContent}
+            <input
+              class={`${COMPONENT_NAME.value}__inner`}
+              {...inputAttrs.value}
+              {...inputEvents}
+              ref={inputRef}
+              value={inputValue.value}
+              onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
+            />
+            {props.autoWidth && (
+              <span ref="inputPreRef" className={`${classPrefix.value}-input__input-pre`}>
+                {innerValue.value || tPlaceholder.value}
+              </span>
+            )}
+            {suffixContent}
+            {suffixIcon ? (
+              <span
+                class={[
+                  `${COMPONENT_NAME.value}__suffix`,
+                  `${COMPONENT_NAME.value}__suffix-icon`,
+                  { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
+                ]}
+              >
+                {suffixIcon}
+              </span>
+            ) : null}
+          </div>
           {tips && (
             <div class={`${INPUT_TIPS_CLASS.value} ${classPrefix.value}-input__tips--${props.status || 'normal'}`}>
               {tips}
