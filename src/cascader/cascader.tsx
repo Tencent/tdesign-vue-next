@@ -38,7 +38,8 @@ export default defineComponent({
     });
 
     const inputPlaceholder = computed(() => {
-      return !props.multiple ? getSingleContent(cascaderContext.value) : '请输入';
+      const { visible } = cascaderContext.value;
+      return (visible && !props.multiple && getSingleContent(cascaderContext.value)) || global.value.placeholder;
     });
 
     const renderSuffixIcon = () => {
@@ -56,7 +57,7 @@ export default defineComponent({
     const panels = computed(() => getPanels(cascaderContext.value.treeNodes));
 
     return () => {
-      const { setVisible, visible, inputVal, setInputVal, setFilterActive, filterActive } = cascaderContext.value;
+      const { setVisible, visible, inputVal, setInputVal } = cascaderContext.value;
       return (
         <SelectInput
           class={COMPONENT_NAME.value}
@@ -64,12 +65,12 @@ export default defineComponent({
           inputValue={visible ? inputVal : ''}
           popupVisible={visible}
           keys={props.keys}
-          allowInput={props.filterable}
+          allowInput={visible && props.filterable}
           min-collapsed-num={props.minCollapsedNum}
           collapsed-items={props.collapsedItems}
           disabled={props.disabled}
           clearable={props.clearable}
-          placeholder={filterActive ? inputPlaceholder.value : global.value.placeholder}
+          placeholder={inputPlaceholder.value}
           multiple={props.multiple}
           loading={props.loading}
           overlayClassName={overlayClassName.value}
@@ -77,10 +78,9 @@ export default defineComponent({
           inputProps={{ size: props.size }}
           onInputChange={(value) => {
             setInputVal(value);
-            setFilterActive(!!value);
           }}
+          suffixIcon={() => renderSuffixIcon()}
           onClick={(e: MouseEvent) => {
-            e.stopPropagation();
             innerContentClickEffect(cascaderContext.value);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
@@ -90,7 +90,7 @@ export default defineComponent({
             if (context.trigger === 'trigger-element-click' && visible !== val) return;
             setVisible(val);
           }}
-          onClear={() => {
+          onClear={({ e }) => {
             closeIconClickEffect(cascaderContext.value);
           }}
           v-slots={{
@@ -104,7 +104,6 @@ export default defineComponent({
                 {{ empty: slots.empty }}
               </Panel>
             ),
-            suffixIcon: () => renderSuffixIcon(),
             collapsedItems: slots.collapsedItems,
           }}
         />

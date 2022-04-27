@@ -31,19 +31,22 @@ exports[`Cascader Cascader baseVue demo works fine 1`] = `
       <!---->
       <!---->
       <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
+        class="t-input__suffix t-input__suffix-icon"
       >
         <svg
-          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
           fill="none"
-          height="1em"
+          height="16"
           viewBox="0 0 16 16"
-          width="1em"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
           />
         </svg>
       </span>
@@ -58,6 +61,7 @@ exports[`Cascader Cascader baseVue demo works fine 1`] = `
 exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
 <div
 <<<<<<< HEAD
+<<<<<<< HEAD
   class="tdesign-demo-block-row t-cascader-demo"
 >
   
@@ -65,6 +69,9 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
 =======
   class="tdesign-demo-block-row"
+=======
+  class="tdesign-demo-block-row t-cascader-demo"
+>>>>>>> feat: add tdesign-demo-block-row
 >
   
   <div
@@ -94,7 +101,6 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -111,7 +117,6 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -189,7 +194,6 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -206,7 +210,6 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -280,7 +283,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -297,7 +299,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -363,7 +364,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -380,7 +380,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -447,7 +446,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -464,7 +462,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -510,7 +507,6 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon t-is-disabled"
           disabled="true"
@@ -527,7 +523,6 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -573,7 +568,6 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon t-is-disabled"
           disabled="true"
@@ -590,7 +584,6 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -604,6 +597,7 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
 <div
   class="tdesign-demo-block-row t-cascader-demo"
 >
+<<<<<<< HEAD
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
@@ -631,6 +625,8 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
   </div>
   <!---->
   
+=======
+>>>>>>> feat: add tdesign-demo-block-row
   
   <div
 <<<<<<< HEAD
@@ -660,19 +656,90 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
       <!---->
       <!---->
       <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
+        class="t-input__suffix t-input__suffix-icon"
       >
         <svg
-          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
           fill="none"
-          height="1em"
+          height="16"
           viewBox="0 0 16 16"
-          width="1em"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
+          />
+        </svg>
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  
+  
+  <div
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-cascader"
+  >
+    <div
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
+    >
+      <!---->
+      <div
+        class="t-input__prefix"
+      >
+        
+        <span
+          class="t-tag t-tag--default t-tag--dark t-tag--close t-size-m"
+        >
+          <!---->
+          
+          当选项一数据展示文本过长时/子选项一
+          
+          <svg
+            class="t-icon t-icon-close t-tag__icon-close"
+            fill="none"
+            height="1em"
+            viewBox="0 0 16 16"
+            width="1em"
+          >
+            <path
+              d="M8 8.92L11.08 12l.92-.92L8.92 8 12 4.92 11.08 4 8 7.08 4.92 4 4 4.92 7.08 8 4 11.08l.92.92L8 8.92z"
+              fill="currentColor"
+              fill-opacity="0.9"
+            />
+          </svg>
+        </span>
+        
+      </div>
+      <input
+        class="t-input__inner"
+        placeholder=""
+        readonly=""
+        type="text"
+      />
+      <!---->
+      <!---->
+      <span
+        class="t-input__suffix t-input__suffix-icon"
+      >
+        <svg
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
+          fill="none"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
           />
         </svg>
       </span>
@@ -697,7 +764,7 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
 >>>>>>> fix: cascader filter bug
   >
     <div
-      class="t-input t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -711,6 +778,7 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
       <input
         class="t-input__inner"
         placeholder="请选择"
+        readonly=""
         type="text"
       />
       <!---->
@@ -718,7 +786,6 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -735,7 +802,6 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -751,7 +817,7 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
 >>>>>>> fix: cascader filter bug
   >
     <div
-      class="t-input t-input--prefix t-input--suffix"
+      class="t-input t-is-readonly t-input--prefix t-input--suffix"
     >
       <!---->
       <div
@@ -784,6 +850,7 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
       <input
         class="t-input__inner"
         placeholder=""
+        readonly=""
         type="text"
       />
       <!---->
@@ -791,7 +858,6 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -808,7 +874,6 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -849,19 +914,22 @@ exports[`Cascader Cascader keysVue demo works fine 1`] = `
       <!---->
       <!---->
       <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
+        class="t-input__suffix t-input__suffix-icon"
       >
         <svg
-          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
           fill="none"
-          height="1em"
+          height="16"
           viewBox="0 0 16 16"
-          width="1em"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
           />
         </svg>
       </span>
@@ -878,10 +946,14 @@ exports[`Cascader Cascader loadVue demo works fine 1`] = `
   
   <div
 <<<<<<< HEAD
+<<<<<<< HEAD
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
 =======
     class="t-input__wrap t-select-input t-cascader"
 >>>>>>> fix: cascader filter bug
+=======
+    class="t-input__wrap t-select-input t-select-input--empty t-cascader"
+>>>>>>> feat: add tdesign-demo-block-row
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -904,19 +976,22 @@ exports[`Cascader Cascader loadVue demo works fine 1`] = `
       <!---->
       <!---->
       <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
+        class="t-input__suffix t-input__suffix-icon"
       >
         <svg
-          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
           fill="none"
-          height="1em"
+          height="16"
           viewBox="0 0 16 16"
-          width="1em"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
           />
         </svg>
       </span>
@@ -959,7 +1034,6 @@ exports[`Cascader Cascader maxVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -976,7 +1050,6 @@ exports[`Cascader Cascader maxVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1040,7 +1113,6 @@ exports[`Cascader Cascader multipleVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1057,7 +1129,6 @@ exports[`Cascader Cascader multipleVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1084,10 +1155,11 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           class="t-cascader__item t-is-expanded t-size-m t-cascader__item--with-icon"
         >
           <span
-            class="t-cascader__item-label"
+            class="t-cascader__item-label t-cascader__item-label--ellipsis"
             role="label"
+            title="当选项一数据展示文本过长时"
           >
-            选项一1231231231212313123132312
+            当选项一数据展示文本过长时
           </span>
           <svg
             class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-expanded"
@@ -1107,8 +1179,9 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           class="t-cascader__item t-size-m t-cascader__item--with-icon"
         >
           <span
-            class="t-cascader__item-label"
+            class="t-cascader__item-label t-cascader__item-label--ellipsis"
             role="label"
+            title="选项二"
           >
             选项二
           </span>
@@ -1136,8 +1209,9 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--leaf"
         >
           <span
-            class="t-cascader__item-label"
+            class="t-cascader__item-label t-cascader__item-label--ellipsis"
             role="label"
+            title="子选项一"
           >
             子选项一
           </span>
@@ -1147,8 +1221,9 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           class="t-cascader__item t-size-m t-cascader__item--leaf"
         >
           <span
-            class="t-cascader__item-label"
+            class="t-cascader__item-label t-cascader__item-label--ellipsis"
             role="label"
+            title="子选项二"
           >
             子选项二
           </span>
@@ -1158,8 +1233,9 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           class="t-cascader__item t-size-m t-cascader__item--leaf"
         >
           <span
-            class="t-cascader__item-label"
+            class="t-cascader__item-label t-cascader__item-label--ellipsis"
             role="label"
+            title="子选项三"
           >
             子选项三
           </span>
@@ -1187,6 +1263,7 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           <label
             class="t-checkbox t-is-indeterminate"
             size="medium"
+            title="当选项一数据展示文本过长时"
           >
             <input
               class="t-checkbox__former"
@@ -1200,7 +1277,7 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
               class="t-checkbox__label"
             >
               
-              选项一1231231231212313123132312
+              当选项一数据展示文本过长时
               
             </span>
           </label>
@@ -1224,6 +1301,7 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           <label
             class="t-checkbox"
             size="medium"
+            title="选项二"
           >
             <input
               class="t-checkbox__former"
@@ -1267,6 +1345,7 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           <label
             class="t-checkbox t-is-checked"
             size="medium"
+            title="子选项一"
           >
             <input
               class="t-checkbox__former"
@@ -1292,6 +1371,7 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           <label
             class="t-checkbox"
             size="medium"
+            title="子选项二"
           >
             <input
               class="t-checkbox__former"
@@ -1317,6 +1397,7 @@ exports[`Cascader Cascader panelVue demo works fine 1`] = `
           <label
             class="t-checkbox"
             size="medium"
+            title="子选项三"
           >
             <input
               class="t-checkbox__former"
@@ -1377,7 +1458,6 @@ exports[`Cascader Cascader showAllLevelsVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1394,7 +1474,6 @@ exports[`Cascader Cascader showAllLevelsVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1438,19 +1517,22 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
       <!---->
       <!---->
       <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
+        class="t-input__suffix t-input__suffix-icon"
       >
         <svg
-          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
           fill="none"
-          height="1em"
+          height="16"
           viewBox="0 0 16 16"
-          width="1em"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
           />
         </svg>
       </span>
@@ -1489,19 +1571,22 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
       <!---->
       <!---->
       <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
+        class="t-input__suffix t-input__suffix-icon"
       >
         <svg
-          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
           fill="none"
-          height="1em"
+          height="16"
           viewBox="0 0 16 16"
-          width="1em"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
           />
         </svg>
       </span>
@@ -1540,19 +1625,22 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
       <!---->
       <!---->
       <span
-        class="t-input__suffix t-input__suffix-icon t-input__clear"
+        class="t-input__suffix t-input__suffix-icon"
       >
         <svg
-          class="t-icon t-icon-close-circle-filled [object Object]__suffix-clear"
+          class="t-fake-arrow t-cascader__icon"
+          disabled="false"
           fill="none"
-          height="1em"
+          height="16"
           viewBox="0 0 16 16"
-          width="1em"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15 8A7 7 0 101 8a7 7 0 0014 0zM5.67 4.95L8 7.29l2.33-2.34.7.7L8.7 8l2.34 2.35-.71.7L8 8.71l-2.33 2.34-.7-.7L7.3 8 4.96 5.65l.71-.7z"
-            fill="currentColor"
-            fill-opacity="0.9"
+            d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+            stroke="black"
+            stroke-opacity="0.9"
+            stroke-width="1.3"
           />
         </svg>
       </span>
@@ -1599,7 +1687,6 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1616,7 +1703,6 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1654,7 +1740,6 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1671,7 +1756,6 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1714,7 +1798,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1731,7 +1814,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1767,7 +1849,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1784,7 +1865,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1820,7 +1900,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1837,7 +1916,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1882,7 +1960,6 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1899,7 +1976,6 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -1977,7 +2053,6 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -1994,7 +2069,6 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->

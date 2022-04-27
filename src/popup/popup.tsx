@@ -196,6 +196,7 @@ export default defineComponent({
         setTimeout(() => {
           contentClicked.value = false;
         });
+        return;
       }
       visibleState.value = 0;
       emitVisible(false, { trigger: 'document' });

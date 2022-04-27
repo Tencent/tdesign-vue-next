@@ -33,20 +33,8 @@ export function expendClickEffect(
   node: TreeNode,
   cascaderContext: CascaderContextType,
 ) {
-  const {
-    checkStrictly,
-    filterActive,
-    multiple,
-    treeStore,
-    setFilterActive,
-    setVisible,
-    setValue,
-    setTreeNodes,
-    setExpend,
-    value,
-    max,
-    valueType,
-  } = cascaderContext;
+  const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpend, value, max, valueType } =
+    cascaderContext;
 
   const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
 
@@ -70,18 +58,12 @@ export function expendClickEffect(
     const checked = node.setChecked(!node.isChecked());
     const [value] = checked;
 
-    // 过滤状态下，点击后清除过滤状态
-    if (filterActive) {
-      setFilterActive(false);
-    }
-
-    // 非过滤状态下，关闭
-    if (!filterActive && !checkStrictly) {
-      setVisible(false);
-    }
-
     // 非受控状态下更新状态
     setValue(valueType === 'single' ? value : node.getPath().map((item) => item.value), 'checked', node.getModel());
+
+    if (!checkStrictly) {
+      setVisible(false);
+    }
   }
 }
 
@@ -92,18 +74,7 @@ export function expendClickEffect(
  * @returns
  */
 export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderContextType) {
-  const {
-    disabled,
-    max,
-    multiple,
-    setVisible,
-    setValue,
-    filterActive,
-    setFilterActive,
-    treeNodes,
-    treeStore,
-    valueType,
-  } = cascaderContext;
+  const { disabled, max, inputVal, multiple, setVisible, setValue, treeNodes, treeStore, valueType } = cascaderContext;
 
   if (!node || disabled || node.disabled) {
     return;
@@ -132,9 +103,8 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
 
   const isSelectAll = treeNodes.every((item) => checked.indexOf(item.value) > -1);
 
-  if (filterActive && isSelectAll) {
+  if (inputVal && isSelectAll) {
     setVisible(false);
-    setFilterActive(false);
   }
 
   // 处理不同数据类型
@@ -147,5 +117,6 @@ export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderConte
             .getPath()
             .map((item) => item.value),
         );
+
   setValue(resValue, 'checked', node.getModel());
 }

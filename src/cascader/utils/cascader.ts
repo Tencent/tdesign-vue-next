@@ -128,10 +128,10 @@ export function handleRemoveTagEffect(
  * @param cascaderContext
  */
 export function innerContentClickEffect(cascaderContext: CascaderContextType) {
-  const { setVisible, visible, filterActive, disabled } = cascaderContext;
+  const { setVisible, visible, inputVal, disabled } = cascaderContext;
 
   if (!disabled) {
-    if (visible && filterActive) return; // input filter is active
+    if (visible && inputVal) return; // input filter is active
     setVisible(!visible);
   }
 }
