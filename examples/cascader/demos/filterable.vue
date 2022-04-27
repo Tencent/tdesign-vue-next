@@ -1,15 +1,7 @@
 <template>
   <div class="tdesign-demo-block-row">
-    <t-cascader v-model="value" :options="options" filterable clearable placeholder="请选择" />
-    <t-cascader
-      v-model="value2"
-      :options="options"
-      filterable
-      clearable
-      multiple
-      placeholder="请选择"
-      :min-collapsed-num="2"
-    />
+    <t-cascader v-model="value" :options="options" filterable clearable />
+    <t-cascader v-model="value2" :options="options" filterable clearable multiple :min-collapsed-num="2" />
   </div>
 </template>
 

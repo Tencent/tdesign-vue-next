@@ -1,8 +1,7 @@
 <template>
   <div class="tdesign-demo-block-row">
-    <t-cascader v-model="value" :options="options" value-type="full" placeholder="请选择" />
-
-    <t-cascader v-model="value2" multiple :options="options" value-type="full" placeholder="请选择" />
+    <t-cascader v-model="value" :options="options" value-type="full" />
+    <t-cascader v-model="value2" multiple :options="options" value-type="full" />
   </div>
 </template>
 

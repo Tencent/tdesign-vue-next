@@ -1,18 +1,11 @@
 <template>
   <div class="tdesign-demo-block-row">
     <!-- 非受控用法 -->
-    <t-cascader :options="options" :default-value="value" clearable size="small" placeholder="请选择" />
+    <t-cascader :options="options" :default-value="value" clearable size="small" />
     <!-- 受控+语法糖用法 -->
-    <t-cascader v-model="value" :options="options" clearable size="medium" placeholder="请选择" />
+    <t-cascader v-model="value" :options="options" clearable size="medium" />
     <!-- 受控用法 -->
-    <t-cascader
-      :options="options"
-      :value="value"
-      clearable
-      size="large"
-      placeholder="请选择"
-      @change="handleValueChange"
-    />
+    <t-cascader :options="options" :value="value" clearable size="large" @change="handleValueChange" />
   </div>
 </template>
 

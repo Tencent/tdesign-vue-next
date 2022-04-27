@@ -17,7 +17,7 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
     return (
       ((innerValue.value && !props.disabled && props.clearable && isHover.value && !props.readonly) ||
         props.showClearIconOnEmpty) &&
-      isHover
+      isHover.value
     );
   });
 
@@ -33,8 +33,6 @@ export default function useInput(props: TdInputProps, expose: (exposed: Record<s
   const emitClear = ({ e }: { e: MouseEvent }) => {
     props.onClear?.({ e });
     setInnerValue('');
-    focus();
-    emitFocus(e);
   };
   const emitPassword = () => {
     const toggleType = renderType.value === 'password' ? 'text' : 'password';

@@ -1,7 +1,7 @@
 <template>
   <div class="tdesign-demo-block-row">
-    <t-cascader v-model="value" :options="options" trigger="click" placeholder="请选择" />
-    <t-cascader v-model="value" :options="options" trigger="hover" placeholder="请选择" />
+    <t-cascader v-model="value" :options="options" trigger="click" />
+    <t-cascader v-model="value" :options="options" trigger="hover" />
   </div>
 </template>
 

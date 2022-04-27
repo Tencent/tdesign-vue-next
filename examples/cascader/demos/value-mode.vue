@@ -1,8 +1,8 @@
 <template>
   <div class="tdesign-demo-block-row">
-    <t-cascader v-model="value1" :options="options" placeholder="请选择" multiple value-mode="onlyLeaf" />
-    <t-cascader v-model="value2" :options="options" placeholder="请选择" multiple value-mode="parentFirst" />
-    <t-cascader v-model="value3" :options="options" placeholder="请选择" multiple value-mode="all" />
+    <t-cascader v-model="value1" :options="options" multiple value-mode="onlyLeaf" />
+    <t-cascader v-model="value2" :options="options" multiple value-mode="parentFirst" />
+    <t-cascader v-model="value3" :options="options" multiple value-mode="all" />
   </div>
 </template>
 

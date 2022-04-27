@@ -1,6 +1,6 @@
 <template>
-  <div class="tdesign-demo-block-row">
-    <t-cascader v-model="value1" :options="options" placeholder="请选择" check-strictly />
+  <div class="tdesign-demo-block-row t-cascader-demo">
+    <t-cascader v-model="value1" :options="options" check-strictly />
     <t-cascader v-model="value2" :options="options" check-strictly multiple />
   </div>
 </template>

@@ -5,7 +5,6 @@
       :keys="{ label: 'name', value: 'code', children: 'items' }"
       :options="options"
       clearable
-      placeholder="请选择"
     />
   </div>
 </template>

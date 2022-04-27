@@ -26,7 +26,6 @@ export const useContext = (props: TdCascaderProps, setInnerValue: TdCascaderProp
     inputVal: null,
     scopeVal: undefined,
     treeNodes: [],
-    filterActive: false,
     expend: [],
   });
 
@@ -73,9 +72,6 @@ export const useContext = (props: TdCascaderProps, setInnerValue: TdCascaderProp
         },
         setVisible: (val: boolean) => {
           statusContext.visible = val;
-        },
-        setFilterActive: (val: boolean) => {
-          statusContext.filterActive = val;
         },
         setInputVal: (val: string) => {
           statusContext.inputVal = val;
@@ -151,16 +147,6 @@ export const useCascaderContext = (props: TdCascaderProps) => {
     updatedTreeNodes();
   });
 
-  watch(
-    () => statusContext.filterActive,
-    () => {
-      const { setInputVal } = cascaderContext.value;
-      if (!statusContext.filterActive) {
-        setInputVal('');
-      }
-    },
-  );
-
   watchEffect(() => {
     const { value, setExpend } = cascaderContext.value;
     if (!getTreeValue(value).length) {
@@ -172,8 +158,9 @@ export const useCascaderContext = (props: TdCascaderProps) => {
   watch(
     () => statusContext.visible,
     (visible) => {
+      const { setInputVal } = cascaderContext.value;
       if (visible) {
-        cascaderContext.value.setInputVal('');
+        setInputVal('');
       }
     },
   );

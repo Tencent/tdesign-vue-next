@@ -30,8 +30,6 @@ export interface CascaderContextType
   setVisible: (val: boolean) => void;
   treeNodes: TreeNode[];
   setTreeNodes: (val: CascaderValue) => void;
-  filterActive: boolean;
-  setFilterActive: (val: boolean) => void;
   inputVal: TdSelectInputProps['inputValue'];
   setInputVal: (val: TdSelectInputProps['inputValue']) => void;
   setExpend: (val: TreeNodeValue[]) => void;

@@ -73,7 +73,6 @@ export default defineComponent({
     return () => {
       const prefixIcon = renderIcon(props.prefixIcon, 'prefix-icon');
       let suffixIcon = renderIcon(props.suffixIcon, 'suffix-icon');
-
       const label = renderTNodeJSX('label', { silent: true });
       const suffix = renderTNodeJSX('suffix');
 
@@ -82,7 +81,7 @@ export default defineComponent({
 
       if (showClear.value) {
         suffixIcon = (
-          <CloseCircleFilledIcon class={`${COMPONENT_NAME}__suffix-clear`} onClick={inputHandle.emitClear} />
+          <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitClear} />
         );
       }
 

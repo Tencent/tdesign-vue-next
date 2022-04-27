@@ -60,7 +60,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
 
 exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
 <div
-  class="tdesign-tree-select-collapsed"
+  class="tdesign-demo-block-row"
 >
   
   <div
@@ -219,7 +219,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
 
 exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
 <div
-  class="tdesign-tree-select-filterable"
+  class="tdesign-demo-block-row"
 >
   <div
     class="operation"
@@ -607,7 +607,7 @@ exports[`TreeSelect TreeSelect propsVue demo works fine 1`] = `
 
 exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
 <div
-  class="tdesign-tree-select-valuedisplay"
+  class="tdesign-demo-block-row"
 >
   
   <div
@@ -727,7 +727,7 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
 
 exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
 <div
-  class="tdesign-tree-select-base"
+  class="tdesign-demo-block-row"
 >
   
   <div

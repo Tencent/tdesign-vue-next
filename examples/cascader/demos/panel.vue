@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="tdesign-demo-block-row">
-      <t-cascader-panel v-model="value1" :options="options" clearable size="medium" @change="onChange" />
+      <t-cascader-panel v-model="value1" :options="options" clearable @change="onChange" />
     </div>
     <div class="tdesign-demo-block-row">
-      <t-cascader-panel v-model="value2" multiple :options="options" clearable size="medium" @change="onChange" />
+      <t-cascader-panel v-model="value2" multiple :options="options" clearable @change="onChange" />
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ import { ref } from 'vue';
 
 const options = [
   {
-    label: '选项一1231231231212313123132312',
+    label: '当选项一数据展示文本过长时',
     value: '1',
     children: [
       {

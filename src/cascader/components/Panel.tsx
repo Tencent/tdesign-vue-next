@@ -78,8 +78,8 @@ export default defineComponent({
     );
 
     const renderPanels = () => {
-      const { filterActive, treeNodes } = props.cascaderContext;
-      return filterActive
+      const { inputVal, treeNodes } = props.cascaderContext;
+      return inputVal
         ? renderList(treeNodes, true)
         : panels.value.map((treeNodes, index: number) =>
             renderList(treeNodes, false, index !== panels.value.length - 1, `${COMPONENT_NAME.value}__menu${index}`),

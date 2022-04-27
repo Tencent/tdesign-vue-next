@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="t-cascader-demo">
     <t-cascader v-model="value" :options="options" multiple clearable />
   </div>
 </template>

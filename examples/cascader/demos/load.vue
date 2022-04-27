@@ -20,7 +20,7 @@ const options = ref([
   },
 ]);
 
-const value = ref('1');
+const value = ref();
 
 const load = (node) =>
   new Promise((resolve) => {
@@ -30,11 +30,11 @@ const load = (node) =>
         nodes = [
           {
             label: `${node.label}.1`,
-            children: node.level < 2,
+            children: node.level < 1,
           },
           {
             label: `${node.label}.2`,
-            children: node.level < 2,
+            children: node.level < 1,
           },
         ];
       }

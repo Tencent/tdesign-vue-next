@@ -2625,7 +2625,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -2642,7 +2641,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->
@@ -2680,7 +2678,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
       <span
         class="t-input__suffix t-input__suffix-icon"
       >
-        
         <svg
           class="t-fake-arrow t-cascader__icon"
           disabled="false"
@@ -2697,7 +2694,6 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
             stroke-width="1.3"
           />
         </svg>
-        
       </span>
     </div>
     <!---->

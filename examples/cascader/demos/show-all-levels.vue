@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-cascader v-model="value" :options="options" :show-all-levels="false" placeholder="请选择" />
+    <t-cascader v-model="value" :options="options" :show-all-levels="false" />
   </div>
 </template>
 
