@@ -53,6 +53,16 @@ export default {
   showFirstAndLastPageBtn: Boolean,
   /** 是否显示跳转页码控制器 */
   showJumper: Boolean,
+  /** 是否显示页码控制器 */
+  showPageNumber: {
+    type: Boolean,
+    default: true,
+  },
+  /** 是否显示分页数量控制器 */
+  showPageSize: {
+    type: Boolean,
+    default: true,
+  },
   /** 是否显示跳转前后页页码控制器 */
   showPreviousAndNextBtn: {
     type: Boolean,

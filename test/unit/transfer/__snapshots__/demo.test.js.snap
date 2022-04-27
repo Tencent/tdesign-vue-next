@@ -3925,6 +3925,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               />
             </svg>
           </div>
+          <!---->
           <div
             class="t-select__wrap t-pagination__select"
           >
