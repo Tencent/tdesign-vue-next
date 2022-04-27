@@ -63,6 +63,16 @@ export interface TdPaginationProps {
    */
   showJumper?: boolean;
   /**
+   * 是否显示页码控制器
+   * @default true
+   */
+  showPageNumber?: boolean;
+  /**
+   * 是否显示分页数量控制器
+   * @default true
+   */
+  showPageSize?: boolean;
+  /**
    * 是否显示跳转前后页页码控制器
    * @default true
    */

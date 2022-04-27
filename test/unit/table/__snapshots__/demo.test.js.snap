@@ -946,6 +946,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
           <!---->
           <!---->
         </ul>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-next"
           disabled="false"
@@ -1815,6 +1816,7 @@ exports[`Table Table customColButtonVue demo works fine 1`] = `
             20
           </li>
         </ul>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-next"
           disabled="false"
@@ -2333,6 +2335,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
             20
           </li>
         </ul>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-next"
           disabled="false"
@@ -21555,6 +21558,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
         <!---->
         <!---->
       </ul>
+      <!---->
       <div
         class="t-pagination__btn t-pagination__btn-next t-is-disabled"
         disabled="true"
@@ -22111,6 +22115,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             12
           </li>
         </ul>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-next"
           disabled="false"
@@ -25411,6 +25416,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           <!---->
           <!---->
         </ul>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-next"
           disabled="false"

@@ -131,6 +131,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
         20
       </li>
     </ul>
+    <!---->
     <div
       class="t-pagination__btn t-pagination__btn-next"
       disabled="false"
@@ -278,6 +279,7 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
       <!---->
       <!---->
     </ul>
+    <!---->
     <div
       class="t-pagination__btn t-pagination__btn-next"
       disabled="false"
@@ -436,6 +438,7 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
       <!---->
       <!---->
     </ul>
+    <!---->
     <div
       class="t-pagination__btn t-pagination__btn-next"
       disabled="false"
@@ -622,6 +625,7 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
         20
       </li>
     </ul>
+    <!---->
     <div
       class="t-pagination__btn t-pagination__btn-next"
       disabled="false"
@@ -798,6 +802,7 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
         20
       </li>
     </ul>
+    <!---->
     <div
       class="t-pagination__btn t-pagination__btn-next"
       disabled="false"
@@ -954,6 +959,7 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
         22
       </li>
     </ul>
+    <!---->
     <div
       class="t-pagination__btn t-pagination__btn-next"
       disabled="false"
@@ -1055,6 +1061,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
         />
       </svg>
     </div>
+    <!---->
     <div
       class="t-select__wrap t-pagination__select"
     >
@@ -1204,6 +1211,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
         />
       </svg>
     </div>
+    <!---->
     <div
       class="t-select__wrap t-pagination__select"
     >
@@ -1428,6 +1436,7 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
         69
       </li>
     </ul>
+    <!---->
     <div
       class="t-pagination__btn t-pagination__btn-next"
       disabled="false"

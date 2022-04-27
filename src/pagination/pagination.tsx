@@ -220,8 +220,8 @@ export default defineComponent({
           <div class={this.totalClass}>{this.t(this.global.total, { total })}</div>,
         )}
 
-        {/* select */}
-        {pageSizeOptions.length > 0 && (
+        {/* 分页器 */}
+        {this.showPageSize && pageSizeOptions.length > 0 && (
           <Select
             size={size}
             value={innerPageSize}
@@ -250,8 +250,8 @@ export default defineComponent({
             <ChevronLeftIcon />
           </div>
         ) : null}
-        {/* 页数 */}
-        {!this.isSimple ? (
+        {/* 常规版 */}
+        {this.showPageNumber && this.theme === 'default' ? (
           <ul class={this.btnWrapClass}>
             {this.isFolded && (
               <li class={this.getButtonClass(1)} onClick={() => this.toPage(min)}>
@@ -289,7 +289,9 @@ export default defineComponent({
               </li>
             ) : null}
           </ul>
-        ) : (
+        ) : null}
+        {/* 极简版 */}
+        {this.showPageNumber && this.theme === 'simple' ? (
           <Select
             size={size}
             value={innerCurrent}
@@ -298,7 +300,7 @@ export default defineComponent({
             onChange={this.toPage}
             options={this.pageCountOption}
           />
-        )}
+        ) : null}
         {/* 向后按钮 */}
         {this.showPreviousAndNextBtn ? (
           <div

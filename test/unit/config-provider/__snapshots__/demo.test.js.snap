@@ -3367,6 +3367,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
     <!---->
     <!---->
   </ul>
+  <!---->
   <div
     class="t-pagination__btn t-pagination__btn-next"
     disabled="false"
