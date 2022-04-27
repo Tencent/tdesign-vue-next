@@ -15,6 +15,7 @@
       :total="36"
       :default-current="2"
       :default-page-size="10"
+      show-first-and-last-page-btn
       @current-change="onCurrentChange"
       @page-size-change="onPageSizeChange"
       @change="onChange"

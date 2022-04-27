@@ -3906,6 +3906,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
         >
           <!---->
           <!---->
+          <!---->
           <div
             class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
             disabled="true"
@@ -3990,6 +3991,7 @@ exports[`Transfer Transfer paginationVue demo works fine 1`] = `
               />
             </svg>
           </div>
+          <!---->
           <!---->
         </div>
       </div>

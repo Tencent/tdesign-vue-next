@@ -6,9 +6,21 @@
     "options": []
   },
   {
+    "name": "showFirstAndLastPageBtn",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
     "name": "showJumper",
     "type": "Boolean",
     "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showPreviousAndNextBtn",
+    "type": "Boolean",
+    "defaultValue": true,
     "options": []
   },
   {

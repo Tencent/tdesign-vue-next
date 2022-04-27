@@ -12301,6 +12301,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
     <!---->
     <!--]-->
   </div>
+  <!---->
   <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
       <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
     </svg></div>
@@ -12319,6 +12320,7 @@ exports[`ssr snapshot test renders ./examples/config-provider/demos/pagination.v
   <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
       <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
     </svg></div>
+  <!---->
   <div class="t-pagination__jump">jump to<div class="t-input-number t-size-m t-input-number--normal t-pagination__input">
       <!---->
       <div class="t-input__wrap" unselectable="off">
@@ -21373,6 +21375,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
       <!---->
       <!--]-->
     </div>
+    <!---->
     <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21394,6 +21397,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
     <!---->
+    <!---->
   </div><br><br><!-- :pageSizeOptions="[]" 表示隐藏分页器选项 -->
   <!-- 非受控用法，代码有效，勿删。 -->
   <div class="t-pagination t-size-m">
@@ -21413,6 +21417,9 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
       <!---->
       <!--]-->
     </div>
+    <div class="t-pagination__btn t-pagination__btn-prev"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-page-first" style="">
+        <path fill="currentColor" d="M12.4 4.46l-.91-.92L7.03 8l4.46 4.46.92-.92L8.86 8l3.55-3.54zM4.8 4v8h1.3V4H4.8z" fill-opacity="0.9"></path>
+      </svg></div>
     <div class="t-pagination__btn t-pagination__btn-prev"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21430,6 +21437,9 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/base.vue correctl
     </ul>
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
+      </svg></div>
+    <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-page-last" style="">
+        <path fill="currentColor" d="M3.6 11.54l.91.92L8.97 8 4.51 3.54l-.92.92L7.14 8l-3.55 3.54zm7.6.46V4H9.9v8h1.3z" fill-opacity="0.9"></path>
       </svg></div>
     <!---->
   </div>
@@ -21455,6 +21465,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
       <!---->
       <!--]-->
     </div>
+    <!---->
     <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21475,6 +21486,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/jump.vue correctl
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
+    <!---->
     <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input">
         <!---->
         <div class="t-input__wrap" unselectable="off">
@@ -21512,6 +21524,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
       <!---->
       <!--]-->
     </div>
+    <!---->
     <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21532,6 +21545,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/mini.vue correctl
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
+    <!---->
     <!---->
   </div>
 </div>
@@ -21556,6 +21570,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
       <!---->
       <!--]-->
     </div>
+    <!---->
     <div class="t-pagination__btn t-pagination__btn-prev"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21580,6 +21595,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/more.vue correctl
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
     <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -21603,6 +21619,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
       <!---->
       <!--]-->
     </div>
+    <!---->
     <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21623,6 +21640,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/page-num.vue corr
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
+    <!---->
     <!---->
   </div>
 </div>
@@ -21647,6 +21665,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
       <!---->
       <!--]-->
     </div>
+    <!---->
     <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21668,6 +21687,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple.vue correc
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
+    <!---->
     <!---->
   </div>
 </div>
@@ -21692,6 +21712,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
       <!---->
       <!--]-->
     </div>
+    <!---->
     <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21713,6 +21734,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/simple-mini.vue c
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
+    <!---->
     <!---->
   </div>
 </div>
@@ -21737,6 +21759,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
       <!---->
       <!--]-->
     </div>
+    <!---->
     <div class="t-pagination__btn t-pagination__btn-prev"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
         <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
       </svg></div>
@@ -21760,6 +21783,7 @@ exports[`ssr snapshot test renders ./examples/pagination/demos/total.vue correct
     <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
         <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
       </svg></div>
+    <!---->
     <!---->
   </div>
 </div>
@@ -26962,6 +26986,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
           <!---->
           <!--]-->
         </div>
+        <!---->
         <div class="t-pagination__btn t-pagination__btn-prev"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
             <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
           </svg></div>
@@ -26982,6 +27007,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/base.vue correctly 1`]
         <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
             <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
           </svg></div>
+        <!---->
         <!---->
       </div>
     </div>
@@ -27239,6 +27265,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col.vue correct
           <!---->
           <!--]-->
         </div>
+        <!---->
         <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
             <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
           </svg></div>
@@ -27259,6 +27286,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col.vue correct
         <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
             <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
           </svg></div>
+        <!---->
         <!---->
       </div>
     </div>
@@ -27453,6 +27481,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col-button.vue 
           <!---->
           <!--]-->
         </div>
+        <!---->
         <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
             <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
           </svg></div>
@@ -27473,6 +27502,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/custom-col-button.vue 
         <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
             <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
           </svg></div>
+        <!---->
         <!---->
       </div>
     </div>
@@ -36160,6 +36190,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
           <!---->
           <!--]-->
         </div>
+        <!---->
         <div class="t-pagination__btn t-pagination__btn-prev"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
             <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
           </svg></div>
@@ -36180,6 +36211,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination.vue correct
         <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
             <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
           </svg></div>
+        <!---->
         <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input">
             <!---->
             <div class="t-input__wrap" unselectable="off">
@@ -36270,6 +36302,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
         <!---->
         <!--]-->
       </div>
+      <!---->
       <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
           <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
         </svg></div>
@@ -36285,6 +36318,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
       <div class="t-pagination__btn t-pagination__btn-next t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
           <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
         </svg></div>
+      <!---->
       <div class="t-pagination__jump">跳至<div class="t-input-number t-size-m t-input-number--normal t-pagination__input">
           <!---->
           <div class="t-input__wrap" unselectable="off">
@@ -37138,6 +37172,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
           <!---->
           <!--]-->
         </div>
+        <!---->
         <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
             <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
           </svg></div>
@@ -37162,6 +37197,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/tree.vue correctly 1`]
         <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
             <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
           </svg></div>
+        <!---->
         <!---->
       </div>
     </div>
@@ -39671,6 +39707,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
         <div class="t-pagination t-size-s">
           <!---->
           <!---->
+          <!---->
           <div class="t-pagination__btn t-pagination__btn-prev t-is-disabled" disabled><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
               <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
             </svg></div>
@@ -39692,6 +39729,7 @@ exports[`ssr snapshot test renders ./examples/transfer/demos/pagination.vue corr
           <div class="t-pagination__btn t-pagination__btn-next"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
               <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
             </svg></div>
+          <!---->
           <!---->
         </div>
       </div>

@@ -1,6 +1,8 @@
 import { defineComponent, computed, ref, watch, toRefs } from 'vue';
 import isNaN from 'lodash/isNaN';
 import {
+  PageFirstIcon,
+  PageLastIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   ChevronLeftDoubleIcon,
@@ -232,15 +234,22 @@ export default defineComponent({
             ))}
           </Select>
         )}
-
+        {/* 首页按钮 */}
+        {this.showFirstAndLastPageBtn ? (
+          <div class={this.preBtnClass} onClick={() => this.toPage(1)} disabled={this.disabled || this.current === min}>
+            <PageFirstIcon />
+          </div>
+        ) : null}
         {/* 向前按钮 */}
-        <div
-          class={this.preBtnClass}
-          onClick={() => this.handlePageChange('prevPage')}
-          disabled={disabled || innerCurrent === min}
-        >
-          <ChevronLeftIcon />
-        </div>
+        {this.showPreviousAndNextBtn ? (
+          <div
+            class={this.preBtnClass}
+            onClick={() => this.handlePageChange('prevPage')}
+            disabled={disabled || innerCurrent === min}
+          >
+            <ChevronLeftIcon />
+          </div>
+        ) : null}
         {/* 页数 */}
         {!this.isSimple ? (
           <ul class={this.btnWrapClass}>
@@ -291,14 +300,25 @@ export default defineComponent({
           />
         )}
         {/* 向后按钮 */}
-        <div
-          class={this.nextBtnClass}
-          onClick={() => this.handlePageChange('nextPage')}
-          disabled={disabled || innerCurrent === this.pageCount}
-        >
-          <ChevronRightIcon />
-        </div>
-        {/* 跳转 */}
+        {this.showPreviousAndNextBtn ? (
+          <div
+            class={this.nextBtnClass}
+            onClick={() => this.handlePageChange('nextPage')}
+            disabled={disabled || innerCurrent === this.pageCount}
+          >
+            <ChevronRightIcon />
+          </div>
+        ) : null}
+        {/* 尾页按钮 */}
+        {this.showFirstAndLastPageBtn ? (
+          <div
+            class={this.nextBtnClass}
+            onClick={() => this.toPage(this.pageCount)}
+            disabled={this.disabled || this.current === this.pageCount}
+          >
+            <PageLastIcon />
+          </div>
+        ) : null}
         {/* 跳转 */}
         {showJumper ? (
           <div class={this.jumperClass}>
@@ -310,6 +330,8 @@ export default defineComponent({
               onEnter={this.onJumperChange}
               max={this.pageCount}
               min={min}
+              size={size}
+              disabled={this.disabled}
               theme="normal"
               placeholder=""
             />

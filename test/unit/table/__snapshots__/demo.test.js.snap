@@ -887,6 +887,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
           <!---->
           
         </div>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-prev"
           disabled="false"
@@ -963,6 +964,7 @@ exports[`Table Table baseVue demo works fine 1`] = `
             />
           </svg>
         </div>
+        <!---->
         <!---->
       </div>
     </div>
@@ -1740,6 +1742,7 @@ exports[`Table Table customColButtonVue demo works fine 1`] = `
           <!---->
           
         </div>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
           disabled="true"
@@ -1830,6 +1833,7 @@ exports[`Table Table customColButtonVue demo works fine 1`] = `
             />
           </svg>
         </div>
+        <!---->
         <!---->
       </div>
     </div>
@@ -2256,6 +2260,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
           <!---->
           
         </div>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
           disabled="true"
@@ -2346,6 +2351,7 @@ exports[`Table Table customColVue demo works fine 1`] = `
             />
           </svg>
         </div>
+        <!---->
         <!---->
       </div>
     </div>
@@ -21515,6 +21521,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
         <!---->
         
       </div>
+      <!---->
       <div
         class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
         disabled="true"
@@ -21566,6 +21573,7 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
           />
         </svg>
       </div>
+      <!---->
       <div
         class="t-pagination__jump"
       >
@@ -22030,6 +22038,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           <!---->
           
         </div>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-prev"
           disabled="false"
@@ -22120,6 +22129,7 @@ exports[`Table Table paginationVue demo works fine 1`] = `
             />
           </svg>
         </div>
+        <!---->
         <div
           class="t-pagination__jump"
         >
@@ -25322,6 +25332,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
           <!---->
           
         </div>
+        <!---->
         <div
           class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
           disabled="true"
@@ -25418,6 +25429,7 @@ exports[`Table Table treeVue demo works fine 1`] = `
             />
           </svg>
         </div>
+        <!---->
         <!---->
       </div>
     </div>
