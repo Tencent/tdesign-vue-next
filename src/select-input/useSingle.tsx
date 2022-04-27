@@ -21,6 +21,7 @@ const COMMON_PROPERTIES = [
   'suffixIcon',
   'onPaste',
   'onEnter',
+  'onMouseenter',
   'onMouseleave',
 ];
 
