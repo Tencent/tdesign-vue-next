@@ -1,4 +1,5 @@
 import { ComponentPublicInstance, VNode } from 'vue';
+import { usePrefixClass } from '../../hooks/useConfig';
 import { on } from '../../utils/dom';
 
 type Handler = (...args: unknown[]) => unknown;
@@ -10,7 +11,6 @@ interface ElementHandler {
 
 type FlushList = Map<number, ElementHandler>;
 
-const POPUP_SELECTOR = `.t-popup`;
 const nodeList: FlushList = new Map();
 
 let startClick: MouseEvent;
@@ -29,9 +29,11 @@ if (window && window.document) {
 type NodeElement = HTMLElement | VNode | ComponentPublicInstance;
 
 const createDocumentHandler = (elements: HTMLElement[], handler: Handler, includePopup = true) => {
+  const POPUP_SELECTOR = usePrefixClass('popup');
+
   return (e: MouseEvent) => {
     if (includePopup) {
-      document.querySelectorAll(POPUP_SELECTOR).forEach((ele: Element) => {
+      document.querySelectorAll(POPUP_SELECTOR.value).forEach((ele: Element) => {
         elements.push(ele as HTMLElement);
       });
     }

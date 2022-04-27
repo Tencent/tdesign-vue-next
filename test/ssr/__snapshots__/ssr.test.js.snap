@@ -28251,7 +28251,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-col-sort.vue corr
 <div class="demo-container t-table-demo-sort">
   <div class="item">
     <!-- 拖拽排序涉及到 data 的变更，相对比较慎重，因此仅支持受控用法 -->
-    <div class="t-table t-table--col-draggable" style="position:relative;" dragsort="col">
+    <div class="t-table" style="position:relative;" dragsort="row-handler">
       <!---->
       <!---->
       <div class="t-table__content" style="">
