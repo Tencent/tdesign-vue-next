@@ -332,6 +332,21 @@ export default defineComponent({
       this.submitInput(selectedDates, true);
 
       if (closePicker) {
+        const mode = this.range ? 'range' : this.mode;
+        const { multiSeparator } = this;
+
+        switch (mode) {
+          case 'date':
+          case 'month':
+          case 'year':
+            emitEvent(this, 'apply', selectedDates.join(multiSeparator));
+            break;
+          case 'range':
+            emitEvent(this, 'apply', selectedDates);
+            break;
+          default:
+            break;
+        }
         this.close();
       }
     },

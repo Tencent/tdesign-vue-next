@@ -12,6 +12,7 @@
       style="width: 350px"
       @pick="onPick"
       @change="onChange"
+      @apply="onApply"
     />
   </div>
 </template>
@@ -19,4 +20,5 @@
 <script setup>
 const onPick = (value, context) => console.log('onPick:', value, context);
 const onChange = (value) => console.log('onChange:', value);
+const onApply = (value) => console.log('onApply:', value);
 </script>
