@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TNode } from '../common';
@@ -18,6 +17,11 @@ export interface TdPaginationProps {
    * @default 1
    */
   defaultCurrent?: number;
+  /**
+   * 当前页
+   * @default 1
+   */
+  modelValue?: number;
   /**
    * 是否禁用分页组件
    * @default false
@@ -49,10 +53,20 @@ export interface TdPaginationProps {
    */
   pageSizeOptions?: Array<number | { label: string; value: number }>;
   /**
+   * 是否显示跳转首页尾页页码控制器
+   * @default false
+   */
+  showFirstAndLastPageBtn?: boolean;
+  /**
    * 是否显示跳转页码控制器
    * @default false
    */
   showJumper?: boolean;
+  /**
+   * 是否显示跳转前后页页码控制器
+   * @default true
+   */
+  showPreviousAndNextBtn?: boolean;
   /**
    * 分页组件尺寸
    * @default medium

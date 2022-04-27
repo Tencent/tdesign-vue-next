@@ -2,7 +2,6 @@
 
 /**
  * 该文件为脚本自动生成文件，请勿随意修改。如需修改请联系 PMC
- * updated at 2021-12-12 19:17:30
  * */
 
 import { TdPaginationProps } from './type';
@@ -50,13 +49,21 @@ export default {
     type: Array as PropType<TdPaginationProps['pageSizeOptions']>,
     default: () => [5, 10, 20, 50],
   },
+  /** 是否显示跳转首页尾页页码控制器 */
+  showFirstAndLastPageBtn: Boolean,
   /** 是否显示跳转页码控制器 */
   showJumper: Boolean,
+  /** 是否显示跳转前后页页码控制器 */
+  showPreviousAndNextBtn: {
+    type: Boolean,
+    default: true,
+  },
   /** 分页组件尺寸 */
   size: {
     type: String as PropType<TdPaginationProps['size']>,
     default: 'medium' as TdPaginationProps['size'],
     validator(val: TdPaginationProps['size']): boolean {
+      if (!val) return true;
       return ['small', 'medium'].includes(val);
     },
   },
@@ -65,6 +72,7 @@ export default {
     type: String as PropType<TdPaginationProps['theme']>,
     default: 'default' as TdPaginationProps['theme'],
     validator(val: TdPaginationProps['theme']): boolean {
+      if (!val) return true;
       return ['default', 'simple'].includes(val);
     },
   },

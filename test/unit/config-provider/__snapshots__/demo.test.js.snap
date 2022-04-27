@@ -3318,6 +3318,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
     <!---->
     
   </div>
+  <!---->
   <div
     class="t-pagination__btn t-pagination__btn-prev t-is-disabled"
     disabled="true"
@@ -3384,6 +3385,7 @@ exports[`ConfigProvider ConfigProvider paginationVue demo works fine 1`] = `
       />
     </svg>
   </div>
+  <!---->
   <div
     class="t-pagination__jump"
   >
