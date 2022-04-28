@@ -29,7 +29,7 @@ export default defineComponent({
     const renderContent = useContent();
     const { t, global } = useConfig(COMPONENT_NAME);
     // 组件内部状态管理
-    const { state, toCurrent, checkDayVisibled } = useState(props);
+    const { state, toToday, checkDayVisibled } = useState(props);
 
     // 样式
     const cls = useCalendarClass(props, state);
@@ -273,7 +273,7 @@ export default defineComponent({
                   {...currentBtn.vBind.value}
                   disabled={currentBtn.isDisabled.value}
                   onClick={() => {
-                    toCurrent();
+                    toToday();
                   }}
                 >
                   {currentBtn.text.value}
