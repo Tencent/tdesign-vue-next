@@ -4,20 +4,14 @@ import Panel from './components/Panel';
 import SelectInput from '../select-input';
 import FakeArrow from '../common-components/fake-arrow';
 import props from './props';
-import { getPanels } from './utils/panel';
 
 import { useCascaderContext } from './hooks';
 import { CascaderValue } from './interface';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
-import {
-  getSingleContent,
-  getMultipleContent,
-  closeIconClickEffect,
-  getFakeArrowIconClass,
-  innerContentClickEffect,
-  handleRemoveTagEffect,
-} from './utils/cascader';
+import { closeIconClickEffect, innerContentClickEffect, handleRemoveTagEffect } from './core/effect';
+import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
+import { getFakeArrowIconClass } from './core/className';
 
 export default defineComponent({
   name: 'TCascader',
@@ -100,9 +94,8 @@ export default defineComponent({
                 visible={visible}
                 trigger={props.trigger}
                 cascaderContext={cascaderContext.value}
-              >
-                {{ empty: slots.empty }}
-              </Panel>
+                v-slots={{ empty: slots.empty }}
+              />
             ),
             collapsedItems: slots.collapsedItems,
           }}

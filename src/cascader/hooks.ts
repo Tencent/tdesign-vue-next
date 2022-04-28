@@ -1,8 +1,8 @@
 import { reactive, computed, onMounted, toRefs, nextTick, watchEffect, watch } from 'vue';
 
 import isEqual from 'lodash/isEqual';
-import { getTreeValue, getValue, isEmptyValues, valueValidate } from './utils/helper';
-import { treeNodesEffect, treeStoreExpendEffect } from './utils/cascader';
+import { getTreeValue, getValue, isEmptyValues, valueValidate } from './core/helper';
+import { treeNodesEffect, treeStoreExpendEffect } from './core/effect';
 import TreeStore from '../_common/js/tree/tree-store';
 
 import { useFormDisabled } from '../form/hooks';

@@ -1,5 +1,33 @@
 import { CascaderContextType, TreeNode, TreeNodeValue } from '../interface';
 
+/**
+ * icon Class
+ * @param prefix
+ * @param STATUS
+ * @param cascaderContext
+ * @returns
+ */
+export function getFakeArrowIconClass(
+  prefix: string,
+  STATUS: Record<string, string>,
+  cascaderContext: CascaderContextType,
+) {
+  const { disabled } = cascaderContext;
+  return [
+    `${prefix}-cascader__icon`,
+    {
+      [STATUS.disabled]: disabled,
+    },
+  ];
+}
+
+/**
+ * 通用状态
+ * @param node
+ * @param STATUS
+ * @param cascaderContext
+ * @returns
+ */
 export function getNodeStatusClass(
   node: TreeNode,
   STATUS: Record<string, string>,
@@ -24,6 +52,15 @@ export function getNodeStatusClass(
   ];
 }
 
+/**
+ * 子节点状态
+ * @param prefix
+ * @param node
+ * @param SIZE
+ * @param STATUS
+ * @param cascaderContext
+ * @returns
+ */
 export function getCascaderItemClass(
   prefix: string,
   node: TreeNode,
@@ -43,6 +80,14 @@ export function getCascaderItemClass(
   ];
 }
 
+/**
+ * 子节点icon状态
+ * @param prefix
+ * @param node
+ * @param STATUS
+ * @param cascaderContext
+ * @returns
+ */
 export function getCascaderItemIconClass(
   prefix: string,
   node: TreeNode,

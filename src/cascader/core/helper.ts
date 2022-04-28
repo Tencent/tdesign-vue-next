@@ -9,6 +9,69 @@ import {
 } from '../interface';
 
 /**
+ * 单选状态下内容
+ * @param isHover
+ * @param cascaderContext
+ * @returns
+ */
+export function getSingleContent(cascaderContext: CascaderContextType) {
+  const { value, multiple, treeStore, showAllLevels, setValue } = cascaderContext;
+  if (multiple || !value) return '';
+
+  if (Array.isArray(value)) return '';
+  const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
+  if (!(node && node.length)) {
+    if (value) {
+      setValue(multiple ? [] : '', 'invalid-value');
+    }
+    return '';
+  }
+  const path = node && node[0].getPath();
+  if (path && path.length) {
+    return showAllLevels ? path.map((node: TreeNode) => node.label).join(' / ') : path[path.length - 1].label;
+  }
+  return value as string;
+}
+
+/**
+ * 多选状态下选中内容
+ * @param isHover
+ * @param cascaderContext
+ * @returns
+ */
+export function getMultipleContent(cascaderContext: CascaderContextType) {
+  const { value, multiple, treeStore, showAllLevels } = cascaderContext;
+
+  if (!multiple) return [];
+  if (multiple && !Array.isArray(value)) return [];
+
+  const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
+  if (!node) return [];
+
+  return (value as TreeNodeValue[]).map((item: TreeNodeValue) => {
+    const node = treeStore.getNodes(item);
+    return showAllLevels ? getFullPathLabel(node[0]) : node[0].label;
+  });
+}
+
+/**
+ * 面板数据计算方法
+ * @param treeNodes
+ * @returns
+ */
+export function getPanels(treeNodes: CascaderContextType['treeNodes']) {
+  const panels: TreeNode[][] = [];
+  treeNodes.forEach((node: TreeNode) => {
+    if (panels[node.level]) {
+      panels[node.level].push(node);
+    } else {
+      panels[node.level] = [node];
+    }
+  });
+  return panels;
+}
+
+/**
  * 获取node的全部路径
  * @param node
  * @returns

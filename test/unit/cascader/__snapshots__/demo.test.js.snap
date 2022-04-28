@@ -1139,288 +1139,282 @@ exports[`Cascader Cascader multipleVue demo works fine 1`] = `
 `;
 
 exports[`Cascader Cascader panelVue demo works fine 1`] = `
-<div>
+<div
+  class="tdesign-demo-block-row"
+>
   <div
-    class="tdesign-demo-block-row"
+    class="t-cascader__panel t-cascader--normal"
   >
-    <div
-      class="t-cascader__panel t-cascader--normal"
+    
+    <ul
+      class="t-cascader__menu narrow-scrollbar t-cascader__menu--segment"
     >
       
-      <ul
-        class="t-cascader__menu narrow-scrollbar t-cascader__menu--segment"
+      <li
+        class="t-cascader__item t-is-expanded t-size-m t-cascader__item--with-icon"
       >
-        
-        <li
-          class="t-cascader__item t-is-expanded t-size-m t-cascader__item--with-icon"
+        <span
+          class="t-cascader__item-label t-cascader__item-label--ellipsis"
+          role="label"
+          title="当选项一数据展示文本过长时"
         >
-          <span
-            class="t-cascader__item-label t-cascader__item-label--ellipsis"
-            role="label"
-            title="当选项一数据展示文本过长时"
-          >
-            当选项一数据展示文本过长时
-          </span>
-          <svg
-            class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-expanded"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--with-icon"
+          当选项一数据展示文本过长时
+        </span>
+        <svg
+          class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-expanded"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <span
-            class="t-cascader__item-label t-cascader__item-label--ellipsis"
-            role="label"
-            title="选项二"
-          >
-            选项二
-          </span>
-          <svg
-            class="t-icon t-icon-chevron-right t-cascader__item-icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
-        
-      </ul>
-      <ul
-        class="t-cascader__menu narrow-scrollbar"
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </li>
+      <li
+        class="t-cascader__item t-size-m t-cascader__item--with-icon"
       >
-        
-        <li
-          class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--leaf"
+        <span
+          class="t-cascader__item-label t-cascader__item-label--ellipsis"
+          role="label"
+          title="选项二"
         >
-          <span
-            class="t-cascader__item-label t-cascader__item-label--ellipsis"
-            role="label"
-            title="子选项一"
-          >
-            子选项一
-          </span>
-          <!---->
-        </li>
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--leaf"
+          选项二
+        </span>
+        <svg
+          class="t-icon t-icon-chevron-right t-cascader__item-icon"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <span
-            class="t-cascader__item-label t-cascader__item-label--ellipsis"
-            role="label"
-            title="子选项二"
-          >
-            子选项二
-          </span>
-          <!---->
-        </li>
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--leaf"
-        >
-          <span
-            class="t-cascader__item-label t-cascader__item-label--ellipsis"
-            role="label"
-            title="子选项三"
-          >
-            子选项三
-          </span>
-          <!---->
-        </li>
-        
-      </ul>
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </li>
       
-    </div>
+    </ul>
+    <ul
+      class="t-cascader__menu narrow-scrollbar"
+    >
+      
+      <li
+        class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--leaf"
+      >
+        <span
+          class="t-cascader__item-label t-cascader__item-label--ellipsis"
+          role="label"
+          title="子选项一"
+        >
+          子选项一
+        </span>
+        <!---->
+      </li>
+      <li
+        class="t-cascader__item t-size-m t-cascader__item--leaf"
+      >
+        <span
+          class="t-cascader__item-label t-cascader__item-label--ellipsis"
+          role="label"
+          title="子选项二"
+        >
+          子选项二
+        </span>
+        <!---->
+      </li>
+      <li
+        class="t-cascader__item t-size-m t-cascader__item--leaf"
+      >
+        <span
+          class="t-cascader__item-label t-cascader__item-label--ellipsis"
+          role="label"
+          title="子选项三"
+        >
+          子选项三
+        </span>
+        <!---->
+      </li>
+      
+    </ul>
+    
   </div>
   <div
-    class="tdesign-demo-block-row"
+    class="t-cascader__panel t-cascader--normal"
   >
-    <div
-      class="t-cascader__panel t-cascader--normal"
+    
+    <ul
+      class="t-cascader__menu narrow-scrollbar t-cascader__menu--segment"
     >
       
-      <ul
-        class="t-cascader__menu narrow-scrollbar t-cascader__menu--segment"
+      <li
+        class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--with-icon"
       >
-        
-        <li
-          class="t-cascader__item t-is-selected t-is-expanded t-size-m t-cascader__item--with-icon"
+        <label
+          class="t-checkbox t-is-indeterminate"
+          size="medium"
+          title="当选项一数据展示文本过长时"
         >
-          <label
-            class="t-checkbox t-is-indeterminate"
-            size="medium"
-            title="当选项一数据展示文本过长时"
+          <input
+            class="t-checkbox__former"
+            name="1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
           >
-            <input
-              class="t-checkbox__former"
-              name="1"
-              type="checkbox"
-            />
-            <span
-              class="t-checkbox__input"
-            />
-            <span
-              class="t-checkbox__label"
-            >
-              
-              当选项一数据展示文本过长时
-              
-            </span>
-          </label>
-          <svg
-            class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-selected t-is-expanded"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--with-icon"
+            
+            当选项一数据展示文本过长时
+            
+          </span>
+        </label>
+        <svg
+          class="t-icon t-icon-chevron-right t-cascader__item-icon t-is-selected t-is-expanded"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <label
-            class="t-checkbox"
-            size="medium"
-            title="选项二"
-          >
-            <input
-              class="t-checkbox__former"
-              name="2"
-              type="checkbox"
-            />
-            <span
-              class="t-checkbox__input"
-            />
-            <span
-              class="t-checkbox__label"
-            >
-              
-              选项二
-              
-            </span>
-          </label>
-          <svg
-            class="t-icon t-icon-chevron-right t-cascader__item-icon"
-            fill="none"
-            height="1em"
-            viewBox="0 0 16 16"
-            width="1em"
-          >
-            <path
-              d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
-              fill="currentColor"
-              fill-opacity="0.9"
-            />
-          </svg>
-        </li>
-        
-      </ul>
-      <ul
-        class="t-cascader__menu narrow-scrollbar"
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </li>
+      <li
+        class="t-cascader__item t-size-m t-cascader__item--with-icon"
       >
-        
-        <li
-          class="t-cascader__item t-is-selected t-size-m t-cascader__item--leaf"
+        <label
+          class="t-checkbox"
+          size="medium"
+          title="选项二"
         >
-          <label
-            class="t-checkbox t-is-checked"
-            size="medium"
-            title="子选项一"
+          <input
+            class="t-checkbox__former"
+            name="2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
           >
-            <input
-              class="t-checkbox__former"
-              name="1.1"
-              type="checkbox"
-            />
-            <span
-              class="t-checkbox__input"
-            />
-            <span
-              class="t-checkbox__label"
-            >
-              
-              子选项一
-              
-            </span>
-          </label>
-          <!---->
-        </li>
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--leaf"
+            
+            选项二
+            
+          </span>
+        </label>
+        <svg
+          class="t-icon t-icon-chevron-right t-cascader__item-icon"
+          fill="none"
+          height="1em"
+          viewBox="0 0 16 16"
+          width="1em"
         >
-          <label
-            class="t-checkbox"
-            size="medium"
-            title="子选项二"
-          >
-            <input
-              class="t-checkbox__former"
-              name="1.2"
-              type="checkbox"
-            />
-            <span
-              class="t-checkbox__input"
-            />
-            <span
-              class="t-checkbox__label"
-            >
-              
-              子选项二
-              
-            </span>
-          </label>
-          <!---->
-        </li>
-        <li
-          class="t-cascader__item t-size-m t-cascader__item--leaf"
-        >
-          <label
-            class="t-checkbox"
-            size="medium"
-            title="子选项三"
-          >
-            <input
-              class="t-checkbox__former"
-              name="1.3"
-              type="checkbox"
-            />
-            <span
-              class="t-checkbox__input"
-            />
-            <span
-              class="t-checkbox__label"
-            >
-              
-              子选项三
-              
-            </span>
-          </label>
-          <!---->
-        </li>
-        
-      </ul>
+          <path
+            d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z"
+            fill="currentColor"
+            fill-opacity="0.9"
+          />
+        </svg>
+      </li>
       
-    </div>
+    </ul>
+    <ul
+      class="t-cascader__menu narrow-scrollbar"
+    >
+      
+      <li
+        class="t-cascader__item t-is-selected t-size-m t-cascader__item--leaf"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+          size="medium"
+          title="子选项一"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.1"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            子选项一
+            
+          </span>
+        </label>
+        <!---->
+      </li>
+      <li
+        class="t-cascader__item t-size-m t-cascader__item--leaf"
+      >
+        <label
+          class="t-checkbox"
+          size="medium"
+          title="子选项二"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.2"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            子选项二
+            
+          </span>
+        </label>
+        <!---->
+      </li>
+      <li
+        class="t-cascader__item t-size-m t-cascader__item--leaf"
+      >
+        <label
+          class="t-checkbox"
+          size="medium"
+          title="子选项三"
+        >
+          <input
+            class="t-checkbox__former"
+            name="1.3"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            子选项三
+            
+          </span>
+        </label>
+        <!---->
+      </li>
+      
+    </ul>
+    
   </div>
 </div>
 `;

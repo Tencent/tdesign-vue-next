@@ -1,8 +1,8 @@
 import { defineComponent, PropType, computed, ref } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 
-import { getFullPathLabel } from '../utils/helper';
-import { getCascaderItemClass, getCascaderItemIconClass } from '../utils/item';
+import { getFullPathLabel } from '../core/helper';
+import { getCascaderItemClass, getCascaderItemIconClass } from '../core/className';
 
 import Checkbox from '../../checkbox/index';
 import TLoading from '../../loading';
