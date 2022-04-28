@@ -31,6 +31,9 @@ export default function useInput(props: TdInputProps) {
   const emitClear = ({ e }: { e: MouseEvent }) => {
     emitEvent('clear', { e });
     emitEvent('change', '', { e });
+    if (typeof modelValue.value !== 'undefined') {
+      emitEvent('update:modelValue', '');
+    }
     focus();
     emitFocus(e);
   };
