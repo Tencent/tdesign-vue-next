@@ -15,11 +15,9 @@ export default function useInput(props: TdInputProps) {
   const renderType = ref(props.type);
   const inputRef = ref(null);
 
-  const showClear = computed(
-    () =>
-      (props.value && !props.disabled && props.clearable && isHover.value && !props.readonly) ||
-      props.showClearIconOnEmpty,
-  );
+  const showClear = computed(() => {
+    return (innerValue.value && !props.disabled && props.clearable && !props.readonly) || props.showClearIconOnEmpty;
+  });
 
   const focus = () => inputRef.value?.focus();
   const blur = () => inputRef.value?.blur();
