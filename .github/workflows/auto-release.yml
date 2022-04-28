@@ -73,6 +73,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           ref: develop
+          token: ${{ secrets.PERSONAL_TOKEN }}
       - name: tag and push if needed
         run: |
           data=$(cat package.json)
