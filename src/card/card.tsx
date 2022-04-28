@@ -66,7 +66,6 @@ export default defineComponent({
         showTitle.value ||
         showSubtitle.value ||
         showDescription.value ||
-        showDescription.value ||
         showAvatar.value ||
         (showStatus.value && isPoster2.value) ||
         (showActions.value && !isPoster2.value),
