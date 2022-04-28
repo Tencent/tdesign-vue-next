@@ -319,7 +319,6 @@ exports[`InputNumber InputNumber autoWidthVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-input-number--row t-input-number--auto-width"
-    modelvalue="3"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -401,7 +400,6 @@ exports[`InputNumber InputNumber centerVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-input-number--row"
-    modelvalue="3"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -556,7 +554,6 @@ exports[`InputNumber InputNumber disabledVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-is-disabled t-input-number--row"
-    modelvalue="3"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
@@ -712,7 +709,6 @@ exports[`InputNumber InputNumber formatVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-input-number--row"
-    modelvalue="3"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -790,7 +786,6 @@ exports[`InputNumber InputNumber leftVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-is-controls-right t-input-number--column"
-    modelvalue="3"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -868,7 +863,6 @@ exports[`InputNumber InputNumber normalVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-input-number--normal"
-    modelvalue="3"
   >
     <!---->
     <div
@@ -900,7 +894,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-s t-input-number--row"
-    modelvalue="3"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -971,7 +964,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
   </div>
   <div
     class="t-input-number t-size-m t-input-number--row"
-    modelvalue="3"
     style="margin: 0px 50px;"
   >
     <button
@@ -1045,7 +1037,6 @@ exports[`InputNumber InputNumber sizeVue demo works fine 1`] = `
   </div>
   <div
     class="t-input-number t-size-l t-input-number--row"
-    modelvalue="3"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -1124,7 +1115,7 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
   >
     
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1146,7 +1137,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-is-disabled t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease t-is-disabled"
@@ -1221,11 +1211,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1247,7 +1239,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -1322,11 +1313,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1348,7 +1341,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -1422,11 +1414,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1448,7 +1442,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -1522,11 +1515,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1548,7 +1543,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -1622,11 +1616,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1648,7 +1644,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -1722,11 +1717,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1748,7 +1745,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -1826,11 +1822,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1852,7 +1850,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -1930,11 +1927,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -1956,7 +1955,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -2034,11 +2032,13 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     <div
-      class="t-form__item t-form-item__"
+      class="t-form__item t-form-item__ t-form__item-with-extra"
     >
       <div
         class="t-form__label t-form__label--right"
@@ -2060,7 +2060,6 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <div
             class="t-input-number t-size-m t-input-number--row"
-            modelvalue="3"
           >
             <button
               class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"
@@ -2138,7 +2137,9 @@ exports[`InputNumber InputNumber statusVue demo works fine 1`] = `
           
           <!---->
         </div>
-        <!---->
+        <div
+          class="t-input__help"
+        />
       </div>
     </div>
     
@@ -2150,7 +2151,6 @@ exports[`InputNumber InputNumber stepVue demo works fine 1`] = `
 <div>
   <div
     class="t-input-number t-size-m t-input-number--row"
-    modelvalue="3.2"
   >
     <button
       class="t-button t-size-m t-button--variant-outline t-button--theme-default t-button--shape-square t-button--icon-only t-input-number__decrease"

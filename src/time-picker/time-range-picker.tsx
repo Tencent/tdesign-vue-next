@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, nextTick } from 'vue';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import isFunction from 'lodash/isFunction';
@@ -259,7 +259,9 @@ export default defineComponent({
     handleTInputFocus() {
       // TODO: 待改成select-input后删除
       // hack 在input聚焦时马上blur 避免出现输入光标
-      (this.$refs.tInput as HTMLInputElement).blur();
+      nextTick(() => {
+        (this.$refs.tInput as HTMLInputElement).blur();
+      });
     },
     renderInput() {
       const classes = [

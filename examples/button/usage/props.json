@@ -1,0 +1,110 @@
+[
+  {
+    "name": "block",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "ghost",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "loading",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "shape",
+    "type": "enum",
+    "defaultValue": "rectangle",
+    "options": [
+      {
+        "label": "rectangle",
+        "value": "rectangle"
+      },
+      {
+        "label": "square",
+        "value": "square"
+      },
+      {
+        "label": "round",
+        "value": "round"
+      },
+      {
+        "label": "circle",
+        "value": "circle"
+      }
+    ]
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
+  },
+  {
+    "name": "type",
+    "type": "enum",
+    "defaultValue": "button",
+    "options": [
+      {
+        "label": "submit",
+        "value": "submit"
+      },
+      {
+        "label": "reset",
+        "value": "reset"
+      },
+      {
+        "label": "button",
+        "value": "button"
+      }
+    ]
+  },
+  {
+    "name": "variant",
+    "type": "enum",
+    "defaultValue": "base",
+    "options": [
+      {
+        "label": "base",
+        "value": "base"
+      },
+      {
+        "label": "outline",
+        "value": "outline"
+      },
+      {
+        "label": "dashed",
+        "value": "dashed"
+      },
+      {
+        "label": "text",
+        "value": "text"
+      }
+    ]
+  }
+]

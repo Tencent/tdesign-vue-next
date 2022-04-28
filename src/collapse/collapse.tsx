@@ -34,21 +34,16 @@ export default defineComponent({
         },
       ];
     });
+    const getUniqId = (() => {
+      let index = 0;
+      return () => index++;
+    })();
     provide('collapseValue', collapseValue);
     provide('updateCollapseValue', updateCollapseValue);
     provide('collapseProps', toRefs(props));
+    provide('getUniqId', getUniqId);
     return () => {
       const nodes = renderTNodeJSX('default');
-      if (Array.isArray(nodes)) {
-        nodes.forEach((node, index) => {
-          const { props, type } = node;
-          if ((type as any)?.name === 'TCollapsePanel' && props?.value === undefined) {
-            if (props) {
-              props.value = index;
-            }
-          }
-        });
-      }
       return <div class={classes.value}>{nodes}</div>;
     };
   },

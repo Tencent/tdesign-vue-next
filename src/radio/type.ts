@@ -46,6 +46,10 @@ export interface TdRadioProps {
    * 选中状态变化时触发
    */
   onChange?: (checked: boolean, context: { e: Event }) => void;
+  /**
+   * 点击时触发
+   */
+  onClick?: (context: { e: MouseEvent }) => void;
 }
 
 export interface TdRadioGroupProps {

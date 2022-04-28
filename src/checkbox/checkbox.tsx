@@ -6,7 +6,7 @@ import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
-import { CheckboxGroupInjectionKey } from './group';
+import { CheckboxGroupInjectionKey } from './constants';
 
 export default defineComponent({
   name: 'TCheckbox',

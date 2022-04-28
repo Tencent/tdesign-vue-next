@@ -17,4 +17,3 @@ export interface BaseTableProps extends TdBaseTableProps {
 export type PrimaryTableProps = TdPrimaryTableProps;
 export type EnhancedTableProps = TdEnhancedTableProps;
 export type TableProps = PrimaryTableProps;
-export type TargetDom = HTMLElement | Element | null;

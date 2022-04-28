@@ -11,6 +11,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'vue', 'json'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
+    '^tdesign-vue-next/es/(.*)': '<rootDir>/src/$1',
     '^tdesign-vue-next(.*)': '<rootDir>/src/$1',
     '^vue$': '<rootDir>/node_modules/vue/index.js',
   },

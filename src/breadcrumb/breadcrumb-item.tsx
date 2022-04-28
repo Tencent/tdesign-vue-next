@@ -1,154 +1,106 @@
-import { defineComponent, ComponentPublicInstance, VNode } from 'vue';
+import { defineComponent, VNode, inject, ref, computed, watchEffect, onMounted, onBeforeUpdate } from 'vue';
 import { ChevronRightIcon } from 'tdesign-icons-vue-next';
 
 import props from './breadcrumb-item-props';
 import Tooltip from '../tooltip/index';
 import { isNodeOverflow } from '../utils/dom';
-import { emitEvent } from '../utils/event';
-import { getPropsApiByEvent } from '../utils/helper';
 import { usePrefixClass } from '../hooks/useConfig';
 
-export const EVENT_NAME_WITH_KEBAB = ['click'];
 interface LocalTBreadcrumb {
   separator: (() => void) | string;
   theme: string;
-  $slots: {
+  slots: {
     separator: VNode | string;
   };
   maxItemWidth: string;
 }
+
 const localTBreadcrumbOrigin: LocalTBreadcrumb = {
   separator: '',
   theme: 'light',
-  $slots: { separator: '' },
+  slots: { separator: '' },
   maxItemWidth: undefined,
 };
 
 export default defineComponent({
   name: 'TBreadcrumbItem',
-  components: {
-    Tooltip,
-  },
-
-  inject: ['tBreadcrumb'],
-
-  props: {
-    ...props,
-  },
-
-  emits: ['click'],
-  setup() {
+  props,
+  setup(props, { slots, attrs }) {
+    const breadcrumbText = ref<HTMLElement | null>(null);
+    const localTBreadcrumb = inject('tBreadcrumb', localTBreadcrumbOrigin);
+    const themeClassName = ref(localTBreadcrumb?.theme);
+    const curRouter = ref(null);
+    const isCutOff = ref(false);
     const COMPONENT_NAME = usePrefixClass('breadcrumb__item');
     const separatorClass = usePrefixClass('breadcrumb__separator');
     const disableClass = usePrefixClass('is-disabled');
     const linkClass = usePrefixClass('link');
     const maxLengthClass = usePrefixClass('breadcrumb__inner');
     const textFlowClass = usePrefixClass('breadcrumb--text-overflow');
-    return {
-      COMPONENT_NAME,
-      separatorClass,
-      disableClass,
-      linkClass,
-      maxLengthClass,
-      textFlowClass,
-    };
-  },
-  data() {
-    return {
-      localTBreadcrumb: localTBreadcrumbOrigin,
-      themeClassName: '',
-      $router: null,
-      isCutOff: false,
-    };
-  },
-
-  computed: {
-    maxWithStyle() {
-      const { localTBreadcrumb } = this;
-      const { maxItemWidth } = localTBreadcrumb;
-      const maxWith: string = this.maxWidth || maxItemWidth || '120';
+    const maxWithStyle = computed(() => {
+      const maxItemWidth = localTBreadcrumb?.maxItemWidth;
+      const maxWith: string = props.maxWidth || maxItemWidth || '120';
       return { maxWidth: `${maxWith}px` };
-    },
-  },
+    });
 
-  watch: {
-    tBreadcrumb: {
-      immediate: true,
-      handler(v): void {
-        this.localTBreadcrumb = v;
-      },
-    },
-  },
+    onMounted(() => {
+      isCutOff.value = isNodeOverflow(breadcrumbText.value);
+    });
+    onBeforeUpdate(() => {
+      isCutOff.value = true;
+    });
 
-  created() {
-    const tBreadcrumb = this.localTBreadcrumb;
-    this.themeClassName = tBreadcrumb.theme;
-  },
-
-  mounted() {
-    this.isCutOff = isNodeOverflow(this.$refs.breadcrumbText as ComponentPublicInstance);
-  },
-  beforeUpdate() {
-    this.isCutOff = isNodeOverflow(this.$refs.breadcrumbText as ComponentPublicInstance);
-  },
-
-  methods: {
-    bindEvent(e: MouseEvent) {
-      if (!this.href || !this.disabled) {
-        e.preventDefault();
-        const { to } = this;
-        const router = this.router || this.$router;
-        if (to && router) {
-          this.replace ? router.replace(to) : router.push(to);
-        }
-      }
-    },
-  },
-
-  render() {
-    const { separatorClass, disableClass, linkClass, maxLengthClass, textFlowClass } = this;
-    const { localTBreadcrumb, maxWithStyle } = this;
-    const { separator: separatorPropContent } = localTBreadcrumb;
-    const separatorSlot = localTBreadcrumb.$slots.separator;
+    const separatorPropContent = localTBreadcrumb?.separator;
+    const separatorSlot = localTBreadcrumb?.slots?.separator;
     const separatorContent = separatorPropContent || separatorSlot || (
       <ChevronRightIcon {...{ color: 'rgba(0,0,0,.3)' }} />
     );
-    const itemClass = [this.COMPONENT_NAME, this.themeClassName];
-    const textClass = [textFlowClass];
+    const bindEvent = (e: MouseEvent) => {
+      if (!props.href || !props.disabled) {
+        e.preventDefault();
+        const router = props.router || curRouter.value;
+        if (props.to && router) {
+          props.replace ? router.replace(props.to) : router.push(props.to);
+        }
+      }
+    };
 
-    if (this.disabled) {
-      textClass.push(disableClass);
-    }
-    const listeners: Record<string, any> = {};
-    EVENT_NAME_WITH_KEBAB.forEach((eventName) => {
-      listeners[getPropsApiByEvent(eventName)] = (...args: any[]) => {
-        emitEvent(this, eventName, ...args);
+    return () => {
+      const itemClass = [COMPONENT_NAME.value, themeClassName.value];
+      const textClass = [textFlowClass.value];
+
+      if (props.disabled) {
+        textClass.push(disableClass.value);
+      }
+
+      const listeners = {
+        onClick: (e: MouseEvent) => {
+          props.onClick?.({ e });
+        },
       };
-    });
-
-    const textContent = (
-      <span ref="breadcrumbText" {...{ class: maxLengthClass, style: maxWithStyle }}>
-        {this.$slots.default()}
-      </span>
-    );
-    let itemContent = <span {...{ class: textClass, ...listeners }}>{textContent}</span>;
-
-    if ((this.href || this.to) && !this.disabled) {
-      textClass.push(linkClass);
-      itemContent = (
-        <a class={textClass} href={this.href} target={this.target} {...listeners} onClick={this.bindEvent}>
-          {textContent}
-        </a>
-      );
-    }
-
-    return (
-      <div class={itemClass} {...this.$attrs}>
-        {this.isCutOff ? <Tooltip content={() => this.$slots.default()}>{itemContent}</Tooltip> : itemContent}
-        <span class={separatorClass}>
-          {typeof separatorContent === 'function' ? separatorContent() : separatorContent}
+      const textContent = (
+        <span ref={breadcrumbText} {...{ class: maxLengthClass.value, style: maxWithStyle.value }}>
+          {slots.default()}
         </span>
-      </div>
-    );
+      );
+      let itemContent = <span {...{ class: textClass, ...listeners }}>{textContent}</span>;
+
+      if ((props.href || props.to) && !props.disabled) {
+        textClass.push(linkClass.value);
+        itemContent = (
+          <a class={textClass} href={props.href} target={props.target} {...listeners} onClick={bindEvent}>
+            {textContent}
+          </a>
+        );
+      }
+      return (
+        <div class={itemClass} {...attrs}>
+          {isCutOff.value ? <Tooltip content={() => slots?.default()}>{itemContent}</Tooltip> : itemContent}
+          <span class={separatorClass.value}>
+            {typeof separatorContent === 'function' ? separatorContent() : separatorContent}
+          </span>
+        </div>
+      );
+    };
   },
 });

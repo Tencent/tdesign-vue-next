@@ -15,26 +15,29 @@ export default defineComponent({
     const disableClass = usePrefixClass('is-disabled');
     const clickableClass = usePrefixClass('is-clickable');
     const transitionClass = usePrefixClass('slide-down');
-    const { value, disabled, destroyOnCollapse } = toRefs(props);
+    const { value, disabled, destroyOnCollapse, expandIcon } = toRefs(props);
     const collapseValue: Ref<CollapseValue> = inject('collapseValue');
     const updateCollapseValue: Function = inject('updateCollapseValue');
+    const getUniqId: Function = inject('getUniqId', () => undefined, false);
     const {
       defaultExpandAll,
       disabled: disableAll,
       expandIconPlacement,
       expandOnRowClick,
-      expandIcon,
+      expandIcon: expandIconAll,
     } = inject('collapseProps');
+    const innerValue = value.value || getUniqId();
+    const showExpandIcon = computed(() => (expandIcon.value === undefined ? expandIconAll.value : expandIcon.value));
     if (defaultExpandAll.value) {
-      updateCollapseValue(value.value);
+      updateCollapseValue(innerValue);
     }
     const { beforeEnter, enter, afterEnter, beforeLeave, leave, afterLeave } = useCollapseAnimation();
     const headRef = ref<HTMLElement>();
     const isDisabled = computed(() => disabled.value || disableAll.value);
     const isActive = computed(() =>
       collapseValue.value instanceof Array
-        ? collapseValue.value.includes(value.value)
-        : collapseValue.value === value.value,
+        ? collapseValue.value.includes(innerValue)
+        : collapseValue.value === innerValue,
     );
     const classes = computed(() => {
       return [componentName.value, { [disableClass.value]: isDisabled.value }];
@@ -44,7 +47,7 @@ export default defineComponent({
         (expandOnRowClick.value && e.target === headRef.value) ||
         (e.target as Element).getAttribute('name') === 'arrow';
       if (canExpand && !isDisabled.value) {
-        updateCollapseValue(value.value);
+        updateCollapseValue(innerValue);
       }
     };
     const renderIcon = (direction: string) => {
@@ -68,11 +71,11 @@ export default defineComponent({
       ];
       return (
         <div ref={headRef} class={cls} onClick={handleClick}>
-          {expandIcon.value && expandIconPlacement.value === 'left' ? renderIcon(expandIconPlacement.value) : null}
+          {showExpandIcon.value && expandIconPlacement.value === 'left' ? renderIcon(expandIconPlacement.value) : null}
           {renderTNodeJSX('header')}
           {renderBlank()}
           {renderTNodeJSX('headerRightContent')}
-          {expandIcon.value && expandIconPlacement.value === 'right' ? renderIcon(expandIconPlacement.value) : null}
+          {showExpandIcon.value && expandIconPlacement.value === 'right' ? renderIcon(expandIconPlacement.value) : null}
         </div>
       );
     };

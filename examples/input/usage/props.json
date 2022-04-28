@@ -1,0 +1,138 @@
+[
+  {
+    "name": "align",
+    "type": "enum",
+    "defaultValue": "left",
+    "options": [
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "center",
+        "value": "center"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      }
+    ]
+  },
+  {
+    "name": "autofocus",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "autoWidth",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "clearable",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "readonly",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showClearIconOnEmpty",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "size",
+    "type": "enum",
+    "defaultValue": "medium",
+    "options": [
+      {
+        "label": "small",
+        "value": "small"
+      },
+      {
+        "label": "medium",
+        "value": "medium"
+      },
+      {
+        "label": "large",
+        "value": "large"
+      }
+    ]
+  },
+  {
+    "name": "status",
+    "type": "enum",
+    "defaultValue": "default",
+    "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
+      {
+        "label": "success",
+        "value": "success"
+      },
+      {
+        "label": "warning",
+        "value": "warning"
+      },
+      {
+        "label": "error",
+        "value": "error"
+      }
+    ]
+  },
+  {
+    "name": "type",
+    "type": "enum",
+    "defaultValue": "text",
+    "options": [
+      {
+        "label": "text",
+        "value": "text"
+      },
+      {
+        "label": "number",
+        "value": "number"
+      },
+      {
+        "label": "url",
+        "value": "url"
+      },
+      {
+        "label": "tel",
+        "value": "tel"
+      },
+      {
+        "label": "password",
+        "value": "password"
+      },
+      {
+        "label": "search",
+        "value": "search"
+      },
+      {
+        "label": "submit",
+        "value": "submit"
+      },
+      {
+        "label": "hidden",
+        "value": "hidden"
+      }
+    ]
+  }
+]

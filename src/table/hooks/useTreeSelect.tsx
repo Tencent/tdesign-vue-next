@@ -4,7 +4,7 @@ import { TdEnhancedTableProps, TdPrimaryTableProps, TableRowData, PrimaryTableCo
 import TableTreeStore, { KeysType, TableTreeDataMap } from './tree-store';
 import useDefaultValue from '../../hooks/useDefaultValue';
 
-export const childreMap = new Map();
+export const childrenMap = new Map();
 
 export interface GetChildrenDataReturnValue {
   allChildren: Array<any>;
@@ -18,7 +18,7 @@ export function getChildrenData(
   rowKey: string,
   r?: GetChildrenDataReturnValue,
 ): GetChildrenDataReturnValue {
-  if (childreMap.get(data)) return childreMap.get(data);
+  if (childrenMap.get(data)) return childrenMap.get(data);
   const result = r || { allChildren: [], allChildrenKeys: [] };
   const children = get(data, childrenKey);
   if (!children || !children.length) return result;
@@ -139,7 +139,7 @@ export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: 
           rowDataKeys.value.rowKey,
         );
         const { allChildrenKeys } = result;
-        childreMap.set(extraData.currentRowData, result);
+        childrenMap.set(extraData.currentRowData, result);
         newRowKeys = [...new Set(newRowKeys.concat(allChildrenKeys))];
       } else if (extraData?.type === 'uncheck') {
         const children = getChildrenData(

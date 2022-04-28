@@ -1,4 +1,4 @@
-import { defineComponent, nextTick, VNode, ComponentPublicInstance } from 'vue';
+import { defineComponent, nextTick, VNode, ComponentPublicInstance, Fragment } from 'vue';
 import isFunction from 'lodash/isFunction';
 import debounce from 'lodash/debounce';
 import get from 'lodash/get';
@@ -103,6 +103,7 @@ export default defineComponent({
       hoverIndex: -1,
       popupOpenTime: 250, // popup打开弹出层的延迟时间
       checkScroll: true, // 弹出层执行加宽事件（仅执行一次，且在有滚动条时执行）
+      isInited: false,
     };
   },
   computed: {
@@ -317,6 +318,10 @@ export default defineComponent({
   },
   mounted() {
     this.checkVal();
+    this.initOptions();
+  },
+  updated() {
+    this.initOptions();
   },
   methods: {
     getRealOptions(options: SelectOption[]): Array<TdOptionProps> {
@@ -572,7 +577,7 @@ export default defineComponent({
     getOverlayElm(): HTMLElement {
       let r;
       try {
-        r = (this.$refs.popup as any).$refs.overlay || (this.$refs.popup as any).$refs.component.$refs.overlay;
+        r = (this.$refs.popup as any).$refs.component.getOverlay();
       } catch (e) {
         console.warn('TDesign Warn:', e);
       }
@@ -700,6 +705,49 @@ export default defineComponent({
         });
       }
     },
+    /**
+     * Parse options from slots before popup, execute only once
+     */
+    initOptions() {
+      if (this.realOptions.length || this.isInited) return;
+
+      const children = renderTNodeJSX(this, 'default');
+      if (children) {
+        this.realOptions = parseOptions(children);
+        this.isInited = true;
+        this.hasOptions = true;
+      }
+
+      function getOptionContent(children: any, fallback: any) {
+        if (children === null || children === undefined) return fallback;
+        // raw slots
+        if (children.default) return children.default;
+        return children;
+      }
+
+      function parseOptions(vnodes: any[]): TdOptionProps[] {
+        if (!vnodes) return [];
+        return vnodes.reduce((options, vnode) => {
+          if (vnode.type?.name === 'TOption') {
+            const propsData = vnode.props;
+            return options.concat({
+              label: propsData.label,
+              value: propsData.value,
+              disabled: propsData.disabled,
+              content: getOptionContent(vnode.children, propsData.content),
+              default: propsData.default,
+            });
+          }
+          if (vnode.type === Fragment) {
+            return options.concat(parseOptions(vnode.children));
+          }
+          if (vnode.type?.name === 'TOptionGroup') {
+            return options.concat(parseOptions(vnode.children.default()));
+          }
+          return options;
+        }, []);
+      }
+    },
   },
   render(): VNode {
     const {
@@ -740,7 +788,7 @@ export default defineComponent({
             />
           </ul>
           {loading && <div class={tipsClass}>{loadingTextSlot || loadingText}</div>}
-          {!loading && !displayOptions.length && !showCreateOption && <li class={emptyClass}>{emptySlot}</li>}
+          {!loading && !displayOptions.length && !showCreateOption && <div class={emptyClass}>{emptySlot}</div>}
           {!hasOptions && displayOptions.length && !loading ? (
             this.renderDataWithOptions()
           ) : (

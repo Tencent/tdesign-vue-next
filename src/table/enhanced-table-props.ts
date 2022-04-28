@@ -12,4 +12,6 @@ export default {
   tree: {
     type: Object as PropType<TdEnhancedTableProps['tree']>,
   },
+  /** 树形结构，用户操作引起节点展开或收起时触发，代码操作不会触发 */
+  onTreeExpandChange: Function as PropType<TdEnhancedTableProps['onTreeExpandChange']>,
 };

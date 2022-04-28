@@ -39,7 +39,7 @@ const columns = [
     disabled: ({ rowIndex }) => rowIndex === 1 || rowIndex === 3,
 
     // 禁用行选中方式二：使用 checkProps 禁用行（示例代码有效，勿删，随时需要测试）
-    // 这种方式禁用行选中，行文本不会变灰
+    // 这种方式禁用行选中，行文本不会变灰，不会添加类名 t-table__row--disabled
     // checkProps: ({ rowIndex }) => ({ disabled: rowIndex % 2 !== 0 }),
     width: 50,
   },

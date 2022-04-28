@@ -12,7 +12,7 @@
 
     <div>
       <t-checkbox v-model="expandOnRowClick">允许点击行之后展开/收起</t-checkbox>
-      <t-checkbox v-model="fixedColums" style="margin-left: 32px">固定列</t-checkbox>
+      <t-checkbox v-model="fixedColumns" style="margin-left: 32px">固定列</t-checkbox>
       <t-checkbox v-model="emptyData" style="margin-left: 32px">空数据</t-checkbox>
     </div>
 
@@ -56,7 +56,7 @@ import { ref, watch, computed } from 'vue';
 
 import { ChevronRightCircleIcon, ChevronRightIcon } from 'tdesign-icons-vue-next';
 
-const getColums = (isFixedColumn) => [
+const getColumns = (isFixedColumn) => [
   { colKey: 'instance', title: '集群名称', fixed: isFixedColumn ? 'left' : '' },
   {
     colKey: 'status',
@@ -97,10 +97,10 @@ const expandControl = ref('true');
 const expandIcon = ref(true);
 const expandOnRowClick = ref(true);
 const expandedRowKeys = ref(['2']);
-const fixedColums = ref(false);
+const fixedColumns = ref(false);
 const emptyData = ref(false);
 
-const columns = computed(() => getColums(fixedColums.value));
+const columns = computed(() => getColumns(fixedColumns.value));
 
 const expandedRow = (h, { row }) => (
   <div class="more-detail">

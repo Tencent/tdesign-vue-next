@@ -1,0 +1,61 @@
+[
+  {
+    "name": "destroyOnClose",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "disabled",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "hideEmptyPopup",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "overlayStyle",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "showArrow",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  },
+  {
+    "name": "trigger",
+    "type": "enum",
+    "defaultValue": "hover",
+    "options": [
+      {
+        "label": "hover",
+        "value": "hover"
+      },
+      {
+        "label": "click",
+        "value": "click"
+      },
+      {
+        "label": "focus",
+        "value": "focus"
+      },
+      {
+        "label": "context-menu",
+        "value": "context-menu"
+      }
+    ]
+  },
+  {
+    "name": "visible",
+    "type": "Boolean",
+    "defaultValue": false,
+    "options": []
+  }
+]

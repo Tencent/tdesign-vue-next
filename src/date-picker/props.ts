@@ -95,4 +95,6 @@ export default {
   onInput: Function as PropType<TdDatePickerProps['onInput']>,
   /* 选中日期时触发，可能是开始日期，也可能是结束日期，第二个参数可以区分是开始日期或是结束日期 */
   onPick: Function as PropType<TdDateRangePickerProps['onPick']>,
+  /* 选择或点击确定按钮后触发 */
+  onApply: Function as PropType<TdDateRangePickerProps['onApply']>,
 };

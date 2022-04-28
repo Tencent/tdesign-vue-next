@@ -332,6 +332,21 @@ export default defineComponent({
       this.submitInput(selectedDates, true);
 
       if (closePicker) {
+        const mode = this.range ? 'range' : this.mode;
+        const { multiSeparator } = this;
+
+        switch (mode) {
+          case 'date':
+          case 'month':
+          case 'year':
+            emitEvent(this, 'apply', selectedDates.join(multiSeparator));
+            break;
+          case 'range':
+            emitEvent(this, 'apply', selectedDates);
+            break;
+          default:
+            break;
+        }
         this.close();
       }
     },
@@ -535,7 +550,9 @@ export default defineComponent({
     handleTInputFocus() {
       // TODO: 待改成select-input后删除
       // hack 在input聚焦时马上blur 避免出现输入光标
-      (this.$refs.native as HTMLInputElement).blur();
+      nextTick(() => {
+        (this.$refs.native as HTMLInputElement).blur();
+      });
     },
   },
   render() {

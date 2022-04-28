@@ -113,6 +113,7 @@ const onLookUp = (row) => {
 const appendTo = (row) => {
   const randomKey = Math.round(Math.random() * Math.random() * 1000) + 10000;
   table.value.appendTo(row.key, {
+    id: randomKey,
     key: `我是 ${randomKey} 号`,
     platform: '私有',
     type: 'Number',
