@@ -6513,6 +6513,8 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/slot-props-api.vue 
 `;
 
 exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly 1`] = `
+<!--[-->
+<p style="margin-bottom:20px;"><label>自己指定年：</label><input value="1998"><label style="margin-left:10px;">自己指定年月：</label><input value="11"></p>
 <div class="t-calendar t-calendar--full">
   <div class="t-calendar__control">
     <div class="t-calendar__title">
@@ -6948,6 +6950,7 @@ exports[`ssr snapshot test renders ./examples/calendar/demos/value.vue correctly
     </table>
   </div>
 </div>
+<!--]-->
 `;
 
 exports[`ssr snapshot test renders ./examples/calendar/demos/week.vue correctly 1`] = `

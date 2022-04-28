@@ -20,10 +20,28 @@ export function useState(props: TdCalendarProps) {
     controlSize: 'medium',
   });
 
-  function toCurrent(value?: TdCalendarProps['value']): void {
+  function toToday() {
+    const curDate = createDefaultCurDate();
+    state.curSelectedYear = curDate.year();
+    state.curSelectedMonth = parseInt(curDate.format('M'), 10);
+  }
+
+  function setCurSelectedYear(year?: TdCalendarProps['year']) {
+    const curSelectedYear = year ? parseInt(`${year}`, 10) : createDefaultCurDate().year();
+    if (!isNaN(curSelectedYear) && curSelectedYear > 0) {
+      state.curSelectedYear = curSelectedYear;
+    }
+  }
+
+  function setCurSelectedMonth(month?: TdCalendarProps['month']) {
+    const curSelectedMonth = month ? parseInt(`${month}`, 10) : parseInt(createDefaultCurDate().format('M'), 10);
+    if (!isNaN(curSelectedMonth) && curSelectedMonth > 0 && curSelectedMonth <= 12) {
+      state.curSelectedMonth = curSelectedMonth;
+    }
+  }
+
+  function setCurrentDate(value?: TdCalendarProps['value']): void {
     state.curDate = value ? dayjs(value) : createDefaultCurDate();
-    state.curSelectedYear = state.curDate.year();
-    state.curSelectedMonth = parseInt(state.curDate.format('M'), 10);
   }
 
   function checkDayVisibled(day: number) {
@@ -44,7 +62,21 @@ export function useState(props: TdCalendarProps) {
   watch(
     () => props.value,
     (v: TdCalendarProps['value']) => {
-      toCurrent(v);
+      setCurrentDate(v);
+    },
+    { immediate: true },
+  );
+  watch(
+    () => props.year,
+    (v: TdCalendarProps['year']) => {
+      setCurSelectedYear(v);
+    },
+    { immediate: true },
+  );
+  watch(
+    () => props.month,
+    (v: TdCalendarProps['month']) => {
+      setCurSelectedMonth(v);
     },
     { immediate: true },
   );
@@ -65,7 +97,7 @@ export function useState(props: TdCalendarProps) {
 
   return {
     state,
-    toCurrent,
+    toToday,
     checkDayVisibled,
   };
 }

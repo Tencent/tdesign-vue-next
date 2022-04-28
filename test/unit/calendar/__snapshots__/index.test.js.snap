@@ -3849,7 +3849,7 @@ exports[`Calendar :props :value 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="1998"
+          modelvalue="2020"
         >
           
           <div
@@ -3870,9 +3870,9 @@ exports[`Calendar :props :value 1`] = `
             </span>
             <span
               class="t-select__single"
-              title="1998"
+              title="2020"
             >
-              1998
+              2020
             </span>
             <!---->
             <svg
@@ -3902,7 +3902,7 @@ exports[`Calendar :props :value 1`] = `
       >
         <div
           class="t-select__wrap"
-          modelvalue="11"
+          modelvalue="12"
         >
           
           <div
@@ -3923,9 +3923,9 @@ exports[`Calendar :props :value 1`] = `
             </span>
             <span
               class="t-select__single"
-              title="11"
+              title="12"
             >
-              11
+              12
             </span>
             <!---->
             <svg
@@ -4121,87 +4121,7 @@ exports[`Calendar :props :value 1`] = `
             <div
               class="t-calendar__table-body-cell-display"
             >
-              26
-            </div>
-            <div
-              class="t-calendar__table-body-cell-content"
-            >
-              <!---->
-            </div>
-            
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            
-            <div
-              class="t-calendar__table-body-cell-display"
-            >
-              27
-            </div>
-            <div
-              class="t-calendar__table-body-cell-content"
-            >
-              <!---->
-            </div>
-            
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            
-            <div
-              class="t-calendar__table-body-cell-display"
-            >
-              28
-            </div>
-            <div
-              class="t-calendar__table-body-cell-content"
-            >
-              <!---->
-            </div>
-            
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            
-            <div
-              class="t-calendar__table-body-cell-display"
-            >
-              29
-            </div>
-            <div
-              class="t-calendar__table-body-cell-content"
-            >
-              <!---->
-            </div>
-            
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            
-            <div
-              class="t-calendar__table-body-cell-display"
-            >
               30
-            </div>
-            <div
-              class="t-calendar__table-body-cell-content"
-            >
-              <!---->
-            </div>
-            
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            
-            <div
-              class="t-calendar__table-body-cell-display"
-            >
-              31
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -4226,12 +4146,6 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
-          
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
-          
           <td
             class="t-calendar__table-body-cell"
           >
@@ -4312,6 +4226,12 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
+          
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          
           <td
             class="t-calendar__table-body-cell"
           >
@@ -4344,12 +4264,6 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
-          
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
-          
           <td
             class="t-calendar__table-body-cell"
           >
@@ -4383,7 +4297,7 @@ exports[`Calendar :props :value 1`] = `
             
           </td>
           <td
-            class="t-calendar__table-body-cell t-is-checked"
+            class="t-calendar__table-body-cell"
           >
             
             <div
@@ -4430,6 +4344,12 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
+          
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          
           <td
             class="t-calendar__table-body-cell"
           >
@@ -4462,12 +4382,6 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
-          
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
-          
           <td
             class="t-calendar__table-body-cell"
           >
@@ -4548,6 +4462,12 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
+          
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          
           <td
             class="t-calendar__table-body-cell"
           >
@@ -4580,12 +4500,6 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
-          
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
-          
           <td
             class="t-calendar__table-body-cell"
           >
@@ -4666,8 +4580,14 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
+          
+        </tr>
+        <tr
+          class="t-calendar__table-body-row"
+        >
+          
           <td
-            class="t-calendar__table-body-cell"
+            class="t-calendar__table-body-cell t-calendar__table-body-cell--now"
           >
             
             <div
@@ -4698,12 +4618,6 @@ exports[`Calendar :props :value 1`] = `
             </div>
             
           </td>
-          
-        </tr>
-        <tr
-          class="t-calendar__table-body-row"
-        >
-          
           <td
             class="t-calendar__table-body-cell"
           >
@@ -4712,6 +4626,22 @@ exports[`Calendar :props :value 1`] = `
               class="t-calendar__table-body-cell-display"
             >
               30
+            </div>
+            <div
+              class="t-calendar__table-body-cell-content"
+            >
+              <!---->
+            </div>
+            
+          </td>
+          <td
+            class="t-calendar__table-body-cell"
+          >
+            
+            <div
+              class="t-calendar__table-body-cell-display"
+            >
+              31
             </div>
             <div
               class="t-calendar__table-body-cell-content"
@@ -4760,54 +4690,6 @@ exports[`Calendar :props :value 1`] = `
               class="t-calendar__table-body-cell-display"
             >
               03
-            </div>
-            <div
-              class="t-calendar__table-body-cell-content"
-            >
-              <!---->
-            </div>
-            
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            
-            <div
-              class="t-calendar__table-body-cell-display"
-            >
-              04
-            </div>
-            <div
-              class="t-calendar__table-body-cell-content"
-            >
-              <!---->
-            </div>
-            
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            
-            <div
-              class="t-calendar__table-body-cell-display"
-            >
-              05
-            </div>
-            <div
-              class="t-calendar__table-body-cell-content"
-            >
-              <!---->
-            </div>
-            
-          </td>
-          <td
-            class="t-calendar__table-body-cell t-is-disabled"
-          >
-            
-            <div
-              class="t-calendar__table-body-cell-display"
-            >
-              06
             </div>
             <div
               class="t-calendar__table-body-cell-content"
