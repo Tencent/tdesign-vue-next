@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <div class="tdesign-demo-block-row">
-      <t-cascader-panel v-model="value1" :options="options" clearable @change="onChange" />
-    </div>
-    <div class="tdesign-demo-block-row">
-      <t-cascader-panel v-model="value2" multiple :options="options" clearable @change="onChange" />
-    </div>
+  <div class="tdesign-demo-block-row">
+    <t-cascader-panel v-model="value1" :options="options" clearable @change="onChange" />
+    <t-cascader-panel v-model="value2" multiple :options="options" clearable @change="onChange" />
   </div>
 </template>
 

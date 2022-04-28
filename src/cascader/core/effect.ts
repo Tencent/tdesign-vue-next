@@ -1,73 +1,110 @@
+import isNumber from 'lodash/isNumber';
 import isFunction from 'lodash/isFunction';
 import cloneDeep from 'lodash/cloneDeep';
+import { TreeNode, CascaderContextType, CascaderProps, TreeNodeValue } from '../interface';
 import { getFullPathLabel, getTreeValue } from './helper';
-import { TreeNode, TreeNodeValue, CascaderContextType, CascaderProps } from '../interface';
 
 /**
- * icon Class
- * @param prefix
- * @param STATUS
+ * 点击item的副作用
+ * @param propsTrigger
+ * @param trigger
+ * @param node
  * @param cascaderContext
- * @returns
+ * @param onChange
+ * @param ctx
  */
-export function getFakeArrowIconClass(
-  prefix: string,
-  STATUS: Record<string, string>,
+export function expendClickEffect(
+  propsTrigger: CascaderProps['trigger'],
+  trigger: CascaderProps['trigger'],
+  node: TreeNode,
   cascaderContext: CascaderContextType,
 ) {
-  const { disabled } = cascaderContext;
-  return [
-    `${prefix}-cascader__icon`,
-    {
-      [STATUS.disabled]: disabled,
-    },
-  ];
-}
+  const { checkStrictly, multiple, treeStore, setVisible, setValue, setTreeNodes, setExpend, value, max, valueType } =
+    cascaderContext;
 
-/**
- * 单选状态下内容
- * @param isHover
- * @param cascaderContext
- * @returns
- */
-export function getSingleContent(cascaderContext: CascaderContextType) {
-  const { value, multiple, treeStore, showAllLevels, setValue } = cascaderContext;
-  if (multiple || !value) return '';
+  const isDisabled = node.disabled || (multiple && (value as TreeNodeValue[]).length >= max && max !== 0);
 
-  if (Array.isArray(value)) return '';
-  const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
-  if (!(node && node.length)) {
-    if (value) {
-      setValue(multiple ? [] : '', 'invalid-value');
+  if (isDisabled) return;
+  // 点击展开节点，设置展开状态
+  if (propsTrigger === trigger && !node.isLeaf()) {
+    const expanded = node.setExpanded(true);
+    treeStore.refreshNodes();
+    treeStore.replaceExpanded(expanded);
+    const nodes = treeStore.getNodes().filter((node: TreeNode) => node.visible);
+    setTreeNodes(nodes);
+
+    // 多选条件下手动维护expend
+    if (multiple) {
+      setExpend(expanded);
     }
-    return '';
   }
-  const path = node && node[0].getPath();
-  if (path && path.length) {
-    return showAllLevels ? path.map((node: TreeNode) => node.label).join(' / ') : path[path.length - 1].label;
+
+  if (!multiple && (node.isLeaf() || checkStrictly) && trigger === 'click') {
+    treeStore.resetChecked();
+    const checked = node.setChecked(!node.isChecked());
+    const [value] = checked;
+
+    // 非受控状态下更新状态
+    setValue(valueType === 'single' ? value : node.getPath().map((item) => item.value), 'checked', node.getModel());
+
+    if (!checkStrictly) {
+      setVisible(false);
+    }
   }
-  return value as string;
 }
 
 /**
- * 多选状态下选中内容
- * @param isHover
+ * 多选状态下选中状态数据变化的副作用
+ * @param node
  * @param cascaderContext
  * @returns
  */
-export function getMultipleContent(cascaderContext: CascaderContextType) {
-  const { value, multiple, treeStore, showAllLevels } = cascaderContext;
+export function valueChangeEffect(node: TreeNode, cascaderContext: CascaderContextType) {
+  const { disabled, max, inputVal, multiple, setVisible, setValue, treeNodes, treeStore, valueType } = cascaderContext;
 
-  if (!multiple) return [];
-  if (multiple && !Array.isArray(value)) return [];
+  if (!node || disabled || node.disabled) {
+    return;
+  }
+  const checked = node.setChecked(!node.isChecked());
 
-  const node = treeStore && treeStore.getNodes(value as TreeNodeValue | TreeNode);
-  if (!node) return [];
+  if (isNumber(max) && max < 0) {
+    console.warn('TDesign Warn:', 'max should > 0');
+  }
 
-  return (value as TreeNodeValue[]).map((item: TreeNodeValue) => {
-    const node = treeStore.getNodes(item);
-    return showAllLevels ? getFullPathLabel(node[0]) : node[0].label;
-  });
+  if (checked.length > max && isNumber(max) && max > 0) {
+    return;
+  }
+
+  if (checked.length === 0) {
+    const expanded = treeStore.getExpanded();
+    setTimeout(() => {
+      treeStore.replaceExpanded(expanded);
+      treeStore.refreshNodes();
+    }, 0);
+  }
+
+  if (!multiple) {
+    setVisible(false);
+  }
+
+  const isSelectAll = treeNodes.every((item) => checked.indexOf(item.value) > -1);
+
+  if (inputVal && isSelectAll) {
+    setVisible(false);
+  }
+
+  // 处理不同数据类型
+  const resValue =
+    valueType === 'single'
+      ? checked
+      : checked.map((val) =>
+          treeStore
+            .getNode(val)
+            .getPath()
+            .map((item) => item.value),
+        );
+
+  setValue(resValue, 'checked', node.getModel());
 }
 
 /**

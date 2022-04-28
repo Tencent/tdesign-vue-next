@@ -1,7 +1,5 @@
 import { defineComponent } from 'vue';
-
 import Panel from './components/Panel';
-
 import props from './props';
 
 import { useCascaderContext } from './hooks';
@@ -9,19 +7,18 @@ import { useCascaderContext } from './hooks';
 export default defineComponent({
   name: 'TCascaderPanel',
 
-  components: {
-    Panel,
-  },
-
-  props: { ...props, haveInput: Boolean },
+  props: { ...props },
 
   setup(props, { slots }) {
     const { cascaderContext } = useCascaderContext(props);
 
     return () => (
-      <panel empty={props.empty} trigger={props.trigger} cascaderContext={cascaderContext.value}>
-        {{ empty: slots.empty }}
-      </panel>
+      <Panel
+        trigger={props.trigger}
+        cascaderContext={cascaderContext.value}
+        empty={props.empty}
+        v-slots={{ empty: slots.empty }}
+      />
     );
   },
 });
