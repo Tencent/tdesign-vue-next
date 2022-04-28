@@ -9,7 +9,7 @@ import { useCascaderContext } from './hooks';
 import { CascaderValue } from './interface';
 import { useConfig, usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
-import { closeIconClickEffect, innerContentClickEffect, handleRemoveTagEffect } from './core/effect';
+import { closeIconClickEffect, handleRemoveTagEffect } from './core/effect';
 import { getPanels, getSingleContent, getMultipleContent } from './core/helper';
 import { getFakeArrowIconClass } from './core/className';
 
@@ -25,20 +25,23 @@ export default defineComponent({
     const overlayClassName = usePrefixClass('cascader__popup');
     const { global } = useConfig('cascader');
 
+    // 拿到全局状态的上下文
     const { cascaderContext } = useCascaderContext(props);
 
-    const selectVal = computed(() => {
-      return props.multiple ? getMultipleContent(cascaderContext.value) : getSingleContent(cascaderContext.value);
-    });
+    const displayValue = computed(() =>
+      props.multiple ? getMultipleContent(cascaderContext.value) : getSingleContent(cascaderContext.value),
+    );
 
-    const inputPlaceholder = computed(() => {
-      const { visible } = cascaderContext.value;
-      return (visible && !props.multiple && getSingleContent(cascaderContext.value)) || global.value.placeholder;
-    });
+    const panels = computed(() => getPanels(cascaderContext.value.treeNodes));
+
+    const inputPlaceholder = computed(
+      () =>
+        (cascaderContext.value.visible && !props.multiple && getSingleContent(cascaderContext.value)) ||
+        global.value.placeholder,
+    );
 
     const renderSuffixIcon = () => {
       const { visible, disabled } = cascaderContext.value;
-
       return (
         <FakeArrow
           overlayClassName={getFakeArrowIconClass(classPrefix.value, STATUS.value, cascaderContext.value)}
@@ -48,14 +51,12 @@ export default defineComponent({
       );
     };
 
-    const panels = computed(() => getPanels(cascaderContext.value.treeNodes));
-
     return () => {
       const { setVisible, visible, inputVal, setInputVal } = cascaderContext.value;
       return (
         <SelectInput
           class={COMPONENT_NAME.value}
-          value={selectVal.value}
+          value={displayValue.value}
           inputValue={visible ? inputVal : ''}
           popupVisible={visible}
           keys={props.keys}
@@ -68,14 +69,14 @@ export default defineComponent({
           multiple={props.multiple}
           loading={props.loading}
           overlayClassName={overlayClassName.value}
-          popup-props={{ overlayStyle: { width: !panels.value.length ? '1000px' : '' } }}
+          suffixIcon={() => renderSuffixIcon()}
+          popup-props={{ overlayStyle: panels.value.length && { width: 'auto' } }}
           inputProps={{ size: props.size }}
           onInputChange={(value) => {
             setInputVal(value);
           }}
-          suffixIcon={() => renderSuffixIcon()}
           onClick={(e: MouseEvent) => {
-            innerContentClickEffect(cascaderContext.value);
+            setVisible(!visible);
           }}
           onTagChange={(val: CascaderValue, ctx) => {
             handleRemoveTagEffect(cascaderContext.value, ctx.index, props.onRemove);

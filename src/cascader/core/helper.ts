@@ -107,13 +107,13 @@ export const getTreeValue = (value: CascaderContextType['value']) => {
 };
 
 /**
- * 计算数值
+ * 按数据类型计算通用数值
  * @param value
  * @param showAllLevels
  * @param multiple
  * @returns
  */
-export const getValue = (value: CascaderValue, valueType: CascaderProps['valueType'], multiple: boolean) => {
+export const getCascaderValue = (value: CascaderValue, valueType: CascaderProps['valueType'], multiple: boolean) => {
   if (valueType === 'single') {
     return value;
   }

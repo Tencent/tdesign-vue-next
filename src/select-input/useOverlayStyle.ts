@@ -1,4 +1,4 @@
-import { ref, toRefs, watch } from 'vue';
+import { ref, toRefs, computed } from 'vue';
 import isObject from 'lodash/isObject';
 import isFunction from 'lodash/isFunction';
 import { TdSelectInputProps } from './type';
@@ -11,7 +11,6 @@ const MAX_POPUP_WIDTH = 1000;
 export default function useOverlayStyle(props: TdSelectInputProps) {
   const { popupProps, autoWidth } = toRefs(props);
   const innerPopupVisible = ref(false);
-  const tOverlayStyle = ref<TdPopupProps['overlayStyle']>();
 
   const macthWidthFunc = (triggerElement: HTMLElement, popupElement: HTMLElement) => {
     // 避免因滚动条出现文本省略，预留宽度 8
@@ -38,8 +37,7 @@ export default function useOverlayStyle(props: TdSelectInputProps) {
     props.onPopupVisibleChange?.(newVisible, context);
   };
 
-  watch([innerPopupVisible, popupProps], () => {
-    if (tOverlayStyle.value) return;
+  const tOverlayStyle = computed(() => {
     let result: TdPopupProps['overlayStyle'] = {};
     const overlayStyle = popupProps.value?.overlayStyle || {};
     if (isFunction(overlayStyle) || (isObject(overlayStyle) && overlayStyle.width)) {
@@ -47,7 +45,7 @@ export default function useOverlayStyle(props: TdSelectInputProps) {
     } else if (!autoWidth.value) {
       result = macthWidthFunc;
     }
-    tOverlayStyle.value = result;
+    return result;
   });
 
   return {
