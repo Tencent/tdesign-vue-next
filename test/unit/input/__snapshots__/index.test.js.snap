@@ -6,7 +6,7 @@ exports[`Input $attrs input attrs should pass to input element 1`] = `
   maxlength="20"
 >
   <div
-    class="t-input t-input--suffix"
+    class="t-input"
   >
     <!---->
     <!---->

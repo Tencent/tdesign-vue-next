@@ -246,9 +246,9 @@ export default defineComponent({
     watch(
       () => props.overlayStyle,
       () => {
+        updateOverlayStyle();
         if (popper) {
           popper.update();
-          updateOverlayStyle();
         }
       },
     );

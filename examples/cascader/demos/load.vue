@@ -1,6 +1,6 @@
 <template>
   <div>
-    <t-cascader v-model="value" class="t-demo-cascader" :options="options" clearable :load="load" />
+    <t-cascader v-model="value" :options="options" clearable :load="load" />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ const options = ref([
   },
 ]);
 
-const value = ref('1');
+const value = ref();
 
 const load = (node) =>
   new Promise((resolve) => {
@@ -30,11 +30,11 @@ const load = (node) =>
         nodes = [
           {
             label: `${node.label}.1`,
-            children: node.level < 2,
+            children: node.level < 1,
           },
           {
             label: `${node.label}.2`,
-            children: node.level < 2,
+            children: node.level < 1,
           },
         ];
       }
@@ -42,8 +42,3 @@ const load = (node) =>
     }, 1000);
   });
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>
