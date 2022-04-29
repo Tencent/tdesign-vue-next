@@ -1,3 +1,20 @@
+### 🌈 0.14.0 2022-04-29 
+### ❗ Breaking Changes
+- `Popup`: 去除 reference 包裹元素 [@ikeq](https://github.com/ikeq) ([#635](https://github.com/Tencent/tdesign-vue-next/pull/635))
+### 🚀 Features
+- `Pagination`: 新增 showFirstAndLastPageBtn、showPreviousAndNextBtn api [@HQ-Lin](https://github.com/HQ-Lin) ([#665](https://github.com/Tencent/tdesign-vue-next/pull/665))
+- `Pagination`: 新增 showPageSize、showPageNumber API [@HQ-Lin](https://github.com/HQ-Lin) ([#666](https://github.com/Tencent/tdesign-vue-next/pull/666))
+- `Calendar`: 日历组件修正value属性，新增了month和year属性 [@PsTiu](https://github.com/PsTiu) ([#676](https://github.com/Tencent/tdesign-vue-next/pull/676))
+### 🐞 Bug Fixes
+- `Dialog`: 修复 `alert` 类型错误 [@pengYYYYY](https://github.com/pengYYYYY) ([#645](https://github.com/Tencent/tdesign-vue-next/pull/645))
+- `Form`: 修复 help 节点状态问题 [@HQ-Lin](https://github.com/HQ-Lin) ([#656](https://github.com/Tencent/tdesign-vue-next/pull/656))
+- `Transfer`: 修复选择无效和搜索无效 [@pengYYYYY](https://github.com/pengYYYYY) ([#662](https://github.com/Tencent/tdesign-vue-next/pull/662))
+- `DataPicker`: data-picker 增加 apply 事件 [@Godlike-meteor](https://github.com/Godlike-meteor) ([#647](https://github.com/Tencent/tdesign-vue-next/pull/647))
+- `Input`: 修复input组件clearable问题 [@DYS1230](https://github.com/DYS1230) ([#673](https://github.com/Tencent/tdesign-vue-next/pull/673))
+- `TreeSelect`: 修复右侧箭头状态与清除回掉 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
+- `Input`: 修复 `suffix` 渲染问题 [@pengYYYYY](https://github.com/pengYYYYY) ([#679](https://github.com/Tencent/tdesign-vue-next/pull/679))
+- `Input`: 修复input组件clearable问题 [@DYS1230](https://github.com/DYS1230) ([#673](https://github.com/Tencent/tdesign-vue-next/pull/673))
+
 ---
 title: 更新日志
 spline: explain
