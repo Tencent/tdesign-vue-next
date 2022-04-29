@@ -1741,7 +1741,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
           
           
           <div
-            class="t-input__wrap t-select-input t-select-input--empty"
+            class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
           >
             <div
               class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"

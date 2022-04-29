@@ -6,7 +6,7 @@ exports[`TreeSelect TreeSelect baseVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -64,7 +64,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty demo-space"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select demo-space"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -140,7 +140,7 @@ exports[`TreeSelect TreeSelect collapsedVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -281,7 +281,7 @@ exports[`TreeSelect TreeSelect filterableVue demo works fine 1`] = `
   </div>
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-input--prefix t-input--suffix"
@@ -338,7 +338,7 @@ exports[`TreeSelect TreeSelect lazyVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -396,7 +396,7 @@ exports[`TreeSelect TreeSelect multipleVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -479,7 +479,7 @@ exports[`TreeSelect TreeSelect prefixVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -553,7 +553,7 @@ exports[`TreeSelect TreeSelect propsVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -611,7 +611,7 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -668,7 +668,7 @@ exports[`TreeSelect TreeSelect valuedisplayVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select tree-select-multiple"
   >
     <div
       class="t-input t-input--prefix t-input--suffix"
@@ -731,7 +731,7 @@ exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
 >
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -782,7 +782,7 @@ exports[`TreeSelect TreeSelect valuetypeVue demo works fine 1`] = `
   
   
   <div
-    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty tree-select-multiple"
+    class="t-input__wrap t-tag-input t-select-input t-select-input--multiple t-select-input--empty t-tree-select tree-select-multiple"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"

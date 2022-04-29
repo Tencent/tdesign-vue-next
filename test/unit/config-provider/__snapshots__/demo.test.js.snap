@@ -2665,7 +2665,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <!-- &lt;br&gt;&lt;br&gt; -->
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
     style="width: 400px;"
   >
     <div
@@ -2719,7 +2719,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
     style="width: 400px;"
   >
     <div
@@ -2780,7 +2780,7 @@ exports[`ConfigProvider ConfigProvider othersVue demo works fine 1`] = `
   <br />
   
   <div
-    class="t-input__wrap t-select-input t-select-input--empty"
+    class="t-input__wrap t-select-input t-select-input--empty t-tree-select"
     style="width: 400px;"
   >
     <div
