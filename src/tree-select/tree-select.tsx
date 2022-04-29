@@ -10,9 +10,10 @@ import SelectInput from '../select-input';
 import { TagInputChangeContext } from '../tag-input';
 import { PopupProps } from '../popup';
 import { InputValue } from '../input';
+import FakeArrow from '../common-components/fake-arrow';
 
 import { IRemoveOptions, INodeOptions, ISelectInputSlot } from './interface';
-import { TreeSelectValue } from './type';
+import { TreeSelectValue, TdTreeSelectProps } from './type';
 import { TreeOptionData } from '../common';
 import props from './props';
 
@@ -307,6 +308,8 @@ export default defineComponent({
       if (!props.multiple) {
         if (treeSelectValue.value || treeSelectValue.value === 0) {
           nodeInfo.value = getSingleNodeInfo();
+        } else {
+          nodeInfo.value = '';
         }
       } else if (props.multiple) {
         if (isArray(treeSelectValue.value)) {
@@ -397,7 +400,7 @@ export default defineComponent({
         onExpand={treeNodeExpand}
         expandOnClickNode
         v-slots={treeSlots}
-        {...props.treeProps}
+        {...(props.treeProps as TdTreeSelectProps['treeProps'])}
       />
     );
     const SelectInputSlots: ISelectInputSlot = {
@@ -412,6 +415,7 @@ export default defineComponent({
           {treeItem()}
         </div>
       ),
+      suffixIcon: () => <FakeArrow isActive={visible.value} disabled={props.disabled} />,
     };
     if (prefixIconSlot.value) {
       SelectInputSlots.prefixIcon = () => <>{prefixIconSlot.value}</>;

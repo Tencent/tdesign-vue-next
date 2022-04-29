@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <t-cascader v-model="value" class="t-demo-cascader" :options="options" trigger="click" placeholder="请选择" />
-    <t-cascader v-model="value" class="t-demo-cascader" :options="options" trigger="hover" placeholder="请选择" />
+  <div class="tdesign-demo-block-row">
+    <t-cascader v-model="value" :options="options" trigger="click" />
+    <t-cascader v-model="value" :options="options" trigger="hover" />
   </div>
 </template>
 
@@ -45,8 +45,3 @@ const options = [
 
 const value = ref('');
 </script>
-<style scoped>
-.t-demo-cascader + .t-demo-cascader {
-  margin-top: 16px;
-}
-</style>

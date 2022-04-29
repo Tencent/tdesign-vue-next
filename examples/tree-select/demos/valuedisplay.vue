@@ -1,5 +1,5 @@
 <template>
-  <div class="tdesign-tree-select-valuedisplay">
+  <div class="tdesign-demo-block-row">
     <t-tree-select v-model="value" :data="options" clearable placeholder="请选择">
       <template #valueDisplay="{ value }"> {{ value.label }}({{ value.value }}) </template>
     </t-tree-select>

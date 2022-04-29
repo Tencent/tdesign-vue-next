@@ -1,1 +1,1 @@
-import '../../_common/style/web/components/tree/_index.less';
+import '../../_common/style/web/components/tree-select/_index.less';

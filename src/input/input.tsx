@@ -25,7 +25,7 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 export default defineComponent({
   name: 'TInput',
   props,
-  setup(props, { slots }) {
+  setup(props, { slots, expose }) {
     const { global } = useConfig('input');
     const disabled = useFormDisabled();
     const COMPONENT_NAME = usePrefixClass('input');
@@ -34,8 +34,10 @@ export default defineComponent({
     const { STATUS, SIZE } = useCommonClassName();
     const classPrefix = usePrefixClass();
     const renderTNodeJSX = useTNodeJSX();
-    const { isHover, inputRef, renderType, showClear, focused, inputValue, innerValue, ...inputHandle } =
-      useInput(props);
+    const { isHover, inputRef, renderType, showClear, focused, inputValue, innerValue, ...inputHandle } = useInput(
+      props,
+      expose,
+    );
     useInputWidth(props, inputRef, innerValue);
     const inputEventHandler = useInputEventHandler(props, isHover, innerValue);
 
@@ -68,33 +70,19 @@ export default defineComponent({
       return null;
     };
 
-    const prefixIcon = renderIcon(props.prefixIcon, 'prefix-icon');
-
-    const label = renderTNodeJSX('label', { silent: true });
-    const suffix = renderTNodeJSX('suffix');
-
-    const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
-    const suffixContent = suffix ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffix}</div> : null;
-
     return () => {
+      const prefixIcon = renderIcon(props.prefixIcon, 'prefix-icon');
       let suffixIcon = renderIcon(props.suffixIcon, 'suffix-icon');
+      const label = renderTNodeJSX('label', { silent: true });
+      const suffix = renderTNodeJSX('suffix');
 
-      if (showClear.value && isHover.value) {
+      const labelContent = label ? <div class={`${COMPONENT_NAME.value}__prefix`}>{label}</div> : null;
+      const suffixContent = suffix ? <div class={`${COMPONENT_NAME.value}__suffix`}>{suffix}</div> : null;
+
+      if (showClear.value) {
         suffixIcon = (
           <CloseCircleFilledIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitClear} />
         );
-      }
-
-      if (props.type === 'password') {
-        if (renderType.value === 'password') {
-          suffixIcon = (
-            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
-        } else if (renderType.value === 'text') {
-          suffixIcon = (
-            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
-          );
-        }
       }
 
       const classes = [
@@ -114,6 +102,18 @@ export default defineComponent({
         },
       ];
 
+      if (props.type === 'password') {
+        if (renderType.value === 'password') {
+          suffixIcon = (
+            <BrowseOffIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
+          );
+        } else if (renderType.value === 'text') {
+          suffixIcon = (
+            <BrowseIcon class={`${COMPONENT_NAME.value}__suffix-clear`} onClick={inputHandle.emitPassword} />
+          );
+        }
+      }
+
       const inputEvents = getValidAttrs({
         onFocus: (e: FocusEvent) => inputHandle.emitFocus(e),
         onBlur: inputHandle.formatAndEmitBlur,
@@ -125,52 +125,49 @@ export default defineComponent({
         onCompositionstart: inputHandle.onHandleCompositionstart,
       });
 
-      const renderInputNode = () => (
-        <div
-          class={classes}
-          onClick={inputHandle.onRootClick}
-          onMouseenter={inputEventHandler.onInputMouseenter}
-          onMouseleave={inputEventHandler.onInputMouseleave}
-          onWheel={inputEventHandler.onHandleMousewheel}
-        >
-          {prefixIcon ? (
-            <span class={[`${COMPONENT_NAME.value}__prefix`, `${COMPONENT_NAME.value}__prefix-icon`]}>
-              {prefixIcon}
-            </span>
-          ) : null}
-          {labelContent}
-          <input
-            class={`${COMPONENT_NAME.value}__inner`}
-            {...inputAttrs.value}
-            {...inputEvents}
-            ref={inputRef}
-            value={inputValue.value}
-            onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
-          />
-          {props.autoWidth && (
-            <span ref="inputPreRef" className={`${classPrefix.value}-input__input-pre`}>
-              {innerValue.value || tPlaceholder.value}
-            </span>
-          )}
-          {suffixContent}
-          {suffixIcon ? (
-            <span
-              class={[
-                `${COMPONENT_NAME.value}__suffix`,
-                `${COMPONENT_NAME.value}__suffix-icon`,
-                { [`${COMPONENT_NAME.value}__clear`]: isHover.value && showClear.value },
-              ]}
-            >
-              {suffixIcon}
-            </span>
-          ) : null}
-        </div>
-      );
       const tips = renderTNodeJSX('tips');
 
       return (
         <div class={INPUT_WRAP_CLASS.value}>
-          {renderInputNode()}
+          <div
+            class={classes}
+            onClick={inputHandle.onRootClick}
+            onMouseenter={inputEventHandler.onInputMouseenter}
+            onMouseleave={inputEventHandler.onInputMouseleave}
+            onWheel={inputEventHandler.onHandleMousewheel}
+          >
+            {prefixIcon ? (
+              <span class={[`${COMPONENT_NAME.value}__prefix`, `${COMPONENT_NAME.value}__prefix-icon`]}>
+                {prefixIcon}
+              </span>
+            ) : null}
+            {labelContent}
+            <input
+              class={`${COMPONENT_NAME.value}__inner`}
+              {...inputAttrs.value}
+              {...inputEvents}
+              ref={inputRef}
+              value={inputValue.value}
+              onInput={(e: Event) => inputHandle.handleInput(e as InputEvent)}
+            />
+            {props.autoWidth && (
+              <span ref="inputPreRef" className={`${classPrefix.value}-input__input-pre`}>
+                {innerValue.value || tPlaceholder.value}
+              </span>
+            )}
+            {suffixContent}
+            {suffixIcon ? (
+              <span
+                class={[
+                  `${COMPONENT_NAME.value}__suffix`,
+                  `${COMPONENT_NAME.value}__suffix-icon`,
+                  { [`${COMPONENT_NAME.value}__clear`]: showClear.value },
+                ]}
+              >
+                {suffixIcon}
+              </span>
+            ) : null}
+          </div>
           {tips && (
             <div class={`${INPUT_TIPS_CLASS.value} ${classPrefix.value}-input__tips--${props.status || 'normal'}`}>
               {tips}

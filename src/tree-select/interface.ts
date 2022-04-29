@@ -17,6 +17,7 @@ export interface INodeOptions {
 export interface ISelectInputSlot {
   panel: Function;
   prefixIcon?: Function;
+  suffixIcon?: Function;
   collapsedItems?: Function;
   valueDisplay?: Function;
 }

@@ -3,8 +3,7 @@ import LoadingComponent from './loading';
 import { prefix } from '../config';
 import { getAttach, removeClass } from '../utils/dom';
 import { TdLoadingProps, LoadingInstance, LoadingMethod } from './type';
-
-const lockClass = `${prefix}-loading--lock`;
+import { usePrefixClass } from '../hooks/useConfig';
 
 let fullScreenLoadingInstance: LoadingInstance = null;
 
@@ -43,6 +42,8 @@ function createLoading(props: TdLoadingProps): LoadingInstance {
 }
 
 function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
+  const lockClass = usePrefixClass('loading--lock');
+
   // 全屏加载
   if (props === true) {
     fullScreenLoadingInstance = createLoading({
@@ -52,11 +53,11 @@ function produceLoading(props: boolean | TdLoadingProps): LoadingInstance {
     });
     return fullScreenLoadingInstance;
   }
-  removeClass(document.body, lockClass);
+  removeClass(document.body, lockClass.value);
 
   if (props === false) {
     // 销毁全屏实例
-    removeClass(document.body, lockClass);
+    removeClass(document.body, lockClass.value);
     fullScreenLoadingInstance.hide();
     fullScreenLoadingInstance = null;
     return;

@@ -159,7 +159,7 @@ exports[`Form Form alignVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -758,7 +758,7 @@ exports[`Form Form clearValidateVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -1381,7 +1381,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -1453,7 +1453,7 @@ exports[`Form Form customValidatorVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -1744,7 +1744,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
             class="t-input__wrap t-select-input t-select-input--empty"
           >
             <div
-              class="t-input t-is-disabled t-is-readonly t-input--prefix"
+              class="t-input t-is-disabled t-is-readonly t-input--prefix t-input--suffix"
             >
               <!---->
               <div
@@ -1764,7 +1764,28 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               />
               <!---->
               <!---->
-              <!---->
+              <span
+                class="t-input__suffix t-input__suffix-icon"
+              >
+                
+                <svg
+                  class="t-fake-arrow"
+                  disabled="false"
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.75 5.7998L7.99274 10.0425L12.2361 5.79921"
+                    stroke="black"
+                    stroke-opacity="0.9"
+                    stroke-width="1.3"
+                  />
+                </svg>
+                
+              </span>
             </div>
             <!---->
           </div>
@@ -2656,7 +2677,7 @@ exports[`Form Form errorMessageVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -3302,7 +3323,7 @@ exports[`Form Form layoutVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -3431,7 +3452,7 @@ exports[`Form Form loginVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--prefix t-input--suffix"
+              class="t-input t-input--prefix"
             >
               <span
                 class="t-input__prefix t-input__prefix-icon"
@@ -5441,7 +5462,7 @@ exports[`Form Form validateMessageVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
@@ -6742,7 +6763,7 @@ exports[`Form Form validatorVue demo works fine 1`] = `
             class="t-input__wrap"
           >
             <div
-              class="t-input t-input--suffix"
+              class="t-input"
             >
               <!---->
               <!---->
