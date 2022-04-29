@@ -289,6 +289,9 @@ export default defineComponent({
 
     onMounted(() => {
       scrollWidth.value = window.innerWidth - document.body.offsetWidth;
+      if (props.visible) {
+        addClass(document.body, LOCK_CLASS.value);
+      }
     });
     onBeforeUnmount(() => {
       addKeyboardEvent(false);
