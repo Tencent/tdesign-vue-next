@@ -415,7 +415,16 @@ export default defineComponent({
           {treeItem()}
         </div>
       ),
-      suffixIcon: () => <FakeArrow isActive={visible.value} disabled={props.disabled} />,
+      suffixIcon: () => (
+        <FakeArrow
+          isActive={visible.value}
+          disabled={props.disabled}
+          overlayClassName={{
+            [`${classPrefix.value}-fake-arrow--highlight`]: visible.value,
+            [`${classPrefix.value}-fake-arrow--disable`]: props.disabled,
+          }}
+        />
+      ),
     };
     if (prefixIconSlot.value) {
       SelectInputSlots.prefixIcon = () => <>{prefixIconSlot.value}</>;
@@ -452,6 +461,7 @@ export default defineComponent({
 
     return () => (
       <SelectInput
+        class={`${classPrefix.value}-tree-select`}
         ref={selectInputRef}
         v-slots={SelectInputSlots}
         value={nodeInfo.value}
