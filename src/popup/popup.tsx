@@ -12,6 +12,7 @@ import {
   onUnmounted,
   onMounted,
   nextTick,
+  toRefs,
 } from 'vue';
 import { createPopper, Placement } from '@popperjs/core';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
@@ -21,6 +22,7 @@ import setStyle from '../_common/js/utils/set-style';
 import props from './props';
 import { PopupVisibleChangeContext, TdPopupProps } from './type';
 import Container from './container';
+import useVModel from '../hooks/useVModel';
 
 const showTimeout = 250;
 const hideTimeout = 150;
@@ -50,8 +52,10 @@ export default defineComponent({
       type: Boolean,
     },
   },
-  emits: ['visible-change'],
-  setup(props, { emit }) {
+  setup(props, { expose }) {
+    const { visible, modelValue } = toRefs(props);
+    const [innerVisible, setInnerVisible] = useVModel(visible, modelValue, props.defaultVisible, props.onVisibleChange);
+
     /** popperjs instance */
     let popper: ReturnType<typeof createPopper>;
     /** timeout id */
@@ -109,7 +113,7 @@ export default defineComponent({
     }
 
     function updatePopper() {
-      if (!popperEl.value || !props.visible) return;
+      if (!popperEl.value || !innerVisible.value) return;
       if (popper) {
         popper.update();
         return;
@@ -134,11 +138,10 @@ export default defineComponent({
     }
 
     function emitVisible(visible: boolean, context: PopupVisibleChangeContext) {
-      if (props.disabled || visible === props.visible) return;
+      if (props.disabled || visible === innerVisible.value) return;
       if (!visible && visibleState.value > 1) return;
       if (visible && mouseInRange.value) return;
-      emit('visible-change', visible, context);
-      props.onVisibleChange?.(visible, context);
+      setInnerVisible(visible, context);
     }
 
     function preventClosing(preventing: boolean) {
@@ -157,7 +160,7 @@ export default defineComponent({
     }
 
     function handleToggle(context: PopupVisibleChangeContext) {
-      emitVisible(!props.visible, context);
+      emitVisible(!innerVisible.value, context);
     }
 
     function handleOpen(context: Pick<PopupVisibleChangeContext, 'trigger'>) {
@@ -261,7 +264,7 @@ export default defineComponent({
     });
 
     watch(
-      () => props.visible,
+      () => innerVisible.value,
       (visible) => {
         if (visible) {
           preventClosing(true);
@@ -296,7 +299,16 @@ export default defineComponent({
       hasTrigger,
     });
 
+    expose({
+      handleClose,
+      updatePopper,
+      getOverlay: () => {
+        return overlayEl.value;
+      },
+    });
+
     return {
+      innerVisible,
       triggerEl,
       overlayEl,
       popperEl,
@@ -305,12 +317,6 @@ export default defineComponent({
       hasTrigger,
       contentClicked,
       triggerClicked,
-      /**
-       * @public
-       */
-      getOverlay() {
-        return overlayEl.value;
-      },
       updatePopper,
       destroyPopper,
       updateOverlayStyle,
@@ -320,17 +326,17 @@ export default defineComponent({
     };
   },
   render() {
-    const { prefixCls, visible, destroyOnClose, hasTrigger, onScroll } = this;
+    const { prefixCls, innerVisible, destroyOnClose, hasTrigger, onScroll } = this;
     const content = renderTNodeJSX(this, 'content');
     const hidePopup = this.hideEmptyPopup && ['', undefined, null].includes(content);
 
     const overlay =
-      visible || !destroyOnClose ? (
+      innerVisible || !destroyOnClose ? (
         <div
           class={prefixCls}
           ref="popperEl"
           style={hidePopup && { visibility: 'hidden', pointerEvents: 'none' }}
-          vShow={visible}
+          vShow={innerVisible}
           onMousedown={() => {
             this.contentClicked = true;
           }}
@@ -366,13 +372,17 @@ export default defineComponent({
         ref="containerRef"
         forwardRef={(ref) => (this.triggerEl = ref)}
         onContentMounted={() => {
-          if (visible) {
+          if (innerVisible) {
             this.updatePopper();
             this.updateOverlayStyle();
           }
         }}
-        onResize={this.updatePopper}
-        visible={visible}
+        onResize={() => {
+          if (innerVisible) {
+            this.updatePopper();
+          }
+        }}
+        visible={innerVisible}
         attach={this.attach}
       >
         {{
