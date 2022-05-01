@@ -11,13 +11,18 @@ export default defineComponent({
     point: {
       type: Number,
     },
+    clickMarkPoint: {
+      type: Function,
+      default: () => {},
+    },
   },
-  emits: ['change-value'],
-  setup(props, ctx) {
+  setup(props) {
     const COMPONENT_NAME = usePrefixClass('slider__mark');
     const changeValue = (e: MouseEvent) => {
       e.stopPropagation();
-      ctx.emit('change-value', props.point);
+      if (props.clickMarkPoint) {
+        props.clickMarkPoint(props.point);
+      }
     };
 
     return () => (
