@@ -103,7 +103,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-replace": "^4.0.0",
-    "@rollup/plugin-url": "^6.0.0",
+    "@rollup/plugin-url": "^7.0.0",
     "@types/raf": "^3.4.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
