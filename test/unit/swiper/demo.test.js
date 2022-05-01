@@ -3,11 +3,23 @@
  */
 
 import { mount } from '@vue/test-utils';
-import swiperVue from '@/examples/swiper/demos/swiper.vue';
+import baseVue from '@/examples/swiper/demos/base.vue';
+import cardVue from '@/examples/swiper/demos/card.vue';
+import currentVue from '@/examples/swiper/demos/current.vue';
+import fadeVue from '@/examples/swiper/demos/fade.vue';
+import fractionVue from '@/examples/swiper/demos/fraction.vue';
+import placementVue from '@/examples/swiper/demos/placement.vue';
+import sizeVue from '@/examples/swiper/demos/size.vue';
 import verticalVue from '@/examples/swiper/demos/vertical.vue';
 
 const mapper = {
-  swiperVue,
+  baseVue,
+  cardVue,
+  currentVue,
+  fadeVue,
+  fractionVue,
+  placementVue,
+  sizeVue,
   verticalVue,
 };
 
