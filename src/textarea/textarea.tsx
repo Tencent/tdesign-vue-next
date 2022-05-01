@@ -28,7 +28,6 @@ export default defineComponent({
   setup(props, { attrs }) {
     const prefix = usePrefixClass();
     const name = usePrefixClass('textarea');
-    const TEXTAREA_WRAP_CLASS = computed(() => `${name.value}__wrap`);
     const TEXTAREA_TIPS_CLASS = computed(() => `${name.value}__tips`);
     const TEXTAREA_LIMIT = computed(() => `${name.value}__limit`);
 
@@ -143,10 +142,21 @@ export default defineComponent({
       () => innerValue.value,
       () => adjustTextareaHeight(),
     );
+
     watch(refTextareaElem, (el) => {
       if (!el) return;
       adjustTextareaHeight();
     });
+
+    watch(
+      () => props.autofocus,
+      (val) => {
+        if (val) {
+          refTextareaElem.value.focus();
+        }
+      },
+    );
+
     onMounted(() => {
       adjustTextareaHeight();
     });
