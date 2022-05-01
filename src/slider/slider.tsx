@@ -312,17 +312,25 @@ export default defineComponent({
     });
 
     /** -------------------------- 渲染相关逻辑 start --------------------------  */
-    const renderMask = useSliderMark(props.max, props.min, props.marks, vertical.value, COMPONENT_NAME.value);
+    const markConfig = computed(() => ({
+      max: props.max,
+      min: props.min,
+      marks: props.marks,
+      vertical: vertical.value,
+      prefixName: COMPONENT_NAME.value,
+    }));
+    const renderMask = useSliderMark(markConfig);
 
-    const renderInputNumber = useSliderInput(
-      props.inputNumberProps,
-      props.max,
-      props.min,
-      props.step,
-      COMPONENT_NAME.value,
-      vertical.value,
-      disabled,
-    );
+    const inputConfig = computed(() => ({
+      max: props.max,
+      min: props.min,
+      inputNumberProps: props.inputNumberProps,
+      step: props.step,
+      prefixName: COMPONENT_NAME.value,
+      vertical: vertical.value,
+      disabled: disabled.value,
+    }));
+    const renderInputNumber = useSliderInput(inputConfig);
 
     const renderInputButton = (): VNode => {
       const firstInputVal = props.range ? firstValue.value : (sliderState.prevValue as number);
