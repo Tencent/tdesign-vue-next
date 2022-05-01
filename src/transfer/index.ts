@@ -1,6 +1,5 @@
 import _Transfer from './transfer';
 import { withInstall, WithInstallType } from '../utils/withInstall';
-import mapProps from '../utils/map-props';
 import { TdTransferProps } from './type';
 
 import './style';

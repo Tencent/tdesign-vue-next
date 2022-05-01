@@ -93,27 +93,20 @@ export default defineComponent({
     const renderTNodeContent = useContent();
     const renderTriggerElement = () => renderTNodeContent('default', 'triggerElement');
 
-    return {
-      innerVisible,
-      innerPopupProps,
-      onPopupVisibleChange,
-      renderContent,
-      renderTriggerElement,
+    return () => {
+      return (
+        <Popup
+          ref="popup"
+          visible={innerVisible.value}
+          {...innerPopupProps}
+          onVisibleChange={onPopupVisibleChange}
+          v-slots={{
+            content: renderContent,
+          }}
+        >
+          {renderTriggerElement()}
+        </Popup>
+      );
     };
-  },
-  render() {
-    return (
-      <Popup
-        ref="popup"
-        visible={this.innerVisible}
-        {...this.innerPopupProps}
-        onVisibleChange={this.onPopupVisibleChange}
-        v-slots={{
-          content: this.renderContent,
-        }}
-      >
-        {this.renderTriggerElement()}
-      </Popup>
-    );
   },
 });
