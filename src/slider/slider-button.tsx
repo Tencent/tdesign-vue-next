@@ -91,11 +91,7 @@ export default defineComponent({
       value = Number(parseFloat(`${value}`).toFixed(parentProps.precision.value));
       ctx.emit('input', value);
       nextTick(() => {
-<<<<<<< HEAD
         popupRef.value && popupRef.value.updatePopper?.();
-=======
-        popupRef.value && (popupRef.value as ComponentPublicInstance)?.updatePopper?.();
->>>>>>> fix(slider): 修复Slider部分属性丢失响应性问题
       });
     };
 

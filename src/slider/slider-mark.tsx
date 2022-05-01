@@ -12,10 +12,14 @@ export default defineComponent({
       type: Number,
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
     onClickMarkPoint: {
 =======
     clickMarkPoint: {
 >>>>>>> fix(slider): 修复Slider部分属性丢失响应性问题
+=======
+    onClickMarkPoint: {
+>>>>>>> fix(slider): 更改事件命名
       type: Function,
       default: () => {},
     },
@@ -25,12 +29,16 @@ export default defineComponent({
     const changeValue = (e: MouseEvent) => {
       e.stopPropagation();
 <<<<<<< HEAD
+<<<<<<< HEAD
       props?.onClickMarkPoint?.(props.point);
 =======
       if (props.clickMarkPoint) {
         props.clickMarkPoint(props.point);
       }
 >>>>>>> fix(slider): 修复Slider部分属性丢失响应性问题
+=======
+      props?.onClickMarkPoint?.(props.point);
+>>>>>>> fix(slider): 更改事件命名
     };
 
     return () => (
