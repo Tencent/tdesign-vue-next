@@ -27553,379 +27553,192 @@ exports[`ssr snapshot test renders ./examples/steps/demos/vertical-sequence.vue 
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/swiper/demos/swiper.vue correctly 1`] = `
-<div class="tdesign-demo-block--swiper">
+exports[`ssr snapshot test renders ./examples/swiper/demos/base.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
   <div class="t-swiper">
-    <div class="t-swiper__content">
-      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 0.3s;">
-        <!--[-->
-        <div>
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
           <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
           <!--]-->
         </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--info">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--warning">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--error">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <!--]-->
       </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
+        <!--[-->
+        <!--]-->
+      </ul>
+      <!---->
     </div>
-    <ul class="t-swiper__trigger-wrap">
-      <!--[-->
-      <li class="t-swiper__trigger--active"></li>
-      <li class=""></li>
-      <li class=""></li>
-      <li class=""></li>
-      <!--]-->
-    </ul>
   </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/card.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
   <div class="t-swiper">
-    <div class="t-swiper__content">
-      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 0.5s;">
-        <!--[-->
-        <div>
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content t-swiper-card">
+        <div class="t-swiper__container" style="height:280px;">
           <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
           <!--]-->
         </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--info">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--warning">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--error">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <!--]-->
       </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
+        <!--[-->
+        <!--]-->
+      </ul>
+      <!---->
     </div>
-    <ul class="t-swiper__trigger-wrap">
-      <!--[-->
-      <li class="t-swiper__trigger--active"></li>
-      <li class=""></li>
-      <li class=""></li>
-      <li class=""></li>
-      <!--]-->
-    </ul>
   </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/current.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
   <div class="t-swiper">
-    <div class="t-swiper__content">
-      <div class="t-swiper__swiper-wrap--horizontal" style="width:400%;transform:translate3d(0%,0,0);transition:transform 1s;">
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+          <!--[-->
+          <!--]-->
+        </div>
+      </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
         <!--[-->
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--error">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-                <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
-        <div>
-          <!--[-->
-          <div class="t-alert t-alert--success">
-            <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-                <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-              </svg></div>
-            <div class="t-alert__content">
-              <!---->
-              <div class="t-alert__message">
-                <div class="t-alert__description">【到期提醒】
-                  <!---->
-                </div>
-                <!---->
-              </div>
-            </div>
-            <!---->
-          </div>
-          <!--]-->
-        </div>
         <!--]-->
+      </ul>
+      <!---->
+    </div>
+  </div>
+  <div class="tdesign-demo-block-row"><button class="t-button t-size-s t-button--variant-base t-button--theme-primary" type="button"><span class="t-button__text"><!--[--> 跳转到第 2 项 <!--]--></span></button></div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/fade.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
+  <div class="t-swiper">
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content t-swiper-fade">
+        <div class="t-swiper__container" style="height:280px;">
+          <!--[-->
+          <!--]-->
+        </div>
+      </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
+        <!--[-->
+        <!--]-->
+      </ul>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/fraction.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
+  <div class="t-swiper">
+    <div class="t-swiper__wrap t-swiper--inside">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+          <!--[-->
+          <!--]-->
+        </div>
+      </div>
+      <div class="t-swiper__navigation t-swiper__navigation--fraction">
+        <div class="t-swiper__arrow">
+          <div class="t-swiper__arrow-left"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-left" style="">
+              <path fill="currentColor" d="M9.54 3.54l.92.92L6.92 8l3.54 3.54-.92.92L5.08 8l4.46-4.46z" fill-opacity="0.9"></path>
+            </svg></div>
+          <div class="t-swiper__navigation-text-fraction">1/0</div>
+          <div class="t-swiper__arrow-right"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-chevron-right" style="">
+              <path fill="currentColor" d="M6.46 12.46l-.92-.92L9.08 8 5.54 4.46l.92-.92L10.92 8l-4.46 4.46z" fill-opacity="0.9"></path>
+            </svg></div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/placement.vue correctly 1`] = `
+<div class="tdesign-demo-block--swiper-new">
+  <div class="t-swiper">
+    <div class="t-swiper__wrap t-swiper--outside">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+          <!--[-->
+          <!--]-->
+        </div>
+      </div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
+        <!--[-->
+        <!--]-->
+      </ul>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ssr snapshot test renders ./examples/swiper/demos/size.vue correctly 1`] = `
+<div>
+  <div class="tdesign-demo-block--swiper-new" style="width:1000px;">
+    <h3>large</h3>
+    <div class="t-swiper">
+      <div class="t-swiper__wrap t-swiper--inside t-swiper--large">
+        <div class="t-swiper__content">
+          <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+            <!--[-->
+            <!--]-->
+          </div>
+        </div>
+        <ul class="t-swiper__navigation t-swiper__navigation-bars">
+          <!--[-->
+          <!--]-->
+        </ul>
+        <!---->
       </div>
     </div>
-    <ul class="t-swiper__trigger-wrap">
-      <!--[-->
-      <li class="t-swiper__trigger--active"></li>
-      <li class=""></li>
-      <li class=""></li>
-      <li class=""></li>
-      <!--]-->
-    </ul>
+  </div>
+  <div class="tdesign-demo-block--swiper-new" style="width:500px;margin-top:20px;">
+    <h3>small</h3>
+    <div class="t-swiper">
+      <div class="t-swiper__wrap t-swiper--inside t-swiper--small">
+        <div class="t-swiper__content">
+          <div class="t-swiper__container" style="ms-transform:translate3d(-0%, 0px, 0px);webkit-transform:translate3d(-0%, 0px, 0px);transform:translate3d(-0%, 0px, 0px);transition:;">
+            <!--[-->
+            <!--]-->
+          </div>
+        </div>
+        <ul class="t-swiper__navigation t-swiper__navigation-bars">
+          <!--[-->
+          <!--]-->
+        </ul>
+        <!---->
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`ssr snapshot test renders ./examples/swiper/demos/vertical.vue correctly 1`] = `
-<div class="t-swiper">
-  <div class="t-swiper__content">
-    <div class="t-swiper__swiper-wrap--vertical" style="height:400%;transform:translate3d(0,0%,0);transition:transform 0.3s;">
-      <!--[-->
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--success">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-check-circle-filled" style="">
-              <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM4.5 8.2l.7-.7L7 9.3l3.8-3.8.7.7L7 10.7 4.5 8.2z" fill-opacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
+<div class="tdesign-demo-block--swiper-new">
+  <div class="t-swiper">
+    <div class="t-swiper__wrap t-swiper--inside t-swiper--vertical">
+      <div class="t-swiper__content">
+        <div class="t-swiper__container" style="height:280px;transform:translate3d(0, -0%, 0px);transition:;">
+          <!--[-->
+          <!--]-->
         </div>
-        <!--]-->
       </div>
-      <div>
+      <ul class="t-swiper__navigation t-swiper__navigation-bars">
         <!--[-->
-        <div class="t-alert t-alert--info">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-info-circle-filled" style="">
-              <path fill="currentColor" d="M8 15A7 7 0 108 1a7 7 0 000 14zM7.4 4h1.2v1.2H7.4V4zm.1 2.5h1V12h-1V6.5z" fill-opacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
         <!--]-->
-      </div>
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--warning">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-              <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
-        <!--]-->
-      </div>
-      <div>
-        <!--[-->
-        <div class="t-alert t-alert--error">
-          <div class="t-alert__icon"><svg fill="none" viewbox="0 0 16 16" width="1em" height="1em" class="t-icon t-icon-error-circle-filled" style="">
-              <path fill="currentColor" d="M15 8A7 7 0 101 8a7 7 0 0014 0zM8.5 4v5.5h-1V4h1zm-1.1 7h1.2v1.2H7.4V11z" fill-opacity="0.9"></path>
-            </svg></div>
-          <div class="t-alert__content">
-            <!---->
-            <div class="t-alert__message">
-              <div class="t-alert__description">【到期提醒】
-                <!---->
-              </div>
-              <!---->
-            </div>
-          </div>
-          <!---->
-        </div>
-        <!--]-->
-      </div>
-      <!--]-->
+      </ul>
+      <!---->
     </div>
   </div>
-  <ul class="t-swiper__trigger-wrap">
-    <!--[-->
-    <li class="t-swiper__trigger--active"></li>
-    <li class=""></li>
-    <li class=""></li>
-    <li class=""></li>
-    <!--]-->
-  </ul>
 </div>
 `;
 
