@@ -2,7 +2,7 @@ import { computed, toRefs, Ref } from 'vue';
 import get from 'lodash/get';
 import { TdEnhancedTableProps, TdPrimaryTableProps, TableRowData, PrimaryTableCol } from '../type';
 import TableTreeStore, { KeysType, TableTreeDataMap } from './tree-store';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import useVModel from '../../hooks/useVModel';
 
 export const childrenMap = new Map();
 
@@ -89,7 +89,7 @@ type SelectChangeParams = Parameters<TdPrimaryTableProps['onSelectChange']>;
 export default function useTreeSelect(props: TdEnhancedTableProps, treeDataMap: Ref<TableTreeDataMap>) {
   const { selectedRowKeys } = toRefs(props);
   // eslint-disable-next-line
-  const [_, setTSelectedRowKeys] = useDefaultValue(
+  const [_, setTSelectedRowKeys] = useVModel(
     selectedRowKeys,
     props.defaultSelectedRowKeys,
     props.onSelectChange,

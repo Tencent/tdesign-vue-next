@@ -1,7 +1,7 @@
 import { defineComponent, ref, toRefs, computed, inject } from 'vue';
 import props from './props';
 import { ClassName } from '../common';
-import useVModel from '../hooks/useVModel';
+import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
 import { useFormDisabled } from '../form/hooks';
 import useRipple from '../hooks/useRipple';
 import { useContent } from '../hooks/tnode';
@@ -14,6 +14,7 @@ export default defineComponent({
     ...props,
     needRipple: Boolean,
   },
+  emits: [UPDATE_MODEL, 'update:checked'],
 
   setup(props) {
     const labelRef = ref<HTMLElement>();
@@ -22,7 +23,13 @@ export default defineComponent({
     }
 
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const [innerChecked, setInnerChecked] = useVModel(
+      checked,
+      modelValue,
+      props.defaultChecked,
+      props.onChange,
+      'checked',
+    );
 
     const checkboxGroup = inject(CheckboxGroupInjectionKey, undefined);
     const GroupDisabled = computed(() => {

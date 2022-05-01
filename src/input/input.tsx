@@ -11,6 +11,7 @@ import { useTNodeJSX } from '../hooks/tnode';
 import useInput from './useInput';
 import useInputEventHandler from './useInputEventHandler';
 import useInputWidth from './useInputWidth';
+import { UPDATE_MODEL, UPDATE_VALUE } from '../hooks';
 
 function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
   const newObj = {};
@@ -25,6 +26,8 @@ function getValidAttrs(obj: Record<string, unknown>): Record<string, unknown> {
 export default defineComponent({
   name: 'TInput',
   props,
+  emits: [UPDATE_MODEL, UPDATE_VALUE],
+
   setup(props, { slots, expose }) {
     const { global } = useConfig('input');
     const disabled = useFormDisabled();

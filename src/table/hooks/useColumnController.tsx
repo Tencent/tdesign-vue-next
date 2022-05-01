@@ -14,7 +14,7 @@ import { DialogPlugin } from '../../dialog/plugin';
 import { renderTitle } from './useTableHeader';
 import { PrimaryTableCol, TdPrimaryTableProps } from '../type';
 import { useConfig } from '../../hooks/useConfig';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import useVModel from '../../hooks/useVModel';
 import { getCurrentRowByKey } from '../utils';
 import { DialogInstance } from '../../dialog';
 import TButton from '../../button';
@@ -44,7 +44,7 @@ export default function useColumnController(props: TdPrimaryTableProps, context:
   const keys = [...new Set(getColumnKeys(columns.value))];
 
   // 确认后的列配置
-  const [tDisplayColumns, setTDisplayColumns] = useDefaultValue(
+  const [tDisplayColumns, setTDisplayColumns] = useVModel(
     displayColumns,
     props.defaultDisplayColumns || keys,
     props.onDisplayColumnsChange,

@@ -2,7 +2,7 @@ import { toRefs, ref, watch, computed, SetupContext } from 'vue';
 import useClassName from './useClassName';
 import TButton from '../../button';
 import { TdPrimaryTableProps, PrimaryTableCol, TableRowData, FilterValue } from '../type';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import useVModel from '../../hooks/useVModel';
 import { useTNodeDefault } from '../../hooks/tnode';
 import TableFilterController from '../filter-controller';
 import { useConfig } from '../../hooks/useConfig';
@@ -31,7 +31,7 @@ export default function useFilter(props: TdPrimaryTableProps, context: SetupCont
   const isTableOverflowHidden = ref<boolean>();
 
   // unControl and control
-  const [tFilterValue, setTFilterValue] = useDefaultValue(
+  const [tFilterValue, setTFilterValue] = useVModel(
     filterValue,
     props.defaultFilterValue,
     props.onFilterChange,

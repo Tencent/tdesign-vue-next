@@ -23,11 +23,17 @@ export default defineComponent({
   name: 'TRadio',
   inheritAttrs: false,
   props: { ...props },
-  emits: [UPDATE_MODEL],
+  emits: [UPDATE_MODEL, 'update:checked'],
 
   setup(props, { attrs }) {
     const { checked, modelValue } = toRefs(props);
-    const [innerChecked, setInnerChecked] = useVModel(checked, modelValue, props.defaultChecked, props.onChange);
+    const [innerChecked, setInnerChecked] = useVModel(
+      checked,
+      modelValue,
+      props.defaultChecked,
+      props.onChange,
+      'checked',
+    );
     const radioChecked = computed(() => (radioGroup ? props.value === radioGroup.value : innerChecked.value));
 
     const radioGroup = inject(RadioGroupInjectionKey, undefined);

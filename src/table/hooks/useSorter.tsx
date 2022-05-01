@@ -2,15 +2,15 @@ import { SetupContext, computed, toRefs, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { SortInfo, TdPrimaryTableProps, PrimaryTableCol, TableRowData } from '../type';
 import SorterButton from '../sorter-button';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import useVModel from '../../hooks/useVModel';
 
 export type SortMap = Record<string, SortInfo & { index: number }>;
 
 export default function useSorter(props: TdPrimaryTableProps, { emit, slots }: SetupContext) {
   const { sort, data } = toRefs(props);
   const originalData = ref();
-  const [tSortInfo, setTSortInfo] = useDefaultValue(sort, props.defaultSort, props.onSortChange, 'sort');
-  const [tData, setTData] = useDefaultValue(data, [], props.onDataChange, 'data');
+  const [tSortInfo, setTSortInfo] = useVModel(sort, props.defaultSort, props.onSortChange, 'sort');
+  const [tData, setTData] = useVModel(data, [], props.onDataChange, 'data');
   // 本地数据排序：用于记录哪些字段是自定义排序函数
   const sorterFuncMap = computed(() => getSorterFuncMap(props.columns));
 

@@ -46,6 +46,8 @@
       }
     ],
     // code style config
+    "import/export": "off",
+    "no-redeclare": "off",
     "no-continue": "off",
     "no-restricted-syntax": "off",
     "no-plusplus": "off",
@@ -72,6 +74,7 @@
     "import/no-relative-packages": "off",
     
     // typescript config
+    "@typescript-eslint/no-redeclare": ["error"],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-require-imports": 0,

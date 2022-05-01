@@ -18,8 +18,7 @@ import { Color, getColorObject, GradientColorPoint } from '../utils';
 import { TdColorPickerProps, ColorPickerChangeTrigger } from '../type';
 import { TdColorModes } from '../interfaces';
 import { useBaseClassName } from '../hooks';
-import useVModel from '../../hooks/useVModel';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../../hooks/useVModel';
 
 export default defineComponent({
   name: 'ColorPanel',
@@ -38,6 +37,8 @@ export default defineComponent({
       type: Function,
     },
   },
+  emits: [UPDATE_MODEL, UPDATE_VALUE, 'update:recentColors'],
+
   setup(props) {
     const baseClassName = useBaseClassName();
     const { STATUS } = useCommonClassName();
@@ -50,7 +51,7 @@ export default defineComponent({
     const mode = ref<TdColorModes>(color.value.isGradient ? 'linear-gradient' : 'monochrome');
     const formatModel = ref<TdColorPickerProps['format']>(color.value.isGradient ? 'CSS' : 'RGB');
 
-    const [recentlyUsedColors, setRecentlyUsedColors] = useDefaultValue(
+    const [recentlyUsedColors, setRecentlyUsedColors] = useVModel(
       recentColors,
       props.defaultRecentColors,
       props.onRecentColorsChange,

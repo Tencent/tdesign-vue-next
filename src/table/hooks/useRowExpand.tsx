@@ -11,7 +11,7 @@ import {
 } from '../type';
 import useClassName from './useClassName';
 import { useTNodeJSX } from '../../hooks/tnode';
-import useDefaultValue from '../../hooks/useDefaultValue';
+import useVModel from '../../hooks/useVModel';
 import { useConfig } from '../../hooks/useConfig';
 
 export default function useRowExpand(props: TdPrimaryTableProps, context: SetupContext) {
@@ -20,7 +20,7 @@ export default function useRowExpand(props: TdPrimaryTableProps, context: SetupC
   const { t, global } = useConfig('table');
   const { tableExpandClasses, positiveRotate90, tableFullRowClasses } = useClassName();
   // controlled and uncontrolled
-  const [tExpandedRowKeys, setTExpandedRowKeys] = useDefaultValue(
+  const [tExpandedRowKeys, setTExpandedRowKeys] = useVModel(
     expandedRowKeys,
     props.defaultExpandedRowKeys,
     props.onExpandChange,

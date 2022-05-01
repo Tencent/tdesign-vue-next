@@ -4,7 +4,6 @@ export * from './slot';
 export * from './tnode';
 export * from './useConfig';
 export * from './useCommonClassName';
-export * from './useDefaultValue';
 export * from './useDestroyOnClose';
 export * from './useKeepAnimation';
 export * from './useRipple';

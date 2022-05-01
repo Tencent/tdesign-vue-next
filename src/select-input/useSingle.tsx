@@ -7,7 +7,7 @@ import Input, { InputValue } from '../input';
 import Loading from '../loading';
 import { useTNodeJSX } from '../hooks/tnode';
 import { usePrefixClass } from '../hooks/useConfig';
-import useDefaultValue from '../hooks/useDefaultValue';
+import useVModel from '../hooks/useVModel';
 
 // single 和 multiple 共有特性
 const COMMON_PROPERTIES = [
@@ -39,7 +39,7 @@ export default function useSingle(props: TdSelectInputProps, context: SetupConte
   const { value, keys, inputValue: propsInputValue } = toRefs(props);
   const classPrefix = usePrefixClass();
   const inputRef = ref();
-  const [inputValue, setInputValue] = useDefaultValue(
+  const [inputValue, setInputValue] = useVModel(
     propsInputValue,
     props.defaultInputValue ?? '',
     props.onInputChange,
