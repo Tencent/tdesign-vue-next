@@ -162,7 +162,7 @@ export default defineComponent({
       }
     };
     const handleAddTab = (e: MouseEvent) => {
-      props.onAdd({ e });
+      props.onAdd?.({ e });
     };
     const tabClick = (event: MouseEvent, nav: Partial<InstanceType<typeof TTabPanel>>) => {
       const { value, disabled } = nav;
