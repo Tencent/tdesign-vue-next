@@ -41,6 +41,7 @@ export default {
   /** 输入框的值，非受控属性 */
   defaultInputValue: {
     type: [String, Number] as PropType<TdTagInputProps['defaultInputValue']>,
+    default: '',
   },
   /** 左侧文本 */
   label: {
