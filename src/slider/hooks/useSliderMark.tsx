@@ -84,7 +84,7 @@ export const useSliderMark = (config: Ref<useSliderMarkProps>) => {
                 point={item.point}
                 key={key}
                 style={getStopStyle(item.position, config.value.vertical)}
-                clickMarkPoint={onChangeFn}
+                onClickMarkPoint={onChangeFn}
               />
             ))}
           </div>
