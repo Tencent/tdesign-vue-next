@@ -47,19 +47,7 @@ export interface TdPopupProps {
    * 浮层出现位置
    * @default top
    */
-  placement?:
-    | 'top'
-    | 'left'
-    | 'right'
-    | 'bottom'
-    | 'top-left'
-    | 'top-right'
-    | 'bottom-left'
-    | 'bottom-right'
-    | 'left-top'
-    | 'left-bottom'
-    | 'right-top'
-    | 'right-bottom';
+  placement?: PopupPlacement;
   /**
    * 是否显示浮层箭头
    * @default false
@@ -85,6 +73,11 @@ export interface TdPopupProps {
    */
   defaultVisible?: boolean;
   /**
+   * 是否显示浮层
+   * @default false
+   */
+  modelValue?: boolean;
+  /**
    * 组件层级，Web 侧样式默认为 5500，移动端和小程序样式默认为 1500
    */
   zIndex?: number;
@@ -93,10 +86,24 @@ export interface TdPopupProps {
    */
   onScroll?: (context: { e: WheelEvent }) => void;
   /**
-   * 当浮层隐藏或显示时触发
+   * 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=document` 表示右击触发
    */
   onVisibleChange?: (visible: boolean, context: PopupVisibleChangeContext) => void;
 }
+
+export type PopupPlacement =
+  | 'top'
+  | 'left'
+  | 'right'
+  | 'bottom'
+  | 'top-left'
+  | 'top-right'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'left-top'
+  | 'left-bottom'
+  | 'right-top'
+  | 'right-bottom';
 
 export interface PopupVisibleChangeContext {
   e?: PopupTriggerEvent;

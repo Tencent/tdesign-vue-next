@@ -38,23 +38,7 @@ export default {
   /** 浮层出现位置 */
   placement: {
     type: String as PropType<TdPopupProps['placement']>,
-    default: 'top' as TdPopupProps['placement'],
-    validator(val: TdPopupProps['placement']): boolean {
-      return [
-        'top',
-        'left',
-        'right',
-        'bottom',
-        'top-left',
-        'top-right',
-        'bottom-left',
-        'bottom-right',
-        'left-top',
-        'left-bottom',
-        'right-top',
-        'right-bottom',
-      ].includes(val);
-    },
+    default: 'top',
   },
   /** 是否显示浮层箭头 */
   showArrow: Boolean,
@@ -63,6 +47,7 @@ export default {
     type: String as PropType<TdPopupProps['trigger']>,
     default: 'hover' as TdPopupProps['trigger'],
     validator(val: TdPopupProps['trigger']): boolean {
+      if (!val) return true;
       return ['hover', 'click', 'focus', 'context-menu'].includes(val);
     },
   },
@@ -71,7 +56,14 @@ export default {
     type: [String, Function] as PropType<TdPopupProps['triggerElement']>,
   },
   /** 是否显示浮层 */
-  visible: Boolean,
+  visible: {
+    type: Boolean,
+    default: undefined,
+  },
+  modelValue: {
+    type: Boolean,
+    default: undefined,
+  },
   /** 是否显示浮层，非受控属性 */
   defaultVisible: Boolean,
   /** 组件层级，Web 侧样式默认为 5500，移动端和小程序样式默认为 1500 */
@@ -80,6 +72,6 @@ export default {
   },
   /** 下拉选项滚动事件 */
   onScroll: Function as PropType<TdPopupProps['onScroll']>,
-  /** 当浮层隐藏或显示时触发 */
+  /** 当浮层隐藏或显示时触发，`trigger=document` 表示点击非浮层元素触发；`trigger=document` 表示右击触发 */
   onVisibleChange: Function as PropType<TdPopupProps['onVisibleChange']>,
 };
