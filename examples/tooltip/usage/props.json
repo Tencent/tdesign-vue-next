@@ -14,7 +14,12 @@
   {
     "name": "theme",
     "type": "enum",
+    "defaultValue": "default",
     "options": [
+      {
+        "label": "default",
+        "value": "default"
+      },
       {
         "label": "primary",
         "value": "primary"

@@ -1,11 +1,5 @@
 [
   {
-    "name": "fullscreen",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
-  },
-  {
     "name": "indicator",
     "type": "Boolean",
     "defaultValue": true,
