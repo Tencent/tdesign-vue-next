@@ -123,6 +123,9 @@ export default defineComponent({
       ];
       if (['modeless', 'modal'].includes(props.mode)) {
         dialogClass.push(`${COMPONENT_NAME.value}--fixed`);
+        if (isModal.value && props.showInAttachedElement) {
+          dialogClass.push(`${COMPONENT_NAME.value}--absolute`);
+        }
       }
       return dialogClass;
     });
@@ -150,18 +153,20 @@ export default defineComponent({
       () => props.visible,
       (value) => {
         if (value) {
-          if (scrollWidth.value > 0) {
-            const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
-            document.body.style.cssText = bodyCssText;
-          }
-          !isModeless.value && addClass(document.body, LOCK_CLASS.value);
-          nextTick(() => {
-            if (mousePosition && dialogEle.value) {
-              dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
-                mousePosition.y - dialogEle.value.offsetTop
-              }px`;
+          if (isModal.value && !props.showInAttachedElement) {
+            if (scrollWidth.value > 0) {
+              const bodyCssText = `position: relative;width: calc(100% - ${scrollWidth.value}px);`;
+              document.body.style.cssText = bodyCssText;
             }
-          });
+            !isModeless.value && addClass(document.body, LOCK_CLASS.value);
+            nextTick(() => {
+              if (mousePosition && dialogEle.value) {
+                dialogEle.value.style.transformOrigin = `${mousePosition.x - dialogEle.value.offsetLeft}px ${
+                  mousePosition.y - dialogEle.value.offsetTop
+                }px`;
+              }
+            });
+          }
         } else {
           document.body.style.cssText = '';
           removeClass(document.body, LOCK_CLASS.value);
@@ -319,7 +324,13 @@ export default defineComponent({
     const dialogView = this.renderDialog();
     const view = [maskView, dialogView];
     const ctxStyle = { zIndex: this.zIndex };
-    const ctxClass = [`${COMPONENT_NAME}__ctx`, { 't-dialog__ctx--fixed': this.mode === 'modal' }];
+    const ctxClass = [
+      `${COMPONENT_NAME}__ctx`,
+      {
+        't-dialog__ctx--fixed': this.mode === 'modal',
+        [`${COMPONENT_NAME}__ctx--absolute`]: this.isModal && this.showInAttachedElement,
+      },
+    ];
     return (
       <transition
         duration={300}
