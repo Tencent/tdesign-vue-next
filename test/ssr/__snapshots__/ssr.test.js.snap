@@ -28221,7 +28221,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/drag-sort-handler.vue 
           <!---->
         </table>
       </div>
-      <!---->
+      <div class="t-loading--center t-size-m t-loading" style="">
+        <!---->
+        <!---->
+      </div>
       <!---->
       <!---->
       <!---->
@@ -34976,7 +34979,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <!---->
       </table>
     </div>
-    <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -35070,7 +35073,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <!---->
       </table>
     </div>
-    <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -35168,7 +35171,7 @@ exports[`ssr snapshot test renders ./examples/table/demos/loading.vue correctly 
         <!---->
       </table>
     </div>
-    <div class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
+    <div class="t-loading--center t-size-m t-loading" style=""><svg class="t-loading__gradient t-icon-loading" viewbox="0 0 14 14" version="1.1" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" size="medium">
         <foreignObject x="1" y="1" width="12" height="12">
           <div class="t-loading__gradient-conic"></div>
         </foreignObject>
@@ -36345,7 +36348,10 @@ exports[`ssr snapshot test renders ./examples/table/demos/pagination-ajax.vue co
       <!---->
     </table>
   </div>
-  <!---->
+  <div class="t-loading--center t-size-m t-loading" style="">
+    <!---->
+    <!---->
+  </div>
   <!---->
   <!---->
   <div class="t-table__pagination">

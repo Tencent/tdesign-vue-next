@@ -285,11 +285,11 @@ export default defineComponent({
     );
 
     const customLoadingText = this.renderTNode('loading');
-    const loadingContent = (
+    const loadingContent = this.loading !== undefined && (
       <Loading
         loading={!!this.loading}
         text={customLoadingText ? () => customLoadingText : undefined}
-        attach={() => this.tableRef}
+        attach={this.tableRef ? () => this.tableRef : undefined}
         showOverlay
         {...this.loadingProps}
       ></Loading>
