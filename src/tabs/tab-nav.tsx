@@ -11,7 +11,7 @@ import TTabNavItem from './tab-nav-item';
 import TTabNavBar from './tab-nav-bar';
 
 // hooks
-import { useResize } from '../hooks/event';
+import { useResize } from '../hooks/useListener';
 import { usePrefixClass, useCommonClassName } from '../hooks/useConfig';
 
 const { calculateCanToLeft, calculateCanToRight, calcScrollLeft, scrollToLeft, scrollToRight, moveActiveTabIntoView } =
