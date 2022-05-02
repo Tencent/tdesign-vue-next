@@ -285,17 +285,15 @@ export default defineComponent({
     );
 
     const customLoadingText = this.renderTNode('loading');
-    const loadingContent = this.loading ? (
+    const loadingContent = (
       <Loading
-        loading={!!(this.loading || customLoadingText)}
+        loading={!!this.loading}
         text={customLoadingText ? () => customLoadingText : undefined}
+        attach={() => this.tableRef}
         showOverlay
+        delay={100}
         {...this.loadingProps}
-      >
-        {tableContent}
-      </Loading>
-    ) : (
-      tableContent
+      ></Loading>
     );
 
     const topContent = this.renderTNode('topContent');
@@ -313,6 +311,8 @@ export default defineComponent({
           ) : (
             this.isFixedHeader && affixedHeader
           ))}
+
+        {tableContent}
 
         {loadingContent}
 
