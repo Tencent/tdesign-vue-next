@@ -1194,7 +1194,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
 >
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
     >
       
       <!---->
@@ -1263,7 +1263,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
     >
       
       <!---->
@@ -1344,7 +1344,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
     >
       
       <!---->
@@ -1425,7 +1425,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
     >
       
       <!---->
@@ -1506,7 +1506,7 @@ exports[`ConfigProvider ConfigProvider dialogVue demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
     >
       
       <!---->
@@ -3527,7 +3527,7 @@ exports[`ConfigProvider ConfigProvider popconfirmVue demo works fine 1`] = `
     </span>
   </button>
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -3836,6 +3836,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
@@ -4207,6 +4208,7 @@ exports[`ConfigProvider ConfigProvider tableVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
+    <!---->
     <!---->
     <!---->
     <!---->
