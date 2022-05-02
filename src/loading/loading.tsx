@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, watch, onMounted } from 'vue';
+import { defineComponent, ref, computed, watch, onMounted, toRefs } from 'vue';
 import GradientIcon from './icon/gradient';
 import { addClass, removeClass } from '../utils/dom';
 import { renderTNodeJSX, renderContent } from '../utils/render-tnode';
@@ -65,7 +65,7 @@ export default defineComponent({
     const showWrapLoading = computed(() => hasContent.value && props.loading && delayCounted.value);
     const showFullScreenLoading = computed(() => props.fullscreen && props.loading && delayCounted.value);
     const showNormalLoading = computed(() => props.attach && props.loading && delayCounted.value);
-
+    const showAttachedLoading = computed(() => props.attach && props.loading && delayCounted.value);
     const classes = computed(() => {
       const baseClasses = [
         centerClass.value,
@@ -89,9 +89,9 @@ export default defineComponent({
       };
     });
 
-    const loadingRef = computed(() => props.loading);
+    const { loading } = toRefs(props);
 
-    watch([loadingRef], ([isLoading]) => {
+    watch([loading], ([isLoading]) => {
       if (isLoading) {
         countDelay();
         lockFullscreen.value && addClass(document.body, lockClass.value);
@@ -116,6 +116,7 @@ export default defineComponent({
       showWrapLoading,
       showNormalLoading,
       showFullScreenLoading,
+      showAttachedLoading,
     };
   },
   render() {
@@ -155,6 +156,7 @@ export default defineComponent({
 
     // transfer parent node
     if (this.attach) {
+      if (!this.showAttachedLoading) return null;
       return (
         <div class={attachClasses} style={this.styles} v-transfer-dom={this.attach}>
           {indicator}
