@@ -5,6 +5,8 @@ import {
   TableRowData,
   TdPrimaryTableProps,
   TdEnhancedTableProps,
+  RowspanColspan,
+  BaseTableCol,
 } from './type';
 
 export interface BaseTableProps extends TdBaseTableProps {
@@ -17,3 +19,7 @@ export interface BaseTableProps extends TdBaseTableProps {
 export type PrimaryTableProps = TdPrimaryTableProps;
 export type EnhancedTableProps = TdEnhancedTableProps;
 export type TableProps = PrimaryTableProps;
+
+export type ThRowspanAndColspan = Map<any, RowspanColspan>;
+
+export type BaseTableColumns = BaseTableCol<TableRowData>[];
