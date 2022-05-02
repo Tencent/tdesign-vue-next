@@ -26,7 +26,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':autoplay', () => {
       const wrapper = mount({
@@ -38,7 +38,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':defaultCurrent', () => {
       const wrapper = mount({
@@ -51,7 +51,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':direction', () => {
       const wrapper = mount({
@@ -64,7 +64,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':duration', () => {
       const wrapper = mount({
@@ -77,7 +77,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':height', () => {
       const wrapper = mount({
@@ -90,7 +90,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':interval', () => {
       const wrapper = mount({
@@ -103,7 +103,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':loop', () => {
       const wrapper = mount({
@@ -116,7 +116,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':navigation', () => {
       const wrapper = mount({
@@ -136,7 +136,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':theme', () => {
       const wrapper = mount({
@@ -149,7 +149,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
     it(':type', () => {
       const wrapper = mount({
@@ -162,7 +162,7 @@ describe('Swiper', () => {
           );
         },
       });
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.element).toMatchSnapshot();
     });
   });
   // test events
