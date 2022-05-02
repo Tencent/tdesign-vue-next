@@ -3755,7 +3755,12 @@ exports[`Table Table dragSortHandlerVue demo works fine 1`] = `
           <!---->
         </table>
       </div>
-      <!---->
+      <div
+        class="t-loading--center t-size-m t-loading"
+      >
+        <!---->
+        <!---->
+      </div>
       <!---->
       <!---->
       <!---->
@@ -18152,11 +18157,8 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
-    <!---->
-    <!---->
-    <!---->
     <div
-      class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+      class="t-loading--center t-size-m t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -18180,6 +18182,9 @@ exports[`Table Table loadingVue demo works fine 1`] = `
       </svg>
       <!---->
     </div>
+    <!---->
+    <!---->
+    <!---->
   </div>
   <div
     class="t-table t-size-s t-table--loading"
@@ -18335,11 +18340,8 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
-    <!---->
-    <!---->
-    <!---->
     <div
-      class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+      class="t-loading--center t-size-m t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -18373,6 +18375,9 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         
       </div>
     </div>
+    <!---->
+    <!---->
+    <!---->
   </div>
   <div
     class="t-table t-size-s t-table--loading"
@@ -18528,11 +18533,8 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         <!---->
       </table>
     </div>
-    <!---->
-    <!---->
-    <!---->
     <div
-      class="t-loading--center t-size-m t-loading t-loading--full t-loading__overlay"
+      class="t-loading--center t-size-m t-loading"
     >
       <svg
         class="t-loading__gradient t-icon-loading"
@@ -18564,6 +18566,9 @@ exports[`Table Table loadingVue demo works fine 1`] = `
         </div>
       </div>
     </div>
+    <!---->
+    <!---->
+    <!---->
   </div>
 </div>
 `;
@@ -21511,7 +21516,12 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
       <!---->
     </table>
   </div>
-  <!---->
+  <div
+    class="t-loading--center t-size-m t-loading"
+  >
+    <!---->
+    <!---->
+  </div>
   <!---->
   <!---->
   <div

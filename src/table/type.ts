@@ -20,6 +20,11 @@ import { TNode, OptionData, SizeEnum, ClassName, HTMLElementAttributes } from '.
 
 export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
   /**
+   * 是否允许调整列宽
+   * @default false
+   */
+  allowResizeColumnWidth?: boolean;
+  /**
    * 是否显示表格边框
    * @default false
    */
@@ -62,6 +67,15 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   footData?: Array<T>;
   /**
+   * 表尾吸底
+   * @default false
+   */
+  footerAffixedBottom?: boolean;
+  /**
+   * 表尾吸底基于 Affix 组件开发，透传全部 Affix 组件属性
+   */
+  footerAffixProps?: AffixProps;
+  /**
    * 表头吸顶
    * @default false
    */
@@ -84,8 +98,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   lastFullRow?: string | TNode;
   /**
-   * 加载中状态。值为 true 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式
-   * @default false
+   * 加载中状态。值为 `true` 会显示默认加载中样式，可以通过 Function 和 插槽 自定义加载状态呈现内容和样式。值为 `false` 则会取消加载状态
    */
   loading?: boolean | TNode;
   /**
@@ -97,7 +110,7 @@ export interface TdBaseTableProps<T extends TableRowData = TableRowData> {
    */
   maxHeight?: string | number;
   /**
-   * 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`。
+   * 分页配置，值为空则不显示。具体 API 参考分页组件。当 `data` 数据长度超过分页大小时，会自动对本地数据 `data` 进行排序，如果不希望对于 `data` 进行排序，可以设置 `disableDataPage = true`
    */
   pagination?: PaginationProps;
   /**
@@ -289,7 +302,7 @@ export interface TdPrimaryTableProps<T extends TableRowData = TableRowData>
    */
   defaultDisplayColumns?: CheckboxGroupValue;
   /**
-   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽，列拖拽功能开发中。`drag-col` 已废弃，请勿使用。
+   * 拖拽排序方式，值为 `row` 表示行拖拽排序，这种方式无法进行文本复制，慎用。值为`row-handler` 表示通过专门的 拖拽手柄 进行 行拖拽排序。值为 `col` 表示列顺序拖拽，列拖拽功能开发中。`drag-col` 已废弃，请勿使用
    */
   dragSort?: 'row' | 'row-handler' | 'col' | 'drag-col';
   /**
