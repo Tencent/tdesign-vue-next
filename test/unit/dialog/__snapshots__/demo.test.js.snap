@@ -16,7 +16,7 @@ exports[`Dialog Dialog asyncVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -174,7 +174,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -344,7 +344,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
     </div>
   </transition-stub>
   <div
-    class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+    class="t-dialog__ctx t-dialog__ctx--fixed"
     style="display: none;"
   >
     
@@ -447,7 +447,7 @@ exports[`Dialog Dialog baseVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -563,7 +563,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -634,7 +634,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -705,7 +705,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -821,7 +821,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -902,7 +902,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
       style="display: none;"
     >
       
@@ -978,7 +978,7 @@ exports[`Dialog Dialog dragVue demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
       style="display: none;"
     >
       
@@ -1059,7 +1059,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
 <div>
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
       style="display: none;"
     >
       
@@ -1141,7 +1141,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
       style="display: none;"
     >
       
@@ -1223,7 +1223,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
       style="display: none;"
     >
       
@@ -1305,7 +1305,7 @@ exports[`Dialog Dialog iconVue demo works fine 1`] = `
   <br />
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
       style="display: none;"
     >
       
@@ -1464,7 +1464,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -1545,7 +1545,7 @@ exports[`Dialog Dialog modalVue demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog__ctx v-transfer-dom"
+      class="t-dialog__ctx"
       style="display: none;"
     >
       
@@ -1727,7 +1727,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -1798,7 +1798,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -1868,7 +1868,7 @@ exports[`Dialog Dialog positionVue demo works fine 1`] = `
   </transition-stub>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -1956,7 +1956,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -2051,7 +2051,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -2146,7 +2146,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -2232,7 +2232,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       
@@ -2318,7 +2318,7 @@ exports[`Dialog Dialog warningVue demo works fine 1`] = `
   </button>
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed"
       style="display: none;"
     >
       

@@ -8,7 +8,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
     class="t-suf-container"
   >
     <div
-      class="t-drawer t-drawer--right t-drawer--attach v-transfer-dom"
+      class="t-drawer t-drawer--right t-drawer--attach"
     >
       <div
         class="t-drawer__mask"
@@ -241,7 +241,7 @@ exports[`Drawer Drawer attachParentVue demo works fine 1`] = `
 exports[`Drawer Drawer baseVue demo works fine 1`] = `
 <div>
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -331,7 +331,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
 <div>
   <!-- 使用插槽自定义 -->
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -393,7 +393,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
   </div>
   <!-- 使用 props 自定义 -->
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -451,7 +451,7 @@ exports[`Drawer Drawer customVue demo works fine 1`] = `
   </div>
   <!-- 单独定义确认/取消按钮 -->
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -570,7 +570,7 @@ exports[`Drawer Drawer destroyVue demo works fine 1`] = `
 exports[`Drawer Drawer noMaskVue demo works fine 1`] = `
 <div>
   <div
-    class="t-drawer t-drawer--right t-drawer--without-mask v-transfer-dom"
+    class="t-drawer t-drawer--right t-drawer--without-mask"
   >
     <!---->
     <div
@@ -641,7 +641,7 @@ exports[`Drawer Drawer noMaskVue demo works fine 1`] = `
 exports[`Drawer Drawer operationVue demo works fine 1`] = `
 <div>
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -790,7 +790,7 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
 <div>
   <!-- @click-cancel 和 :onClickCancel 两种写法都支持； :onClickOverlay 和 @click-overlay 两种写法都支持-->
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"
@@ -961,7 +961,6 @@ exports[`Drawer Drawer placementVue demo works fine 1`] = `
 
 exports[`Drawer Drawer popupVue demo works fine 1`] = `
 <div>
-  <!---->
   <div
     class="tdesign-radio-button"
   >
@@ -1038,7 +1037,7 @@ exports[`Drawer Drawer popupVue demo works fine 1`] = `
 exports[`Drawer Drawer sizeVue demo works fine 1`] = `
 <div>
   <div
-    class="t-drawer t-drawer--right v-transfer-dom"
+    class="t-drawer t-drawer--right"
   >
     <div
       class="t-drawer__mask"

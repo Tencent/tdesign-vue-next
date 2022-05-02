@@ -2338,7 +2338,7 @@ exports[`Form Form disabledVue demo works fine 1`] = `
               class="t-upload__dialog"
             >
               <div
-                class="t-dialog__ctx t-dialog__ctx--fixed v-transfer-dom"
+                class="t-dialog__ctx t-dialog__ctx--fixed"
                 style="display: none;"
               >
                 

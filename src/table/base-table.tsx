@@ -291,7 +291,6 @@ export default defineComponent({
         text={customLoadingText ? () => customLoadingText : undefined}
         attach={() => this.tableRef}
         showOverlay
-        delay={100}
         {...this.loadingProps}
       ></Loading>
     );
