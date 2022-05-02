@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import isObject from 'lodash/isObject';
 import { TdColProps, TdRowProps } from './type';
 import { calcSize } from '../utils/responsive';
-import { useListener } from '../hooks/event';
+import { useListener } from '../hooks/useListener';
 
 export interface RowProviderType {
   gutter: TdRowProps['gutter'];
