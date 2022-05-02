@@ -1,12 +1,12 @@
 import { defineComponent, computed, SetupContext, PropType, ref } from 'vue';
 import isFunction from 'lodash/isFunction';
-import { RowAndColFixedPosition, getColumnFixedStyles } from './hooks/useFixed';
+import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
 import { useConfig } from '../hooks/useConfig';
 import { BaseTableCol, TableRowData } from './type';
 import { renderTitle } from './hooks/useTableHeader';
 import TEllipsis from './ellipsis';
-import { BaseTableColumns, ThRowspanAndColspan } from './interface';
+import { RowAndColFixedPosition, BaseTableColumns, ThRowspanAndColspan } from './interface';
 
 export interface TheadProps {
   // 是否固定表头

@@ -4,7 +4,8 @@ import isFunction from 'lodash/isFunction';
 import get from 'lodash/get';
 import { BaseTableCellParams, TableRowData, TdBaseTableProps } from './type';
 import { formatRowAttributes, formatRowClassNames } from './utils';
-import { getColumnFixedStyles, RowAndColFixedPosition } from './hooks/useFixed';
+import { getColumnFixedStyles } from './hooks/useFixed';
+import { RowAndColFixedPosition } from './interface';
 import useClassName from './hooks/useClassName';
 
 export interface TFootProps {
