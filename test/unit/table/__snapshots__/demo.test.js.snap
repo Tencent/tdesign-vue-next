@@ -888,6 +888,46 @@ exports[`Table Table baseVue demo works fine 1`] = `
           </div>
           <!---->
           
+          <div
+            style="display: none;"
+          >
+            
+            
+            <li
+              class="t-select-option t-is-selected t-size-m"
+              title="5 条/页"
+            >
+              <span>
+                5 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="10 条/页"
+            >
+              <span>
+                10 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="20 条/页"
+            >
+              <span>
+                20 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="50 条/页"
+            >
+              <span>
+                50 条/页
+              </span>
+            </li>
+            
+            
+          </div>
         </div>
         <!---->
         <div
@@ -1746,6 +1786,46 @@ exports[`Table Table customColButtonVue demo works fine 1`] = `
           </div>
           <!---->
           
+          <div
+            style="display: none;"
+          >
+            
+            
+            <li
+              class="t-select-option t-is-selected t-size-m"
+              title="5 条/页"
+            >
+              <span>
+                5 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="10 条/页"
+            >
+              <span>
+                10 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="20 条/页"
+            >
+              <span>
+                20 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="50 条/页"
+            >
+              <span>
+                50 条/页
+              </span>
+            </li>
+            
+            
+          </div>
         </div>
         <!---->
         <div
@@ -2266,6 +2346,46 @@ exports[`Table Table customColVue demo works fine 1`] = `
           </div>
           <!---->
           
+          <div
+            style="display: none;"
+          >
+            
+            
+            <li
+              class="t-select-option t-is-selected t-size-m"
+              title="5 条/页"
+            >
+              <span>
+                5 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="10 条/页"
+            >
+              <span>
+                10 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="20 条/页"
+            >
+              <span>
+                20 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="50 条/页"
+            >
+              <span>
+                50 条/页
+              </span>
+            </li>
+            
+            
+          </div>
         </div>
         <!---->
         <div
@@ -2931,7 +3051,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           
                           <span
                             class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -2952,7 +3071,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           
                           <span
                             class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -3004,7 +3122,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           
                           <span
                             class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -3025,7 +3142,6 @@ exports[`Table Table dataSortVue demo works fine 1`] = `
                           
                           <span
                             class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -5606,7 +5722,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                         
                         <span
                           class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
-                          theme="default"
                         >
                           <svg
                             class="t-icon t-icon-chevron-down"
@@ -5627,7 +5742,6 @@ exports[`Table Table filterControlledVue demo works fine 1`] = `
                         
                         <span
                           class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
-                          theme="default"
                         >
                           <svg
                             class="t-icon t-icon-chevron-down"
@@ -19273,7 +19387,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                           
                           <span
                             class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -19294,7 +19407,6 @@ exports[`Table Table multiHeaderVue demo works fine 1`] = `
                           
                           <span
                             class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -21118,7 +21230,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           
                           <span
                             class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -21139,7 +21250,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           
                           <span
                             class="t-table__sort-icon--active t-table__sort-icon t-table-sort-desc t-table-sort-desc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -21191,7 +21301,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           
                           <span
                             class="t-table__sort-icon--active t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -21212,7 +21321,6 @@ exports[`Table Table multipleSortVue demo works fine 1`] = `
                           
                           <span
                             class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
-                            theme="default"
                           >
                             <svg
                               class="t-icon t-icon-chevron-down"
@@ -21582,6 +21690,46 @@ exports[`Table Table paginationAjaxVue demo works fine 1`] = `
         </div>
         <!---->
         
+        <div
+          style="display: none;"
+        >
+          
+          
+          <li
+            class="t-select-option t-size-m"
+            title="5 条/页"
+          >
+            <span>
+              5 条/页
+            </span>
+          </li>
+          <li
+            class="t-select-option t-is-selected t-size-m"
+            title="10 条/页"
+          >
+            <span>
+              10 条/页
+            </span>
+          </li>
+          <li
+            class="t-select-option t-size-m"
+            title="20 条/页"
+          >
+            <span>
+              20 条/页
+            </span>
+          </li>
+          <li
+            class="t-select-option t-size-m"
+            title="50 条/页"
+          >
+            <span>
+              50 条/页
+            </span>
+          </li>
+          
+          
+        </div>
       </div>
       <!---->
       <div
@@ -22101,6 +22249,46 @@ exports[`Table Table paginationVue demo works fine 1`] = `
           </div>
           <!---->
           
+          <div
+            style="display: none;"
+          >
+            
+            
+            <li
+              class="t-select-option t-is-selected t-size-m"
+              title="5 条/页"
+            >
+              <span>
+                5 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="10 条/页"
+            >
+              <span>
+                10 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="20 条/页"
+            >
+              <span>
+                20 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="50 条/页"
+            >
+              <span>
+                50 条/页
+              </span>
+            </li>
+            
+            
+          </div>
         </div>
         <!---->
         <div
@@ -23611,7 +23799,6 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         
                         <span
                           class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
-                          theme="default"
                         >
                           <svg
                             class="t-icon t-icon-chevron-down"
@@ -23632,7 +23819,6 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         
                         <span
                           class="t-table__sort-icon--active t-table__sort-icon t-table-sort-desc t-table-sort-desc"
-                          theme="default"
                         >
                           <svg
                             class="t-icon t-icon-chevron-down"
@@ -23684,7 +23870,6 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         
                         <span
                           class="t-icon-sort--default t-table__sort-icon t-table-sort-asc t-negative-rotate-180 t-table-sort-asc"
-                          theme="default"
                         >
                           <svg
                             class="t-icon t-icon-chevron-down"
@@ -23705,7 +23890,6 @@ exports[`Table Table singleSortVue demo works fine 1`] = `
                         
                         <span
                           class="t-icon-sort--default t-table__sort-icon t-table-sort-desc t-table-sort-desc"
-                          theme="default"
                         >
                           <svg
                             class="t-icon t-icon-chevron-down"
@@ -25402,6 +25586,46 @@ exports[`Table Table treeVue demo works fine 1`] = `
           </div>
           <!---->
           
+          <div
+            style="display: none;"
+          >
+            
+            
+            <li
+              class="t-select-option t-size-m"
+              title="5 条/页"
+            >
+              <span>
+                5 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-is-selected t-size-m"
+              title="10 条/页"
+            >
+              <span>
+                10 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="20 条/页"
+            >
+              <span>
+                20 条/页
+              </span>
+            </li>
+            <li
+              class="t-select-option t-size-m"
+              title="50 条/页"
+            >
+              <span>
+                50 条/页
+              </span>
+            </li>
+            
+            
+          </div>
         </div>
         <!---->
         <div

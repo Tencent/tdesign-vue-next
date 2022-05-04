@@ -338,6 +338,68 @@ exports[`ColorPicker ColorPicker enableAlphaVue demo works fine 1`] = `
             </div>
             <!---->
             
+            <div
+              style="display: none;"
+            >
+              
+              
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HEX"
+              >
+                <span>
+                  HEX
+                </span>
+              </li>
+              <li
+                class="t-select-option t-is-selected t-size-m"
+                style="font-size: 12px;"
+                title="RGB"
+              >
+                <span>
+                  RGB
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HSL"
+              >
+                <span>
+                  HSL
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HSV"
+              >
+                <span>
+                  HSV
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="CMYK"
+              >
+                <span>
+                  CMYK
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="CSS"
+              >
+                <span>
+                  CSS
+                </span>
+              </li>
+              
+              
+            </div>
           </div>
         </div>
         <div
@@ -1183,6 +1245,68 @@ exports[`ColorPicker ColorPicker panelVue demo works fine 1`] = `
             </div>
             <!---->
             
+            <div
+              style="display: none;"
+            >
+              
+              
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HEX"
+              >
+                <span>
+                  HEX
+                </span>
+              </li>
+              <li
+                class="t-select-option t-is-selected t-size-m"
+                style="font-size: 12px;"
+                title="RGB"
+              >
+                <span>
+                  RGB
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HSL"
+              >
+                <span>
+                  HSL
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HSV"
+              >
+                <span>
+                  HSV
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="CMYK"
+              >
+                <span>
+                  CMYK
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="CSS"
+              >
+                <span>
+                  CSS
+                </span>
+              </li>
+              
+              
+            </div>
           </div>
         </div>
         <div
@@ -2000,6 +2124,68 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               </div>
               <!---->
               
+              <div
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HEX"
+                >
+                  <span>
+                    HEX
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  style="font-size: 12px;"
+                  title="RGB"
+                >
+                  <span>
+                    RGB
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HSL"
+                >
+                  <span>
+                    HSL
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HSV"
+                >
+                  <span>
+                    HSV
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="CMYK"
+                >
+                  <span>
+                    CMYK
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="CSS"
+                >
+                  <span>
+                    CSS
+                  </span>
+                </li>
+                
+                
+              </div>
             </div>
           </div>
           <div
@@ -2926,6 +3112,68 @@ exports[`ColorPicker ColorPicker recentColorVue demo works fine 1`] = `
               </div>
               <!---->
               
+              <div
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HEX"
+                >
+                  <span>
+                    HEX
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  style="font-size: 12px;"
+                  title="RGB"
+                >
+                  <span>
+                    RGB
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HSL"
+                >
+                  <span>
+                    HSL
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HSV"
+                >
+                  <span>
+                    HSV
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="CMYK"
+                >
+                  <span>
+                    CMYK
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="CSS"
+                >
+                  <span>
+                    CSS
+                  </span>
+                </li>
+                
+                
+              </div>
             </div>
           </div>
           <div
@@ -3756,6 +4004,68 @@ exports[`ColorPicker ColorPicker statusReadonlyVue demo works fine 1`] = `
             </div>
             <!---->
             
+            <div
+              style="display: none;"
+            >
+              
+              
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HEX"
+              >
+                <span>
+                  HEX
+                </span>
+              </li>
+              <li
+                class="t-select-option t-is-selected t-size-m"
+                style="font-size: 12px;"
+                title="RGB"
+              >
+                <span>
+                  RGB
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HSL"
+              >
+                <span>
+                  HSL
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="HSV"
+              >
+                <span>
+                  HSV
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="CMYK"
+              >
+                <span>
+                  CMYK
+                </span>
+              </li>
+              <li
+                class="t-select-option t-size-m"
+                style="font-size: 12px;"
+                title="CSS"
+              >
+                <span>
+                  CSS
+                </span>
+              </li>
+              
+              
+            </div>
           </div>
         </div>
         <div
@@ -4576,6 +4886,68 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               </div>
               <!---->
               
+              <div
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HEX"
+                >
+                  <span>
+                    HEX
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  style="font-size: 12px;"
+                  title="RGB"
+                >
+                  <span>
+                    RGB
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HSL"
+                >
+                  <span>
+                    HSL
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HSV"
+                >
+                  <span>
+                    HSV
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="CMYK"
+                >
+                  <span>
+                    CMYK
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="CSS"
+                >
+                  <span>
+                    CSS
+                  </span>
+                </li>
+                
+                
+              </div>
             </div>
           </div>
           <div
@@ -4967,6 +5339,68 @@ exports[`ColorPicker ColorPicker swatchColorVue demo works fine 1`] = `
               </div>
               <!---->
               
+              <div
+                style="display: none;"
+              >
+                
+                
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HEX"
+                >
+                  <span>
+                    HEX
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-is-selected t-size-m"
+                  style="font-size: 12px;"
+                  title="RGB"
+                >
+                  <span>
+                    RGB
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HSL"
+                >
+                  <span>
+                    HSL
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="HSV"
+                >
+                  <span>
+                    HSV
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="CMYK"
+                >
+                  <span>
+                    CMYK
+                  </span>
+                </li>
+                <li
+                  class="t-select-option t-size-m"
+                  style="font-size: 12px;"
+                  title="CSS"
+                >
+                  <span>
+                    CSS
+                  </span>
+                </li>
+                
+                
+              </div>
             </div>
           </div>
           <div

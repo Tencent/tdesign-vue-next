@@ -7,7 +7,6 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m demos"
-    modelvalue="20:22"
   >
     <div
       class="t-input__wrap"
@@ -91,7 +90,6 @@ exports[`TimePicker TimePicker baseVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m demos"
-    modelvalue="21:22"
   >
     <div
       class="t-input__wrap"
@@ -185,7 +183,6 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="11:12:10"
   >
     <div
       class="t-input__wrap"
@@ -272,7 +269,6 @@ exports[`TimePicker TimePicker clearableVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="11:12:10"
   >
     <div
       class="t-input__wrap"
@@ -363,7 +359,6 @@ exports[`TimePicker TimePicker disabledVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="11:12:10"
   >
     <div
       class="t-input__wrap"
@@ -455,7 +450,6 @@ exports[`TimePicker TimePicker formatVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m demos"
-    modelvalue="00:00:00 am"
   >
     <div
       class="t-input__wrap"
@@ -558,7 +552,6 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="11:12:10"
   >
     <div
       class="t-input__wrap"
@@ -645,7 +638,6 @@ exports[`TimePicker TimePicker hideClearButtonVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue=""
   >
     <div
       class="t-input__wrap"
@@ -713,7 +705,6 @@ exports[`TimePicker TimePicker hmVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue=""
   >
     <div
       class="t-input__wrap"
@@ -781,7 +772,6 @@ exports[`TimePicker TimePicker hmsVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="12:20:30"
   >
     <div
       class="t-input__wrap"
@@ -875,7 +865,6 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="20:22:33"
   >
     <div
       class="t-input__wrap"
@@ -959,7 +948,6 @@ exports[`TimePicker TimePicker keyboardVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="22:22:22"
   >
     <div
       class="t-input__wrap"
@@ -1050,7 +1038,6 @@ exports[`TimePicker TimePicker rangeVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m demos"
-    modelvalue="00:00:00,23:59:59"
   >
     <div
       class="t-input__wrap"
@@ -1139,7 +1126,6 @@ exports[`TimePicker TimePicker showStepsVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue=""
   >
     <div
       class="t-input__wrap"
@@ -1207,7 +1193,6 @@ exports[`TimePicker TimePicker stepVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="09:18:17"
   >
     <div
       class="t-input__wrap"
@@ -1298,7 +1283,6 @@ exports[`TimePicker TimePicker twelveHourMeridianVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="PM 10:20:30"
   >
     <div
       class="t-input__wrap"
@@ -1398,7 +1382,6 @@ exports[`TimePicker TimePicker twelveHourVue demo works fine 1`] = `
   
   <div
     class="t-time-picker__group t-time-picker t-size-m"
-    modelvalue="10:20:30 am"
   >
     <div
       class="t-input__wrap"

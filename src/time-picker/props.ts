@@ -52,6 +52,11 @@ export default {
     type: String,
     default: '',
   },
+  /** 选中项的值 */
+  modelValue: {
+    type: String,
+    default: '',
+  },
   /** 选中值，非受控属性 */
   defaultValue: {
     type: String,

@@ -42,12 +42,6 @@
     "options": []
   },
   {
-    "name": "popupVisible",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
-  },
-  {
     "name": "readonly",
     "type": "Boolean",
     "defaultValue": false,
@@ -58,6 +52,10 @@
     "type": "enum",
     "defaultValue": "",
     "options": [
+      {
+        "label": "default",
+        "value": ""
+      },
       {
         "label": "success",
         "value": "success"
@@ -71,11 +69,5 @@
         "value": "error"
       }
     ]
-  },
-  {
-    "name": "value",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
   }
 ]

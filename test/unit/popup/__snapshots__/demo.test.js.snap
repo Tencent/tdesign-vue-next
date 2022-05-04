@@ -316,7 +316,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full top-align"
-    destroy-on-hide=""
     type="button"
   >
     <span
@@ -332,7 +331,6 @@ exports[`Popup Popup placementVue demo works fine 1`] = `
   
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default placement right-full bottom-align"
-    destroy-on-hide=""
     type="button"
   >
     <span

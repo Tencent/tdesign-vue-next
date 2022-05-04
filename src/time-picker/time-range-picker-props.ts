@@ -53,6 +53,10 @@ export default {
   value: {
     type: Array as PropType<TdTimeRangePickerProps['value']>,
   },
+  /** 选中值 */
+  modelValue: {
+    type: Array as PropType<TdTimeRangePickerProps['value']>,
+  },
   /** 选中值，非受控属性 */
   defaultValue: {
     type: Array as PropType<TdTimeRangePickerProps['defaultValue']>,

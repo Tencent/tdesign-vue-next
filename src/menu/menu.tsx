@@ -45,7 +45,7 @@ export default defineComponent({
 
     watchEffect(() => {
       mode.value = props.collapsed ? 'popup' : 'normal';
-      props.onCollapsed?.(mode.value);
+      props.onCollapsed?.({ collapsed: props.collapsed });
     });
 
     const vMenu = new VMenu({ isMutex, expandValues: expandValues.value });
@@ -59,7 +59,7 @@ export default defineComponent({
       vMenu,
       select: (value: MenuValue) => {
         activeValue.value = value;
-        props.onChange?.(expandValues.value);
+        props.onChange?.(value);
       },
       open: (value: MenuValue, type: TdOpenType) => {
         if (mode.value === 'normal') {

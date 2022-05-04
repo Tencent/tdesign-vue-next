@@ -48,6 +48,7 @@ exports[`Select :props :bordered 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -99,6 +100,7 @@ exports[`Select :props :clearable 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -150,6 +152,7 @@ exports[`Select :props :creatable 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -201,6 +204,7 @@ exports[`Select :props :disabled 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -253,6 +257,7 @@ exports[`Select :props :labelInValue 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -314,6 +319,7 @@ exports[`Select :props :loading 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -366,6 +372,7 @@ exports[`Select :props :multiple 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -417,6 +424,7 @@ exports[`Select :props :placeholder 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -469,6 +477,7 @@ exports[`Select :props :remote 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -520,6 +529,7 @@ exports[`Select :props :reserveKeyword 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -571,6 +581,7 @@ exports[`Select :props :size 1`] = `
   </div>
   <!---->
   
+  <!---->
 </div>
 `;
 
@@ -623,6 +634,20 @@ exports[`Select Option :props :disabled 1`] = `
   </div>
   <!---->
   
+  <div
+    style="display: none;"
+  >
+    
+    <li
+      class="t-select-option t-is-disabled t-is-selected t-size-m"
+      title="1"
+    >
+      <span>
+        1
+      </span>
+    </li>
+    
+  </div>
 </div>
 `;
 
@@ -675,6 +700,20 @@ exports[`Select Option :props :label 1`] = `
   </div>
   <!---->
   
+  <div
+    style="display: none;"
+  >
+    
+    <li
+      class="t-select-option t-is-selected t-size-m"
+      title="1"
+    >
+      <span>
+        1
+      </span>
+    </li>
+    
+  </div>
 </div>
 `;
 
@@ -727,6 +766,20 @@ exports[`Select Option :props :value 1`] = `
   </div>
   <!---->
   
+  <div
+    style="display: none;"
+  >
+    
+    <li
+      class="t-select-option t-is-selected t-size-m"
+      title="1"
+    >
+      <span>
+        1
+      </span>
+    </li>
+    
+  </div>
 </div>
 `;
 
@@ -779,5 +832,53 @@ exports[`Select OptionGroup :props :value 1`] = `
   </div>
   <!---->
   
+  <div
+    style="display: none;"
+  >
+    
+    <li
+      class="t-select-option-group t-size-m t-select-option-group__divider"
+    >
+      <div
+        class="t-select-option-group__header"
+      >
+        num
+      </div>
+      <ul>
+        
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="1"
+        >
+          <span>
+            1
+          </span>
+        </li>
+        
+      </ul>
+    </li>
+    <li
+      class="t-select-option-group t-size-m t-select-option-group__divider"
+    >
+      <div
+        class="t-select-option-group__header"
+      >
+        abc
+      </div>
+      <ul>
+        
+        <li
+          class="t-select-option t-size-m"
+          title="a"
+        >
+          <span>
+            a
+          </span>
+        </li>
+        
+      </ul>
+    </li>
+    
+  </div>
 </div>
 `;
