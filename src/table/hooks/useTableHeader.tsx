@@ -50,7 +50,6 @@ export default function useTableHeader(props: TdBaseTableProps) {
       [tableFilterClasses.filterable]: filterIcon,
     };
     const content = isFunction(ellipsisTitle) ? ellipsisTitle(h, { col, colIndex }) : undefined;
-    if (!attach) return null;
     return (
       <div class={classes}>
         <div class={tableSortClasses.title}>
