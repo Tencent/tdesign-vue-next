@@ -90,7 +90,7 @@ export default defineComponent({
         zIndex: this.zIndex,
         attach: this.attach,
         placement: this.placement,
-        ...this.popupProps,
+        ...(this.popupProps as EllipsisProps['popupProps']),
       };
       content = <TPopup {...rProps}>{ellipsisContent}</TPopup>;
     } else {
