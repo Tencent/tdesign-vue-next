@@ -243,10 +243,14 @@ export interface BaseTableCol<T extends TableRowData = TableRowData> {
    */
   colKey?: string;
   /**
-   * 内容超出时，是否显示省略号。值为 `true`，则浮层默认显示单元格内容；值类型为 `Function` 则自定义浮层显示内容；值类型为 `Object`，则自动透传属性到 Popup 组件
+   * 单元格和表头内容超出时，是否显示省略号。如果仅希望单元格超出省略，可设置 `ellipsisTitle = false`。<br/> 值为 `true`，则浮层默认显示单元格内容；<br/>值类型为 `Function` 则自定义浮层显示内容；<br/>值类型为 `Object`，则自动透传属性到 Popup 组件，可用于调整浮层方向等特性
    * @default false
    */
   ellipsis?: boolean | TNode<BaseTableCellParams<T>> | PopupProps;
+  /**
+   * 表头内容超出时，是否显示省略号。优先级高于 `ellipsis`。<br/>值为 `true`，则浮层默认显示表头全部内容；<br/>值类型为 `Function` 则自定义浮层显示表头内容；<br/>值类型为 `Object`，则自动透传属性到 Popup 组件，可用于调整浮层方向等特性
+   */
+  ellipsisTitle?: boolean | TNode<BaseTableColParams<T>> | PopupProps;
   /**
    * 固定列显示位置
    * @default left
@@ -689,6 +693,11 @@ export interface BaseTableCellParams<T> {
 
 export interface CellData<T> extends BaseTableCellParams<T> {
   type: 'th' | 'td';
+}
+
+export interface BaseTableColParams<T> {
+  col: BaseTableCol<T>;
+  colIndex: number;
 }
 
 export interface BaseTableRenderParams<T> extends BaseTableCellParams<T> {

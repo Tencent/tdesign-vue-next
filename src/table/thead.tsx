@@ -1,4 +1,4 @@
-import { defineComponent, computed, SetupContext, PropType, ref } from 'vue';
+import { defineComponent, computed, SetupContext, PropType, ref, h } from 'vue';
 import isFunction from 'lodash/isFunction';
 import { getColumnFixedStyles } from './hooks/useFixed';
 import useClassName from './hooks/useClassName';
@@ -98,11 +98,19 @@ export default defineComponent({
           const width = withoutChildren && thWidthList?.[col.colKey] ? `${thWidthList?.[col.colKey]}px` : undefined;
           const styles = { ...(thStyles.style || {}), width };
           const innerTh = renderTitle(this.slots, col, index);
+          const content = isFunction(col.ellipsisTitle) ? col.ellipsisTitle(h, { col, colIndex: index }) : undefined;
           return (
             <th key={col.colKey} data-colkey={col.colKey} class={thClasses} style={styles} {...rowspanAndColspan}>
               <div class={this.tableBaseClass.thCellInner}>
-                {col.ellipsis ? (
-                  <TEllipsis attach={this.theadRef ? () => this.theadRef : undefined}>{innerTh}</TEllipsis>
+                {col.ellipsis && col.ellipsisTitle !== false && col.ellipsisTitle !== null ? (
+                  <TEllipsis
+                    placement="bottom"
+                    attach={this.theadRef ? () => this.theadRef : undefined}
+                    popupContent={content && (() => content)}
+                    popupProps={typeof col.ellipsisTitle === 'object' ? col.ellipsisTitle : undefined}
+                  >
+                    {innerTh}
+                  </TEllipsis>
                 ) : (
                   innerTh
                 )}
