@@ -42,13 +42,10 @@ export default defineComponent({
     zIndex: Number,
   },
 
-  // 空 props 是为了 TS 类型检测
-  // eslint-disable-next-line
-  setup(props: EllipsisProps) {
+  setup() {
     const { classPrefix } = useConfig();
     const root = ref();
     const isOverflow = ref(false);
-    const visible = ref(false);
 
     const ellipsisClasses = computed(() => [
       `${classPrefix.value}-table__ellipsis`,
@@ -58,12 +55,11 @@ export default defineComponent({
     // 当表格数据量大时，不希望默认渲染全量的 Popup，期望在用户 mouseenter 的时候再显示
     const onTriggerMouseenter = () => {
       if (!root.value) return;
-      visible.value = true;
       isOverflow.value = isNodeOverflow(root.value);
     };
 
     const onTriggerMouseleave = () => {
-      visible.value = false;
+      isOverflow.value = isNodeOverflow(root.value);
     };
 
     // 使用 debounce 有两个原因：1. 避免 safari/firefox 等浏览器不显示省略浮层；2. 避免省略列快速滚动时，出现一堆的省略浮层
@@ -75,7 +71,6 @@ export default defineComponent({
       root,
       isOverflow,
       ellipsisClasses,
-      visible,
       onMouseAround,
     };
   },
@@ -89,19 +84,15 @@ export default defineComponent({
     );
     let content = null;
     if (this.isOverflow) {
-      content = (
-        <TPopup
-          content={this.popupContent || (() => cellNode)}
-          visible={this.visible}
-          destroyOnClose={true}
-          zIndex={this.zIndex || 80}
-          attach={this.attach}
-          placement={this.placement}
-          {...this.popupProps}
-        >
-          {ellipsisContent}
-        </TPopup>
-      );
+      const rProps = {
+        content: this.popupContent || (() => cellNode),
+        destroyOnClose: true,
+        zIndex: this.zIndex,
+        attach: this.attach,
+        placement: this.placement,
+        ...this.popupProps,
+      };
+      content = <TPopup {...rProps}>{ellipsisContent}</TPopup>;
     } else {
       content = ellipsisContent;
     }

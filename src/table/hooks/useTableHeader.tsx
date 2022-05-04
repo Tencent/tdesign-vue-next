@@ -1,11 +1,12 @@
 import { SetupContext, computed, h } from 'vue';
 import isString from 'lodash/isString';
 import isFunction from 'lodash/isFunction';
-import { TdBaseTableProps } from '../type';
+import { BaseTableCol, PrimaryTableCol, TableRowData, TdBaseTableProps } from '../type';
 import { getThRowspanAndColspan, getThList } from './useMultiHeader';
 import useClassName from './useClassName';
 import { TNodeReturnValue } from '../../common';
 import { BaseTableColumns } from '../interface';
+import TEllipsis from '../ellipsis';
 
 // 渲染表头的通用方法
 export function renderTitle(slots: SetupContext['slots'], col: BaseTableColumns[0], index: number) {
@@ -37,15 +38,34 @@ export default function useTableHeader(props: TdBaseTableProps) {
   const thList = computed(() => getThList(props.columns));
   const isMultipleHeader = computed(() => thList.value.length > 1);
 
-  const renderTitleWidthIcon = ([title, sortIcon, filterIcon]: TNodeReturnValue[]) => {
+  const renderTitleWidthIcon = (
+    [title, sortIcon, filterIcon]: TNodeReturnValue[],
+    col: PrimaryTableCol<TableRowData>,
+    colIndex: number,
+    ellipsisTitle: BaseTableCol['ellipsisTitle'],
+    attach: HTMLElement,
+  ) => {
     const classes = {
       [tableSortClasses.sortable]: sortIcon,
       [tableFilterClasses.filterable]: filterIcon,
     };
+    const content = isFunction(ellipsisTitle) ? ellipsisTitle(h, { col, colIndex }) : undefined;
+    if (!attach) return null;
     return (
       <div class={classes}>
         <div class={tableSortClasses.title}>
-          <div>{title}</div>
+          {col.ellipsis && ellipsisTitle !== false && ellipsisTitle !== null ? (
+            <TEllipsis
+              placement="bottom"
+              attach={attach ? () => attach : undefined}
+              popupContent={content && (() => content)}
+              popupProps={typeof ellipsisTitle === 'object' ? ellipsisTitle : undefined}
+            >
+              {title}
+            </TEllipsis>
+          ) : (
+            <div>{title}</div>
+          )}
           {Boolean(sortIcon || filterIcon) && (
             <div class={tableFilterClasses.iconWrap}>
               {sortIcon}
