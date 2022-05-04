@@ -5,7 +5,6 @@ exports[`Cascader Cascader baseVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -40,7 +39,6 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue="1.2.2"
   >
     <span
       class="t-cascader__placeholder"
@@ -68,7 +66,6 @@ exports[`Cascader Cascader checkStrictlyVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue="1.1.2.1,2"
   >
     <span
       class="t-cascader__placeholder"
@@ -103,7 +100,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue="1.1,1.2,1.3"
   >
     <span
       class="t-cascader__placeholder"
@@ -131,7 +127,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue="1.1,1.2,1.3"
   >
     <span
       class="t-cascader__placeholder"
@@ -159,7 +154,6 @@ exports[`Cascader Cascader collapsedVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-demo-cascader t-cascader__popup t-demo-cascader t-demo-cascader t-cascader__popup t-demo-cascader"
-    modelvalue="1.1,1.2,1.3"
   >
     <span
       class="t-cascader__placeholder"
@@ -194,7 +188,6 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-is-disabled t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -223,7 +216,6 @@ exports[`Cascader Cascader disabledVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-is-disabled t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -259,7 +251,6 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -287,7 +278,6 @@ exports[`Cascader Cascader ellipsisVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -322,7 +312,6 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -350,7 +339,6 @@ exports[`Cascader Cascader filterableVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -383,7 +371,6 @@ exports[`Cascader Cascader keysVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -416,7 +403,6 @@ exports[`Cascader Cascader loadVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -449,7 +435,6 @@ exports[`Cascader Cascader maxVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -484,7 +469,6 @@ exports[`Cascader Cascader multipleVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -517,7 +501,6 @@ exports[`Cascader Cascader showAllLevelsVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -553,7 +536,6 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-s t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -582,7 +564,6 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue="1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -611,7 +592,6 @@ exports[`Cascader Cascader sizeVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-l t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -646,7 +626,6 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -674,7 +653,6 @@ exports[`Cascader Cascader triggerVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -709,7 +687,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -737,7 +714,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -765,7 +741,6 @@ exports[`Cascader Cascader valueModeVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue=""
   >
     <span
       class="t-cascader__placeholder"
@@ -800,7 +775,6 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader__popup t-cascader__popup"
-    modelvalue="1,1.1"
   >
     <span
       class="t-cascader__placeholder"
@@ -828,7 +802,6 @@ exports[`Cascader Cascader valueTypeVue demo works fine 1`] = `
   
   <div
     class="t-cascader t-size-m t-cascader--multiple t-cascader__popup t-cascader__popup"
-    modelvalue="1,1.1,1,1.2"
   >
     <span
       class="t-cascader__placeholder"

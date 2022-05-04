@@ -157,7 +157,13 @@ export default defineComponent({
   render() {
     return (
       <Fragment>
-        <Trigger {...this.$attrs} ref="triggerRef" onResize={this.emitResize}>
+        <Trigger
+          {...{
+            class: this.$attrs.class,
+          }}
+          ref="triggerRef"
+          onResize={this.emitResize}
+        >
           {this.$slots.default()}
         </Trigger>
         {this.mountContent && (

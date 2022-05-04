@@ -79,6 +79,10 @@
     "defaultValue": "",
     "options": [
       {
+        "label": "default",
+        "value": ""
+      },
+      {
         "label": "success",
         "value": "success"
       },

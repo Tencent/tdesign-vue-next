@@ -330,7 +330,7 @@ exports[`Tooltip Tooltip themeVue demo works fine 1`] = `
   
   
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-light"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
     type="button"
   >
     <span
@@ -368,7 +368,6 @@ exports[`Tooltip Tooltip triggerVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap"
-    theme="default"
   >
     <div
       class="t-input"

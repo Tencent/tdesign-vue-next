@@ -30,9 +30,64 @@
     "options": []
   },
   {
+    "name": "placement",
+    "type": "enum",
+    "defaultValue": "top",
+    "options": [
+      {
+        "label": "top",
+        "value": "top"
+      },
+      {
+        "label": "left",
+        "value": "left"
+      },
+      {
+        "label": "right",
+        "value": "right"
+      },
+      {
+        "label": "bottom",
+        "value": "bottom"
+      },
+      {
+        "label": "top-left",
+        "value": "top-left"
+      },
+      {
+        "label": "top-right",
+        "value": "top-right"
+      },
+      {
+        "label": "bottom-left",
+        "value": "bottom-left"
+      },
+      {
+        "label": "bottom-right",
+        "value": "bottom-right"
+      },
+      {
+        "label": "left-top",
+        "value": "left-top"
+      },
+      {
+        "label": "left-bottom",
+        "value": "left-bottom"
+      },
+      {
+        "label": "right-top",
+        "value": "right-top"
+      },
+      {
+        "label": "right-bottom",
+        "value": "right-bottom"
+      }
+    ]
+  },
+  {
     "name": "trigger",
     "type": "enum",
-    "defaultValue": "hover",
+    "defaultValue": "click",
     "options": [
       {
         "label": "hover",
@@ -51,11 +106,5 @@
         "value": "context-menu"
       }
     ]
-  },
-  {
-    "name": "visible",
-    "type": "Boolean",
-    "defaultValue": false,
-    "options": []
   }
 ]

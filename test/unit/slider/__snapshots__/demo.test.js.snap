@@ -34,7 +34,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -77,7 +76,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -91,7 +89,6 @@ exports[`Slider Slider baseVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -143,7 +140,6 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -189,7 +185,6 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -204,7 +199,6 @@ exports[`Slider Slider disabledVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -255,7 +249,6 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -377,7 +370,6 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -391,7 +383,6 @@ exports[`Slider Slider inputNumberVerticalVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -591,7 +582,6 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -712,7 +702,6 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -726,7 +715,6 @@ exports[`Slider Slider inputNumberVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -926,7 +914,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1049,7 +1036,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1063,7 +1049,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1181,7 +1166,6 @@ exports[`Slider Slider marksVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1283,7 +1267,6 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1358,7 +1341,6 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1372,7 +1354,6 @@ exports[`Slider Slider minAndMaxVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1453,7 +1434,6 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1497,7 +1477,6 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1511,7 +1490,6 @@ exports[`Slider Slider stepVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1563,7 +1541,6 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1688,7 +1665,6 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1702,7 +1678,6 @@ exports[`Slider Slider verticalMarksVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1832,7 +1807,6 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1877,7 +1851,6 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             
@@ -1891,7 +1864,6 @@ exports[`Slider Slider verticalVue demo works fine 1`] = `
             
             <div
               class="t-slider__button"
-              popper-class=""
             />
             <!---->
             

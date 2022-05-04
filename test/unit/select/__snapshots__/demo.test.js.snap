@@ -53,6 +53,7 @@ exports[`Select Select baseVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <!-- 方式二：使用 t-option 输出下拉选项。options 和 t-option 两种实现方式二选一即可 -->
   <div
@@ -103,6 +104,62 @@ exports[`Select Select baseVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <div
+      style="display: none;"
+    >
+      
+      
+      <li
+        class="t-select-option t-size-m"
+        title="云服务器"
+      >
+        <span>
+          云服务器
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="云数据库"
+      >
+        <span>
+          云数据库
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="域名注册"
+      >
+        <span>
+          域名注册
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="网站备案"
+      >
+        <span>
+          网站备案
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="对象存储"
+      >
+        <span>
+          对象存储
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="低代码平台"
+      >
+        <span>
+          低代码平台
+        </span>
+      </li>
+      
+      
+    </div>
   </div>
 </div>
 `;
@@ -209,6 +266,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <br />
   <br />
@@ -312,6 +370,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <br />
   <br />
@@ -416,6 +475,7 @@ exports[`Select Select collapsedVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -485,6 +545,7 @@ exports[`Select Select creatableVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -542,6 +603,7 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <br />
   <br />
@@ -594,6 +656,266 @@ exports[`Select Select customOptionsVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <div
+      style="display: none;"
+    >
+      
+      
+      <li
+        class="t-select-option t-size-m"
+        title="用户一"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户一
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="用户二"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户二
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="用户三"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户三
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="用户四"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户四
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="用户五"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户五
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="用户六"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户六
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="用户七"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户七
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="用户八"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户八
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="用户九"
+      >
+        <span>
+          
+          <div
+            class="tdesign-demo__user-option"
+          >
+            <img
+              src="https://tdesign.gtimg.com/site/avatar.jpg"
+            />
+            <div
+              class="tdesign-demo__user-option-info"
+            >
+              <div>
+                用户九
+              </div>
+              <div
+                class="tdesign-demo__user-option-desc"
+              >
+                这是一段用户描述信息，可自定义内容
+              </div>
+            </div>
+          </div>
+          
+        </span>
+      </li>
+      
+      
+    </div>
   </div>
 </div>
 `;
@@ -717,6 +1039,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <br />
   <br />
@@ -851,6 +1174,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <br />
   <br />
@@ -899,6 +1223,7 @@ exports[`Select Select customSelectedVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -954,6 +1279,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <div
     class="t-select__wrap"
@@ -1032,6 +1358,7 @@ exports[`Select Select disabledVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -1101,6 +1428,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <div
     class="t-select__wrap"
@@ -1166,6 +1494,7 @@ exports[`Select Select filterableVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -1237,6 +1566,7 @@ exports[`Select Select groupVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <!-- 方式二：使用插槽节点 -->
   <div
@@ -1301,6 +1631,139 @@ exports[`Select Select groupVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <div
+      style="display: none;"
+    >
+      
+      
+      <li
+        class="t-select-option-group t-size-m t-select-option-group__divider"
+      >
+        <div
+          class="t-select-option-group__header"
+        >
+          分组一
+        </div>
+        <ul>
+          
+          
+          <li
+            class="t-select-option t-size-m"
+            title="选项一"
+          >
+            <span>
+              
+              选项一
+              
+            </span>
+          </li>
+          <li
+            class="t-select-option t-size-m"
+            title="选项二"
+          >
+            <span>
+              
+              选项二
+              
+            </span>
+          </li>
+          
+          
+        </ul>
+      </li>
+      <li
+        class="t-select-option-group t-size-m t-select-option-group__divider"
+      >
+        <div
+          class="t-select-option-group__header"
+        >
+          分组二
+        </div>
+        <ul>
+          
+          
+          <li
+            class="t-select-option t-size-m"
+            title="选项三"
+          >
+            <span>
+              
+              选项三
+              
+            </span>
+          </li>
+          <li
+            class="t-select-option t-size-m"
+            title="选项四"
+          >
+            <span>
+              
+              选项四
+              
+            </span>
+          </li>
+          <li
+            class="t-select-option t-size-m"
+            title="选项五"
+          >
+            <span>
+              
+              选项五
+              
+            </span>
+          </li>
+          
+          
+        </ul>
+      </li>
+      <li
+        class="t-select-option-group t-size-m t-select-option-group__divider"
+      >
+        <div
+          class="t-select-option-group__header"
+        >
+          分组三
+        </div>
+        <ul>
+          
+          
+          <li
+            class="t-select-option t-size-m"
+            title="选项六"
+          >
+            <span>
+              
+              选项六
+              
+            </span>
+          </li>
+          <li
+            class="t-select-option t-size-m"
+            title="选项七"
+          >
+            <span>
+              
+              选项七
+              
+            </span>
+          </li>
+          <li
+            class="t-select-option t-size-m"
+            title="选项八"
+          >
+            <span>
+              
+              选项八
+              
+            </span>
+          </li>
+          
+          
+        </ul>
+      </li>
+      
+      
+    </div>
   </div>
 </div>
 `;
@@ -1356,6 +1819,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <div
     class="t-select__wrap"
@@ -1430,6 +1894,7 @@ exports[`Select Select labelInValueVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -1486,6 +1951,7 @@ exports[`Select Select maxVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -1595,6 +2061,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <br />
   <br />
@@ -1811,6 +2278,152 @@ exports[`Select Select multipleVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <div
+      style="display: none;"
+    >
+      
+      
+      <li
+        class="t-select-option t-is-selected t-size-m"
+        title="云服务器"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+        >
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            云服务器
+            
+          </span>
+        </label>
+      </li>
+      <li
+        class="t-select-option t-is-selected t-size-m"
+        title="云数据库"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+        >
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            云数据库
+            
+          </span>
+        </label>
+      </li>
+      <li
+        class="t-select-option t-is-selected t-size-m"
+        title="域名注册"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+        >
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            域名注册
+            
+          </span>
+        </label>
+      </li>
+      <li
+        class="t-select-option t-is-selected t-size-m"
+        title="网站备案"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+        >
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            网站备案
+            
+          </span>
+        </label>
+      </li>
+      <li
+        class="t-select-option t-is-selected t-size-m"
+        title="对象存储"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+        >
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            对象存储
+            
+          </span>
+        </label>
+      </li>
+      <li
+        class="t-select-option t-is-selected t-size-m"
+        title="低代码平台"
+      >
+        <label
+          class="t-checkbox t-is-checked"
+        >
+          <input
+            class="t-checkbox__former"
+            type="checkbox"
+          />
+          <span
+            class="t-checkbox__input"
+          />
+          <span
+            class="t-checkbox__label"
+          >
+            
+            低代码平台
+            
+          </span>
+        </label>
+      </li>
+      
+      
+    </div>
   </div>
   <br />
   <br />
@@ -1970,6 +2583,7 @@ exports[`Select Select multipleVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -2025,6 +2639,7 @@ exports[`Select Select noborderVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -2082,6 +2697,7 @@ exports[`Select Select panelVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <!-- 自定义面板底部内容；如新增项 。同时支持插槽和 Props（this,panelBottomContent）-->
   <div
@@ -2132,6 +2748,38 @@ exports[`Select Select panelVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <div
+      style="display: none;"
+    >
+      
+      
+      <li
+        class="t-select-option t-size-m"
+        title="云服务器"
+      >
+        <span>
+          云服务器
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="云数据库"
+      >
+        <span>
+          云数据库
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-m"
+        title="域名注册"
+      >
+        <span>
+          域名注册
+        </span>
+      </li>
+      
+      
+    </div>
   </div>
 </div>
 `;
@@ -2187,6 +2835,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <div
     class="t-select__wrap"
@@ -2237,6 +2886,7 @@ exports[`Select Select popupPropsVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -2302,6 +2952,7 @@ exports[`Select Select prefixVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -2371,6 +3022,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <div
     class="t-select__wrap"
@@ -2436,6 +3088,7 @@ exports[`Select Select remoteSearchVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -2491,6 +3144,44 @@ exports[`Select Select sizeVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <div
+      style="display: none;"
+    >
+      
+      
+      <li
+        class="t-select-option t-size-s"
+        title="选项一"
+      >
+        <span>
+          
+          选项一
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-s"
+        title="选项二"
+      >
+        <span>
+          
+          选项二
+          
+        </span>
+      </li>
+      <li
+        class="t-select-option t-size-s"
+        title="选项三"
+      >
+        <span>
+          
+          选项三
+          
+        </span>
+      </li>
+      
+      
+    </div>
   </div>
   <div
     class="t-select__wrap"
@@ -2541,6 +3232,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <div
     class="t-select__wrap"
@@ -2591,6 +3283,7 @@ exports[`Select Select sizeVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;
@@ -2647,6 +3340,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <div
     class="t-select__wrap"
@@ -2696,6 +3390,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
   <div
     class="t-select__wrap"
@@ -2755,6 +3450,7 @@ exports[`Select Select statusVue demo works fine 1`] = `
     </div>
     <!---->
     
+    <!---->
   </div>
 </div>
 `;

@@ -57,6 +57,46 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="5 条/页"
+        >
+          <span>
+            5 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="10 条/页"
+        >
+          <span>
+            10 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="20 条/页"
+        >
+          <span>
+            20 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="50 条/页"
+        >
+          <span>
+            50 条/页
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <!---->
     <div
@@ -212,6 +252,46 @@ exports[`Pagination Pagination baseVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-size-m"
+          title="5 条/页"
+        >
+          <span>
+            5 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="10 条/页"
+        >
+          <span>
+            10 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="20 条/页"
+        >
+          <span>
+            20 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="50 条/页"
+        >
+          <span>
+            50 条/页
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <div
       class="t-pagination__btn t-pagination__btn-prev"
@@ -378,6 +458,46 @@ exports[`Pagination Pagination jumpVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-size-m"
+          title="5 条/页"
+        >
+          <span>
+            5 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="10 条/页"
+        >
+          <span>
+            10 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="20 条/页"
+        >
+          <span>
+            20 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="50 条/页"
+        >
+          <span>
+            50 条/页
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <!---->
     <div
@@ -551,6 +671,46 @@ exports[`Pagination Pagination miniVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-is-selected t-size-s"
+          title="5 条/页"
+        >
+          <span>
+            5 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-s"
+          title="10 条/页"
+        >
+          <span>
+            10 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-s"
+          title="20 条/页"
+        >
+          <span>
+            20 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-s"
+          title="50 条/页"
+        >
+          <span>
+            50 条/页
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <!---->
     <div
@@ -707,6 +867,46 @@ exports[`Pagination Pagination moreVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="5 条/页"
+        >
+          <span>
+            5 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="10 条/页"
+        >
+          <span>
+            10 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="20 条/页"
+        >
+          <span>
+            20 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="50 条/页"
+        >
+          <span>
+            50 条/页
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <!---->
     <div
@@ -885,6 +1085,46 @@ exports[`Pagination Pagination pageNumVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-size-m"
+          title="每页 10 条"
+        >
+          <span>
+            每页 10 条
+          </span>
+        </li>
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="每页 30 条"
+        >
+          <span>
+            每页 30 条
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="每页 50 条"
+        >
+          <span>
+            每页 50 条
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="每页 100 条"
+        >
+          <span>
+            每页 100 条
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <!---->
     <div
@@ -1041,6 +1281,46 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-is-selected t-size-s"
+          title="5 条/页"
+        >
+          <span>
+            5 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-s"
+          title="10 条/页"
+        >
+          <span>
+            10 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-s"
+          title="20 条/页"
+        >
+          <span>
+            20 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-s"
+          title="50 条/页"
+        >
+          <span>
+            50 条/页
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <!---->
     <div
@@ -1109,6 +1389,7 @@ exports[`Pagination Pagination simpleMiniVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <!---->
     </div>
     <div
       class="t-pagination__btn t-pagination__btn-next"
@@ -1191,6 +1472,46 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="5 条/页"
+        >
+          <span>
+            5 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="10 条/页"
+        >
+          <span>
+            10 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="20 条/页"
+        >
+          <span>
+            20 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="50 条/页"
+        >
+          <span>
+            50 条/页
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <!---->
     <div
@@ -1259,6 +1580,7 @@ exports[`Pagination Pagination simpleVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <!---->
     </div>
     <div
       class="t-pagination__btn t-pagination__btn-next"
@@ -1341,6 +1663,46 @@ exports[`Pagination Pagination totalVue demo works fine 1`] = `
       </div>
       <!---->
       
+      <div
+        style="display: none;"
+      >
+        
+        
+        <li
+          class="t-select-option t-size-m"
+          title="5 条/页"
+        >
+          <span>
+            5 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-is-selected t-size-m"
+          title="10 条/页"
+        >
+          <span>
+            10 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="20 条/页"
+        >
+          <span>
+            20 条/页
+          </span>
+        </li>
+        <li
+          class="t-select-option t-size-m"
+          title="50 条/页"
+        >
+          <span>
+            50 条/页
+          </span>
+        </li>
+        
+        
+      </div>
     </div>
     <!---->
     <div

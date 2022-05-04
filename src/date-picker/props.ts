@@ -81,6 +81,10 @@ export default {
   value: {
     type: [String, Array, Date] as PropType<TdDatePickerProps['value']>,
   },
+  /** 选中项的值 */
+  modelValue: {
+    type: [String, Array, Date] as PropType<TdDatePickerProps['value']>,
+  },
   /** 选中值，非受控属性 */
   defaultValue: {
     type: [String, Array, Date] as PropType<TdDatePickerProps['defaultValue']>,

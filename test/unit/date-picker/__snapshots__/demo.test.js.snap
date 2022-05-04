@@ -6,7 +6,6 @@ exports[`DatePicker DatePicker baseVue demo works fine 1`] = `
 >
   <div
     class="t-date-picker t-size-m"
-    modelvalue="2021-11-10"
     theme="primary"
   >
     
@@ -148,7 +147,6 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
   >
     <div
       class="t-date-picker t-size-m"
-      modelvalue="2020-12-28T00:00:00.000Z,2020-12-28T00:00:00.000Z"
       theme="primary"
     >
       
@@ -202,7 +200,6 @@ exports[`DatePicker DatePicker datePresetsAltVue demo works fine 1`] = `
   >
     <div
       class="t-date-picker t-size-m"
-      modelvalue="2020-12-28T00:00:00.000Z"
       theme="primary"
     >
       

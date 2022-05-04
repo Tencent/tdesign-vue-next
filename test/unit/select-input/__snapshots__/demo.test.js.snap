@@ -5,7 +5,6 @@ exports[`SelectInput SelectInput autocompleteVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-select-input t-select-input--empty"
-    style="width: 300px;"
   >
     <div
       class="t-input t-input--prefix t-input--suffix"
@@ -206,7 +205,6 @@ exports[`SelectInput SelectInput borderlessMultipleVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-tag-input t-select-input t-select-input--borderless t-select-input--multiple"
-    style="width: 250px;"
   >
     <div
       class="t-input t-input--prefix"
@@ -270,7 +268,6 @@ exports[`SelectInput SelectInput borderlessVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-select-input t-select-input--borderless"
-    style="width: 200px;"
   >
     <div
       class="t-input t-is-readonly t-input--prefix"
@@ -1227,7 +1224,6 @@ exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-select-input"
-    style="width: 300px;"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -1279,7 +1275,6 @@ exports[`SelectInput SelectInput labelSuffixVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-select-input"
-    style="width: 300px;"
   >
     <div
       class="t-input t-is-readonly t-input--prefix t-input--suffix"
@@ -1545,7 +1540,6 @@ exports[`SelectInput SelectInput singleVue demo works fine 1`] = `
   
   <div
     class="t-input__wrap t-select-input"
-    style="width: 300px;"
   >
     <div
       class="t-input t-input--prefix t-input--suffix"
