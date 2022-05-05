@@ -169,9 +169,7 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
       
     </span>
   </button>
-  <transition-stub>
-    <!---->
-  </transition-stub>
+  <transition-stub />
   <transition-stub>
     <div
       class="t-dialog__ctx t-dialog__ctx--fixed"
@@ -259,12 +257,10 @@ exports[`Dialog Dialog attachVue demo works fine 1`] = `
       
     </div>
   </transition-stub>
-  <transition-stub>
-    <!---->
-  </transition-stub>
+  <transition-stub />
   <transition-stub>
     <div
-      class="t-dialog__ctx t-dialog__ctx--fixed t-dialog__ctx--absolute v-transfer-dom"
+      class="t-dialog__ctx t-dialog__ctx--fixed t-dialog__ctx--absolute"
       style="display: none;"
     >
       
