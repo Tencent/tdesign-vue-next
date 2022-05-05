@@ -1,4 +1,4 @@
-import { defineComponent, provide, VNode, computed, h, reactive, watchEffect, ref, toRefs, InjectionKey } from 'vue';
+import { defineComponent, provide, VNode, computed, h, reactive, watchEffect, ref, toRefs } from 'vue';
 import intersection from 'lodash/intersection';
 import Checkbox from './checkbox';
 import props from './checkbox-group-props';
@@ -6,12 +6,13 @@ import { CheckboxOptionObj, TdCheckboxProps, CheckboxGroupValue } from './type';
 import { CheckboxGroupInjectionKey } from './constants';
 
 // hooks
-import useVModel from '../hooks/useVModel';
+import useVModel, { UPDATE_MODEL, UPDATE_VALUE } from '../hooks/useVModel';
 import { usePrefixClass } from '../hooks/useConfig';
 
 export default defineComponent({
   name: 'TCheckboxGroup',
   props,
+  emits: [UPDATE_MODEL, UPDATE_VALUE],
 
   setup(props, { slots }) {
     /** 样式 */

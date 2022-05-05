@@ -17,7 +17,7 @@ import { Option, Select } from '../select';
 import props from './props';
 import usePaginationClasses from './usePaginationClasses';
 import useMoreAction from './useMoreAction';
-import useVModel from '../hooks/useVModel';
+import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
 import useDefaultValue from '../hooks/useDefaultValue';
 
 const min = 1;
@@ -25,9 +25,17 @@ const min = 1;
 export default defineComponent({
   name: 'TPagination',
   props,
+  emits: [UPDATE_MODEL, 'update:current', 'update:pageSize'],
+
   setup(props) {
     const { modelValue, pageSize, current } = toRefs(props);
-    const [innerCurrent, setInnerCurrent] = useVModel(current, modelValue, props.defaultCurrent, props.onCurrentChange);
+    const [innerCurrent, setInnerCurrent] = useVModel(
+      current,
+      modelValue,
+      props.defaultCurrent,
+      props.onCurrentChange,
+      'current',
+    );
 
     const [innerPageSize, setInnerPageSize] = useDefaultValue(
       pageSize,
