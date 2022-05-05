@@ -2,11 +2,11 @@
   <div class="tdesign-demo-block-column-large">
     <t-tabs v-model="value">
       <t-tab-panel :value="1" label="选项卡1" :destroy-on-hide="false">
-        <p style="padding: 25px">选项卡1的内容，使用 t-tab-pannel 渲染</p>
+        <p style="padding: 25px">选项卡1的内容，使用 t-tab-panel 渲染</p>
       </t-tab-panel>
       <t-tab-panel :value="2" label="选项卡2" :destroy-on-hide="false">
         <template #panel>
-          <p style="padding: 25px">选项卡2的内容，使用 t-tab-pannel 渲染</p>
+          <p style="padding: 25px">选项卡2的内容，使用 t-tab-panel 渲染</p>
         </template>
       </t-tab-panel>
       <t-tab-panel :value="3" label="选项卡3" :panel="panelRender" />
@@ -29,7 +29,7 @@ const tabList = [
 const value = ref(1);
 const tab = ref(1);
 const panelRender = () => {
-  return <p style="padding: 25px;">选项卡3的内容，使用 t-tab-pannel 渲染</p>;
+  return <p style="padding: 25px;">选项卡3的内容，使用 t-tab-panel 渲染</p>;
 };
 </script>
 

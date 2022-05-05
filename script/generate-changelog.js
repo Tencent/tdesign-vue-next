@@ -17,7 +17,7 @@ function updateVersion() {
     rl.on('line', (input) => {
       let newVersion = '';
       if (!input) {
-        newVersion = pkg.version.replace(/(\d+\.\d+\.)(\d+)/, (verion, $1, $2) => $1 + (Number($2) + 1));
+        newVersion = pkg.version.replace(/(\d+\.\d+\.)(\d+)/, (version, $1, $2) => $1 + (Number($2) + 1));
       } else if (!VERSION_REG.test(input)) {
         console.log('\x1B[31m%s\x1B[0m', '\n⚡ 不要搞事年轻人，请输入正确版本号格式!\n');
         rl.prompt();
