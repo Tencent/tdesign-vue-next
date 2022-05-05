@@ -69,7 +69,7 @@ export default defineComponent({
     Transition,
   },
 
-  // 注册v-draggable指令,传入ture时候初始化拖拽事件
+  // 注册v-draggable指令,传入true时候初始化拖拽事件
   directives: {
     TransferDom,
     draggable(el, binding) {
