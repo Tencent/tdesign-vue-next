@@ -39114,7 +39114,13 @@ exports[`ssr snapshot test renders ./examples/tooltip/demos/base.vue correctly 1
 </div>
 `;
 
-exports[`ssr snapshot test renders ./examples/tooltip/demos/duration.vue correctly 1`] = `<div><button class="t-button t-size-m t-button--variant-outline t-button--theme-default" type="button"><span class="t-button__text"><!--[--> 点击查看 <!--]--></span></button></div>`;
+exports[`ssr snapshot test renders ./examples/tooltip/demos/duration.vue correctly 1`] = `
+<div>
+  <!--[--><button class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled" type="button" disabled duration="5000"><span class="t-button__text"><!--[-->定时消失<!--]--></span></button>
+  <!---->
+  <!--]-->
+</div>
+`;
 
 exports[`ssr snapshot test renders ./examples/tooltip/demos/no-arrow.vue correctly 1`] = `
 <div>

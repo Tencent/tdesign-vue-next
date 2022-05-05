@@ -209,18 +209,23 @@ exports[`Tooltip Tooltip baseVue demo works fine 1`] = `
 
 exports[`Tooltip Tooltip durationVue demo works fine 1`] = `
 <div>
+  
   <button
-    class="t-button t-size-m t-button--variant-outline t-button--theme-default"
+    class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
+    disabled=""
+    duration="5000"
     type="button"
   >
     <span
       class="t-button__text"
     >
       
-       点击查看 
+      定时消失
       
     </span>
   </button>
+  <!---->
+  
 </div>
 `;
 
