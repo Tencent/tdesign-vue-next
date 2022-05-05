@@ -667,7 +667,7 @@ exports[`Dialog Dialog customVue demo works fine 1`] = `
         <div
           class="t-dialog__body"
         >
-          自定义底部按钮，传入 ButttonProps
+          自定义底部按钮，传入 ButtonProps
         </div>
         <div
           class="t-dialog__footer"

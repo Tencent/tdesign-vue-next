@@ -1524,7 +1524,7 @@ exports[`Tree Tree controlledVue demo works fine 1`] = `
     <span
       class="t-addon__prepend"
     >
-      actived:
+      activated:
     </span>
     <div
       class="t-input__wrap"
@@ -7997,7 +7997,7 @@ exports[`Tree Tree syncVue demo works fine 1`] = `
     <span
       class="t-addon__prepend"
     >
-      actived:
+      activated:
     </span>
     <div
       class="t-input__wrap"
@@ -8533,7 +8533,7 @@ exports[`Tree Tree vmodelVue demo works fine 1`] = `
     <span
       class="t-addon__prepend"
     >
-      actived:
+      activated:
     </span>
     <div
       class="t-input__wrap"
