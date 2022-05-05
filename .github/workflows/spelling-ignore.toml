@@ -1,7 +1,7 @@
 [default.extend-identifiers]
 # *sigh* this just isn't worth the cost of fixing
-AttributeIDSupressMenu = "AttributeIDSupressMenu"
+actived = "actived"
 
 [default.extend-words]
 # Don't correct the surname "Teh"
-teh = "teh"
+actived = "actived"
