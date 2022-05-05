@@ -371,11 +371,7 @@ export default defineComponent({
             this.updateOverlayStyle();
           }
         }}
-        onResize={() => {
-          if (visible) {
-            this.updatePopper();
-          }
-        }}
+        onResize={this.updatePopper}
         visible={visible}
         attach={this.attach}
       >
