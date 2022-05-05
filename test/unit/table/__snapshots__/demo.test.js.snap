@@ -6048,9 +6048,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             style="width: 150px;"
           />
           <col
-            style="width: 250px;"
-          />
-          <col
             style="width: 100px;"
           />
           <col
@@ -6108,16 +6105,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
                 class="t-table__th-cell-inner"
               >
                 默认值
-              </div>
-            </th>
-            <th
-              class="t-table__th-detail.position"
-              data-colkey="detail.position"
-            >
-              <div
-                class="t-table__th-cell-inner"
-              >
-                详情信息
               </div>
             </th>
             <th
@@ -6203,11 +6190,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             <td
               class=""
             >
-              读取 0 个数据的嵌套信息值
-            </td>
-            <td
-              class=""
-            >
               数据源
             </td>
             <td
@@ -6262,11 +6244,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               class=""
             >
               0
-            </td>
-            <td
-              class=""
-            >
-              读取 1 个数据的嵌套信息值
             </td>
             <td
               class=""
@@ -6329,11 +6306,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             <td
               class=""
             >
-              读取 2 个数据的嵌套信息值
-            </td>
-            <td
-              class=""
-            >
               数据源
             </td>
             <td
@@ -6392,11 +6364,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
             <td
               class=""
             >
-              读取 3 个数据的嵌套信息值
-            </td>
-            <td
-              class=""
-            >
               数据源
             </td>
             <td
@@ -6451,11 +6418,6 @@ exports[`Table Table fixedColumnVue demo works fine 1`] = `
               class=""
             >
               -
-            </td>
-            <td
-              class=""
-            >
-              读取 4 个数据的嵌套信息值
             </td>
             <td
               class=""
