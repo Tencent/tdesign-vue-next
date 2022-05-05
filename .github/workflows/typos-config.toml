@@ -1,9 +1,6 @@
-[default.extend-identifiers]
-# *sigh* this just isn't worth the cost of fixing
-actived = "actived"
-
 [default.extend-words]
-# Don't correct the surname "Teh"
 actived = "actived"
 formated = "formated"
+formate = "formate"
 Colum = "Colum"
+ba = "ba"

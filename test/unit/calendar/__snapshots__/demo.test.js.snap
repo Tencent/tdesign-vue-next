@@ -1647,7 +1647,7 @@ exports[`Calendar Calendar cardCellVue demo works fine 1`] = `
                 class="demo-cell"
               >
                 <div
-                  class="cellAppend belongCurrent actived"
+                  class="cellAppend belongCurrent activated"
                 >
                   28
                 </div>
@@ -4221,7 +4221,7 @@ exports[`Calendar Calendar cellVue demo works fine 1`] = `
                   class="item"
                 >
                   <span
-                    class="waring"
+                    class="warning"
                   />
                    警告事件
                 </div>
@@ -4860,13 +4860,13 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
           >
             
             <div
-              class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+              class="t-select t-select-polyfill t-size-s t-select__popup-reference"
             >
               <!---->
               <!---->
               <!---->
               <span
-                class="t-tag t-tag--default t-tag--dark t-size-m"
+                class="t-tag t-tag--default t-tag--dark t-size-s"
                 style="display: none;"
               >
                 <!---->
@@ -4913,13 +4913,13 @@ exports[`Calendar Calendar controllerConfigVue demo works fine 1`] = `
           >
             
             <div
-              class="t-select t-select-polyfill t-size-m t-select__popup-reference"
+              class="t-select t-select-polyfill t-size-s t-select__popup-reference"
             >
               <!---->
               <!---->
               <!---->
               <span
-                class="t-tag t-tag--default t-tag--dark t-size-m"
+                class="t-tag t-tag--default t-tag--dark t-size-s"
                 style="display: none;"
               >
                 <!---->
@@ -12042,7 +12042,7 @@ exports[`Calendar Calendar slotPropsApiVue demo works fine 1`] = `
                     class="item"
                   >
                     <span
-                      class="waring"
+                      class="warning"
                     />
                     警告事件
                   </div>
