@@ -9,3 +9,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Check spelling
       uses: crate-ci/typos@master
+    - name: Use custom config file
+      uses: crate-ci/typos@master
+      with: 
+        files: ./file.txt
+        config: ./spelling-ignore.toml

@@ -6,7 +6,7 @@
     <t-addon prepend="expanded:">
       <t-input :value="allExpanded" @change="onAllExpandedInput" />
     </t-addon>
-    <t-addon prepend="actived:">
+    <t-addon prepend="activated:">
       <t-input :value="allActived" @change="onAllActivedInput" />
     </t-addon>
     <t-tree

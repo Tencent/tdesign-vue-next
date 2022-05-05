@@ -61,7 +61,7 @@ describe('Message', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':closeBtn is a tring, equal "关闭".', () => {
+    it(':closeBtn is a string, equal "关闭".', () => {
       const wrapper = mount({
         render() {
           return <Message closeBtn="关闭"></Message>;
@@ -98,7 +98,7 @@ describe('Message', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':icon is a funtion, () => MoreIcon', () => {
+    it(':icon is a function, () => MoreIcon', () => {
       const wrapper = mount({
         render() {
           return <Message icon={() => <MoreIcon></MoreIcon>}></Message>;
@@ -108,7 +108,7 @@ describe('Message', () => {
       expect(wrapper.element).toMatchSnapshot();
     });
 
-    it(':default is a funtion, () => <b>这是重要信息</b>', () => {
+    it(':default is a function, () => <b>这是重要信息</b>', () => {
       const wrapper = mount({
         render() {
           return <Message content={() => <b>这是重要信息</b>}></Message>;
@@ -183,13 +183,13 @@ describe('Message', () => {
           return (
             <Message
               v-slots={{
-                closeBtn: () => <div class="custome-close-btn">x</div>,
+                closeBtn: () => <div class="custom-close-btn">x</div>,
               }}
             ></Message>
           );
         },
       });
-      expect(wrapper.find('.custome-close-btn').exists()).toBe(true);
+      expect(wrapper.find('.custom-close-btn').exists()).toBe(true);
     });
   });
 });

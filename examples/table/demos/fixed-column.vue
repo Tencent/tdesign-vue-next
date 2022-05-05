@@ -86,6 +86,11 @@ const columns = computed(() => {
       width: 150,
     },
     {
+      colKey: 'detail.position',
+      title: '详情信息',
+      width: 250,
+    },
+    {
       colKey: 'description',
       title: '说明',
       width: 100,
