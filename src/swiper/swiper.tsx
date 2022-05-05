@@ -43,15 +43,15 @@ export default defineComponent({
 
   methods: {
     renderContent(): VNode {
-      let wraperStyles = {};
+      let wrapperStyles = {};
       if (this.direction === 'vertical') {
-        wraperStyles = {
+        wrapperStyles = {
           height: `${this.items.length * 100}%`,
           transform: `translate3d(0,${(-this.index * 100) / this.items.length}%,0)`,
           transition: `transform ${this.duration / 1000}s`,
         };
       } else {
-        wraperStyles = {
+        wrapperStyles = {
           width: `${this.items.length * 100}%`,
           transform: `translate3d(${(-this.index * 100) / this.items.length}%,0,0)`,
           transition: `transform ${this.duration / 1000}s`,
@@ -59,7 +59,7 @@ export default defineComponent({
       }
       return (
         <div class={`${this.COMPONENT_NAME}__content`}>
-          <div class={`${this.COMPONENT_NAME}__swiper-wrap--${this.direction}`} style={wraperStyles}>
+          <div class={`${this.COMPONENT_NAME}__swiper-wrap--${this.direction}`} style={wrapperStyles}>
             {this.items}
           </div>
         </div>

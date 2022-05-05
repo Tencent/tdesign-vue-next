@@ -5,3 +5,5 @@ actived = "actived"
 [default.extend-words]
 # Don't correct the surname "Teh"
 actived = "actived"
+formated = "formated"
+Colum = "Colum"
