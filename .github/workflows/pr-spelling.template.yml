@@ -10,4 +10,4 @@ jobs:
     - name: Check spelling
       uses: crate-ci/typos@master
       with: 
-        config: ./typos-config.toml
+        config: .github/workflows/typos-config.toml
