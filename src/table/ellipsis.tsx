@@ -85,7 +85,7 @@ export default defineComponent({
     let content = null;
     if (this.isOverflow) {
       const rProps = {
-        content: this.popupContent || (() => cellNode),
+        content: (this.popupContent as string) || (() => cellNode),
         destroyOnClose: true,
         zIndex: this.zIndex,
         attach: this.attach,
