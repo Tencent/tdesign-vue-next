@@ -66,6 +66,7 @@ export default defineComponent({
       resetValidating: false as boolean,
       needResetField: false as boolean,
       initialValue: undefined as ValueType,
+      value: undefined as ValueType,
     };
   },
 
@@ -133,10 +134,6 @@ export default defineComponent({
 
       return contentStyle;
     },
-    value(): ValueType {
-      const parent = this.form;
-      return parent && parent.data && lodashGet(parent.data, this.name);
-    },
     hasColon(): boolean {
       const parent = this.form;
       return !!(parent && parent.colon && this.getLabelContent());
@@ -163,8 +160,18 @@ export default defineComponent({
   },
 
   watch: {
-    value() {
-      this.validate('change');
+    'form.data': {
+      deep: true,
+      immediate: true,
+      handler(val) {
+        this.value = lodashGet(val, this.name);
+      },
+    },
+    value: {
+      deep: true,
+      handler() {
+        this.validate('change');
+      },
     },
   },
 
