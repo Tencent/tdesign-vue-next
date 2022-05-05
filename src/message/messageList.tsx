@@ -63,10 +63,15 @@ export const MessageList = defineComponent({
       );
     };
 
-    const getListeners = (index: number) => {
+    const getListeners = (index: number, item: MessageOptions) => {
       return {
         onCloseBtnClick: () => remove(index),
-        onDurationEnd: () => remove(index),
+        onDurationEnd: () => {
+          if (item.onDurationEnd) {
+            item.onDurationEnd();
+          }
+          return remove(index);
+        },
       };
     };
 
@@ -83,9 +88,21 @@ export const MessageList = defineComponent({
 
       return (
         <div class="t-message__list" style={styles.value}>
-          {list.value.map((item, index) => (
-            <TMessage key={item.key} style={msgStyles(item)} ref={addChild} {...item} {...getListeners(index)} />
-          ))}
+          {list.value.map((item, index) => {
+            const itemClone = JSON.parse(JSON.stringify(item));
+            if (item.onDurationEnd) {
+              delete itemClone.onDurationEnd;
+            }
+            return (
+              <TMessage
+                key={item.key}
+                style={msgStyles(item)}
+                ref={addChild}
+                {...itemClone}
+                {...getListeners(index, item)}
+              />
+            );
+          })}
         </div>
       );
     };
