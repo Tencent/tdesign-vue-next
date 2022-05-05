@@ -15,11 +15,13 @@ import { useFormDisabled } from '../form/hooks';
 import { useComponentsStatus, useImgPreview, useDragger, useRemove, useActions, useBatchUpload } from './hooks';
 import { useConfig, usePrefixClass } from '../hooks/useConfig';
 import { useContent } from '../hooks/tnode';
-import useVModel from '../hooks/useVModel';
+import useVModel, { UPDATE_MODEL } from '../hooks/useVModel';
 
 export default defineComponent({
   name: 'TUpload',
   props,
+  emits: [UPDATE_MODEL, 'update:files'],
+
   setup(props, { expose }) {
     const renderTNodeContent = useContent();
     const { classPrefix: prefix, global } = useConfig('upload');
@@ -29,7 +31,13 @@ export default defineComponent({
     // 合并上传相关状态
     const { canBatchUpload, uploadInOneRequest } = useBatchUpload(props);
     // handle controlled property and uncontrolled property
-    const [uploadValue, setUploadValue] = useVModel(files, modelValue, props.defaultFiles || [], props.onChange);
+    const [uploadValue, setUploadValue] = useVModel(
+      files,
+      modelValue,
+      props.defaultFiles || [],
+      props.onChange,
+      'files',
+    );
 
     const uploadCtx: UploadCtxType = reactive({
       uploadValue,

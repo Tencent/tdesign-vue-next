@@ -2,24 +2,30 @@ import { ref, Ref, getCurrentInstance } from 'vue';
 
 export type ChangeHandler<T, P extends any[]> = (value: T, ...args: P) => void;
 
-// 用于实现 v-model
 export default function useVModel<T, P extends any[]>(
   value: Ref<T>,
   modelValue: Ref<T>,
   defaultValue: T,
   onChange: ChangeHandler<T, P>,
+  propName = 'value',
   // emit 和 eventName 用于支持 v-model 和 xxx.sync 语法糖
 ): [Ref<T>, ChangeHandler<T, P>] {
   const { emit } = getCurrentInstance();
   const internalValue = ref<T>();
   internalValue.value = defaultValue;
 
-  // 受控模式
+  // 受控模式 v-model:propName
   if (typeof value.value !== 'undefined') {
-    return [value, onChange || (() => {})];
+    return [
+      value,
+      (newValue, ...args) => {
+        emit?.(`update:${propName}`, newValue, ...args);
+        onChange?.(newValue, ...args);
+      },
+    ];
   }
 
-  // 受控模式:modelValue
+  // 受控模式:modelValue v-model
   if (typeof modelValue.value !== 'undefined') {
     return [
       modelValue,
@@ -42,3 +48,4 @@ export default function useVModel<T, P extends any[]>(
 
 // emits name
 export const UPDATE_MODEL = 'update:modelValue';
+export const UPDATE_VALUE = 'update:value';

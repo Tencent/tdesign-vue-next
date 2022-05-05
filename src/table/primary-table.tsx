@@ -49,6 +49,14 @@ export default defineComponent({
     ...baseTableProps,
     ...primaryTableProps,
   },
+  emits: [
+    'update:columnControllerVisible',
+    'update:displayColumns',
+    'update:expandedRowKeys',
+    'update:filterValue',
+    'update:selectedRowKeys',
+    'update:sort',
+  ],
 
   setup(props: TdPrimaryTableProps, context: SetupContext) {
     const renderTNode = useTNodeJSX();
