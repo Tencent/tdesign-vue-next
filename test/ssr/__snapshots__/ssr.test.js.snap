@@ -28851,7 +28851,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
           <col style="width:100px;">
           <col style="width:150px;">
           <col style="width:150px;">
-          <col style="width:250px;">
           <col style="width:100px;">
           <col style="width:150px;">
           <col style="width:100px;">
@@ -28873,9 +28872,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             </th>
             <th data-colkey="default" class="t-table__th-default" style="">
               <div class="t-table__th-cell-inner">默认值</div>
-            </th>
-            <th data-colkey="detail.position" class="t-table__th-detail.position" style="">
-              <div class="t-table__th-cell-inner">详情信息</div>
             </th>
             <th data-colkey="description" class="t-table__th-description" style="">
               <div class="t-table__th-cell-inner">说明</div>
@@ -28908,7 +28904,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">共有</td>
             <td class="" style="">String</td>
             <td class="" style="">-</td>
-            <td class="" style="">读取 0 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">是</td>
             <td class="" style="">
@@ -28929,7 +28924,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">私有</td>
             <td class="" style="">Number</td>
             <td class="" style="">0</td>
-            <td class="" style="">读取 1 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">否</td>
             <td class="" style="">
@@ -28950,7 +28944,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">共有</td>
             <td class="" style="">Array</td>
             <td class="" style="">[]</td>
-            <td class="" style="">读取 2 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">否</td>
             <td class="" style="">
@@ -28971,7 +28964,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">私有</td>
             <td class="" style="">Object</td>
             <td class="" style="">{}</td>
-            <td class="" style="">读取 3 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">否</td>
             <td class="" style="">
@@ -28992,7 +28984,6 @@ exports[`ssr snapshot test renders ./examples/table/demos/fixed-column.vue corre
             <td class="" style="">共有</td>
             <td class="" style="">String</td>
             <td class="" style="">-</td>
-            <td class="" style="">读取 4 个数据的嵌套信息值</td>
             <td class="" style="">数据源</td>
             <td class="" style="">是</td>
             <td class="" style="">
