@@ -6,7 +6,7 @@ import FakeArrow from '../common-components/fake-arrow';
 import useRipple from '../hooks/useRipple';
 import { ClassName } from '../common';
 import { usePrefixClass } from '../hooks/useConfig';
-import { Popup } from '../popup';
+import { Popup, PopupPlacement } from '../popup';
 
 export default defineComponent({
   name: 'TSubmenu',
@@ -178,7 +178,7 @@ export default defineComponent({
           onEnter={() => (this.isCursorInPopup = true)}
           onLeave={this.handleMouseLeavePopup}
           visible={this.popupVisible}
-          placement={placement}
+          placement={placement as PopupPlacement}
           overlayStyle={overlayStyle}
           v-slots={slots}
         >
