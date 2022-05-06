@@ -213,7 +213,6 @@ exports[`Tooltip Tooltip durationVue demo works fine 1`] = `
   <button
     class="t-button t-size-m t-button--variant-outline t-button--theme-default t-is-disabled"
     disabled=""
-    duration="5000"
     type="button"
   >
     <span
